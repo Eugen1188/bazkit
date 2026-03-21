@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 80
 
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]
