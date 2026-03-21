@@ -1,0 +1,63 @@
+<div class="login-page">
+  <div class="logo-section">
+    <div class="logo-row">
+      <div class="basket-icon">
+        <div class="handle"></div>
+        <div class="basket-body"></div>
+      </div>
+      <h1 class="logo-text">
+        <span class="dark">baz</span><span class="green">kit</span>
+      </h1>
+    </div>
+    <p class="subtitle">Deine smarte Einkaufsliste</p>
+  </div>
+
+  <div class="login-card">
+    <h2>Anmelden</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div class="input-group">
+        <span class="input-icon">👤</span>
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Benutzername"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Passwort"
+          required
+        />
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="togglePassword()"
+          aria-label="Passwort anzeigen"
+        >
+          {{ showPassword ? '' : '' }}
+        </button>
+      </div>
+
+      <button type="submit" class="login-btn" [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </form>
+
+    <p class="register-text">
+      Noch kein Konto?
+      <a href="#" (click)="goToRegister($event)">Registrieren</a>
+    </p>
+
+    <a href="#" class="forgot-password" (click)="forgotPassword($event)">
+      Passwort vergessen?
+    </a>
+  </div>
+</div>
