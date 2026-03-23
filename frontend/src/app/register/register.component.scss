@@ -4,7 +4,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.login-page {
+.register-page {
   min-height: 100vh;
   background: var(--color-page-bg);
   display: flex;
@@ -94,9 +94,9 @@
   transform: rotate(14deg);
 }
 
-.login-card {
+.register-card {
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   background: var(--color-surface);
   border-radius: 22px;
   padding: 42px 36px 30px;
@@ -105,7 +105,7 @@
   box-sizing: border-box;
 }
 
-.login-card h2 {
+.register-card h2 {
   margin: 0 0 30px;
   font-size: 40px;
   line-height: 1.1;
@@ -184,7 +184,7 @@
   display: block;
 }
 
-.login-btn {
+.register-btn {
   width: 100%;
   height: 56px;
   margin-top: 12px;
@@ -198,43 +198,32 @@
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.login-btn:hover {
+.register-btn:hover {
   background: var(--color-primary-hover);
 }
 
-.login-btn:active {
+.register-btn:active {
   transform: translateY(1px);
 }
 
-.login-btn:disabled {
+.register-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.register-text {
-  margin: 30px 0 14px;
+.login-text {
+  margin: 26px 0 0;
   font-size: 16px;
   color: var(--color-text-muted);
 }
 
-.register-text a {
+.login-text a {
   color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
 }
 
-.register-text a:hover {
-  text-decoration: underline;
-}
-
-.forgot-password {
-  display: inline-block;
-  color: var(--color-text-light);
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
+.login-text a:hover {
   text-decoration: underline;
 }
 
@@ -247,12 +236,12 @@
     font-size: 16px;
   }
 
-  .login-card {
+  .register-card {
     padding: 30px 22px 24px;
     border-radius: 18px;
   }
 
-  .login-card h2 {
+  .register-card h2 {
     font-size: 30px;
     margin-bottom: 24px;
   }
@@ -267,7 +256,7 @@
     font-size: 16px;
   }
 
-  .login-btn {
+  .register-btn {
     height: 54px;
     font-size: 17px;
   }

@@ -1,3 +1,26 @@
 * {
     box-sizing: border-box;
+    margin: 0
+}
+
+:root {
+  --color-page-bg: #f6f5f4;
+  --color-surface: #ffffff;
+
+  --color-text-primary: #1f2a37;
+  --color-text-secondary: #454545;
+  --color-text-muted: #646464;
+  --color-text-subtle: #666666;
+  --color-text-light: #707070;
+  --color-placeholder: #767676;
+  --color-icon: #5b6368;
+
+  --color-border: #d8d8d8;
+
+  --color-primary: #587664;
+  --color-primary-hover: #4f6a59;
+  --color-primary-soft: #8ba395;
+  --color-primary-ring: rgba(88, 118, 100, 0.12);
+
+  --color-shadow: rgba(0, 0, 0, 0.08);
 }

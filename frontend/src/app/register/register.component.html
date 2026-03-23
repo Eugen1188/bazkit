@@ -1,0 +1,345 @@
+<div class="register-page">
+  <div class="logo-section">
+    <div class="logo-row">
+      <div class="basket-icon">
+        <div class="handle"></div>
+        <div class="basket-body"></div>
+      </div>
+
+      <h1 class="logo-text">
+        <span class="dark">baz</span><span class="green">kit</span>
+      </h1>
+    </div>
+
+    <p class="subtitle">Deine smarte Einkaufsliste</p>
+  </div>
+
+  <div class="register-card">
+    <h2>Registrieren</h2>
+
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+      <div class="input-group">
+        <span class="input-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 12C14.4853 12 16.5 9.98528 16.5 7.5C16.5 5.01472 14.4853 3 12 3C9.51472 3 7.5 5.01472 7.5 7.5C7.5 9.98528 9.51472 12 12 12Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Benutzername"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 7H20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4 12H20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4 17H14"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+
+        <input
+          type="text"
+          name="displayName"
+          [(ngModel)]="displayName"
+          placeholder="Anzeigename"
+        />
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect
+              x="3"
+              y="5"
+              width="18"
+              height="14"
+              rx="2.5"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M5 7L12 12L19 7"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="E-Mail"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect
+              x="5"
+              y="10"
+              width="14"
+              height="10"
+              rx="2.5"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Passwort"
+          required
+          minlength="8"
+        />
+
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="togglePassword()"
+          aria-label="Passwort anzeigen"
+        >
+          <svg
+            *ngIf="!showPassword"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="3"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+          </svg>
+
+          <svg
+            *ngIf="showPassword"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 3L21 21"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.7 6.2C11.12 6.07 11.56 6 12 6C16.7 6 20.2 8.5 22 12C21.27 13.42 20.28 14.65 19.1 15.6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.12 8.11C4.4 9.06 3.01 10.39 2 12C3.8 15.5 7.3 18 12 18C13.73 18 15.29 17.66 16.68 17.05"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.88 9.88C9.34 10.42 9 11.17 9 12C9 13.66 10.34 15 12 15C12.83 15 13.58 14.66 14.12 14.12"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect
+              x="5"
+              y="10"
+              width="14"
+              height="10"
+              rx="2.5"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+
+        <input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Passwort bestätigen"
+          required
+        />
+
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="toggleConfirmPassword()"
+          aria-label="Passwort bestätigen anzeigen"
+        >
+          <svg
+            *ngIf="!showConfirmPassword"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="3"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+          </svg>
+
+          <svg
+            *ngIf="showConfirmPassword"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 3L21 21"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.7 6.2C11.12 6.07 11.56 6 12 6C16.7 6 20.2 8.5 22 12C21.27 13.42 20.28 14.65 19.1 15.6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.12 8.11C4.4 9.06 3.01 10.39 2 12C3.8 15.5 7.3 18 12 18C13.73 18 15.29 17.66 16.68 17.05"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.88 9.88C9.34 10.42 9 11.17 9 12C9 13.66 10.34 15 12 15C12.83 15 13.58 14.66 14.12 14.12"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <button
+        type="submit"
+        class="register-btn"
+        [disabled]="!registerForm.valid || password !== confirmPassword"
+      >
+        Registrieren
+      </button>
+    </form>
+
+    <p class="login-text">
+      Bereits ein Konto?
+      <a href="#" (click)="goToLogin($event)">Anmelden</a>
+    </p>
+  </div>
+</div>

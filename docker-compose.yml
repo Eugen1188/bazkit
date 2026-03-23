@@ -29,6 +29,7 @@ services:
       - backend
     ports:
       - "8080:4200"
-
+    command: python manage.py runserver 0.0.0.0:8000
+    
 volumes:
   postgres_data:
