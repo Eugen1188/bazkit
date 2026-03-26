@@ -7,16 +7,6 @@ class SavedListItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'custom_name', 'quantity']
         read_only_fields = ['id']
         
-    def validated(self, attrs):
-        product = attrs.get('product')
-        custom_name = attrs.get('custom_name', '').strip()
-        
-        if not product and not custom_name:
-            raise serializers.ValidationError(
-                "Product oder Name muss gesetzt werden"
-            )
-        return attrs
-
 class SavedListSerializer(serializers.ModelSerializer):
     items = SavedListItemSerializer(many = True, required=False)
     class Meta:
@@ -29,8 +19,11 @@ class SavedListSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
 
         saved_list = SavedList.objects.create(user=user, **validated_data)
-
+        
         for item_data in items_data:
-            SavedListItem.objects.create(saved_list=saved_list, **item_data)
-
+            SavedListItem.objects.create(
+                saved_list=saved_list,
+                **item_data
+        )
+        
         return saved_list

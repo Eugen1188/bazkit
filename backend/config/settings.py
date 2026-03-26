@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "corsheaders",
     "rest_framework",
-    "api",
     "users",
+    "lists",
+    "products",
+    "recipes"
 ]
 
 AUTH_USER_MODEL = 'users.User'

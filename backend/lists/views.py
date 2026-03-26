@@ -20,3 +20,4 @@ class SavedListDetailView(generics.RetrieveAPIView):
 
     def get_queryset(self):
         return SavedList.objects.filter(user=self.request.user).prefetch_related('items')
+    

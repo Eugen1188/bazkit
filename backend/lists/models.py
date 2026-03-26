@@ -28,11 +28,11 @@ class SavedListItem(models.Model):
         null=True,
         blank=True
     )
-    custom_name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=100, blank=True)
     quantity = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
-        return self.custom_name or (self.product.name if self.product else "Item")
+        return self.name
 
 
 class ShoppingList(models.Model):
