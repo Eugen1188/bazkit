@@ -3,11 +3,20 @@ from .serializers import SavedListSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import SavedList
 
-class CreateList(generics.CreateAPIView):
-    permission_classes = [IsAuthenticated]
+class SavedListListCreateView(generics.ListCreateAPIView):
     serializer_class = SavedListSerializer
+    permission_classes = [IsAuthenticated]
+
     def get_queryset(self):
-        return SavedList.objects.filter(user=self.request.user)
-    
+        return SavedList.objects.filter(user=self.request.user).prefetch_related('items')
+
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save()
+
+
+class SavedListDetailView(generics.RetrieveAPIView):
+    serializer_class = SavedListSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return SavedList.objects.filter(user=self.request.user).prefetch_related('items')
