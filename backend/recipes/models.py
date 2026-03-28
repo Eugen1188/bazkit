@@ -1,12 +1,18 @@
+from django.conf import settings
 from django.db import models
 
 class Recipe(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="saved_lists"
+    )
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     instructions = models.TextField()
     
-class Incredients(models.Model):
-    items = models.ForeignKey(
+class Ingredients(models.Model):
+    recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
         related_name="incredients"
