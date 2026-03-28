@@ -10,11 +10,11 @@ class RecipeSerializer(serializers.ModelSerializer):
     ingredients = Ingredients(many = True)
     class Meta:
         model = Recipe
-        fields = ['id', 'name', 'insctructions', 'created_at', 'ingredients']
+        fields = ['id', 'name', 'instructions', 'created_at', 'ingredients']
         read_only_fields = ['id']
         
     def create(self, validated_data):
-        ingredients_data = validated_data.pop('incredients', [])
+        ingredients_data = validated_data.pop('ingredients', [])
         user = self.context['request'].user
         
         recipe = Recipe.objects.create(user=user, **validated_data)

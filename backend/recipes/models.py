@@ -15,7 +15,7 @@ class Ingredients(models.Model):
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name="incredients"
+        related_name="ingredients"
     )
     name = models.CharField(max_length=100)
     quantity = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)

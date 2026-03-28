@@ -3,8 +3,7 @@ name: Deploy Bazkit
 on:
   push:
     branches:
-      - main  # Prüfe, ob dein Branch 'main' oder 'master' heißt!
-
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
