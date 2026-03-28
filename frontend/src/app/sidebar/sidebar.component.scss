@@ -1,0 +1,135 @@
+.sidebar {
+  width: 344px;
+  min-width: 344px;
+  height: 100vh;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 18px 24px 0;
+
+  &__logo {
+    padding: 0 24px 28px 32px;
+    font-size: 2.25rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    user-select: none;
+  }
+
+  &__logo-dark {
+    color: var(--color-text-primary);
+  }
+
+  &__logo-accent {
+    color: var(--color-primary);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 16px;
+  }
+
+  &__nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 60px;
+    padding: 0 20px 0 32px;
+    border-radius: 0 14px 14px 0;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      background: rgba(88, 118, 100, 0.08);
+      color: var(--color-text-primary);
+    }
+
+    &--active {
+      background: rgba(88, 118, 100, 0.14);
+      color: var(--color-primary);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        bottom: 10px;
+        width: 4px;
+        border-radius: 0 999px 999px 0;
+        background: var(--color-primary);
+      }
+
+      .sidebar__icon {
+        background: var(--color-primary);
+        color: #ffffff;
+
+        svg {
+          stroke: #ffffff;
+        }
+      }
+
+      .sidebar__label {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-icon);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  }
+
+  &__label {
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 280px;
+    min-width: 280px;
+
+    &__logo {
+      padding-left: 24px;
+    }
+
+    &__nav-item {
+      padding-left: 24px;
+    }
+
+    &__label {
+      font-size: 1rem;
+    }
+  }
+}
