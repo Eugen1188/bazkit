@@ -46,7 +46,7 @@
         <input
           type="text"
           name="username"
-          [(ngModel)]="username"
+          [(ngModel)]="registerData.username"
           placeholder="Benutzername"
           required
         />
@@ -84,7 +84,7 @@
         <input
           type="text"
           name="displayName"
-          [(ngModel)]="displayName"
+          [(ngModel)]="registerData.displayName"
           placeholder="Anzeigename"
         />
       </div>
@@ -119,7 +119,7 @@
         <input
           type="email"
           name="email"
-          [(ngModel)]="email"
+          [(ngModel)]="registerData.email"
           placeholder="E-Mail"
           required
         />
@@ -155,7 +155,7 @@
         <input
           [type]="showPassword ? 'text' : 'password'"
           name="password"
-          [(ngModel)]="password"
+          [(ngModel)]="registerData.password"
           placeholder="Passwort"
           required
           minlength="8"
@@ -257,7 +257,7 @@
         <input
           [type]="showConfirmPassword ? 'text' : 'password'"
           name="confirmPassword"
-          [(ngModel)]="confirmPassword"
+          [(ngModel)]="registerData.confirmPassword"
           placeholder="Passwort bestätigen"
           required
         />
@@ -331,7 +331,7 @@
       <button
         type="submit"
         class="register-btn"
-        [disabled]="!registerForm.valid || password !== confirmPassword"
+        [disabled]="!registerForm.valid || registerData.password !== registerData.confirmPassword"
       >
         Registrieren
       </button>

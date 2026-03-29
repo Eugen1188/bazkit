@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { RegisterData } from '../models/user';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +12,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  username = '';
-  displayName = '';
-  email = '';
-  password = '';
-  confirmPassword = '';
+
+  private authService = inject(AuthService);
+
+  registerData: RegisterData = {
+    username: '',
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
 
   showPassword = false;
   showConfirmPassword = false;
+  errorMessage = '';
+  successMessage = '';
+  isLoading = false;
 
   togglePassword(): void {
     this.showPassword = !this.showPassword;
@@ -28,15 +38,46 @@ export class RegisterComponent {
   }
 
   onRegister(): void {
-    if (this.password !== this.confirmPassword) {
+    this.errorMessage = '';
+    this.successMessage = '';
+
+    if (this.registerData.password !== this.registerData.confirmPassword) {
+      this.errorMessage = 'Die Passwörter stimmen nicht überein.';
       return;
     }
 
-    console.log('Registrierung absenden', {
-      username: this.username,
-      display_name: this.displayName,
-      email: this.email,
-      password: this.password
+    const payload = {
+      username: this.registerData.username,
+      email: this.registerData.email,
+      password: this.registerData.password
+    };
+
+    this.isLoading = true;
+
+    this.authService.register(payload).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        this.successMessage = 'Registrierung erfolgreich!';
+        console.log('Erfolgreich registriert:', response);
+
+        this.registerData = {
+          username: '',
+          displayName: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        };
+      },
+      error: (error) => {
+        this.isLoading = false;
+        console.error('Fehler:', error);
+
+        if (error.error) {
+          this.errorMessage = JSON.stringify(error.error);
+        } else {
+          this.errorMessage = 'Registrierung fehlgeschlagen.';
+        }
+      }
     });
   }
 
