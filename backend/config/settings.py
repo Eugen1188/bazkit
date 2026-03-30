@@ -76,6 +76,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://178.104.47.231",
+    "http://178.104.47.231:8080",
 ]
 
 ROOT_URLCONF = 'config.urls'
