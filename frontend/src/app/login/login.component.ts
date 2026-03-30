@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
-
+import { RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,6 +16,9 @@ export class LoginComponent {
   password: string = '';
   showPassword: boolean = false;
 
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
@@ -24,6 +28,17 @@ export class LoginComponent {
       username: this.username,
       password: this.password,
     };
-  }
 
+    this.authService.login(loginData).subscribe({
+      next: (response) => {
+        console.log('Login successful', response);
+        localStorage.setItem('access_token', response.access);
+        localStorage.setItem('refresh_token', response.refresh);
+        this.router.navigate(['/main']);
+      },
+      error: (error) => {
+        console.error('Login failed', error);
+      },
+    });
+  }
 }
