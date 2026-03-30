@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   private authService = inject(AuthService);
   private router = inject(Router);
-  
+
   registerData: RegisterData = {
     email: '',
     password: '',
@@ -48,20 +48,18 @@ export class RegisterComponent {
       password: this.registerData.password,
       password2: this.registerData.password2
     };
-
     this.isLoading = true;
-
     this.authService.register(payload).subscribe({
       next: (response) => {
         this.isLoading = false;
         this.successMessage = 'Registrierung erfolgreich!';
         console.log('Erfolgreich registriert:', response);
-
         this.registerData = {
           email: '',
           password: '',
           password2: ''
         };
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.isLoading = false;
