@@ -44,7 +44,8 @@ export class RegisterComponent {
     }
     const payload = {
       email: this.registerData.email,
-      password: this.registerData.password
+      password: this.registerData.password,
+      password2: this.registerData.password2
     };
 
     this.isLoading = true;
