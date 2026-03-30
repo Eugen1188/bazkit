@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'app',
+    path: 'main',
     component: MainComponent,
     children: [
       {
