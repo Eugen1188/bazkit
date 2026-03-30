@@ -16,11 +16,9 @@ export class RegisterComponent {
   private authService = inject(AuthService);
 
   registerData: RegisterData = {
-    // username: '',
-    // displayName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    password2: ''
   };
 
   showPassword = false;
@@ -40,14 +38,11 @@ export class RegisterComponent {
   onRegister(): void {
     this.errorMessage = '';
     this.successMessage = '';
-
-    if (this.registerData.password !== this.registerData.confirmPassword) {
+    if (this.registerData.password !== this.registerData.password2) {
       this.errorMessage = 'Die Passwörter stimmen nicht überein.';
       return;
     }
-
     const payload = {
-      // username: this.registerData.username,
       email: this.registerData.email,
       password: this.registerData.password
     };
@@ -61,11 +56,9 @@ export class RegisterComponent {
         console.log('Erfolgreich registriert:', response);
 
         this.registerData = {
-          // username: '',
-          // displayName: '',
           email: '',
           password: '',
-          confirmPassword: ''
+          password2: ''
         };
       },
       error: (error) => {

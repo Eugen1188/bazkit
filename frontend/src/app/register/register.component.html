@@ -257,7 +257,7 @@
         <input
           [type]="showConfirmPassword ? 'text' : 'password'"
           name="confirmPassword"
-          [(ngModel)]="registerData.confirmPassword"
+          [(ngModel)]="registerData.password2"
           placeholder="Passwort bestätigen"
           required
         />
@@ -333,7 +333,7 @@
         class="register-btn"
         [disabled]="
           !registerForm.valid ||
-          registerData.password !== registerData.confirmPassword
+          registerData.password !== registerData.password2
         "
       >
         Registrieren
