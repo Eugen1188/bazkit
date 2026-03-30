@@ -18,7 +18,7 @@
     <h2>Registrieren</h2>
 
     <form (ngSubmit)="onRegister()" #registerForm="ngForm">
-      <div class="input-group">
+      <!-- <div class="input-group">
         <span class="input-icon">
           <svg
             viewBox="0 0 24 24"
@@ -50,9 +50,9 @@
           placeholder="Benutzername"
           required
         />
-      </div>
+      </div> -->
 
-      <div class="input-group">
+      <!-- <div class="input-group">
         <span class="input-icon">
           <svg
             viewBox="0 0 24 24"
@@ -87,7 +87,7 @@
           [(ngModel)]="registerData.displayName"
           placeholder="Anzeigename"
         />
-      </div>
+      </div> -->
 
       <div class="input-group">
         <span class="input-icon">
@@ -331,7 +331,10 @@
       <button
         type="submit"
         class="register-btn"
-        [disabled]="!registerForm.valid || registerData.password !== registerData.confirmPassword"
+        [disabled]="
+          !registerForm.valid ||
+          registerData.password !== registerData.confirmPassword
+        "
       >
         Registrieren
       </button>

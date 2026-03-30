@@ -16,8 +16,8 @@ export class RegisterComponent {
   private authService = inject(AuthService);
 
   registerData: RegisterData = {
-    username: '',
-    displayName: '',
+    // username: '',
+    // displayName: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -47,7 +47,7 @@ export class RegisterComponent {
     }
 
     const payload = {
-      username: this.registerData.username,
+      // username: this.registerData.username,
       email: this.registerData.email,
       password: this.registerData.password
     };
@@ -61,8 +61,8 @@ export class RegisterComponent {
         console.log('Erfolgreich registriert:', response);
 
         this.registerData = {
-          username: '',
-          displayName: '',
+          // username: '',
+          // displayName: '',
           email: '',
           password: '',
           confirmPassword: ''
