@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  username: string = '';
+  email: string = '';
   password: string = '';
   showPassword: boolean = false;
 
@@ -25,7 +25,7 @@ export class LoginComponent {
 
   onLogin(): void {
     const loginData = {
-      username: this.username,
+      email: this.email,
       password: this.password,
     };
 
