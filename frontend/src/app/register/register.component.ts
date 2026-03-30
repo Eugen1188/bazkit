@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { RegisterData } from '../models/user';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -14,7 +14,8 @@ import { RegisterData } from '../models/user';
 export class RegisterComponent {
 
   private authService = inject(AuthService);
-
+  private router = inject(Router);
+  
   registerData: RegisterData = {
     email: '',
     password: '',
@@ -77,6 +78,6 @@ export class RegisterComponent {
 
   goToLogin(event: Event): void {
     event.preventDefault();
-    console.log('Zur Login-Seite');
+    this.router.navigate(['/']);
   }
 }
