@@ -16,6 +16,7 @@ class RegisterUserView(APIView):
         data = serializer.validated_data
 
         user = User.objects.create_user(
+            username=data["email"],
             email=data["email"],
             password=data["password"],
         )
