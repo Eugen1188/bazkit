@@ -1,0 +1,45 @@
+<div class="modal-backdrop" (click)="close.emit()">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h2>Produkt hinzufügen</h2>
+      <button class="close-button" (click)="close.emit()">×</button>
+    </div>
+
+    <label>Produktname</label>
+    <input type="text" placeholder="z. B. Milch, Tomaten, Brot..." />
+
+    <label>Menge</label>
+    <div class="two-columns">
+      <input type="number" value="1" />
+      <select>
+        <option>Stück</option>
+        <option>g</option>
+        <option>kg</option>
+        <option>ml</option>
+        <option>l</option>
+        <option>Packung</option>
+      </select>
+    </div>
+
+    <label>Kategorie</label>
+    <select>
+      <option>Obst & Gemüse</option>
+      <option>Milchprodukte</option>
+      <option>Backwaren</option>
+      <option>Getränke</option>
+      <option>Sonstiges</option>
+    </select>
+
+    <label>Notiz <span>(optional)</span></label>
+    <input type="text" placeholder="z. B. frisch, Bio, reif..." />
+
+    <div class="modal-actions">
+      <button class="secondary-button" (click)="close.emit()">Abbrechen</button>
+      <button class="primary-button">Produkt speichern</button>
+    </div>
+
+  </div>
+
+</div>

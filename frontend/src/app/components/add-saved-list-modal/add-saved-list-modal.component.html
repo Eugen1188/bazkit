@@ -1,0 +1,25 @@
+<div class="modal-backdrop" (click)="close.emit()">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h2>Gespeicherte Liste übernehmen</h2>
+      <button class="close-button" (click)="close.emit()">×</button>
+    </div>
+
+    <p class="modal-description">
+      Wählen Sie eine Liste aus, deren Produkte Sie zu Ihrer Einkaufsliste hinzufügen möchten.
+    </p>
+
+    <button class="list-option" *ngFor="let list of savedLists">
+      <div class="list-icon">📋</div>
+      <strong>{{ list.name }}</strong>
+      <span>{{ list.count }} Produkte</span>
+      <b>›</b>
+    </button>
+
+    <button class="cancel-button" (click)="close.emit()">Abbrechen</button>
+
+  </div>
+
+</div>

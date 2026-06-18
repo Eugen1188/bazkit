@@ -1,6 +1,6 @@
 <div class="shopping-list-container">
 
-  <div class="empty-state">
+  <div class="empty-state" *ngIf="items.length === 0">
 
     <img
       src="assets/images/empty_list.png"
@@ -11,14 +11,38 @@
     <h2>Sie haben noch keine Produkte</h2>
 
     <p>
-      Fügen Sie Produkte direkt hinzu oder übernehmen Sie Zutaten aus einem Rezept.
+      Fügen Sie Produkte direkt hinzu oder übernehmen Sie Zutaten aus einem Rezept
+      oder einer gespeicherten Liste.
     </p>
 
-    <button class="create-button">
+    <button class="create-button" (click)="openAddOptions()">
       <span>+</span>
-      Produkt hinzufügen
+      Zur Einkaufsliste hinzufügen
     </button>
 
   </div>
+
+  <app-add-to-shopping-list-modal
+    *ngIf="isAddOptionsOpen"
+    (close)="closeAllModals()"
+    (addProduct)="openProductModal()"
+    (addSavedList)="openSavedListModal()"
+    (addRecipe)="openRecipeModal()">
+  </app-add-to-shopping-list-modal>
+
+  <app-add-product-modal
+    *ngIf="isAddProductOpen"
+    (close)="closeAllModals()">
+  </app-add-product-modal>
+
+  <app-add-saved-list-modal
+    *ngIf="isAddSavedListOpen"
+    (close)="closeAllModals()">
+  </app-add-saved-list-modal>
+
+  <app-add-recipe-ingredients-modal
+    *ngIf="isAddRecipeOpen"
+    (close)="closeAllModals()">
+  </app-add-recipe-ingredients-modal>
 
 </div>

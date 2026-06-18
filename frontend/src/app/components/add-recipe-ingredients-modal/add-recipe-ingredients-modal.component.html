@@ -1,0 +1,29 @@
+<div class="modal-backdrop" (click)="close.emit()">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h2>Zutaten aus Rezept übernehmen</h2>
+      <button class="close-button" (click)="close.emit()">×</button>
+    </div>
+
+    <p class="modal-description">
+      Wählen Sie ein Rezept aus, dessen Zutaten Sie zu Ihrer Einkaufsliste hinzufügen möchten.
+    </p>
+
+    <button class="recipe-option" *ngFor="let recipe of recipes">
+      <div class="recipe-icon">🍽️</div>
+
+      <div>
+        <strong>{{ recipe.name }}</strong>
+        <span>{{ recipe.portions }} Portionen</span>
+      </div>
+
+      <b>›</b>
+    </button>
+
+    <button class="cancel-button" (click)="close.emit()">Abbrechen</button>
+
+  </div>
+
+</div>
