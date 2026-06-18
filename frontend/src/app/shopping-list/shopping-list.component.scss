@@ -1,78 +1,59 @@
 :host {
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .shopping-list-container {
   width: 100%;
   min-height: 100vh;
   padding: 38px 56px;
+
   background: var(--color-surface);
   color: var(--color-text-primary);
 }
 
-.page-header {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.back-button {
-  border: none;
-  background: transparent;
-  font-size: 42px;
-  line-height: 1;
-  color: var(--color-text-primary);
-  cursor: pointer;
-}
-
-.page-header h1 {
-  margin: 0;
-  font-size: 38px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
-
 .empty-state {
+  min-height: calc(100vh - 76px);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: center;
+  align-items: center;
 
   text-align: center;
-
-  width: 100%;
-  min-height: calc(100vh - 120px);
 }
 
 .empty-image {
-  width: 260px;
-  max-width: 80%;
-  margin-bottom: 34px;
+  width: 280px;
+  max-width: 100%;
+
+  margin-bottom: 32px;
 }
 
 .empty-state h2 {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 500;
 
   color: var(--color-text-primary);
 }
 
 .empty-state p {
-  max-width: 760px;
+  max-width: 700px;
 
   margin-bottom: 34px;
 
-  font-size: 25px;
-  line-height: 1.65;
+  font-size: 24px;
+  line-height: 1.6;
 
   color: var(--color-text-muted);
 }
 
 .create-button {
-  height: 64px;
-  padding: 0 34px;
+  height: 58px;
+  padding: 0 28px;
 
   border: none;
   border-radius: 10px;
@@ -80,24 +61,21 @@
   background: var(--color-primary);
   color: white;
 
-  font-size: 26px;
-  font-weight: 400;
-
-  cursor: pointer;
+  font-size: 20px;
 
   display: inline-flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
+
+  cursor: pointer;
+
+  transition: background .2s ease;
+}
+
+.create-button:hover {
+  background: var(--color-primary-hover);
 }
 
 .create-button span {
-  font-size: 42px;
-  line-height: 1;
-}
-
-.create-button:focus-visible {
-  outline: none;
-
-  box-shadow:
-    0 0 0 4px var(--color-primary-ring);
+  font-size: 30px;
 }
