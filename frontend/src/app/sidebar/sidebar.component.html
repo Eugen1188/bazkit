@@ -1,86 +1,81 @@
 <aside class="sidebar">
 
-<a class="logo" routerLink="/main/shopping-list">
-  <span class="logo-icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24">
-      <path d="M7 9V7a5 5 0 0 1 10 0v2" />
-      <path d="M5 9h14l-1.2 11H6.2L5 9Z" />
-      <path d="M9 13v3" />
-      <path d="M15 13v3" />
-    </svg>
-  </span>
-  <span>bazkit</span>
-</a>
+  <a class="logo" routerLink="/main/shopping-list">
+    <span class="logo-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 10V8a5 5 0 0 1 10 0v2" />
+        <path d="M5 10h14l-1.2 10H6.2L5 10Z" />
+        <path d="M9 14v2" />
+        <path d="M15 14v2" />
+      </svg>
+    </span>
+    <span class="logo-text">bazkit</span>
+  </a>
 
   <div class="user-box">
-    <div class="avatar">{{ userName.charAt(0) }}</div>
-    <span>{{ userName }}</span>
+    <div class="avatar">E</div>
+    <span class="user-name">Eugen</span>
     <span class="chevron">⌄</span>
   </div>
 
   <nav class="nav">
-    <a
-      *ngFor="let item of navItems"
-      class="nav-item"
-      [routerLink]="item.route"
-      routerLinkActive="active"
-    >
+
+    <a class="nav-item" routerLink="/main/shopping-list" routerLinkActive="active">
       <span class="nav-icon">
-        <ng-container [ngSwitch]="item.icon">
-
-          <svg *ngSwitchCase="'home'" viewBox="0 0 24 24">
-            <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/>
-          </svg>
-
-          <svg *ngSwitchCase="'list'" viewBox="0 0 24 24">
-            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
-          </svg>
-
-          <svg *ngSwitchCase="'recipe'" viewBox="0 0 24 24">
-            <path d="M7 3v8M11 3v8M7 11a2 2 0 0 0 4 0M9 11v10M17 3v18"/>
-          </svg>
-
-          <svg *ngSwitchCase="'calendar'" viewBox="0 0 24 24">
-            <path d="M7 3v4M17 3v4M4 9h16M5 5h14v16H5z"/>
-          </svg>
-
-          <svg *ngSwitchCase="'bookmark'" viewBox="0 0 24 24">
-            <path d="M6 4h12v17l-6-4-6 4z"/>
-          </svg>
-
-          <svg *ngSwitchCase="'user'" viewBox="0 0 24 24">
-            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/>
-          </svg>
-
-          <svg *ngSwitchCase="'settings'" viewBox="0 0 24 24">
-            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-            <path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.4 2.7a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.4-2.7a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.5c.1-.4.2-.8.2-1.2z"/>
-          </svg>
-
-        </ng-container>
+        <svg viewBox="0 0 24 24">
+          <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>
+        </svg>
       </span>
-
-      <span>{{ item.label }}</span>
+      Einkaufsliste
     </a>
+
+    <a class="nav-item" routerLink="/main/recipe-list" routerLinkActive="active">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18"/>
+        </svg>
+      </span>
+      Rezepte
+    </a>
+
+    <a class="nav-item" routerLink="/main/saved-list" routerLinkActive="active">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 4h12v17l-6-4-6 4V4Z"/>
+        </svg>
+      </span>
+      Gespeichert
+    </a>
+
+    <a class="nav-item" routerLink="/main/settings" routerLinkActive="active">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z"/>
+        </svg>
+      </span>
+      Einstellungen
+    </a>
+
   </nav>
 
   <div class="bottom">
     <div class="premium-card">
       <strong>👑 Premium</strong>
-      <p>Mehr Funktionen.<br />Mehr Möglichkeiten.</p>
+      <p>Mehr Funktionen.<br>Mehr Möglichkeiten.</p>
       <button>Jetzt upgraden</button>
     </div>
 
     <a class="logout">
-  <span class="logout-icon">
-    <svg viewBox="0 0 24 24">
-      <path d="M10 17l5-5-5-5" />
-      <path d="M15 12H3" />
-      <path d="M21 3v18" />
-    </svg>
-  </span>
-  <span>Abmelden</span>
-</a>
+      <span class="logout-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 17l5-5-5-5"/>
+          <path d="M15 12H3"/>
+          <path d="M21 4v16"/>
+        </svg>
+      </span>
+      Abmelden
+    </a>
   </div>
 
 </aside>
