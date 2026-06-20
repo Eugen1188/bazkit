@@ -13,12 +13,12 @@ export class SidebarComponent {
   userName = 'Eugen';
 
   navItems = [
-    { label: 'Übersicht', route: '/main/overview', icon: 'home' },
+    // { label: 'Übersicht', route: '/main/overview', icon: 'home' },
     { label: 'Einkaufsliste', route: '/main/shopping-list', icon: 'list' },
     { label: 'Rezepte', route: '/main/recipe-list', icon: 'recipe' },
-    { label: 'Planer', route: '/main/planner', icon: 'calendar' },
+    // { label: 'Planer', route: '/main/planner', icon: 'calendar' },
     { label: 'Gespeichert', route: '/main/saved-list', icon: 'bookmark' },
-    { label: 'Profil', route: '/main/profile', icon: 'user' },
+    // { label: 'Profil', route: '/main/profile', icon: 'user' },
     { label: 'Einstellungen', route: '/main/settings', icon: 'settings' },
   ];
 }

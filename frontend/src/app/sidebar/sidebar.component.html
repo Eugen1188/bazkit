@@ -1,9 +1,16 @@
 <aside class="sidebar">
 
-  <a class="logo" routerLink="/main/shopping-list">
-    <span class="logo-icon">🛍️</span>
-    <span>bazkit</span>
-  </a>
+<a class="logo" routerLink="/main/shopping-list">
+  <span class="logo-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 9V7a5 5 0 0 1 10 0v2" />
+      <path d="M5 9h14l-1.2 11H6.2L5 9Z" />
+      <path d="M9 13v3" />
+      <path d="M15 13v3" />
+    </svg>
+  </span>
+  <span>bazkit</span>
+</a>
 
   <div class="user-box">
     <div class="avatar">{{ userName.charAt(0) }}</div>
@@ -65,9 +72,15 @@
     </div>
 
     <a class="logout">
-      <span>↪</span>
-      Abmelden
-    </a>
+  <span class="logout-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M10 17l5-5-5-5" />
+      <path d="M15 12H3" />
+      <path d="M21 3v18" />
+    </svg>
+  </span>
+  <span>Abmelden</span>
+</a>
   </div>
 
 </aside>
