@@ -1,54 +1,73 @@
 <aside class="sidebar">
-  <div class="sidebar__brand">
-    <a class="sidebar__logo" routerLink="/shopping-list" aria-label="bazkit Startseite">
-      <span class="sidebar__logo-dark">baz</span><span class="sidebar__logo-accent">kit</span>
+
+  <a class="logo" routerLink="/main/shopping-list">
+    <span class="logo-icon">🛍️</span>
+    <span>bazkit</span>
+  </a>
+
+  <div class="user-box">
+    <div class="avatar">{{ userName.charAt(0) }}</div>
+    <span>{{ userName }}</span>
+    <span class="chevron">⌄</span>
+  </div>
+
+  <nav class="nav">
+    <a
+      *ngFor="let item of navItems"
+      class="nav-item"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+    >
+      <span class="nav-icon">
+        <ng-container [ngSwitch]="item.icon">
+
+          <svg *ngSwitchCase="'home'" viewBox="0 0 24 24">
+            <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/>
+          </svg>
+
+          <svg *ngSwitchCase="'list'" viewBox="0 0 24 24">
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+          </svg>
+
+          <svg *ngSwitchCase="'recipe'" viewBox="0 0 24 24">
+            <path d="M7 3v8M11 3v8M7 11a2 2 0 0 0 4 0M9 11v10M17 3v18"/>
+          </svg>
+
+          <svg *ngSwitchCase="'calendar'" viewBox="0 0 24 24">
+            <path d="M7 3v4M17 3v4M4 9h16M5 5h14v16H5z"/>
+          </svg>
+
+          <svg *ngSwitchCase="'bookmark'" viewBox="0 0 24 24">
+            <path d="M6 4h12v17l-6-4-6 4z"/>
+          </svg>
+
+          <svg *ngSwitchCase="'user'" viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/>
+          </svg>
+
+          <svg *ngSwitchCase="'settings'" viewBox="0 0 24 24">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+            <path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.4 2.7a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.4-2.7a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.5c.1-.4.2-.8.2-1.2z"/>
+          </svg>
+
+        </ng-container>
+      </span>
+
+      <span>{{ item.label }}</span>
+    </a>
+  </nav>
+
+  <div class="bottom">
+    <div class="premium-card">
+      <strong>👑 Premium</strong>
+      <p>Mehr Funktionen.<br />Mehr Möglichkeiten.</p>
+      <button>Jetzt upgraden</button>
+    </div>
+
+    <a class="logout">
+      <span>↪</span>
+      Abmelden
     </a>
   </div>
 
-  <nav class="sidebar__nav" aria-label="Hauptnavigation">
-    <a
-      class="sidebar__nav-item"
-      routerLink="/main/shopping-list"
-      routerLinkActive="sidebar__nav-item--active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      <span class="sidebar__icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048"><path fill="currentColor" d="M640 896H512V768h128zm896 0H768V768h768zM512 1152h128v128H512zm256 0h768v128H768zM640 512H512V384h128zm896 0H768V384h768zm512 1152v128h-256v256h-128v-256h-256v-128h256v-256h128v256zm-1664 0h896v128H256V0h1536v1280h-128V128H384z"/></svg>
-      </span>
-      <span class="sidebar__label">Einkaufsliste</span>
-    </a>
-
-    <a
-      class="sidebar__nav-item"
-      routerLink="/main/saved-list"
-      routerLinkActive="sidebar__nav-item--active"
-    >
-      <span class="sidebar__icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="m13.632 8.224l-.367-.367c-1.53-1.53-2.295-2.295-3.124-2.294a2 2 0 0 0-.788.162c-.762.328-1.162 1.333-1.962 3.344l-.058.145c-.227.57-.34.855-.523 1.085a2 2 0 0 1-.492.444c-.247.158-.542.242-1.132.41c-.915.259-1.373.389-1.576.666a1 1 0 0 0-.186.714c.043.341.379.678 1.052 1.35l3.13 3.13c.673.673 1.009 1.01 1.35 1.052a1 1 0 0 0 .715-.186c.277-.203.406-.66.666-1.576c.168-.59.251-.885.41-1.132a2 2 0 0 1 .443-.492c.23-.182.515-.296 1.085-.523l.146-.058c2.01-.8 3.015-1.2 3.343-1.962a2 2 0 0 0 .162-.788c0-.83-.764-1.594-2.294-3.124Z"/><path stroke-linecap="round" d="m3.347 18.142l2.694-2.694M22 8h-5m5 4.5h-4m4 4.5h-9"/></g></svg>
-      </span>
-      <span class="sidebar__label">Gespeicherte Listen</span>
-    </a>
-
-    <a
-      class="sidebar__nav-item"
-      routerLink="/main/recipe-list"
-      routerLinkActive="sidebar__nav-item--active"
-    >
-      <span class="sidebar__icon" aria-hidden="true">
-<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048"><path fill="currentColor" d="M896 512v128H512V512zM512 896V768h384v128zm0 256v-128h256v128zM384 512v128H256V512zm0 256v128H256V768zm-128 384v-128h128v128zM128 128v1792h640v128H0V0h1115l549 549v219h-128V640h-512V128zm1024 91v293h293zm640 805h256v1024H896V1024h256V896h128v128h384V896h128zm128 896v-512h-896v512zm0-640v-128h-896v128z"/></svg>
-      </span>
-      <span class="sidebar__label">Rezepte</span>
-    </a>
-
-    <a
-      class="sidebar__nav-item"
-      routerLink="/main/settings"
-      routerLinkActive="sidebar__nav-item--active"
-    >
-      <span class="sidebar__icon" aria-hidden="true">
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3.269C14 2.568 13.432 2 12.731 2H11.27C10.568 2 10 2.568 10 3.269c0 .578-.396 1.074-.935 1.286q-.128.052-.253.106c-.531.23-1.162.16-1.572-.249a1.27 1.27 0 0 0-1.794 0L4.412 5.446a1.27 1.27 0 0 0 0 1.794c.41.41.48 1.04.248 1.572a8 8 0 0 0-.105.253c-.212.539-.708.935-1.286.935C2.568 10 2 10.568 2 11.269v1.462C2 13.432 2.568 14 3.269 14c.578 0 1.074.396 1.286.935q.052.128.105.253c.231.531.161 1.162-.248 1.572a1.27 1.27 0 0 0 0 1.794l1.034 1.034a1.27 1.27 0 0 0 1.794 0c.41-.41 1.04-.48 1.572-.249q.125.055.253.106c.539.212.935.708.935 1.286c0 .701.568 1.269 1.269 1.269h1.462c.701 0 1.269-.568 1.269-1.269c0-.578.396-1.074.935-1.287q.128-.05.253-.104c.531-.232 1.162-.161 1.571.248a1.27 1.27 0 0 0 1.795 0l1.034-1.034a1.27 1.27 0 0 0 0-1.794c-.41-.41-.48-1.04-.249-1.572q.055-.125.106-.253c.212-.539.708-.935 1.286-.935c.701 0 1.269-.568 1.269-1.269V11.27c0-.701-.568-1.269-1.269-1.269c-.578 0-1.074-.396-1.287-.935a8 8 0 0 0-.105-.253c-.23-.531-.16-1.162.249-1.572a1.27 1.27 0 0 0 0-1.794l-1.034-1.034a1.27 1.27 0 0 0-1.794 0c-.41.41-1.04.48-1.572.249a8 8 0 0 0-.253-.106C14.396 4.343 14 3.847 14 3.27Z"/><path d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z"/></g></svg>
-      </span>
-      <span class="sidebar__label">Einstellungen</span>
-    </a>
-  </nav>
 </aside>
