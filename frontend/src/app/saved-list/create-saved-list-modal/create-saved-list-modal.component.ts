@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-saved-list-modal',
@@ -10,26 +11,26 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './create-saved-list-modal.component.scss'
 })
 export class CreateSavedListModalComponent {
-
   @Output() close = new EventEmitter<void>();
 
   listName = '';
+
+  constructor(private router: Router) {}
 
   cancel(): void {
     this.close.emit();
   }
 
   create(): void {
-
     if (!this.listName.trim()) {
       return;
     }
 
-    console.log(this.listName);
-
-    // später Backend aufrufen
+    // Später kommt diese ID vom Backend zurück.
+    const fakeCreatedListId = 1;
 
     this.close.emit();
-  }
 
+    this.router.navigate(['/main/saved-list', fakeCreatedListId]);
+  }
 }
