@@ -1,5 +1,4 @@
 <div class="shopping-list-container">
-
   <!-- <div class="page-header">
     <button class="back-button">
       ←
@@ -9,7 +8,6 @@
   </div> -->
 
   <div class="empty-state">
-
     <img
       src="assets/images/empty_list.png"
       alt="Leere Einkaufsliste"
@@ -19,15 +17,19 @@
     <h2>Sie haben noch keine Listen</h2>
 
     <p>
-      Erstellen Sie Listen für Ihren Einkauf oder erstellen Sie smarte
-      Rezepte und fügen diese zu Ihrer Einkaufsliste hinzu.
+      Erstellen Sie Listen für Ihren Einkauf oder erstellen Sie smarte Rezepte
+      und fügen diese zu Ihrer Einkaufsliste hinzu.
     </p>
 
-    <button class="create-button">
+    <button class="create-button" (click)="openCreateList()">
       <span>+</span>
       Erstellen Sie eine Liste
     </button>
 
+    <app-create-saved-list-modal
+      *ngIf="isCreateListOpen"
+      (close)="closeCreateList()"
+    >
+    </app-create-saved-list-modal>
   </div>
-
 </div>
