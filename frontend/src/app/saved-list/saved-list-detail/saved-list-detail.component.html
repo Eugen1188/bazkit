@@ -1,0 +1,51 @@
+<div class="saved-list-detail-container">
+
+  <div class="detail-header">
+    <a routerLink="/main/saved-list" class="back-button">
+      ←
+    </a>
+
+    <div>
+      <h1>{{ listName }}</h1>
+      <p>{{ products.length }} Produkte</p>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="products.length === 0">
+
+    <img
+      src="assets/images/empty_list.png"
+      alt="Leere Liste"
+      class="empty-image"
+    />
+
+    <h2>Diese Liste ist noch leer</h2>
+
+    <p>
+      Fügen Sie Produkte hinzu, damit Sie diese Liste später mit einem Klick
+      zu Ihrer Einkaufsliste übernehmen können.
+    </p>
+
+    <button class="create-button" (click)="addProduct()">
+      <span>+</span>
+      Produkt hinzufügen
+    </button>
+
+  </div>
+
+  <div class="product-list" *ngIf="products.length > 0">
+
+    <div class="product-card" *ngFor="let product of products">
+
+      <div>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.amount }}</p>
+      </div>
+
+      <span *ngIf="product.note">{{ product.note }}</span>
+
+    </div>
+
+  </div>
+
+</div>
