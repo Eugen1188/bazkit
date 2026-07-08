@@ -6,7 +6,7 @@ import { SavedListComponent } from './saved-list/saved-list.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SettingsComponent } from './settings/settings.component';
-import { SavedListDetailComponent } from './saved-list/saved-list-detail/saved-list-detail.component';
+import { CreateListComponent } from './saved-list/create-list/create-list.component';
 
 export const routes: Routes = [
   {
@@ -22,12 +22,12 @@ export const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'saved-list/create',
+        component: CreateListComponent,
+    },
+      {
         path: 'saved-list',
         component: SavedListComponent,
-      },
-      {
-        path: 'saved-list/:id',
-        component: SavedListDetailComponent,
       },
       {
         path: 'shopping-list',

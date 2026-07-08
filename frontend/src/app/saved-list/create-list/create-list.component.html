@@ -1,0 +1,101 @@
+<div class="create-list-container">
+
+  <header class="create-header">
+    <div class="header-left">
+      <a routerLink="/main/saved-list" class="back-button">←</a>
+      <h1>Neue Liste erstellen</h1>
+    </div>
+
+    <div class="header-actions">
+      <a routerLink="/main/saved-list" class="cancel-button">
+        Abbrechen
+      </a>
+
+      <button class="save-button" type="button" (click)="createList()">
+        Liste erstellen
+      </button>
+    </div>
+  </header>
+
+  <section class="name-card">
+    <label for="listName">Listenname</label>
+
+    <input
+      id="listName"
+      type="text"
+      [(ngModel)]="listName"
+      placeholder="z. B. Wocheneinkauf"
+    />
+  </section>
+
+  <div class="content-grid">
+
+    <section class="card">
+      <h2>Produkte hinzufügen</h2>
+
+      <div class="add-product-row">
+        <input
+          type="text"
+          [(ngModel)]="productName"
+          placeholder="Produkt eingeben..."
+          (keyup.enter)="addProduct()"
+        />
+
+        <button type="button" (click)="addProduct()">
+          Hinzufügen
+        </button>
+      </div>
+
+      <h3>Vorschläge</h3>
+
+      <div class="suggestions">
+        <button
+          type="button"
+          *ngFor="let suggestion of suggestions"
+          (click)="addProduct(suggestion)"
+        >
+          <span>+</span>
+          {{ suggestion }}
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Produkte in der Liste ({{ products.length }})</h2>
+
+      <p class="empty-products" *ngIf="products.length === 0">
+        Noch keine Produkte hinzugefügt.
+      </p>
+
+      <div class="product-item" *ngFor="let product of products; let i = index">
+        <span class="drag">⋮⋮</span>
+        <span class="circle"></span>
+
+        <span class="product-name">{{ product.name }}</span>
+
+        <span class="amount">{{ product.amount }}</span>
+
+        <button class="remove-button" type="button" (click)="removeProduct(i)">
+          ×
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="tip-card">
+    <div class="tip-icon">💡</div>
+
+    <div class="tip-text">
+      <strong>Tipps für deine Liste</strong>
+      <p>
+        Füge häufig verwendete Produkte hinzu oder übernehme Zutaten aus einem Rezept.
+      </p>
+    </div>
+
+    <button class="recipe-button" type="button">
+      Aus Rezept hinzufügen
+    </button>
+  </section>
+
+</div>

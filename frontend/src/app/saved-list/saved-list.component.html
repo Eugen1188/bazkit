@@ -1,12 +1,4 @@
 <div class="shopping-list-container">
-  <!-- <div class="page-header">
-    <button class="back-button">
-      ←
-    </button>
-
-    <h1>Einkaufsliste</h1>
-  </div> -->
-
   <div class="empty-state">
     <img
       src="assets/images/empty_list.png"
@@ -21,15 +13,9 @@
       und fügen diese zu Ihrer Einkaufsliste hinzu.
     </p>
 
-    <button class="create-button" (click)="openCreateList()">
+    <a class="create-button" routerLink="/main/saved-list/create">
       <span>+</span>
       Erstellen Sie eine Liste
-    </button>
-
-    <app-create-saved-list-modal
-      *ngIf="isCreateListOpen"
-      (close)="closeCreateList()"
-    >
-    </app-create-saved-list-modal>
+    </a>
   </div>
 </div>
