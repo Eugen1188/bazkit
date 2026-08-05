@@ -1,1 +1,570 @@
-<p>settings works!</p>
+<div class="settings-page">
+  <header class="settings-header">
+    <div>
+      <h1>Einstellungen</h1>
+      <p>Verwalte dein Konto, deine Präferenzen und dein Abonnement.</p>
+    </div>
+  </header>
+
+  <div class="settings-grid">
+
+    <!-- Konto -->
+    <section class="settings-card account-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path>
+            <path d="M4 21a8 8 0 0 1 16 0"></path>
+          </svg>
+        </span>
+
+        <h2>Konto</h2>
+      </div>
+
+      <div class="account-profile">
+        <div class="account-avatar">
+          {{ userInitials }}
+        </div>
+
+        <div class="account-info">
+          <strong>{{ userName }}</strong>
+          <span>{{ userEmail }}</span>
+
+          <button
+            class="outline-button account-edit-button"
+            type="button"
+            (click)="editProfile()"
+          >
+            Profil bearbeiten
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-links">
+        <button type="button" class="settings-link" (click)="changeName()">
+          <span>Name ändern</span>
+          <span class="link-arrow">›</span>
+        </button>
+
+        <button type="button" class="settings-link" (click)="changeEmail()">
+          <span>E-Mail ändern</span>
+          <span class="link-arrow">›</span>
+        </button>
+
+        <button type="button" class="settings-link" (click)="changePassword()">
+          <span>Passwort ändern</span>
+          <span class="link-arrow">›</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Einkauf -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 7H7"></path>
+            <circle cx="10" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+          </svg>
+        </span>
+
+        <h2>Einkauf</h2>
+      </div>
+
+      <div class="setting-row">
+        <label for="defaultSorting">Standard-Sortierung</label>
+
+        <select
+          id="defaultSorting"
+          [(ngModel)]="shoppingSettings.defaultSorting"
+        >
+          <option value="alphabetical">Alphabetisch</option>
+          <option value="category">Nach Kategorie</option>
+          <option value="manual">Manuell</option>
+          <option value="created">Zuletzt hinzugefügt</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label for="defaultUnit">Standard-Einheit</label>
+
+        <select
+          id="defaultUnit"
+          [(ngModel)]="shoppingSettings.defaultUnit"
+        >
+          <option value="piece">Stück</option>
+          <option value="gram">Gramm</option>
+          <option value="kilogram">Kilogramm</option>
+          <option value="milliliter">Milliliter</option>
+          <option value="liter">Liter</option>
+          <option value="package">Packung</option>
+        </select>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Kategorien automatisch erstellen</strong>
+          <span>Produkte automatisch passenden Kategorien zuordnen.</span>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="shoppingSettings.autoCategories"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Erledigte Produkte nach unten verschieben</strong>
+          <span>Abgehakte Produkte erscheinen am Ende der Liste.</span>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="shoppingSettings.moveCompletedToBottom"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Rezepte -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 3v18"></path>
+            <path d="M10 3v7a2 2 0 0 1-4 0V3"></path>
+            <path d="M17 3v18"></path>
+            <path d="M17 3c2 1.5 3 3.5 3 6s-1 4.5-3 6"></path>
+          </svg>
+        </span>
+
+        <h2>Rezepte</h2>
+      </div>
+
+      <div class="setting-row">
+        <label for="defaultPortions">Standard-Portionsgröße</label>
+
+        <select
+          id="defaultPortions"
+          [(ngModel)]="recipeSettings.defaultPortions"
+        >
+          <option [ngValue]="1">1 Portion</option>
+          <option [ngValue]="2">2 Portionen</option>
+          <option [ngValue]="3">3 Portionen</option>
+          <option [ngValue]="4">4 Portionen</option>
+          <option [ngValue]="5">5 Portionen</option>
+          <option [ngValue]="6">6 Portionen</option>
+        </select>
+      </div>
+
+      <div class="preference-group">
+        <h3>Ernährungspräferenzen</h3>
+
+        <div class="chip-list">
+          <button
+            *ngFor="let preference of dietaryPreferences"
+            type="button"
+            class="preference-chip"
+            [class.preference-chip--active]="preference.selected"
+            (click)="toggleDietaryPreference(preference)"
+          >
+            {{ preference.label }}
+
+            <span *ngIf="preference.selected" aria-hidden="true">✓</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="preference-group">
+        <h3>Lieblingsküchen</h3>
+
+        <div class="chip-list">
+          <button
+            *ngFor="let cuisine of favoriteCuisines"
+            type="button"
+            class="preference-chip"
+            [class.preference-chip--active]="cuisine.selected"
+            (click)="toggleCuisine(cuisine)"
+          >
+            {{ cuisine.label }}
+
+            <span *ngIf="cuisine.selected" aria-hidden="true">✓</span>
+          </button>
+
+          <button
+            type="button"
+            class="preference-chip preference-chip--add"
+            (click)="addCuisine()"
+            aria-label="Weitere Küche hinzufügen"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KI & Premium -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="m12 3 .7 2.3A5 5 0 0 0 16 8.6l2.3.7-2.3.7a5 5 0 0 0-3.3 3.3L12 15.6l-.7-2.3A5 5 0 0 0 8 10l-2.3-.7L8 8.6a5 5 0 0 0 3.3-3.3L12 3Z"></path>
+            <path d="m19 15 .4 1.2a3 3 0 0 0 1.8 1.8l1.2.4-1.2.4a3 3 0 0 0-1.8 1.8L19 22l-.4-1.2a3 3 0 0 0-1.8-1.8l-1.2-.4 1.2-.4a3 3 0 0 0 1.8-1.8L19 15Z"></path>
+          </svg>
+        </span>
+
+        <h2>KI & Premium</h2>
+      </div>
+
+      <div class="usage-box">
+        <span>KI-Rezepte diesen Monat</span>
+
+        <strong>
+          {{ aiUsage.used }} / {{ aiUsage.limit }}
+        </strong>
+
+        <small>verbraucht</small>
+
+        <div class="progress-track">
+          <div
+            class="progress-value"
+            [style.width.%]="aiUsagePercentage"
+          ></div>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>KI darf vorhandene Rezepte verbessern</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="aiSettings.allowRecipeImprovement"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Nährwerte automatisch berechnen</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="aiSettings.calculateNutrition"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Einkaufsliste automatisch optimieren</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="aiSettings.optimizeShoppingList"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <button
+        type="button"
+        class="primary-button premium-details-button"
+        (click)="openPremium()"
+      >
+        <span aria-hidden="true">♛</span>
+        Premium ansehen
+      </button>
+    </section>
+
+    <!-- Benachrichtigungen -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+            <path d="M10 21h4"></path>
+          </svg>
+        </span>
+
+        <h2>Benachrichtigungen</h2>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Einkaufs-Erinnerungen</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="notificationSettings.shoppingReminders"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Listen wurden geteilt</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="notificationSettings.sharedLists"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Neue Funktionen</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="notificationSettings.newFeatures"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Newsletter</strong>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="notificationSettings.newsletter"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <p class="card-help-text">
+        Wir senden dir nur relevante Benachrichtigungen.
+      </p>
+    </section>
+
+    <!-- Darstellung -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="13.5" cy="6.5" r="1.5"></circle>
+            <circle cx="17.5" cy="10.5" r="1.5"></circle>
+            <circle cx="8.5" cy="7.5" r="1.5"></circle>
+            <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h1a8 8 0 0 0 8-8Z"></path>
+          </svg>
+        </span>
+
+        <h2>Darstellung</h2>
+      </div>
+
+      <div class="appearance-group">
+        <h3>Design</h3>
+
+        <div class="segmented-control">
+          <button
+            type="button"
+            [class.active]="appearance === 'light'"
+            (click)="setAppearance('light')"
+          >
+            <span aria-hidden="true">☀</span>
+            Hell
+          </button>
+
+          <button
+            type="button"
+            [class.active]="appearance === 'dark'"
+            (click)="setAppearance('dark')"
+          >
+            <span aria-hidden="true">☾</span>
+            Dunkel
+          </button>
+
+          <button
+            type="button"
+            [class.active]="appearance === 'system'"
+            (click)="setAppearance('system')"
+          >
+            <span aria-hidden="true">▣</span>
+            System
+          </button>
+        </div>
+      </div>
+
+      <div class="appearance-group">
+        <h3>Akzentfarbe</h3>
+
+        <div class="color-options">
+          <button
+            *ngFor="let color of accentColors"
+            type="button"
+            class="color-button"
+            [class.color-button--active]="selectedAccentColor === color.value"
+            [style.background]="color.hex"
+            [attr.aria-label]="color.label"
+            (click)="selectAccentColor(color.value)"
+          ></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Datenschutz & Sicherheit -->
+    <section class="settings-card security-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          </svg>
+        </span>
+
+        <h2>Datenschutz & Sicherheit</h2>
+      </div>
+
+      <div class="settings-links">
+        <button type="button" class="settings-link" (click)="changePassword()">
+          <span>Passwort ändern</span>
+          <span class="link-arrow">›</span>
+        </button>
+
+        <button type="button" class="settings-link" (click)="openTwoFactorSettings()">
+          <span>Zwei-Faktor-Authentifizierung</span>
+
+          <span class="link-meta">
+            <small>{{ twoFactorEnabled ? 'Aktiv' : 'Aus' }}</small>
+            <span class="link-arrow">›</span>
+          </span>
+        </button>
+
+        <button type="button" class="settings-link" (click)="openActiveDevices()">
+          <span>Angemeldete Geräte</span>
+          <span class="link-arrow">›</span>
+        </button>
+
+        <button type="button" class="settings-link" (click)="downloadUserData()">
+          <span>Daten herunterladen</span>
+          <span class="link-arrow">›</span>
+        </button>
+
+        <button
+          type="button"
+          class="settings-link settings-link--danger"
+          (click)="deleteAccount()"
+        >
+          <span>Konto löschen</span>
+
+          <span class="danger-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4h8v2"></path>
+              <path d="M19 6l-1 15H6L5 6"></path>
+              <path d="M10 11v6M14 11v6"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <div class="right-column-stack">
+
+      <!-- Premium -->
+      <section class="settings-card premium-card">
+        <div class="card-heading">
+          <span class="heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="m3 7 4 4 5-7 5 7 4-4-2 12H5L3 7Z"></path>
+            </svg>
+          </span>
+
+          <h2>Premium</h2>
+        </div>
+
+        <div class="premium-plan">
+          <span>Aktueller Tarif</span>
+          <strong>{{ premiumPlanName }}</strong>
+
+          <ul>
+            <li>100 KI-Rezepte pro Monat</li>
+            <li>Einfache Einkaufslisten</li>
+            <li>Grundlegende Funktionen</li>
+          </ul>
+
+          <button
+            type="button"
+            class="primary-button"
+            (click)="openPremium()"
+          >
+            Premium testen
+          </button>
+        </div>
+      </section>
+
+      <!-- Über bazkit -->
+      <section class="settings-card about-card">
+        <div class="card-heading">
+          <span class="heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 11v5"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+          </span>
+
+          <h2>Über bazkit</h2>
+        </div>
+
+        <div class="settings-links">
+          <div class="settings-link settings-link--static">
+            <span>Version</span>
+            <small>{{ appVersion }}</small>
+          </div>
+
+          <button type="button" class="settings-link" (click)="openPrivacyPolicy()">
+            <span>Datenschutz</span>
+            <span class="link-arrow">›</span>
+          </button>
+
+          <button type="button" class="settings-link" (click)="openTerms()">
+            <span>AGB</span>
+            <span class="link-arrow">›</span>
+          </button>
+
+          <button type="button" class="settings-link" (click)="openImprint()">
+            <span>Impressum</span>
+            <span class="link-arrow">›</span>
+          </button>
+
+          <button type="button" class="settings-link" (click)="contactSupport()">
+            <span>Support kontaktieren</span>
+            <span class="link-arrow">›</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</div>
