@@ -5,7 +5,14 @@ import { Router, RouterLink } from '@angular/router';
 
 interface Product {
   name: string;
-  amount: string;
+  quantity: number;
+  unit: string;
+}
+
+interface ProductSuggestion {
+  name: string;
+  quantity: number;
+  unit: string;
 }
 
 @Component({
@@ -17,36 +24,55 @@ interface Product {
 })
 export class CreateListComponent {
   listName = '';
+
   productName = '';
+  productQuantity: number | null = 1;
+  productUnit = 'Stück';
 
   products: Product[] = [];
 
-  suggestions = [
-    'Milch',
-    'Eier',
-    'Brot',
-    'Tomaten',
-    'Gurken',
-    'Äpfel',
-    'Käse',
-    'Hähnchen'
+  units = [
+    'Stück',
+    'g',
+    'kg',
+    'ml',
+    'Liter',
+    'Packung',
+    'Dose',
+    'Glas',
+    'Becher',
+    'Bund'
+  ];
+
+  suggestions: ProductSuggestion[] = [
+    { name: 'Milch', quantity: 1, unit: 'Liter' },
+    { name: 'Eier', quantity: 10, unit: 'Stück' },
+    { name: 'Brot', quantity: 1, unit: 'Stück' },
+    { name: 'Tomaten', quantity: 500, unit: 'g' },
+    { name: 'Gurken', quantity: 1, unit: 'Stück' },
+    { name: 'Äpfel', quantity: 6, unit: 'Stück' },
+    { name: 'Käse', quantity: 200, unit: 'g' },
+    { name: 'Hähnchen', quantity: 500, unit: 'g' }
   ];
 
   constructor(private router: Router) {}
 
-  addProduct(name?: string): void {
-    const finalName = name || this.productName.trim();
+  addProduct(suggestion?: ProductSuggestion): void {
+    const name = suggestion?.name ?? this.productName.trim();
+    const quantity = suggestion?.quantity ?? this.productQuantity;
+    const unit = suggestion?.unit ?? this.productUnit;
 
-    if (!finalName) {
+    if (!name || quantity === null || quantity <= 0 || !unit) {
       return;
     }
 
     this.products.push({
-      name: finalName,
-      amount: '1 Stück'
+      name,
+      quantity,
+      unit
     });
 
-    this.productName = '';
+    this.resetProductForm();
   }
 
   removeProduct(index: number): void {
@@ -54,16 +80,29 @@ export class CreateListComponent {
   }
 
   createList(): void {
-    if (!this.listName.trim()) {
+    const trimmedListName = this.listName.trim();
+
+    if (!trimmedListName) {
       return;
     }
 
-    console.log({
-      name: this.listName,
+    const newList = {
+      name: trimmedListName,
       products: this.products
-    });
+    };
+
+    console.log('Neue gespeicherte Liste:', newList);
+
+    // Später:
+    // this.savedListService.createList(newList).subscribe(...)
 
     const fakeId = 1;
     this.router.navigate(['/main/saved-list', fakeId]);
+  }
+
+  private resetProductForm(): void {
+    this.productName = '';
+    this.productQuantity = 1;
+    this.productUnit = 'Stück';
   }
 }

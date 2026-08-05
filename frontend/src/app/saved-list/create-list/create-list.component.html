@@ -1,101 +1,259 @@
 <div class="create-list-container">
 
   <header class="create-header">
+
     <div class="header-left">
-      <a routerLink="/main/saved-list" class="back-button">←</a>
+      <a
+        routerLink="/main/saved-list"
+        class="back-button"
+        aria-label="Zurück zu den gespeicherten Listen"
+      >
+        ←
+      </a>
+
       <h1>Neue Liste erstellen</h1>
     </div>
 
     <div class="header-actions">
-      <a routerLink="/main/saved-list" class="cancel-button">
+
+      <a
+        routerLink="/main/saved-list"
+        class="cancel-button"
+      >
         Abbrechen
       </a>
 
-      <button class="save-button" type="button" (click)="createList()">
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="!listName.trim()"
+        (click)="createList()"
+      >
         Liste erstellen
       </button>
+
     </div>
+
   </header>
 
   <section class="name-card">
-    <label for="listName">Listenname</label>
+
+    <label for="listName">
+      Listenname
+    </label>
 
     <input
       id="listName"
       type="text"
       [(ngModel)]="listName"
+      maxlength="80"
       placeholder="z. B. Wocheneinkauf"
     />
+
   </section>
 
   <div class="content-grid">
 
-    <section class="card">
+    <section class="card add-product-card">
+
       <h2>Produkte hinzufügen</h2>
 
-      <div class="add-product-row">
-        <input
-          type="text"
-          [(ngModel)]="productName"
-          placeholder="Produkt eingeben..."
-          (keyup.enter)="addProduct()"
-        />
+      <div class="product-form">
 
-        <button type="button" (click)="addProduct()">
+        <div class="form-field product-name-field">
+
+          <label for="productName">
+            Produkt
+          </label>
+
+          <input
+            id="productName"
+            type="text"
+            [(ngModel)]="productName"
+            placeholder="Produkt eingeben..."
+            (keyup.enter)="addProduct()"
+          />
+
+        </div>
+
+        <div class="form-field quantity-field">
+
+          <label for="productQuantity">
+            Menge
+          </label>
+
+          <input
+            id="productQuantity"
+            type="number"
+            min="0.01"
+            step="0.01"
+            [(ngModel)]="productQuantity"
+            placeholder="1"
+            (keyup.enter)="addProduct()"
+          />
+
+        </div>
+
+        <div class="form-field unit-field">
+
+          <label for="productUnit">
+            Einheit
+          </label>
+
+          <select
+            id="productUnit"
+            [(ngModel)]="productUnit"
+          >
+            <option
+              *ngFor="let unit of units"
+              [value]="unit"
+            >
+              {{ unit }}
+            </option>
+          </select>
+
+        </div>
+
+        <button
+          class="add-product-button"
+          type="button"
+          [disabled]="
+            !productName.trim() ||
+            productQuantity === null ||
+            productQuantity <= 0
+          "
+          (click)="addProduct()"
+        >
           Hinzufügen
         </button>
+
       </div>
 
       <h3>Vorschläge</h3>
 
       <div class="suggestions">
+
         <button
           type="button"
           *ngFor="let suggestion of suggestions"
           (click)="addProduct(suggestion)"
         >
-          <span>+</span>
-          {{ suggestion }}
+          <span class="suggestion-plus">
+            +
+          </span>
+
+          <span class="suggestion-name">
+            {{ suggestion.name }}
+          </span>
+
+          <small>
+            {{ suggestion.quantity }}
+            {{ suggestion.unit }}
+          </small>
         </button>
+
       </div>
+
     </section>
 
-    <section class="card">
-      <h2>Produkte in der Liste ({{ products.length }})</h2>
+    <section class="card product-list-card">
 
-      <p class="empty-products" *ngIf="products.length === 0">
-        Noch keine Produkte hinzugefügt.
-      </p>
+      <h2>
+        Produkte in der Liste ({{ products.length }})
+      </h2>
 
-      <div class="product-item" *ngFor="let product of products; let i = index">
-        <span class="drag">⋮⋮</span>
-        <span class="circle"></span>
+      <div
+        class="empty-products"
+        *ngIf="products.length === 0"
+      >
+        <span class="empty-products-icon">
+          +
+        </span>
 
-        <span class="product-name">{{ product.name }}</span>
+        <p>
+          Noch keine Produkte hinzugefügt.
+        </p>
 
-        <span class="amount">{{ product.amount }}</span>
+        <small>
+          Gib links ein Produkt mit Menge und Einheit ein.
+        </small>
+      </div>
 
-        <button class="remove-button" type="button" (click)="removeProduct(i)">
+      <div
+        class="product-item"
+        *ngFor="let product of products; let i = index"
+      >
+
+        <span
+          class="drag"
+          aria-hidden="true"
+        >
+          ⋮⋮
+        </span>
+
+        <span
+          class="circle"
+          aria-hidden="true"
+        ></span>
+
+        <div class="product-details">
+
+          <span class="product-name">
+            {{ product.name }}
+          </span>
+
+          <span class="product-mobile-amount">
+            {{ product.quantity }}
+            {{ product.unit }}
+          </span>
+
+        </div>
+
+        <span class="amount">
+          {{ product.quantity }}
+          {{ product.unit }}
+        </span>
+
+        <button
+          class="remove-button"
+          type="button"
+          aria-label="Produkt entfernen"
+          (click)="removeProduct(i)"
+        >
           ×
         </button>
+
       </div>
+
     </section>
 
   </div>
 
   <section class="tip-card">
-    <div class="tip-icon">💡</div>
+
+    <div class="tip-icon">
+      💡
+    </div>
 
     <div class="tip-text">
-      <strong>Tipps für deine Liste</strong>
+
+      <strong>
+        Tipps für deine Liste
+      </strong>
+
       <p>
         Füge häufig verwendete Produkte hinzu oder übernehme Zutaten aus einem Rezept.
       </p>
+
     </div>
 
-    <button class="recipe-button" type="button">
+    <button
+      class="recipe-button"
+      type="button"
+    >
       Aus Rezept hinzufügen
     </button>
+
   </section>
 
 </div>
