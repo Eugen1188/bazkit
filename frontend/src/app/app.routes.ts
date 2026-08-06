@@ -7,6 +7,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateListComponent } from './saved-list/create-list/create-list.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'saved-list/create',

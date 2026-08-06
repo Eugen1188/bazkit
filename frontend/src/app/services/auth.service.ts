@@ -22,4 +22,13 @@ export class AuthService {
   getMe(): Observable<any> {
     return this.http.get(`${this.apiUrl}/users/me/`);
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('access_token');
+  }
+
+  logout(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+  }
 }
