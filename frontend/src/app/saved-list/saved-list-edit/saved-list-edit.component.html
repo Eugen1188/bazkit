@@ -3,71 +3,54 @@
   *ngIf="!isLoading"
 >
 
-  <header class="detail-header">
+  <header class="create-header">
 
-  <div class="header-left">
+    <div class="header-left">
 
-    <button
-      class="back-button"
-      type="button"
-      (click)="goBack()"
-      aria-label="Zurück"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
+      <button
+        class="back-button"
+        type="button"
+        (click)="cancel()"
+        aria-label="Zurück"
       >
-        <path d="M15 18l-6-6 6-6"></path>
-      </svg>
-    </button>
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
 
-    <div>
-      <h1>
-        {{ savedList.title }}
-      </h1>
+      <h1>Liste bearbeiten</h1>
 
-      <p>
-        Erstellt am
-        {{ formatDate(savedList.created_at) }}
-      </p>
     </div>
 
-  </div>
+    <div class="header-actions">
 
-  <div class="header-actions">
+      <button
+        class="cancel-button"
+        type="button"
+        (click)="cancel()"
+      >
+        Abbrechen
+      </button>
 
-    <div class="item-count">
-      {{ savedList.items?.length || 0 }}
-      Artikel
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="!listName.trim() || isSaving"
+        (click)="saveList()"
+      >
+        {{
+          isSaving
+            ? 'Wird gespeichert...'
+            : 'Änderungen speichern'
+        }}
+      </button>
+
     </div>
 
-    <a
-      class="edit-list-button"
-      [routerLink]="[
-        '/main/saved-list',
-        savedList.id,
-        'edit'
-      ]"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-        ></path>
-
-        <path
-          d="M13.5 8.5l3 3"
-        ></path>
-      </svg>
-
-      Liste bearbeiten
-    </a>
-
-  </div>
-
-</header>
+  </header>
 
 
   <section class="name-card">
@@ -88,28 +71,20 @@
 
   <div class="content-grid">
 
+    <section class="card add-product-card">
 
-    <section
-      class="card add-product-card"
-    >
-
-      <h2>
-        Produkte hinzufügen
-      </h2>
-
+      <h2>Produkte hinzufügen</h2>
 
       <div class="product-form">
 
+        <div class="form-field product-name-field">
 
-        <div
-          class="form-field product-name-field"
-        >
-
-          <label>
+          <label for="productName">
             Produkt
           </label>
 
           <input
+            id="productName"
             type="text"
             [(ngModel)]="productName"
             placeholder="Produkt eingeben..."
@@ -118,48 +93,42 @@
 
         </div>
 
+        <div class="form-field quantity-field">
 
-        <div
-          class="form-field quantity-field"
-        >
-
-          <label>
+          <label for="productQuantity">
             Menge
           </label>
 
           <input
+            id="productQuantity"
             type="number"
             min="0.01"
             step="0.01"
             [(ngModel)]="productQuantity"
+            (keyup.enter)="addProduct()"
           />
 
         </div>
 
+        <div class="form-field unit-field">
 
-        <div
-          class="form-field unit-field"
-        >
-
-          <label>
+          <label for="productUnit">
             Einheit
           </label>
 
           <select
+            id="productUnit"
             [(ngModel)]="productUnit"
           >
-
             <option
               *ngFor="let unit of units"
               [value]="unit"
             >
               {{ unit }}
             </option>
-
           </select>
 
         </div>
-
 
         <button
           class="add-product-button"
@@ -177,33 +146,20 @@
       </div>
 
 
-      <h3>
-        Vorschläge
-      </h3>
-
+      <h3>Vorschläge</h3>
 
       <div class="suggestions">
 
         <button
           type="button"
-          *ngFor="
-            let suggestion
-            of suggestions
-          "
-          (click)="
-            addProduct(suggestion)
-          "
+          *ngFor="let suggestion of suggestions"
+          (click)="addProduct(suggestion)"
         >
-
-          <span
-            class="suggestion-plus"
-          >
+          <span class="suggestion-plus">
             +
           </span>
 
-          <span
-            class="suggestion-name"
-          >
+          <span class="suggestion-name">
             {{ suggestion.name }}
           </span>
 
@@ -211,7 +167,6 @@
             {{ suggestion.quantity }}
             {{ suggestion.unit }}
           </small>
-
         </button>
 
       </div>
@@ -219,26 +174,19 @@
     </section>
 
 
-    <section
-      class="card product-list-card"
-    >
+    <section class="card product-list-card">
 
       <h2>
         Produkte in der Liste
         ({{ products.length }})
       </h2>
 
-
       <div
         class="empty-products"
-        *ngIf="
-          products.length === 0
-        "
+        *ngIf="products.length === 0"
       >
 
-        <span
-          class="empty-products-icon"
-        >
+        <span class="empty-products-icon">
           +
         </span>
 
@@ -248,13 +196,9 @@
 
       </div>
 
-
       <div
         class="product-item"
-        *ngFor="
-          let product of products;
-          let i = index
-        "
+        *ngFor="let product of products; let i = index"
       >
 
         <span class="drag">
@@ -263,34 +207,28 @@
 
         <span class="circle"></span>
 
-
         <div class="product-details">
 
-          <span
-            class="product-name"
-          >
+          <span class="product-name">
             {{ product.name }}
           </span>
 
-          <span
-            class="product-mobile-amount"
-          >
+          <span class="product-mobile-amount">
             {{ product.quantity }}
             {{ product.unit }}
           </span>
 
         </div>
 
-
         <span class="amount">
           {{ product.quantity }}
           {{ product.unit }}
         </span>
 
-
         <button
           class="remove-button"
           type="button"
+          aria-label="Produkt entfernen"
           (click)="removeProduct(i)"
         >
           ×
@@ -317,7 +255,7 @@
 
       <p>
         Du kannst Produkte hinzufügen,
-        entfernen oder die Mengen ändern.
+        entfernen oder Mengen und Einheiten ändern.
       </p>
 
     </div>
