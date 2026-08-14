@@ -67,8 +67,7 @@ class SavedListDetailAPIView(APIView):
         if not saved_list:
             return Response(
                 {
-                    "detail":
-                    "Liste nicht gefunden."
+                    "detail": "Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -81,6 +80,41 @@ class SavedListDetailAPIView(APIView):
             serializer.data
         )
 
+    def put(self, request, pk):
+        saved_list = self.get_object(
+            request,
+            pk
+        )
+
+        if not saved_list:
+            return Response(
+                {
+                    "detail": "Liste nicht gefunden."
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = SavedListSerializer(
+            saved_list,
+            data=request.data,
+            context={
+                "request": request
+            }
+        )
+
+        serializer.is_valid(
+            raise_exception=True
+        )
+
+        updated_list = serializer.save()
+
+        return Response(
+            SavedListSerializer(
+                updated_list
+            ).data,
+            status=status.HTTP_200_OK
+        )
+
     def delete(self, request, pk):
         saved_list = self.get_object(
             request,
@@ -90,8 +124,7 @@ class SavedListDetailAPIView(APIView):
         if not saved_list:
             return Response(
                 {
-                    "detail":
-                    "Liste nicht gefunden."
+                    "detail": "Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )

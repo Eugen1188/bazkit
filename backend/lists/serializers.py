@@ -79,6 +79,29 @@ class SavedListSerializer(serializers.ModelSerializer):
 
         return saved_list
 
+    def update(self, instance, validated_data):
+        items_data = validated_data.pop(
+            "items",
+            []
+        )
+
+        instance.title = validated_data.get(
+            "title",
+            instance.title
+        )
+
+        instance.save()
+
+        instance.items.all().delete()
+
+        for item_data in items_data:
+            SavedListItem.objects.create(
+                saved_list=instance,
+                **item_data
+            )
+
+        return instance
+
 class SavedListDetailSerializer(serializers.ModelSerializer):
     items = SavedListItemSerializer(
         many=True,

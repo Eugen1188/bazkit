@@ -12,6 +12,7 @@ export interface SavedListItem {
   name: string;
   quantity: number;
   unit: string;
+  note?: string;
 }
 
 export interface SavedList {

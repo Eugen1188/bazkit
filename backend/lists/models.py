@@ -31,7 +31,10 @@ class SavedListItem(models.Model):
     name = models.CharField(max_length=100, blank=True)
     quantity = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     unit = models.CharField(max_length=30, blank=True)
-    
+    note = models.CharField(
+        max_length=255,
+        blank=True
+    )
     def __str__(self):
         return self.name
 

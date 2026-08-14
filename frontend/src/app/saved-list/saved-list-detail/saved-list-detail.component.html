@@ -1,7 +1,5 @@
 <div class="detail-page">
 
-  <!-- Loading -->
-
   <div
     class="loading-state"
     *ngIf="isLoading"
@@ -9,16 +7,12 @@
     Liste wird geladen...
   </div>
 
-  <!-- Fehler -->
-
   <div
     class="error-state"
     *ngIf="!isLoading && errorMessage"
   >
     {{ errorMessage }}
   </div>
-
-  <!-- Inhalt -->
 
   <ng-container
     *ngIf="
@@ -36,12 +30,14 @@
           class="back-button"
           type="button"
           (click)="goBack()"
+          aria-label="Zurück"
         >
-          ←
+          <svg viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
         </button>
 
         <div>
-
           <h1>
             {{ savedList.title }}
           </h1>
@@ -50,7 +46,6 @@
             Erstellt am
             {{ formatDate(savedList.created_at) }}
           </p>
-
         </div>
 
       </div>
@@ -70,7 +65,7 @@
             'edit'
           ]"
         >
-          ✏ Liste bearbeiten
+          Liste bearbeiten
         </a>
 
       </div>
@@ -81,17 +76,13 @@
 
       <div class="list-card-header">
 
-        <h2>
-          Produkte
-        </h2>
+        <h2>Produkte</h2>
 
         <span>
           {{ savedList.items?.length || 0 }}
         </span>
 
       </div>
-
-      <!-- Keine Produkte -->
 
       <div
         class="empty-products"
@@ -100,7 +91,6 @@
           savedList.items.length === 0
         "
       >
-
         <div class="empty-icon">
           +
         </div>
@@ -112,26 +102,167 @@
         <p>
           Diese Liste enthält noch keine Produkte.
         </p>
-
       </div>
-
-      <!-- Produkte -->
 
       <div
         class="product-row"
-        *ngFor="let item of savedList.items"
+        *ngFor="
+          let item of savedList.items;
+          let i = index
+        "
       >
 
-        <div class="product-info">
+        <!-- NORMALE ANSICHT -->
 
-          <strong>
-            {{ item.name || item.product_name }}
-          </strong>
+        <ng-container
+          *ngIf="editingIndex !== i"
+        >
 
-          <span>
-            {{ item.quantity }}
-            {{ item.unit }}
-          </span>
+          <div class="product-main">
+
+            <div class="product-placeholder">
+              {{ item.name.charAt(0).toUpperCase() }}
+            </div>
+
+            <div class="product-text">
+
+              <strong>
+                {{ item.name || item.product_name }}
+              </strong>
+
+              <div class="quantity-tags">
+
+                <span>
+                  {{ item.quantity }}
+                </span>
+
+                <span>
+                  {{ item.unit }}
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="product-note">
+
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M5 4h14v13H9l-4 4V4Z"
+              ></path>
+            </svg>
+
+            <span *ngIf="item.note">
+              {{ item.note }}
+            </span>
+
+            <span
+              class="empty-note"
+              *ngIf="!item.note"
+            >
+              Keine Notiz
+            </span>
+
+          </div>
+
+          <div class="product-actions">
+
+            <button
+              class="product-action edit"
+              type="button"
+              aria-label="Produkt bearbeiten"
+              (click)="startEdit(i, item)"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+                ></path>
+                <path
+                  d="M13.5 8.5l3 3"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              class="product-action delete"
+              type="button"
+              aria-label="Produkt löschen"
+              (click)="deleteItem(i)"
+            >
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16"></path>
+                <path d="M9 7V4h6v3"></path>
+                <path d="M7 7l1 13h8l1-13"></path>
+              </svg>
+            </button>
+
+          </div>
+
+        </ng-container>
+
+        <!-- EDIT MODE -->
+
+        <div
+          class="product-edit-form"
+          *ngIf="
+            editingIndex === i &&
+            editItem
+          "
+        >
+
+          <input
+            type="text"
+            [(ngModel)]="editItem.name"
+            placeholder="Produkt"
+          />
+
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            [(ngModel)]="editItem.quantity"
+          />
+
+          <select
+            [(ngModel)]="editItem.unit"
+          >
+            <option
+              *ngFor="let unit of units"
+              [value]="unit"
+            >
+              {{ unit }}
+            </option>
+          </select>
+
+          <input
+            class="note-input"
+            type="text"
+            [(ngModel)]="editItem.note"
+            placeholder="Notiz hinzufügen..."
+          />
+
+          <div class="edit-actions">
+
+            <button
+              class="save-edit"
+              type="button"
+              [disabled]="isSaving"
+              (click)="saveEdit()"
+            >
+              Speichern
+            </button>
+
+            <button
+              class="cancel-edit"
+              type="button"
+              (click)="cancelEdit()"
+            >
+              Abbrechen
+            </button>
+
+          </div>
 
         </div>
 
