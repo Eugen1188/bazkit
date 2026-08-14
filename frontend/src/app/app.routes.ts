@@ -8,6 +8,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateListComponent } from './saved-list/create-list/create-list.component';
 import { authGuard } from './guards/auth.guard';
+import { SavedListDetailComponent } from './saved-list/saved-list-detail/saved-list-detail.component';
 
 export const routes: Routes = [
   {
@@ -26,7 +27,11 @@ export const routes: Routes = [
       {
         path: 'saved-list/create',
         component: CreateListComponent,
-    },
+      },
+      {
+        path: 'saved-list/:id',
+        component: SavedListDetailComponent,
+      },
       {
         path: 'saved-list',
         component: SavedListComponent,
@@ -39,7 +44,7 @@ export const routes: Routes = [
         path: 'recipe-list',
         component: RecipeListComponent,
       },
-            {
+      {
         path: 'settings',
         component: SettingsComponent,
       },
