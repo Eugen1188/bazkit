@@ -18,10 +18,20 @@ class RegisterUserView(APIView):
         user = User.objects.create_user(
             username=data["email"],
             email=data["email"],
+            first_name=data["first_name"],
+            last_name=data["last_name"],
             password=data["password"],
         )
 
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(
+            {
+                "id": user.id,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "email": user.email,
+            },
+            status=status.HTTP_201_CREATED
+        )
     
 class LoginUserView(APIView):
     authentication_classes = []
@@ -41,8 +51,10 @@ class LoginUserView(APIView):
                 "access": str(refresh.access_token),
                 "user": {
                     "id": user.id,
+                    "first_name": user.first_name,
+                    "last_name": user.last_name,
                     "email": user.email,
-                }
+                    }
             },
             status=status.HTTP_200_OK
         )
