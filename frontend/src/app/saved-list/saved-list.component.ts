@@ -29,7 +29,7 @@ export class SavedListComponent implements OnInit {
 
   constructor(
     private savedListService: SavedListService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadSavedLists();
@@ -77,6 +77,8 @@ export class SavedListComponent implements OnInit {
     event: MouseEvent,
     list: SavedList
   ): void {
+
+    event.preventDefault();
     event.stopPropagation();
 
     const shouldDelete = confirm(
@@ -95,8 +97,6 @@ export class SavedListComponent implements OnInit {
             this.savedLists.filter(
               item => item.id !== list.id
             );
-
-          this.openedMenuId = null;
         },
 
         error: (error) => {
@@ -117,5 +117,19 @@ export class SavedListComponent implements OnInit {
         year: 'numeric'
       }
     ).format(new Date(date));
+  }
+
+  editList(
+    event: MouseEvent,
+    list: SavedList
+  ): void {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log(
+      'Liste bearbeiten:',
+      list
+    );
   }
 }

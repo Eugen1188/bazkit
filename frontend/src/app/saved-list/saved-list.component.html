@@ -104,103 +104,108 @@
     <div class="lists-container">
 
       <article
-        class="list-card"
-        *ngFor="let list of savedLists"
+  class="list-card"
+  *ngFor="let list of savedLists"
+  [routerLink]="['/main/saved-list', list.id]"
+>
+  <div class="list-icon">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 7H7"
+      ></path>
+
+      <circle
+        cx="10"
+        cy="20"
+        r="1"
+      ></circle>
+
+      <circle
+        cx="18"
+        cy="20"
+        r="1"
+      ></circle>
+    </svg>
+  </div>
+
+  <div class="list-info">
+    <h2>
+      {{ list.title }}
+    </h2>
+
+    <span>
+      Erstellt am
+      {{ formatDate(list.created_at) }}
+    </span>
+  </div>
+
+  <div class="list-meta">
+
+    <span class="item-count">
+      {{ list.item_count }} Artikel
+    </span>
+
+    <div class="list-actions">
+
+      <button
+        class="action-button edit-button"
+        type="button"
+        aria-label="Liste bearbeiten"
+        (click)="editList($event, list)"
       >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+          ></path>
 
-        <div class="list-icon">
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 7H7"
-            ></path>
+          <path
+            d="M13.5 8.5l3 3"
+          ></path>
+        </svg>
+      </button>
 
-            <circle
-              cx="10"
-              cy="20"
-              r="1"
-            ></circle>
+      <button
+        class="action-button delete-button"
+        type="button"
+        aria-label="Liste löschen"
+        (click)="deleteList($event, list)"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M4 7h16"
+          ></path>
 
-            <circle
-              cx="18"
-              cy="20"
-              r="1"
-            ></circle>
-          </svg>
-        </div>
+          <path
+            d="M9 7V4h6v3"
+          ></path>
 
+          <path
+            d="M7 7l1 13h8l1-13"
+          ></path>
 
-        <div class="list-info">
+          <path
+            d="M10 11v5"
+          ></path>
 
-          <h2>
-            {{ list.title }}
-          </h2>
+          <path
+            d="M14 11v5"
+          ></path>
+        </svg>
+      </button>
 
-          <span>
-            Erstellt am
-            {{ formatDate(list.created_at) }}
-          </span>
+    </div>
 
-        </div>
-
-
-        <div class="list-meta">
-
-          <span class="item-count">
-            {{ list.item_count }}
-
-            {{
-              list.item_count === 1
-                ? 'Artikel'
-                : 'Artikel'
-            }}
-          </span>
-
-
-          <div class="menu-wrapper">
-
-            <button
-              class="menu-button"
-              type="button"
-              aria-label="Listenoptionen"
-              (click)="toggleMenu($event, list.id)"
-            >
-              •••
-            </button>
-
-
-            <div
-              class="list-menu"
-              *ngIf="openedMenuId === list.id"
-            >
-
-              <button
-                type="button"
-                [routerLink]="[
-                  '/main/saved-list',
-                  list.id
-                ]"
-              >
-                Öffnen
-              </button>
-
-              <button
-                type="button"
-                class="delete-option"
-                (click)="deleteList($event, list)"
-              >
-                Löschen
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
+  </div>
+</article>
 
     </div>
 
