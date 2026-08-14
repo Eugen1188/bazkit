@@ -78,3 +78,18 @@ class SavedListSerializer(serializers.ModelSerializer):
             )
 
         return saved_list
+
+class SavedListDetailSerializer(serializers.ModelSerializer):
+    items = SavedListItemSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = SavedList
+        fields = [
+            "id",
+            "title",
+            "created_at",
+            "items"
+        ]
