@@ -1,21 +1,222 @@
-<div class="shopping-list-container">
-  <div class="empty-state">
+<div class="saved-list-page">
+
+  <div
+    class="loading-state"
+    *ngIf="isLoading"
+  >
+    Listen werden geladen...
+  </div>
+
+
+  <div
+    class="error-state"
+    *ngIf="!isLoading && errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <!-- KEINE LISTEN -->
+
+  <div
+    class="empty-state"
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      savedLists.length === 0
+    "
+  >
+
     <img
       src="assets/images/empty_list.png"
       alt="Leere Einkaufsliste"
       class="empty-image"
     />
 
-    <h2>Sie haben noch keine Listen</h2>
+    <h2>
+      Sie haben noch keine Listen
+    </h2>
 
     <p>
-      Erstellen Sie Listen für Ihren Einkauf oder erstellen Sie smarte Rezepte
-      und fügen diese zu Ihrer Einkaufsliste hinzu.
+      Erstellen Sie Listen für Ihren Einkauf oder
+      erstellen Sie smarte Rezepte und fügen diese
+      zu Ihrer Einkaufsliste hinzu.
     </p>
 
-    <a class="create-button" routerLink="/main/saved-list/create">
+    <a
+      class="create-button"
+      routerLink="/main/saved-list/create"
+    >
       <span>+</span>
+
       Erstellen Sie eine Liste
     </a>
+
   </div>
+
+
+  <!-- LISTEN VORHANDEN -->
+
+  <div
+    class="lists-state"
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      savedLists.length > 0
+    "
+  >
+
+    <div class="lists-topbar">
+
+      <div></div>
+
+      <a
+        class="create-small-button"
+        routerLink="/main/saved-list/create"
+      >
+        <span>+</span>
+        Erstellen Sie eine Liste
+      </a>
+
+    </div>
+
+
+    <div class="lists-heading">
+
+      <img
+        src="assets/images/empty_list.png"
+        alt=""
+        class="lists-image"
+      />
+
+      <h1>
+        Ihre Einkaufslisten
+      </h1>
+
+      <p>
+        Verwalten Sie Ihre Listen und behalten
+        Sie den Überblick.
+      </p>
+
+    </div>
+
+
+    <div class="lists-container">
+
+      <article
+        class="list-card"
+        *ngFor="let list of savedLists"
+      >
+
+        <div class="list-icon">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 7H7"
+            ></path>
+
+            <circle
+              cx="10"
+              cy="20"
+              r="1"
+            ></circle>
+
+            <circle
+              cx="18"
+              cy="20"
+              r="1"
+            ></circle>
+          </svg>
+        </div>
+
+
+        <div class="list-info">
+
+          <h2>
+            {{ list.title }}
+          </h2>
+
+          <span>
+            Erstellt am
+            {{ formatDate(list.created_at) }}
+          </span>
+
+        </div>
+
+
+        <div class="list-meta">
+
+          <span class="item-count">
+            {{ list.item_count }}
+
+            {{
+              list.item_count === 1
+                ? 'Artikel'
+                : 'Artikel'
+            }}
+          </span>
+
+
+          <div class="menu-wrapper">
+
+            <button
+              class="menu-button"
+              type="button"
+              aria-label="Listenoptionen"
+              (click)="toggleMenu($event, list.id)"
+            >
+              •••
+            </button>
+
+
+            <div
+              class="list-menu"
+              *ngIf="openedMenuId === list.id"
+            >
+
+              <button
+                type="button"
+                [routerLink]="[
+                  '/main/saved-list',
+                  list.id
+                ]"
+              >
+                Öffnen
+              </button>
+
+              <button
+                type="button"
+                class="delete-option"
+                (click)="deleteList($event, list)"
+              >
+                Löschen
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <p class="list-total">
+
+      {{ savedLists.length }}
+
+      {{
+        savedLists.length === 1
+          ? 'Liste insgesamt'
+          : 'Listen insgesamt'
+      }}
+
+    </p>
+
+  </div>
+
 </div>
