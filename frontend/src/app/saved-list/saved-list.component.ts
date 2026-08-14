@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {
+  Router
+} from '@angular/router';
 
 import {
   SavedList,
@@ -28,8 +31,10 @@ export class SavedListComponent implements OnInit {
   openedMenuId: number | null = null;
 
   constructor(
-    private savedListService: SavedListService
-  ) { }
+  private savedListService:
+    SavedListService,
+  private router: Router
+) {}
 
   ngOnInit(): void {
     this.loadSavedLists();
@@ -60,6 +65,21 @@ export class SavedListComponent implements OnInit {
         }
       });
   }
+
+  editList(
+  event: MouseEvent,
+  list: SavedList
+): void {
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  this.router.navigate([
+    '/main/saved-list',
+    list.id,
+    'edit'
+  ]);
+}
 
   toggleMenu(
     event: MouseEvent,
@@ -117,19 +137,5 @@ export class SavedListComponent implements OnInit {
         year: 'numeric'
       }
     ).format(new Date(date));
-  }
-
-  editList(
-    event: MouseEvent,
-    list: SavedList
-  ): void {
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    console.log(
-      'Liste bearbeiten:',
-      list
-    );
   }
 }

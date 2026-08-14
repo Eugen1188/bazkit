@@ -1,5 +1,7 @@
 <div class="detail-page">
 
+  <!-- Loading -->
+
   <div
     class="loading-state"
     *ngIf="isLoading"
@@ -7,6 +9,7 @@
     Liste wird geladen...
   </div>
 
+  <!-- Fehler -->
 
   <div
     class="error-state"
@@ -15,6 +18,7 @@
     {{ errorMessage }}
   </div>
 
+  <!-- Inhalt -->
 
   <ng-container
     *ngIf="
@@ -37,6 +41,7 @@
         </button>
 
         <div>
+
           <h1>
             {{ savedList.title }}
           </h1>
@@ -45,18 +50,32 @@
             Erstellt am
             {{ formatDate(savedList.created_at) }}
           </p>
+
         </div>
 
       </div>
 
+      <div class="header-actions">
 
-      <div class="item-count">
-        {{ savedList.items?.length || 0 }}
-        Artikel
+        <div class="item-count">
+          {{ savedList.items?.length || 0 }}
+          Artikel
+        </div>
+
+        <a
+          class="edit-list-button"
+          [routerLink]="[
+            '/main/saved-list',
+            savedList.id,
+            'edit'
+          ]"
+        >
+          ✏ Liste bearbeiten
+        </a>
+
       </div>
 
     </header>
-
 
     <section class="list-card">
 
@@ -72,6 +91,7 @@
 
       </div>
 
+      <!-- Keine Produkte -->
 
       <div
         class="empty-products"
@@ -80,6 +100,7 @@
           savedList.items.length === 0
         "
       >
+
         <div class="empty-icon">
           +
         </div>
@@ -91,15 +112,15 @@
         <p>
           Diese Liste enthält noch keine Produkte.
         </p>
+
       </div>
 
+      <!-- Produkte -->
 
       <div
         class="product-row"
         *ngFor="let item of savedList.items"
       >
-
-        <span class="check-circle"></span>
 
         <div class="product-info">
 
@@ -113,13 +134,6 @@
           </span>
 
         </div>
-
-        <button
-          class="more-button"
-          type="button"
-        >
-          •••
-        </button>
 
       </div>
 
