@@ -1,1 +1,130 @@
-<p>saved-list-detail works!</p>
+<div class="detail-page">
+
+  <div
+    class="loading-state"
+    *ngIf="isLoading"
+  >
+    Liste wird geladen...
+  </div>
+
+
+  <div
+    class="error-state"
+    *ngIf="!isLoading && errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <ng-container
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      savedList
+    "
+  >
+
+    <header class="detail-header">
+
+      <div class="header-left">
+
+        <button
+          class="back-button"
+          type="button"
+          (click)="goBack()"
+        >
+          ←
+        </button>
+
+        <div>
+          <h1>
+            {{ savedList.title }}
+          </h1>
+
+          <p>
+            Erstellt am
+            {{ formatDate(savedList.created_at) }}
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="item-count">
+        {{ savedList.items?.length || 0 }}
+        Artikel
+      </div>
+
+    </header>
+
+
+    <section class="list-card">
+
+      <div class="list-card-header">
+
+        <h2>
+          Produkte
+        </h2>
+
+        <span>
+          {{ savedList.items?.length || 0 }}
+        </span>
+
+      </div>
+
+
+      <div
+        class="empty-products"
+        *ngIf="
+          !savedList.items ||
+          savedList.items.length === 0
+        "
+      >
+        <div class="empty-icon">
+          +
+        </div>
+
+        <h3>
+          Noch keine Produkte
+        </h3>
+
+        <p>
+          Diese Liste enthält noch keine Produkte.
+        </p>
+      </div>
+
+
+      <div
+        class="product-row"
+        *ngFor="let item of savedList.items"
+      >
+
+        <span class="check-circle"></span>
+
+        <div class="product-info">
+
+          <strong>
+            {{ item.name || item.product_name }}
+          </strong>
+
+          <span>
+            {{ item.quantity }}
+            {{ item.unit }}
+          </span>
+
+        </div>
+
+        <button
+          class="more-button"
+          type="button"
+        >
+          •••
+        </button>
+
+      </div>
+
+    </section>
+
+  </ng-container>
+
+</div>
