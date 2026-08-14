@@ -3,54 +3,71 @@
   *ngIf="!isLoading"
 >
 
-  <header class="create-header">
+  <header class="detail-header">
 
-    <div class="header-left">
+  <div class="header-left">
 
-      <button
-        class="back-button"
-        type="button"
-        (click)="cancel()"
+    <button
+      class="back-button"
+      type="button"
+      (click)="goBack()"
+      aria-label="Zurück"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
       >
-        ←
-      </button>
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </button>
 
+    <div>
       <h1>
-        Liste bearbeiten
+        {{ savedList.title }}
       </h1>
 
+      <p>
+        Erstellt am
+        {{ formatDate(savedList.created_at) }}
+      </p>
     </div>
 
+  </div>
 
-    <div class="header-actions">
+  <div class="header-actions">
 
-      <button
-        class="cancel-button"
-        type="button"
-        (click)="cancel()"
-      >
-        Abbrechen
-      </button>
-
-      <button
-        class="save-button"
-        type="button"
-        [disabled]="
-          !listName.trim() ||
-          isSaving
-        "
-        (click)="saveList()"
-      >
-        {{
-          isSaving
-            ? 'Wird gespeichert...'
-            : 'Änderungen speichern'
-        }}
-      </button>
-
+    <div class="item-count">
+      {{ savedList.items?.length || 0 }}
+      Artikel
     </div>
 
-  </header>
+    <a
+      class="edit-list-button"
+      [routerLink]="[
+        '/main/saved-list',
+        savedList.id,
+        'edit'
+      ]"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+        ></path>
+
+        <path
+          d="M13.5 8.5l3 3"
+        ></path>
+      </svg>
+
+      Liste bearbeiten
+    </a>
+
+  </div>
+
+</header>
 
 
   <section class="name-card">
