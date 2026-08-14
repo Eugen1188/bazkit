@@ -1,0 +1,326 @@
+<div
+  class="create-list-container"
+  *ngIf="!isLoading"
+>
+
+  <header class="create-header">
+
+    <div class="header-left">
+
+      <button
+        class="back-button"
+        type="button"
+        (click)="cancel()"
+      >
+        ←
+      </button>
+
+      <h1>
+        Liste bearbeiten
+      </h1>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <button
+        class="cancel-button"
+        type="button"
+        (click)="cancel()"
+      >
+        Abbrechen
+      </button>
+
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="
+          !listName.trim() ||
+          isSaving
+        "
+        (click)="saveList()"
+      >
+        {{
+          isSaving
+            ? 'Wird gespeichert...'
+            : 'Änderungen speichern'
+        }}
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <section class="name-card">
+
+    <label for="listName">
+      Listenname
+    </label>
+
+    <input
+      id="listName"
+      type="text"
+      [(ngModel)]="listName"
+      maxlength="80"
+    />
+
+  </section>
+
+
+  <div class="content-grid">
+
+
+    <section
+      class="card add-product-card"
+    >
+
+      <h2>
+        Produkte hinzufügen
+      </h2>
+
+
+      <div class="product-form">
+
+
+        <div
+          class="form-field product-name-field"
+        >
+
+          <label>
+            Produkt
+          </label>
+
+          <input
+            type="text"
+            [(ngModel)]="productName"
+            placeholder="Produkt eingeben..."
+            (keyup.enter)="addProduct()"
+          />
+
+        </div>
+
+
+        <div
+          class="form-field quantity-field"
+        >
+
+          <label>
+            Menge
+          </label>
+
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            [(ngModel)]="productQuantity"
+          />
+
+        </div>
+
+
+        <div
+          class="form-field unit-field"
+        >
+
+          <label>
+            Einheit
+          </label>
+
+          <select
+            [(ngModel)]="productUnit"
+          >
+
+            <option
+              *ngFor="let unit of units"
+              [value]="unit"
+            >
+              {{ unit }}
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          class="add-product-button"
+          type="button"
+          [disabled]="
+            !productName.trim() ||
+            productQuantity === null ||
+            productQuantity <= 0
+          "
+          (click)="addProduct()"
+        >
+          Hinzufügen
+        </button>
+
+      </div>
+
+
+      <h3>
+        Vorschläge
+      </h3>
+
+
+      <div class="suggestions">
+
+        <button
+          type="button"
+          *ngFor="
+            let suggestion
+            of suggestions
+          "
+          (click)="
+            addProduct(suggestion)
+          "
+        >
+
+          <span
+            class="suggestion-plus"
+          >
+            +
+          </span>
+
+          <span
+            class="suggestion-name"
+          >
+            {{ suggestion.name }}
+          </span>
+
+          <small>
+            {{ suggestion.quantity }}
+            {{ suggestion.unit }}
+          </small>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="card product-list-card"
+    >
+
+      <h2>
+        Produkte in der Liste
+        ({{ products.length }})
+      </h2>
+
+
+      <div
+        class="empty-products"
+        *ngIf="
+          products.length === 0
+        "
+      >
+
+        <span
+          class="empty-products-icon"
+        >
+          +
+        </span>
+
+        <p>
+          Noch keine Produkte.
+        </p>
+
+      </div>
+
+
+      <div
+        class="product-item"
+        *ngFor="
+          let product of products;
+          let i = index
+        "
+      >
+
+        <span class="drag">
+          ⋮⋮
+        </span>
+
+        <span class="circle"></span>
+
+
+        <div class="product-details">
+
+          <span
+            class="product-name"
+          >
+            {{ product.name }}
+          </span>
+
+          <span
+            class="product-mobile-amount"
+          >
+            {{ product.quantity }}
+            {{ product.unit }}
+          </span>
+
+        </div>
+
+
+        <span class="amount">
+          {{ product.quantity }}
+          {{ product.unit }}
+        </span>
+
+
+        <button
+          class="remove-button"
+          type="button"
+          (click)="removeProduct(i)"
+        >
+          ×
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <section class="tip-card">
+
+    <div class="tip-icon">
+      💡
+    </div>
+
+    <div class="tip-text">
+
+      <strong>
+        Tipp
+      </strong>
+
+      <p>
+        Du kannst Produkte hinzufügen,
+        entfernen oder die Mengen ändern.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <p
+    class="edit-error"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </p>
+
+</div>
+
+
+<div
+  class="edit-loading"
+  *ngIf="isLoading"
+>
+  Liste wird geladen...
+</div>

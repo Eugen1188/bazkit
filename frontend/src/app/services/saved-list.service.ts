@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface SavedListItem {
@@ -29,13 +32,17 @@ export interface CreateSavedListPayload {
 })
 export class SavedListService {
 
-  private apiUrl = 'http://178.104.47.231:8000/lists/saved-lists/';
+  private apiUrl =
+    'http://178.104.47.231:8000/lists/saved-lists/';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   createSavedList(
     payload: CreateSavedListPayload
   ): Observable<SavedList> {
+
     return this.http.post<SavedList>(
       this.apiUrl,
       payload,
@@ -46,6 +53,7 @@ export class SavedListService {
   }
 
   getSavedLists(): Observable<SavedList[]> {
+
     return this.http.get<SavedList[]>(
       this.apiUrl,
       {
@@ -54,7 +62,10 @@ export class SavedListService {
     );
   }
 
-  getSavedList(id: number): Observable<SavedList> {
+  getSavedList(
+    id: number
+  ): Observable<SavedList> {
+
     return this.http.get<SavedList>(
       `${this.apiUrl}${id}/`,
       {
@@ -63,7 +74,24 @@ export class SavedListService {
     );
   }
 
-  deleteSavedList(id: number): Observable<void> {
+  updateSavedList(
+    id: number,
+    payload: CreateSavedListPayload
+  ): Observable<SavedList> {
+
+    return this.http.put<SavedList>(
+      `${this.apiUrl}${id}/`,
+      payload,
+      {
+        headers: this.getHeaders()
+      }
+    );
+  }
+
+  deleteSavedList(
+    id: number
+  ): Observable<void> {
+
     return this.http.delete<void>(
       `${this.apiUrl}${id}/`,
       {
@@ -73,7 +101,9 @@ export class SavedListService {
   }
 
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('access_token');
+
+    const token =
+      localStorage.getItem('access_token');
 
     return new HttpHeaders({
       Authorization: `Bearer ${token}`
