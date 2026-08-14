@@ -43,6 +43,10 @@ logout(): void {
         console.log('Login successful', response);
         localStorage.setItem('access_token', response.access);
         localStorage.setItem('refresh_token', response.refresh);
+        localStorage.setItem(
+        'user',
+        JSON.stringify(response.user)
+        );
         this.router.navigate(['/main']);
       },
       error: (error) => {

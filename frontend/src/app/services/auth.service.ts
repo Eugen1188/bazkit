@@ -27,8 +27,19 @@ export class AuthService {
     return !!localStorage.getItem('access_token');
   }
 
+  getCurrentUser(): any | null {
+    const user = localStorage.getItem('user');
+
+    if (!user) {
+      return null;
+    }
+
+    return JSON.parse(user);
+  }
+
   logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+    localStorage.removeItem('user');
   }
 }

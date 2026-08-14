@@ -13,8 +13,13 @@
   </a>
 
   <div class="user-box">
-    <div class="avatar">E</div>
-    <span class="user-name">Eugen</span>
+    <div class="avatar">
+      {{ userInitial }}
+    </div>
+
+    <span class="user-name">
+      {{ userName }}
+    </span>
     <span class="chevron">⌄</span>
   </div>
 
@@ -23,7 +28,7 @@
     <a class="nav-item" routerLink="/main/shopping-list" routerLinkActive="active">
       <span class="nav-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>
+          <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" />
         </svg>
       </span>
       Einkaufsliste
@@ -32,7 +37,7 @@
     <a class="nav-item" routerLink="/main/recipe-list" routerLinkActive="active">
       <span class="nav-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18"/>
+          <path d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18" />
         </svg>
       </span>
       Rezepte
@@ -41,7 +46,7 @@
     <a class="nav-item" routerLink="/main/saved-list" routerLinkActive="active">
       <span class="nav-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M6 4h12v17l-6-4-6 4V4Z"/>
+          <path d="M6 4h12v17l-6-4-6 4V4Z" />
         </svg>
       </span>
       Gespeichert
@@ -50,8 +55,9 @@
     <a class="nav-item" routerLink="/main/settings" routerLinkActive="active">
       <span class="nav-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
-          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z"/>
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+          <path
+            d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z" />
         </svg>
       </span>
       Einstellungen
@@ -69,9 +75,9 @@
     <a class="logout">
       <span class="logout-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M10 17l5-5-5-5"/>
-          <path d="M15 12H3"/>
-          <path d="M21 4v16"/>
+          <path d="M10 17l5-5-5-5" />
+          <path d="M15 12H3" />
+          <path d="M21 4v16" />
         </svg>
       </span>
       Abmelden
