@@ -2,11 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface SavedListItem {
+  id?: number;
+  product?: number | null;
+  product_name?: string;
+  name: string;
+  quantity: number;
+  unit: string;
+}
+
 export interface SavedList {
   id: number;
   title: string;
   created_at: string;
   item_count: number;
+  items?: SavedListItem[];
+}
+
+export interface CreateSavedListPayload {
+  title: string;
+  items: SavedListItem[];
 }
 
 @Injectable({
@@ -18,15 +33,17 @@ export class SavedListService {
 
   constructor(private http: HttpClient) {}
 
-  createSavedList(title: string): Observable<SavedList> {
-  return this.http.post<SavedList>(
-    this.apiUrl,
-    { title },
-    {
-      headers: this.getHeaders()
-    }
-  );
-}
+  createSavedList(
+    payload: CreateSavedListPayload
+  ): Observable<SavedList> {
+    return this.http.post<SavedList>(
+      this.apiUrl,
+      payload,
+      {
+        headers: this.getHeaders()
+      }
+    );
+  }
 
   getSavedLists(): Observable<SavedList[]> {
     return this.http.get<SavedList[]>(
@@ -37,8 +54,17 @@ export class SavedListService {
     );
   }
 
-  deleteSavedList(id: number): Observable<any> {
-    return this.http.delete(
+  getSavedList(id: number): Observable<SavedList> {
+    return this.http.get<SavedList>(
+      `${this.apiUrl}${id}/`,
+      {
+        headers: this.getHeaders()
+      }
+    );
+  }
+
+  deleteSavedList(id: number): Observable<void> {
+    return this.http.delete<void>(
       `${this.apiUrl}${id}/`,
       {
         headers: this.getHeaders()

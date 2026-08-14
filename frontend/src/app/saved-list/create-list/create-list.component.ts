@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { SavedListService } from '../../services/saved-list.service';
+import {
+  CreateSavedListPayload,
+  SavedListService
+} from '../../services/saved-list.service';
 
 interface Product {
   name: string;
@@ -54,46 +57,14 @@ export class CreateListComponent {
   ];
 
   suggestions: ProductSuggestion[] = [
-    {
-      name: 'Milch',
-      quantity: 1,
-      unit: 'Liter'
-    },
-    {
-      name: 'Eier',
-      quantity: 10,
-      unit: 'Stück'
-    },
-    {
-      name: 'Brot',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Tomaten',
-      quantity: 500,
-      unit: 'g'
-    },
-    {
-      name: 'Gurken',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Äpfel',
-      quantity: 6,
-      unit: 'Stück'
-    },
-    {
-      name: 'Käse',
-      quantity: 200,
-      unit: 'g'
-    },
-    {
-      name: 'Hähnchen',
-      quantity: 500,
-      unit: 'g'
-    }
+    { name: 'Milch', quantity: 1, unit: 'Liter' },
+    { name: 'Eier', quantity: 10, unit: 'Stück' },
+    { name: 'Brot', quantity: 1, unit: 'Stück' },
+    { name: 'Tomaten', quantity: 500, unit: 'g' },
+    { name: 'Gurken', quantity: 1, unit: 'Stück' },
+    { name: 'Äpfel', quantity: 6, unit: 'Stück' },
+    { name: 'Käse', quantity: 200, unit: 'g' },
+    { name: 'Hähnchen', quantity: 500, unit: 'g' }
   ];
 
   constructor(
@@ -101,7 +72,10 @@ export class CreateListComponent {
     private savedListService: SavedListService
   ) {}
 
-  addProduct(suggestion?: ProductSuggestion): void {
+  addProduct(
+    suggestion?: ProductSuggestion
+  ): void {
+
     const name =
       suggestion?.name ??
       this.productName.trim();
@@ -137,6 +111,7 @@ export class CreateListComponent {
   }
 
   createList(): void {
+
     const trimmedListName =
       this.listName.trim();
 
@@ -146,13 +121,25 @@ export class CreateListComponent {
       return;
     }
 
+    const payload: CreateSavedListPayload = {
+      title: trimmedListName,
+
+      items: this.products.map(product => ({
+        name: product.name,
+        quantity: product.quantity,
+        unit: product.unit
+      }))
+    };
+
     this.isSaving = true;
     this.errorMessage = '';
 
     this.savedListService
-      .createSavedList(trimmedListName)
+      .createSavedList(payload)
       .subscribe({
+
         next: (savedList) => {
+
           console.log(
             'Liste erfolgreich erstellt:',
             savedList
@@ -166,6 +153,7 @@ export class CreateListComponent {
         },
 
         error: (error) => {
+
           console.error(
             'Fehler beim Erstellen der Liste:',
             error

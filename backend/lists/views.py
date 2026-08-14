@@ -30,57 +30,21 @@ class SavedListListCreateAPIView(APIView):
 
     def post(self, request):
         serializer = SavedListSerializer(
-            data=request.data
+            data=request.data,
+            context={
+                "request": request
+            }
         )
 
-        serializer.is_valid(raise_exception=True)
-
-        saved_list = SavedList.objects.create(
-            user=request.user,
-            title=serializer.validated_data["title"],
+        serializer.is_valid(
+            raise_exception=True
         )
+
+        saved_list = serializer.save()
 
         return Response(
-            SavedListSerializer(saved_list).data,
+            SavedListSerializer(
+                saved_list
+            ).data,
             status=status.HTTP_201_CREATED
-        )
-
-
-class SavedListDetailAPIView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get_object(self, request, pk):
-        return SavedList.objects.filter(
-            id=pk,
-            user=request.user
-        ).prefetch_related("items").first()
-
-    def get(self, request, pk):
-        saved_list = self.get_object(request, pk)
-
-        if not saved_list:
-            return Response(
-                {"detail": "Liste nicht gefunden."},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        serializer = SavedListDetailSerializer(
-            saved_list
-        )
-
-        return Response(serializer.data)
-
-    def delete(self, request, pk):
-        saved_list = self.get_object(request, pk)
-
-        if not saved_list:
-            return Response(
-                {"detail": "Liste nicht gefunden."},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        saved_list.delete()
-
-        return Response(
-            status=status.HTTP_204_NO_CONTENT
         )
