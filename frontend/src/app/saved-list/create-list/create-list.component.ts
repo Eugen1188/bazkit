@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { SavedListService } from '../../services/saved-list.service';
 
 interface Product {
   name: string;
@@ -18,11 +19,16 @@ interface ProductSuggestion {
 @Component({
   selector: 'app-create-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink
+  ],
   templateUrl: './create-list.component.html',
   styleUrl: './create-list.component.scss'
 })
 export class CreateListComponent {
+
   listName = '';
 
   productName = '';
@@ -30,6 +36,9 @@ export class CreateListComponent {
   productUnit = 'Stück';
 
   products: Product[] = [];
+
+  isSaving = false;
+  errorMessage = '';
 
   units = [
     'Stück',
@@ -45,24 +54,72 @@ export class CreateListComponent {
   ];
 
   suggestions: ProductSuggestion[] = [
-    { name: 'Milch', quantity: 1, unit: 'Liter' },
-    { name: 'Eier', quantity: 10, unit: 'Stück' },
-    { name: 'Brot', quantity: 1, unit: 'Stück' },
-    { name: 'Tomaten', quantity: 500, unit: 'g' },
-    { name: 'Gurken', quantity: 1, unit: 'Stück' },
-    { name: 'Äpfel', quantity: 6, unit: 'Stück' },
-    { name: 'Käse', quantity: 200, unit: 'g' },
-    { name: 'Hähnchen', quantity: 500, unit: 'g' }
+    {
+      name: 'Milch',
+      quantity: 1,
+      unit: 'Liter'
+    },
+    {
+      name: 'Eier',
+      quantity: 10,
+      unit: 'Stück'
+    },
+    {
+      name: 'Brot',
+      quantity: 1,
+      unit: 'Stück'
+    },
+    {
+      name: 'Tomaten',
+      quantity: 500,
+      unit: 'g'
+    },
+    {
+      name: 'Gurken',
+      quantity: 1,
+      unit: 'Stück'
+    },
+    {
+      name: 'Äpfel',
+      quantity: 6,
+      unit: 'Stück'
+    },
+    {
+      name: 'Käse',
+      quantity: 200,
+      unit: 'g'
+    },
+    {
+      name: 'Hähnchen',
+      quantity: 500,
+      unit: 'g'
+    }
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private savedListService: SavedListService
+  ) {}
 
   addProduct(suggestion?: ProductSuggestion): void {
-    const name = suggestion?.name ?? this.productName.trim();
-    const quantity = suggestion?.quantity ?? this.productQuantity;
-    const unit = suggestion?.unit ?? this.productUnit;
+    const name =
+      suggestion?.name ??
+      this.productName.trim();
 
-    if (!name || quantity === null || quantity <= 0 || !unit) {
+    const quantity =
+      suggestion?.quantity ??
+      this.productQuantity;
+
+    const unit =
+      suggestion?.unit ??
+      this.productUnit;
+
+    if (
+      !name ||
+      quantity === null ||
+      quantity <= 0 ||
+      !unit
+    ) {
       return;
     }
 
@@ -80,24 +137,64 @@ export class CreateListComponent {
   }
 
   createList(): void {
-    const trimmedListName = this.listName.trim();
+    const trimmedListName =
+      this.listName.trim();
 
     if (!trimmedListName) {
+      this.errorMessage =
+        'Bitte geben Sie einen Listennamen ein.';
       return;
     }
 
-    const newList = {
-      name: trimmedListName,
-      products: this.products
-    };
+    this.isSaving = true;
+    this.errorMessage = '';
 
-    console.log('Neue gespeicherte Liste:', newList);
+    this.savedListService
+      .createSavedList(trimmedListName)
+      .subscribe({
+        next: (savedList) => {
+          console.log(
+            'Liste erfolgreich erstellt:',
+            savedList
+          );
 
-    // Später:
-    // this.savedListService.createList(newList).subscribe(...)
+          this.isSaving = false;
 
-    const fakeId = 1;
-    this.router.navigate(['/main/saved-list', fakeId]);
+          this.router.navigate([
+            '/main/saved-list'
+          ]);
+        },
+
+        error: (error) => {
+          console.error(
+            'Fehler beim Erstellen der Liste:',
+            error
+          );
+
+          this.isSaving = false;
+
+          if (error.status === 401) {
+            this.errorMessage =
+              'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.';
+            return;
+          }
+
+          if (error.error?.title) {
+            this.errorMessage =
+              error.error.title[0];
+            return;
+          }
+
+          this.errorMessage =
+            'Die Liste konnte nicht erstellt werden.';
+        }
+      });
+  }
+
+  cancel(): void {
+    this.router.navigate([
+      '/main/saved-list'
+    ]);
   }
 
   private resetProductForm(): void {

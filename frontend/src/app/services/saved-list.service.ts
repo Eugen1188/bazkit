@@ -18,6 +18,16 @@ export class SavedListService {
 
   constructor(private http: HttpClient) {}
 
+  createSavedList(title: string): Observable<SavedList> {
+  return this.http.post<SavedList>(
+    this.apiUrl,
+    { title },
+    {
+      headers: this.getHeaders()
+    }
+  );
+}
+
   getSavedLists(): Observable<SavedList[]> {
     return this.http.get<SavedList[]>(
       this.apiUrl,
