@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -27,20 +29,15 @@ import {
 
 interface ShoppingListItem {
   name: string;
-
   quantity: number;
-
   unit: string;
-
   note?: string;
-
   isChecked: boolean;
 }
 
 
 @Component({
-  selector:
-    'app-shopping-list',
+  selector: 'app-shopping-list',
 
   standalone: true,
 
@@ -59,31 +56,130 @@ interface ShoppingListItem {
   styleUrl:
     './shopping-list.component.scss'
 })
-export class ShoppingListComponent {
+export class ShoppingListComponent
+implements OnInit {
 
-  items:
-    ShoppingListItem[] = [];
-
-
-  isAddOptionsOpen =
-    false;
-
-  isAddProductOpen =
-    false;
-
-  isAddSavedListOpen =
-    false;
-
-  isAddRecipeOpen =
-    false;
+  /*
+   * Unter diesem Namen speichern
+   * wir die Einkaufsliste im Browser.
+   */
+  private readonly storageKey =
+    'bazkit_shopping_list';
 
 
-  openAddOptions(): void {
-    this.isAddOptionsOpen =
-      true;
+  items: ShoppingListItem[] = [];
+
+
+  isAddOptionsOpen = false;
+
+  isAddProductOpen = false;
+
+  isAddSavedListOpen = false;
+
+  isAddRecipeOpen = false;
+
+
+  /*
+   * Beim Öffnen der Seite werden
+   * vorhandene Produkte geladen.
+   */
+  ngOnInit(): void {
+    this.loadShoppingList();
   }
 
 
+  /*
+   * Einkaufsliste aus LocalStorage laden
+   */
+  private loadShoppingList(): void {
+
+    const savedItems =
+      localStorage.getItem(
+        this.storageKey
+      );
+
+    if (!savedItems) {
+      this.items = [];
+      return;
+    }
+
+    try {
+
+      const parsedItems =
+        JSON.parse(savedItems);
+
+      if (
+        Array.isArray(parsedItems)
+      ) {
+
+        this.items =
+          parsedItems.map(
+            item => ({
+              name:
+                item.name ?? '',
+
+              quantity:
+                Number(
+                  item.quantity
+                ) || 0,
+
+              unit:
+                item.unit ?? '',
+
+              note:
+                item.note ?? '',
+
+              isChecked:
+                Boolean(
+                  item.isChecked
+                )
+            })
+          );
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        'Einkaufsliste konnte nicht aus LocalStorage geladen werden:',
+        error
+      );
+
+      this.items = [];
+
+    }
+  }
+
+
+  /*
+   * Einkaufsliste speichern
+   */
+  private saveShoppingList(): void {
+
+    localStorage.setItem(
+      this.storageKey,
+      JSON.stringify(
+        this.items
+      )
+    );
+
+  }
+
+
+  /*
+   * Haupt-Auswahl öffnen
+   */
+  openAddOptions(): void {
+
+    this.isAddOptionsOpen =
+      true;
+
+  }
+
+
+  /*
+   * Alle Modals schließen
+   */
   closeAllModals(): void {
 
     this.isAddOptionsOpen =
@@ -97,36 +193,53 @@ export class ShoppingListComponent {
 
     this.isAddRecipeOpen =
       false;
+
   }
 
 
+  /*
+   * Einzelnes Produkt hinzufügen
+   */
   openProductModal(): void {
 
     this.closeAllModals();
 
     this.isAddProductOpen =
       true;
+
   }
 
 
+  /*
+   * Gespeicherte Liste auswählen
+   */
   openSavedListModal(): void {
 
     this.closeAllModals();
 
     this.isAddSavedListOpen =
       true;
+
   }
 
 
+  /*
+   * Rezept auswählen
+   */
   openRecipeModal(): void {
 
     this.closeAllModals();
 
     this.isAddRecipeOpen =
       true;
+
   }
 
 
+  /*
+   * Produkte einer gespeicherten
+   * Liste übernehmen
+   */
   addSavedListToShoppingList(
     list: SavedList
   ): void {
@@ -154,11 +267,14 @@ export class ShoppingListComponent {
 
             isChecked:
               false
+
           })
         )
         .filter(
           item =>
-            item.name.trim().length > 0
+            item.name
+              .trim()
+              .length > 0
         );
 
 
@@ -167,19 +283,41 @@ export class ShoppingListComponent {
     );
 
 
+    /*
+     * WICHTIG:
+     * Nach dem Hinzufügen speichern
+     */
+    this.saveShoppingList();
+
+
     this.closeAllModals();
+
   }
 
 
+  /*
+   * Produkt abhaken /
+   * wieder öffnen
+   */
   toggleItem(
     item: ShoppingListItem
   ): void {
 
     item.isChecked =
       !item.isChecked;
+
+
+    /*
+     * Status speichern
+     */
+    this.saveShoppingList();
+
   }
 
 
+  /*
+   * Produkt entfernen
+   */
   removeItem(
     index: number
   ): void {
@@ -188,19 +326,35 @@ export class ShoppingListComponent {
       index,
       1
     );
+
+
+    /*
+     * Neue Liste speichern
+     */
+    this.saveShoppingList();
+
   }
 
 
+  /*
+   * Anzahl erledigter Produkte
+   */
   get completedCount():
     number {
 
-    return this.items.filter(
-      item =>
-        item.isChecked
-    ).length;
+    return this.items
+      .filter(
+        item =>
+          item.isChecked
+      )
+      .length;
+
   }
 
 
+  /*
+   * Fortschritt in Prozent
+   */
   get progress():
     number {
 
@@ -216,5 +370,24 @@ export class ShoppingListComponent {
         this.items.length
       ) * 100
     );
+
+  }
+
+
+  /*
+   * Optional:
+   * komplette Einkaufsliste löschen
+   *
+   * Können wir später mit einem
+   * "Liste leeren"-Button benutzen.
+   */
+  clearShoppingList(): void {
+
+    this.items = [];
+
+    localStorage.removeItem(
+      this.storageKey
+    );
+
   }
 }

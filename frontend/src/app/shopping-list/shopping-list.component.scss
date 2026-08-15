@@ -1,11 +1,13 @@
 :host {
   display: block;
   width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .shopping-list-container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 38px 46px 60px;
 
   background: var(--color-surface);
