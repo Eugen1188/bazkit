@@ -16,12 +16,19 @@ class SavedListItemSerializer(serializers.ModelSerializer):
             "product_name",
             "name",
             "quantity",
-            "unit"
+            "unit",
+            "note"
         ]
 
     def validate(self, attrs):
         product = attrs.get("product")
-        name = attrs.get("name", "").strip()
+
+        # Bei einem Update kann name eventuell nicht erneut
+        # im Request enthalten sein.
+        name = attrs.get(
+            "name",
+            getattr(self.instance, "name", "")
+        ).strip()
 
         if not product and not name:
             raise serializers.ValidationError(
@@ -101,6 +108,7 @@ class SavedListSerializer(serializers.ModelSerializer):
             )
 
         return instance
+
 
 class SavedListDetailSerializer(serializers.ModelSerializer):
     items = SavedListItemSerializer(
