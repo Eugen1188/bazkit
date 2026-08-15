@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 
 export interface SavedListItem {
   id?: number;
@@ -15,6 +13,7 @@ export interface SavedListItem {
   note?: string;
 }
 
+
 export interface SavedList {
   id: number;
   title: string;
@@ -23,10 +22,12 @@ export interface SavedList {
   items?: SavedListItem[];
 }
 
+
 export interface CreateSavedListPayload {
   title: string;
   items: SavedListItem[];
 }
+
 
 @Injectable({
   providedIn: 'root',
@@ -36,9 +37,11 @@ export class SavedListService {
   private apiUrl =
     'http://178.104.47.231:8000/lists/saved-lists/';
 
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
+
 
   createSavedList(
     payload: CreateSavedListPayload
@@ -46,34 +49,32 @@ export class SavedListService {
 
     return this.http.post<SavedList>(
       this.apiUrl,
-      payload,
-      {
-        headers: this.getHeaders()
-      }
+      payload
     );
+
   }
 
-  getSavedLists(): Observable<SavedList[]> {
+
+  getSavedLists():
+    Observable<SavedList[]> {
 
     return this.http.get<SavedList[]>(
-      this.apiUrl,
-      {
-        headers: this.getHeaders()
-      }
+      this.apiUrl
     );
+
   }
+
 
   getSavedList(
     id: number
   ): Observable<SavedList> {
 
     return this.http.get<SavedList>(
-      `${this.apiUrl}${id}/`,
-      {
-        headers: this.getHeaders()
-      }
+      `${this.apiUrl}${id}/`
     );
+
   }
+
 
   updateSavedList(
     id: number,
@@ -82,34 +83,22 @@ export class SavedListService {
 
     return this.http.put<SavedList>(
       `${this.apiUrl}${id}/`,
-      payload,
-      {
-        headers: this.getHeaders()
-      }
+      payload
     );
+
   }
+
 
   deleteSavedList(
     id: number
   ): Observable<void> {
 
     return this.http.delete<void>(
-      `${this.apiUrl}${id}/`,
-      {
-        headers: this.getHeaders()
-      }
+      `${this.apiUrl}${id}/`
     );
+
   }
 
-  private getHeaders(): HttpHeaders {
-
-    const token =
-      localStorage.getItem('access_token');
-
-    return new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-  }
 
   updateSavedListItem(
     listId: number,
@@ -124,12 +113,11 @@ export class SavedListService {
         quantity: item.quantity,
         unit: item.unit,
         note: item.note ?? ''
-      },
-      {
-        headers: this.getHeaders()
       }
     );
+
   }
+
 
   deleteSavedListItem(
     listId: number,
@@ -137,10 +125,9 @@ export class SavedListService {
   ): Observable<void> {
 
     return this.http.delete<void>(
-      `${this.apiUrl}${listId}/items/${itemId}/`,
-      {
-        headers: this.getHeaders()
-      }
+      `${this.apiUrl}${listId}/items/${itemId}/`
     );
+
   }
+
 }

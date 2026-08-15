@@ -9,26 +9,51 @@ export class AuthService {
 
   private apiUrl = 'http://178.104.47.231:8000';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   register(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/register/`, data);
+    return this.http.post(
+      `${this.apiUrl}/users/register/`,
+      data
+    );
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/login/`, data);
+    return this.http.post(
+      `${this.apiUrl}/users/login/`,
+      data
+    );
   }
 
   getMe(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/users/me/`);
+    return this.http.get(
+      `${this.apiUrl}/users/me/`
+    );
+  }
+
+  refreshToken(): Observable<any> {
+    const refresh =
+      localStorage.getItem('refresh_token');
+
+    return this.http.post(
+      `${this.apiUrl}/api/token/refresh/`,
+      {
+        refresh
+      }
+    );
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('access_token');
+    return !!localStorage.getItem(
+      'access_token'
+    );
   }
 
   getCurrentUser(): any | null {
-    const user = localStorage.getItem('user');
+    const user =
+      localStorage.getItem('user');
 
     if (!user) {
       return null;
@@ -38,8 +63,16 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    localStorage.removeItem('user');
+    localStorage.removeItem(
+      'access_token'
+    );
+
+    localStorage.removeItem(
+      'refresh_token'
+    );
+
+    localStorage.removeItem(
+      'user'
+    );
   }
 }
