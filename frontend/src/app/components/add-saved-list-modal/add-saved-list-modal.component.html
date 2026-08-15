@@ -10,38 +10,55 @@
 
     <div class="modal-header">
 
-      <div>
+      <div class="modal-heading">
 
         <h2>
           Gespeicherte Liste übernehmen
         </h2>
 
         <p>
-          Wählen Sie eine Liste aus,
-          deren Produkte Sie zu Ihrer
-          Einkaufsliste hinzufügen möchten.
+          Wählen Sie eine Liste aus, deren Produkte
+          Sie zu Ihrer Einkaufsliste hinzufügen möchten.
         </p>
 
       </div>
 
+
       <button
         class="close-button"
         type="button"
+        aria-label="Schließen"
         (click)="closeModal()"
       >
-        ×
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M6 6l12 12"></path>
+          <path d="M18 6L6 18"></path>
+        </svg>
       </button>
 
     </div>
 
 
+    <!-- LOADING -->
+
     <div
       class="loading-state"
       *ngIf="isLoading"
     >
-      Listen werden geladen...
+
+      <div class="spinner"></div>
+
+      <span>
+        Gespeicherte Listen werden geladen...
+      </span>
+
     </div>
 
+
+    <!-- FEHLER -->
 
     <div
       class="error-state"
@@ -54,18 +71,34 @@
     </div>
 
 
+    <!-- KEINE LISTEN -->
+
     <div
-      class="empty-state"
+      class="empty-list-state"
       *ngIf="
         !isLoading &&
         !errorMessage &&
         savedLists.length === 0
       "
     >
-      Sie haben noch keine
-      gespeicherten Listen.
+
+      <div class="empty-icon">
+        📋
+      </div>
+
+      <strong>
+        Keine gespeicherten Listen
+      </strong>
+
+      <span>
+        Erstellen Sie zuerst eine Liste unter
+        „Gespeichert“.
+      </span>
+
     </div>
 
+
+    <!-- ECHTE LISTEN -->
 
     <div
       class="saved-list-options"
@@ -84,30 +117,55 @@
       >
 
         <div class="list-icon">
-          📋
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M7 4h10"></path>
+            <path d="M7 8h10"></path>
+            <path d="M7 12h7"></path>
+            <path d="M5 3h14v18H5z"></path>
+          </svg>
+
         </div>
+
 
         <div class="list-info">
 
-          <strong>
-            {{ list.title }}
-          </strong>
+          <div class="list-title-row">
 
-          <span>
-            {{ list.item_count || 0 }}
+            <strong>
+              {{ list.title }}
+            </strong>
 
-            {{
-              (list.item_count || 0) === 1
-                ? 'Produkt'
-                : 'Produkte'
-            }}
+            <span class="product-count">
+              {{ list.item_count || 0 }}
+
+              {{
+                (list.item_count || 0) === 1
+                  ? 'Produkt'
+                  : 'Produkte'
+              }}
+            </span>
+
+          </div>
+
+
+          <span class="product-preview">
+            {{ getProductPreview(list) }}
           </span>
 
         </div>
 
-        <span class="arrow">
-          ›
-        </span>
+
+        <svg
+          class="arrow"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M9 6l6 6-6 6"></path>
+        </svg>
 
       </button>
 

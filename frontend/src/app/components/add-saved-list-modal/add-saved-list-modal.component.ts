@@ -16,11 +16,14 @@ import {
 @Component({
   selector: 'app-add-saved-list-modal',
   standalone: true,
+
   imports: [
     CommonModule
   ],
+
   templateUrl:
     './add-saved-list-modal.component.html',
+
   styleUrl:
     './add-saved-list-modal.component.scss'
 })
@@ -40,6 +43,8 @@ implements OnInit {
   isLoading = true;
 
   errorMessage = '';
+
+  selectedListId: number | null = null;
 
 
   constructor(
@@ -90,25 +95,62 @@ implements OnInit {
     list: SavedList
   ): void {
 
-    this.savedListService
-      .getSavedList(list.id)
-      .subscribe({
+    /*
+     * WICHTIG:
+     *
+     * Wir laden die Liste NICHT noch einmal
+     * mit getSavedList().
+     *
+     * getSavedLists() liefert über deinen
+     * Django SavedListSerializer bereits:
+     *
+     * id
+     * title
+     * item_count
+     * items
+     *
+     * Dadurch brauchen wir keinen zweiten
+     * API Request.
+     */
 
-        next: (fullList) => {
+    this.selectedListId =
+      list.id;
 
-          this.selectList.emit(
-            fullList
-          );
-        },
+    this.selectList.emit(
+      list
+    );
+  }
 
-        error: (error) => {
 
-          console.error(
-            'Liste konnte nicht geladen werden:',
-            error
-          );
-        }
-      });
+  getProductPreview(
+    list: SavedList
+  ): string {
+
+    const items =
+      list.items ?? [];
+
+    if (items.length === 0) {
+      return 'Keine Produkte';
+    }
+
+    const names =
+      items
+        .slice(0, 3)
+        .map(
+          item =>
+            item.name ||
+            item.product_name
+        )
+        .filter(Boolean);
+
+    const preview =
+      names.join(', ');
+
+    if (items.length > 3) {
+      return `${preview}, ...`;
+    }
+
+    return preview;
   }
 
 

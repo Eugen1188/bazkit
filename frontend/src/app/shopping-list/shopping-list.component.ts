@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -22,16 +24,23 @@ import {
   AddRecipeIngredientsModalComponent
 } from '../components/add-recipe-ingredients-modal/add-recipe-ingredients-modal.component';
 
+
 interface ShoppingListItem {
   name: string;
+
   quantity: number;
+
   unit: string;
+
   note?: string;
+
   isChecked: boolean;
 }
 
+
 @Component({
-  selector: 'app-shopping-list',
+  selector:
+    'app-shopping-list',
 
   standalone: true,
 
@@ -44,89 +53,168 @@ interface ShoppingListItem {
     AddRecipeIngredientsModalComponent
   ],
 
-  templateUrl: './shopping-list.component.html',
+  templateUrl:
+    './shopping-list.component.html',
 
-  styleUrl: './shopping-list.component.scss'
+  styleUrl:
+    './shopping-list.component.scss'
 })
 export class ShoppingListComponent {
 
-  items: ShoppingListItem[] = [];
+  items:
+    ShoppingListItem[] = [];
 
-  isAddOptionsOpen = false;
 
-  isAddProductOpen = false;
+  isAddOptionsOpen =
+    false;
 
-  isAddSavedListOpen = false;
+  isAddProductOpen =
+    false;
 
-  isAddRecipeOpen = false;
+  isAddSavedListOpen =
+    false;
+
+  isAddRecipeOpen =
+    false;
+
 
   openAddOptions(): void {
-    this.isAddOptionsOpen = true;
+    this.isAddOptionsOpen =
+      true;
   }
+
 
   closeAllModals(): void {
 
-    this.isAddOptionsOpen = false;
+    this.isAddOptionsOpen =
+      false;
 
-    this.isAddProductOpen = false;
+    this.isAddProductOpen =
+      false;
 
-    this.isAddSavedListOpen = false;
+    this.isAddSavedListOpen =
+      false;
 
-    this.isAddRecipeOpen = false;
+    this.isAddRecipeOpen =
+      false;
   }
+
 
   openProductModal(): void {
 
     this.closeAllModals();
 
-    this.isAddProductOpen = true;
+    this.isAddProductOpen =
+      true;
   }
+
 
   openSavedListModal(): void {
 
     this.closeAllModals();
 
-    this.isAddSavedListOpen = true;
+    this.isAddSavedListOpen =
+      true;
   }
+
 
   openRecipeModal(): void {
 
     this.closeAllModals();
 
-    this.isAddRecipeOpen = true;
+    this.isAddRecipeOpen =
+      true;
   }
+
 
   addSavedListToShoppingList(
     list: SavedList
   ): void {
 
     const newItems =
-      (list.items ?? []).map(
-        item => ({
+      (list.items ?? [])
+        .map(
+          item => ({
 
-          name:
-            item.name ||
-            item.product_name ||
-            '',
+            name:
+              item.name ||
+              item.product_name ||
+              '',
 
-          quantity:
-            Number(item.quantity),
+            quantity:
+              Number(
+                item.quantity
+              ),
 
-          unit:
-            item.unit,
+            unit:
+              item.unit,
 
-          note:
-            item.note ?? '',
+            note:
+              item.note ?? '',
 
-          isChecked:
-            false
-        })
-      );
+            isChecked:
+              false
+          })
+        )
+        .filter(
+          item =>
+            item.name.trim().length > 0
+        );
+
 
     this.items.push(
       ...newItems
     );
 
+
     this.closeAllModals();
+  }
+
+
+  toggleItem(
+    item: ShoppingListItem
+  ): void {
+
+    item.isChecked =
+      !item.isChecked;
+  }
+
+
+  removeItem(
+    index: number
+  ): void {
+
+    this.items.splice(
+      index,
+      1
+    );
+  }
+
+
+  get completedCount():
+    number {
+
+    return this.items.filter(
+      item =>
+        item.isChecked
+    ).length;
+  }
+
+
+  get progress():
+    number {
+
+    if (
+      this.items.length === 0
+    ) {
+      return 0;
+    }
+
+    return Math.round(
+      (
+        this.completedCount /
+        this.items.length
+      ) * 100
+    );
   }
 }
