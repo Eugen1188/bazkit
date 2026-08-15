@@ -1,24 +1,126 @@
-<div class="modal-backdrop" (click)="close.emit()">
+<div
+  class="modal-backdrop"
+  (click)="closeModal()"
+>
 
-  <div class="modal" (click)="$event.stopPropagation()">
+  <div
+    class="modal"
+    (click)="$event.stopPropagation()"
+  >
 
     <div class="modal-header">
-      <h2>Gespeicherte Liste übernehmen</h2>
-      <button class="close-button" (click)="close.emit()">×</button>
+
+      <div>
+
+        <h2>
+          Gespeicherte Liste übernehmen
+        </h2>
+
+        <p>
+          Wählen Sie eine Liste aus,
+          deren Produkte Sie zu Ihrer
+          Einkaufsliste hinzufügen möchten.
+        </p>
+
+      </div>
+
+      <button
+        class="close-button"
+        type="button"
+        (click)="closeModal()"
+      >
+        ×
+      </button>
+
     </div>
 
-    <p class="modal-description">
-      Wählen Sie eine Liste aus, deren Produkte Sie zu Ihrer Einkaufsliste hinzufügen möchten.
-    </p>
 
-    <button class="list-option" *ngFor="let list of savedLists">
-      <div class="list-icon">📋</div>
-      <strong>{{ list.name }}</strong>
-      <span>{{ list.count }} Produkte</span>
-      <b>›</b>
+    <div
+      class="loading-state"
+      *ngIf="isLoading"
+    >
+      Listen werden geladen...
+    </div>
+
+
+    <div
+      class="error-state"
+      *ngIf="
+        !isLoading &&
+        errorMessage
+      "
+    >
+      {{ errorMessage }}
+    </div>
+
+
+    <div
+      class="empty-state"
+      *ngIf="
+        !isLoading &&
+        !errorMessage &&
+        savedLists.length === 0
+      "
+    >
+      Sie haben noch keine
+      gespeicherten Listen.
+    </div>
+
+
+    <div
+      class="saved-list-options"
+      *ngIf="
+        !isLoading &&
+        !errorMessage &&
+        savedLists.length > 0
+      "
+    >
+
+      <button
+        class="saved-list-option"
+        type="button"
+        *ngFor="let list of savedLists"
+        (click)="chooseList(list)"
+      >
+
+        <div class="list-icon">
+          📋
+        </div>
+
+        <div class="list-info">
+
+          <strong>
+            {{ list.title }}
+          </strong>
+
+          <span>
+            {{ list.item_count || 0 }}
+
+            {{
+              (list.item_count || 0) === 1
+                ? 'Produkt'
+                : 'Produkte'
+            }}
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <button
+      class="cancel-button"
+      type="button"
+      (click)="closeModal()"
+    >
+      Abbrechen
     </button>
-
-    <button class="cancel-button" (click)="close.emit()">Abbrechen</button>
 
   </div>
 
