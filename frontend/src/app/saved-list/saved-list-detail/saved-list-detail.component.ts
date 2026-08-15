@@ -50,7 +50,7 @@ export class SavedListDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private savedListService: SavedListService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = Number(
@@ -134,7 +134,8 @@ export class SavedListDetailComponent implements OnInit {
     if (
       !this.savedList ||
       this.editingIndex === null ||
-      !this.editItem
+      !this.editItem ||
+      !this.editItem.id
     ) {
       return;
     }
@@ -147,37 +148,34 @@ export class SavedListDetailComponent implements OnInit {
       return;
     }
 
-    const items = [
-      ...(this.savedList.items ?? [])
-    ];
-
-    items[this.editingIndex] = {
-      ...this.editItem
-    };
-
-    const payload: CreateSavedListPayload = {
-      title: this.savedList.title,
-      items
-    };
-
     this.isSaving = true;
 
     this.savedListService
-      .updateSavedList(
+      .updateSavedListItem(
         this.savedList.id,
-        payload
+        this.editItem.id,
+        this.editItem
       )
       .subscribe({
-        next: (updatedList) => {
-          this.savedList = updatedList;
+
+        next: (updatedItem) => {
+
+          if (
+            this.savedList?.items &&
+            this.editingIndex !== null
+          ) {
+            this.savedList.items[
+              this.editingIndex
+            ] = updatedItem;
+          }
 
           this.editingIndex = null;
           this.editItem = null;
-
           this.isSaving = false;
         },
 
         error: (error) => {
+
           console.error(
             'Produkt konnte nicht gespeichert werden:',
             error
@@ -190,14 +188,13 @@ export class SavedListDetailComponent implements OnInit {
 
   deleteItem(index: number): void {
 
-    if (!this.savedList) {
+    if (!this.savedList?.items) {
       return;
     }
 
-    const item =
-      this.savedList.items?.[index];
+    const item = this.savedList.items[index];
 
-    if (!item) {
+    if (!item?.id) {
       return;
     }
 
@@ -209,26 +206,23 @@ export class SavedListDetailComponent implements OnInit {
       return;
     }
 
-    const items =
-      (this.savedList.items ?? [])
-        .filter((_, i) => i !== index);
-
-    const payload: CreateSavedListPayload = {
-      title: this.savedList.title,
-      items
-    };
-
     this.savedListService
-      .updateSavedList(
+      .deleteSavedListItem(
         this.savedList.id,
-        payload
+        item.id
       )
       .subscribe({
-        next: (updatedList) => {
-          this.savedList = updatedList;
+
+        next: () => {
+
+          this.savedList!.items =
+            this.savedList!.items!.filter(
+              (_, i) => i !== index
+            );
         },
 
         error: (error) => {
+
           console.error(
             'Produkt konnte nicht gelöscht werden:',
             error

@@ -38,7 +38,7 @@ export class SavedListService {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
   createSavedList(
     payload: CreateSavedListPayload
@@ -109,5 +109,38 @@ export class SavedListService {
     return new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
+  }
+
+  updateSavedListItem(
+    listId: number,
+    itemId: number,
+    item: SavedListItem
+  ): Observable<SavedListItem> {
+
+    return this.http.put<SavedListItem>(
+      `${this.apiUrl}${listId}/items/${itemId}/`,
+      {
+        name: item.name,
+        quantity: item.quantity,
+        unit: item.unit,
+        note: item.note ?? ''
+      },
+      {
+        headers: this.getHeaders()
+      }
+    );
+  }
+
+  deleteSavedListItem(
+    listId: number,
+    itemId: number
+  ): Observable<void> {
+
+    return this.http.delete<void>(
+      `${this.apiUrl}${listId}/items/${itemId}/`,
+      {
+        headers: this.getHeaders()
+      }
+    );
   }
 }

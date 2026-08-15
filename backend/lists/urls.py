@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import (
     SavedListListCreateAPIView,
-    SavedListDetailAPIView
+    SavedListDetailAPIView,
+    SavedListItemSerializer
 )
 
 urlpatterns = [
@@ -16,5 +17,10 @@ urlpatterns = [
         "saved-lists/<int:pk>/",
         SavedListDetailAPIView.as_view(),
         name="saved-list-detail"
+    ),
+    path(
+    "saved-lists/<int:list_id>/items/<int:item_id>/",
+    SavedListItemDetailAPIView.as_view(),
+    name="saved-list-item-detail"
     ),
 ]
