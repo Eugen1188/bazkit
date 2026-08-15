@@ -1,176 +1,321 @@
-from rest_framework import serializers
-from .models import SavedList, SavedListItem
+import { CommonModule } from '@angular/common';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 
-class SavedListItemSerializer(serializers.ModelSerializer):
-    product_name = serializers.CharField(
-        source="product.name",
-        read_only=True
-    )
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink
+} from '@angular/router';
 
-    class Meta:
-        model = SavedListItem
-        fields = [
-            "id",
-            "product",
-            "product_name",
-            "name",
-            "quantity",
-            "unit",
-            "note"
-        ]
+import {
+  CreateSavedListPayload,
+  SavedListService
+} from '../../services/saved-list.service';
 
-    def validate(self, attrs):
-        product = attrs.get("product")
+interface Product {
+  id?: number;
+  name: string;
+  quantity: number;
+  unit: string;
+  note?: string;
+}
 
-        # Bei einem Update kann name eventuell nicht erneut
-        # im Request enthalten sein.
-        name = attrs.get(
-            "name",
-            getattr(self.instance, "name", "")
-        ).strip()
+interface ProductSuggestion {
+  name: string;
+  quantity: number;
+  unit: string;
+}
 
-        if not product and not name:
-            raise serializers.ValidationError(
-                "Either product or name must be provided."
-            )
+@Component({
+  selector: 'app-saved-list-edit',
+  standalone: true,
 
-        return attrs
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink
+  ],
 
+  templateUrl:
+    './saved-list-edit.component.html',
 
-class SavedListSerializer(serializers.ModelSerializer):
-    item_count = serializers.SerializerMethodField()
+  styleUrls: [
+    '../create-list/create-list.component.scss',
+    './saved-list-edit.component.scss'
+  ]
+})
 
-    items = SavedListItemSerializer(
-        many=True,
-        required=False
-    )
+export class SavedListEditComponent
+  implements OnInit {
 
-    class Meta:
-        model = SavedList
-        fields = [
-            "id",
-            "title",
-            "created_at",
-            "item_count",
-            "items"
-        ]
+  listId: number | null = null;
 
-        read_only_fields = [
-            "id",
-            "created_at",
-            "item_count"
-        ]
+  listName = '';
 
-    def get_item_count(self, obj):
-        return obj.items.count()
+  productName = '';
 
-    def create(self, validated_data):
-        items_data = validated_data.pop(
-            "items",
-            []
-        )
+  productQuantity: number | null = 1;
 
-        request = self.context["request"]
+  productUnit = 'Stück';
 
-        saved_list = SavedList.objects.create(
-            user=request.user,
-            **validated_data
-        )
+  products: Product[] = [];
 
-        for item_data in items_data:
-            SavedListItem.objects.create(
-                saved_list=saved_list,
-                **item_data
-            )
+  isLoading = true;
 
-        return saved_list
+  isSaving = false;
 
-    def update(self, instance, validated_data):
-    items_data = validated_data.pop("items", None)
+  errorMessage = '';
 
-    instance.title = validated_data.get(
-        "title",
-        instance.title
-    )
-    instance.save()
+  units = [
+    'Stück',
+    'g',
+    'kg',
+    'ml',
+    'Liter',
+    'Packung',
+    'Dose',
+    'Glas',
+    'Becher',
+    'Bund'
+  ];
 
-    if items_data is None:
-        return instance
+  suggestions: ProductSuggestion[] = [
+    {
+      name: 'Milch',
+      quantity: 1,
+      unit: 'Liter'
+    },
+    {
+      name: 'Eier',
+      quantity: 10,
+      unit: 'Stück'
+    },
+    {
+      name: 'Brot',
+      quantity: 1,
+      unit: 'Stück'
+    },
+    {
+      name: 'Tomaten',
+      quantity: 500,
+      unit: 'g'
+    },
+    {
+      name: 'Gurken',
+      quantity: 1,
+      unit: 'Stück'
+    },
+    {
+      name: 'Äpfel',
+      quantity: 6,
+      unit: 'Stück'
+    },
+    {
+      name: 'Käse',
+      quantity: 200,
+      unit: 'g'
+    },
+    {
+      name: 'Hähnchen',
+      quantity: 500,
+      unit: 'g'
+    }
+  ];
 
-    existing_items = {
-        item.id: item
-        for item in instance.items.all()
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private savedListService: SavedListService
+  ) {}
+
+  ngOnInit(): void {
+
+    const id = Number(
+      this.route.snapshot.paramMap.get('id')
+    );
+
+    if (!id) {
+      this.errorMessage =
+        'Liste konnte nicht gefunden werden';
+
+      this.isLoading = false;
+
+      return;
     }
 
-    received_item_ids = []
+    this.listId = id;
 
-    for item_data in items_data:
-        item_id = item_data.get("id")
+    this.loadList();
+  }
 
-        if item_id and item_id in existing_items:
-            item = existing_items[item_id]
+  loadList(): void {
 
-            item.name = item_data.get(
-                "name",
-                item.name
-            )
+    if (!this.listId) {
+      return;
+    }
 
-            item.quantity = item_data.get(
-                "quantity",
-                item.quantity
-            )
+    this.savedListService
+      .getSavedList(this.listId)
+      .subscribe({
 
-            item.unit = item_data.get(
-                "unit",
-                item.unit
-            )
+        next: (list) => {
 
-            # note nur ändern, wenn es tatsächlich
-            # im Request vorhanden ist
-            if "note" in item_data:
-                item.note = item_data.get(
-                    "note",
-                    item.note
-                )
+          this.listName = list.title;
 
-            item.product = item_data.get(
-                "product",
-                item.product
-            )
+          this.products =
+            (list.items ?? []).map(
+              item => ({
+                id: item.id,
+                name:
+                  item.name ||
+                  item.product_name ||
+                  '',
+                quantity:
+                  Number(item.quantity),
+                unit:
+                  item.unit,
+                note:
+                  item.note ?? ''
+              })
+            );
 
-            item.save()
+          this.isLoading = false;
+        },
 
-            received_item_ids.append(item.id)
+        error: (error) => {
 
-        else:
-            new_item = SavedListItem.objects.create(
-                saved_list=instance,
-                **item_data
-            )
+          console.error(error);
 
-            received_item_ids.append(
-                new_item.id
-            )
+          this.errorMessage =
+            'Die Liste konnte nicht geladen werden';
 
-    instance.items.exclude(
-        id__in=received_item_ids
-    ).delete()
+          this.isLoading = false;
+        }
+      });
+  }
 
-    return instance
+  addProduct(
+    suggestion?: ProductSuggestion
+  ): void {
 
+    const name =
+      suggestion?.name ??
+      this.productName.trim();
 
-class SavedListDetailSerializer(serializers.ModelSerializer):
-    items = SavedListItemSerializer(
-        many=True,
-        read_only=True
-    )
+    const quantity =
+      suggestion?.quantity ??
+      this.productQuantity;
 
-    class Meta:
-        model = SavedList
-        fields = [
-            "id",
-            "title",
-            "created_at",
-            "items"
-        ]
+    const unit =
+      suggestion?.unit ??
+      this.productUnit;
+
+    if (
+      !name ||
+      quantity === null ||
+      quantity <= 0 ||
+      !unit
+    ) {
+      return;
+    }
+
+    this.products.push({
+      name,
+      quantity,
+      unit,
+      note: ''
+    });
+
+    this.resetProductForm();
+  }
+
+  removeProduct(
+    index: number
+  ): void {
+
+    this.products.splice(
+      index,
+      1
+    );
+  }
+
+  saveList(): void {
+
+    if (
+      !this.listId ||
+      !this.listName.trim()
+    ) {
+      return;
+    }
+
+    const payload:
+      CreateSavedListPayload = {
+
+      title:
+        this.listName.trim(),
+
+      items:
+        this.products.map(
+          product => ({
+            id: product.id,
+            name: product.name,
+            quantity: product.quantity,
+            unit: product.unit,
+            note: product.note ?? ''
+          })
+        )
+    };
+
+    this.isSaving = true;
+
+    this.savedListService
+      .updateSavedList(
+        this.listId,
+        payload
+      )
+      .subscribe({
+
+        next: () => {
+
+          this.isSaving = false;
+
+          this.router.navigate([
+            '/main/saved-list',
+            this.listId
+          ]);
+        },
+
+        error: (error) => {
+
+          console.error(error);
+
+          this.errorMessage =
+            'Die Änderungen konnten nicht gespeichert werden';
+
+          this.isSaving = false;
+        }
+      });
+  }
+
+  cancel(): void {
+
+    this.router.navigate([
+      '/main/saved-list',
+      this.listId
+    ]);
+  }
+
+  private resetProductForm(): void {
+
+    this.productName = '';
+
+    this.productQuantity = 1;
+
+    this.productUnit = 'Stück';
+  }
+}

@@ -8,9 +8,11 @@ import {
 } from '../../services/saved-list.service';
 
 interface Product {
+  id?: number;
   name: string;
   quantity: number;
   unit: string;
+  note?: string;
 }
 
 interface ProductSuggestion {
