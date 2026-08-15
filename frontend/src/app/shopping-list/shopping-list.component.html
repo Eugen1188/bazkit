@@ -1,6 +1,5 @@
 <div class="shopping-list-container">
 
-
   <!-- EMPTY STATE -->
 
   <div
@@ -19,10 +18,8 @@
     </h2>
 
     <p>
-      Fügen Sie Produkte direkt hinzu
-      oder übernehmen Sie Zutaten aus
-      einem Rezept oder einer
-      gespeicherten Liste.
+      Fügen Sie Produkte direkt hinzu oder übernehmen Sie Zutaten aus
+      einem Rezept oder einer gespeicherten Liste.
     </p>
 
     <button
@@ -31,7 +28,6 @@
       (click)="openAddOptions()"
     >
       <span>+</span>
-
       Zur Einkaufsliste hinzufügen
     </button>
 
@@ -47,7 +43,7 @@
 
     <header class="shopping-header">
 
-      <div>
+      <div class="shopping-heading">
 
         <h1>
           Einkaufsliste
@@ -55,7 +51,8 @@
 
         <p>
           {{ items.length }}
-          Produkte ·
+          {{ items.length === 1 ? 'Produkt' : 'Produkte' }}
+          ·
           {{ completedCount }}
           erledigt
         </p>
@@ -68,7 +65,9 @@
         type="button"
         (click)="openAddOptions()"
       >
-        <span>+</span>
+        <span class="add-button-icon">
+          +
+        </span>
 
         Produkt hinzufügen
       </button>
@@ -82,7 +81,7 @@
 
       <div class="progress-top">
 
-        <div>
+        <div class="progress-copy">
 
           <strong>
             Fortschritt
@@ -97,9 +96,9 @@
 
         </div>
 
-        <strong class="progress-percent">
+        <span class="progress-percent">
           {{ progress }}%
-        </strong>
+        </span>
 
       </div>
 
@@ -116,9 +115,55 @@
     </section>
 
 
-    <!-- PRODUKTE -->
+    <!-- FILTER -->
 
-    <section class="shopping-items-card">
+    <div class="filter-row">
+
+      <button
+        class="filter-button active"
+        type="button"
+      >
+        Alle
+        <span>{{ items.length }}</span>
+      </button>
+
+      <button
+        class="filter-button"
+        type="button"
+      >
+        Offen
+        <span>
+          {{ items.length - completedCount }}
+        </span>
+      </button>
+
+      <button
+        class="filter-button"
+        type="button"
+      >
+        Erledigt
+        <span>{{ completedCount }}</span>
+      </button>
+
+    </div>
+
+
+    <!-- PRODUKTLISTE -->
+
+    <section class="shopping-card">
+
+      <div class="shopping-card-header">
+
+        <h2>
+          Produkte
+        </h2>
+
+        <span class="shopping-count">
+          {{ items.length }}
+        </span>
+
+      </div>
+
 
       <div
         class="shopping-item"
@@ -126,17 +171,18 @@
           let item of items;
           let i = index
         "
-        [class.completed]="
-          item.isChecked
-        "
+        [class.completed]="item.isChecked"
       >
 
         <button
           class="check-button"
           type="button"
+          [class.checked]="item.isChecked"
           (click)="toggleItem(item)"
-          [class.checked]="
+          [attr.aria-label]="
             item.isChecked
+              ? 'Produkt als offen markieren'
+              : 'Produkt als erledigt markieren'
           "
         >
 
@@ -152,27 +198,51 @@
         </button>
 
 
+        <div class="product-avatar">
+          {{ item.name.charAt(0).toUpperCase() }}
+        </div>
+
+
         <div class="item-content">
 
-          <strong>
+          <strong class="item-name">
             {{ item.name }}
           </strong>
 
-          <span
-            class="item-note"
-            *ngIf="item.note"
-          >
-            {{ item.note }}
-          </span>
+          <div class="item-subline">
+
+            <span class="amount-chip">
+              {{ item.quantity }}
+            </span>
+
+            <span class="unit-chip">
+              {{ item.unit }}
+            </span>
+
+          </div>
 
         </div>
 
 
-        <div class="item-amount">
+        <div class="item-note">
 
-          {{ item.quantity }}
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 4h14v13H9l-4 4V4Z"></path>
+          </svg>
 
-          {{ item.unit }}
+          <span *ngIf="item.note">
+            {{ item.note }}
+          </span>
+
+          <span
+            class="empty-note"
+            *ngIf="!item.note"
+          >
+            Keine Notiz
+          </span>
 
         </div>
 
@@ -188,14 +258,8 @@
             viewBox="0 0 24 24"
           >
             <path d="M4 7h16"></path>
-
-            <path
-              d="M9 7V4h6v3"
-            ></path>
-
-            <path
-              d="M7 7l1 13h8l1-13"
-            ></path>
+            <path d="M9 7V4h6v3"></path>
+            <path d="M7 7l1 13h8l1-13"></path>
           </svg>
 
         </button>
@@ -207,51 +271,37 @@
   </div>
 
 
-  <!-- MODAL AUSWAHL -->
+  <!-- MODALS -->
 
   <app-add-to-shopping-list-modal
     *ngIf="isAddOptionsOpen"
-
     (close)="closeAllModals()"
-
     (addProduct)="openProductModal()"
-
     (addSavedList)="openSavedListModal()"
-
-    (addRecipe)="openRecipeModal()">
+    (addRecipe)="openRecipeModal()"
+  >
   </app-add-to-shopping-list-modal>
 
 
-  <!-- PRODUKT MODAL -->
-
   <app-add-product-modal
     *ngIf="isAddProductOpen"
-
-    (close)="closeAllModals()">
+    (close)="closeAllModals()"
+  >
   </app-add-product-modal>
 
 
-  <!-- SAVED LIST MODAL -->
-
   <app-add-saved-list-modal
     *ngIf="isAddSavedListOpen"
-
     (close)="closeAllModals()"
-
-    (selectList)="
-      addSavedListToShoppingList(
-        $event
-      )
-    ">
+    (selectList)="addSavedListToShoppingList($event)"
+  >
   </app-add-saved-list-modal>
 
 
-  <!-- REZEPT MODAL -->
-
   <app-add-recipe-ingredients-modal
     *ngIf="isAddRecipeOpen"
-
-    (close)="closeAllModals()">
+    (close)="closeAllModals()"
+  >
   </app-add-recipe-ingredients-modal>
 
 </div>
