@@ -3,12 +3,22 @@ import {
   OnInit
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {
+  CommonModule
+} from '@angular/common';
+
+import {
+  FormsModule
+} from '@angular/forms';
 
 import {
   SavedList
 } from '../services/saved-list.service';
+
+import {
+  ShoppingListItem,
+  ShoppingListService
+} from '../services/shopping-list.service';
 
 import {
   AddToShoppingListModalComponent
@@ -25,15 +35,6 @@ import {
 import {
   AddRecipeIngredientsModalComponent
 } from '../components/add-recipe-ingredients-modal/add-recipe-ingredients-modal.component';
-
-
-interface ShoppingListItem {
-  name: string;
-  quantity: number;
-  unit: string;
-  note?: string;
-  isChecked: boolean;
-}
 
 
 @Component({
@@ -59,127 +60,83 @@ interface ShoppingListItem {
 export class ShoppingListComponent
 implements OnInit {
 
-  /*
-   * Unter diesem Namen speichern
-   * wir die Einkaufsliste im Browser.
-   */
-  private readonly storageKey =
-    'bazkit_shopping_list';
-
-
   items: ShoppingListItem[] = [];
 
+  isLoading = true;
 
-  isAddOptionsOpen = false;
+  isSaving = false;
 
-  isAddProductOpen = false;
-
-  isAddSavedListOpen = false;
-
-  isAddRecipeOpen = false;
+  errorMessage = '';
 
 
-  /*
-   * Beim Öffnen der Seite werden
-   * vorhandene Produkte geladen.
-   */
+  isAddOptionsOpen =
+    false;
+
+  isAddProductOpen =
+    false;
+
+  isAddSavedListOpen =
+    false;
+
+  isAddRecipeOpen =
+    false;
+
+
+  constructor(
+    private shoppingListService:
+      ShoppingListService
+  ) {}
+
+
   ngOnInit(): void {
     this.loadShoppingList();
   }
 
 
-  /*
-   * Einkaufsliste aus LocalStorage laden
-   */
-  private loadShoppingList(): void {
+  loadShoppingList(): void {
 
-    const savedItems =
-      localStorage.getItem(
-        this.storageKey
-      );
+    this.isLoading = true;
 
-    if (!savedItems) {
-      this.items = [];
-      return;
-    }
+    this.errorMessage = '';
 
-    try {
+    this.shoppingListService
+      .getShoppingList()
+      .subscribe({
 
-      const parsedItems =
-        JSON.parse(savedItems);
+        next: (shoppingList) => {
 
-      if (
-        Array.isArray(parsedItems)
-      ) {
+          this.items =
+            shoppingList.items ?? [];
 
-        this.items =
-          parsedItems.map(
-            item => ({
-              name:
-                item.name ?? '',
+          this.isLoading =
+            false;
+        },
 
-              quantity:
-                Number(
-                  item.quantity
-                ) || 0,
+        error: (error) => {
 
-              unit:
-                item.unit ?? '',
-
-              note:
-                item.note ?? '',
-
-              isChecked:
-                Boolean(
-                  item.isChecked
-                )
-            })
+          console.error(
+            'Einkaufsliste konnte nicht geladen werden:',
+            error
           );
 
-      }
+          this.errorMessage =
+            'Die Einkaufsliste konnte nicht geladen werden.';
 
-    } catch (error) {
+          this.isLoading =
+            false;
+        }
 
-      console.error(
-        'Einkaufsliste konnte nicht aus LocalStorage geladen werden:',
-        error
-      );
-
-      this.items = [];
-
-    }
+      });
   }
 
 
-  /*
-   * Einkaufsliste speichern
-   */
-  private saveShoppingList(): void {
-
-    localStorage.setItem(
-      this.storageKey,
-      JSON.stringify(
-        this.items
-      )
-    );
-
-  }
-
-
-  /*
-   * Haupt-Auswahl öffnen
-   */
   openAddOptions(): void {
 
     this.isAddOptionsOpen =
       true;
-
   }
 
 
-  /*
-   * Alle Modals schließen
-   */
   closeAllModals(): void {
 
     this.isAddOptionsOpen =
@@ -193,168 +150,208 @@ implements OnInit {
 
     this.isAddRecipeOpen =
       false;
-
   }
 
 
-  /*
-   * Einzelnes Produkt hinzufügen
-   */
   openProductModal(): void {
 
     this.closeAllModals();
 
     this.isAddProductOpen =
       true;
-
   }
 
 
-  /*
-   * Gespeicherte Liste auswählen
-   */
   openSavedListModal(): void {
 
     this.closeAllModals();
 
     this.isAddSavedListOpen =
       true;
-
   }
 
 
-  /*
-   * Rezept auswählen
-   */
   openRecipeModal(): void {
 
     this.closeAllModals();
 
     this.isAddRecipeOpen =
       true;
-
   }
 
 
-  /*
-   * Produkte einer gespeicherten
-   * Liste übernehmen
-   */
   addSavedListToShoppingList(
     list: SavedList
   ): void {
 
-    const newItems =
-      (list.items ?? [])
-        .map(
-          item => ({
+    this.isSaving = true;
 
-            name:
-              item.name ||
-              item.product_name ||
-              '',
+    this.shoppingListService
+      .addSavedList(
+        list.id
+      )
+      .subscribe({
 
-            quantity:
-              Number(
-                item.quantity
-              ),
+        next: (shoppingList) => {
 
-            unit:
-              item.unit,
+          this.items =
+            shoppingList.items ?? [];
 
-            note:
-              item.note ?? '',
+          this.isSaving =
+            false;
 
-            isChecked:
-              false
+          this.closeAllModals();
+        },
 
-          })
-        )
-        .filter(
-          item =>
-            item.name
-              .trim()
-              .length > 0
-        );
+        error: (error) => {
 
+          console.error(
+            'Gespeicherte Liste konnte nicht übernommen werden:',
+            error
+          );
 
-    this.items.push(
-      ...newItems
-    );
+          this.isSaving =
+            false;
 
+          this.errorMessage =
+            'Die Liste konnte nicht zur Einkaufsliste hinzugefügt werden.';
+        }
 
-    /*
-     * WICHTIG:
-     * Nach dem Hinzufügen speichern
-     */
-    this.saveShoppingList();
-
-
-    this.closeAllModals();
-
+      });
   }
 
 
-  /*
-   * Produkt abhaken /
-   * wieder öffnen
-   */
   toggleItem(
     item: ShoppingListItem
   ): void {
 
-    item.isChecked =
-      !item.isChecked;
+    const newValue =
+      !item.is_checked;
 
+    this.shoppingListService
+      .updateItem(
+        item.id,
+        {
+          is_checked:
+            newValue
+        }
+      )
+      .subscribe({
 
-    /*
-     * Status speichern
-     */
-    this.saveShoppingList();
+        next: (updatedItem) => {
 
+          const index =
+            this.items.findIndex(
+              current =>
+                current.id ===
+                updatedItem.id
+            );
+
+          if (index !== -1) {
+            this.items[index] =
+              updatedItem;
+          }
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Produktstatus konnte nicht gespeichert werden:',
+            error
+          );
+        }
+
+      });
   }
 
 
-  /*
-   * Produkt entfernen
-   */
   removeItem(
     index: number
   ): void {
 
-    this.items.splice(
-      index,
-      1
-    );
+    const item =
+      this.items[index];
 
+    if (!item) {
+      return;
+    }
 
-    /*
-     * Neue Liste speichern
-     */
-    this.saveShoppingList();
+    this.shoppingListService
+      .deleteItem(
+        item.id
+      )
+      .subscribe({
 
+        next: () => {
+
+          this.items.splice(
+            index,
+            1
+          );
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Produkt konnte nicht entfernt werden:',
+            error
+          );
+        }
+
+      });
   }
 
 
-  /*
-   * Anzahl erledigter Produkte
-   */
+  clearShoppingList(): void {
+
+    if (
+      this.items.length === 0
+    ) {
+      return;
+    }
+
+    const shouldClear =
+      confirm(
+        'Möchtest du die komplette Einkaufsliste leeren?'
+      );
+
+    if (!shouldClear) {
+      return;
+    }
+
+    this.shoppingListService
+      .clearShoppingList()
+      .subscribe({
+
+        next: () => {
+
+          this.items = [];
+        },
+
+        error: (error) => {
+
+          console.error(
+            'Einkaufsliste konnte nicht geleert werden:',
+            error
+          );
+        }
+
+      });
+  }
+
+
   get completedCount():
     number {
 
     return this.items
       .filter(
         item =>
-          item.isChecked
+          item.is_checked
       )
       .length;
-
   }
 
 
-  /*
-   * Fortschritt in Prozent
-   */
   get progress():
     number {
 
@@ -370,24 +367,5 @@ implements OnInit {
         this.items.length
       ) * 100
     );
-
-  }
-
-
-  /*
-   * Optional:
-   * komplette Einkaufsliste löschen
-   *
-   * Können wir später mit einem
-   * "Liste leeren"-Button benutzen.
-   */
-  clearShoppingList(): void {
-
-    this.items = [];
-
-    localStorage.removeItem(
-      this.storageKey
-    );
-
   }
 }

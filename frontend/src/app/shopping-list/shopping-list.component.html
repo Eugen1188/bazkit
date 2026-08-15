@@ -1,10 +1,38 @@
 <div class="shopping-list-container">
 
+
+  <!-- LOADING -->
+
+  <div
+    class="loading-page"
+    *ngIf="isLoading"
+  >
+    Einkaufsliste wird geladen...
+  </div>
+
+
+  <!-- ERROR -->
+
+  <div
+    class="page-error"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
+  >
+    {{ errorMessage }}
+  </div>
+
+
   <!-- EMPTY STATE -->
 
   <div
     class="empty-state"
-    *ngIf="items.length === 0"
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      items.length === 0
+    "
   >
 
     <img
@@ -18,8 +46,10 @@
     </h2>
 
     <p>
-      Fügen Sie Produkte direkt hinzu oder übernehmen Sie Zutaten aus
-      einem Rezept oder einer gespeicherten Liste.
+      Fügen Sie Produkte direkt hinzu
+      oder übernehmen Sie Zutaten aus
+      einem Rezept oder einer
+      gespeicherten Liste.
     </p>
 
     <button
@@ -28,17 +58,21 @@
       (click)="openAddOptions()"
     >
       <span>+</span>
+
       Zur Einkaufsliste hinzufügen
     </button>
 
   </div>
 
 
-  <!-- LISTE MIT PRODUKTEN -->
+  <!-- SHOPPING LIST -->
 
   <div
     class="shopping-list-state"
-    *ngIf="items.length > 0"
+    *ngIf="
+      !isLoading &&
+      items.length > 0
+    "
   >
 
     <header class="shopping-header">
@@ -51,31 +85,52 @@
 
         <p>
           {{ items.length }}
-          {{ items.length === 1 ? 'Produkt' : 'Produkte' }}
+
+          {{
+            items.length === 1
+              ? 'Produkt'
+              : 'Produkte'
+          }}
+
           ·
+
           {{ completedCount }}
+
           erledigt
         </p>
 
       </div>
 
 
-      <button
-        class="add-button"
-        type="button"
-        (click)="openAddOptions()"
-      >
-        <span class="add-button-icon">
-          +
-        </span>
+      <div class="shopping-header-actions">
 
-        Produkt hinzufügen
-      </button>
+        <button
+          class="clear-button"
+          type="button"
+          (click)="clearShoppingList()"
+        >
+          Liste leeren
+        </button>
+
+
+        <button
+          class="add-button"
+          type="button"
+          (click)="openAddOptions()"
+        >
+          <span class="add-button-icon">
+            +
+          </span>
+
+          Produkt hinzufügen
+        </button>
+
+      </div>
 
     </header>
 
 
-    <!-- FORTSCHRITT -->
+    <!-- PROGRESS -->
 
     <section class="progress-card">
 
@@ -115,7 +170,7 @@
     </section>
 
 
-    <!-- FILTER -->
+    <!-- FILTERS -->
 
     <div class="filter-row">
 
@@ -124,31 +179,42 @@
         type="button"
       >
         Alle
-        <span>{{ items.length }}</span>
+        <span>
+          {{ items.length }}
+        </span>
       </button>
+
 
       <button
         class="filter-button"
         type="button"
       >
         Offen
+
         <span>
-          {{ items.length - completedCount }}
+          {{
+            items.length -
+            completedCount
+          }}
         </span>
       </button>
+
 
       <button
         class="filter-button"
         type="button"
       >
         Erledigt
-        <span>{{ completedCount }}</span>
+
+        <span>
+          {{ completedCount }}
+        </span>
       </button>
 
     </div>
 
 
-    <!-- PRODUKTLISTE -->
+    <!-- ITEMS -->
 
     <section class="shopping-card">
 
@@ -171,23 +237,22 @@
           let item of items;
           let i = index
         "
-        [class.completed]="item.isChecked"
+        [class.completed]="
+          item.is_checked
+        "
       >
 
         <button
           class="check-button"
           type="button"
-          [class.checked]="item.isChecked"
-          (click)="toggleItem(item)"
-          [attr.aria-label]="
-            item.isChecked
-              ? 'Produkt als offen markieren'
-              : 'Produkt als erledigt markieren'
+          [class.checked]="
+            item.is_checked
           "
+          (click)="toggleItem(item)"
         >
 
           <svg
-            *ngIf="item.isChecked"
+            *ngIf="item.is_checked"
             viewBox="0 0 24 24"
           >
             <path
@@ -199,7 +264,11 @@
 
 
         <div class="product-avatar">
-          {{ item.name.charAt(0).toUpperCase() }}
+          {{
+            item.name
+              .charAt(0)
+              .toUpperCase()
+          }}
         </div>
 
 
@@ -228,9 +297,10 @@
 
           <svg
             viewBox="0 0 24 24"
-            aria-hidden="true"
           >
-            <path d="M5 4h14v13H9l-4 4V4Z"></path>
+            <path
+              d="M5 4h14v13H9l-4 4V4Z"
+            ></path>
           </svg>
 
           <span *ngIf="item.note">
@@ -293,7 +363,11 @@
   <app-add-saved-list-modal
     *ngIf="isAddSavedListOpen"
     (close)="closeAllModals()"
-    (selectList)="addSavedListToShoppingList($event)"
+    (selectList)="
+      addSavedListToShoppingList(
+        $event
+      )
+    "
   >
   </app-add-saved-list-modal>
 
