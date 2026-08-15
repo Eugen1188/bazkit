@@ -2,11 +2,15 @@ from rest_framework import serializers
 
 from .models import (
     SavedList,
-    SavedListItem
+    SavedListItem,
+    ShoppingList,
+    ShoppingListItem
 )
 
 
-class SavedListItemSerializer(serializers.ModelSerializer):
+class SavedListItemSerializer(
+    serializers.ModelSerializer
+):
     id = serializers.IntegerField(
         required=False
     )
@@ -18,6 +22,7 @@ class SavedListItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SavedListItem
+
         fields = [
             "id",
             "product",
@@ -55,7 +60,9 @@ class SavedListItemSerializer(serializers.ModelSerializer):
         return attrs
 
 
-class SavedListSerializer(serializers.ModelSerializer):
+class SavedListSerializer(
+    serializers.ModelSerializer
+):
     item_count = serializers.SerializerMethodField()
 
     items = SavedListItemSerializer(
@@ -142,7 +149,6 @@ class SavedListSerializer(serializers.ModelSerializer):
                 None
             )
 
-            # Vorhandenes Produkt aktualisieren
             if (
                 item_id is not None
                 and item_id in existing_items
@@ -171,12 +177,10 @@ class SavedListSerializer(serializers.ModelSerializer):
                     item.product
                 )
 
-                # Notiz bleibt erhalten bzw. wird aktualisiert
                 if "note" in item_data:
-                    item.note = item_data.get(
-                        "note",
-                        item.note
-                    )
+                    item.note = item_data[
+                        "note"
+                    ]
 
                 item.save()
 
@@ -184,19 +188,18 @@ class SavedListSerializer(serializers.ModelSerializer):
                     item.id
                 )
 
-            # Neues Produkt anlegen
             else:
-                new_item = SavedListItem.objects.create(
-                    saved_list=instance,
-                    **item_data
+                new_item = (
+                    SavedListItem.objects.create(
+                        saved_list=instance,
+                        **item_data
+                    )
                 )
 
                 received_ids.append(
                     new_item.id
                 )
 
-        # Nur Produkte löschen,
-        # die auf der Edit-Seite wirklich entfernt wurden
         instance.items.exclude(
             id__in=received_ids
         ).delete()
@@ -221,3 +224,105 @@ class SavedListDetailSerializer(
             "created_at",
             "items"
         ]
+
+
+# ==========================================
+# SHOPPING LIST
+# ==========================================
+
+class ShoppingListItemSerializer(
+    serializers.ModelSerializer
+):
+    product_name = serializers.CharField(
+        source="product.name",
+        read_only=True
+    )
+
+    class Meta:
+        model = ShoppingListItem
+
+        fields = [
+            "id",
+            "product",
+            "product_name",
+            "name",
+            "quantity",
+            "unit",
+            "note",
+            "is_checked",
+            "created_at"
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at"
+        ]
+
+    def validate(self, attrs):
+        product = attrs.get(
+            "product",
+            getattr(
+                self.instance,
+                "product",
+                None
+            )
+        )
+
+        name = attrs.get(
+            "name",
+            getattr(
+                self.instance,
+                "name",
+                ""
+            )
+        ).strip()
+
+        if not product and not name:
+            raise serializers.ValidationError(
+                "Produkt oder Name muss angegeben werden."
+            )
+
+        return attrs
+
+
+class ShoppingListSerializer(
+    serializers.ModelSerializer
+):
+    items = ShoppingListItemSerializer(
+        many=True,
+        read_only=True
+    )
+
+    item_count = serializers.SerializerMethodField()
+
+    completed_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ShoppingList
+
+        fields = [
+            "id",
+            "title",
+            "created_at",
+            "updated_at",
+            "item_count",
+            "completed_count",
+            "items"
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at",
+            "updated_at",
+            "item_count",
+            "completed_count",
+            "items"
+        ]
+
+    def get_item_count(self, obj):
+        return obj.items.count()
+
+    def get_completed_count(self, obj):
+        return obj.items.filter(
+            is_checked=True
+        ).count()
