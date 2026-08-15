@@ -87,27 +87,77 @@ class SavedListSerializer(serializers.ModelSerializer):
         return saved_list
 
     def update(self, instance, validated_data):
-        items_data = validated_data.pop(
-            "items",
-            []
-        )
+    items_data = validated_data.pop("items", None)
 
-        instance.title = validated_data.get(
-            "title",
-            instance.title
-        )
+    instance.title = validated_data.get(
+        "title",
+        instance.title
+    )
+    instance.save()
 
-        instance.save()
+    if items_data is None:
+        return instance
 
-        instance.items.all().delete()
+    existing_items = {
+        item.id: item
+        for item in instance.items.all()
+    }
 
-        for item_data in items_data:
-            SavedListItem.objects.create(
+    received_item_ids = []
+
+    for item_data in items_data:
+        item_id = item_data.get("id")
+
+        if item_id and item_id in existing_items:
+            item = existing_items[item_id]
+
+            item.name = item_data.get(
+                "name",
+                item.name
+            )
+
+            item.quantity = item_data.get(
+                "quantity",
+                item.quantity
+            )
+
+            item.unit = item_data.get(
+                "unit",
+                item.unit
+            )
+
+            # note nur ändern, wenn es tatsächlich
+            # im Request vorhanden ist
+            if "note" in item_data:
+                item.note = item_data.get(
+                    "note",
+                    item.note
+                )
+
+            item.product = item_data.get(
+                "product",
+                item.product
+            )
+
+            item.save()
+
+            received_item_ids.append(item.id)
+
+        else:
+            new_item = SavedListItem.objects.create(
                 saved_list=instance,
                 **item_data
             )
 
-        return instance
+            received_item_ids.append(
+                new_item.id
+            )
+
+    instance.items.exclude(
+        id__in=received_item_ids
+    ).delete()
+
+    return instance
 
 
 class SavedListDetailSerializer(serializers.ModelSerializer):
