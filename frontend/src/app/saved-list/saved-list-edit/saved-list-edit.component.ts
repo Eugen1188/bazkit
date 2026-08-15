@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
+
 import {
   Component,
   OnInit
 } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
+
 import {
   ActivatedRoute,
   Router,
@@ -15,11 +18,15 @@ import {
   SavedListService
 } from '../../services/saved-list.service';
 
+
 interface Product {
+  id?: number;
   name: string;
   quantity: number;
   unit: string;
+  note?: string;
 }
+
 
 interface ProductSuggestion {
   name: string;
@@ -27,8 +34,10 @@ interface ProductSuggestion {
   unit: string;
 }
 
+
 @Component({
   selector: 'app-saved-list-edit',
+
   standalone: true,
 
   imports: [
@@ -45,8 +54,9 @@ interface ProductSuggestion {
     './saved-list-edit.component.scss'
   ]
 })
+
 export class SavedListEditComponent
-  implements OnInit {
+implements OnInit {
 
   listId: number | null = null;
 
@@ -66,6 +76,7 @@ export class SavedListEditComponent
 
   errorMessage = '';
 
+
   units = [
     'Stück',
     'g',
@@ -78,6 +89,7 @@ export class SavedListEditComponent
     'Becher',
     'Bund'
   ];
+
 
   suggestions: ProductSuggestion[] = [
     {
@@ -122,17 +134,25 @@ export class SavedListEditComponent
     }
   ];
 
+
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
+    private route:
+      ActivatedRoute,
+
+    private router:
+      Router,
+
     private savedListService:
       SavedListService
   ) {}
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     const id = Number(
-      this.route.snapshot.paramMap.get('id')
+      this.route
+        .snapshot
+        .paramMap
+        .get('id')
     );
 
     if (!id) {
@@ -149,42 +169,53 @@ export class SavedListEditComponent
     this.loadList();
   }
 
-  loadList(): void {
 
+  loadList(): void {
     if (!this.listId) {
       return;
     }
 
+    this.isLoading = true;
+
     this.savedListService
-      .getSavedList(this.listId)
+      .getSavedList(
+        this.listId
+      )
       .subscribe({
-
         next: (list) => {
-
           this.listName =
             list.title;
 
           this.products =
-            (list.items ?? []).map(
-              item => ({
-                name:
-                  item.name ||
-                  item.product_name ||
-                  '',
+            (list.items ?? [])
+              .map(
+                item => ({
+                  id:
+                    item.id,
 
-                quantity:
-                  Number(item.quantity),
+                  name:
+                    item.name ||
+                    item.product_name ||
+                    '',
 
-                unit:
-                  item.unit
-              })
-            );
+                  quantity:
+                    Number(
+                      item.quantity
+                    ),
 
-          this.isLoading = false;
+                  unit:
+                    item.unit,
+
+                  note:
+                    item.note ?? ''
+                })
+              );
+
+          this.isLoading =
+            false;
         },
 
         error: (error) => {
-
           console.error(
             'Fehler beim Laden:',
             error
@@ -193,15 +224,17 @@ export class SavedListEditComponent
           this.errorMessage =
             'Die Liste konnte nicht geladen werden.';
 
-          this.isLoading = false;
+          this.isLoading =
+            false;
         }
       });
   }
 
-  addProduct(
-    suggestion?: ProductSuggestion
-  ): void {
 
+  addProduct(
+    suggestion?:
+      ProductSuggestion
+  ): void {
     const name =
       suggestion?.name ??
       this.productName.trim();
@@ -226,24 +259,25 @@ export class SavedListEditComponent
     this.products.push({
       name,
       quantity,
-      unit
+      unit,
+      note: ''
     });
 
     this.resetProductForm();
   }
 
+
   removeProduct(
     index: number
   ): void {
-
     this.products.splice(
       index,
       1
     );
   }
 
-  saveList(): void {
 
+  saveList(): void {
     if (
       !this.listId ||
       !this.listName.trim()
@@ -253,21 +287,32 @@ export class SavedListEditComponent
 
     const payload:
       CreateSavedListPayload = {
-
       title:
         this.listName.trim(),
 
       items:
         this.products.map(
           product => ({
-            name: product.name,
-            quantity: product.quantity,
-            unit: product.unit
+            id:
+              product.id,
+
+            name:
+              product.name,
+
+            quantity:
+              product.quantity,
+
+            unit:
+              product.unit,
+
+            note:
+              product.note ?? ''
           })
         )
     };
 
     this.isSaving = true;
+
     this.errorMessage = '';
 
     this.savedListService
@@ -276,10 +321,9 @@ export class SavedListEditComponent
         payload
       )
       .subscribe({
-
         next: () => {
-
-          this.isSaving = false;
+          this.isSaving =
+            false;
 
           this.router.navigate([
             '/main/saved-list',
@@ -288,13 +332,13 @@ export class SavedListEditComponent
         },
 
         error: (error) => {
-
           console.error(
             'Fehler beim Speichern:',
             error
           );
 
-          this.isSaving = false;
+          this.isSaving =
+            false;
 
           this.errorMessage =
             'Die Änderungen konnten nicht gespeichert werden.';
@@ -302,20 +346,22 @@ export class SavedListEditComponent
       });
   }
 
-  cancel(): void {
 
+  cancel(): void {
     this.router.navigate([
       '/main/saved-list',
       this.listId
     ]);
   }
 
-  private resetProductForm(): void {
 
+  private resetProductForm():
+    void {
     this.productName = '';
 
     this.productQuantity = 1;
 
-    this.productUnit = 'Stück';
+    this.productUnit =
+      'Stück';
   }
 }

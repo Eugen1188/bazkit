@@ -1,321 +1,223 @@
-import { CommonModule } from '@angular/common';
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+from rest_framework import serializers
 
-import { FormsModule } from '@angular/forms';
+from .models import (
+    SavedList,
+    SavedListItem
+)
 
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink
-} from '@angular/router';
 
-import {
-  CreateSavedListPayload,
-  SavedListService
-} from '../../services/saved-list.service';
+class SavedListItemSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(
+        required=False
+    )
 
-interface Product {
-  id?: number;
-  name: string;
-  quantity: number;
-  unit: string;
-  note?: string;
-}
+    product_name = serializers.CharField(
+        source="product.name",
+        read_only=True
+    )
 
-interface ProductSuggestion {
-  name: string;
-  quantity: number;
-  unit: string;
-}
+    class Meta:
+        model = SavedListItem
+        fields = [
+            "id",
+            "product",
+            "product_name",
+            "name",
+            "quantity",
+            "unit",
+            "note"
+        ]
 
-@Component({
-  selector: 'app-saved-list-edit',
-  standalone: true,
-
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink
-  ],
-
-  templateUrl:
-    './saved-list-edit.component.html',
-
-  styleUrls: [
-    '../create-list/create-list.component.scss',
-    './saved-list-edit.component.scss'
-  ]
-})
-
-export class SavedListEditComponent
-  implements OnInit {
-
-  listId: number | null = null;
-
-  listName = '';
-
-  productName = '';
-
-  productQuantity: number | null = 1;
-
-  productUnit = 'Stück';
-
-  products: Product[] = [];
-
-  isLoading = true;
-
-  isSaving = false;
-
-  errorMessage = '';
-
-  units = [
-    'Stück',
-    'g',
-    'kg',
-    'ml',
-    'Liter',
-    'Packung',
-    'Dose',
-    'Glas',
-    'Becher',
-    'Bund'
-  ];
-
-  suggestions: ProductSuggestion[] = [
-    {
-      name: 'Milch',
-      quantity: 1,
-      unit: 'Liter'
-    },
-    {
-      name: 'Eier',
-      quantity: 10,
-      unit: 'Stück'
-    },
-    {
-      name: 'Brot',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Tomaten',
-      quantity: 500,
-      unit: 'g'
-    },
-    {
-      name: 'Gurken',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Äpfel',
-      quantity: 6,
-      unit: 'Stück'
-    },
-    {
-      name: 'Käse',
-      quantity: 200,
-      unit: 'g'
-    },
-    {
-      name: 'Hähnchen',
-      quantity: 500,
-      unit: 'g'
-    }
-  ];
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private savedListService: SavedListService
-  ) {}
-
-  ngOnInit(): void {
-
-    const id = Number(
-      this.route.snapshot.paramMap.get('id')
-    );
-
-    if (!id) {
-      this.errorMessage =
-        'Liste konnte nicht gefunden werden';
-
-      this.isLoading = false;
-
-      return;
-    }
-
-    this.listId = id;
-
-    this.loadList();
-  }
-
-  loadList(): void {
-
-    if (!this.listId) {
-      return;
-    }
-
-    this.savedListService
-      .getSavedList(this.listId)
-      .subscribe({
-
-        next: (list) => {
-
-          this.listName = list.title;
-
-          this.products =
-            (list.items ?? []).map(
-              item => ({
-                id: item.id,
-                name:
-                  item.name ||
-                  item.product_name ||
-                  '',
-                quantity:
-                  Number(item.quantity),
-                unit:
-                  item.unit,
-                note:
-                  item.note ?? ''
-              })
-            );
-
-          this.isLoading = false;
-        },
-
-        error: (error) => {
-
-          console.error(error);
-
-          this.errorMessage =
-            'Die Liste konnte nicht geladen werden';
-
-          this.isLoading = false;
-        }
-      });
-  }
-
-  addProduct(
-    suggestion?: ProductSuggestion
-  ): void {
-
-    const name =
-      suggestion?.name ??
-      this.productName.trim();
-
-    const quantity =
-      suggestion?.quantity ??
-      this.productQuantity;
-
-    const unit =
-      suggestion?.unit ??
-      this.productUnit;
-
-    if (
-      !name ||
-      quantity === null ||
-      quantity <= 0 ||
-      !unit
-    ) {
-      return;
-    }
-
-    this.products.push({
-      name,
-      quantity,
-      unit,
-      note: ''
-    });
-
-    this.resetProductForm();
-  }
-
-  removeProduct(
-    index: number
-  ): void {
-
-    this.products.splice(
-      index,
-      1
-    );
-  }
-
-  saveList(): void {
-
-    if (
-      !this.listId ||
-      !this.listName.trim()
-    ) {
-      return;
-    }
-
-    const payload:
-      CreateSavedListPayload = {
-
-      title:
-        this.listName.trim(),
-
-      items:
-        this.products.map(
-          product => ({
-            id: product.id,
-            name: product.name,
-            quantity: product.quantity,
-            unit: product.unit,
-            note: product.note ?? ''
-          })
+    def validate(self, attrs):
+        product = attrs.get(
+            "product",
+            getattr(
+                self.instance,
+                "product",
+                None
+            )
         )
-    };
 
-    this.isSaving = true;
+        name = attrs.get(
+            "name",
+            getattr(
+                self.instance,
+                "name",
+                ""
+            )
+        ).strip()
 
-    this.savedListService
-      .updateSavedList(
-        this.listId,
-        payload
-      )
-      .subscribe({
+        if not product and not name:
+            raise serializers.ValidationError(
+                "Either product or name must be provided."
+            )
 
-        next: () => {
+        return attrs
 
-          this.isSaving = false;
 
-          this.router.navigate([
-            '/main/saved-list',
-            this.listId
-          ]);
-        },
+class SavedListSerializer(serializers.ModelSerializer):
+    item_count = serializers.SerializerMethodField()
 
-        error: (error) => {
+    items = SavedListItemSerializer(
+        many=True,
+        required=False
+    )
 
-          console.error(error);
+    class Meta:
+        model = SavedList
 
-          this.errorMessage =
-            'Die Änderungen konnten nicht gespeichert werden';
+        fields = [
+            "id",
+            "title",
+            "created_at",
+            "item_count",
+            "items"
+        ]
 
-          this.isSaving = false;
+        read_only_fields = [
+            "id",
+            "created_at",
+            "item_count"
+        ]
+
+    def get_item_count(self, obj):
+        return obj.items.count()
+
+    def create(self, validated_data):
+        items_data = validated_data.pop(
+            "items",
+            []
+        )
+
+        request = self.context["request"]
+
+        saved_list = SavedList.objects.create(
+            user=request.user,
+            **validated_data
+        )
+
+        for item_data in items_data:
+            item_data.pop(
+                "id",
+                None
+            )
+
+            SavedListItem.objects.create(
+                saved_list=saved_list,
+                **item_data
+            )
+
+        return saved_list
+
+    def update(
+        self,
+        instance,
+        validated_data
+    ):
+        items_data = validated_data.pop(
+            "items",
+            None
+        )
+
+        instance.title = validated_data.get(
+            "title",
+            instance.title
+        )
+
+        instance.save()
+
+        if items_data is None:
+            return instance
+
+        existing_items = {
+            item.id: item
+            for item in instance.items.all()
         }
-      });
-  }
 
-  cancel(): void {
+        received_ids = []
 
-    this.router.navigate([
-      '/main/saved-list',
-      this.listId
-    ]);
-  }
+        for item_data in items_data:
+            item_id = item_data.pop(
+                "id",
+                None
+            )
 
-  private resetProductForm(): void {
+            # Vorhandenes Produkt aktualisieren
+            if (
+                item_id is not None
+                and item_id in existing_items
+            ):
+                item = existing_items[
+                    item_id
+                ]
 
-    this.productName = '';
+                item.name = item_data.get(
+                    "name",
+                    item.name
+                )
 
-    this.productQuantity = 1;
+                item.quantity = item_data.get(
+                    "quantity",
+                    item.quantity
+                )
 
-    this.productUnit = 'Stück';
-  }
-}
+                item.unit = item_data.get(
+                    "unit",
+                    item.unit
+                )
+
+                item.product = item_data.get(
+                    "product",
+                    item.product
+                )
+
+                # Notiz bleibt erhalten bzw. wird aktualisiert
+                if "note" in item_data:
+                    item.note = item_data.get(
+                        "note",
+                        item.note
+                    )
+
+                item.save()
+
+                received_ids.append(
+                    item.id
+                )
+
+            # Neues Produkt anlegen
+            else:
+                new_item = SavedListItem.objects.create(
+                    saved_list=instance,
+                    **item_data
+                )
+
+                received_ids.append(
+                    new_item.id
+                )
+
+        # Nur Produkte löschen,
+        # die auf der Edit-Seite wirklich entfernt wurden
+        instance.items.exclude(
+            id__in=received_ids
+        ).delete()
+
+        return instance
+
+
+class SavedListDetailSerializer(
+    serializers.ModelSerializer
+):
+    items = SavedListItemSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = SavedList
+
+        fields = [
+            "id",
+            "title",
+            "created_at",
+            "items"
+        ]
