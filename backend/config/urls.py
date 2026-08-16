@@ -35,6 +35,11 @@ urlpatterns = [
     ),
 
     path(
+        'recipes/',
+        include('recipes.urls')
+    ),
+
+    path(
         'api/token/',
         TokenObtainPairView.as_view(),
         name='token_obtain_pair'
