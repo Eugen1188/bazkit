@@ -1,22 +1,55 @@
-from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
-from .serializers import Recipe, Ingredients
+from rest_framework.permissions import (
+    IsAuthenticated
+)
 
-class RecipeView(generics.ListCreateAPIView):
-    serializer_class = Recipe
-    permission_classes = [IsAuthenticated]
+from .models import Recipe
+
+from .serializers import (
+    RecipeSerializer
+)
+
+
+class RecipeListCreateAPIView(
+    generics.ListCreateAPIView
+):
+    serializer_class = RecipeSerializer
+
+    permission_classes = [
+        IsAuthenticated
+    ]
 
     def get_queryset(self):
-        return Recipe.objects.filter(user=self.request.user).prefetch_related('ingredients')
+        return (
+            Recipe.objects
+            .filter(
+                user=self.request.user
+            )
+            .prefetch_related(
+                "ingredients"
+            )
+            .order_by(
+                "-created_at"
+            )
+        )
 
-    def perform_create(self, serializer):
-        serializer.save()
 
+class RecipeDetailAPIView(
+    generics.RetrieveUpdateDestroyAPIView
+):
+    serializer_class = RecipeSerializer
 
-class RecipeDetailView(generics.RetrieveAPIView):
-    serializer_class = Recipe
-    permission_classes = [IsAuthenticated]
+    permission_classes = [
+        IsAuthenticated
+    ]
 
     def get_queryset(self):
-        return Recipe.objects.filter(user=self.request.user).prefetch_related('ingredients')
+        return (
+            Recipe.objects
+            .filter(
+                user=self.request.user
+            )
+            .prefetch_related(
+                "ingredients"
+            )
+        )

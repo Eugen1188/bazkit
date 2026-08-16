@@ -12,6 +12,9 @@ import { SavedListDetailComponent } from './saved-list/saved-list-detail/saved-l
 import {
   SavedListEditComponent
 } from './saved-list/saved-list-edit/saved-list-edit.component';
+import {
+  CreateRecipeComponent
+} from './recipe-list/create-recipe/create-recipe.component';
 
 export const routes: Routes = [
   {
@@ -46,6 +49,10 @@ export const routes: Routes = [
       {
         path: 'shopping-list',
         component: ShoppingListComponent,
+      },
+      {
+        path: 'recipe-list/create',
+        component: CreateRecipeComponent,
       },
       {
         path: 'recipe-list',

@@ -1,31 +1,187 @@
 <div class="recipes-container">
 
-  <div class="empty-state">
+  <header class="recipes-header">
 
-    <img
-      src="assets/images/empty_recipes.png"
-      alt="Keine Rezepte"
-      class="empty-image"
-    />
+    <div>
 
-    <h2>Sie haben noch keine Rezepte</h2>
+      <h1>
+        Rezepte
+      </h1>
 
-    <p>
-      Erstellen Sie eigene Rezepte oder lassen Sie sich neue Rezepte von der KI generieren.
-    </p>
+      <p>
+        Erstelle und verwalte deine
+        Lieblingsrezepte.
+      </p>
 
-    <div class="actions">
+    </div>
 
-      <button class="create-button">
+
+    <div class="header-actions">
+
+      <button
+        class="create-button"
+        type="button"
+        (click)="createRecipe()"
+      >
         <span>+</span>
+
         Rezept erstellen
       </button>
 
-      <button class="secondary-button">
+
+      <button
+        class="secondary-button"
+        type="button"
+        (click)="generateWithAI()"
+      >
         ✨ Mit KI generieren
       </button>
 
     </div>
+
+  </header>
+
+
+  <div
+    class="loading-state"
+    *ngIf="isLoading"
+  >
+    Rezepte werden geladen...
+  </div>
+
+
+  <div
+    class="error-state"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <!-- EMPTY -->
+
+  <div
+    class="empty-state"
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      recipes.length === 0
+    "
+  >
+
+    <img
+      src="assets/images/empty_list.png"
+      alt="Keine Rezepte"
+      class="empty-image"
+    />
+
+    <h2>
+      Sie haben noch keine Rezepte
+    </h2>
+
+    <p>
+      Erstellen Sie Ihr erstes Rezept
+      oder lassen Sie sich später von
+      unserer KI inspirieren.
+    </p>
+
+
+    <div class="actions">
+
+      <button
+        class="create-button"
+        type="button"
+        (click)="createRecipe()"
+      >
+        <span>+</span>
+
+        Rezept erstellen
+      </button>
+
+
+      <button
+        class="secondary-button"
+        type="button"
+        (click)="generateWithAI()"
+      >
+        ✨ Mit KI generieren
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- VORHANDENE REZEPTE -->
+
+  <div
+    class="recipe-grid"
+    *ngIf="
+      !isLoading &&
+      recipes.length > 0
+    "
+  >
+
+    <article
+      class="recipe-card"
+      *ngFor="let recipe of recipes"
+      (click)="openRecipe(recipe)"
+    >
+
+      <div class="recipe-image-placeholder">
+
+        <span>
+          🍽️
+        </span>
+
+      </div>
+
+
+      <div class="recipe-card-content">
+
+        <span class="recipe-category">
+          {{ recipe.category }}
+        </span>
+
+        <h3>
+          {{ recipe.name }}
+        </h3>
+
+        <p>
+          {{ recipe.description }}
+        </p>
+
+
+        <div class="recipe-meta">
+
+          <span>
+            ⏱
+            {{
+              recipe.preparation_time ||
+              '–'
+            }}
+            Min.
+          </span>
+
+          <span>
+            👥
+            {{ recipe.servings }}
+          </span>
+
+          <span>
+            🥕
+            {{ recipe.ingredients.length }}
+            Zutaten
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
 
   </div>
 
