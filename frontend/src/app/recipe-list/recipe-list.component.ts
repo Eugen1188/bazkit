@@ -19,6 +19,7 @@ import {
 
 @Component({
   selector: 'app-recipe-list',
+
   standalone: true,
 
   imports: [
@@ -53,19 +54,30 @@ implements OnInit {
 
 
   loadRecipes(): void {
+
     this.isLoading = true;
+
     this.errorMessage = '';
+
 
     this.recipeService
       .getRecipes()
       .subscribe({
 
-        next: (recipes) => {
+        next: (
+          recipes: Recipe[]
+        ) => {
+
           this.recipes = recipes;
+
           this.isLoading = false;
         },
 
-        error: (error) => {
+
+        error: (
+          error: unknown
+        ) => {
+
           console.error(
             'Rezepte konnten nicht geladen werden:',
             error
@@ -82,6 +94,7 @@ implements OnInit {
 
 
   createRecipe(): void {
+
     this.router.navigate([
       '/main/recipe-list/create'
     ]);
@@ -89,6 +102,7 @@ implements OnInit {
 
 
   generateWithAI(): void {
+
     this.router.navigate([
       '/main/recipe-list/ai'
     ]);
@@ -98,6 +112,7 @@ implements OnInit {
   openRecipe(
     recipe: Recipe
   ): void {
+
     this.router.navigate([
       '/main/recipe-list',
       recipe.id
@@ -112,15 +127,29 @@ implements OnInit {
     const categories:
       Record<string, string> = {
 
-      breakfast: 'Frühstück',
-      lunch: 'Mittagessen',
-      dinner: 'Abendessen',
-      snack: 'Snack',
-      dessert: 'Dessert',
-      other: 'Sonstiges'
+      breakfast:
+        'Frühstück',
+
+      lunch:
+        'Mittagessen',
+
+      dinner:
+        'Abendessen',
+
+      snack:
+        'Snack',
+
+      dessert:
+        'Dessert',
+
+      other:
+        'Sonstiges'
     };
 
-    return categories[category]
-      ?? 'Sonstiges';
+
+    return (
+      categories[category]
+      ?? 'Sonstiges'
+    );
   }
 }

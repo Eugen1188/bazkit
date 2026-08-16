@@ -1,87 +1,144 @@
-import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { MainComponent } from './main/main.component';
-import { SavedListComponent } from './saved-list/saved-list.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { SettingsComponent } from './settings/settings.component';
-import { CreateListComponent } from './saved-list/create-list/create-list.component';
-import { authGuard } from './guards/auth.guard';
-import { SavedListDetailComponent } from './saved-list/saved-list-detail/saved-list-detail.component';
+import {
+  Routes
+} from '@angular/router';
+
+import {
+  LoginComponent
+} from './login/login.component';
+
+import {
+  RegisterComponent
+} from './register/register.component';
+
+import {
+  MainComponent
+} from './main/main.component';
+
+import {
+  SavedListComponent
+} from './saved-list/saved-list.component';
+
+import {
+  ShoppingListComponent
+} from './shopping-list/shopping-list.component';
+
+import {
+  RecipeListComponent
+} from './recipe-list/recipe-list.component';
+
+import {
+  SettingsComponent
+} from './settings/settings.component';
+
+import {
+  CreateListComponent
+} from './saved-list/create-list/create-list.component';
+
+import {
+  authGuard
+} from './guards/auth.guard';
+
+import {
+  SavedListDetailComponent
+} from './saved-list/saved-list-detail/saved-list-detail.component';
+
 import {
   SavedListEditComponent
 } from './saved-list/saved-list-edit/saved-list-edit.component';
+
 import {
   CreateRecipeComponent
 } from './recipe-list/create-recipe/create-recipe.component';
+
 import {
   RecipeDetailComponent
 } from './recipe-list/recipe-detail/recipe-detail.component';
+
 import {
   EditRecipeComponent
 } from './recipe-list/edit-recipe/edit-recipe.component';
 
 
 export const routes: Routes = [
+
   {
     path: '',
-    component: LoginComponent,
+    component: LoginComponent
   },
+
   {
     path: 'register',
-    component: RegisterComponent,
+    component: RegisterComponent
   },
+
   {
     path: 'main',
+
     component: MainComponent,
-    canActivate: [authGuard],
+
+    canActivate: [
+      authGuard
+    ],
+
     children: [
+
       {
         path: 'saved-list/create',
-        component: CreateListComponent,
+        component: CreateListComponent
       },
+
       {
         path: 'saved-list/:id/edit',
-        component: SavedListEditComponent,
+        component: SavedListEditComponent
       },
+
       {
         path: 'saved-list/:id',
-        component: SavedListDetailComponent,
+        component: SavedListDetailComponent
       },
+
       {
         path: 'saved-list',
-        component: SavedListComponent,
+        component: SavedListComponent
       },
+
       {
         path: 'shopping-list',
-        component: ShoppingListComponent,
+        component: ShoppingListComponent
       },
+
       {
         path: 'recipe-list/create',
-        component: CreateRecipeComponent,
+        component: CreateRecipeComponent
       },
+
       {
         path: 'recipe-list/:id/edit',
-        component: EditRecipeComponent,
+        component: EditRecipeComponent
       },
+
       {
         path: 'recipe-list/:id',
-        component: RecipeDetailComponent,
+        component: RecipeDetailComponent
       },
+
       {
         path: 'recipe-list',
-        component: RecipeListComponent,
+        component: RecipeListComponent
       },
+
       {
         path: 'settings',
-        component: SettingsComponent,
+        component: SettingsComponent
       },
+
       {
         path: '',
         redirectTo: 'saved-list',
-        pathMatch: 'full',
-      },
-    ],
-  },
+        pathMatch: 'full'
+      }
+
+    ]
+  }
+
 ];
