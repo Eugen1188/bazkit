@@ -1,1 +1,696 @@
-<p>generate-recipe works!</p>
+<div class="ai-recipe-page">
+
+  <!-- HEADER -->
+
+  <header class="page-header">
+
+    <div class="header-left">
+
+      <button
+        class="back-button"
+        type="button"
+        aria-label="Zurück zu den Rezepten"
+        (click)="cancel()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M15 18l-6-6 6-6"
+          ></path>
+        </svg>
+
+      </button>
+
+
+      <div>
+
+        <span class="ai-label">
+          ✨ KI-Assistent
+        </span>
+
+        <h1>
+          Rezept mit KI erstellen
+        </h1>
+
+        <p>
+          Beschreibe dein Wunschrezept oder gib an,
+          welche Zutaten du bereits zu Hause hast.
+        </p>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ERROR -->
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <div class="ai-layout">
+
+    <!-- LEFT -->
+
+    <section class="generator-card">
+
+      <div class="section-heading">
+
+        <h2>
+          Deine Wünsche
+        </h2>
+
+        <p>
+          Je genauer deine Angaben sind,
+          desto besser kann die KI dein Rezept erstellen.
+        </p>
+
+      </div>
+
+
+      <!-- IDEA -->
+
+      <div class="field">
+
+        <label for="idea">
+          Was möchtest du kochen?
+        </label>
+
+        <textarea
+          id="idea"
+          rows="4"
+          maxlength="500"
+          [(ngModel)]="idea"
+          placeholder="z. B. ein schnelles cremiges Hähnchengericht mit Gemüse..."
+        ></textarea>
+
+        <small class="field-hint">
+          Optional, wenn du stattdessen nur vorhandene Zutaten angibst.
+        </small>
+
+      </div>
+
+
+      <!-- INGREDIENTS -->
+
+      <div class="field">
+
+        <label for="availableIngredients">
+          Welche Zutaten hast du bereits?
+        </label>
+
+        <textarea
+          id="availableIngredients"
+          rows="4"
+          maxlength="1000"
+          [(ngModel)]="availableIngredients"
+          placeholder="z. B. Hähnchen, Brokkoli, Paprika, Reis, Sahne..."
+        ></textarea>
+
+        <small class="field-hint">
+          Die KI versucht, möglichst viele davon zu verwenden.
+        </small>
+
+      </div>
+
+
+      <!-- AVOID -->
+
+      <div class="field">
+
+        <label for="avoidIngredients">
+          Was möchtest du vermeiden?
+        </label>
+
+        <input
+          id="avoidIngredients"
+          type="text"
+          maxlength="500"
+          [(ngModel)]="avoidIngredients"
+          placeholder="z. B. Pilze, Zwiebeln, scharfes Essen..."
+        />
+
+      </div>
+
+
+      <!-- OPTIONS -->
+
+      <div class="options-grid">
+
+        <div class="field">
+
+          <label for="servings">
+            Portionen
+          </label>
+
+          <input
+            id="servings"
+            type="number"
+            min="1"
+            max="20"
+            [(ngModel)]="servings"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="maxTime">
+            Maximale Kochzeit
+          </label>
+
+          <div class="input-with-suffix">
+
+            <input
+              id="maxTime"
+              type="number"
+              min="5"
+              max="240"
+              [(ngModel)]="maxTime"
+            />
+
+            <span>
+              Min.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="category">
+            Kategorie
+          </label>
+
+          <select
+            id="category"
+            [(ngModel)]="category"
+          >
+
+            <option
+              *ngFor="let item of categories"
+              [value]="item.value"
+            >
+              {{ item.label }}
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="diet">
+            Ernährungsweise
+          </label>
+
+          <select
+            id="diet"
+            [(ngModel)]="diet"
+          >
+
+            <option
+              *ngFor="let item of diets"
+              [value]="item.value"
+            >
+              {{ item.label }}
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- BUTTON -->
+
+      <button
+        class="generate-button"
+        type="button"
+        [disabled]="isGenerating"
+        (click)="generateRecipe()"
+      >
+
+        <span
+          class="sparkle"
+          *ngIf="!isGenerating"
+        >
+          ✨
+        </span>
+
+
+        <span
+          class="button-loader"
+          *ngIf="isGenerating"
+        >
+        </span>
+
+
+        {{
+          isGenerating
+            ? 'Rezept wird erstellt...'
+            : 'Rezept generieren'
+        }}
+
+      </button>
+
+
+      <div class="generator-tip">
+
+        <span>
+          💡
+        </span>
+
+        <p>
+          Das Rezept wird zunächst nur als Vorschau erzeugt.
+          Erst mit „Rezept speichern“ landet es in deinen Rezepten.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT PLACEHOLDER -->
+
+    <section
+      class="placeholder-card"
+      *ngIf="
+        !generatedRecipe &&
+        !isGenerating
+      "
+    >
+
+      <div class="placeholder-icon">
+        ✨
+      </div>
+
+
+      <h2>
+        Dein KI-Rezept erscheint hier
+      </h2>
+
+
+      <p>
+        Beschreibe links, was du gerne kochen möchtest,
+        und die KI erstellt daraus ein vollständiges Rezept
+        mit Zutaten und Zubereitung.
+      </p>
+
+
+      <div class="placeholder-info">
+
+        <div>
+
+          <span>
+            🥕
+          </span>
+
+          <strong>
+            Passende Zutaten
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            📝
+          </span>
+
+          <strong>
+            Klare Schritte
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            ⏱
+          </span>
+
+          <strong>
+            Passend zur Zeit
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GENERATING -->
+
+    <section
+      class="generating-card"
+      *ngIf="
+        isGenerating &&
+        !generatedRecipe
+      "
+    >
+
+      <div class="large-loader">
+      </div>
+
+
+      <h2>
+        Dein Rezept wird erstellt
+      </h2>
+
+
+      <p>
+        Die KI stellt gerade Zutaten,
+        Mengen und Zubereitung für dich zusammen.
+      </p>
+
+
+      <div class="generation-lines">
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section
+      class="result-card"
+      *ngIf="
+        generatedRecipe &&
+        !isGenerating
+      "
+    >
+
+      <div class="result-hero">
+
+        <div class="result-hero-icon">
+          🍽️
+        </div>
+
+      </div>
+
+
+      <div class="result-content">
+
+        <div class="result-heading">
+
+          <div>
+
+            <span class="category-chip">
+              {{
+                getCategoryLabel(
+                  generatedRecipe.category
+                )
+              }}
+            </span>
+
+
+            <h2>
+              {{ generatedRecipe.name }}
+            </h2>
+
+
+            <p>
+              {{ generatedRecipe.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- META -->
+
+        <div class="recipe-meta">
+
+          <div>
+
+            <span>
+              ⏱
+            </span>
+
+            <div>
+
+              <strong>
+                {{ generatedRecipe.preparation_time }}
+                Min.
+              </strong>
+
+              <small>
+                Zubereitung
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              👥
+            </span>
+
+            <div>
+
+              <strong>
+                {{ generatedRecipe.servings }}
+              </strong>
+
+              <small>
+                Portionen
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              🥕
+            </span>
+
+            <div>
+
+              <strong>
+                {{ generatedRecipe.ingredients.length }}
+              </strong>
+
+              <small>
+                Zutaten
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              📝
+            </span>
+
+            <div>
+
+              <strong>
+                {{ generatedRecipe.steps.length }}
+              </strong>
+
+              <small>
+                Schritte
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- INGREDIENTS -->
+
+        <section class="result-section">
+
+          <div class="result-section-header">
+
+            <h3>
+              Zutaten
+            </h3>
+
+            <span>
+              {{ generatedRecipe.ingredients.length }}
+            </span>
+
+          </div>
+
+
+          <div
+            class="ingredient-row"
+            *ngFor="
+              let ingredient
+              of generatedRecipe.ingredients
+            "
+          >
+
+            <div class="ingredient-name">
+
+              <span class="ingredient-dot">
+              </span>
+
+              <strong>
+                {{ ingredient.name }}
+              </strong>
+
+            </div>
+
+
+            <span class="ingredient-amount">
+
+              {{
+                ingredient.quantity
+                  ?? ''
+              }}
+
+              {{ ingredient.unit }}
+
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- STEPS -->
+
+        <section class="result-section">
+
+          <div class="result-section-header">
+
+            <h3>
+              Zubereitung
+            </h3>
+
+            <span>
+              {{ generatedRecipe.steps.length }}
+            </span>
+
+          </div>
+
+
+          <div
+            class="step-row"
+            *ngFor="
+              let step
+              of generatedRecipe.steps;
+              let i = index
+            "
+          >
+
+            <div class="step-number">
+              {{ i + 1 }}
+            </div>
+
+
+            <p>
+              {{ step }}
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- NOTES -->
+
+        <section
+          class="notes-section"
+          *ngIf="generatedRecipe.notes"
+        >
+
+          <div class="notes-icon">
+            💡
+          </div>
+
+
+          <div>
+
+            <strong>
+              Tipp
+            </strong>
+
+            <p>
+              {{ generatedRecipe.notes }}
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ACTIONS -->
+
+        <div class="result-actions">
+
+          <button
+            class="regenerate-button"
+            type="button"
+            [disabled]="isGenerating || isSaving"
+            (click)="regenerateRecipe()"
+          >
+            ↻ Neu generieren
+          </button>
+
+
+          <button
+            class="save-button"
+            type="button"
+            [disabled]="isSaving"
+            (click)="saveRecipe()"
+          >
+
+            {{
+              isSaving
+                ? 'Wird gespeichert...'
+                : 'Rezept speichern'
+            }}
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>

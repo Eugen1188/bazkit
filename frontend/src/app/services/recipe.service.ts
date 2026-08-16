@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import {
+  Injectable
+} from '@angular/core';
 
 import {
   HttpClient
@@ -69,6 +71,44 @@ export interface RecipePayload {
 }
 
 
+export interface GenerateRecipePayload {
+  idea: string;
+
+  available_ingredients: string;
+
+  avoid_ingredients: string;
+
+  diet: string;
+
+  servings: number;
+
+  max_time: number;
+
+  category: string;
+}
+
+
+export interface GeneratedRecipe {
+  name: string;
+
+  description: string;
+
+  servings: number;
+
+  preparation_time: number;
+
+  category: string;
+
+  ingredients:
+    RecipeIngredient[];
+
+  steps:
+    string[];
+
+  notes: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -79,7 +119,8 @@ export class RecipeService {
 
 
   constructor(
-    private http: HttpClient
+    private http:
+      HttpClient
   ) {}
 
 
@@ -131,6 +172,18 @@ export class RecipeService {
 
     return this.http.delete<void>(
       `${this.apiUrl}${id}/`
+    );
+  }
+
+
+  generateRecipe(
+    payload:
+      GenerateRecipePayload
+  ): Observable<GeneratedRecipe> {
+
+    return this.http.post<GeneratedRecipe>(
+      `${this.apiUrl}generate/`,
+      payload
     );
   }
 }
