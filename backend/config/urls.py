@@ -1,7 +1,5 @@
 """
 URL configuration for config project.
-
-The `urlpatterns` list routes URLs to views.
 """
 
 from django.contrib import admin
@@ -15,39 +13,34 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path(
-        'admin/',
+        "admin/",
         admin.site.urls
     ),
 
     path(
-        'users/',
-        include('users.urls')
+        "users/",
+        include("users.urls")
     ),
 
     path(
-        'lists/',
-        include('lists.urls')
+        "lists/",
+        include("lists.urls")
     ),
 
     path(
-        'recipes/',
-        include('recipes.urls')
+        "recipes/",
+        include("recipes.urls")
     ),
 
     path(
-        'recipes/',
-        include('recipes.urls')
-    ),
-
-    path(
-        'api/token/',
+        "api/token/",
         TokenObtainPairView.as_view(),
-        name='token_obtain_pair'
+        name="token_obtain_pair"
     ),
 
     path(
-        'api/token/refresh/',
+        "api/token/refresh/",
         TokenRefreshView.as_view(),
-        name='token_refresh'
+        name="token_refresh"
     ),
 ]
