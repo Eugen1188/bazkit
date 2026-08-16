@@ -1,0 +1,264 @@
+<div class="recipe-detail-page">
+
+  <div
+    class="loading-state"
+    *ngIf="isLoading"
+  >
+    Rezept wird geladen...
+  </div>
+
+
+  <div
+    class="error-state"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <ng-container
+    *ngIf="
+      !isLoading &&
+      !errorMessage &&
+      recipe
+    "
+  >
+
+    <header class="detail-header">
+
+      <div class="header-left">
+
+        <button
+          class="back-button"
+          type="button"
+          (click)="goBack()"
+          aria-label="Zurück"
+        >
+
+          <svg viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+
+        </button>
+
+
+        <div>
+
+          <span class="category-chip">
+            {{
+              getCategoryLabel(
+                recipe.category
+              )
+            }}
+          </span>
+
+          <h1>
+            {{ recipe.name }}
+          </h1>
+
+          <p>
+            {{
+              recipe.description ||
+              'Keine Beschreibung vorhanden.'
+            }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <section class="hero-card">
+
+      <div class="hero-image">
+        🍽️
+      </div>
+
+
+      <div class="recipe-meta">
+
+        <div>
+
+          <span>⏱</span>
+
+          <strong>
+            {{
+              recipe.preparation_time ||
+              '–'
+            }}
+            Min.
+          </strong>
+
+          <small>
+            Zubereitungszeit
+          </small>
+
+        </div>
+
+
+        <div>
+
+          <span>👥</span>
+
+          <strong>
+            {{ recipe.servings }}
+          </strong>
+
+          <small>
+            Portionen
+          </small>
+
+        </div>
+
+
+        <div>
+
+          <span>🥕</span>
+
+          <strong>
+            {{ recipe.ingredients.length }}
+          </strong>
+
+          <small>
+            Zutaten
+          </small>
+
+        </div>
+
+
+        <div>
+
+          <span>📝</span>
+
+          <strong>
+            {{ preparationSteps.length }}
+          </strong>
+
+          <small>
+            Schritte
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="content-grid">
+
+      <section class="detail-card">
+
+        <div class="card-header">
+
+          <h2>
+            Zutaten
+          </h2>
+
+          <span>
+            {{ recipe.ingredients.length }}
+          </span>
+
+        </div>
+
+
+        <div
+          class="ingredient-item"
+          *ngFor="
+            let ingredient
+            of recipe.ingredients
+          "
+        >
+
+          <div class="ingredient-icon">
+
+            {{
+              ingredient.name
+                .charAt(0)
+                .toUpperCase()
+            }}
+
+          </div>
+
+
+          <strong>
+            {{ ingredient.name }}
+          </strong>
+
+
+          <span class="ingredient-amount">
+
+            {{ ingredient.quantity }}
+
+            {{ ingredient.unit }}
+
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <section class="detail-card">
+
+        <div class="card-header">
+
+          <h2>
+            Zubereitung
+          </h2>
+
+          <span>
+            {{ preparationSteps.length }}
+          </span>
+
+        </div>
+
+
+        <div
+          class="step-item"
+          *ngFor="
+            let step
+            of preparationSteps;
+            let i = index
+          "
+        >
+
+          <div class="step-number">
+            {{ i + 1 }}
+          </div>
+
+
+          <p>
+            {{ step }}
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <section
+      class="notes-card"
+      *ngIf="recipe.notes"
+    >
+
+      <h2>
+        Notizen
+      </h2>
+
+      <p>
+        {{ recipe.notes }}
+      </p>
+
+    </section>
+
+  </ng-container>
+
+</div>
