@@ -1,1 +1,714 @@
-<p>create-recipe works!</p>
+<div class="create-recipe-page">
+
+  <!-- HEADER -->
+
+  <header class="page-header">
+
+    <div class="header-left">
+
+      <button
+        class="back-button"
+        type="button"
+        aria-label="Zurück zu den Rezepten"
+        (click)="cancel()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+
+      </button>
+
+
+      <div>
+
+        <h1>
+          Neues Rezept
+        </h1>
+
+        <p>
+          Erstelle dein Rezept Schritt für Schritt.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <button
+        class="cancel-button"
+        type="button"
+        (click)="cancel()"
+      >
+        Abbrechen
+      </button>
+
+
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="isSaving"
+        (click)="saveRecipe()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5 4h14v16H5z"></path>
+          <path d="M8 4v6h8V4"></path>
+        </svg>
+
+        {{
+          isSaving
+            ? 'Wird gespeichert...'
+            : 'Rezept speichern'
+        }}
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ERROR -->
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <div class="recipe-layout">
+
+    <!-- LEFT / FORM -->
+
+    <main class="recipe-form">
+
+
+      <!-- BASIC INFORMATION -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Allgemeine Informationen
+            </h2>
+
+            <p>
+              Gib deinem Rezept einen Namen
+              und die wichtigsten Eckdaten.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="recipeName">
+            Rezeptname
+          </label>
+
+          <input
+            id="recipeName"
+            type="text"
+            maxlength="100"
+            [(ngModel)]="recipeName"
+            placeholder="z. B. Hähnchen-Wok mit Gemüse"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="description">
+            Beschreibung
+          </label>
+
+          <textarea
+            id="description"
+            rows="3"
+            maxlength="500"
+            [(ngModel)]="description"
+            placeholder="Beschreibe kurz, was dieses Rezept besonders macht..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="recipe-meta-grid">
+
+          <div class="field">
+
+            <label for="servings">
+              Portionen
+            </label>
+
+            <input
+              id="servings"
+              type="number"
+              min="1"
+              max="100"
+              [(ngModel)]="servings"
+            />
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="preparationTime">
+              Zubereitungszeit
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="preparationTime"
+                type="number"
+                min="1"
+                [(ngModel)]="preparationTime"
+                placeholder="30"
+              />
+
+              <span>
+                Min.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="category">
+              Kategorie
+            </label>
+
+            <select
+              id="category"
+              [(ngModel)]="category"
+            >
+
+              <option
+                *ngFor="let categoryOption of categories"
+                [value]="categoryOption.value"
+              >
+                {{ categoryOption.label }}
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- INGREDIENTS -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Zutaten
+            </h2>
+
+            <p>
+              Füge alle Zutaten mit Menge
+              und Einheit hinzu.
+            </p>
+
+          </div>
+
+
+          <span class="count-badge">
+            {{ ingredientCount }}
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-headings">
+
+          <span>
+            Zutat
+          </span>
+
+          <span>
+            Menge
+          </span>
+
+          <span>
+            Einheit
+          </span>
+
+        </div>
+
+
+        <div
+          class="ingredient-row"
+          *ngFor="
+            let ingredient of ingredients;
+            let i = index
+          "
+        >
+
+          <div class="move-actions">
+
+            <button
+              type="button"
+              aria-label="Zutat nach oben"
+              [disabled]="i === 0"
+              (click)="moveIngredientUp(i)"
+            >
+              ↑
+            </button>
+
+            <button
+              type="button"
+              aria-label="Zutat nach unten"
+              [disabled]="
+                i === ingredients.length - 1
+              "
+              (click)="moveIngredientDown(i)"
+            >
+              ↓
+            </button>
+
+          </div>
+
+
+          <input
+            class="ingredient-name"
+            type="text"
+            [(ngModel)]="ingredient.name"
+            placeholder="z. B. Hähnchenbrust"
+          />
+
+
+          <input
+            class="ingredient-quantity"
+            type="number"
+            min="0"
+            step="0.01"
+            [(ngModel)]="ingredient.quantity"
+            placeholder="500"
+          />
+
+
+          <select
+            class="ingredient-unit"
+            [(ngModel)]="ingredient.unit"
+          >
+
+            <option
+              *ngFor="let unit of units"
+              [value]="unit"
+            >
+              {{ unit }}
+            </option>
+
+          </select>
+
+
+          <button
+            class="delete-row-button"
+            type="button"
+            aria-label="Zutat entfernen"
+            (click)="removeIngredient(i)"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7h16"></path>
+              <path d="M9 7V4h6v3"></path>
+              <path d="M7 7l1 13h8l1-13"></path>
+            </svg>
+
+          </button>
+
+        </div>
+
+
+        <button
+          class="add-row-button"
+          type="button"
+          (click)="addIngredient()"
+        >
+
+          <span>+</span>
+
+          Zutat hinzufügen
+
+        </button>
+
+      </section>
+
+
+      <!-- PREPARATION -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Zubereitung
+            </h2>
+
+            <p>
+              Beschreibe die einzelnen Schritte
+              der Zubereitung.
+            </p>
+
+          </div>
+
+
+          <span class="count-badge">
+            {{ stepCount }}
+          </span>
+
+        </div>
+
+
+        <div
+          class="preparation-row"
+          *ngFor="
+            let step of preparationSteps;
+            let i = index
+          "
+        >
+
+          <div class="step-number">
+            {{ i + 1 }}
+          </div>
+
+
+          <textarea
+            rows="2"
+            [(ngModel)]="step.text"
+            [placeholder]="
+              'Schritt ' +
+              (i + 1) +
+              ' beschreiben...'
+            "
+          ></textarea>
+
+
+          <div class="step-actions">
+
+            <button
+              type="button"
+              aria-label="Schritt nach oben"
+              [disabled]="i === 0"
+              (click)="moveStepUp(i)"
+            >
+              ↑
+            </button>
+
+            <button
+              type="button"
+              aria-label="Schritt nach unten"
+              [disabled]="
+                i === preparationSteps.length - 1
+              "
+              (click)="moveStepDown(i)"
+            >
+              ↓
+            </button>
+
+
+            <button
+              class="delete-step"
+              type="button"
+              aria-label="Schritt löschen"
+              (click)="removePreparationStep(i)"
+            >
+
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16"></path>
+                <path d="M9 7V4h6v3"></path>
+                <path d="M7 7l1 13h8l1-13"></path>
+              </svg>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="add-row-button"
+          type="button"
+          (click)="addPreparationStep()"
+        >
+
+          <span>+</span>
+
+          Schritt hinzufügen
+
+        </button>
+
+      </section>
+
+
+      <!-- NOTES -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Notizen
+            </h2>
+
+            <p>
+              Optional kannst du Tipps,
+              Varianten oder persönliche Hinweise ergänzen.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <textarea
+            rows="5"
+            [(ngModel)]="notes"
+            placeholder="z. B. Beim nächsten Mal etwas mehr Chili verwenden..."
+          ></textarea>
+
+        </div>
+
+      </section>
+
+
+      <!-- BOTTOM ACTIONS -->
+
+      <div class="bottom-actions">
+
+        <button
+          class="cancel-button"
+          type="button"
+          (click)="cancel()"
+        >
+          Abbrechen
+        </button>
+
+
+        <button
+          class="save-button"
+          type="button"
+          [disabled]="isSaving"
+          (click)="saveRecipe()"
+        >
+
+          {{
+            isSaving
+              ? 'Wird gespeichert...'
+              : 'Rezept speichern'
+          }}
+
+        </button>
+
+      </div>
+
+    </main>
+
+
+    <!-- RIGHT / PREVIEW -->
+
+    <aside class="recipe-preview">
+
+      <div class="preview-card">
+
+        <div class="preview-title">
+
+          <span>
+            Vorschau
+          </span>
+
+        </div>
+
+
+        <div class="preview-image">
+
+          <span>
+            🍽️
+          </span>
+
+        </div>
+
+
+        <div class="preview-content">
+
+          <span class="category-chip">
+            {{ categoryLabel }}
+          </span>
+
+
+          <h2>
+            {{
+              recipeName.trim()
+                ? recipeName
+                : 'Dein Rezept'
+            }}
+          </h2>
+
+
+          <p>
+            {{
+              description.trim()
+                ? description
+                : 'Hier erscheint die Beschreibung deines Rezepts.'
+            }}
+          </p>
+
+
+          <div class="preview-meta">
+
+            <div>
+
+              <span class="meta-icon">
+                ⏱
+              </span>
+
+              <div>
+
+                <strong>
+                  {{
+                    preparationTime || '–'
+                  }}
+                  Min.
+                </strong>
+
+                <small>
+                  Zubereitung
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                👥
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ servings }}
+                </strong>
+
+                <small>
+                  Portionen
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                🥕
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ ingredientCount }}
+                </strong>
+
+                <small>
+                  Zutaten
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                📝
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ stepCount }}
+                </strong>
+
+                <small>
+                  Schritte
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="preview-tip">
+
+        <span>
+          💡
+        </span>
+
+        <div>
+
+          <strong>
+            Tipp
+          </strong>
+
+          <p>
+            Du kannst dein Rezept später jederzeit
+            bearbeiten und Zutaten zur Einkaufsliste
+            hinzufügen.
+          </p>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>
