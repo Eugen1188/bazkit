@@ -30,9 +30,7 @@
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .page-header {
   display: flex;
@@ -153,9 +151,7 @@
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
 .save-button,
 .cancel-button {
@@ -248,9 +244,7 @@
 }
 
 
-/* =========================
-   LAYOUT
-========================= */
+/* LAYOUT */
 
 .recipe-layout {
   display: grid;
@@ -274,9 +268,7 @@
 }
 
 
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 
 .form-card,
 .preview-card,
@@ -371,9 +363,7 @@
 }
 
 
-/* =========================
-   FIELDS
-========================= */
+/* FIELDS */
 
 .field {
   display: flex;
@@ -513,9 +503,7 @@ select:focus {
 }
 
 
-/* =========================
-   INGREDIENTS
-========================= */
+/* INGREDIENTS */
 
 .ingredient-headings {
   display: grid;
@@ -660,11 +648,13 @@ select:focus {
 
   transition:
     background 0.15s ease,
-    border-color 0.15s ease;
+    border-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
 }
 
 
-.add-row-button:hover {
+.add-row-button:hover:not(:disabled) {
   border-color:
     var(--color-primary);
 
@@ -680,9 +670,32 @@ select:focus {
 }
 
 
-/* =========================
-   PREPARATION
-========================= */
+.add-row-button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  background:
+    #fafafa;
+
+  color:
+    var(--color-text-muted);
+
+  border-color:
+    var(--color-border);
+}
+
+
+.add-row-button:disabled:hover {
+  background:
+    #fafafa;
+
+  border-color:
+    var(--color-border);
+}
+
+
+/* PREPARATION */
 
 .preparation-row {
   display: grid;
@@ -739,9 +752,7 @@ select:focus {
 }
 
 
-/* =========================
-   PREVIEW
-========================= */
+/* PREVIEW */
 
 .recipe-preview {
   position: sticky;
@@ -907,9 +918,7 @@ select:focus {
 }
 
 
-/* =========================
-   TIP
-========================= */
+/* TIP */
 
 .preview-tip {
   padding: 16px;
@@ -951,9 +960,7 @@ select:focus {
 }
 
 
-/* =========================
-   ERROR
-========================= */
+/* ERROR */
 
 .error-message {
   margin-bottom: 20px;
@@ -977,9 +984,7 @@ select:focus {
 }
 
 
-/* =========================
-   BOTTOM ACTIONS
-========================= */
+/* BOTTOM ACTIONS */
 
 .bottom-actions {
   display: flex;
@@ -992,9 +997,7 @@ select:focus {
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media (
   max-width: 1050px

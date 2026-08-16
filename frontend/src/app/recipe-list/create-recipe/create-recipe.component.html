@@ -1,7 +1,5 @@
 <div class="create-recipe-page">
 
-  <!-- HEADER -->
-
   <header class="page-header">
 
     <div class="header-left">
@@ -77,8 +75,6 @@
   </header>
 
 
-  <!-- ERROR -->
-
   <div
     class="error-message"
     *ngIf="errorMessage"
@@ -89,12 +85,8 @@
 
   <div class="recipe-layout">
 
-    <!-- LEFT / FORM -->
-
     <main class="recipe-form">
 
-
-      <!-- BASIC INFORMATION -->
 
       <section class="form-card">
 
@@ -221,8 +213,6 @@
       </section>
 
 
-      <!-- INGREDIENTS -->
-
       <section class="form-card">
 
         <div class="card-heading">
@@ -335,6 +325,7 @@
             class="delete-row-button"
             type="button"
             aria-label="Zutat entfernen"
+            *ngIf="hasIngredientContent(i)"
             (click)="removeIngredient(i)"
           >
 
@@ -352,6 +343,7 @@
         <button
           class="add-row-button"
           type="button"
+          [disabled]="!canAddIngredient()"
           (click)="addIngredient()"
         >
 
@@ -363,8 +355,6 @@
 
       </section>
 
-
-      <!-- PREPARATION -->
 
       <section class="form-card">
 
@@ -442,6 +432,7 @@
               class="delete-step"
               type="button"
               aria-label="Schritt löschen"
+              *ngIf="hasStepContent(i)"
               (click)="removePreparationStep(i)"
             >
 
@@ -461,6 +452,7 @@
         <button
           class="add-row-button"
           type="button"
+          [disabled]="!canAddPreparationStep()"
           (click)="addPreparationStep()"
         >
 
@@ -472,8 +464,6 @@
 
       </section>
 
-
-      <!-- NOTES -->
 
       <section class="form-card">
 
@@ -508,8 +498,6 @@
       </section>
 
 
-      <!-- BOTTOM ACTIONS -->
-
       <div class="bottom-actions">
 
         <button
@@ -541,27 +529,21 @@
     </main>
 
 
-    <!-- RIGHT / PREVIEW -->
-
     <aside class="recipe-preview">
 
       <div class="preview-card">
 
         <div class="preview-title">
-
           <span>
             Vorschau
           </span>
-
         </div>
 
 
         <div class="preview-image">
-
           <span>
             🍽️
           </span>
-
         </div>
 
 

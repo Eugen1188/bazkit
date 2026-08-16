@@ -132,6 +132,12 @@ export class CreateRecipeComponent {
 
   addIngredient(): void {
 
+    if (
+      !this.canAddIngredient()
+    ) {
+      return;
+    }
+
     this.ingredients.push({
       name: '',
       quantity: 1,
@@ -140,30 +146,75 @@ export class CreateRecipeComponent {
   }
 
 
+  canAddIngredient(): boolean {
+
+    if (
+      this.ingredients.length === 0
+    ) {
+      return true;
+    }
+
+    const lastIngredient =
+      this.ingredients[
+        this.ingredients.length - 1
+      ];
+
+    return (
+      lastIngredient.name
+        .trim()
+        .length > 0
+    );
+  }
+
+
+  hasIngredientContent(
+    index: number
+  ): boolean {
+
+    const ingredient =
+      this.ingredients[index];
+
+    if (!ingredient) {
+      return false;
+    }
+
+    return (
+      ingredient.name
+        .trim()
+        .length > 0
+    );
+  }
+
+
   removeIngredient(
     index: number
   ): void {
-
-    if (
-      this.ingredients.length === 1
-    ) {
-      this.ingredients[0] = {
-        name: '',
-        quantity: 1,
-        unit: 'Stück'
-      };
-
-      return;
-    }
 
     this.ingredients.splice(
       index,
       1
     );
+
+    if (
+      this.ingredients.length === 0
+    ) {
+
+      this.ingredients.push({
+        name: '',
+        quantity: 1,
+        unit: 'Stück'
+      });
+    }
   }
 
 
   addPreparationStep(): void {
+
+    if (
+      !this.canAddPreparationStep()
+    ) {
+      return;
+    }
 
     this.preparationSteps.push({
       text: ''
@@ -171,24 +222,63 @@ export class CreateRecipeComponent {
   }
 
 
+  canAddPreparationStep(): boolean {
+
+    if (
+      this.preparationSteps.length === 0
+    ) {
+      return true;
+    }
+
+    const lastStep =
+      this.preparationSteps[
+        this.preparationSteps.length - 1
+      ];
+
+    return (
+      lastStep.text
+        .trim()
+        .length > 0
+    );
+  }
+
+
+  hasStepContent(
+    index: number
+  ): boolean {
+
+    const step =
+      this.preparationSteps[index];
+
+    if (!step) {
+      return false;
+    }
+
+    return (
+      step.text
+        .trim()
+        .length > 0
+    );
+  }
+
+
   removePreparationStep(
     index: number
   ): void {
-
-    if (
-      this.preparationSteps.length === 1
-    ) {
-
-      this.preparationSteps[0].text =
-        '';
-
-      return;
-    }
 
     this.preparationSteps.splice(
       index,
       1
     );
+
+    if (
+      this.preparationSteps.length === 0
+    ) {
+
+      this.preparationSteps.push({
+        text: ''
+      });
+    }
   }
 
 
@@ -279,6 +369,7 @@ export class CreateRecipeComponent {
     this.errorMessage = '';
 
     if (!this.recipeName.trim()) {
+
       this.errorMessage =
         'Bitte gib einen Rezeptnamen ein.';
 
@@ -342,13 +433,6 @@ export class CreateRecipeComponent {
     }
 
 
-    /*
-     * Backend verwendet aktuell ein TextField
-     * für instructions.
-     *
-     * Deshalb speichern wir die einzelnen
-     * Schritte nummeriert als Text.
-     */
     const instructions =
       validSteps
         .map(
@@ -398,20 +482,13 @@ export class CreateRecipeComponent {
       )
       .subscribe({
 
-        next: (
-          recipe
-        ) => {
+        next: () => {
 
           this.isSaving =
             false;
 
-          /*
-           * Nach dem Speichern direkt
-           * das Rezept öffnen.
-           */
           this.router.navigate([
-            '/main/recipe-list',
-            recipe.id
+            '/main/recipe-list'
           ]);
 
         },
