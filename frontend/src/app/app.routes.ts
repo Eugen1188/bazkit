@@ -18,6 +18,10 @@ import {
 import {
   RecipeDetailComponent
 } from './recipe-list/recipe-detail/recipe-detail.component';
+import {
+  EditRecipeComponent
+} from './recipe-list/edit-recipe/edit-recipe.component';
+
 
 export const routes: Routes = [
   {
@@ -56,6 +60,10 @@ export const routes: Routes = [
       {
         path: 'recipe-list/create',
         component: CreateRecipeComponent,
+      },
+      {
+        path: 'recipe-list/:id/edit',
+        component: EditRecipeComponent,
       },
       {
         path: 'recipe-list/:id',
