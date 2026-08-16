@@ -168,3 +168,13 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+OPENAI_API_KEY = os.getenv(
+    "OPENAI_API_KEY",
+    ""
+)
+
+OPENAI_RECIPE_MODEL = os.getenv(
+    "OPENAI_RECIPE_MODEL",
+    "gpt-5-mini"
+)

@@ -58,6 +58,9 @@ import {
   EditRecipeComponent
 } from './recipe-list/edit-recipe/edit-recipe.component';
 
+import {
+  GenerateRecipeComponent
+} from './recipe-list/generate-recipe/generate-recipe.component';
 
 export const routes: Routes = [
 
@@ -115,6 +118,11 @@ export const routes: Routes = [
       {
         path: 'recipe-list/:id/edit',
         component: EditRecipeComponent
+      },
+
+      {
+        path: 'recipe-list/ai',
+        component: GenerateRecipeComponent
       },
 
       {
