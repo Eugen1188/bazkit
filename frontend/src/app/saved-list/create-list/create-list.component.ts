@@ -19,11 +19,8 @@ import {
 import {
   Subject,
   Subscription,
-  catchError,
   debounceTime,
   distinctUntilChanged,
-  map,
-  of,
   switchMap
 } from 'rxjs';
 
@@ -39,22 +36,16 @@ import {
 
 
 interface Product {
-
   id?: number;
-
   name: string;
-
   quantity: number;
-
   unit: string;
-
   note?: string;
 }
 
 
 @Component({
-  selector:
-    'app-create-list',
+  selector: 'app-create-list',
 
   standalone: true,
 
@@ -118,7 +109,6 @@ implements OnDestroy {
   private productSearchSubject =
     new Subject<string>();
 
-
   private productSearchSubscription:
     Subscription;
 
@@ -156,7 +146,7 @@ implements OnDestroy {
         .pipe(
 
           debounceTime(
-            350
+            300
           ),
 
           distinctUntilChanged(),
@@ -167,128 +157,15 @@ implements OnDestroy {
               this.isSearchingProducts =
                 true;
 
-              this.isSearchingExternal =
-                false;
-
               this.externalSearchDone =
                 false;
 
               this.externalSearchError =
                 '';
 
-
               return this.productService
                 .searchProducts(
                   query
-                )
-                .pipe(
-
-                  switchMap(
-                    localProducts => {
-
-                      this.isSearchingProducts =
-                        false;
-
-
-                      if (
-                        localProducts.length > 0
-                      ) {
-
-                        return of(
-                          localProducts
-                        );
-                      }
-
-
-                      if (
-                        query.length < 3
-                      ) {
-
-                        return of(
-                          []
-                        );
-                      }
-
-
-                      this.isSearchingExternal =
-                        true;
-
-
-                      return this.productService
-                        .searchExternalProducts(
-                          query
-                        )
-                        .pipe(
-
-                          map(
-                            externalProducts => {
-
-                              this.isSearchingExternal =
-                                false;
-
-                              this.externalSearchDone =
-                                true;
-
-                              return (
-                                externalProducts
-                              );
-                            }
-                          ),
-
-                          catchError(
-                            error => {
-
-                              console.error(
-                                'Externe Produktsuche fehlgeschlagen:',
-                                error
-                              );
-
-
-                              this.isSearchingExternal =
-                                false;
-
-                              this.externalSearchDone =
-                                true;
-
-                              this.externalSearchError =
-                                'Die externe Suche ist momentan nicht verfügbar.';
-
-
-                              return of(
-                                []
-                              );
-                            }
-                          )
-
-                        );
-                    }
-                  ),
-
-                  catchError(
-                    error => {
-
-                      console.error(
-                        'Lokale Produktsuche fehlgeschlagen:',
-                        error
-                      );
-
-
-                      this.isSearchingProducts =
-                        false;
-
-                      this.isSearchingExternal =
-                        false;
-
-                      this.externalSearchError =
-                        'Die Produktsuche ist momentan nicht verfügbar.';
-
-
-                      return of(
-                        []
-                      );
-                    }
-                  )
-
                 );
             }
           )
@@ -303,14 +180,36 @@ implements OnDestroy {
             this.productSuggestions =
               products;
 
+            this.isSearchingProducts =
+              false;
+
             this.isSuggestionsOpen =
               this.productName
                 .trim()
                 .length >= 2;
+          },
+
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Lokale Produktsuche fehlgeschlagen:',
+              error
+            );
+
+            this.productSuggestions =
+              [];
+
+            this.isSearchingProducts =
+              false;
+
+            this.externalSearchError =
+              'Die Produktsuche ist momentan nicht verfügbar.';
           }
 
         });
-
   }
 
 
@@ -329,14 +228,11 @@ implements OnDestroy {
     this.productName =
       value;
 
-
     this.selectedProduct =
       null;
 
-
     const query =
       value.trim();
-
 
     this.productSuggestions =
       [];
@@ -346,7 +242,6 @@ implements OnDestroy {
 
     this.externalSearchError =
       '';
-
 
     if (
       query.length < 2
@@ -358,10 +253,8 @@ implements OnDestroy {
       return;
     }
 
-
     this.isSuggestionsOpen =
       true;
-
 
     this.productSearchSubject
       .next(
@@ -378,10 +271,8 @@ implements OnDestroy {
     this.selectedProduct =
       product;
 
-
     this.productName =
       product.name;
-
 
     if (
       product.default_unit
@@ -395,7 +286,6 @@ implements OnDestroy {
         product.default_unit;
     }
 
-
     this.productSuggestions =
       [];
 
@@ -407,6 +297,84 @@ implements OnDestroy {
 
     this.externalSearchError =
       '';
+  }
+
+
+  searchExternal():
+    void {
+
+    const query =
+      this.productName
+        .trim();
+
+    if (
+      query.length < 3
+      ||
+      this.isSearchingExternal
+    ) {
+
+      return;
+    }
+
+    this.isSearchingExternal =
+      true;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+    this.productService
+      .searchExternalProducts(
+        query
+      )
+      .subscribe({
+
+        next: (
+          products
+        ) => {
+
+          this.productSuggestions =
+            products;
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.isSuggestionsOpen =
+            true;
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Externe Produktsuche fehlgeschlagen:',
+            error
+          );
+
+          this.productSuggestions =
+            [];
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.externalSearchError =
+            'Die externe Suche ist momentan nicht verfügbar.';
+
+          this.isSuggestionsOpen =
+            true;
+        }
+
+      });
   }
 
 
@@ -423,17 +391,6 @@ implements OnDestroy {
 
       return;
     }
-
-
-    if (
-      this.isSearchingProducts
-      ||
-      this.isSearchingExternal
-    ) {
-
-      return;
-    }
-
 
     this.addProduct();
   }
@@ -462,7 +419,6 @@ implements OnDestroy {
 
         this.isSuggestionsOpen =
           false;
-
       },
       200
     );
@@ -475,7 +431,6 @@ implements OnDestroy {
     const name =
       this.productName
         .trim();
-
 
     if (
       !name
@@ -490,7 +445,6 @@ implements OnDestroy {
       return;
     }
 
-
     this.products.push({
       name,
 
@@ -500,7 +454,6 @@ implements OnDestroy {
       unit:
         this.productUnit
     });
-
 
     if (
       this.selectedProduct?.source
@@ -526,7 +479,6 @@ implements OnDestroy {
         });
     }
 
-
     this.resetProductForm();
   }
 
@@ -549,7 +501,6 @@ implements OnDestroy {
       this.listName
         .trim();
 
-
     if (
       !trimmedListName
     ) {
@@ -559,7 +510,6 @@ implements OnDestroy {
 
       return;
     }
-
 
     const payload:
       CreateSavedListPayload = {
@@ -586,13 +536,11 @@ implements OnDestroy {
         )
     };
 
-
     this.isSaving =
       true;
 
     this.errorMessage =
       '';
-
 
     this.savedListService
       .createSavedList(
@@ -623,7 +571,6 @@ implements OnDestroy {
           this.isSaving =
             false;
 
-
           if (
             error.status === 401
           ) {
@@ -634,7 +581,6 @@ implements OnDestroy {
             return;
           }
 
-
           if (
             error.error?.title
           ) {
@@ -644,7 +590,6 @@ implements OnDestroy {
 
             return;
           }
-
 
           this.errorMessage =
             'Die Liste konnte nicht erstellt werden.';

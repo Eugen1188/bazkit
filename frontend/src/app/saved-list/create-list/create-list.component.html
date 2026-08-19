@@ -234,24 +234,22 @@
 
                 <span
                   *ngIf="
-                    productName.trim().length === 2
+                    !externalSearchDone &&
+                    productName.trim().length >= 3
                   "
                 >
-                  Tippe mindestens 3 Zeichen,
-                  damit auch die externe
-                  Produktdatenbank durchsucht wird.
+                  Kein lokaler Treffer gefunden.
                 </span>
 
 
                 <span
                   *ngIf="
-                    productName.trim().length >= 3 &&
                     externalSearchDone &&
                     !externalSearchError
                   "
                 >
-                  Es wurde kein passendes
-                  Produkt gefunden.
+                  Auch extern wurde kein
+                  passendes Produkt gefunden.
                 </span>
 
 
@@ -263,6 +261,21 @@
                 >
                   {{ externalSearchError }}
                 </span>
+
+
+                <button
+                  class="external-search-button"
+                  type="button"
+                  *ngIf="
+                    !externalSearchDone &&
+                    productName.trim().length >= 3
+                  "
+                  (mousedown)="
+                    searchExternal()
+                  "
+                >
+                  🔎 Extern suchen
+                </button>
 
 
                 <small>
