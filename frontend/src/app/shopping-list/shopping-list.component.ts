@@ -1,5 +1,6 @@
 import {
   Component,
+  HostListener,
   OnInit
 } from '@angular/core';
 
@@ -20,6 +21,10 @@ import {
   ShoppingListItem,
   ShoppingListService
 } from '../services/shopping-list.service';
+
+import {
+  ListShareService
+} from '../services/list-share.service';
 
 import {
   AddToShoppingListModalComponent
@@ -71,6 +76,8 @@ implements OnInit {
 
   errorMessage = '';
 
+  shareMessage = '';
+
 
   isAddOptionsOpen =
     false;
@@ -84,10 +91,16 @@ implements OnInit {
   isAddRecipeOpen =
     false;
 
+  isListMenuOpen =
+    false;
+
 
   constructor(
     private shoppingListService:
-      ShoppingListService
+      ShoppingListService,
+
+    private listShareService:
+      ListShareService
   ) {}
 
 
@@ -144,6 +157,9 @@ implements OnInit {
 
   openAddOptions(): void {
 
+    this.isListMenuOpen =
+      false;
+
     this.isAddOptionsOpen =
       true;
   }
@@ -189,6 +205,27 @@ implements OnInit {
 
     this.isAddRecipeOpen =
       true;
+  }
+
+
+  toggleListMenu(
+    event: MouseEvent
+  ): void {
+
+    event.stopPropagation();
+
+    this.isListMenuOpen =
+      !this.isListMenuOpen;
+  }
+
+
+  @HostListener(
+    'document:click'
+  )
+  closeListMenu(): void {
+
+    this.isListMenuOpen =
+      false;
   }
 
 
@@ -263,6 +300,93 @@ implements OnInit {
       shoppingList.items ?? [];
 
     this.closeAllModals();
+  }
+
+
+  async shareShoppingList(): Promise<void> {
+
+    this.isListMenuOpen =
+      false;
+
+    this.shareMessage =
+      '';
+
+
+    try {
+
+      const result =
+        await this.listShareService
+          .shareList(
+            'Einkaufsliste',
+            this.items.map(
+              item => ({
+                name:
+                  item.name,
+
+                quantity:
+                  item.quantity,
+
+                unit:
+                  item.unit,
+
+                note:
+                  item.note,
+
+                isChecked:
+                  item.is_checked
+              })
+            )
+          );
+
+
+      if (
+        result === 'copied'
+      ) {
+
+        this.showShareMessage(
+          'Liste wurde in die Zwischenablage kopiert.'
+        );
+      }
+
+    } catch (
+      error
+    ) {
+
+      console.error(
+        'Liste konnte nicht geteilt werden:',
+        error
+      );
+
+      this.showShareMessage(
+        'Die Liste konnte nicht geteilt werden.'
+      );
+    }
+  }
+
+
+  private showShareMessage(
+    message: string
+  ): void {
+
+    this.shareMessage =
+      message;
+
+
+    window.setTimeout(
+      () => {
+
+        if (
+          this.shareMessage ===
+          message
+        ) {
+
+          this.shareMessage =
+            '';
+        }
+
+      },
+      3000
+    );
   }
 
 
@@ -366,6 +490,10 @@ implements OnInit {
 
   clearShoppingList(): void {
 
+    this.isListMenuOpen =
+      false;
+
+
     if (
       this.items.length === 0
     ) {
@@ -375,7 +503,7 @@ implements OnInit {
 
     const shouldClear =
       confirm(
-        'Möchtest du die komplette Einkaufsliste leeren?'
+        'Möchtest du wirklich alle Produkte aus der Einkaufsliste entfernen?'
       );
 
 
