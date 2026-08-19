@@ -24,7 +24,11 @@ export class ListShareService {
   async shareList(
     title: string,
     items: ShareListItem[]
-  ): Promise<'shared' | 'copied' | 'cancelled'> {
+  ): Promise<
+    'shared' |
+    'copied' |
+    'cancelled'
+  > {
 
     const text =
       this.createShareText(
@@ -33,8 +37,15 @@ export class ListShareService {
       );
 
 
+    /*
+     * Native Share API
+     *
+     * Funktioniert z. B. auf Smartphones
+     * und später sauber über HTTPS.
+     */
     if (
-      navigator.share
+      typeof navigator !== 'undefined' &&
+      typeof navigator.share === 'function'
     ) {
 
       try {
@@ -44,12 +55,17 @@ export class ListShareService {
           text
         });
 
+
         return 'shared';
 
       } catch (
         error: unknown
       ) {
 
+        /*
+         * Nutzer hat das Teilen-Menü
+         * einfach geschlossen.
+         */
         if (
           error instanceof DOMException &&
           error.name === 'AbortError'
@@ -59,8 +75,8 @@ export class ListShareService {
         }
 
 
-        console.error(
-          'Native Teilen-Funktion fehlgeschlagen:',
+        console.warn(
+          'Native Share API nicht verfügbar:',
           error
         );
       }
@@ -68,11 +84,61 @@ export class ListShareService {
     }
 
 
-    await navigator.clipboard.writeText(
-      text
-    );
+    /*
+     * Moderne Clipboard API
+     */
+    if (
+      typeof navigator !== 'undefined' &&
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText ===
+        'function'
+    ) {
 
-    return 'copied';
+      try {
+
+        await navigator.clipboard.writeText(
+          text
+        );
+
+
+        return 'copied';
+
+      } catch (
+        error
+      ) {
+
+        console.warn(
+          'Clipboard API konnte nicht verwendet werden:',
+          error
+        );
+      }
+
+    }
+
+
+    /*
+     * Fallback für HTTP / ältere Browser.
+     *
+     * Damit funktioniert es auch aktuell
+     * über deine Server-IP.
+     */
+    const copied =
+      this.copyWithFallback(
+        text
+      );
+
+
+    if (
+      copied
+    ) {
+
+      return 'copied';
+    }
+
+
+    throw new Error(
+      'Liste konnte weder geteilt noch kopiert werden.'
+    );
   }
 
 
@@ -101,8 +167,7 @@ export class ListShareService {
 
 
           const unit =
-            item.unit?.trim()
-            ?? '';
+            item.unit?.trim() ?? '';
 
 
           const amount =
@@ -123,9 +188,14 @@ export class ListShareService {
               : '';
 
 
-          const noteText =
+          const note =
             item.note?.trim()
-              ? ` (${item.note.trim()})`
+            ?? '';
+
+
+          const noteText =
+            note
+              ? ` (${note})`
               : '';
 
 
@@ -150,29 +220,122 @@ export class ListShareService {
     quantity: number
   ): string {
 
+    const numericQuantity =
+      Number(
+        quantity
+      );
+
+
     if (
       Number.isInteger(
-        Number(quantity)
+        numericQuantity
       )
     ) {
 
       return String(
-        Number(quantity)
+        numericQuantity
       );
     }
 
 
-    return Number(
-      quantity
-    )
+    return numericQuantity
       .toFixed(2)
       .replace(
         '.',
         ','
       )
       .replace(
-        /,?0+$/,
+        /0+$/,
+        ''
+      )
+      .replace(
+        /,$/,
         ''
       );
+  }
+
+
+  private copyWithFallback(
+    text: string
+  ): boolean {
+
+    if (
+      typeof document === 'undefined'
+    ) {
+
+      return false;
+    }
+
+
+    const textarea =
+      document.createElement(
+        'textarea'
+      );
+
+
+    textarea.value =
+      text;
+
+
+    textarea.setAttribute(
+      'readonly',
+      ''
+    );
+
+
+    textarea.style.position =
+      'fixed';
+
+    textarea.style.left =
+      '-9999px';
+
+    textarea.style.top =
+      '-9999px';
+
+    textarea.style.opacity =
+      '0';
+
+
+    document.body.appendChild(
+      textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    let successful =
+      false;
+
+
+    try {
+
+      successful =
+        document.execCommand(
+          'copy'
+        );
+
+    } catch (
+      error
+    ) {
+
+      console.error(
+        'Fallback-Kopieren fehlgeschlagen:',
+        error
+      );
+
+      successful =
+        false;
+    }
+
+
+    document.body.removeChild(
+      textarea
+    );
+
+
+    return successful;
   }
 }

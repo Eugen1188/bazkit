@@ -64,7 +64,7 @@ import {
     './shopping-list.component.scss'
 })
 export class ShoppingListComponent
-implements OnInit {
+  implements OnInit {
 
   items:
     ShoppingListItem[] = [];
@@ -101,7 +101,7 @@ implements OnInit {
 
     private listShareService:
       ListShareService
-  ) {}
+  ) { }
 
 
   ngOnInit(): void {
@@ -349,7 +349,7 @@ implements OnInit {
       }
 
     } catch (
-      error
+    error
     ) {
 
       console.error(
