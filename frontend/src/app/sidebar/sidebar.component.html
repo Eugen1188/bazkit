@@ -1,87 +1,312 @@
-<aside class="sidebar">
+<!-- =========================
+     MOBILE MENU BUTTON
+========================= -->
 
-  <a class="logo" routerLink="/main/shopping-list">
+<button
+  class="mobile-menu-button"
+  type="button"
+  aria-label="Menü öffnen"
+  [class.open]="isMobileMenuOpen"
+  (click)="toggleMobileMenu()"
+>
+
+  <svg
+    *ngIf="!isMobileMenuOpen"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path d="M4 7h16"></path>
+    <path d="M4 12h16"></path>
+    <path d="M4 17h16"></path>
+  </svg>
+
+
+  <svg
+    *ngIf="isMobileMenuOpen"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path d="M6 6l12 12"></path>
+    <path d="M18 6L6 18"></path>
+  </svg>
+
+</button>
+
+
+<!-- =========================
+     MOBILE BACKDROP
+========================= -->
+
+<div
+  class="sidebar-backdrop"
+  [class.visible]="isMobileMenuOpen"
+  (click)="closeMobileMenu()"
+>
+</div>
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside
+  class="sidebar"
+  [class.mobile-open]="isMobileMenuOpen"
+>
+
+  <!-- LOGO -->
+
+  <a
+    class="logo"
+    routerLink="/main/shopping-list"
+    (click)="closeMobileMenu()"
+  >
+
     <span class="logo-icon">
-      <svg viewBox="0 0 24 24">
-        <path d="M7 10V8a5 5 0 0 1 10 0v2" />
-        <path d="M5 10h14l-1.2 10H6.2L5 10Z" />
-        <path d="M9 14v2" />
-        <path d="M15 14v2" />
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M7 10V8a5 5 0 0 1 10 0v2"
+        >
+        </path>
+
+        <path
+          d="M5 10h14l-1.2 10H6.2L5 10Z"
+        >
+        </path>
+
+        <path
+          d="M9 14v2"
+        >
+        </path>
+
+        <path
+          d="M15 14v2"
+        >
+        </path>
       </svg>
+
     </span>
-    <span class="logo-text">bazkit</span>
+
+
+    <span class="logo-text">
+      bazkit
+    </span>
+
   </a>
 
+
+  <!-- USER -->
+
   <div class="user-box">
+
     <div class="avatar">
       {{ userInitial }}
     </div>
 
+
     <span class="user-name">
       {{ userName }}
     </span>
-    <span class="chevron">⌄</span>
+
+
+    <span class="chevron">
+      ⌄
+    </span>
+
   </div>
+
+
+  <!-- NAVIGATION -->
 
   <nav class="nav">
 
-    <a class="nav-item" routerLink="/main/shopping-list" routerLinkActive="active">
-      <span class="nav-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" />
-        </svg>
-      </span>
-      Einkaufsliste
-    </a>
+    <a
+      class="nav-item"
+      routerLink="/main/shopping-list"
+      routerLinkActive="active"
+      (click)="closeMobileMenu()"
+    >
 
-    <a class="nav-item" routerLink="/main/recipe-list" routerLinkActive="active">
       <span class="nav-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18" />
-        </svg>
-      </span>
-      Rezepte
-    </a>
 
-    <a class="nav-item" routerLink="/main/saved-list" routerLinkActive="active">
-      <span class="nav-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M6 4h12v17l-6-4-6 4V4Z" />
-        </svg>
-      </span>
-      Gespeichert
-    </a>
-
-    <a class="nav-item" routerLink="/main/settings" routerLinkActive="active">
-      <span class="nav-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path
-            d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z" />
+            d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"
+          >
+          </path>
         </svg>
+
       </span>
-      Einstellungen
+
+      <span class="nav-label">
+        Einkaufsliste
+      </span>
+
+    </a>
+
+
+    <a
+      class="nav-item"
+      routerLink="/main/recipe-list"
+      routerLinkActive="active"
+      (click)="closeMobileMenu()"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18"
+          >
+          </path>
+        </svg>
+
+      </span>
+
+      <span class="nav-label">
+        Rezepte
+      </span>
+
+    </a>
+
+
+    <a
+      class="nav-item"
+      routerLink="/main/saved-list"
+      routerLinkActive="active"
+      (click)="closeMobileMenu()"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 4h12v17l-6-4-6 4V4Z"
+          >
+          </path>
+        </svg>
+
+      </span>
+
+      <span class="nav-label">
+        Gespeichert
+      </span>
+
+    </a>
+
+
+    <a
+      class="nav-item"
+      routerLink="/main/settings"
+      routerLinkActive="active"
+      (click)="closeMobileMenu()"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
+          >
+          </path>
+
+          <path
+            d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z"
+          >
+          </path>
+
+        </svg>
+
+      </span>
+
+      <span class="nav-label">
+        Einstellungen
+      </span>
+
     </a>
 
   </nav>
 
+
+  <!-- BOTTOM -->
+
   <div class="bottom">
+
     <div class="premium-card">
-      <strong>👑 Premium</strong>
-      <p>Mehr Funktionen.<br>Mehr Möglichkeiten.</p>
-      <button>Jetzt upgraden</button>
+
+      <strong>
+        👑 Premium
+      </strong>
+
+      <p>
+        Mehr Funktionen.
+        <br>
+        Mehr Möglichkeiten.
+      </p>
+
+      <button
+        type="button"
+      >
+        Jetzt upgraden
+      </button>
+
     </div>
 
-    <a class="logout">
+
+    <button
+      class="logout"
+      type="button"
+      (click)="logout()"
+    >
+
       <span class="logout-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M10 17l5-5-5-5" />
-          <path d="M15 12H3" />
-          <path d="M21 4v16" />
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M10 17l5-5-5-5"
+          >
+          </path>
+
+          <path
+            d="M15 12H3"
+          >
+          </path>
+
+          <path
+            d="M21 4v16"
+          >
+          </path>
         </svg>
+
       </span>
-      Abmelden
-    </a>
+
+
+      <span>
+        Abmelden
+      </span>
+
+    </button>
+
   </div>
 
 </aside>

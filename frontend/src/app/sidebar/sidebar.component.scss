@@ -1,183 +1,801 @@
 :host {
   display: block;
-  width: var(--sidebar-width);
-  min-width: var(--sidebar-width);
+
+  width:
+    var(--sidebar-width);
+
+  min-width:
+    var(--sidebar-width);
+
   height: 100vh;
-  overflow: hidden;
+
+  flex-shrink: 0;
 }
+
+
+/* =========================
+   SIDEBAR
+========================= */
 
 .sidebar {
   width: 100%;
   height: 100vh;
-  padding: 28px 24px 22px;
-  background: var(--color-page-bg);
-  border-right: 1px solid var(--color-divider);
+
+  padding:
+    28px
+    24px
+    22px;
+
+  box-sizing: border-box;
+
   display: flex;
+
   flex-direction: column;
+
   overflow: hidden;
-  font-family: Inter, Arial, sans-serif;
+
+  background:
+    var(--color-page-bg);
+
+  border-right:
+    1px solid
+    var(--color-divider);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
 }
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   margin-bottom: 48px;
+
   text-decoration: none;
 }
+
 
 .logo-icon {
   width: 34px;
   height: 34px;
-  color: var(--color-primary);
+
+  flex-shrink: 0;
+
+  color:
+    var(--color-primary);
 }
+
 
 .logo-icon svg {
   width: 100%;
   height: 100%;
+
   fill: none;
-  stroke: currentColor;
+
+  stroke:
+    currentColor;
+
   stroke-width: 1.9;
+
   stroke-linecap: round;
+
   stroke-linejoin: round;
 }
 
+
 .logo-text {
   font-size: 2rem;
+
   font-weight: 800;
-  letter-spacing: -0.05em;
-  color: var(--color-text-primary);
+
+  letter-spacing:
+    -0.05em;
+
+  color:
+    var(--color-text-primary);
 }
+
+
+/* =========================
+   USER
+========================= */
 
 .user-box {
   display: grid;
-  grid-template-columns: 46px 1fr 20px;
+
+  grid-template-columns:
+    46px
+    minmax(0, 1fr)
+    20px;
+
   align-items: center;
+
   gap: 14px;
+
   margin-bottom: 48px;
 }
+
 
 .avatar {
   width: 46px;
   height: 46px;
+
   border-radius: 50%;
-  background: var(--color-primary);
-  color: white;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
+  background:
+    var(--color-primary);
+
+  color: #fff;
+
   font-weight: 700;
 }
+
 
 .user-name {
+  overflow: hidden;
+
+  color:
+    var(--color-text-primary);
+
   font-weight: 600;
-  color: var(--color-text-primary);
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
 }
 
+
 .chevron {
-  color: var(--color-text-primary);
+  color:
+    var(--color-text-primary);
+
   font-weight: 700;
 }
+
+
+/* =========================
+   NAVIGATION
+========================= */
 
 .nav {
   display: flex;
+
   flex-direction: column;
+
   gap: 10px;
 }
 
+
 .nav-item {
-  height: 58px;
-  padding: 0 18px;
+  min-height: 58px;
+
+  padding:
+    0 18px;
+
   border-radius: 12px;
+
   display: flex;
+
   align-items: center;
+
   gap: 18px;
-  color: var(--color-text-secondary);
+
+  box-sizing: border-box;
+
+  color:
+    var(--color-text-secondary);
+
   text-decoration: none;
+
   font-size: 1rem;
+
   font-weight: 500;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
+
 
 .nav-item:hover,
 .nav-item.active {
-  background: var(--color-primary-soft-bg);
-  color: var(--color-primary);
+  background:
+    var(--color-primary-soft-bg);
+
+  color:
+    var(--color-primary);
 }
+
 
 .nav-icon {
   width: 24px;
   height: 24px;
-  color: currentColor;
+
+  flex-shrink: 0;
+
   display: flex;
+
+  color:
+    currentColor;
 }
+
 
 .nav-icon svg {
   width: 24px;
   height: 24px;
+
   fill: none;
-  stroke: currentColor;
+
+  stroke:
+    currentColor;
+
   stroke-width: 1.8;
+
   stroke-linecap: round;
+
   stroke-linejoin: round;
 }
 
+
+/* =========================
+   BOTTOM
+========================= */
+
 .bottom {
   margin-top: auto;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 22px;
 }
 
+
 .premium-card {
   padding: 20px;
+
   border-radius: 14px;
-  background: #f1ede7;
+
+  background:
+    #f1ede7;
 }
+
 
 .premium-card strong {
   display: block;
+
   margin-bottom: 14px;
-  color: var(--color-text-primary);
+
+  color:
+    var(--color-text-primary);
 }
 
+
 .premium-card p {
-  margin-bottom: 16px;
+  margin:
+    0 0 16px;
+
   line-height: 1.5;
-  color: var(--color-text-muted);
+
+  color:
+    var(--color-text-muted);
 }
+
 
 .premium-card button {
   width: 100%;
   height: 44px;
+
   border: none;
+
   border-radius: 8px;
-  background: var(--color-primary);
-  color: white;
+
+  background:
+    var(--color-primary);
+
+  color: #fff;
+
   font-weight: 600;
+
   cursor: pointer;
+
+  transition:
+    background 0.15s ease;
 }
+
+
+.premium-card button:hover {
+  background:
+    var(--color-primary-hover);
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
 
 .logout {
-  height: 42px;
+  width: 100%;
+
+  min-height: 46px;
+
+  padding:
+    0 8px;
+
+  border: none;
+
+  border-radius: 9px;
+
   display: flex;
+
   align-items: center;
+
   gap: 14px;
-  padding: 0 8px;
-  color: var(--color-text-secondary);
-  text-decoration: none;
+
+  background:
+    transparent;
+
+  color:
+    var(--color-text-secondary);
+
+  font-family: inherit;
+
+  font-size: 16px;
+
   font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
-.logout-icon,
+
+.logout:hover {
+  background:
+    #fff1f1;
+
+  color:
+    #d9534f;
+}
+
+
+.logout-icon {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+}
+
+
 .logout-icon svg {
   width: 22px;
   height: 22px;
+
+  fill: none;
+
+  stroke:
+    currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
 }
 
-.logout-icon svg {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+
+/* =========================
+   MOBILE CONTROLS
+========================= */
+
+.mobile-menu-button {
+  display: none;
+}
+
+
+.sidebar-backdrop {
+  display: none;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (
+  max-width: 1100px
+) and (
+  min-width: 769px
+) {
+
+  :host {
+    width: 92px;
+
+    min-width: 92px;
+  }
+
+
+  .sidebar {
+    padding:
+      26px
+      16px
+      22px;
+
+    align-items: center;
+  }
+
+
+  .logo {
+    justify-content: center;
+
+    margin-bottom: 42px;
+  }
+
+
+  .logo-text {
+    display: none;
+  }
+
+
+  .user-box {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 42px;
+  }
+
+
+  .user-name,
+  .chevron {
+    display: none;
+  }
+
+
+  .nav {
+    width: 100%;
+  }
+
+
+  .nav-item {
+    width: 58px;
+
+    min-height: 58px;
+
+    margin:
+      0 auto;
+
+    padding: 0;
+
+    justify-content: center;
+  }
+
+
+  .nav-label {
+    display: none;
+  }
+
+
+  .premium-card {
+    display: none;
+  }
+
+
+  .logout {
+    width: 58px;
+
+    height: 58px;
+
+    padding: 0;
+
+    justify-content: center;
+  }
+
+
+  .logout span:last-child {
+    display: none;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (
+  max-width: 768px
+) {
+
+  :host {
+    width: 0;
+
+    min-width: 0;
+
+    height: 0;
+
+    flex: 0 0 0;
+  }
+
+
+  /*
+   * Kleiner Menübutton oben links.
+   */
+
+  .mobile-menu-button {
+    position: fixed;
+
+    top: 14px;
+    left: 14px;
+
+    z-index: 1202;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+      var(--color-surface);
+
+    color:
+      var(--color-primary);
+
+    box-shadow:
+      0 5px 18px
+      rgba(
+        0,
+        0,
+        0,
+        0.08
+      );
+
+    cursor: pointer;
+
+    transition:
+      background 0.15s ease,
+      transform 0.15s ease;
+  }
+
+
+  .mobile-menu-button:hover {
+    background:
+      var(--color-primary-soft-bg);
+  }
+
+
+  .mobile-menu-button:active {
+    transform:
+      scale(0.96);
+  }
+
+
+  .mobile-menu-button svg {
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+
+    stroke:
+      currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+  }
+
+
+  /*
+   * Hintergrund hinter geöffnetem Menü.
+   */
+
+  .sidebar-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1199;
+
+    display: block;
+
+    visibility: hidden;
+
+    background:
+      rgba(
+        24,
+        32,
+        29,
+        0.32
+      );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.22s ease,
+      visibility 0.22s ease;
+  }
+
+
+  .sidebar-backdrop.visible {
+    visibility: visible;
+
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+
+
+  /*
+   * Sidebar wird zum Drawer.
+   */
+
+  .sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1200;
+
+    width: min(
+      310px,
+      calc(
+        100vw - 48px
+      )
+    );
+
+    height: 100dvh;
+
+    padding:
+      26px
+      22px
+      20px;
+
+    transform:
+      translateX(
+        -105%
+      );
+
+    box-shadow:
+      14px 0 40px
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
+
+    transition:
+      transform 0.25s ease;
+
+    overflow-y: auto;
+  }
+
+
+  .sidebar.mobile-open {
+    transform:
+      translateX(0);
+  }
+
+
+  /*
+   * Platz für X-Button im geöffneten Menü.
+   */
+
+  .sidebar.mobile-open .logo {
+    padding-right: 48px;
+  }
+
+
+  .logo {
+    margin-bottom: 34px;
+  }
+
+
+  .logo-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+
+  .logo-text {
+    font-size: 1.8rem;
+  }
+
+
+  .user-box {
+    margin-bottom: 34px;
+  }
+
+
+  .nav {
+    gap: 6px;
+  }
+
+
+  .nav-item {
+    min-height: 54px;
+
+    border-radius: 11px;
+  }
+
+
+  .premium-card {
+    padding: 17px;
+  }
+
+
+  .premium-card strong {
+    margin-bottom: 10px;
+  }
+
+
+  .premium-card p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (
+  max-width: 390px
+) {
+
+  .sidebar {
+    width:
+      calc(
+        100vw - 32px
+      );
+  }
+
+
+  .mobile-menu-button {
+    top: 10px;
+    left: 10px;
+
+    width: 44px;
+    height: 44px;
+  }
+
 }

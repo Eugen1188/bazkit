@@ -1,210 +1,374 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import {
+  CommonModule
+} from '@angular/common';
 
 import {
-  CreateSavedListPayload,
+  Component,
+  HostListener,
+  OnInit
+} from '@angular/core';
+
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
+
+import {
   SavedList,
   SavedListItem,
   SavedListService
 } from '../../services/saved-list.service';
 
+import {
+  ListShareService
+} from '../../services/list-share.service';
+
+
 @Component({
   selector: 'app-saved-list-detail',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink
-  ],
-  templateUrl: './saved-list-detail.component.html',
-  styleUrl: './saved-list-detail.component.scss'
-})
-export class SavedListDetailComponent implements OnInit {
 
-  savedList: SavedList | null = null;
+  standalone: true,
+
+  imports: [
+    CommonModule
+  ],
+
+  templateUrl:
+    './saved-list-detail.component.html',
+
+  styleUrl:
+    './saved-list-detail.component.scss'
+})
+export class SavedListDetailComponent
+implements OnInit {
+
+  savedList:
+    SavedList | null = null;
+
 
   isLoading = true;
-  isSaving = false;
+
   errorMessage = '';
 
-  editingIndex: number | null = null;
+  shareMessage = '';
 
-  editItem: SavedListItem | null = null;
+  isMenuOpen = false;
 
-  units = [
-    'Stück',
-    'g',
-    'kg',
-    'ml',
-    'Liter',
-    'Packung',
-    'Dose',
-    'Glas',
-    'Becher',
-    'Bund'
-  ];
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private savedListService: SavedListService
-  ) { }
+    private route:
+      ActivatedRoute,
+
+    private router:
+      Router,
+
+    private savedListService:
+      SavedListService,
+
+    private listShareService:
+      ListShareService
+  ) {}
+
 
   ngOnInit(): void {
-    const id = Number(
-      this.route.snapshot.paramMap.get('id')
-    );
 
-    if (!id) {
+    this.loadSavedList();
+  }
+
+
+  loadSavedList(): void {
+
+    const id =
+      Number(
+        this.route.snapshot
+          .paramMap
+          .get('id')
+      );
+
+
+    if (
+      !id
+    ) {
+
       this.errorMessage =
         'Die Liste konnte nicht gefunden werden.';
 
-      this.isLoading = false;
+      this.isLoading =
+        false;
 
       return;
     }
 
-    this.loadList(id);
-  }
 
-  loadList(id: number): void {
-    this.isLoading = true;
-    this.errorMessage = '';
+    this.isLoading =
+      true;
+
+    this.errorMessage =
+      '';
+
 
     this.savedListService
-      .getSavedList(id)
+      .getSavedList(
+        id
+      )
       .subscribe({
-        next: (list) => {
-          this.savedList = list;
-          this.isLoading = false;
+
+        next: (
+          list
+        ) => {
+
+          this.savedList =
+            list;
+
+          this.isLoading =
+            false;
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
+
           console.error(
-            'Fehler beim Laden der Liste:',
+            'Liste konnte nicht geladen werden:',
             error
           );
 
           this.errorMessage =
             'Die Liste konnte nicht geladen werden.';
 
-          this.isLoading = false;
+          this.isLoading =
+            false;
         }
+
       });
   }
 
-  goBack(): void {
+
+  toggleMenu(
+    event: MouseEvent
+  ): void {
+
+    event.stopPropagation();
+
+    this.isMenuOpen =
+      !this.isMenuOpen;
+  }
+
+
+  @HostListener(
+    'document:click'
+  )
+  closeMenu(): void {
+
+    this.isMenuOpen =
+      false;
+  }
+
+
+  editList(): void {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    this.isMenuOpen =
+      false;
+
+
     this.router.navigate([
-      '/main/saved-list'
+      '/main/saved-list',
+      this.savedList.id,
+      'edit'
     ]);
   }
 
-  formatDate(date: string): string {
-    return new Intl.DateTimeFormat(
-      'de-DE',
-      {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-      }
-    ).format(new Date(date));
-  }
 
-  startEdit(
-    index: number,
+  editItem(
     item: SavedListItem
   ): void {
 
-    this.editingIndex = index;
-
-    this.editItem = {
-      ...item
-    };
-  }
-
-  cancelEdit(): void {
-    this.editingIndex = null;
-    this.editItem = null;
-  }
-
-  saveEdit(): void {
-
     if (
-      !this.savedList ||
-      this.editingIndex === null ||
-      !this.editItem ||
-      !this.editItem.id
+      !this.savedList
     ) {
       return;
     }
 
+
+    /*
+     * Da du bereits eine komplette
+     * Edit-Seite für die Liste hast,
+     * öffnen wir diese auch beim
+     * Bearbeiten eines einzelnen Produkts.
+     */
+    this.router.navigate([
+      '/main/saved-list',
+      this.savedList.id,
+      'edit'
+    ]);
+  }
+
+
+  async shareList(): Promise<void> {
+
     if (
-      !this.editItem.name.trim() ||
-      this.editItem.quantity <= 0 ||
-      !this.editItem.unit
+      !this.savedList
     ) {
       return;
     }
 
-    this.isSaving = true;
+
+    this.isMenuOpen =
+      false;
+
+    this.shareMessage =
+      '';
+
+
+    try {
+
+      const result =
+        await this.listShareService
+          .shareList(
+            this.savedList.title,
+            (
+              this.savedList.items ??
+              []
+            ).map(
+              item => ({
+
+                name:
+                  item.name ||
+                  item.product_name ||
+                  '',
+
+                quantity:
+                  item.quantity,
+
+                unit:
+                  item.unit,
+
+                note:
+                  item.note,
+
+                isChecked:
+                  false
+
+              })
+            )
+          );
+
+
+      if (
+        result === 'copied'
+      ) {
+
+        this.showShareMessage(
+          'Liste wurde in die Zwischenablage kopiert.'
+        );
+      }
+
+    } catch (
+      error
+    ) {
+
+      console.error(
+        'Liste konnte nicht geteilt werden:',
+        error
+      );
+
+
+      this.showShareMessage(
+        'Die Liste konnte nicht geteilt werden.'
+      );
+    }
+  }
+
+
+  deleteList(): void {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    this.isMenuOpen =
+      false;
+
+
+    const shouldDelete =
+      confirm(
+        `Möchtest du "${this.savedList.title}" wirklich löschen?`
+      );
+
+
+    if (
+      !shouldDelete
+    ) {
+      return;
+    }
+
 
     this.savedListService
-      .updateSavedListItem(
-        this.savedList.id,
-        this.editItem.id,
-        this.editItem
+      .deleteSavedList(
+        this.savedList.id
       )
       .subscribe({
 
-        next: (updatedItem) => {
+        next: () => {
 
-          if (
-            this.savedList?.items &&
-            this.editingIndex !== null
-          ) {
-            this.savedList.items[
-              this.editingIndex
-            ] = updatedItem;
-          }
-
-          this.editingIndex = null;
-          this.editItem = null;
-          this.isSaving = false;
+          this.router.navigate([
+            '/main/saved-list'
+          ]);
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
-            'Produkt konnte nicht gespeichert werden:',
+            'Liste konnte nicht gelöscht werden:',
             error
           );
 
-          this.isSaving = false;
+          this.errorMessage =
+            'Die Liste konnte nicht gelöscht werden.';
         }
+
       });
   }
 
-  deleteItem(index: number): void {
 
-    if (!this.savedList?.items) {
+  deleteItem(
+    item: SavedListItem
+  ): void {
+
+    if (
+      !this.savedList ||
+      !item.id
+    ) {
       return;
     }
 
-    const item = this.savedList.items[index];
 
-    if (!item?.id) {
+    const shouldDelete =
+      confirm(
+        `Möchtest du "${this.getItemName(item)}" aus der Liste entfernen?`
+      );
+
+
+    if (
+      !shouldDelete
+    ) {
       return;
     }
 
-    const shouldDelete = confirm(
-      `Möchtest du "${item.name}" wirklich löschen?`
-    );
-
-    if (!shouldDelete) {
-      return;
-    }
 
     this.savedListService
       .deleteSavedListItem(
@@ -215,19 +379,108 @@ export class SavedListDetailComponent implements OnInit {
 
         next: () => {
 
-          this.savedList!.items =
-            this.savedList!.items!.filter(
-              (_, i) => i !== index
-            );
+          if (
+            !this.savedList
+          ) {
+            return;
+          }
+
+
+          this.savedList.items =
+            (
+              this.savedList.items ??
+              []
+            )
+              .filter(
+                currentItem =>
+                  currentItem.id !==
+                  item.id
+              );
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Produkt konnte nicht gelöscht werden:',
             error
           );
         }
+
       });
+  }
+
+
+  getItemName(
+    item: SavedListItem
+  ): string {
+
+    return (
+      item.name ||
+      item.product_name ||
+      'Produkt'
+    );
+  }
+
+
+  get itemCount():
+    number {
+
+    return (
+      this.savedList?.items?.length ??
+      0
+    );
+  }
+
+
+  formatDate(
+    date: string
+  ): string {
+
+    return new Intl.DateTimeFormat(
+      'de-DE',
+      {
+        day:
+          '2-digit',
+
+        month:
+          '2-digit',
+
+        year:
+          'numeric'
+      }
+    ).format(
+      new Date(
+        date
+      )
+    );
+  }
+
+
+  private showShareMessage(
+    message: string
+  ): void {
+
+    this.shareMessage =
+      message;
+
+
+    window.setTimeout(
+      () => {
+
+        if (
+          this.shareMessage ===
+          message
+        ) {
+
+          this.shareMessage =
+            '';
+        }
+
+      },
+      3000
+    );
   }
 }

@@ -1,4 +1,6 @@
-<div class="detail-page">
+<div class="saved-list-detail-page">
+
+  <!-- LOADING -->
 
   <div
     class="loading-state"
@@ -7,262 +9,484 @@
     Liste wird geladen...
   </div>
 
+
+  <!-- ERROR -->
+
   <div
     class="error-state"
-    *ngIf="!isLoading && errorMessage"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
   >
     {{ errorMessage }}
   </div>
 
+
+  <!-- SHARE MESSAGE -->
+
+  <div
+    class="share-toast"
+    *ngIf="shareMessage"
+  >
+    {{ shareMessage }}
+  </div>
+
+
+  <!-- CONTENT -->
+
   <ng-container
     *ngIf="
       !isLoading &&
-      !errorMessage &&
       savedList
     "
   >
 
+    <!-- HEADER -->
+
     <header class="detail-header">
 
-      <div class="header-left">
+      <div class="header-copy">
 
-        <button
-          class="back-button"
-          type="button"
-          (click)="goBack()"
-          aria-label="Zurück"
-        >
-          <svg viewBox="0 0 24 24">
-            <path d="M15 18l-6-6 6-6"></path>
-          </svg>
-        </button>
+        <h1>
+          {{ savedList.title }}
+        </h1>
 
-        <div>
-          <h1>
-            {{ savedList.title }}
-          </h1>
 
-          <p>
-            Erstellt am
-            {{ formatDate(savedList.created_at) }}
-          </p>
-        </div>
+        <p>
+          Erstellt am
+
+          {{
+            formatDate(
+              savedList.created_at
+            )
+          }}
+        </p>
 
       </div>
 
+
       <div class="header-actions">
 
-        <div class="item-count">
-          {{ savedList.items?.length || 0 }}
-          Artikel
-        </div>
+        <span class="header-count">
 
-        <a
-          class="edit-list-button"
-          [routerLink]="[
-            '/main/saved-list',
-            savedList.id,
-            'edit'
-          ]"
+          {{ itemCount }}
+
+          {{
+            itemCount === 1
+              ? 'Artikel'
+              : 'Artikel'
+          }}
+
+        </span>
+
+
+        <!-- THREE DOT MENU -->
+
+        <div
+          class="list-menu-wrapper"
+          (click)="$event.stopPropagation()"
         >
-          Liste bearbeiten
-        </a>
+
+          <button
+            class="list-menu-button"
+            type="button"
+            aria-label="Weitere Aktionen"
+            [class.active]="isMenuOpen"
+            (click)="toggleMenu($event)"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <circle
+                cx="12"
+                cy="5"
+                r="1.8"
+              >
+              </circle>
+
+              <circle
+                cx="12"
+                cy="12"
+                r="1.8"
+              >
+              </circle>
+
+              <circle
+                cx="12"
+                cy="19"
+                r="1.8"
+              >
+              </circle>
+
+            </svg>
+
+          </button>
+
+
+          <div
+            class="list-menu"
+            *ngIf="isMenuOpen"
+          >
+
+            <!-- EDIT -->
+
+            <button
+              class="list-menu-item"
+              type="button"
+              (click)="editList()"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+                >
+                </path>
+
+                <path
+                  d="M13.5 8.5l3 3"
+                >
+                </path>
+
+              </svg>
+
+
+              <span>
+                Liste bearbeiten
+              </span>
+
+            </button>
+
+
+            <!-- SHARE -->
+
+            <button
+              class="list-menu-item"
+              type="button"
+              (click)="shareList()"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+
+                <circle
+                  cx="18"
+                  cy="5"
+                  r="3"
+                >
+                </circle>
+
+                <circle
+                  cx="6"
+                  cy="12"
+                  r="3"
+                >
+                </circle>
+
+                <circle
+                  cx="18"
+                  cy="19"
+                  r="3"
+                >
+                </circle>
+
+                <path
+                  d="M8.7 10.7l6.6-4"
+                >
+                </path>
+
+                <path
+                  d="M8.7 13.3l6.6 4"
+                >
+                </path>
+
+              </svg>
+
+
+              <span>
+                Liste teilen
+              </span>
+
+            </button>
+
+
+            <div
+              class="list-menu-divider"
+            >
+            </div>
+
+
+            <!-- DELETE -->
+
+            <button
+              class="
+                list-menu-item
+                danger
+              "
+              type="button"
+              (click)="deleteList()"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="M4 7h16"
+                >
+                </path>
+
+                <path
+                  d="M9 7V4h6v3"
+                >
+                </path>
+
+                <path
+                  d="M7 7l1 13h8l1-13"
+                >
+                </path>
+
+                <path
+                  d="M10 11v5"
+                >
+                </path>
+
+                <path
+                  d="M14 11v5"
+                >
+                </path>
+
+              </svg>
+
+
+              <span>
+                Liste löschen
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
 
     </header>
 
-    <section class="list-card">
 
-      <div class="list-card-header">
+    <!-- PRODUCTS CARD -->
 
-        <h2>Produkte</h2>
+    <section class="products-card">
 
-        <span>
-          {{ savedList.items?.length || 0 }}
+      <div class="products-card-header">
+
+        <h2>
+          Produkte
+        </h2>
+
+
+        <span class="products-count">
+          {{ itemCount }}
         </span>
 
       </div>
 
+
+      <!-- EMPTY -->
+
       <div
-        class="empty-products"
+        class="products-empty"
         *ngIf="
-          !savedList.items ||
-          savedList.items.length === 0
+          itemCount === 0
         "
       >
-        <div class="empty-icon">
-          +
-        </div>
 
-        <h3>
-          Noch keine Produkte
-        </h3>
+        <strong>
+          Diese Liste ist leer
+        </strong>
 
         <p>
-          Diese Liste enthält noch keine Produkte.
+          Bearbeite die Liste,
+          um Produkte hinzuzufügen.
         </p>
+
+        <button
+          type="button"
+          (click)="editList()"
+        >
+          Produkte hinzufügen
+        </button>
+
       </div>
+
+
+      <!-- ITEMS -->
 
       <div
         class="product-row"
         *ngFor="
-          let item of savedList.items;
-          let i = index
+          let item of savedList.items
         "
       >
 
-        <!-- NORMALE ANSICHT -->
+        <!-- AVATAR -->
 
-        <ng-container
-          *ngIf="editingIndex !== i"
-        >
+        <div class="product-avatar">
 
-          <div class="product-main">
+          {{
+            getItemName(
+              item
+            )
+              .charAt(0)
+              .toUpperCase()
+          }}
 
-            <div class="product-placeholder">
-              {{ item.name.charAt(0).toUpperCase() }}
-            </div>
+        </div>
 
-            <div class="product-text">
 
-              <strong>
-                {{ item.name || item.product_name }}
-              </strong>
+        <!-- PRODUCT -->
 
-              <div class="quantity-tags">
+        <div class="product-content">
 
-                <span>
-                  {{ item.quantity }}
-                </span>
+          <strong class="product-name">
 
-                <span>
-                  {{ item.unit }}
-                </span>
+            {{
+              getItemName(
+                item
+              )
+            }}
 
-              </div>
+          </strong>
 
-            </div>
 
-          </div>
-
-          <div class="product-note">
-
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M5 4h14v13H9l-4 4V4Z"
-              ></path>
-            </svg>
-
-            <span *ngIf="item.note">
-              {{ item.note }}
-            </span>
+          <div class="product-meta">
 
             <span
-              class="empty-note"
-              *ngIf="!item.note"
+              class="meta-chip"
+              *ngIf="
+                item.quantity !== null &&
+                item.quantity !== undefined
+              "
             >
-              Keine Notiz
+              {{ item.quantity }}
+            </span>
+
+
+            <span
+              class="meta-chip"
+              *ngIf="item.unit"
+            >
+              {{ item.unit }}
             </span>
 
           </div>
 
-          <div class="product-actions">
+        </div>
 
-            <button
-              class="product-action edit"
-              type="button"
-              aria-label="Produkt bearbeiten"
-              (click)="startEdit(i, item)"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-                ></path>
-                <path
-                  d="M13.5 8.5l3 3"
-                ></path>
-              </svg>
-            </button>
 
-            <button
-              class="product-action delete"
-              type="button"
-              aria-label="Produkt löschen"
-              (click)="deleteItem(i)"
-            >
-              <svg viewBox="0 0 24 24">
-                <path d="M4 7h16"></path>
-                <path d="M9 7V4h6v3"></path>
-                <path d="M7 7l1 13h8l1-13"></path>
-              </svg>
-            </button>
+        <!-- NOTE -->
 
-          </div>
+        <div class="product-note">
 
-        </ng-container>
-
-        <!-- EDIT MODE -->
-
-        <div
-          class="product-edit-form"
-          *ngIf="
-            editingIndex === i &&
-            editItem
-          "
-        >
-
-          <input
-            type="text"
-            [(ngModel)]="editItem.name"
-            placeholder="Produkt"
-          />
-
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            [(ngModel)]="editItem.quantity"
-          />
-
-          <select
-            [(ngModel)]="editItem.unit"
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
           >
-            <option
-              *ngFor="let unit of units"
-              [value]="unit"
+            <path
+              d="M5 4h14v13H9l-4 4V4Z"
             >
-              {{ unit }}
-            </option>
-          </select>
+            </path>
+          </svg>
 
-          <input
-            class="note-input"
-            type="text"
-            [(ngModel)]="editItem.note"
-            placeholder="Notiz hinzufügen..."
-          />
 
-          <div class="edit-actions">
+          <span
+            *ngIf="item.note"
+          >
+            {{ item.note }}
+          </span>
 
-            <button
-              class="save-edit"
-              type="button"
-              [disabled]="isSaving"
-              (click)="saveEdit()"
+
+          <span
+            class="empty-note"
+            *ngIf="!item.note"
+          >
+            Keine Notiz
+          </span>
+
+        </div>
+
+
+        <!-- ITEM ACTIONS -->
+
+        <div class="product-actions">
+
+          <button
+            class="product-action edit"
+            type="button"
+            aria-label="Produkt bearbeiten"
+            (click)="editItem(item)"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
             >
-              Speichern
-            </button>
 
-            <button
-              class="cancel-edit"
-              type="button"
-              (click)="cancelEdit()"
+              <path
+                d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+              >
+              </path>
+
+              <path
+                d="M13.5 8.5l3 3"
+              >
+              </path>
+
+            </svg>
+
+          </button>
+
+
+          <button
+            class="product-action delete"
+            type="button"
+            aria-label="Produkt löschen"
+            (click)="deleteItem(item)"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
             >
-              Abbrechen
-            </button>
 
-          </div>
+              <path
+                d="M4 7h16"
+              >
+              </path>
+
+              <path
+                d="M9 7V4h6v3"
+              >
+              </path>
+
+              <path
+                d="M7 7l1 13h8l1-13"
+              >
+              </path>
+
+            </svg>
+
+          </button>
 
         </div>
 
