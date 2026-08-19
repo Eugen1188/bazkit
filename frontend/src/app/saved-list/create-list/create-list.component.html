@@ -118,14 +118,10 @@
               (blur)="
                 closeSuggestions()
               "
-              placeholder="Produkt eingeben..."
               (keyup.enter)="
-                productSuggestions.length
-                  ? selectProductSuggestion(
-                      productSuggestions[0]
-                    )
-                  : searchExternal()
+                handleProductEnter()
               "
+              placeholder="Produkt eingeben..."
             />
 
 
@@ -145,7 +141,7 @@
               >
                 {{
                   isSearchingExternal
-                    ? 'Externe Datenbank wird durchsucht...'
+                    ? 'Externe Produktdatenbank wird durchsucht...'
                     : 'Produkte werden gesucht...'
                 }}
               </div>
@@ -187,6 +183,18 @@
 
                   <small
                     *ngIf="
+                      product.source ===
+                      'external'
+                    "
+                  >
+                    Externer Treffer
+                  </small>
+
+
+                  <small
+                    *ngIf="
+                      product.source ===
+                        'local' &&
                       product.default_unit
                     "
                   >
@@ -197,6 +205,8 @@
 
                   <small
                     *ngIf="
+                      product.source ===
+                        'local' &&
                       !product.default_unit
                     "
                   >
@@ -213,8 +223,7 @@
                 *ngIf="
                   !isSearchingProducts &&
                   !isSearchingExternal &&
-                  productSuggestions.length
-                    === 0
+                  productSuggestions.length === 0
                 "
               >
 
@@ -225,21 +234,24 @@
 
                 <span
                   *ngIf="
-                    !externalSearchDone
+                    productName.trim().length === 2
                   "
                 >
-                  Kein lokaler Treffer gefunden.
+                  Tippe mindestens 3 Zeichen,
+                  damit auch die externe
+                  Produktdatenbank durchsucht wird.
                 </span>
 
 
                 <span
                   *ngIf="
+                    productName.trim().length >= 3 &&
                     externalSearchDone &&
                     !externalSearchError
                   "
                 >
-                  Auch extern wurde kein
-                  passendes Produkt gefunden.
+                  Es wurde kein passendes
+                  Produkt gefunden.
                 </span>
 
 
@@ -253,23 +265,9 @@
                 </span>
 
 
-                <button
-                  class="external-search-button"
-                  type="button"
-                  *ngIf="
-                    productName.trim().length >= 3
-                  "
-                  (mousedown)="
-                    searchExternal()
-                  "
-                >
-                  🔎 Extern suchen
-                </button>
-
-
                 <small>
                   Du kannst den eingegebenen
-                  Namen auch direkt verwenden.
+                  Namen trotzdem direkt verwenden.
                 </small>
 
               </div>

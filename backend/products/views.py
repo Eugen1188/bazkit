@@ -1,360 +1,609 @@
-import logging
+import {
+  CommonModule
+} from '@angular/common';
 
-import requests
+import {
+  Component,
+  OnDestroy
+} from '@angular/core';
 
-from django.db.models import (
-    Case,
-    IntegerField,
-    Value,
-    When,
-)
+import {
+  FormsModule
+} from '@angular/forms';
 
-from rest_framework import status
+import {
+  Router,
+  RouterLink
+} from '@angular/router';
 
-from rest_framework.generics import (
-    ListAPIView,
-)
+import {
+  Subject,
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs';
 
-from rest_framework.permissions import (
-    IsAuthenticated,
-)
+import {
+  CreateSavedListPayload,
+  SavedListService
+} from '../../services/saved-list.service';
 
-from rest_framework.response import (
-    Response,
-)
-
-from rest_framework.views import (
-    APIView,
-)
-
-from .models import Product
-
-from .serializers import (
-    ProductSerializer,
-)
-
-
-logger = logging.getLogger(
-    __name__
-)
+import {
+  ProductService,
+  ProductSuggestion
+} from '../../services/product.service';
 
 
-OPEN_FOOD_FACTS_URL = (
-    "https://world.openfoodfacts.org/cgi/search.pl"
-)
+interface Product {
 
+  id?: number;
 
-OPEN_FOOD_FACTS_HEADERS = {
-    "User-Agent":
-        "Bazkit/1.0 (product-search)"
+  name: string;
+
+  quantity: number;
+
+  unit: string;
+
+  note?: string;
 }
 
 
-class ProductSearchAPIView(
-    ListAPIView
-):
+@Component({
+  selector:
+    'app-create-list',
 
-    serializer_class = (
-        ProductSerializer
-    )
+  standalone: true,
 
-    permission_classes = [
-        IsAuthenticated
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink
+  ],
+
+  templateUrl:
+    './create-list.component.html',
+
+  styleUrl:
+    './create-list.component.scss'
+})
+export class CreateListComponent
+implements OnDestroy {
+
+  listName = '';
+
+  productName = '';
+
+  productQuantity:
+    number | null = 1;
+
+  productUnit =
+    'Stück';
 
 
-    def get_queryset(
-        self
-    ):
+  products:
+    Product[] = [];
 
-        query = (
-            self.request
-            .query_params
-            .get(
-                "q",
-                ""
-            )
-            .strip()
+
+  isSaving =
+    false;
+
+  errorMessage =
+    '';
+
+
+  productSuggestions:
+    ProductSuggestion[] = [];
+
+
+  isSearchingProducts =
+    false;
+
+  isSearchingExternal =
+    false;
+
+  isSuggestionsOpen =
+    false;
+
+  externalSearchDone =
+    false;
+
+  externalSearchError =
+    '';
+
+
+  private productSearchSubject =
+    new Subject<string>();
+
+
+  private productSearchSubscription:
+    Subscription;
+
+
+  units = [
+    'Stück',
+    'g',
+    'kg',
+    'ml',
+    'Liter',
+    'EL',
+    'TL',
+    'Packung',
+    'Dose',
+    'Glas',
+    'Becher',
+    'Bund',
+    'Prise'
+  ];
+
+
+  constructor(
+    private router:
+      Router,
+
+    private savedListService:
+      SavedListService,
+
+    private productService:
+      ProductService
+  ) {
+
+    this.productSearchSubscription =
+      this.productSearchSubject
+        .pipe(
+
+          debounceTime(
+            250
+          ),
+
+          distinctUntilChanged(),
+
+          switchMap(
+            query => {
+
+              this.isSearchingProducts =
+                true;
+
+              return (
+                this.productService
+                  .searchProducts(
+                    query
+                  )
+              );
+            }
+          )
         )
+        .subscribe({
+
+          next: (
+            products
+          ) => {
+
+            this.productSuggestions =
+              products;
+
+            this.isSearchingProducts =
+              false;
+
+            this.isSuggestionsOpen =
+              this.productName
+                .trim()
+                .length >= 2;
+          },
 
 
-        if (
-            len(query) < 2
-        ):
-            return (
-                Product.objects
-                .none()
-            )
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Produktsuche fehlgeschlagen:',
+              error
+            );
+
+            this.productSuggestions =
+              [];
+
+            this.isSearchingProducts =
+              false;
+
+            this.isSuggestionsOpen =
+              false;
+          }
+
+        });
+  }
 
 
-        return (
-            Product.objects
-            .filter(
-                name__icontains=query
-            )
-            .annotate(
-                search_priority=Case(
+  ngOnDestroy():
+    void {
 
-                    When(
-                        name__iexact=query,
-                        then=Value(0)
-                    ),
+    this.productSearchSubscription
+      .unsubscribe();
+  }
 
-                    When(
-                        name__istartswith=query,
-                        then=Value(1)
-                    ),
 
-                    default=Value(2),
+  onProductNameChange(
+    value: string
+  ): void {
 
-                    output_field=
-                        IntegerField()
-                )
-            )
-            .order_by(
-                "search_priority",
-                "name"
-            )[:10]
+    this.productName =
+      value;
+
+
+    const query =
+      value.trim();
+
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+
+    if (
+      query.length < 2
+    ) {
+
+      this.productSuggestions =
+        [];
+
+      this.isSuggestionsOpen =
+        false;
+
+      return;
+    }
+
+
+    this.isSuggestionsOpen =
+      true;
+
+
+    this.productSearchSubject
+      .next(
+        query
+      );
+  }
+
+
+  selectProductSuggestion(
+    product:
+      ProductSuggestion
+  ): void {
+
+    this.productName =
+      product.name;
+
+
+    if (
+      product.default_unit
+      &&
+      this.units.includes(
+        product.default_unit
+      )
+    ) {
+
+      this.productUnit =
+        product.default_unit;
+    }
+
+
+    this.productSuggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+  }
+
+
+  searchExternal():
+    void {
+
+    const query =
+      this.productName
+        .trim();
+
+
+    if (
+      query.length < 3
+      ||
+      this.isSearchingExternal
+    ) {
+
+      return;
+    }
+
+
+    this.isSearchingExternal =
+      true;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+
+    this.productService
+      .searchExternalProducts(
+        query
+      )
+      .subscribe({
+
+        next: (
+          products
+        ) => {
+
+          this.productSuggestions =
+            products;
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.isSuggestionsOpen =
+            true;
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Externe Produktsuche fehlgeschlagen:',
+            error
+          );
+
+          this.productSuggestions =
+            [];
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.externalSearchError =
+            'Die externe Suche ist momentan nicht verfügbar.';
+
+          this.isSuggestionsOpen =
+            true;
+        }
+
+      });
+  }
+
+
+  openSuggestions():
+    void {
+
+    if (
+      this.productName
+        .trim()
+        .length >= 2
+    ) {
+
+      this.isSuggestionsOpen =
+        true;
+    }
+  }
+
+
+  closeSuggestions():
+    void {
+
+    window.setTimeout(
+      () => {
+
+        this.isSuggestionsOpen =
+          false;
+      },
+      200
+    );
+  }
+
+
+  addProduct():
+    void {
+
+    const name =
+      this.productName
+        .trim();
+
+
+    if (
+      !name
+      ||
+      this.productQuantity === null
+      ||
+      this.productQuantity <= 0
+      ||
+      !this.productUnit
+    ) {
+
+      return;
+    }
+
+
+    this.products.push({
+      name,
+
+      quantity:
+        this.productQuantity,
+
+      unit:
+        this.productUnit
+    });
+
+
+    this.resetProductForm();
+  }
+
+
+  removeProduct(
+    index: number
+  ): void {
+
+    this.products.splice(
+      index,
+      1
+    );
+  }
+
+
+  createList():
+    void {
+
+    const trimmedListName =
+      this.listName
+        .trim();
+
+
+    if (
+      !trimmedListName
+    ) {
+
+      this.errorMessage =
+        'Bitte geben Sie einen Listennamen ein.';
+
+      return;
+    }
+
+
+    const payload:
+      CreateSavedListPayload = {
+
+      title:
+        trimmedListName,
+
+      items:
+        this.products.map(
+          product => ({
+
+            name:
+              product.name,
+
+            quantity:
+              product.quantity,
+
+            unit:
+              product.unit,
+
+            note:
+              product.note ?? ''
+          })
         )
+    };
 
 
-class ExternalProductSearchAPIView(
-    APIView
-):
+    this.isSaving =
+      true;
 
-    permission_classes = [
-        IsAuthenticated
-    ]
+    this.errorMessage =
+      '';
 
 
-    def get(
-        self,
-        request
-    ):
+    this.savedListService
+      .createSavedList(
+        payload
+      )
+      .subscribe({
 
-        query = (
-            request
-            .query_params
-            .get(
-                "q",
-                ""
-            )
-            .strip()
-        )
+        next: () => {
 
+          this.isSaving =
+            false;
 
-        if (
-            len(query) < 3
-        ):
+          this.router.navigate([
+            '/main/saved-list'
+          ]);
+        },
 
-            return Response(
-                {
-                    "detail":
-                        "Bitte mindestens "
-                        "3 Zeichen eingeben."
-                },
-                status=
-                    status.HTTP_400_BAD_REQUEST
-            )
 
+        error: (
+          error
+        ) => {
 
-        try:
+          console.error(
+            'Fehler beim Erstellen der Liste:',
+            error
+          );
 
-            response = requests.get(
-                OPEN_FOOD_FACTS_URL,
+          this.isSaving =
+            false;
 
-                params={
-                    "search_terms":
-                        query,
 
-                    "search_simple":
-                        1,
+          if (
+            error.status === 401
+          ) {
 
-                    "action":
-                        "process",
+            this.errorMessage =
+              'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.';
 
-                    "json":
-                        1,
+            return;
+          }
 
-                    "page_size":
-                        10
-                },
 
-                headers=
-                    OPEN_FOOD_FACTS_HEADERS,
+          if (
+            error.error?.title
+          ) {
 
-                timeout=8
-            )
+            this.errorMessage =
+              error.error.title[0];
 
+            return;
+          }
 
-            response.raise_for_status()
 
-            response_data = (
-                response.json()
-            )
+          this.errorMessage =
+            'Die Liste konnte nicht erstellt werden.';
+        }
 
-            external_products = (
-                response_data.get(
-                    "products",
-                    []
-                )
-            )
+      });
+  }
 
 
-        except requests.RequestException as error:
+  cancel():
+    void {
 
-            logger.exception(
-                "Open Food Facts request failed: %s",
-                error
-            )
+    this.router.navigate([
+      '/main/saved-list'
+    ]);
+  }
 
-            return Response(
-                {
-                    "detail":
-                        "Die externe Produktsuche "
-                        "ist momentan nicht erreichbar."
-                },
-                status=
-                    status.HTTP_502_BAD_GATEWAY
-            )
 
+  private resetProductForm():
+    void {
 
-        except ValueError as error:
+    this.productName =
+      '';
 
-            logger.exception(
-                "Invalid Open Food Facts response: %s",
-                error
-            )
+    this.productQuantity =
+      1;
 
-            return Response(
-                {
-                    "detail":
-                        "Die externe API hat eine "
-                        "ungültige Antwort geliefert."
-                },
-                status=
-                    status.HTTP_502_BAD_GATEWAY
-            )
+    this.productUnit =
+      'Stück';
 
+    this.productSuggestions =
+      [];
 
-        saved_products = []
+    this.isSuggestionsOpen =
+      false;
 
-        used_names = set()
+    this.externalSearchDone =
+      false;
 
-
-        for item in external_products:
-
-            raw_name = (
-                item.get(
-                    "product_name"
-                )
-                or
-                item.get(
-                    "generic_name"
-                )
-                or
-                ""
-            )
-
-
-            name = (
-                raw_name
-                .strip()
-            )
-
-
-            if (
-                not name
-            ):
-                continue
-
-
-            if (
-                len(name) > 100
-            ):
-
-                name = (
-                    name[:100]
-                    .strip()
-                )
-
-
-            normalized_name = (
-                name.casefold()
-            )
-
-
-            if (
-                normalized_name
-                in used_names
-            ):
-                continue
-
-
-            used_names.add(
-                normalized_name
-            )
-
-
-            category = (
-                item.get(
-                    "categories",
-                    ""
-                )
-                or
-                ""
-            )
-
-            category = (
-                category[:100]
-                .strip()
-            )
-
-
-            product = (
-                Product.objects
-                .filter(
-                    name__iexact=name
-                )
-                .first()
-            )
-
-
-            if (
-                product is None
-            ):
-
-                product = (
-                    Product.objects
-                    .create(
-                        name=name,
-                        category=category,
-                        default_unit=""
-                    )
-                )
-
-
-            saved_products.append(
-                product
-            )
-
-
-            if (
-                len(saved_products)
-                >= 10
-            ):
-                break
-
-
-        serializer = (
-            ProductSerializer(
-                saved_products,
-                many=True
-            )
-        )
-
-
-        return Response(
-            serializer.data,
-            status=status.HTTP_200_OK
-        )
+    this.externalSearchError =
+      '';
+  }
+}

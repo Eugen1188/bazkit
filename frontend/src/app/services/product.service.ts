@@ -8,19 +8,43 @@ import {
 } from '@angular/common/http';
 
 import {
-  Observable
+  Observable,
+  map
 } from 'rxjs';
 
 
 export interface ProductSuggestion {
 
-  id: number;
+  id:
+    number | null;
 
-  name: string;
+  name:
+    string;
 
-  category: string;
+  category:
+    string;
 
-  default_unit: string;
+  default_unit:
+    string;
+
+  source:
+    'local' | 'external';
+}
+
+
+interface ProductApiResponse {
+
+  id:
+    number;
+
+  name:
+    string;
+
+  category:
+    string;
+
+  default_unit:
+    string;
 }
 
 
@@ -83,12 +107,26 @@ export class ProductService {
 
 
     return this.http.get<
-      ProductSuggestion[]
+      ProductApiResponse[]
     >(
       `${this.apiUrl}search/`,
       {
         params
       }
+    )
+    .pipe(
+
+      map(
+        products =>
+          products.map(
+            product => ({
+              ...product,
+              source:
+                'local' as const
+            })
+          )
+      )
+
     );
   }
 
@@ -116,4 +154,30 @@ export class ProductService {
       }
     );
   }
+
+
+  saveExternalProduct(
+    product:
+      ProductSuggestion
+  ): Observable<
+    ProductSuggestion
+  > {
+
+    return this.http.post<
+      ProductSuggestion
+    >(
+      `${this.apiUrl}save-external/`,
+      {
+        name:
+          product.name,
+
+        category:
+          product.category,
+
+        default_unit:
+          product.default_unit
+      }
+    );
+  }
+
 }
