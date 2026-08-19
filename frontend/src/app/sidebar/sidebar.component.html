@@ -1,312 +1,141 @@
-<!-- =========================
-     MOBILE MENU BUTTON
-========================= -->
-
-<button
-  class="mobile-menu-button"
-  type="button"
-  aria-label="Menü öffnen"
-  [class.open]="isMobileMenuOpen"
-  (click)="toggleMobileMenu()"
->
+import {
+  CommonModule
+} from '@angular/common';
 
-  <svg
-    *ngIf="!isMobileMenuOpen"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path d="M4 7h16"></path>
-    <path d="M4 12h16"></path>
-    <path d="M4 17h16"></path>
-  </svg>
+import {
+  Component,
+  HostListener,
+  inject
+} from '@angular/core';
 
+import {
+  NavigationEnd,
+  Router,
+  RouterModule
+} from '@angular/router';
 
-  <svg
-    *ngIf="isMobileMenuOpen"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path d="M6 6l12 12"></path>
-    <path d="M18 6L6 18"></path>
-  </svg>
+import {
+  filter
+} from 'rxjs/operators';
 
-</button>
+import {
+  AuthService
+} from '../services/auth.service';
 
 
-<!-- =========================
-     MOBILE BACKDROP
-========================= -->
+@Component({
+  selector: 'app-sidebar',
 
-<div
-  class="sidebar-backdrop"
-  [class.visible]="isMobileMenuOpen"
-  (click)="closeMobileMenu()"
->
-</div>
+  standalone: true,
 
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
 
-<!-- =========================
-     SIDEBAR
-========================= -->
+  templateUrl:
+    './sidebar.component.html',
 
-<aside
-  class="sidebar"
-  [class.mobile-open]="isMobileMenuOpen"
->
+  styleUrl:
+    './sidebar.component.scss'
+})
+export class SidebarComponent {
 
-  <!-- LOGO -->
+  private authService =
+    inject(AuthService);
 
-  <a
-    class="logo"
-    routerLink="/main/shopping-list"
-    (click)="closeMobileMenu()"
-  >
+  private router =
+    inject(Router);
 
-    <span class="logo-icon">
 
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          d="M7 10V8a5 5 0 0 1 10 0v2"
-        >
-        </path>
+  user =
+    this.authService.getCurrentUser();
 
-        <path
-          d="M5 10h14l-1.2 10H6.2L5 10Z"
-        >
-        </path>
 
-        <path
-          d="M9 14v2"
-        >
-        </path>
+  isMobileMoreOpen =
+    false;
 
-        <path
-          d="M15 14v2"
-        >
-        </path>
-      </svg>
 
-    </span>
+  constructor() {
 
+    this.router.events
+      .pipe(
+        filter(
+          event =>
+            event instanceof
+            NavigationEnd
+        )
+      )
+      .subscribe(
+        () => {
 
-    <span class="logo-text">
-      bazkit
-    </span>
+          this.isMobileMoreOpen =
+            false;
+        }
+      );
+  }
 
-  </a>
 
+  get userName():
+    string {
 
-  <!-- USER -->
+    return (
+      this.user?.first_name ||
+      'Benutzer'
+    );
+  }
 
-  <div class="user-box">
 
-    <div class="avatar">
-      {{ userInitial }}
-    </div>
+  get userInitial():
+    string {
 
+    return (
+      this.user
+        ?.first_name
+        ?.charAt(0)
+        ?.toUpperCase()
+      ||
+      '?'
+    );
+  }
 
-    <span class="user-name">
-      {{ userName }}
-    </span>
 
+  toggleMobileMore(
+    event: MouseEvent
+  ): void {
 
-    <span class="chevron">
-      ⌄
-    </span>
+    event.stopPropagation();
 
-  </div>
+    this.isMobileMoreOpen =
+      !this.isMobileMoreOpen;
+  }
 
 
-  <!-- NAVIGATION -->
+  closeMobileMore(): void {
 
-  <nav class="nav">
+    this.isMobileMoreOpen =
+      false;
+  }
 
-    <a
-      class="nav-item"
-      routerLink="/main/shopping-list"
-      routerLinkActive="active"
-      (click)="closeMobileMenu()"
-    >
 
-      <span class="nav-icon">
+  @HostListener(
+    'document:click'
+  )
+  onDocumentClick(): void {
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"
-          >
-          </path>
-        </svg>
+    this.isMobileMoreOpen =
+      false;
+  }
 
-      </span>
 
-      <span class="nav-label">
-        Einkaufsliste
-      </span>
+  logout(): void {
 
-    </a>
+    this.closeMobileMore();
 
+    this.authService.logout();
 
-    <a
-      class="nav-item"
-      routerLink="/main/recipe-list"
-      routerLinkActive="active"
-      (click)="closeMobileMenu()"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M7 3v18M11 3v8a2 2 0 0 1-4 0V3M17 3v18"
-          >
-          </path>
-        </svg>
-
-      </span>
-
-      <span class="nav-label">
-        Rezepte
-      </span>
-
-    </a>
-
-
-    <a
-      class="nav-item"
-      routerLink="/main/saved-list"
-      routerLinkActive="active"
-      (click)="closeMobileMenu()"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M6 4h12v17l-6-4-6 4V4Z"
-          >
-          </path>
-        </svg>
-
-      </span>
-
-      <span class="nav-label">
-        Gespeichert
-      </span>
-
-    </a>
-
-
-    <a
-      class="nav-item"
-      routerLink="/main/settings"
-      routerLinkActive="active"
-      (click)="closeMobileMenu()"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <path
-            d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
-          >
-          </path>
-
-          <path
-            d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z"
-          >
-          </path>
-
-        </svg>
-
-      </span>
-
-      <span class="nav-label">
-        Einstellungen
-      </span>
-
-    </a>
-
-  </nav>
-
-
-  <!-- BOTTOM -->
-
-  <div class="bottom">
-
-    <div class="premium-card">
-
-      <strong>
-        👑 Premium
-      </strong>
-
-      <p>
-        Mehr Funktionen.
-        <br>
-        Mehr Möglichkeiten.
-      </p>
-
-      <button
-        type="button"
-      >
-        Jetzt upgraden
-      </button>
-
-    </div>
-
-
-    <button
-      class="logout"
-      type="button"
-      (click)="logout()"
-    >
-
-      <span class="logout-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M10 17l5-5-5-5"
-          >
-          </path>
-
-          <path
-            d="M15 12H3"
-          >
-          </path>
-
-          <path
-            d="M21 4v16"
-          >
-          </path>
-        </svg>
-
-      </span>
-
-
-      <span>
-        Abmelden
-      </span>
-
-    </button>
-
-  </div>
-
-</aside>
+    this.router.navigate([
+      '/'
+    ]);
+  }
+}

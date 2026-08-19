@@ -7,19 +7,19 @@
   min-width:
     var(--sidebar-width);
 
-  height: 100vh;
+  height: 100%;
 
   flex-shrink: 0;
 }
 
 
-/* =========================
-   SIDEBAR
-========================= */
+/* =====================================
+   DESKTOP SIDEBAR
+===================================== */
 
 .sidebar {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   padding:
     28px
@@ -48,9 +48,7 @@
 }
 
 
-/* =========================
-   LOGO
-========================= */
+/* LOGO */
 
 .logo {
   display: flex;
@@ -106,9 +104,7 @@
 }
 
 
-/* =========================
-   USER
-========================= */
+/* USER */
 
 .user-box {
   display: grid;
@@ -169,9 +165,7 @@
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAV */
 
 .nav {
   display: flex;
@@ -190,13 +184,13 @@
 
   border-radius: 12px;
 
+  box-sizing: border-box;
+
   display: flex;
 
   align-items: center;
 
   gap: 18px;
-
-  box-sizing: border-box;
 
   color:
     var(--color-text-secondary);
@@ -230,9 +224,6 @@
   flex-shrink: 0;
 
   display: flex;
-
-  color:
-    currentColor;
 }
 
 
@@ -253,9 +244,7 @@
 }
 
 
-/* =========================
-   BOTTOM
-========================= */
+/* BOTTOM */
 
 .bottom {
   margin-top: auto;
@@ -273,8 +262,7 @@
 
   border-radius: 14px;
 
-  background:
-    #f1ede7;
+  background: #f1ede7;
 }
 
 
@@ -315,9 +303,6 @@
   font-weight: 600;
 
   cursor: pointer;
-
-  transition:
-    background 0.15s ease;
 }
 
 
@@ -327,9 +312,7 @@
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT */
 
 .logout {
   width: 100%;
@@ -361,8 +344,6 @@
 
   font-weight: 500;
 
-  text-align: left;
-
   cursor: pointer;
 
   transition:
@@ -380,18 +361,14 @@
 }
 
 
-.logout-icon {
+.logout-icon,
+.logout-icon svg {
   width: 22px;
   height: 22px;
-
-  flex-shrink: 0;
 }
 
 
 .logout-icon svg {
-  width: 22px;
-  height: 22px;
-
   fill: none;
 
   stroke:
@@ -405,127 +382,22 @@
 }
 
 
-/* =========================
-   MOBILE CONTROLS
-========================= */
+/* =====================================
+   MOBILE NAV DEFAULT
+===================================== */
 
-.mobile-menu-button {
+.mobile-bottom-nav {
   display: none;
 }
 
 
-.sidebar-backdrop {
-  display: none;
-}
-
-
-/* =========================
-   TABLET
-========================= */
+/* =====================================
+   RESPONSIVE
+   <= 900px = BOTTOM NAV
+===================================== */
 
 @media (
-  max-width: 1100px
-) and (
-  min-width: 769px
-) {
-
-  :host {
-    width: 92px;
-
-    min-width: 92px;
-  }
-
-
-  .sidebar {
-    padding:
-      26px
-      16px
-      22px;
-
-    align-items: center;
-  }
-
-
-  .logo {
-    justify-content: center;
-
-    margin-bottom: 42px;
-  }
-
-
-  .logo-text {
-    display: none;
-  }
-
-
-  .user-box {
-    display: flex;
-
-    justify-content: center;
-
-    margin-bottom: 42px;
-  }
-
-
-  .user-name,
-  .chevron {
-    display: none;
-  }
-
-
-  .nav {
-    width: 100%;
-  }
-
-
-  .nav-item {
-    width: 58px;
-
-    min-height: 58px;
-
-    margin:
-      0 auto;
-
-    padding: 0;
-
-    justify-content: center;
-  }
-
-
-  .nav-label {
-    display: none;
-  }
-
-
-  .premium-card {
-    display: none;
-  }
-
-
-  .logout {
-    width: 58px;
-
-    height: 58px;
-
-    padding: 0;
-
-    justify-content: center;
-  }
-
-
-  .logout span:last-child {
-    display: none;
-  }
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (
-  max-width: 768px
+  max-width: 900px
 ) {
 
   :host {
@@ -535,32 +407,196 @@
 
     height: 0;
 
-    flex: 0 0 0;
+    flex:
+      0 0 0;
+
+    overflow: visible;
   }
 
 
-  /*
-   * Kleiner Menübutton oben links.
-   */
+  .sidebar {
+    display: none;
+  }
 
-  .mobile-menu-button {
+
+  .mobile-bottom-nav {
     position: fixed;
 
-    top: 14px;
-    left: 14px;
+    left: 12px;
+    right: 12px;
 
-    z-index: 1202;
+    bottom:
+      max(
+        10px,
+        env(
+          safe-area-inset-bottom
+        )
+      );
 
-    width: 46px;
-    height: 46px;
+    z-index: 1200;
 
-    padding: 0;
+    min-height: 68px;
+
+    padding:
+      6px;
+
+    box-sizing: border-box;
 
     border:
       1px solid
       var(--color-border);
 
-    border-radius: 11px;
+    border-radius: 18px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        5,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    align-items: stretch;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.96
+      );
+
+    box-shadow:
+      0 12px 38px
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
+
+    backdrop-filter:
+      blur(14px);
+  }
+
+
+  .mobile-nav-item {
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 56px;
+
+    padding:
+      5px
+      3px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    background:
+      transparent;
+
+    color:
+      var(--color-text-muted);
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+
+  .mobile-nav-item:hover {
+    color:
+      var(--color-primary);
+  }
+
+
+  .mobile-nav-item.active {
+    background:
+      var(--color-primary-soft-bg);
+
+    color:
+      var(--color-primary);
+  }
+
+
+  .mobile-nav-item:active {
+    transform:
+      scale(0.96);
+  }
+
+
+  .mobile-nav-icon {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+
+  .mobile-nav-icon svg {
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+
+    stroke:
+      currentColor;
+
+    stroke-width: 1.9;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+  }
+
+
+  /* MOBILE PROFILE */
+
+  .mobile-more-button {
+    appearance: none;
+  }
+
+
+  .mobile-avatar {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
 
     display: flex;
 
@@ -569,233 +605,295 @@
     justify-content: center;
 
     background:
-      var(--color-surface);
-
-    color:
       var(--color-primary);
 
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+  }
+
+
+  /* MORE POPUP */
+
+  .mobile-more-menu {
+    position: absolute;
+
+    right: 0;
+
+    bottom:
+      calc(
+        100% + 10px
+      );
+
+    width: 260px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius: 16px;
+
+    background:
+      var(--color-surface);
+
     box-shadow:
-      0 5px 18px
+      0 18px 48px
       rgba(
         0,
         0,
         0,
-        0.08
+        0.16
       );
 
-    cursor: pointer;
-
-    transition:
-      background 0.15s ease,
-      transform 0.15s ease;
+    animation:
+      mobile-menu-in
+      0.16s
+      ease-out;
   }
 
 
-  .mobile-menu-button:hover {
+  @keyframes mobile-menu-in {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+  }
+
+
+  .mobile-user {
+    padding:
+      9px
+      8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+  }
+
+
+  .mobile-user-avatar {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
     background:
-      var(--color-primary-soft-bg);
+      var(--color-primary);
+
+    color: #fff;
+
+    font-weight: 700;
   }
 
 
-  .mobile-menu-button:active {
-    transform:
-      scale(0.96);
+  .mobile-user strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color:
+      var(--color-text-primary);
+
+    font-size: 14px;
   }
 
 
-  .mobile-menu-button svg {
-    width: 22px;
-    height: 22px;
+  .mobile-user span {
+    display: block;
+
+    color:
+      var(--color-text-muted);
+
+    font-size: 11px;
+  }
+
+
+  .mobile-menu-divider {
+    height: 1px;
+
+    margin:
+      6px
+      5px;
+
+    background:
+      var(--color-divider);
+  }
+
+
+  .mobile-premium-action,
+  .mobile-logout {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding:
+      8px
+      10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    background:
+      transparent;
+
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+  }
+
+
+  .mobile-premium-action:hover {
+    background:
+      #f6f1e9;
+  }
+
+
+  .mobile-premium-action > span {
+    font-size: 19px;
+  }
+
+
+  .mobile-premium-action strong {
+    display: block;
+
+    color:
+      var(--color-text-primary);
+
+    font-size: 13px;
+  }
+
+
+  .mobile-premium-action small {
+    display: block;
+
+    margin-top: 2px;
+
+    color:
+      var(--color-text-muted);
+
+    font-size: 10px;
+  }
+
+
+  .mobile-logout {
+    color:
+      #d9534f;
+
+    font-size: 13px;
+
+    font-weight: 500;
+  }
+
+
+  .mobile-logout:hover {
+    background:
+      #fff1f1;
+  }
+
+
+  .mobile-logout svg {
+    width: 20px;
+    height: 20px;
 
     fill: none;
 
     stroke:
       currentColor;
 
-    stroke-width: 2;
+    stroke-width: 1.8;
 
     stroke-linecap: round;
 
     stroke-linejoin: round;
   }
 
-
-  /*
-   * Hintergrund hinter geöffnetem Menü.
-   */
-
-  .sidebar-backdrop {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1199;
-
-    display: block;
-
-    visibility: hidden;
-
-    background:
-      rgba(
-        24,
-        32,
-        29,
-        0.32
-      );
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-      opacity 0.22s ease,
-      visibility 0.22s ease;
-  }
-
-
-  .sidebar-backdrop.visible {
-    visibility: visible;
-
-    opacity: 1;
-
-    pointer-events: auto;
-  }
-
-
-  /*
-   * Sidebar wird zum Drawer.
-   */
-
-  .sidebar {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    z-index: 1200;
-
-    width: min(
-      310px,
-      calc(
-        100vw - 48px
-      )
-    );
-
-    height: 100dvh;
-
-    padding:
-      26px
-      22px
-      20px;
-
-    transform:
-      translateX(
-        -105%
-      );
-
-    box-shadow:
-      14px 0 40px
-      rgba(
-        0,
-        0,
-        0,
-        0.14
-      );
-
-    transition:
-      transform 0.25s ease;
-
-    overflow-y: auto;
-  }
-
-
-  .sidebar.mobile-open {
-    transform:
-      translateX(0);
-  }
-
-
-  /*
-   * Platz für X-Button im geöffneten Menü.
-   */
-
-  .sidebar.mobile-open .logo {
-    padding-right: 48px;
-  }
-
-
-  .logo {
-    margin-bottom: 34px;
-  }
-
-
-  .logo-icon {
-    width: 31px;
-    height: 31px;
-  }
-
-
-  .logo-text {
-    font-size: 1.8rem;
-  }
-
-
-  .user-box {
-    margin-bottom: 34px;
-  }
-
-
-  .nav {
-    gap: 6px;
-  }
-
-
-  .nav-item {
-    min-height: 54px;
-
-    border-radius: 11px;
-  }
-
-
-  .premium-card {
-    padding: 17px;
-  }
-
-
-  .premium-card strong {
-    margin-bottom: 10px;
-  }
-
-
-  .premium-card p {
-    font-size: 14px;
-  }
-
 }
 
 
-/* =========================
-   VERY SMALL MOBILE
-========================= */
+/* =====================================
+   SMALL MOBILE
+===================================== */
 
 @media (
-  max-width: 390px
+  max-width: 430px
 ) {
 
-  .sidebar {
-    width:
-      calc(
-        100vw - 32px
+  .mobile-bottom-nav {
+    left: 8px;
+    right: 8px;
+
+    bottom:
+      max(
+        7px,
+        env(
+          safe-area-inset-bottom
+        )
       );
+
+    min-height: 64px;
+
+    border-radius: 16px;
   }
 
 
-  .mobile-menu-button {
-    top: 10px;
-    left: 10px;
+  .mobile-nav-item {
+    min-height: 52px;
 
-    width: 44px;
-    height: 44px;
+    font-size: 9px;
+  }
+
+
+  .mobile-nav-icon,
+  .mobile-nav-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  .mobile-more-menu {
+    width:
+      min(
+        260px,
+        calc(
+          100vw - 16px
+        )
+      );
   }
 
 }

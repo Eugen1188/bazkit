@@ -1,4 +1,8 @@
 import {
+  CommonModule
+} from '@angular/common';
+
+import {
   Component,
   HostListener,
   inject
@@ -25,6 +29,7 @@ import {
   standalone: true,
 
   imports: [
+    CommonModule,
     RouterModule
   ],
 
@@ -47,27 +52,24 @@ export class SidebarComponent {
     this.authService.getCurrentUser();
 
 
-  isMobileMenuOpen =
+  isMobileMoreOpen =
     false;
 
 
   constructor() {
 
-    /*
-     * Auf dem Handy schließen wir die
-     * Sidebar automatisch nach Navigation.
-     */
     this.router.events
       .pipe(
         filter(
           event =>
-            event instanceof NavigationEnd
+            event instanceof
+            NavigationEnd
         )
       )
       .subscribe(
         () => {
 
-          this.isMobileMenuOpen =
+          this.isMobileMoreOpen =
             false;
         }
       );
@@ -98,41 +100,42 @@ export class SidebarComponent {
   }
 
 
-  toggleMobileMenu(): void {
+  toggleMobileMore(
+    event: MouseEvent
+  ): void {
 
-    this.isMobileMenuOpen =
-      !this.isMobileMenuOpen;
+    event.stopPropagation();
+
+    this.isMobileMoreOpen =
+      !this.isMobileMoreOpen;
   }
 
 
-  closeMobileMenu(): void {
+  closeMobileMore(): void {
 
-    this.isMobileMenuOpen =
+    this.isMobileMoreOpen =
+      false;
+  }
+
+
+  @HostListener(
+    'document:click'
+  )
+  onDocumentClick(): void {
+
+    this.isMobileMoreOpen =
       false;
   }
 
 
   logout(): void {
 
-    /*
-     * Diese Methode sollte Access-/Refresh-Token
-     * aus dem AuthService entfernen.
-     */
-    this.authService.logout();
+    this.closeMobileMore();
 
-    this.closeMobileMenu();
+    this.authService.logout();
 
     this.router.navigate([
       '/'
     ]);
-  }
-
-
-  @HostListener(
-    'document:keydown.escape'
-  )
-  onEscape(): void {
-
-    this.closeMobileMenu();
   }
 }
