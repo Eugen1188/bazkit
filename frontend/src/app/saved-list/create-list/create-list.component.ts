@@ -1,49 +1,101 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import {
+  Component,
+  OnDestroy
+} from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+
+import {
+  Router,
+  RouterLink
+} from '@angular/router';
+
+import {
+  Subject,
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs';
+
 import {
   CreateSavedListPayload,
   SavedListService
 } from '../../services/saved-list.service';
 
+import {
+  ProductService,
+  ProductSuggestion
+} from '../../services/product.service';
+
+
 interface Product {
   id?: number;
+
   name: string;
+
   quantity: number;
+
   unit: string;
+
   note?: string;
 }
 
-interface ProductSuggestion {
-  name: string;
-  quantity: number;
-  unit: string;
-}
 
 @Component({
   selector: 'app-create-list',
+
   standalone: true,
+
   imports: [
     CommonModule,
     FormsModule,
     RouterLink
   ],
-  templateUrl: './create-list.component.html',
-  styleUrl: './create-list.component.scss'
+
+  templateUrl:
+    './create-list.component.html',
+
+  styleUrl:
+    './create-list.component.scss'
 })
-export class CreateListComponent {
+export class CreateListComponent
+implements OnDestroy {
 
   listName = '';
 
   productName = '';
-  productQuantity: number | null = 1;
+
+  productQuantity:
+    number | null = 1;
+
   productUnit = 'Stück';
+
 
   products: Product[] = [];
 
+
   isSaving = false;
+
   errorMessage = '';
+
+
+  productSuggestions:
+    ProductSuggestion[] = [];
+
+  isSearchingProducts = false;
+
+  isSuggestionsOpen = false;
+
+
+  private productSearchSubject =
+    new Subject<string>();
+
+  private productSearchSubscription:
+    Subscription;
+
 
   units = [
     'Stück',
@@ -51,145 +103,372 @@ export class CreateListComponent {
     'kg',
     'ml',
     'Liter',
+    'EL',
+    'TL',
     'Packung',
     'Dose',
     'Glas',
     'Becher',
-    'Bund'
+    'Bund',
+    'Prise'
   ];
 
-  suggestions: ProductSuggestion[] = [
-    { name: 'Milch', quantity: 1, unit: 'Liter' },
-    { name: 'Eier', quantity: 10, unit: 'Stück' },
-    { name: 'Brot', quantity: 1, unit: 'Stück' },
-    { name: 'Tomaten', quantity: 500, unit: 'g' },
-    { name: 'Gurken', quantity: 1, unit: 'Stück' },
-    { name: 'Äpfel', quantity: 6, unit: 'Stück' },
-    { name: 'Käse', quantity: 200, unit: 'g' },
-    { name: 'Hähnchen', quantity: 500, unit: 'g' }
-  ];
 
   constructor(
     private router: Router,
-    private savedListService: SavedListService
-  ) {}
 
-  addProduct(
-    suggestion?: ProductSuggestion
+    private savedListService:
+      SavedListService,
+
+    private productService:
+      ProductService
+  ) {
+
+    this.productSearchSubscription =
+      this.productSearchSubject
+        .pipe(
+          debounceTime(
+            250
+          ),
+
+          distinctUntilChanged(),
+
+          switchMap(
+            query => {
+
+              this.isSearchingProducts =
+                true;
+
+              return this.productService
+                .searchProducts(
+                  query
+                );
+            }
+          )
+        )
+        .subscribe({
+
+          next: (
+            products
+          ) => {
+
+            this.productSuggestions =
+              products;
+
+            this.isSearchingProducts =
+              false;
+
+            this.isSuggestionsOpen =
+              this.productName
+                .trim()
+                .length >= 2;
+          },
+
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Produktsuche fehlgeschlagen:',
+              error
+            );
+
+            this.productSuggestions =
+              [];
+
+            this.isSearchingProducts =
+              false;
+
+            this.isSuggestionsOpen =
+              false;
+          }
+
+        });
+  }
+
+
+  ngOnDestroy(): void {
+
+    this.productSearchSubscription
+      .unsubscribe();
+  }
+
+
+  onProductNameChange(
+    value: string
   ): void {
 
-    const name =
-      suggestion?.name ??
-      this.productName.trim();
+    this.productName =
+      value;
 
-    const quantity =
-      suggestion?.quantity ??
-      this.productQuantity;
 
-    const unit =
-      suggestion?.unit ??
-      this.productUnit;
+    const query =
+      value.trim();
+
 
     if (
-      !name ||
-      quantity === null ||
-      quantity <= 0 ||
-      !unit
+      query.length < 2
     ) {
+
+      this.productSuggestions =
+        [];
+
+      this.isSuggestionsOpen =
+        false;
+
       return;
     }
 
+
+    this.isSuggestionsOpen =
+      true;
+
+
+    this.productSearchSubject.next(
+      query
+    );
+  }
+
+
+  selectProductSuggestion(
+    product:
+      ProductSuggestion
+  ): void {
+
+    this.productName =
+      product.name;
+
+
+    if (
+      product.default_unit
+      &&
+      this.units.includes(
+        product.default_unit
+      )
+    ) {
+
+      this.productUnit =
+        product.default_unit;
+    }
+
+
+    this.productSuggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
+  }
+
+
+  openSuggestions(): void {
+
+    if (
+      this.productName
+        .trim()
+        .length >= 2
+    ) {
+
+      this.isSuggestionsOpen =
+        true;
+    }
+  }
+
+
+  closeSuggestions(): void {
+
+    window.setTimeout(
+      () => {
+
+        this.isSuggestionsOpen =
+          false;
+      },
+      180
+    );
+  }
+
+
+  addProduct(): void {
+
+    const name =
+      this.productName
+        .trim();
+
+
+    if (
+      !name
+      ||
+      this.productQuantity === null
+      ||
+      this.productQuantity <= 0
+      ||
+      !this.productUnit
+    ) {
+
+      return;
+    }
+
+
     this.products.push({
       name,
-      quantity,
-      unit
+
+      quantity:
+        this.productQuantity,
+
+      unit:
+        this.productUnit
     });
+
 
     this.resetProductForm();
   }
 
-  removeProduct(index: number): void {
-    this.products.splice(index, 1);
+
+  removeProduct(
+    index: number
+  ): void {
+
+    this.products.splice(
+      index,
+      1
+    );
   }
+
 
   createList(): void {
 
     const trimmedListName =
       this.listName.trim();
 
-    if (!trimmedListName) {
+
+    if (
+      !trimmedListName
+    ) {
+
       this.errorMessage =
         'Bitte geben Sie einen Listennamen ein.';
+
       return;
     }
 
-    const payload: CreateSavedListPayload = {
-      title: trimmedListName,
 
-      items: this.products.map(product => ({
-        name: product.name,
-        quantity: product.quantity,
-        unit: product.unit
-      }))
+    const payload:
+      CreateSavedListPayload = {
+
+      title:
+        trimmedListName,
+
+      items:
+        this.products.map(
+          product => ({
+
+            name:
+              product.name,
+
+            quantity:
+              product.quantity,
+
+            unit:
+              product.unit,
+
+            note:
+              product.note ?? ''
+          })
+        )
     };
 
-    this.isSaving = true;
-    this.errorMessage = '';
+
+    this.isSaving =
+      true;
+
+    this.errorMessage =
+      '';
+
 
     this.savedListService
-      .createSavedList(payload)
+      .createSavedList(
+        payload
+      )
       .subscribe({
 
-        next: (savedList) => {
+        next: () => {
 
-          console.log(
-            'Liste erfolgreich erstellt:',
-            savedList
-          );
-
-          this.isSaving = false;
+          this.isSaving =
+            false;
 
           this.router.navigate([
             '/main/saved-list'
           ]);
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Fehler beim Erstellen der Liste:',
             error
           );
 
-          this.isSaving = false;
+          this.isSaving =
+            false;
 
-          if (error.status === 401) {
+
+          if (
+            error.status === 401
+          ) {
+
             this.errorMessage =
               'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.';
+
             return;
           }
 
-          if (error.error?.title) {
+
+          if (
+            error.error?.title
+          ) {
+
             this.errorMessage =
               error.error.title[0];
+
             return;
           }
+
 
           this.errorMessage =
             'Die Liste konnte nicht erstellt werden.';
         }
+
       });
   }
 
+
   cancel(): void {
+
     this.router.navigate([
       '/main/saved-list'
     ]);
   }
 
-  private resetProductForm(): void {
-    this.productName = '';
-    this.productQuantity = 1;
-    this.productUnit = 'Stück';
+
+  private resetProductForm():
+    void {
+
+    this.productName =
+      '';
+
+    this.productQuantity =
+      1;
+
+    this.productUnit =
+      'Stück';
+
+    this.productSuggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
   }
 }

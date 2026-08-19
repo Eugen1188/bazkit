@@ -2,32 +2,39 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 export interface SavedListItem {
   id?: number;
+
   product?: number | null;
+
   product_name?: string;
+
   name: string;
+
   quantity: number;
+
   unit: string;
+
   note?: string;
 }
 
-
 export interface SavedList {
   id: number;
+
   title: string;
+
   created_at: string;
+
   item_count: number;
+
   items?: SavedListItem[];
 }
 
-
 export interface CreateSavedListPayload {
   title: string;
+
   items: SavedListItem[];
 }
-
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +58,6 @@ export class SavedListService {
       this.apiUrl,
       payload
     );
-
   }
 
 
@@ -61,7 +67,6 @@ export class SavedListService {
     return this.http.get<SavedList[]>(
       this.apiUrl
     );
-
   }
 
 
@@ -72,7 +77,6 @@ export class SavedListService {
     return this.http.get<SavedList>(
       `${this.apiUrl}${id}/`
     );
-
   }
 
 
@@ -85,7 +89,6 @@ export class SavedListService {
       `${this.apiUrl}${id}/`,
       payload
     );
-
   }
 
 
@@ -96,7 +99,6 @@ export class SavedListService {
     return this.http.delete<void>(
       `${this.apiUrl}${id}/`
     );
-
   }
 
 
@@ -115,7 +117,6 @@ export class SavedListService {
         note: item.note ?? ''
       }
     );
-
   }
 
 
@@ -127,7 +128,5 @@ export class SavedListService {
     return this.http.delete<void>(
       `${this.apiUrl}${listId}/items/${itemId}/`
     );
-
   }
-
 }
