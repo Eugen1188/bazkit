@@ -10,9 +10,20 @@
 
   <div
     class="error-state"
-    *ngIf="!isLoading && errorMessage"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
   >
     {{ errorMessage }}
+  </div>
+
+
+  <div
+    class="share-toast"
+    *ngIf="shareMessage"
+  >
+    {{ shareMessage }}
   </div>
 
 
@@ -33,23 +44,30 @@
       class="empty-image"
     />
 
+
     <h2>
       Sie haben noch keine Listen
     </h2>
 
+
     <p>
-      Erstellen Sie Listen für Ihren Einkauf oder
-      erstellen Sie smarte Rezepte und fügen diese
-      zu Ihrer Einkaufsliste hinzu.
+      Erstellen Sie Listen für Ihren Einkauf
+      oder erstellen Sie smarte Rezepte und
+      fügen diese zu Ihrer Einkaufsliste hinzu.
     </p>
+
 
     <a
       class="create-button"
       routerLink="/main/saved-list/create"
     >
-      <span>+</span>
+
+      <span>
+        +
+      </span>
 
       Erstellen Sie eine Liste
+
     </a>
 
   </div>
@@ -70,12 +88,18 @@
 
       <div></div>
 
+
       <a
         class="create-small-button"
         routerLink="/main/saved-list/create"
       >
-        <span>+</span>
+
+        <span>
+          +
+        </span>
+
         Erstellen Sie eine Liste
+
       </a>
 
     </div>
@@ -89,13 +113,15 @@
         class="lists-image"
       />
 
+
       <h1>
         Ihre Einkaufslisten
       </h1>
 
+
       <p>
-        Verwalten Sie Ihre Listen und behalten
-        Sie den Überblick.
+        Verwalten Sie Ihre Listen und
+        behalten Sie den Überblick.
       </p>
 
     </div>
@@ -104,108 +130,292 @@
     <div class="lists-container">
 
       <article
-  class="list-card"
-  *ngFor="let list of savedLists"
-  [routerLink]="['/main/saved-list', list.id]"
->
-  <div class="list-icon">
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 7H7"
-      ></path>
-
-      <circle
-        cx="10"
-        cy="20"
-        r="1"
-      ></circle>
-
-      <circle
-        cx="18"
-        cy="20"
-        r="1"
-      ></circle>
-    </svg>
-  </div>
-
-  <div class="list-info">
-    <h2>
-      {{ list.title }}
-    </h2>
-
-    <span>
-      Erstellt am
-      {{ formatDate(list.created_at) }}
-    </span>
-  </div>
-
-  <div class="list-meta">
-
-    <span class="item-count">
-      {{ list.item_count }} Artikel
-    </span>
-
-    <div class="list-actions">
-
-      <button
-        class="action-button edit-button"
-        type="button"
-        aria-label="Liste bearbeiten"
-        (click)="editList($event, list)"
+        class="list-card"
+        *ngFor="let list of savedLists"
+        [routerLink]="[
+          '/main/saved-list',
+          list.id
+        ]"
       >
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-          ></path>
 
-          <path
-            d="M13.5 8.5l3 3"
-          ></path>
-        </svg>
-      </button>
+        <div class="list-icon">
 
-      <button
-        class="action-button delete-button"
-        type="button"
-        aria-label="Liste löschen"
-        (click)="deleteList($event, list)"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 7h16"
-          ></path>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
 
-          <path
-            d="M9 7V4h6v3"
-          ></path>
+            <path
+              d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 7H7"
+            >
+            </path>
 
-          <path
-            d="M7 7l1 13h8l1-13"
-          ></path>
+            <circle
+              cx="10"
+              cy="20"
+              r="1"
+            >
+            </circle>
 
-          <path
-            d="M10 11v5"
-          ></path>
+            <circle
+              cx="18"
+              cy="20"
+              r="1"
+            >
+            </circle>
 
-          <path
-            d="M14 11v5"
-          ></path>
-        </svg>
-      </button>
+          </svg>
 
-    </div>
+        </div>
 
-  </div>
-</article>
+
+        <div class="list-info">
+
+          <h2>
+            {{ list.title }}
+          </h2>
+
+
+          <span>
+            Erstellt am
+            {{
+              formatDate(
+                list.created_at
+              )
+            }}
+          </span>
+
+        </div>
+
+
+        <div class="list-meta">
+
+          <span class="item-count">
+
+            {{ list.item_count }}
+
+            {{
+              list.item_count === 1
+                ? 'Artikel'
+                : 'Artikel'
+            }}
+
+          </span>
+
+
+          <div
+            class="list-menu-wrapper"
+            (click)="$event.stopPropagation()"
+          >
+
+            <button
+              class="list-menu-button"
+              type="button"
+              aria-label="Weitere Aktionen"
+              [class.active]="
+                openedMenuId ===
+                list.id
+              "
+              (click)="
+                toggleMenu(
+                  $event,
+                  list.id
+                )
+              "
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+
+                <circle
+                  cx="12"
+                  cy="5"
+                  r="1.8"
+                >
+                </circle>
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="1.8"
+                >
+                </circle>
+
+                <circle
+                  cx="12"
+                  cy="19"
+                  r="1.8"
+                >
+                </circle>
+
+              </svg>
+
+            </button>
+
+
+            <div
+              class="list-menu"
+              *ngIf="
+                openedMenuId ===
+                list.id
+              "
+            >
+
+              <button
+                class="list-menu-item"
+                type="button"
+                (click)="
+                  editList(
+                    $event,
+                    list
+                  )
+                "
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+                  >
+                  </path>
+
+                  <path
+                    d="M13.5 8.5l3 3"
+                  >
+                  </path>
+                </svg>
+
+
+                <span>
+                  Liste bearbeiten
+                </span>
+
+              </button>
+
+
+              <button
+                class="list-menu-item"
+                type="button"
+                (click)="
+                  shareList(
+                    $event,
+                    list
+                  )
+                "
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+
+                  <circle
+                    cx="18"
+                    cy="5"
+                    r="3"
+                  >
+                  </circle>
+
+                  <circle
+                    cx="6"
+                    cy="12"
+                    r="3"
+                  >
+                  </circle>
+
+                  <circle
+                    cx="18"
+                    cy="19"
+                    r="3"
+                  >
+                  </circle>
+
+                  <path
+                    d="M8.7 10.7l6.6-4"
+                  >
+                  </path>
+
+                  <path
+                    d="M8.7 13.3l6.6 4"
+                  >
+                  </path>
+
+                </svg>
+
+
+                <span>
+                  Liste teilen
+                </span>
+
+              </button>
+
+
+              <div class="list-menu-divider">
+              </div>
+
+
+              <button
+                class="
+                  list-menu-item
+                  danger
+                "
+                type="button"
+                (click)="
+                  deleteList(
+                    $event,
+                    list
+                  )
+                "
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 7h16"
+                  >
+                  </path>
+
+                  <path
+                    d="M9 7V4h6v3"
+                  >
+                  </path>
+
+                  <path
+                    d="M7 7l1 13h8l1-13"
+                  >
+                  </path>
+
+                  <path
+                    d="M10 11v5"
+                  >
+                  </path>
+
+                  <path
+                    d="M14 11v5"
+                  >
+                  </path>
+                </svg>
+
+
+                <span>
+                  Liste löschen
+                </span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
 
     </div>
 
