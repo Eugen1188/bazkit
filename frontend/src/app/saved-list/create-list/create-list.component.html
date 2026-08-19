@@ -3,6 +3,7 @@
   <header class="create-header">
 
     <div class="header-left">
+
       <a
         routerLink="/main/saved-list"
         class="back-button"
@@ -11,8 +12,12 @@
         ←
       </a>
 
-      <h1>Neue Liste erstellen</h1>
+      <h1>
+        Neue Liste erstellen
+      </h1>
+
     </div>
+
 
     <div class="header-actions">
 
@@ -23,18 +28,35 @@
         Abbrechen
       </a>
 
+
       <button
         class="save-button"
         type="button"
-        [disabled]="!listName.trim()"
+        [disabled]="
+          !listName.trim() ||
+          isSaving
+        "
         (click)="createList()"
       >
-        Liste erstellen
+        {{
+          isSaving
+            ? 'Wird erstellt...'
+            : 'Liste erstellen'
+        }}
       </button>
 
     </div>
 
   </header>
+
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
 
   <section class="name-card">
 
@@ -52,31 +74,156 @@
 
   </section>
 
+
   <div class="content-grid">
 
-    <section class="card add-product-card">
+    <section
+      class="card add-product-card"
+    >
 
-      <h2>Produkte hinzufügen</h2>
+      <h2>
+        Produkte hinzufügen
+      </h2>
+
 
       <div class="product-form">
 
-        <div class="form-field product-name-field">
+        <div
+          class="
+            form-field
+            product-name-field
+          "
+        >
 
           <label for="productName">
             Produkt
           </label>
 
-          <input
-            id="productName"
-            type="text"
-            [(ngModel)]="productName"
-            placeholder="Produkt eingeben..."
-            (keyup.enter)="addProduct()"
-          />
+
+          <div class="autocomplete">
+
+            <input
+              id="productName"
+              type="text"
+              autocomplete="off"
+              [ngModel]="productName"
+              (ngModelChange)="
+                onProductNameChange(
+                  $event
+                )
+              "
+              (focus)="
+                openSuggestions()
+              "
+              (blur)="
+                closeSuggestions()
+              "
+              placeholder="Produkt eingeben..."
+              (keyup.enter)="
+                addProduct()
+              "
+            />
+
+
+            <div
+              class="suggestions-dropdown"
+              *ngIf="
+                isSuggestionsOpen
+              "
+            >
+
+              <div
+                class="suggestions-loading"
+                *ngIf="
+                  isSearchingProducts
+                "
+              >
+                Produkte werden gesucht...
+              </div>
+
+
+              <button
+                class="suggestion-item"
+                type="button"
+                *ngFor="
+                  let product
+                  of productSuggestions
+                "
+                (mousedown)="
+                  selectProductSuggestion(
+                    product
+                  )
+                "
+              >
+
+                <span
+                  class="suggestion-avatar"
+                >
+                  {{
+                    product.name
+                      .charAt(0)
+                      .toUpperCase()
+                  }}
+                </span>
+
+
+                <span
+                  class="suggestion-content"
+                >
+
+                  <strong>
+                    {{ product.name }}
+                  </strong>
+
+
+                  <small
+                    *ngIf="
+                      product.default_unit
+                    "
+                  >
+                    Standard:
+                    {{ product.default_unit }}
+                  </small>
+
+                </span>
+
+              </button>
+
+
+              <div
+                class="no-suggestions"
+                *ngIf="
+                  !isSearchingProducts &&
+                  productSuggestions.length
+                    === 0
+                "
+              >
+
+                <strong>
+                  „{{ productName }}“
+                </strong>
+
+                <span>
+                  Noch nicht gespeichert.
+                  Du kannst das Produkt
+                  trotzdem verwenden.
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
-        <div class="form-field quantity-field">
+
+        <div
+          class="
+            form-field
+            quantity-field
+          "
+        >
 
           <label for="productQuantity">
             Menge
@@ -87,14 +234,24 @@
             type="number"
             min="0.01"
             step="0.01"
-            [(ngModel)]="productQuantity"
+            [(ngModel)]="
+              productQuantity
+            "
             placeholder="1"
-            (keyup.enter)="addProduct()"
+            (keyup.enter)="
+              addProduct()
+            "
           />
 
         </div>
 
-        <div class="form-field unit-field">
+
+        <div
+          class="
+            form-field
+            unit-field
+          "
+        >
 
           <label for="productUnit">
             Einheit
@@ -102,17 +259,24 @@
 
           <select
             id="productUnit"
-            [(ngModel)]="productUnit"
+            [(ngModel)]="
+              productUnit
+            "
           >
+
             <option
-              *ngFor="let unit of units"
+              *ngFor="
+                let unit of units
+              "
               [value]="unit"
             >
               {{ unit }}
             </option>
+
           </select>
 
         </div>
+
 
         <button
           class="add-product-button"
@@ -129,44 +293,32 @@
 
       </div>
 
-      <h3>Vorschläge</h3>
-
-      <div class="suggestions">
-
-        <button
-          type="button"
-          *ngFor="let suggestion of suggestions"
-          (click)="addProduct(suggestion)"
-        >
-          <span class="suggestion-plus">
-            +
-          </span>
-
-          <span class="suggestion-name">
-            {{ suggestion.name }}
-          </span>
-
-          <small>
-            {{ suggestion.quantity }}
-            {{ suggestion.unit }}
-          </small>
-        </button>
-
-      </div>
-
     </section>
 
-    <section class="card product-list-card">
+
+    <section
+      class="
+        card
+        product-list-card
+      "
+    >
 
       <h2>
-        Produkte in der Liste ({{ products.length }})
+        Produkte in der Liste
+        ({{ products.length }})
       </h2>
+
 
       <div
         class="empty-products"
-        *ngIf="products.length === 0"
+        *ngIf="
+          products.length === 0
+        "
       >
-        <span class="empty-products-icon">
+
+        <span
+          class="empty-products-icon"
+        >
           +
         </span>
 
@@ -175,13 +327,19 @@
         </p>
 
         <small>
-          Gib links ein Produkt mit Menge und Einheit ein.
+          Gib links ein Produkt
+          mit Menge und Einheit ein.
         </small>
+
       </div>
+
 
       <div
         class="product-item"
-        *ngFor="let product of products; let i = index"
+        *ngFor="
+          let product of products;
+          let i = index
+        "
       >
 
         <span
@@ -191,10 +349,13 @@
           ⋮⋮
         </span>
 
+
         <span
           class="circle"
           aria-hidden="true"
-        ></span>
+        >
+        </span>
+
 
         <div class="product-details">
 
@@ -202,23 +363,29 @@
             {{ product.name }}
           </span>
 
-          <span class="product-mobile-amount">
+          <span
+            class="product-mobile-amount"
+          >
             {{ product.quantity }}
             {{ product.unit }}
           </span>
 
         </div>
 
+
         <span class="amount">
           {{ product.quantity }}
           {{ product.unit }}
         </span>
 
+
         <button
           class="remove-button"
           type="button"
           aria-label="Produkt entfernen"
-          (click)="removeProduct(i)"
+          (click)="
+            removeProduct(i)
+          "
         >
           ×
         </button>
@@ -229,11 +396,13 @@
 
   </div>
 
+
   <section class="tip-card">
 
     <div class="tip-icon">
       💡
     </div>
+
 
     <div class="tip-text">
 
@@ -242,10 +411,13 @@
       </strong>
 
       <p>
-        Füge häufig verwendete Produkte hinzu oder übernehme Zutaten aus einem Rezept.
+        Füge häufig verwendete Produkte
+        hinzu oder übernehme Zutaten
+        aus einem Rezept.
       </p>
 
     </div>
+
 
     <button
       class="recipe-button"

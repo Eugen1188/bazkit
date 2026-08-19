@@ -73,14 +73,11 @@ implements OnDestroy {
 
   productUnit = 'Stück';
 
-
   products: Product[] = [];
-
 
   isSaving = false;
 
   errorMessage = '';
-
 
   productSuggestions:
     ProductSuggestion[] = [];
@@ -127,9 +124,7 @@ implements OnDestroy {
     this.productSearchSubscription =
       this.productSearchSubject
         .pipe(
-          debounceTime(
-            250
-          ),
+          debounceTime(250),
 
           distinctUntilChanged(),
 
