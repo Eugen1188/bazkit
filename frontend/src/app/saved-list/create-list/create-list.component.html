@@ -120,7 +120,11 @@
               "
               placeholder="Produkt eingeben..."
               (keyup.enter)="
-                addProduct()
+                productSuggestions.length
+                  ? selectProductSuggestion(
+                      productSuggestions[0]
+                    )
+                  : searchExternal()
               "
             />
 
@@ -135,10 +139,15 @@
               <div
                 class="suggestions-loading"
                 *ngIf="
-                  isSearchingProducts
+                  isSearchingProducts ||
+                  isSearchingExternal
                 "
               >
-                Produkte werden gesucht...
+                {{
+                  isSearchingExternal
+                    ? 'Externe Datenbank wird durchsucht...'
+                    : 'Produkte werden gesucht...'
+                }}
               </div>
 
 
@@ -185,6 +194,15 @@
                     {{ product.default_unit }}
                   </small>
 
+
+                  <small
+                    *ngIf="
+                      !product.default_unit
+                    "
+                  >
+                    Einheit selbst wählen
+                  </small>
+
                 </span>
 
               </button>
@@ -194,6 +212,7 @@
                 class="no-suggestions"
                 *ngIf="
                   !isSearchingProducts &&
+                  !isSearchingExternal &&
                   productSuggestions.length
                     === 0
                 "
@@ -203,11 +222,55 @@
                   „{{ productName }}“
                 </strong>
 
-                <span>
-                  Noch nicht gespeichert.
-                  Du kannst das Produkt
-                  trotzdem verwenden.
+
+                <span
+                  *ngIf="
+                    !externalSearchDone
+                  "
+                >
+                  Kein lokaler Treffer gefunden.
                 </span>
+
+
+                <span
+                  *ngIf="
+                    externalSearchDone &&
+                    !externalSearchError
+                  "
+                >
+                  Auch extern wurde kein
+                  passendes Produkt gefunden.
+                </span>
+
+
+                <span
+                  class="external-error"
+                  *ngIf="
+                    externalSearchError
+                  "
+                >
+                  {{ externalSearchError }}
+                </span>
+
+
+                <button
+                  class="external-search-button"
+                  type="button"
+                  *ngIf="
+                    productName.trim().length >= 3
+                  "
+                  (mousedown)="
+                    searchExternal()
+                  "
+                >
+                  🔎 Extern suchen
+                </button>
+
+
+                <small>
+                  Du kannst den eingegebenen
+                  Namen auch direkt verwenden.
+                </small>
 
               </div>
 
@@ -238,9 +301,6 @@
               productQuantity
             "
             placeholder="1"
-            (keyup.enter)="
-              addProduct()
-            "
           />
 
         </div>

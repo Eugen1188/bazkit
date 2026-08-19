@@ -1,11 +1,15 @@
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule
+} from '@angular/common';
 
 import {
   Component,
   OnDestroy
 } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import {
+  FormsModule
+} from '@angular/forms';
 
 import {
   Router,
@@ -32,6 +36,7 @@ import {
 
 
 interface Product {
+
   id?: number;
 
   name: string;
@@ -45,7 +50,8 @@ interface Product {
 
 
 @Component({
-  selector: 'app-create-list',
+  selector:
+    'app-create-list',
 
   standalone: true,
 
@@ -71,24 +77,44 @@ implements OnDestroy {
   productQuantity:
     number | null = 1;
 
-  productUnit = 'Stück';
+  productUnit =
+    'Stück';
 
-  products: Product[] = [];
 
-  isSaving = false;
+  products:
+    Product[] = [];
 
-  errorMessage = '';
+
+  isSaving =
+    false;
+
+  errorMessage =
+    '';
+
 
   productSuggestions:
     ProductSuggestion[] = [];
 
-  isSearchingProducts = false;
 
-  isSuggestionsOpen = false;
+  isSearchingProducts =
+    false;
+
+  isSearchingExternal =
+    false;
+
+  isSuggestionsOpen =
+    false;
+
+  externalSearchDone =
+    false;
+
+  externalSearchError =
+    '';
 
 
   private productSearchSubject =
     new Subject<string>();
+
 
   private productSearchSubscription:
     Subscription;
@@ -112,7 +138,8 @@ implements OnDestroy {
 
 
   constructor(
-    private router: Router,
+    private router:
+      Router,
 
     private savedListService:
       SavedListService,
@@ -124,7 +151,10 @@ implements OnDestroy {
     this.productSearchSubscription =
       this.productSearchSubject
         .pipe(
-          debounceTime(250),
+
+          debounceTime(
+            250
+          ),
 
           distinctUntilChanged(),
 
@@ -134,10 +164,12 @@ implements OnDestroy {
               this.isSearchingProducts =
                 true;
 
-              return this.productService
-                .searchProducts(
-                  query
-                );
+              return (
+                this.productService
+                  .searchProducts(
+                    query
+                  )
+              );
             }
           )
         )
@@ -183,7 +215,8 @@ implements OnDestroy {
   }
 
 
-  ngOnDestroy(): void {
+  ngOnDestroy():
+    void {
 
     this.productSearchSubscription
       .unsubscribe();
@@ -200,6 +233,13 @@ implements OnDestroy {
 
     const query =
       value.trim();
+
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
 
 
     if (
@@ -220,9 +260,10 @@ implements OnDestroy {
       true;
 
 
-    this.productSearchSubject.next(
-      query
-    );
+    this.productSearchSubject
+      .next(
+        query
+      );
   }
 
 
@@ -253,10 +294,98 @@ implements OnDestroy {
 
     this.isSuggestionsOpen =
       false;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
   }
 
 
-  openSuggestions(): void {
+  searchExternal():
+    void {
+
+    const query =
+      this.productName
+        .trim();
+
+
+    if (
+      query.length < 3
+      ||
+      this.isSearchingExternal
+    ) {
+
+      return;
+    }
+
+
+    this.isSearchingExternal =
+      true;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+
+    this.productService
+      .searchExternalProducts(
+        query
+      )
+      .subscribe({
+
+        next: (
+          products
+        ) => {
+
+          this.productSuggestions =
+            products;
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.isSuggestionsOpen =
+            true;
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Externe Produktsuche fehlgeschlagen:',
+            error
+          );
+
+          this.productSuggestions =
+            [];
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.externalSearchError =
+            'Die externe Suche ist momentan nicht verfügbar.';
+
+          this.isSuggestionsOpen =
+            true;
+        }
+
+      });
+  }
+
+
+  openSuggestions():
+    void {
 
     if (
       this.productName
@@ -270,7 +399,8 @@ implements OnDestroy {
   }
 
 
-  closeSuggestions(): void {
+  closeSuggestions():
+    void {
 
     window.setTimeout(
       () => {
@@ -278,12 +408,13 @@ implements OnDestroy {
         this.isSuggestionsOpen =
           false;
       },
-      180
+      200
     );
   }
 
 
-  addProduct(): void {
+  addProduct():
+    void {
 
     const name =
       this.productName
@@ -330,10 +461,12 @@ implements OnDestroy {
   }
 
 
-  createList(): void {
+  createList():
+    void {
 
     const trimmedListName =
-      this.listName.trim();
+      this.listName
+        .trim();
 
 
     if (
@@ -440,7 +573,8 @@ implements OnDestroy {
   }
 
 
-  cancel(): void {
+  cancel():
+    void {
 
     this.router.navigate([
       '/main/saved-list'
@@ -465,5 +599,11 @@ implements OnDestroy {
 
     this.isSuggestionsOpen =
       false;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
   }
 }

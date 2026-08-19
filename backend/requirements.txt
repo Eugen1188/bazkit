@@ -7,3 +7,4 @@ django-cors-headers>=4.4
 python-dotenv>=1.0
 djangorestframework-simplejwt
 openai
+requests>=2.32

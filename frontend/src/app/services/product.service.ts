@@ -13,6 +13,7 @@ import {
 
 
 export interface ProductSuggestion {
+
   id: number;
 
   name: string;
@@ -56,6 +57,31 @@ export class ProductService {
       ProductSuggestion[]
     >(
       `${this.apiUrl}search/`,
+      {
+        params
+      }
+    );
+  }
+
+
+  searchExternalProducts(
+    query: string
+  ): Observable<
+    ProductSuggestion[]
+  > {
+
+    const params =
+      new HttpParams()
+        .set(
+          'q',
+          query
+        );
+
+
+    return this.http.get<
+      ProductSuggestion[]
+    >(
+      `${this.apiUrl}external-search/`,
       {
         params
       }
