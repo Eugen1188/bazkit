@@ -175,6 +175,9 @@ implements OnDestroy {
 
             this.isSearching =
               false;
+
+            this.isSuggestionsOpen =
+              false;
           }
 
         });
@@ -254,6 +257,20 @@ implements OnDestroy {
   }
 
 
+  openSuggestions(): void {
+
+    if (
+      this.productName
+        .trim()
+        .length >= 2
+    ) {
+
+      this.isSuggestionsOpen =
+        true;
+    }
+  }
+
+
   closeSuggestions(): void {
 
     window.setTimeout(
@@ -262,7 +279,7 @@ implements OnDestroy {
         this.isSuggestionsOpen =
           false;
       },
-      150
+      180
     );
   }
 
