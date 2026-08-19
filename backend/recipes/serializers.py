@@ -3,8 +3,9 @@ from rest_framework import serializers
 from .models import (
     Recipe,
     Ingredients,
-    Product
 )
+
+from products.models import Product
 
 
 class IngredientsSerializer(
