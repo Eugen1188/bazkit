@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import {
+  Injectable
+} from '@angular/core';
 
 import {
   HttpClient
@@ -18,7 +20,7 @@ export interface ShoppingListItem {
 
   name: string;
 
-  quantity: number;
+  quantity: number | null;
 
   unit: string;
 
@@ -47,6 +49,17 @@ export interface ShoppingList {
 }
 
 
+export interface CreateShoppingListItemPayload {
+  name: string;
+
+  quantity: number;
+
+  unit: string;
+
+  note?: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,24 +83,8 @@ export class ShoppingListService {
   }
 
 
-  addSavedList(
-    savedListId: number
-  ): Observable<ShoppingList> {
-
-    return this.http.post<ShoppingList>(
-      `${this.apiUrl}add-saved-list/${savedListId}/`,
-      {}
-    );
-  }
-
-
   addItem(
-    item: {
-      name: string;
-      quantity: number;
-      unit: string;
-      note?: string;
-    }
+    item: CreateShoppingListItemPayload
   ): Observable<ShoppingListItem> {
 
     return this.http.post<ShoppingListItem>(
@@ -108,6 +105,28 @@ export class ShoppingListService {
         is_checked:
           false
       }
+    );
+  }
+
+
+  addSavedList(
+    savedListId: number
+  ): Observable<ShoppingList> {
+
+    return this.http.post<ShoppingList>(
+      `${this.apiUrl}add-saved-list/${savedListId}/`,
+      {}
+    );
+  }
+
+
+  addRecipe(
+    recipeId: number
+  ): Observable<ShoppingList> {
+
+    return this.http.post<ShoppingList>(
+      `${this.apiUrl}add-recipe/${recipeId}/`,
+      {}
     );
   }
 

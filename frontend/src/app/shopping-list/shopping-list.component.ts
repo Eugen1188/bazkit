@@ -16,6 +16,7 @@ import {
 } from '../services/saved-list.service';
 
 import {
+  ShoppingList,
   ShoppingListItem,
   ShoppingListService
 } from '../services/shopping-list.service';
@@ -60,7 +61,9 @@ import {
 export class ShoppingListComponent
 implements OnInit {
 
-  items: ShoppingListItem[] = [];
+  items:
+    ShoppingListItem[] = [];
+
 
   isLoading = true;
 
@@ -89,21 +92,27 @@ implements OnInit {
 
 
   ngOnInit(): void {
+
     this.loadShoppingList();
   }
 
 
   loadShoppingList(): void {
 
-    this.isLoading = true;
+    this.isLoading =
+      true;
 
-    this.errorMessage = '';
+    this.errorMessage =
+      '';
+
 
     this.shoppingListService
       .getShoppingList()
       .subscribe({
 
-        next: (shoppingList) => {
+        next: (
+          shoppingList
+        ) => {
 
           this.items =
             shoppingList.items ?? [];
@@ -112,7 +121,10 @@ implements OnInit {
             false;
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Einkaufsliste konnte nicht geladen werden:',
@@ -180,11 +192,28 @@ implements OnInit {
   }
 
 
+  addSingleItem(
+    item: ShoppingListItem
+  ): void {
+
+    this.items.push(
+      item
+    );
+
+    this.closeAllModals();
+  }
+
+
   addSavedListToShoppingList(
     list: SavedList
   ): void {
 
-    this.isSaving = true;
+    this.isSaving =
+      true;
+
+    this.errorMessage =
+      '';
+
 
     this.shoppingListService
       .addSavedList(
@@ -192,7 +221,9 @@ implements OnInit {
       )
       .subscribe({
 
-        next: (shoppingList) => {
+        next: (
+          shoppingList
+        ) => {
 
           this.items =
             shoppingList.items ?? [];
@@ -203,7 +234,10 @@ implements OnInit {
           this.closeAllModals();
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Gespeicherte Liste konnte nicht übernommen werden:',
@@ -221,12 +255,24 @@ implements OnInit {
   }
 
 
+  recipeAdded(
+    shoppingList: ShoppingList
+  ): void {
+
+    this.items =
+      shoppingList.items ?? [];
+
+    this.closeAllModals();
+  }
+
+
   toggleItem(
     item: ShoppingListItem
   ): void {
 
     const newValue =
       !item.is_checked;
+
 
     this.shoppingListService
       .updateItem(
@@ -238,7 +284,9 @@ implements OnInit {
       )
       .subscribe({
 
-        next: (updatedItem) => {
+        next: (
+          updatedItem
+        ) => {
 
           const index =
             this.items.findIndex(
@@ -247,13 +295,20 @@ implements OnInit {
                 updatedItem.id
             );
 
-          if (index !== -1) {
+
+          if (
+            index !== -1
+          ) {
+
             this.items[index] =
               updatedItem;
           }
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Produktstatus konnte nicht gespeichert werden:',
@@ -272,9 +327,13 @@ implements OnInit {
     const item =
       this.items[index];
 
-    if (!item) {
+
+    if (
+      !item
+    ) {
       return;
     }
+
 
     this.shoppingListService
       .deleteItem(
@@ -290,7 +349,10 @@ implements OnInit {
           );
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Produkt konnte nicht entfernt werden:',
@@ -310,14 +372,19 @@ implements OnInit {
       return;
     }
 
+
     const shouldClear =
       confirm(
         'Möchtest du die komplette Einkaufsliste leeren?'
       );
 
-    if (!shouldClear) {
+
+    if (
+      !shouldClear
+    ) {
       return;
     }
+
 
     this.shoppingListService
       .clearShoppingList()
@@ -328,7 +395,10 @@ implements OnInit {
           this.items = [];
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
 
           console.error(
             'Einkaufsliste konnte nicht geleert werden:',
@@ -360,6 +430,7 @@ implements OnInit {
     ) {
       return 0;
     }
+
 
     return Math.round(
       (

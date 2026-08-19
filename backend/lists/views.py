@@ -1,9 +1,18 @@
 from django.db import transaction
 
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+
+from rest_framework.permissions import (
+    IsAuthenticated
+)
+
 from rest_framework.response import Response
+
 from rest_framework.views import APIView
+
+
+from recipes.models import Recipe
+
 
 from .models import (
     SavedList,
@@ -11,6 +20,7 @@ from .models import (
     ShoppingList,
     ShoppingListItem
 )
+
 
 from .serializers import (
     SavedListSerializer,
@@ -25,12 +35,18 @@ from .serializers import (
 # SAVED LISTS
 # ==========================================
 
-class SavedListListCreateAPIView(APIView):
+
+class SavedListListCreateAPIView(
+    APIView
+):
     permission_classes = [
         IsAuthenticated
     ]
 
-    def get(self, request):
+    def get(
+        self,
+        request
+    ):
         saved_lists = (
             SavedList.objects
             .filter(
@@ -53,7 +69,11 @@ class SavedListListCreateAPIView(APIView):
             serializer.data
         )
 
-    def post(self, request):
+
+    def post(
+        self,
+        request
+    ):
         serializer = SavedListSerializer(
             data=request.data,
             context={
@@ -75,10 +95,13 @@ class SavedListListCreateAPIView(APIView):
         )
 
 
-class SavedListDetailAPIView(APIView):
+class SavedListDetailAPIView(
+    APIView
+):
     permission_classes = [
         IsAuthenticated
     ]
+
 
     def get_object(
         self,
@@ -97,6 +120,7 @@ class SavedListDetailAPIView(APIView):
             .first()
         )
 
+
     def get(
         self,
         request,
@@ -111,7 +135,7 @@ class SavedListDetailAPIView(APIView):
             return Response(
                 {
                     "detail":
-                    "Liste nicht gefunden."
+                        "Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -125,6 +149,7 @@ class SavedListDetailAPIView(APIView):
         return Response(
             serializer.data
         )
+
 
     def put(
         self,
@@ -140,7 +165,7 @@ class SavedListDetailAPIView(APIView):
             return Response(
                 {
                     "detail":
-                    "Liste nicht gefunden."
+                        "Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -157,7 +182,9 @@ class SavedListDetailAPIView(APIView):
             raise_exception=True
         )
 
-        updated_list = serializer.save()
+        updated_list = (
+            serializer.save()
+        )
 
         return Response(
             SavedListSerializer(
@@ -165,6 +192,7 @@ class SavedListDetailAPIView(APIView):
             ).data,
             status=status.HTTP_200_OK
         )
+
 
     def delete(
         self,
@@ -180,7 +208,7 @@ class SavedListDetailAPIView(APIView):
             return Response(
                 {
                     "detail":
-                    "Liste nicht gefunden."
+                        "Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -192,10 +220,13 @@ class SavedListDetailAPIView(APIView):
         )
 
 
-class SavedListItemDetailAPIView(APIView):
+class SavedListItemDetailAPIView(
+    APIView
+):
     permission_classes = [
         IsAuthenticated
     ]
+
 
     def get_object(
         self,
@@ -213,6 +244,7 @@ class SavedListItemDetailAPIView(APIView):
             .first()
         )
 
+
     def put(
         self,
         request,
@@ -229,7 +261,7 @@ class SavedListItemDetailAPIView(APIView):
             return Response(
                 {
                     "detail":
-                    "Produkt nicht gefunden."
+                        "Produkt nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -253,6 +285,7 @@ class SavedListItemDetailAPIView(APIView):
             status=status.HTTP_200_OK
         )
 
+
     def delete(
         self,
         request,
@@ -269,7 +302,7 @@ class SavedListItemDetailAPIView(APIView):
             return Response(
                 {
                     "detail":
-                    "Produkt nicht gefunden."
+                        "Produkt nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -285,10 +318,14 @@ class SavedListItemDetailAPIView(APIView):
 # SHOPPING LIST
 # ==========================================
 
-class ShoppingListAPIView(APIView):
+
+class ShoppingListAPIView(
+    APIView
+):
     permission_classes = [
         IsAuthenticated
     ]
+
 
     def get_shopping_list(
         self,
@@ -303,7 +340,11 @@ class ShoppingListAPIView(APIView):
 
         return shopping_list
 
-    def get(self, request):
+
+    def get(
+        self,
+        request
+    ):
         shopping_list = (
             self.get_shopping_list(
                 request
@@ -320,17 +361,17 @@ class ShoppingListAPIView(APIView):
             )
         )
 
-        serializer = (
+        return Response(
             ShoppingListSerializer(
                 shopping_list
-            )
+            ).data
         )
 
-        return Response(
-            serializer.data
-        )
 
-    def delete(self, request):
+    def delete(
+        self,
+        request
+    ):
         shopping_list = (
             self.get_shopping_list(
                 request
@@ -354,7 +395,11 @@ class ShoppingListItemCreateAPIView(
         IsAuthenticated
     ]
 
-    def post(self, request):
+
+    def post(
+        self,
+        request
+    ):
         shopping_list, _ = (
             ShoppingList.objects
             .get_or_create(
@@ -373,7 +418,8 @@ class ShoppingListItemCreateAPIView(
         )
 
         item = serializer.save(
-            shopping_list=shopping_list
+            shopping_list=
+                shopping_list
         )
 
         return Response(
@@ -391,6 +437,7 @@ class ShoppingListItemDetailAPIView(
         IsAuthenticated
     ]
 
+
     def get_object(
         self,
         request,
@@ -400,10 +447,12 @@ class ShoppingListItemDetailAPIView(
             ShoppingListItem.objects
             .filter(
                 id=item_id,
-                shopping_list__user=request.user
+                shopping_list__user=
+                    request.user
             )
             .first()
         )
+
 
     def patch(
         self,
@@ -419,7 +468,7 @@ class ShoppingListItemDetailAPIView(
             return Response(
                 {
                     "detail":
-                    "Produkt nicht gefunden."
+                        "Produkt nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -442,6 +491,7 @@ class ShoppingListItemDetailAPIView(
             serializer.data
         )
 
+
     def delete(
         self,
         request,
@@ -456,7 +506,7 @@ class ShoppingListItemDetailAPIView(
             return Response(
                 {
                     "detail":
-                    "Produkt nicht gefunden."
+                        "Produkt nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -474,6 +524,7 @@ class AddSavedListToShoppingListAPIView(
     permission_classes = [
         IsAuthenticated
     ]
+
 
     @transaction.atomic
     def post(
@@ -497,7 +548,7 @@ class AddSavedListToShoppingListAPIView(
             return Response(
                 {
                     "detail":
-                    "Gespeicherte Liste nicht gefunden."
+                        "Gespeicherte Liste nicht gefunden."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
@@ -511,15 +562,39 @@ class AddSavedListToShoppingListAPIView(
 
         new_items = []
 
-        for saved_item in saved_list.items.all():
+        for saved_item in (
+            saved_list.items.all()
+        ):
             new_items.append(
                 ShoppingListItem(
-                    shopping_list=shopping_list,
-                    product=saved_item.product,
-                    name=saved_item.name,
-                    quantity=saved_item.quantity,
-                    unit=saved_item.unit,
-                    note=saved_item.note,
+                    shopping_list=
+                        shopping_list,
+
+                    product=
+                        saved_item.product,
+
+                    name=
+                        (
+                            saved_item.name
+                            or
+                            (
+                                saved_item
+                                .product.name
+                                if
+                                saved_item.product
+                                else ""
+                            )
+                        ),
+
+                    quantity=
+                        saved_item.quantity,
+
+                    unit=
+                        saved_item.unit,
+
+                    note=
+                        saved_item.note,
+
                     is_checked=False
                 )
             )
@@ -537,6 +612,105 @@ class AddSavedListToShoppingListAPIView(
                 id=shopping_list.id
             )
         )
+
+        return Response(
+            ShoppingListSerializer(
+                shopping_list
+            ).data,
+            status=status.HTTP_200_OK
+        )
+
+
+class AddRecipeToShoppingListAPIView(
+    APIView
+):
+    permission_classes = [
+        IsAuthenticated
+    ]
+
+
+    @transaction.atomic
+    def post(
+        self,
+        request,
+        recipe_id
+    ):
+        recipe = (
+            Recipe.objects
+            .filter(
+                id=recipe_id,
+                user=request.user
+            )
+            .prefetch_related(
+                "ingredients"
+            )
+            .first()
+        )
+
+
+        if not recipe:
+            return Response(
+                {
+                    "detail":
+                        "Rezept nicht gefunden."
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+
+        shopping_list, _ = (
+            ShoppingList.objects
+            .get_or_create(
+                user=request.user
+            )
+        )
+
+
+        new_items = []
+
+
+        for ingredient in (
+            recipe.ingredients.all()
+        ):
+
+            new_items.append(
+                ShoppingListItem(
+                    shopping_list=
+                        shopping_list,
+
+                    product=None,
+
+                    name=
+                        ingredient.name,
+
+                    quantity=
+                        ingredient.quantity,
+
+                    unit=
+                        ingredient.unit,
+
+                    note='',
+
+                    is_checked=False
+                )
+            )
+
+
+        ShoppingListItem.objects.bulk_create(
+            new_items
+        )
+
+
+        shopping_list = (
+            ShoppingList.objects
+            .prefetch_related(
+                "items"
+            )
+            .get(
+                id=shopping_list.id
+            )
+        )
+
 
         return Response(
             ShoppingListSerializer(

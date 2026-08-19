@@ -7,13 +7,16 @@ from .views import (
     ShoppingListAPIView,
     ShoppingListItemCreateAPIView,
     ShoppingListItemDetailAPIView,
-    AddSavedListToShoppingListAPIView
+    AddSavedListToShoppingListAPIView,
+    AddRecipeToShoppingListAPIView
 )
 
 
 urlpatterns = [
 
+    # ==========================
     # SAVED LISTS
+    # ==========================
 
     path(
         "saved-lists/",
@@ -34,7 +37,9 @@ urlpatterns = [
     ),
 
 
+    # ==========================
     # SHOPPING LIST
+    # ==========================
 
     path(
         "shopping-list/",
@@ -60,4 +65,9 @@ urlpatterns = [
         name="shopping-list-add-saved-list"
     ),
 
+    path(
+        "shopping-list/add-recipe/<int:recipe_id>/",
+        AddRecipeToShoppingListAPIView.as_view(),
+        name="shopping-list-add-recipe"
+    ),
 ]

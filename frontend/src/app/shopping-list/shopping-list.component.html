@@ -1,6 +1,5 @@
 <div class="shopping-list-container">
 
-
   <!-- LOADING -->
 
   <div
@@ -24,7 +23,7 @@
   </div>
 
 
-  <!-- EMPTY STATE -->
+  <!-- EMPTY -->
 
   <div
     class="empty-state"
@@ -41,9 +40,11 @@
       class="empty-image"
     />
 
+
     <h2>
       Sie haben noch keine Produkte
     </h2>
+
 
     <p>
       Fügen Sie Produkte direkt hinzu
@@ -52,14 +53,19 @@
       gespeicherten Liste.
     </p>
 
+
     <button
       class="create-button"
       type="button"
       (click)="openAddOptions()"
     >
-      <span>+</span>
+
+      <span>
+        +
+      </span>
 
       Zur Einkaufsliste hinzufügen
+
     </button>
 
   </div>
@@ -84,6 +90,7 @@
         </h1>
 
         <p>
+
           {{ items.length }}
 
           {{
@@ -97,6 +104,7 @@
           {{ completedCount }}
 
           erledigt
+
         </p>
 
       </div>
@@ -118,19 +126,19 @@
           type="button"
           (click)="openAddOptions()"
         >
+
           <span class="add-button-icon">
             +
           </span>
 
           Produkt hinzufügen
+
         </button>
 
       </div>
 
     </header>
 
-
-    <!-- PROGRESS -->
 
     <section class="progress-card">
 
@@ -151,6 +159,7 @@
 
         </div>
 
+
         <span class="progress-percent">
           {{ progress }}%
         </span>
@@ -163,14 +172,13 @@
         <div
           class="progress-bar"
           [style.width.%]="progress"
-        ></div>
+        >
+        </div>
 
       </div>
 
     </section>
 
-
-    <!-- FILTERS -->
 
     <div class="filter-row">
 
@@ -179,6 +187,7 @@
         type="button"
       >
         Alle
+
         <span>
           {{ items.length }}
         </span>
@@ -213,8 +222,6 @@
 
     </div>
 
-
-    <!-- ITEMS -->
 
     <section class="shopping-card">
 
@@ -257,18 +264,21 @@
           >
             <path
               d="M5 12l4 4L19 6"
-            ></path>
+            >
+            </path>
           </svg>
 
         </button>
 
 
         <div class="product-avatar">
+
           {{
             item.name
               .charAt(0)
               .toUpperCase()
           }}
+
         </div>
 
 
@@ -278,13 +288,23 @@
             {{ item.name }}
           </strong>
 
+
           <div class="item-subline">
 
-            <span class="amount-chip">
+            <span
+              class="amount-chip"
+              *ngIf="
+                item.quantity !== null
+              "
+            >
               {{ item.quantity }}
             </span>
 
-            <span class="unit-chip">
+
+            <span
+              class="unit-chip"
+              *ngIf="item.unit"
+            >
               {{ item.unit }}
             </span>
 
@@ -300,12 +320,17 @@
           >
             <path
               d="M5 4h14v13H9l-4 4V4Z"
-            ></path>
+            >
+            </path>
           </svg>
 
-          <span *ngIf="item.note">
+
+          <span
+            *ngIf="item.note"
+          >
             {{ item.note }}
           </span>
+
 
           <span
             class="empty-note"
@@ -327,9 +352,20 @@
           <svg
             viewBox="0 0 24 24"
           >
-            <path d="M4 7h16"></path>
-            <path d="M9 7V4h6v3"></path>
-            <path d="M7 7l1 13h8l1-13"></path>
+            <path
+              d="M4 7h16"
+            >
+            </path>
+
+            <path
+              d="M9 7V4h6v3"
+            >
+            </path>
+
+            <path
+              d="M7 7l1 13h8l1-13"
+            >
+            </path>
           </svg>
 
         </button>
@@ -356,6 +392,7 @@
   <app-add-product-modal
     *ngIf="isAddProductOpen"
     (close)="closeAllModals()"
+    (itemAdded)="addSingleItem($event)"
   >
   </app-add-product-modal>
 
@@ -375,6 +412,11 @@
   <app-add-recipe-ingredients-modal
     *ngIf="isAddRecipeOpen"
     (close)="closeAllModals()"
+    (shoppingListUpdated)="
+      recipeAdded(
+        $event
+      )
+    "
   >
   </app-add-recipe-ingredients-modal>
 
