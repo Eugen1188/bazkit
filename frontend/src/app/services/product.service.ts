@@ -30,13 +30,42 @@ export interface ProductSuggestion {
 export class ProductService {
 
   private apiUrl =
-    'http://178.104.47.231:8000/products/';
+    this.getApiUrl();
 
 
   constructor(
     private http:
       HttpClient
   ) {}
+
+
+  private getApiUrl():
+    string {
+
+    const hostname =
+      window.location.hostname;
+
+
+    const isLocal =
+      hostname === 'localhost'
+      ||
+      hostname === '127.0.0.1';
+
+
+    if (
+      isLocal
+    ) {
+
+      return (
+        'http://localhost:8000/products/'
+      );
+    }
+
+
+    return (
+      'http://178.104.47.231:8000/products/'
+    );
+  }
 
 
   searchProducts(
