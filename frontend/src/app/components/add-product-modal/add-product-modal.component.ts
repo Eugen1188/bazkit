@@ -1,16 +1,30 @@
 import {
-  Component,
-  EventEmitter,
-  Output
-} from '@angular/core';
-
-import {
   CommonModule
 } from '@angular/common';
 
 import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  Output
+} from '@angular/core';
+
+import {
   FormsModule
 } from '@angular/forms';
+
+import {
+  Subject,
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs';
+
+import {
+  ProductService,
+  ProductSuggestion
+} from '../../services/product.service';
 
 import {
   ShoppingListItem,
@@ -19,7 +33,8 @@ import {
 
 
 @Component({
-  selector: 'app-add-product-modal',
+  selector:
+    'app-add-product-modal',
 
   standalone: true,
 
@@ -34,7 +49,8 @@ import {
   styleUrl:
     './add-product-modal.component.scss'
 })
-export class AddProductModalComponent {
+export class AddProductModalComponent
+implements OnDestroy {
 
   @Output()
   close =
@@ -43,7 +59,9 @@ export class AddProductModalComponent {
 
   @Output()
   itemAdded =
-    new EventEmitter<ShoppingListItem>();
+    new EventEmitter<
+      ShoppingListItem
+    >();
 
 
   productName = '';
@@ -55,9 +73,26 @@ export class AddProductModalComponent {
 
   note = '';
 
+
+  suggestions:
+    ProductSuggestion[] = [];
+
+
+  isSearching = false;
+
+  isSuggestionsOpen = false;
+
   isSaving = false;
 
   errorMessage = '';
+
+
+  private searchSubject =
+    new Subject<string>();
+
+
+  private searchSubscription:
+    Subscription;
 
 
   units = [
@@ -78,21 +113,174 @@ export class AddProductModalComponent {
 
 
   constructor(
+    private productService:
+      ProductService,
+
     private shoppingListService:
       ShoppingListService
-  ) {}
+  ) {
+
+    this.searchSubscription =
+      this.searchSubject
+        .pipe(
+          debounceTime(
+            250
+          ),
+
+          distinctUntilChanged(),
+
+          switchMap(
+            query => {
+
+              this.isSearching =
+                true;
+
+              return this.productService
+                .searchProducts(
+                  query
+                );
+            }
+          )
+        )
+        .subscribe({
+
+          next: (
+            products
+          ) => {
+
+            this.suggestions =
+              products;
+
+            this.isSearching =
+              false;
+
+            this.isSuggestionsOpen =
+              this.productName
+                .trim()
+                .length >= 2;
+          },
+
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Produktsuche fehlgeschlagen:',
+              error
+            );
+
+            this.suggestions =
+              [];
+
+            this.isSearching =
+              false;
+          }
+
+        });
+  }
+
+
+  ngOnDestroy(): void {
+
+    this.searchSubscription
+      .unsubscribe();
+  }
+
+
+  onProductNameChange(
+    value: string
+  ): void {
+
+    this.productName =
+      value;
+
+
+    const query =
+      value.trim();
+
+
+    if (
+      query.length < 2
+    ) {
+
+      this.suggestions =
+        [];
+
+      this.isSuggestionsOpen =
+        false;
+
+      return;
+    }
+
+
+    this.isSuggestionsOpen =
+      true;
+
+
+    this.searchSubject.next(
+      query
+    );
+  }
+
+
+  selectProduct(
+    product:
+      ProductSuggestion
+  ): void {
+
+    this.productName =
+      product.name;
+
+
+    if (
+      product.default_unit
+      &&
+      this.units.includes(
+        product.default_unit
+      )
+    ) {
+
+      this.unit =
+        product.default_unit;
+    }
+
+
+    this.suggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
+  }
+
+
+  closeSuggestions(): void {
+
+    window.setTimeout(
+      () => {
+
+        this.isSuggestionsOpen =
+          false;
+      },
+      150
+    );
+  }
 
 
   saveProduct(): void {
 
     const name =
-      this.productName.trim();
+      this.productName
+        .trim();
 
 
     if (
-      !name ||
-      this.quantity === null ||
-      this.quantity <= 0 ||
+      !name
+      ||
+      this.quantity === null
+      ||
+      this.quantity <= 0
+      ||
       !this.unit
     ) {
 
@@ -103,18 +291,23 @@ export class AddProductModalComponent {
     }
 
 
-    this.errorMessage = '';
+    this.errorMessage =
+      '';
 
-    this.isSaving = true;
+    this.isSaving =
+      true;
 
 
     this.shoppingListService
       .addItem({
         name,
+
         quantity:
           this.quantity,
+
         unit:
           this.unit,
+
         note:
           this.note.trim()
       })
@@ -160,6 +353,7 @@ export class AddProductModalComponent {
     ) {
       return;
     }
+
 
     this.close.emit();
   }

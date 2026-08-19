@@ -4,7 +4,8 @@ from .models import (
     SavedList,
     SavedListItem,
     ShoppingList,
-    ShoppingListItem
+    ShoppingListItem,
+    Product
 )
 
 
@@ -258,7 +259,11 @@ class ShoppingListItemSerializer(
             "created_at"
         ]
 
-    def validate(self, attrs):
+
+    def validate(
+        self,
+        attrs
+    ):
         product = attrs.get(
             "product",
             getattr(
@@ -277,12 +282,86 @@ class ShoppingListItemSerializer(
             )
         ).strip()
 
-        if not product and not name:
+        if (
+            not product
+            and
+            not name
+        ):
             raise serializers.ValidationError(
                 "Produkt oder Name muss angegeben werden."
             )
 
         return attrs
+
+
+    def create(
+        self,
+        validated_data
+    ):
+        name = (
+            validated_data
+            .get(
+                "name",
+                ""
+            )
+            .strip()
+        )
+
+        unit = (
+            validated_data
+            .get(
+                "unit",
+                ""
+            )
+            .strip()
+        )
+
+
+        if (
+            name
+            and
+            not validated_data.get(
+                "product"
+            )
+        ):
+            product = (
+                Product.objects
+                .filter(
+                    name__iexact=name
+                )
+                .first()
+            )
+
+
+            if not product:
+                product = Product.objects.create(
+                    name=name,
+                    default_unit=unit
+                )
+
+
+            elif (
+                not product.default_unit
+                and
+                unit
+            ):
+                product.default_unit = unit
+
+                product.save(
+                    update_fields=[
+                        "default_unit"
+                    ]
+                )
+
+
+            validated_data[
+                "product"
+            ] = product
+
+
+        return super().create(
+            validated_data
+        )
 
 
 class ShoppingListSerializer(

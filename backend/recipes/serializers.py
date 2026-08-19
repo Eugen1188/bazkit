@@ -2,7 +2,8 @@ from rest_framework import serializers
 
 from .models import (
     Recipe,
-    Ingredients
+    Ingredients,
+    Product
 )
 
 
@@ -32,6 +33,7 @@ class RecipeSerializer(
         required=False
     )
 
+
     class Meta:
         model = Recipe
 
@@ -55,6 +57,66 @@ class RecipeSerializer(
             "updated_at"
         ]
 
+
+    def sync_product(
+        self,
+        ingredient_data
+    ):
+        name = (
+            ingredient_data
+            .get(
+                "name",
+                ""
+            )
+            .strip()
+        )
+
+        unit = (
+            ingredient_data
+            .get(
+                "unit",
+                ""
+            )
+            .strip()
+        )
+
+
+        if not name:
+            return
+
+
+        product = (
+            Product.objects
+            .filter(
+                name__iexact=name
+            )
+            .first()
+        )
+
+
+        if not product:
+            Product.objects.create(
+                name=name,
+                default_unit=unit
+            )
+
+            return
+
+
+        if (
+            not product.default_unit
+            and
+            unit
+        ):
+            product.default_unit = unit
+
+            product.save(
+                update_fields=[
+                    "default_unit"
+                ]
+            )
+
+
     def create(
         self,
         validated_data
@@ -75,13 +137,20 @@ class RecipeSerializer(
             **validated_data
         )
 
+
         for ingredient_data in ingredients_data:
             Ingredients.objects.create(
                 recipe=recipe,
                 **ingredient_data
             )
 
+            self.sync_product(
+                ingredient_data
+            )
+
+
         return recipe
+
 
     def update(
         self,
@@ -94,6 +163,7 @@ class RecipeSerializer(
                 None
             )
         )
+
 
         instance.name = (
             validated_data.get(
@@ -144,17 +214,24 @@ class RecipeSerializer(
             )
         )
 
+
         instance.save()
 
-        if ingredients_data is not None:
 
+        if ingredients_data is not None:
             instance.ingredients.all().delete()
+
 
             for ingredient_data in ingredients_data:
                 Ingredients.objects.create(
                     recipe=instance,
                     **ingredient_data
                 )
+
+                self.sync_product(
+                    ingredient_data
+                )
+
 
         return instance
 
