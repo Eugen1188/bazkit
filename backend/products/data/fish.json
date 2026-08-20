@@ -1,1 +1,1602 @@
-﻿[]
+[
+  {
+    "name": "Lachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Lachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Räucherlachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Räucherlachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Räucherlachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Räucherlachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Räucherlachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Räucherlachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Räucherlachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Räucherlachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Räucherlachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Räucherlachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Räucherlachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Räucherlachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Räucherlachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Räucherlachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Räucherlachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Räucherlachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thunfisch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thunfisch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thunfisch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thunfisch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thunfisch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thunfisch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thunfisch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thunfisch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Thunfisch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Thunfisch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Thunfisch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Thunfisch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Thunfisch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Thunfisch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Thunfisch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Thunfisch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljau",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljau Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljau natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljau Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljau",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljau Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljau natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljau Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljau",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljau Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljau natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljau Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljau",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljau Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljau natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljau Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljaufilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljaufilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljaufilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kabeljaufilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljaufilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljaufilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljaufilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kabeljaufilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljaufilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljaufilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljaufilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kabeljaufilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljaufilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljaufilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljaufilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Kabeljaufilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachs",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachs Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachs natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachs Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Seelachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Seelachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Seelachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachsfilet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachsfilet Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachsfilet natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Seelachsfilet Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Forelle",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Forelle Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Forelle natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Forelle Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Forelle",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Forelle Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Forelle natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Forelle Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Forelle",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Forelle Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Forelle natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Forelle Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Forelle",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Forelle Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Forelle natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Forelle Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dorade",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dorade Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dorade natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dorade Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dorade",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dorade Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dorade natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dorade Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Dorade",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Dorade Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Dorade natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Dorade Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Dorade",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Dorade Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Dorade natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Dorade Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makrele",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makrele Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makrele natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makrele Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makrele",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makrele Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makrele natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makrele Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Makrele",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Makrele Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Makrele natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Makrele Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Makrele",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Makrele Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Makrele natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Makrele Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hering",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hering Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hering natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hering Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hering",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hering Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hering natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hering Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hering",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hering Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hering natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hering Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Hering",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Hering Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Hering natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Hering Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Matjes",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Matjes Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Matjes natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Matjes Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Matjes",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Matjes Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Matjes natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Matjes Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Matjes",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Matjes Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Matjes natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Matjes Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Matjes",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Matjes Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Matjes natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Matjes Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardinen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardinen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardinen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardinen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardinen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardinen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardinen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardinen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardinen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardinen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardinen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardinen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardinen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardinen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardinen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardinen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardellen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardellen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardellen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sardellen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardellen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardellen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardellen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sardellen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardellen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardellen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardellen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sardellen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardellen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardellen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardellen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Sardellen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heilbutt",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heilbutt Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heilbutt natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heilbutt Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heilbutt",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heilbutt Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heilbutt natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heilbutt Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Heilbutt",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Heilbutt Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Heilbutt natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Heilbutt Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Heilbutt",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Heilbutt Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Heilbutt natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Heilbutt Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zander",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zander Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zander natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zander Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zander",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zander Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zander natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zander Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zander",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zander Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zander natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zander Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Zander",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Zander Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Zander natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Zander Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotbarsch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotbarsch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotbarsch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotbarsch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotbarsch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotbarsch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotbarsch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotbarsch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotbarsch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotbarsch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotbarsch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotbarsch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Rotbarsch",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Rotbarsch Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Rotbarsch natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Rotbarsch Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pangasius",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pangasius Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pangasius natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pangasius Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pangasius",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pangasius Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pangasius natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pangasius Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pangasius",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pangasius Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pangasius natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pangasius Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Pangasius",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Pangasius Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Pangasius natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Pangasius Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fischstäbchen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fischstäbchen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fischstäbchen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fischstäbchen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fischstäbchen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fischstäbchen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fischstäbchen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fischstäbchen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fischstäbchen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fischstäbchen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fischstäbchen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fischstäbchen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Fischstäbchen",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Fischstäbchen Filet",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Fischstäbchen natur",
+    "category": "Fisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "MSC Fischstäbchen Packung",
+    "category": "Fisch",
+    "default_unit": "g"
+  }
+]

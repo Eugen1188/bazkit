@@ -1,1 +1,802 @@
-﻿[]
+[
+  {
+    "name": "Weizenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 405",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 405 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 405 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 405 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 405",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 405 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 405 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 405 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 405",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 405 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 405 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 405 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 405",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 405 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 405 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 405 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 550",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 550 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 550 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Weizenmehl Type 550 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 550",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 550 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 550 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Weizenmehl Type 550 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 550",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 550 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 550 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Weizenmehl Type 550 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 550",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 550 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 550 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Weizenmehl Type 550 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl Type 630",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl Type 630 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl Type 630 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Dinkelmehl Type 630 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl Type 630",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl Type 630 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl Type 630 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Dinkelmehl Type 630 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl Type 630",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl Type 630 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl Type 630 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Dinkelmehl Type 630 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl Type 630",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl Type 630 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl Type 630 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Dinkelmehl Type 630 Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Vollkornmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Vollkornmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Vollkornmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Vollkornmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Vollkornmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Vollkornmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Vollkornmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Vollkornmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Vollkornmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Vollkornmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Vollkornmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Vollkornmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Vollkornmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Vollkornmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Vollkornmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Vollkornmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Roggenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Roggenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Roggenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Roggenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Roggenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Roggenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Roggenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Roggenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Roggenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Roggenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Roggenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Roggenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Roggenmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Roggenmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Roggenmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Roggenmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Maismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Maismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Maismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Maismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Maismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Maismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Maismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Maismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Maismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Maismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Maismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Maismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Maismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Maismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Maismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Maismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Reismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Reismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Reismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Reismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Reismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Reismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Reismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Reismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Reismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Reismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Reismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Reismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Reismehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Reismehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Reismehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Reismehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Mandelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Mandelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Mandelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Mandelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Mandelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Mandelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Mandelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bio Mandelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Mandelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Mandelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Mandelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Glutenfrei Mandelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Mandelmehl",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Mandelmehl 500 g",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Mandelmehl 1 kg",
+    "category": "Mehl",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Premium Mandelmehl Packung",
+    "category": "Mehl",
+    "default_unit": "kg"
+  }
+]

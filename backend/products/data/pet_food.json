@@ -1,1 +1,2402 @@
-﻿[]
+[
+  {
+    "name": "Hundefutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundefutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundefutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundefutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundefutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundefutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundefutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundefutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundefutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundefutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundefutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundefutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundefutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundefutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundefutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundefutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundefutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundefutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundefutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundefutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Welpenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Welpenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Welpenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Welpenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Welpenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Welpenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Welpenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Welpenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Welpenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Welpenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Welpenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Welpenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Welpenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Welpenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Welpenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Welpenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Welpenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Welpenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Welpenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Welpenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Snacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Snacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Snacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Snacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Snacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Snacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Snacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Snacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Snacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Snacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Snacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Snacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Snacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Snacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Snacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Snacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Snacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Snacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Snacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Snacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundeknochen",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundeknochen Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundeknochen 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hundeknochen Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundeknochen",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundeknochen Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundeknochen 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hundeknochen Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundeknochen",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundeknochen Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundeknochen 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hundeknochen Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundeknochen",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundeknochen Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundeknochen 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hundeknochen Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundeknochen",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundeknochen Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundeknochen 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hundeknochen Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Trockenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Trockenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Trockenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Trockenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Nassfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Nassfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Nassfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Nassfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kittenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kittenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kittenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kittenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kittenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kittenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kittenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kittenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kittenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kittenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kittenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kittenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kittenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kittenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kittenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kittenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kittenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kittenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kittenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kittenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzensnacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzensnacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzensnacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzensnacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzensnacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzensnacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzensnacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzensnacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzensnacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzensnacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzensnacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzensnacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzensnacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzensnacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzensnacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzensnacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzensnacks",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzensnacks Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzensnacks 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzensnacks Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzenstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzenstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzenstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzenstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzenstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Klumpstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Klumpstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Klumpstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Klumpstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Klumpstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Klumpstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Klumpstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Klumpstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Klumpstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Klumpstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Klumpstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Klumpstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Klumpstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Klumpstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Klumpstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Klumpstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Klumpstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Klumpstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Klumpstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Klumpstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vogelfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vogelfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vogelfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vogelfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vogelfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vogelfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vogelfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vogelfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Vogelfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Vogelfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Vogelfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Vogelfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Vogelfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Vogelfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Vogelfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Vogelfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Vogelfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Vogelfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Vogelfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Vogelfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wellensittichfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wellensittichfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wellensittichfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wellensittichfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wellensittichfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wellensittichfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wellensittichfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wellensittichfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wellensittichfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wellensittichfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wellensittichfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wellensittichfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Wellensittichfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Wellensittichfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Wellensittichfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Wellensittichfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Wellensittichfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Wellensittichfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Wellensittichfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Wellensittichfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nagerfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nagerfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nagerfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nagerfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nagerfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nagerfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nagerfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nagerfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Nagerfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Nagerfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Nagerfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Nagerfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Nagerfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Nagerfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Nagerfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Nagerfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Nagerfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Nagerfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Nagerfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Nagerfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaninchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaninchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaninchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaninchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaninchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaninchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaninchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaninchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kaninchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kaninchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kaninchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kaninchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kaninchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kaninchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kaninchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kaninchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kaninchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kaninchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kaninchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kaninchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Meerschweinchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Meerschweinchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Meerschweinchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Meerschweinchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Meerschweinchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Meerschweinchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Meerschweinchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Meerschweinchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Meerschweinchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Meerschweinchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Meerschweinchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Meerschweinchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Meerschweinchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Meerschweinchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Meerschweinchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Meerschweinchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Meerschweinchenfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Meerschweinchenfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Meerschweinchenfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Meerschweinchenfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Fischfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Fischfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Fischfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Fischfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Fischfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Fischfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Fischfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Fischfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Fischfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Fischfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Fischfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Fischfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Aquarienfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Aquarienfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Aquarienfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Aquarienfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Aquarienfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Aquarienfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Aquarienfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Aquarienfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Aquarienfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Aquarienfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Aquarienfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Aquarienfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Aquarienfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Aquarienfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Aquarienfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Aquarienfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Aquarienfutter",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Aquarienfutter Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Aquarienfutter 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Aquarienfutter Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hunde Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hunde Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Hunde Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Hunde Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Hunde Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Katzen Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Katzen Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Katzen Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Katzen Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Shampoo",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Shampoo Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Shampoo 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Katzen Shampoo Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kotbeutel",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kotbeutel Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kotbeutel 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kotbeutel Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kotbeutel",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kotbeutel Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kotbeutel 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kotbeutel Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kotbeutel",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kotbeutel Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kotbeutel 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kotbeutel Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kotbeutel",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kotbeutel Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kotbeutel 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Kotbeutel Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kotbeutel",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kotbeutel Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kotbeutel 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Kotbeutel Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tierstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tierstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tierstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tierstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tierstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tierstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tierstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tierstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Tierstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Tierstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Tierstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Tierstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Tierstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Tierstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Tierstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Adult Tierstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Tierstreu",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Tierstreu Packung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Tierstreu 1 kg",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Junior Tierstreu Vorratspackung",
+    "category": "Tierbedarf",
+    "default_unit": "Packung"
+  }
+]

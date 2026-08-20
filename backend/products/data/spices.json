@@ -1,1 +1,3042 @@
-﻿[]
+[
+  {
+    "name": "Salz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Salz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Salz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Salz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Salz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Salz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Salz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Salz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Salz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meersalz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meersalz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meersalz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meersalz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Meersalz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Meersalz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Meersalz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Meersalz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Meersalz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Meersalz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Meersalz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Meersalz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Meersalz",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Meersalz Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Meersalz Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Meersalz Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Schwarzer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Schwarzer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Schwarzer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Schwarzer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Schwarzer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Schwarzer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Schwarzer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Schwarzer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Weißer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Weißer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Weißer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Weißer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Weißer Pfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Weißer Pfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Weißer Pfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Weißer Pfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprikapulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprikapulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprikapulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprikapulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprikapulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprikapulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprikapulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprikapulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprikapulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprikapulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprikapulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprikapulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprikapulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprikapulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprikapulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprikapulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika edelsüß",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika edelsüß Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika edelsüß Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika edelsüß Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika edelsüß",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika edelsüß Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika edelsüß Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika edelsüß Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika edelsüß",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika edelsüß Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika edelsüß Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika edelsüß Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika edelsüß",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika edelsüß Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika edelsüß Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika edelsüß Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika rosenscharf",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika rosenscharf Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika rosenscharf Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika rosenscharf Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika rosenscharf",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika rosenscharf Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika rosenscharf Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika rosenscharf Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika rosenscharf",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika rosenscharf Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika rosenscharf Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Paprika rosenscharf Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika rosenscharf",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika rosenscharf Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika rosenscharf Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Paprika rosenscharf Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Currypulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Currypulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Currypulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Currypulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Currypulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Currypulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Currypulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Currypulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Currypulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Currypulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Currypulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Currypulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Currypulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Currypulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Currypulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Currypulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chilipulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chilipulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chilipulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chilipulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chilipulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chilipulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chilipulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chilipulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chilipulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chilipulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chilipulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chilipulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chilipulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chilipulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chilipulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chilipulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiliflocken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiliflocken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiliflocken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiliflocken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiliflocken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiliflocken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiliflocken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiliflocken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chiliflocken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chiliflocken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chiliflocken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Chiliflocken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chiliflocken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chiliflocken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chiliflocken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Chiliflocken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cayennepfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cayennepfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cayennepfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cayennepfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cayennepfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cayennepfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cayennepfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cayennepfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Cayennepfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Cayennepfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Cayennepfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Cayennepfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Cayennepfeffer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Cayennepfeffer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Cayennepfeffer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Cayennepfeffer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kurkuma",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kurkuma Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kurkuma Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kurkuma Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kurkuma",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kurkuma Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kurkuma Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kurkuma Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kurkuma",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kurkuma Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kurkuma Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kurkuma Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kurkuma",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kurkuma Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kurkuma Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kurkuma Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kreuzkümmel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kreuzkümmel Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kreuzkümmel Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kreuzkümmel Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kreuzkümmel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kreuzkümmel Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kreuzkümmel Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kreuzkümmel Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kreuzkümmel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kreuzkümmel Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kreuzkümmel Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kreuzkümmel Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kreuzkümmel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kreuzkümmel Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kreuzkümmel Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kreuzkümmel Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Koriander",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Koriander Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Koriander Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Koriander Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Koriander",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Koriander Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Koriander Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Koriander Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Koriander",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Koriander Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Koriander Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Koriander Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Koriander",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Koriander Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Koriander Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Koriander Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zimt",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zimt Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zimt Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zimt Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zimt",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zimt Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zimt Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zimt Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zimt",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zimt Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zimt Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zimt Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zimt",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zimt Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zimt Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zimt Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Muskat",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Muskat Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Muskat Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Muskat Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Muskat",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Muskat Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Muskat Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Muskat Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Muskat",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Muskat Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Muskat Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Muskat Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Muskat",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Muskat Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Muskat Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Muskat Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nelken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nelken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nelken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nelken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nelken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nelken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nelken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nelken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Nelken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Nelken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Nelken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Nelken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Nelken",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Nelken Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Nelken Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Nelken Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Piment",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Piment Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Piment Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Piment Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Piment",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Piment Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Piment Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Piment Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Piment",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Piment Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Piment Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Piment Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Piment",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Piment Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Piment Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Piment Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ingwer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ingwer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ingwer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ingwer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ingwer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ingwer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ingwer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ingwer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ingwer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ingwer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ingwer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ingwer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ingwer",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ingwer Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ingwer Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ingwer Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauchpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauchpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauchpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauchpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauchpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauchpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauchpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauchpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Knoblauchpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Knoblauchpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Knoblauchpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Knoblauchpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Knoblauchpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Knoblauchpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Knoblauchpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Knoblauchpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebelpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebelpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebelpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebelpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebelpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebelpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebelpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebelpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zwiebelpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zwiebelpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zwiebelpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Zwiebelpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zwiebelpulver",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zwiebelpulver Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zwiebelpulver Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Zwiebelpulver Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oregano",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oregano Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oregano Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oregano Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Oregano",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Oregano Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Oregano Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Oregano Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Oregano",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Oregano Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Oregano Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Oregano Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Oregano",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Oregano Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Oregano Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Oregano Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basilikum",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basilikum Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basilikum Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basilikum Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basilikum",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basilikum Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basilikum Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basilikum Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Basilikum",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Basilikum Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Basilikum Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Basilikum Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Basilikum",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Basilikum Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Basilikum Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Basilikum Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thymian",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thymian Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thymian Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Thymian Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thymian",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thymian Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thymian Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Thymian Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Thymian",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Thymian Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Thymian Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Thymian Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Thymian",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Thymian Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Thymian Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Thymian Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosmarin",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosmarin Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosmarin Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosmarin Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosmarin",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosmarin Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosmarin Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosmarin Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Rosmarin",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Rosmarin Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Rosmarin Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Rosmarin Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Rosmarin",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Rosmarin Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Rosmarin Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Rosmarin Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Majoram",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Majoram Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Majoram Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Majoram Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Majoram",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Majoram Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Majoram Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Majoram Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Majoram",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Majoram Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Majoram Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Majoram Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Majoram",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Majoram Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Majoram Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Majoram Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dill",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dill Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dill Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dill Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dill",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dill Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dill Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dill Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Dill",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Dill Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Dill Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Dill Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Dill",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Dill Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Dill Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Dill Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Petersilie",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Petersilie Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Petersilie Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Petersilie Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Petersilie",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Petersilie Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Petersilie Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Petersilie Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Petersilie",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Petersilie Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Petersilie Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Petersilie Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Petersilie",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Petersilie Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Petersilie Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Petersilie Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lorbeerblätter",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lorbeerblätter Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lorbeerblätter Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lorbeerblätter Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lorbeerblätter",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lorbeerblätter Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lorbeerblätter Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lorbeerblätter Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Lorbeerblätter",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Lorbeerblätter Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Lorbeerblätter Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Lorbeerblätter Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Lorbeerblätter",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Lorbeerblätter Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Lorbeerblätter Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Lorbeerblätter Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchelsamen",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchelsamen Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchelsamen Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchelsamen Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchelsamen",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchelsamen Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchelsamen Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchelsamen Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Fenchelsamen",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Fenchelsamen Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Fenchelsamen Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Fenchelsamen Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Fenchelsamen",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Fenchelsamen Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Fenchelsamen Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Fenchelsamen Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kardamom",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kardamom Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kardamom Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kardamom Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kardamom",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kardamom Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kardamom Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kardamom Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kardamom",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kardamom Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kardamom Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Kardamom Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kardamom",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kardamom Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kardamom Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Kardamom Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Anis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Anis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Anis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Anis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Anis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Anis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Anis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Anis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Anis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Anis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Anis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Anis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Anis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Anis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Anis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Anis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sternanis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sternanis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sternanis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sternanis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sternanis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sternanis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sternanis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sternanis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Sternanis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Sternanis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Sternanis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Sternanis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Sternanis",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Sternanis Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Sternanis Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Sternanis Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanille",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanille Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanille Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanille Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanille",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanille Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanille Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanille Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Vanille",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Vanille Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Vanille Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Vanille Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Vanille",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Vanille Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Vanille Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Vanille Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Safran",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Safran Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Safran Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Safran Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Safran",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Safran Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Safran Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Safran Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Safran",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Safran Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Safran Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Safran Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Safran",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Safran Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Safran Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Safran Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garam Masala",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garam Masala Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garam Masala Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garam Masala Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Garam Masala",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Garam Masala Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Garam Masala Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Garam Masala Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Garam Masala",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Garam Masala Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Garam Masala Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Garam Masala Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Garam Masala",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Garam Masala Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Garam Masala Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Garam Masala Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ras el Hanout",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ras el Hanout Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ras el Hanout Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ras el Hanout Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ras el Hanout",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ras el Hanout Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ras el Hanout Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ras el Hanout Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ras el Hanout",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ras el Hanout Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ras el Hanout Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gemahlen Ras el Hanout Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ras el Hanout",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ras el Hanout Dose",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ras el Hanout Beutel",
+    "category": "Gewürze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ganz Ras el Hanout Nachfüllpack",
+    "category": "Gewürze",
+    "default_unit": "g"
+  }
+]

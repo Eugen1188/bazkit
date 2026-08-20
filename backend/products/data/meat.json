@@ -1,1 +1,2402 @@
-﻿[]
+[
+  {
+    "name": "Hähnchenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrustfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrustfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrustfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenbrustfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrustfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrustfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrustfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenbrustfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrustfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrustfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrustfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenbrustfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrustfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrustfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrustfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenbrustfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenschenkel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenschenkel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenschenkel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenschenkel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenschenkel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenschenkel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenschenkel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenschenkel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenschenkel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenschenkel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenschenkel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenschenkel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenschenkel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenschenkel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenschenkel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenschenkel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenflügel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenflügel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenflügel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenflügel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenflügel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenflügel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenflügel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenflügel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenflügel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenflügel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenflügel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenflügel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenflügel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenflügel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenflügel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenflügel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähnchenhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähnchenhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähnchenhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähnchenhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähncheninnenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähncheninnenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähncheninnenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hähncheninnenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähncheninnenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähncheninnenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähncheninnenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hähncheninnenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähncheninnenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähncheninnenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähncheninnenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hähncheninnenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähncheninnenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähncheninnenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähncheninnenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hähncheninnenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenbrust natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenbrust mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenbrust Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putenfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putensteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putensteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putensteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Putensteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putensteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putensteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putensteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Putensteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putensteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putensteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putensteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Putensteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putensteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putensteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putensteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Putensteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderfilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderfilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderfilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderfilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindersteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindersteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindersteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindersteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindersteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindersteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindersteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindersteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindersteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindersteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindersteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindersteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindersteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindersteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindersteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindersteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rumpsteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rumpsteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rumpsteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rumpsteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rumpsteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rumpsteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rumpsteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rumpsteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rumpsteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rumpsteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rumpsteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rumpsteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rumpsteak",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rumpsteak natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rumpsteak mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rumpsteak Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roastbeef",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roastbeef natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roastbeef mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roastbeef Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roastbeef",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roastbeef natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roastbeef mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roastbeef Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Roastbeef",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Roastbeef natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Roastbeef mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Roastbeef Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Roastbeef",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Roastbeef natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Roastbeef mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Roastbeef Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindergulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindergulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindergulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rindergulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindergulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindergulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindergulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rindergulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindergulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindergulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindergulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rindergulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindergulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindergulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindergulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rindergulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderrouladen",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderrouladen natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderrouladen mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderrouladen Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderrouladen",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderrouladen natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderrouladen mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderrouladen Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderrouladen",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderrouladen natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderrouladen mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderrouladen Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderrouladen",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderrouladen natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderrouladen mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderrouladen Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhüfte",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhüfte natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhüfte mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhüfte Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhüfte",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhüfte natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhüfte mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderhüfte Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhüfte",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhüfte natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhüfte mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderhüfte Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhüfte",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhüfte natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhüfte mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderhüfte Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderbraten",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderbraten natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderbraten mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderbraten Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderbraten",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderbraten natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderbraten mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rinderbraten Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderbraten",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderbraten natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderbraten mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rinderbraten Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderbraten",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderbraten natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderbraten mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Rinderbraten Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinefilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinefilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinefilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinefilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinefilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinefilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinefilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinefilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinefilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinefilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinefilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinefilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinefilet",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinefilet natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinefilet mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinefilet Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweineschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweineschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweineschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweineschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweineschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweineschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweineschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweineschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweineschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweineschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweineschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweineschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweineschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweineschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweineschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweineschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinekotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinekotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinekotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinekotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinekotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinekotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinekotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinekotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinekotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinekotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinekotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinekotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinekotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinekotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinekotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinekotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinehackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinehackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinehackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinehackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinehackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinehackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinehackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinehackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinehackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinehackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinehackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinehackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinehackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinehackfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinehackfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinehackfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinegulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinegulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinegulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinegulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinegulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinegulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinegulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinegulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinegulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinegulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinegulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinegulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinegulasch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinegulasch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinegulasch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinegulasch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinebauch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinebauch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinebauch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinebauch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinebauch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinebauch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinebauch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinebauch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinebauch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinebauch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinebauch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinebauch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinebauch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinebauch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinebauch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinebauch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinenacken",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinenacken natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinenacken mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schweinenacken Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinenacken",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinenacken natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinenacken mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schweinenacken Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinenacken",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinenacken natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinenacken mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Schweinenacken Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinenacken",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinenacken natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinenacken mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schweinenacken Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbsschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbsschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbsschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kalbsschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbsschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbsschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbsschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kalbsschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbsschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbsschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbsschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kalbsschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbsschnitzel",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbsschnitzel natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbsschnitzel mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kalbsschnitzel Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammfleisch natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammfleisch mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammfleisch Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammkotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammkotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammkotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lammkotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammkotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammkotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammkotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lammkotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammkotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammkotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammkotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lammkotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammkotelett",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammkotelett natur",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammkotelett mariniert",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Lammkotelett Familienpackung",
+    "category": "Fleisch",
+    "default_unit": "g"
+  }
+]

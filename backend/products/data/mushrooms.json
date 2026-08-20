@@ -1,1 +1,802 @@
-﻿[]
+[
+  {
+    "name": "Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Braune Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Braune Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Braune Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Braune Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Braune Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Braune Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Braune Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Braune Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Braune Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Braune Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Braune Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Braune Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Braune Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Braune Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Braune Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Braune Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weiße Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weiße Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weiße Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weiße Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weiße Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weiße Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weiße Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weiße Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weiße Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weiße Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weiße Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weiße Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Weiße Champignons",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Weiße Champignons 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Weiße Champignons 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Weiße Champignons Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfifferlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfifferlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfifferlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pfifferlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfifferlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfifferlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfifferlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pfifferlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pfifferlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pfifferlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pfifferlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pfifferlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pfifferlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pfifferlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pfifferlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pfifferlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Steinpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Steinpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Steinpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Steinpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Steinpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Steinpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Steinpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Steinpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Steinpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Steinpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Steinpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Steinpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Steinpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Steinpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Steinpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Steinpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Austernpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Austernpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Austernpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Austernpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Austernpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Austernpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Austernpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Austernpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Austernpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Austernpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Austernpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Austernpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Austernpilze",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Austernpilze 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Austernpilze 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Austernpilze Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shiitake",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shiitake 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shiitake 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shiitake Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Shiitake",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Shiitake 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Shiitake 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Shiitake Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shiitake",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shiitake 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shiitake 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shiitake Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Shiitake",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Shiitake 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Shiitake 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Shiitake Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterseitlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterseitlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterseitlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterseitlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterseitlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterseitlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterseitlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterseitlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kräuterseitlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kräuterseitlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kräuterseitlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kräuterseitlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Kräuterseitlinge",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Kräuterseitlinge 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Kräuterseitlinge 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Kräuterseitlinge Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Morcheln",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Morcheln 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Morcheln 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Morcheln Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Morcheln",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Morcheln 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Morcheln 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Morcheln Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Morcheln",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Morcheln 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Morcheln 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Morcheln Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Morcheln",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Morcheln 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Morcheln 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Morcheln Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pilzmischung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pilzmischung 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pilzmischung 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pilzmischung Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pilzmischung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pilzmischung 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pilzmischung 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pilzmischung Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pilzmischung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pilzmischung 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pilzmischung 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pilzmischung Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pilzmischung",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pilzmischung 200 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pilzmischung 500 g",
+    "category": "Pilze",
+    "default_unit": "g"
+  },
+  {
+    "name": "Getrocknet Pilzmischung Packung",
+    "category": "Pilze",
+    "default_unit": "g"
+  }
+]

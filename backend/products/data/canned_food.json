@@ -1,1 +1,1602 @@
-﻿[]
+[
+  {
+    "name": "Mais",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mais Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mais Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mais Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mais",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mais Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mais Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mais Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mais",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mais Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mais Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mais Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mais",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mais Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mais Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mais Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Erbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Erbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Erbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Erbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Erbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Erbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Erbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Erbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Möhren",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Möhren Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Möhren Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Möhren Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Möhren",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Möhren Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Möhren Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Möhren Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Möhren",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Möhren Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Möhren Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Möhren Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Möhren",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Möhren Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Möhren Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Möhren Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kidneybohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kidneybohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kidneybohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kidneybohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kidneybohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kidneybohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kidneybohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kidneybohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kidneybohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kidneybohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kidneybohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kidneybohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kidneybohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kidneybohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kidneybohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kidneybohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Weiße Bohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Weiße Bohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Weiße Bohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Weiße Bohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Weiße Bohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Weiße Bohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Weiße Bohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Weiße Bohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Weiße Bohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Weiße Bohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Weiße Bohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Weiße Bohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Weiße Bohnen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Weiße Bohnen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Weiße Bohnen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Weiße Bohnen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kichererbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kichererbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kichererbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kichererbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kichererbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kichererbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kichererbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kichererbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kichererbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kichererbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kichererbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Kichererbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kichererbsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kichererbsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kichererbsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Kichererbsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gehackte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gehackte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gehackte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gehackte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gehackte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gehackte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gehackte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gehackte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Gehackte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Gehackte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Gehackte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Gehackte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Gehackte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Gehackte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Gehackte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Gehackte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Geschälte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Geschälte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Geschälte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Geschälte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Geschälte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Geschälte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Geschälte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Geschälte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Geschälte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Geschälte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Geschälte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Geschälte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Geschälte Tomaten",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Geschälte Tomaten Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Geschälte Tomaten Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Geschälte Tomaten Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatenmark",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatenmark Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatenmark Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatenmark Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatenmark",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatenmark Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatenmark Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatenmark Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomatenmark",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomatenmark Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomatenmark Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Tomatenmark Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomatenmark",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomatenmark Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomatenmark Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Tomatenmark Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thunfisch",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thunfisch Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thunfisch Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thunfisch Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thunfisch",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thunfisch Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thunfisch Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thunfisch Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Thunfisch",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Thunfisch Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Thunfisch Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Thunfisch Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Thunfisch",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Thunfisch Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Thunfisch Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Thunfisch Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sardinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sardinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sardinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sardinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sardinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sardinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sardinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sardinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sardinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sardinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sardinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sardinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sardinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sardinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sardinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sardinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ananas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ananas Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ananas Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ananas Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ananas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ananas Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ananas Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ananas Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ananas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ananas Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ananas Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ananas Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ananas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ananas Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ananas Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ananas Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pfirsiche",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pfirsiche Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pfirsiche Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pfirsiche Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pfirsiche",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pfirsiche Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pfirsiche Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pfirsiche Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Pfirsiche",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Pfirsiche Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Pfirsiche Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Pfirsiche Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Pfirsiche",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Pfirsiche Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Pfirsiche Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Pfirsiche Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mandarinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mandarinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mandarinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Mandarinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mandarinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mandarinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mandarinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Mandarinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mandarinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mandarinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mandarinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Mandarinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mandarinen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mandarinen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mandarinen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Mandarinen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Champignons",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Champignons Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Champignons Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Champignons Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Champignons",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Champignons Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Champignons Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Champignons Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Champignons",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Champignons Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Champignons Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Champignons Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Champignons",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Champignons Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Champignons Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Champignons Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sauerkraut",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sauerkraut Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sauerkraut Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Sauerkraut Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sauerkraut",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sauerkraut Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sauerkraut Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Sauerkraut Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sauerkraut",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sauerkraut Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sauerkraut Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Sauerkraut Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sauerkraut",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sauerkraut Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sauerkraut Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Sauerkraut Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rotkohl",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rotkohl Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rotkohl Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rotkohl Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rotkohl",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rotkohl Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rotkohl Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rotkohl Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Rotkohl",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Rotkohl Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Rotkohl Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Rotkohl Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Rotkohl",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Rotkohl Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Rotkohl Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Rotkohl Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Linsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Linsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Linsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Linsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Linsen",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Linsen Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Linsen Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Linsen Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ravioli",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ravioli Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ravioli Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Ravioli Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ravioli",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ravioli Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ravioli Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Ravioli Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ravioli",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ravioli Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ravioli Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Fein Ravioli Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ravioli",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ravioli Dose",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ravioli Glas",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Premium Ravioli Vorratspackung",
+    "category": "Konserven",
+    "default_unit": "Dose"
+  }
+]

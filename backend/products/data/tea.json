@@ -1,1 +1,2002 @@
-﻿[]
+[
+  {
+    "name": "Schwarzer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwarzer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwarzer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwarzer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schwarzer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schwarzer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schwarzer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schwarzer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwarzer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwarzer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwarzer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwarzer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Schwarzer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Schwarzer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Schwarzer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Schwarzer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Schwarzer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Schwarzer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Schwarzer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Schwarzer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grüner Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grüner Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grüner Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grüner Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grüner Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grüner Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grüner Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grüner Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grüner Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grüner Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grüner Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grüner Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Grüner Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Grüner Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Grüner Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Grüner Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Grüner Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Grüner Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Grüner Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Grüner Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weißer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weißer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weißer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weißer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Weißer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Weißer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Weißer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Weißer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weißer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weißer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weißer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weißer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Weißer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Weißer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Weißer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Weißer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Weißer Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Weißer Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Weißer Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Weißer Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kamillentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kamillentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kamillentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kamillentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kamillentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kamillentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kamillentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kamillentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kamillentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kamillentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kamillentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kamillentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kamillentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kamillentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kamillentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kamillentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kamillentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kamillentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kamillentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kamillentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pfefferminztee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pfefferminztee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pfefferminztee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pfefferminztee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pfefferminztee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pfefferminztee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pfefferminztee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pfefferminztee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pfefferminztee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pfefferminztee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pfefferminztee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pfefferminztee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Pfefferminztee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Pfefferminztee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Pfefferminztee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Pfefferminztee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Pfefferminztee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Pfefferminztee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Pfefferminztee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Pfefferminztee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtetee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtetee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtetee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtetee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtetee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtetee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtetee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtetee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Früchtetee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Früchtetee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Früchtetee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Früchtetee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Früchtetee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Früchtetee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Früchtetee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Früchtetee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Früchtetee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Früchtetee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Früchtetee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Früchtetee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kräutertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kräutertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kräutertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kräutertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kräutertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kräutertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kräutertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kräutertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kräutertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kräutertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kräutertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kräutertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kräutertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kräutertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kräutertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Kräutertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kräutertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kräutertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kräutertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Kräutertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fencheltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fencheltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fencheltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fencheltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fencheltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fencheltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fencheltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fencheltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fencheltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fencheltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fencheltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fencheltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Fencheltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Fencheltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Fencheltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Fencheltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Fencheltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Fencheltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Fencheltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Fencheltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ingwertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ingwertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ingwertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ingwertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ingwertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ingwertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ingwertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ingwertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Ingwertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Ingwertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Ingwertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Ingwertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Ingwertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Ingwertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Ingwertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Ingwertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Ingwertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Ingwertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Ingwertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Ingwertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hagebuttentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hagebuttentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hagebuttentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hagebuttentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hagebuttentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hagebuttentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hagebuttentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hagebuttentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hagebuttentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hagebuttentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hagebuttentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hagebuttentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Hagebuttentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Hagebuttentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Hagebuttentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Hagebuttentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Hagebuttentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Hagebuttentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Hagebuttentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Hagebuttentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rooibostee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rooibostee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rooibostee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rooibostee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rooibostee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rooibostee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rooibostee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rooibostee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rooibostee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rooibostee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rooibostee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rooibostee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Rooibostee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Rooibostee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Rooibostee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Rooibostee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Rooibostee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Rooibostee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Rooibostee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Rooibostee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chai Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chai Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chai Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chai Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chai Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chai Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chai Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chai Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chai Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chai Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chai Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chai Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Chai Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Chai Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Chai Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Chai Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Chai Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Chai Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Chai Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Chai Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Matcha Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Matcha Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Matcha Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Matcha Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Matcha Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Matcha Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Matcha Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Matcha Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Matcha Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Matcha Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Matcha Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Matcha Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Matcha Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Matcha Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Matcha Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Matcha Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Matcha Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Matcha Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Matcha Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Matcha Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salbeitee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salbeitee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salbeitee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salbeitee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salbeitee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salbeitee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salbeitee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salbeitee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Salbeitee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Salbeitee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Salbeitee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Salbeitee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Salbeitee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Salbeitee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Salbeitee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Salbeitee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Salbeitee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Salbeitee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Salbeitee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Salbeitee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Brennnesseltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Brennnesseltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Brennnesseltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Brennnesseltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Brennnesseltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Brennnesseltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Brennnesseltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Brennnesseltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Brennnesseltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Brennnesseltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Brennnesseltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Brennnesseltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Brennnesseltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Brennnesseltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Brennnesseltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Brennnesseltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Brennnesseltee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Brennnesseltee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Brennnesseltee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Brennnesseltee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zitronentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zitronentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zitronentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zitronentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zitronentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zitronentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zitronentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zitronentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zitronentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zitronentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zitronentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zitronentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Zitronentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Zitronentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Zitronentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Zitronentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Zitronentee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Zitronentee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Zitronentee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Zitronentee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Himbeertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Himbeertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Himbeertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Himbeertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Himbeertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Himbeertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Himbeertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Himbeertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Himbeertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Himbeertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Himbeertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Himbeertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Himbeertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Himbeertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Himbeertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Himbeertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Himbeertee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Himbeertee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Himbeertee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Himbeertee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Earl Grey",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Earl Grey 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Earl Grey 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Earl Grey Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Earl Grey",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Earl Grey 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Earl Grey 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Earl Grey Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Earl Grey",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Earl Grey 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Earl Grey 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Earl Grey Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Earl Grey",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Earl Grey 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Earl Grey 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Earl Grey Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Earl Grey",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Earl Grey 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Earl Grey 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Earl Grey Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Darjeeling",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Darjeeling 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Darjeeling 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Darjeeling Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Darjeeling",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Darjeeling 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Darjeeling 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Darjeeling Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Darjeeling",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Darjeeling 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Darjeeling 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Darjeeling Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Darjeeling",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Darjeeling 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Darjeeling 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Darjeeling Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Darjeeling",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Darjeeling 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Darjeeling 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Darjeeling Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Assam Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Assam Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Assam Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Assam Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Assam Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Assam Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Assam Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Assam Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Assam Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Assam Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Assam Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Assam Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Assam Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Assam Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Assam Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lose Assam Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Assam Tee",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Assam Tee 20 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Assam Tee 40 Beutel",
+    "category": "Tee",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teebeutel Assam Tee Packung",
+    "category": "Tee",
+    "default_unit": "Packung"
+  }
+]

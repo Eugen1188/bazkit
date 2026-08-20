@@ -1,1 +1,2802 @@
-﻿[]
+[
+  {
+    "name": "Spülmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinen Tabs",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinen Tabs Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinen Tabs Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinen Tabs Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinen Tabs",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinen Tabs Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinen Tabs Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinen Tabs Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinen Tabs",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinen Tabs Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinen Tabs Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinen Tabs Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinen Tabs",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinen Tabs Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinen Tabs Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinen Tabs Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinen Tabs",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinen Tabs Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinen Tabs Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinen Tabs Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Klarspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Klarspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Klarspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Klarspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Klarspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Klarspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Klarspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Klarspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Klarspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Klarspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Klarspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Klarspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Klarspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Klarspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Klarspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Klarspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Klarspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Klarspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Klarspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Klarspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinensalz",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinensalz Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinensalz Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Spülmaschinensalz Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinensalz",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinensalz Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinensalz Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Spülmaschinensalz Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinensalz",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinensalz Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinensalz Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Spülmaschinensalz Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinensalz",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinensalz Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinensalz Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Spülmaschinensalz Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinensalz",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinensalz Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinensalz Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Spülmaschinensalz Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Color Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Color Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Color Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Color Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Color Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Color Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Color Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Color Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Color Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Color Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Color Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Color Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Color Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Color Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Color Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Color Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Color Waschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Color Waschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Color Waschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Color Waschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Vollwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Vollwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Vollwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Vollwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Vollwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Vollwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Vollwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Vollwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Vollwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Vollwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Vollwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Vollwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Vollwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Vollwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Vollwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Vollwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Vollwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Vollwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Vollwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Vollwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Feinwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Feinwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Feinwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Feinwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Feinwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Feinwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Feinwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Feinwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Feinwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Feinwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Feinwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Feinwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Feinwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Feinwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Feinwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Feinwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Feinwaschmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Feinwaschmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Feinwaschmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Feinwaschmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Weichspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Weichspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Weichspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Weichspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Weichspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Weichspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Weichspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Weichspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Weichspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Weichspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Weichspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Weichspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Weichspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Weichspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Weichspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Weichspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Weichspüler",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Weichspüler Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Weichspüler Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Weichspüler Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fleckentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fleckentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fleckentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fleckentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Fleckentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Fleckentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Fleckentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Fleckentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Fleckentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Fleckentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Fleckentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Fleckentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Fleckentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Fleckentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Fleckentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Fleckentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Fleckentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Fleckentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Fleckentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Fleckentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Allzweckreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Allzweckreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Allzweckreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Allzweckreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Allzweckreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Allzweckreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Allzweckreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Allzweckreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Allzweckreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Allzweckreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Allzweckreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Allzweckreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Allzweckreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Allzweckreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Allzweckreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Allzweckreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Allzweckreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Allzweckreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Allzweckreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Allzweckreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Glasreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Glasreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Glasreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Glasreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Glasreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Glasreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Glasreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Glasreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Glasreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Glasreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Glasreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Glasreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Glasreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Glasreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Glasreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Glasreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Glasreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Glasreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Glasreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Glasreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Badreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Badreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Badreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Badreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Badreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Badreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Badreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Badreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Badreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Badreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Badreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Badreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Badreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Badreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Badreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Badreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Badreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Badreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Badreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Badreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "WC-Reiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "WC-Reiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "WC-Reiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "WC-Reiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco WC-Reiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco WC-Reiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco WC-Reiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco WC-Reiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive WC-Reiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive WC-Reiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive WC-Reiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive WC-Reiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark WC-Reiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark WC-Reiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark WC-Reiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark WC-Reiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat WC-Reiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat WC-Reiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat WC-Reiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat WC-Reiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Küchenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Küchenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Küchenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Küchenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Küchenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Küchenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Küchenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Küchenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Küchenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Küchenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Küchenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Küchenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Küchenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Küchenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Küchenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Küchenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Küchenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Küchenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Küchenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Küchenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Backofenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Backofenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Backofenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Backofenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Backofenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Backofenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Backofenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Backofenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Backofenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Backofenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Backofenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Backofenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Backofenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Backofenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Backofenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Backofenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Backofenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Backofenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Backofenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Backofenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Entkalker",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Entkalker Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Entkalker Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Entkalker Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Entkalker",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Entkalker Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Entkalker Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Entkalker Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Entkalker",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Entkalker Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Entkalker Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Entkalker Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Entkalker",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Entkalker Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Entkalker Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Entkalker Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Entkalker",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Entkalker Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Entkalker Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Entkalker Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rohrreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rohrreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rohrreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rohrreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Rohrreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Rohrreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Rohrreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Rohrreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Rohrreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Rohrreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Rohrreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Rohrreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Rohrreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Rohrreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Rohrreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Rohrreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Rohrreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Rohrreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Rohrreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Rohrreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bodenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bodenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bodenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bodenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Bodenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Bodenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Bodenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Bodenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Bodenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Bodenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Bodenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Bodenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Bodenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Bodenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Bodenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Bodenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Bodenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Bodenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Bodenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Bodenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Parkettreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Parkettreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Parkettreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Parkettreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Parkettreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Parkettreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Parkettreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Parkettreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Parkettreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Parkettreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Parkettreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Parkettreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Parkettreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Parkettreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Parkettreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Parkettreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Parkettreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Parkettreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Parkettreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Parkettreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teppichreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teppichreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teppichreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teppichreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Teppichreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Teppichreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Teppichreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Teppichreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Teppichreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Teppichreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Teppichreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Teppichreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Teppichreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Teppichreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Teppichreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Teppichreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Teppichreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Teppichreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Teppichreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Teppichreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Desinfektionsmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Desinfektionsmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Desinfektionsmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Desinfektionsmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Desinfektionsmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Desinfektionsmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Desinfektionsmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Desinfektionsmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Desinfektionsmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Desinfektionsmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Desinfektionsmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Desinfektionsmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Desinfektionsmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Desinfektionsmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Desinfektionsmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Desinfektionsmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Desinfektionsmittel",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Desinfektionsmittel Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Desinfektionsmittel Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Desinfektionsmittel Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hygienereiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hygienereiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hygienereiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hygienereiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Hygienereiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Hygienereiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Hygienereiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Hygienereiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Hygienereiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Hygienereiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Hygienereiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Hygienereiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Hygienereiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Hygienereiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Hygienereiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Hygienereiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Hygienereiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Hygienereiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Hygienereiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Hygienereiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scheuermilch",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scheuermilch Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scheuermilch Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scheuermilch Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Scheuermilch",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Scheuermilch Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Scheuermilch Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Scheuermilch Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Scheuermilch",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Scheuermilch Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Scheuermilch Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Scheuermilch Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Scheuermilch",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Scheuermilch Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Scheuermilch Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Scheuermilch Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Scheuermilch",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Scheuermilch Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Scheuermilch Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Scheuermilch Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Möbelpolitur",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Möbelpolitur Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Möbelpolitur Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Möbelpolitur Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Möbelpolitur",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Möbelpolitur Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Möbelpolitur Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Möbelpolitur Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Möbelpolitur",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Möbelpolitur Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Möbelpolitur Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Möbelpolitur Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Möbelpolitur",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Möbelpolitur Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Möbelpolitur Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Möbelpolitur Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Möbelpolitur",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Möbelpolitur Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Möbelpolitur Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Möbelpolitur Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Edelstahlreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Edelstahlreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Edelstahlreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Edelstahlreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Edelstahlreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Edelstahlreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Edelstahlreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Edelstahlreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Edelstahlreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Edelstahlreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Edelstahlreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Edelstahlreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Edelstahlreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Edelstahlreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Edelstahlreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Edelstahlreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Edelstahlreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Edelstahlreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Edelstahlreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Edelstahlreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Schimmelentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Schimmelentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Schimmelentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Schimmelentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Schimmelentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Schimmelentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Schimmelentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Schimmelentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Schimmelentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Schimmelentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Schimmelentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Schimmelentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Schimmelentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Schimmelentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Schimmelentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Schimmelentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Schimmelentferner",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Schimmelentferner Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Schimmelentferner Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Schimmelentferner Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmaschinenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmaschinenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmaschinenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Waschmaschinenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmaschinenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmaschinenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmaschinenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Eco Waschmaschinenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmaschinenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmaschinenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmaschinenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sensitive Waschmaschinenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmaschinenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmaschinenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmaschinenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Extra Stark Waschmaschinenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmaschinenreiniger",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmaschinenreiniger Flasche",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmaschinenreiniger Nachfüllpack",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Konzentrat Waschmaschinenreiniger Vorratspackung",
+    "category": "Reinigung",
+    "default_unit": "Flasche"
+  }
+]

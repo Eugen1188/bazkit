@@ -1,1 +1,2802 @@
-﻿[]
+[
+  {
+    "name": "Küchenrolle",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Küchenrolle Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Küchenrolle Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Küchenrolle Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Küchenrolle",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Küchenrolle Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Küchenrolle Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Küchenrolle Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Küchenrolle",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Küchenrolle Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Küchenrolle Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Küchenrolle Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Küchenrolle",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Küchenrolle Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Küchenrolle Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Küchenrolle Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Küchenrolle",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Küchenrolle Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Küchenrolle Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Küchenrolle Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toilettenpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toilettenpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toilettenpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toilettenpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Toilettenpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Toilettenpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Toilettenpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Toilettenpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toilettenpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toilettenpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toilettenpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toilettenpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toilettenpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toilettenpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toilettenpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toilettenpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Toilettenpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Toilettenpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Toilettenpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Toilettenpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taschentücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taschentücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taschentücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taschentücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Taschentücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Taschentücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Taschentücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Taschentücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Taschentücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Taschentücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Taschentücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Taschentücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taschentücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taschentücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taschentücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taschentücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Taschentücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Taschentücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Taschentücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Taschentücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Bio Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Bio Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Bio Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Bio Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bio Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bio Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bio Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bio Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bio Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bio Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bio Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bio Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Bio Müllbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Bio Müllbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Bio Müllbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Bio Müllbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Alufolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Alufolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Alufolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Alufolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Alufolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Alufolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Alufolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Alufolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Alufolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Alufolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Alufolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Alufolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Alufolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Alufolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Alufolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Alufolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Alufolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Alufolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Alufolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Alufolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltefolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltefolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltefolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltefolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltefolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltefolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltefolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltefolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltefolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltefolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltefolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltefolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltefolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltefolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltefolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltefolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltefolie",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltefolie Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltefolie Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltefolie Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Backpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Backpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Backpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Backpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Backpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Backpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Backpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Backpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Backpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Backpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Backpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Backpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Backpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Backpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Backpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Backpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Backpapier",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Backpapier Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Backpapier Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Backpapier Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gefrierbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gefrierbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gefrierbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gefrierbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gefrierbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gefrierbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gefrierbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gefrierbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gefrierbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gefrierbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gefrierbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gefrierbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gefrierbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gefrierbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gefrierbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gefrierbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gefrierbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gefrierbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gefrierbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gefrierbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltebeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltebeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltebeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frischhaltebeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltebeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltebeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltebeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Frischhaltebeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltebeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltebeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltebeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Frischhaltebeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltebeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltebeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltebeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Frischhaltebeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltebeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltebeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltebeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Frischhaltebeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Schwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Schwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Schwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Schwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Topfschwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Topfschwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Topfschwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Topfschwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Topfschwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Topfschwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Topfschwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Topfschwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Topfschwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Topfschwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Topfschwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Topfschwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Topfschwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Topfschwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Topfschwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Topfschwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Topfschwämme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Topfschwämme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Topfschwämme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Topfschwämme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Spültücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Spültücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Spültücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Spültücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Spültücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Spültücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Spültücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Spültücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Spültücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Spültücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Spültücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Spültücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Spültücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Spültücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Spültücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Spültücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Spültücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Spültücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Spültücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Spültücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrofasertücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrofasertücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrofasertücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrofasertücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Mikrofasertücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Mikrofasertücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Mikrofasertücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Mikrofasertücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mikrofasertücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mikrofasertücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mikrofasertücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mikrofasertücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrofasertücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrofasertücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrofasertücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrofasertücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Mikrofasertücher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Mikrofasertücher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Mikrofasertücher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Mikrofasertücher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummihandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummihandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummihandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummihandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gummihandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gummihandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gummihandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Gummihandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummihandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummihandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummihandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummihandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummihandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummihandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummihandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummihandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gummihandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gummihandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gummihandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gummihandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Einweghandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Einweghandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Einweghandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Einweghandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Einweghandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Einweghandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Einweghandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Einweghandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Einweghandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Einweghandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Einweghandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Einweghandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Einweghandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Einweghandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Einweghandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Einweghandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Einweghandschuhe",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Einweghandschuhe Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Einweghandschuhe Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Einweghandschuhe Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Batterien",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Batterien Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Batterien Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Batterien Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Batterien",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Batterien Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Batterien Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Batterien Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Batterien",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Batterien Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Batterien Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Batterien Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Batterien",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Batterien Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Batterien Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Batterien Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Batterien",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Batterien Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Batterien Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Batterien Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teelichter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teelichter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teelichter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Teelichter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Teelichter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Teelichter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Teelichter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Teelichter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Teelichter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Teelichter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Teelichter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Teelichter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Teelichter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Teelichter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Teelichter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Teelichter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Teelichter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Teelichter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Teelichter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Teelichter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kerzen",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kerzen Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kerzen Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kerzen Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kerzen",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kerzen Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kerzen Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kerzen Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kerzen",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kerzen Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kerzen Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kerzen Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kerzen",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kerzen Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kerzen Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kerzen Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kerzen",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kerzen Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kerzen Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kerzen Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Streichhölzer",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Streichhölzer Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Streichhölzer Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Streichhölzer Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Streichhölzer",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Streichhölzer Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Streichhölzer Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Streichhölzer Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Streichhölzer",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Streichhölzer Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Streichhölzer Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Streichhölzer Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Streichhölzer",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Streichhölzer Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Streichhölzer Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Streichhölzer Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Streichhölzer",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Streichhölzer Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Streichhölzer Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Streichhölzer Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuerzeug",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuerzeug Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuerzeug Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuerzeug Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Feuerzeug",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Feuerzeug Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Feuerzeug Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Feuerzeug Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuerzeug",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuerzeug Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuerzeug Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuerzeug Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Feuerzeug",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Feuerzeug Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Feuerzeug Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Feuerzeug Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuerzeug",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuerzeug Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuerzeug Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuerzeug Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaffeefilter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaffeefilter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaffeefilter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaffeefilter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kaffeefilter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kaffeefilter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kaffeefilter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Kaffeefilter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaffeefilter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaffeefilter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaffeefilter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaffeefilter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaffeefilter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaffeefilter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaffeefilter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaffeefilter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kaffeefilter",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kaffeefilter Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kaffeefilter Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kaffeefilter Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Staubsaugerbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Staubsaugerbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Staubsaugerbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Staubsaugerbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Staubsaugerbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Staubsaugerbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Staubsaugerbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Staubsaugerbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Staubsaugerbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Staubsaugerbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Staubsaugerbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Staubsaugerbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Staubsaugerbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Staubsaugerbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Staubsaugerbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Staubsaugerbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Staubsaugerbeutel",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Staubsaugerbeutel Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Staubsaugerbeutel Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Staubsaugerbeutel Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wäscheklammern",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wäscheklammern Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wäscheklammern Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wäscheklammern Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Wäscheklammern",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Wäscheklammern Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Wäscheklammern Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Wäscheklammern Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wäscheklammern",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wäscheklammern Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wäscheklammern Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wäscheklammern Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Wäscheklammern",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Wäscheklammern Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Wäscheklammern Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Wäscheklammern Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wäscheklammern",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wäscheklammern Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wäscheklammern Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wäscheklammern Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Papierservietten",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Papierservietten Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Papierservietten Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Papierservietten Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Papierservietten",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Papierservietten Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Papierservietten Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Papierservietten Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Papierservietten",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Papierservietten Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Papierservietten Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Papierservietten Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Papierservietten",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Papierservietten Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Papierservietten Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Papierservietten Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Papierservietten",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Papierservietten Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Papierservietten Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Papierservietten Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappteller",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappteller Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappteller Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappteller Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappteller",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappteller Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappteller Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappteller Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappteller",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappteller Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappteller Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappteller Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappteller",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappteller Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappteller Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappteller Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappteller",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappteller Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappteller Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappteller Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappbecher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappbecher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappbecher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pappbecher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappbecher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappbecher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappbecher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Pappbecher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappbecher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappbecher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappbecher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pappbecher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappbecher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappbecher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappbecher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pappbecher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappbecher",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappbecher Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappbecher Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pappbecher Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinkhalme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinkhalme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinkhalme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinkhalme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Trinkhalme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Trinkhalme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Trinkhalme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eco Trinkhalme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinkhalme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinkhalme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinkhalme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinkhalme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Trinkhalme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Trinkhalme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Trinkhalme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Trinkhalme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinkhalme",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinkhalme Packung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinkhalme Mehrpack",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinkhalme Vorratspackung",
+    "category": "Haushalt",
+    "default_unit": "Packung"
+  }
+]

@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schoko Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schoko Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schoko Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schoko Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schoko Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schoko Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schoko Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schoko Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schoko Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schoko Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schoko Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schoko Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schoko Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schoko Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schoko Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schoko Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Honig Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Honig Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Honig Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Honig Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Honig Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Honig Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Honig Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Honig Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Honig Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Honig Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Honig Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Honig Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Honig Cornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Honig Cornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Honig Cornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Honig Cornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Müsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Müsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Müsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Müsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Müsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Müsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Müsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Müsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Müsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Müsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Müsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Müsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Müsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Müsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Müsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Müsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knuspermüsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knuspermüsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knuspermüsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knuspermüsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knuspermüsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knuspermüsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knuspermüsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knuspermüsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Knuspermüsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Knuspermüsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Knuspermüsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Knuspermüsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Granola",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Granola 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Granola 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Granola Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Granola",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Granola 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Granola 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Granola Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Granola",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Granola 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Granola 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Granola Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Granola",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Granola 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Granola 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Granola Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haferflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haferflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haferflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haferflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haferflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haferflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haferflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haferflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Haferflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Haferflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Haferflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Haferflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Dinkelflocken",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Dinkelflocken 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Dinkelflocken 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Dinkelflocken Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Reisflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Reisflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Reisflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Reisflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schokokissen",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schokokissen 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schokokissen 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schokokissen Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schokokissen",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schokokissen 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schokokissen 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schokokissen Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schokokissen",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schokokissen 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schokokissen 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Schokokissen Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schokokissen",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schokokissen 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schokokissen 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Schokokissen Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühstücksringe",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühstücksringe 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühstücksringe 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühstücksringe Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühstücksringe",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühstücksringe 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühstücksringe 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühstücksringe Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Frühstücksringe",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Frühstücksringe 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Frühstücksringe 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Frühstücksringe Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Frühstücksringe",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Frühstücksringe 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Frühstücksringe 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Frühstücksringe Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Protein Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Protein Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Protein Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Protein Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Protein Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Protein Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Protein Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Protein Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Protein Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Protein Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Protein Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Protein Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Protein Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Protein Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Protein Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Protein Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kinder Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kinder Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kinder Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kinder Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kinder Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kinder Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kinder Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kinder Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Kinder Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Kinder Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Kinder Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Kinder Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Kinder Cerealien",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Kinder Cerealien 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Kinder Cerealien 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Kinder Cerealien Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Vollkornflakes",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Vollkornflakes 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Vollkornflakes 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Vollkornflakes Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Porridge",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Porridge 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Porridge 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Porridge Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Porridge",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Porridge 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Porridge 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Porridge Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Porridge",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Porridge 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Porridge 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Porridge Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Porridge",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Porridge 375 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Porridge 500 g",
+    "category": "Cerealien",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zuckerreduziert Porridge Familienpackung",
+    "category": "Cerealien",
+    "default_unit": "g"
+  }
+]

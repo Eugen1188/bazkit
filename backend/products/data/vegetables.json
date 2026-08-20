@@ -1,1 +1,3922 @@
-﻿[]
+[
+  {
+    "name": "Tomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Tomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Tomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Tomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Tomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cherrytomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cherrytomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cherrytomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cherrytomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cherrytomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cherrytomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cherrytomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cherrytomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cherrytomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cherrytomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cherrytomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cherrytomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cherrytomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cherrytomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cherrytomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cherrytomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cocktailtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cocktailtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cocktailtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cocktailtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cocktailtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cocktailtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cocktailtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cocktailtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cocktailtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cocktailtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cocktailtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Cocktailtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cocktailtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cocktailtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cocktailtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Cocktailtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fleischtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fleischtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fleischtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fleischtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fleischtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fleischtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fleischtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fleischtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fleischtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fleischtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fleischtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fleischtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fleischtomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fleischtomaten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fleischtomaten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fleischtomaten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salatgurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salatgurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salatgurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Salatgurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salatgurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salatgurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salatgurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Salatgurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Salatgurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Salatgurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Salatgurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Salatgurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Salatgurke",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Salatgurke lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Salatgurke Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Salatgurke 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gelbe Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gelbe Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gelbe Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gelbe Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gelbe Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gelbe Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gelbe Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gelbe Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gelbe Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gelbe Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gelbe Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Gelbe Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gelbe Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gelbe Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gelbe Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Gelbe Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüne Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüne Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüne Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüne Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüne Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüne Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüne Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüne Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüne Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüne Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüne Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüne Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüne Paprika",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüne Paprika lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüne Paprika Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüne Paprika 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Karotten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Karotten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Karotten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Karotten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Karotten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Karotten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Karotten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Karotten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Karotten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Karotten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Karotten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Karotten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Karotten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Karotten lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Karotten Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Karotten 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Möhren",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Möhren lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Möhren Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Möhren 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Möhren",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Möhren lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Möhren Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Möhren 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Möhren",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Möhren lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Möhren Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Möhren 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Möhren",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Möhren lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Möhren Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Möhren 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brokkoli",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brokkoli lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brokkoli Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brokkoli 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brokkoli",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brokkoli lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brokkoli Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brokkoli 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Brokkoli",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Brokkoli lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Brokkoli Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Brokkoli 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Brokkoli",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Brokkoli lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Brokkoli Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Brokkoli 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Blumenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Blumenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Blumenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Blumenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Blumenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Blumenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Blumenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Blumenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Blumenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Blumenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Blumenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Blumenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Blumenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Blumenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Blumenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Blumenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zucchini",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zucchini lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zucchini Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zucchini 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zucchini",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zucchini lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zucchini Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zucchini 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zucchini",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zucchini lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zucchini Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zucchini 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zucchini",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zucchini lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zucchini Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zucchini 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Aubergine",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Aubergine lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Aubergine Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Aubergine 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Aubergine",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Aubergine lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Aubergine Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Aubergine 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Aubergine",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Aubergine lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Aubergine Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Aubergine 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Aubergine",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Aubergine lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Aubergine Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Aubergine 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Süßkartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Süßkartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Süßkartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Süßkartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Süßkartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Süßkartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Süßkartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Süßkartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Süßkartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Süßkartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Süßkartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Süßkartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Süßkartoffeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Süßkartoffeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Süßkartoffeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Süßkartoffeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rote Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rote Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rote Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Zwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Zwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rote Zwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühlingszwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühlingszwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühlingszwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frühlingszwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühlingszwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühlingszwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühlingszwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frühlingszwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Frühlingszwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Frühlingszwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Frühlingszwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Frühlingszwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Frühlingszwiebeln",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Frühlingszwiebeln lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Frühlingszwiebeln Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Frühlingszwiebeln 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knoblauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knoblauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knoblauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knoblauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knoblauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knoblauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knoblauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knoblauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knoblauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knoblauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Lauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Lauch",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Lauch lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Lauch Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Lauch 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Sellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Sellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Sellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Sellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Sellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knollensellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knollensellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knollensellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Knollensellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knollensellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knollensellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knollensellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Knollensellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knollensellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knollensellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knollensellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Knollensellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knollensellerie",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knollensellerie lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knollensellerie Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Knollensellerie 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kohlrabi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kohlrabi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kohlrabi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kohlrabi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kohlrabi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kohlrabi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kohlrabi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kohlrabi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kohlrabi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kohlrabi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kohlrabi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kohlrabi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kohlrabi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kohlrabi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kohlrabi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kohlrabi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rosenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rosenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rosenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rosenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rosenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rosenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rosenkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rosenkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rosenkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rosenkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rotkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rotkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rotkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rotkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rotkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rotkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rotkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spitzkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spitzkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spitzkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spitzkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spitzkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spitzkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spitzkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spitzkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spitzkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spitzkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spitzkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spitzkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spitzkohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spitzkohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spitzkohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spitzkohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wirsing",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wirsing lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wirsing Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wirsing 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wirsing",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wirsing lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wirsing Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wirsing 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Wirsing",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Wirsing lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Wirsing Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Wirsing 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Wirsing",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Wirsing lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Wirsing Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Wirsing 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spinat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spinat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spinat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spinat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spinat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spinat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spinat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spinat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spinat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spinat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spinat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spinat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spinat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spinat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spinat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spinat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feldsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feldsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feldsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feldsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feldsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feldsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feldsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feldsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Feldsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Feldsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Feldsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Feldsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Feldsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Feldsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Feldsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Feldsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eisbergsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eisbergsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eisbergsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eisbergsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eisbergsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eisbergsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eisbergsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eisbergsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Eisbergsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Eisbergsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Eisbergsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Eisbergsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Eisbergsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Eisbergsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Eisbergsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Eisbergsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kopfsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kopfsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kopfsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kopfsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kopfsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kopfsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kopfsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kopfsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kopfsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kopfsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kopfsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kopfsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kopfsalat",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kopfsalat lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kopfsalat Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kopfsalat 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rucola",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rucola lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rucola Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rucola 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rucola",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rucola lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rucola Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rucola 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rucola",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rucola lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rucola Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rucola 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rucola",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rucola lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rucola Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rucola 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Radieschen",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Radieschen lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Radieschen Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Radieschen 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Radieschen",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Radieschen lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Radieschen Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Radieschen 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Radieschen",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Radieschen lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Radieschen Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Radieschen 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Radieschen",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Radieschen lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Radieschen Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Radieschen 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rettich",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rettich lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rettich Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rettich 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rettich",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rettich lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rettich Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rettich 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rettich",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rettich lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rettich Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Rettich 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rettich",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rettich lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rettich Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Rettich 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mais",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mais lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mais Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mais 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mais",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mais lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mais Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mais 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mais",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mais lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mais Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mais 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mais",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mais lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mais Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mais 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hokkaido Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hokkaido Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hokkaido Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hokkaido Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hokkaido Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hokkaido Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hokkaido Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hokkaido Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hokkaido Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hokkaido Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hokkaido Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hokkaido Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Hokkaido Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Hokkaido Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Hokkaido Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Hokkaido Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butternut Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butternut Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butternut Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butternut Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butternut Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butternut Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butternut Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butternut Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Butternut Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Butternut Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Butternut Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Butternut Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Butternut Kürbis",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Butternut Kürbis lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Butternut Kürbis Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Butternut Kürbis 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fenchel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fenchel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fenchel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fenchel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fenchel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Fenchel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fenchel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fenchel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fenchel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Fenchel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüner Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüner Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüner Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grüner Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüner Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüner Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüner Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grüner Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüner Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüner Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüner Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Grüner Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüner Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüner Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüner Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Grüner Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weißer Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weißer Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißer Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißer Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißer Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Weißer Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißer Spargel",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißer Spargel lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißer Spargel Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Weißer Spargel 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mangold",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mangold lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mangold Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mangold 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mangold",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mangold lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mangold Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mangold 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mangold",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mangold lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mangold Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Mangold 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mangold",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mangold lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mangold Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Mangold 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pak Choi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pak Choi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pak Choi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pak Choi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pak Choi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pak Choi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pak Choi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pak Choi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pak Choi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pak Choi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pak Choi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Pak Choi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Pak Choi",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Pak Choi lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Pak Choi Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Pak Choi 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chinakohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chinakohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chinakohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chinakohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chinakohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chinakohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chinakohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chinakohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Chinakohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Chinakohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Chinakohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Chinakohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Chinakohl",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Chinakohl lose",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Chinakohl Packung",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Regional Chinakohl 500 g",
+    "category": "Gemüse",
+    "default_unit": "g"
+  }
+]

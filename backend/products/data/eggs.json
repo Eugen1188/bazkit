@@ -1,1 +1,782 @@
-﻿[]
+[
+  {
+    "name": "Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hühnereier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hühnereier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hühnereier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hühnereier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hühnereier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hühnereier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hühnereier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hühnereier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Hühnereier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Hühnereier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Hühnereier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Hühnereier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Hühnereier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Hühnereier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Hühnereier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Hühnereier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bio Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bio Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bio Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bio Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bio Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bio Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bio Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bio Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bio Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bio Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bio Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bio Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Freiland Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Freiland Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Freiland Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Freiland Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Freiland Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Freiland Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Freiland Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Freiland Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Freiland Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Freiland Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Freiland Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Freiland Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Freiland Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Freiland Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Freiland Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Freiland Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodenhaltung Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodenhaltung Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodenhaltung Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodenhaltung Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bodenhaltung Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bodenhaltung Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bodenhaltung Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bodenhaltung Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bodenhaltung Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bodenhaltung Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bodenhaltung Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Bodenhaltung Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bodenhaltung Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bodenhaltung Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bodenhaltung Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Bodenhaltung Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wachteleier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wachteleier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wachteleier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wachteleier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wachteleier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wachteleier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wachteleier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wachteleier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Wachteleier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Wachteleier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Wachteleier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Wachteleier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Wachteleier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Wachteleier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Wachteleier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Wachteleier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Braune Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Braune Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Braune Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Braune Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Braune Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Braune Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Braune Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Braune Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Braune Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Braune Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Braune Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Braune Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Braune Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Braune Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Braune Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Braune Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weiße Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weiße Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weiße Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weiße Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weiße Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weiße Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weiße Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weiße Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Weiße Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Weiße Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Weiße Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Weiße Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Weiße Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Weiße Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Weiße Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Weiße Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frische Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frische Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frische Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frische Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frische Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frische Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frische Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frische Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frische Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frische Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frische Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frische Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frische Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frische Eier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frische Eier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frische Eier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frühstückseier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frühstückseier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frühstückseier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frühstückseier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frühstückseier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frühstückseier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frühstückseier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Frühstückseier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frühstückseier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frühstückseier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frühstückseier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe M Frühstückseier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frühstückseier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frühstückseier 6 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frühstückseier 10 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Größe L Frühstückseier 12 Stück",
+    "category": "Eier",
+    "default_unit": "Stück"
+  }
+]

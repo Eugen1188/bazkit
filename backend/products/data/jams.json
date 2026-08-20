@@ -1,1 +1,962 @@
-﻿[]
+[
+  {
+    "name": "Erdbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Erdbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Erdbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Erdbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Erdbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Erdbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Erdbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Erdbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Erdbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Erdbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Erdbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Erdbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Erdbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Erdbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Erdbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Erdbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Himbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Himbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Himbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Himbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Himbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Himbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Himbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Himbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Himbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Himbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Himbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Himbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Himbeermarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Himbeermarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Himbeermarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Himbeermarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Aprikosenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Aprikosenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Aprikosenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Aprikosenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Aprikosenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Aprikosenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Aprikosenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Aprikosenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Aprikosenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Aprikosenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Aprikosenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Aprikosenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Aprikosenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Aprikosenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Aprikosenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Aprikosenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Kirschmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Kirschmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Kirschmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Kirschmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Kirschmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Kirschmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Kirschmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Kirschmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Kirschmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Kirschmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Kirschmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Kirschmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Kirschmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Kirschmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Kirschmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Kirschmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Pflaumenmus",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Pflaumenmus Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Pflaumenmus 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Pflaumenmus 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Pflaumenmus",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Pflaumenmus Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Pflaumenmus 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Pflaumenmus 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Pflaumenmus",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Pflaumenmus Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Pflaumenmus 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Pflaumenmus 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Pflaumenmus",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Pflaumenmus Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Pflaumenmus 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Pflaumenmus 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Orangenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Orangenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Orangenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Orangenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Orangenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Orangenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Orangenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Orangenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Orangenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Orangenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Orangenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Orangenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Orangenmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Orangenmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Orangenmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Orangenmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldfruchtmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldfruchtmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldfruchtmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldfruchtmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldfruchtmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldfruchtmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldfruchtmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldfruchtmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldfruchtmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldfruchtmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldfruchtmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldfruchtmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldfruchtmarmelade",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldfruchtmarmelade Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldfruchtmarmelade 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldfruchtmarmelade 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Honig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Honig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Honig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Honig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Honig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Honig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Honig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Honig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Honig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Honig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Honig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Honig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Honig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Honig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Honig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Honig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Blütenhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Blütenhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Blütenhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Blütenhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Blütenhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Blütenhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Blütenhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Blütenhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Blütenhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Blütenhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Blütenhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Blütenhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Blütenhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Blütenhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Blütenhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Blütenhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Waldhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Waldhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Waldhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldhonig",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldhonig Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldhonig 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Waldhonig 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nutella",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nutella Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nutella 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nutella 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nutella",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nutella Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nutella 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nutella 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nutella",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nutella Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nutella 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nutella 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nutella",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nutella Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nutella 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nutella 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nuss-Nougat-Creme",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nuss-Nougat-Creme Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nuss-Nougat-Creme 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Nuss-Nougat-Creme 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nuss-Nougat-Creme",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nuss-Nougat-Creme Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nuss-Nougat-Creme 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Extra Nuss-Nougat-Creme 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme Glas",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme 250 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme 500 g",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  }
+]

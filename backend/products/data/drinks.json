@@ -1,1 +1,3502 @@
-﻿[]
+[
+  {
+    "name": "Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mineralwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mineralwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mineralwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mineralwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mineralwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mineralwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mineralwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mineralwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mineralwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mineralwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mineralwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mineralwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Mineralwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Mineralwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Mineralwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Mineralwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Mineralwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Mineralwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Mineralwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Mineralwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Stilles Wasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Stilles Wasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Stilles Wasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Stilles Wasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Stilles Wasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Stilles Wasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Stilles Wasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Stilles Wasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Stilles Wasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Stilles Wasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Stilles Wasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Stilles Wasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Stilles Wasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Stilles Wasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Stilles Wasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Stilles Wasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Stilles Wasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Stilles Wasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Stilles Wasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Stilles Wasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Stilles Wasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Stilles Wasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Stilles Wasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Stilles Wasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Stilles Wasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sprudelwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sprudelwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sprudelwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sprudelwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sprudelwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sprudelwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sprudelwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sprudelwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sprudelwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sprudelwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sprudelwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sprudelwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sprudelwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sprudelwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sprudelwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Sprudelwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Sprudelwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Sprudelwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Sprudelwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Sprudelwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sprudelwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sprudelwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sprudelwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sprudelwasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sprudelwasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Multivitaminsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Multivitaminsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Multivitaminsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Multivitaminsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Multivitaminsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Multivitaminsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Multivitaminsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Multivitaminsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Multivitaminsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Multivitaminsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Multivitaminsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Multivitaminsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Multivitaminsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Multivitaminsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Multivitaminsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Multivitaminsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Multivitaminsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Multivitaminsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Multivitaminsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Multivitaminsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Multivitaminsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Multivitaminsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Multivitaminsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Multivitaminsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Multivitaminsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Traubensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Traubensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Traubensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Traubensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Traubensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Traubensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Traubensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Traubensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Traubensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Traubensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Traubensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Traubensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Traubensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Traubensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Traubensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Traubensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Traubensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Traubensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Traubensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Traubensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Traubensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Traubensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Traubensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Traubensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Traubensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tomatensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tomatensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tomatensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tomatensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tomatensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tomatensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tomatensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tomatensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tomatensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tomatensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tomatensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tomatensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tomatensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tomatensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tomatensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tomatensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tomatensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tomatensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tomatensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tomatensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tomatensaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tomatensaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tomatensaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tomatensaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tomatensaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kirschsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kirschsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kirschsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kirschsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kirschsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kirschsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kirschsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kirschsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kirschsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kirschsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kirschsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kirschsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kirschsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kirschsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kirschsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kirschsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kirschsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kirschsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kirschsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kirschsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kirschsaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kirschsaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kirschsaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kirschsaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kirschsaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ananassaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ananassaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ananassaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ananassaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ananassaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ananassaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ananassaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ananassaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ananassaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ananassaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ananassaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ananassaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ananassaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ananassaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ananassaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ananassaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ananassaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ananassaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ananassaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ananassaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ananassaft",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ananassaft 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ananassaft 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ananassaft 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ananassaft Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Zero",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Zero 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Zero 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Zero 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Zero Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Zero",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Zero 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Zero 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Zero 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Zero Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Zero",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Zero 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Zero 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Zero 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Zero Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Zero",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Zero 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Zero 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Zero 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Zero Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Zero",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Zero 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Zero 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Zero 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Zero Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Light",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Light 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Light 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Light 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Cola Light Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Light",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Light 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Light 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Light 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Cola Light Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Light",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Light 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Light 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Light 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Cola Light Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Light",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Light 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Light 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Light 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Cola Light Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Light",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Light 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Light 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Light 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Cola Light Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Limonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Limonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Limonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Limonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Limonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Limonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Limonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Limonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Limonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Limonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Limonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Limonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Limonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Limonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Limonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Limonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Limonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Limonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Limonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Limonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Limonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Limonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Limonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Limonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Limonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Orangenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Orangenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Orangenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Orangenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Orangenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zitronenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zitronenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zitronenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zitronenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zitronenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Zitronenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Zitronenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Zitronenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Zitronenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Zitronenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Zitronenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Zitronenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Zitronenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Zitronenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Zitronenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Zitronenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Zitronenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Zitronenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Zitronenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Zitronenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Zitronenlimonade",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Zitronenlimonade 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Zitronenlimonade 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Zitronenlimonade 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Zitronenlimonade Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Pfirsich",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Pfirsich 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Pfirsich 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Pfirsich 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Pfirsich Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Pfirsich",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Pfirsich 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Pfirsich 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Pfirsich 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Pfirsich Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Pfirsich",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Pfirsich 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Pfirsich 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Pfirsich 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Pfirsich Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Pfirsich",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Pfirsich 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Pfirsich 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Pfirsich 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Pfirsich Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Pfirsich",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Pfirsich 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Pfirsich 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Pfirsich 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Pfirsich Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Zitrone",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Zitrone 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Zitrone 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Zitrone 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Eistee Zitrone Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Zitrone",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Zitrone 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Zitrone 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Zitrone 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Eistee Zitrone Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Zitrone",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Zitrone 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Zitrone 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Zitrone 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Eistee Zitrone Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Zitrone",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Zitrone 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Zitrone 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Zitrone 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Eistee Zitrone Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Zitrone",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Zitrone 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Zitrone 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Zitrone 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Eistee Zitrone Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Energy Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Energy Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Energy Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Energy Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Energy Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Energy Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Energy Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Energy Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Energy Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Energy Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Energy Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Energy Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Energy Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Energy Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Energy Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Energy Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Energy Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Energy Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Energy Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Energy Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Energy Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Energy Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Energy Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Energy Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Energy Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tonic Water",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tonic Water 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tonic Water 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tonic Water 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Tonic Water Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tonic Water",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tonic Water 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tonic Water 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tonic Water 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Tonic Water Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tonic Water",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tonic Water 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tonic Water 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tonic Water 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Tonic Water Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tonic Water",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tonic Water 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tonic Water 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tonic Water 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Tonic Water Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tonic Water",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tonic Water 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tonic Water 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tonic Water 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Tonic Water Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ginger Ale",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ginger Ale 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ginger Ale 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ginger Ale 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ginger Ale Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ginger Ale",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ginger Ale 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ginger Ale 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ginger Ale 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ginger Ale Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ginger Ale",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ginger Ale 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ginger Ale 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ginger Ale 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ginger Ale Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ginger Ale",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ginger Ale 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ginger Ale 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ginger Ale 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Ginger Ale Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ginger Ale",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ginger Ale 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ginger Ale 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ginger Ale 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Ginger Ale Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bitter Lemon",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bitter Lemon 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bitter Lemon 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bitter Lemon 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bitter Lemon Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Bitter Lemon",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Bitter Lemon 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Bitter Lemon 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Bitter Lemon 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Bitter Lemon Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Bitter Lemon",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Bitter Lemon 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Bitter Lemon 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Bitter Lemon 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Bitter Lemon Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Bitter Lemon",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Bitter Lemon 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Bitter Lemon 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Bitter Lemon 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Bitter Lemon Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Bitter Lemon",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Bitter Lemon 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Bitter Lemon 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Bitter Lemon 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Bitter Lemon Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Apfelschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Apfelschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rhabarberschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rhabarberschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rhabarberschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rhabarberschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rhabarberschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rhabarberschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rhabarberschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rhabarberschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rhabarberschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rhabarberschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Rhabarberschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Rhabarberschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Rhabarberschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Rhabarberschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Rhabarberschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Rhabarberschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Rhabarberschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Rhabarberschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Rhabarberschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Rhabarberschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rhabarberschorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rhabarberschorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rhabarberschorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rhabarberschorle 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rhabarberschorle Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kokoswasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kokoswasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kokoswasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kokoswasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kokoswasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kokoswasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kokoswasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kokoswasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kokoswasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kokoswasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kokoswasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kokoswasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kokoswasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kokoswasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kokoswasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kokoswasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kokoswasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kokoswasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kokoswasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Kokoswasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kokoswasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kokoswasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kokoswasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kokoswasser 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kokoswasser Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Smoothie",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Smoothie 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Smoothie 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Smoothie 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Smoothie Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Smoothie",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Smoothie 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Smoothie 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Smoothie 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Smoothie Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Smoothie",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Smoothie 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Smoothie 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Smoothie 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Smoothie Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Smoothie",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Smoothie 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Smoothie 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Smoothie 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Smoothie Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Smoothie",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Smoothie 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Smoothie 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Smoothie 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Smoothie Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Protein Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Protein Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Protein Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Protein Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Protein Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Protein Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Protein Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Protein Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Protein Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Protein Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Protein Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Protein Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Protein Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Protein Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Protein Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Protein Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Protein Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Protein Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Protein Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Protein Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Protein Drink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Protein Drink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Protein Drink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Protein Drink 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Protein Drink Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Isotonisches Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Isotonisches Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Isotonisches Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Isotonisches Getränk 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Isotonisches Getränk Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Isotonisches Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Isotonisches Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Isotonisches Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Isotonisches Getränk 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Isotonisches Getränk Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Isotonisches Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Isotonisches Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Isotonisches Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Isotonisches Getränk 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Isotonisches Getränk Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Isotonisches Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Isotonisches Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Isotonisches Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Isotonisches Getränk 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Light Isotonisches Getränk Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Isotonisches Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Isotonisches Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Isotonisches Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Isotonisches Getränk 1,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Isotonisches Getränk Mehrpack",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  }
+]

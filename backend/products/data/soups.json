@@ -1,1 +1,1602 @@
-﻿[]
+[
+  {
+    "name": "Tomatensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Tomatensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Tomatensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Tomatensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Tomatensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Tomatensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Tomatensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Tomatensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Tomatensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Tomatensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Tomatensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Hühnersuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Hühnersuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Hühnersuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Hühnersuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Hühnersuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Hühnersuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Hühnersuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Hühnersuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Hühnersuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Hühnersuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Hühnersuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Hühnersuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Hühnersuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Hühnersuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Hühnersuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Hühnersuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gemüsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gemüsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gemüsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gemüsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gemüsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gemüsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gemüsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gemüsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gemüsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gemüsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gemüsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gemüsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gemüsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gemüsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gemüsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gemüsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kartoffelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kartoffelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kartoffelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kartoffelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kartoffelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kartoffelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kartoffelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kartoffelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kartoffelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kartoffelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kartoffelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kartoffelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kartoffelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kartoffelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kartoffelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kartoffelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Linsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Linsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Linsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Linsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Linsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Linsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Linsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Linsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Linsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Linsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Erbsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Erbsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Erbsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Erbsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Erbsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Erbsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Erbsensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Erbsensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Erbsensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Erbsensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gulaschsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gulaschsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gulaschsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Gulaschsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gulaschsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gulaschsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gulaschsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Gulaschsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gulaschsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gulaschsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gulaschsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Gulaschsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gulaschsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gulaschsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gulaschsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Gulaschsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kürbissuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kürbissuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kürbissuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kürbissuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kürbissuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kürbissuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kürbissuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kürbissuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kürbissuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kürbissuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kürbissuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kürbissuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kürbissuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kürbissuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kürbissuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kürbissuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Brokkolisuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Brokkolisuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Brokkolisuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Brokkolisuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Brokkolisuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Brokkolisuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Brokkolisuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Brokkolisuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Brokkolisuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Brokkolisuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Brokkolisuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Brokkolisuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Brokkolisuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Brokkolisuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Brokkolisuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Brokkolisuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pilzsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pilzsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pilzsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Pilzsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pilzsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pilzsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pilzsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Pilzsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Pilzsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Pilzsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Pilzsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Pilzsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Pilzsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Pilzsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Pilzsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Pilzsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Nudelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Nudelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Nudelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Nudelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Nudelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Nudelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Nudelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Nudelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Nudelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Nudelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Nudelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Nudelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Nudelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Nudelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Nudelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Nudelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rindfleischsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rindfleischsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rindfleischsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Rindfleischsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rindfleischsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rindfleischsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rindfleischsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Rindfleischsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Rindfleischsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Rindfleischsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Rindfleischsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Rindfleischsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Rindfleischsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Rindfleischsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Rindfleischsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Rindfleischsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Minestrone",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Minestrone Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Minestrone Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Minestrone Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Minestrone",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Minestrone Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Minestrone Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Minestrone Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Minestrone",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Minestrone Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Minestrone Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Minestrone Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Minestrone",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Minestrone Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Minestrone Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Minestrone Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Zwiebelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Zwiebelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Zwiebelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Zwiebelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Zwiebelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Zwiebelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Zwiebelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Zwiebelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Zwiebelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Zwiebelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Zwiebelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Zwiebelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Zwiebelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Zwiebelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Zwiebelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Zwiebelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Käsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Käsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Käsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Käsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Käsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Käsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Käsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Käsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Käsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Käsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Käsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Käsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Käsesuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Käsesuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Käsesuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Käsesuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Karottensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Karottensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Karottensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Karottensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Karottensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Karottensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Karottensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Karottensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Karottensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Karottensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Karottensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Karottensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Karottensuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Karottensuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Karottensuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Karottensuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Spargelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Spargelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Spargelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Spargelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Spargelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Spargelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Spargelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Spargelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Spargelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Spargelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Spargelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Spargelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Spargelsuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Spargelsuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Spargelsuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Spargelsuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thai Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thai Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thai Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Thai Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thai Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thai Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thai Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Thai Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Thai Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Thai Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Thai Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Thai Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Thai Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Thai Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Thai Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Thai Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kokossuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kokossuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kokossuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Kokossuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kokossuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kokossuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kokossuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Kokossuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kokossuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kokossuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kokossuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Kokossuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kokossuppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kokossuppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kokossuppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Kokossuppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Chili Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Chili Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Chili Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Chili Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Chili Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Chili Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Chili Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Bio Chili Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Chili Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Chili Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Chili Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Cremig Chili Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Chili Suppe",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Chili Suppe Dose",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Chili Suppe Glas",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  },
+  {
+    "name": "Herzhaft Chili Suppe Beutel",
+    "category": "Suppen",
+    "default_unit": "Dose"
+  }
+]

@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Mandeln",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mandeln 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mandeln 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mandeln Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mandeln",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mandeln 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mandeln 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mandeln Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Mandeln",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Mandeln 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Mandeln 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Mandeln Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Mandeln",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Mandeln 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Mandeln 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Mandeln Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Walnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Walnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Walnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Walnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Walnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Walnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Walnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Walnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Walnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Walnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Walnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Walnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Walnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Walnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Walnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Walnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haselnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haselnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haselnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Haselnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haselnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haselnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haselnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Haselnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Haselnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Haselnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Haselnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Haselnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Haselnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Haselnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Haselnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Haselnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cashews",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cashews 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cashews 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cashews Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cashews",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cashews 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cashews 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cashews Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Cashews",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Cashews 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Cashews 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Cashews Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Cashews",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Cashews 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Cashews 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Cashews Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pistazien",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pistazien 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pistazien 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pistazien Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pistazien",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pistazien 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pistazien 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pistazien Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pistazien",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pistazien 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pistazien 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pistazien Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pistazien",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pistazien 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pistazien 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pistazien Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Erdnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Erdnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Erdnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Erdnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Erdnüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Erdnüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Erdnüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Erdnüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Macadamia",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Macadamia 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Macadamia 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Macadamia Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Macadamia",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Macadamia 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Macadamia 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Macadamia Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Macadamia",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Macadamia 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Macadamia 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Macadamia Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Macadamia",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Macadamia 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Macadamia 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Macadamia Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paranüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paranüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paranüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Paranüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paranüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paranüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paranüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Paranüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Paranüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Paranüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Paranüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Paranüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Paranüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Paranüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Paranüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Paranüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pekannüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pekannüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pekannüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pekannüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pekannüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pekannüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pekannüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pekannüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pekannüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pekannüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pekannüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pekannüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pekannüsse",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pekannüsse 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pekannüsse 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pekannüsse Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pinienkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pinienkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pinienkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Pinienkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pinienkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pinienkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pinienkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Pinienkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pinienkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pinienkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pinienkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Pinienkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pinienkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pinienkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pinienkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Pinienkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nussmix",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nussmix 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nussmix 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nussmix Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nussmix",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nussmix 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nussmix 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nussmix Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Nussmix",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Nussmix 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Nussmix 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Nussmix Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Nussmix",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Nussmix 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Nussmix 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Nussmix Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Studentenfutter",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Studentenfutter 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Studentenfutter 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Studentenfutter Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Studentenfutter",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Studentenfutter 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Studentenfutter 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Studentenfutter Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Studentenfutter",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Studentenfutter 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Studentenfutter 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Studentenfutter Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Studentenfutter",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Studentenfutter 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Studentenfutter 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Studentenfutter Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbiskerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbiskerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbiskerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kürbiskerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbiskerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbiskerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbiskerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kürbiskerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Kürbiskerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Kürbiskerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Kürbiskerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Kürbiskerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Kürbiskerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Kürbiskerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Kürbiskerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Kürbiskerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sonnenblumenkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sonnenblumenkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sonnenblumenkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sonnenblumenkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sonnenblumenkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sonnenblumenkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sonnenblumenkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sonnenblumenkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Sonnenblumenkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Sonnenblumenkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Sonnenblumenkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Sonnenblumenkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Sonnenblumenkerne",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Sonnenblumenkerne 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Sonnenblumenkerne 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Sonnenblumenkerne Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiasamen",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiasamen 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiasamen 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Chiasamen Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiasamen",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiasamen 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiasamen 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Chiasamen Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Chiasamen",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Chiasamen 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Chiasamen 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Geröstet Chiasamen Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Chiasamen",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Chiasamen 200 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Chiasamen 500 g",
+    "category": "Nüsse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gesalzen Chiasamen Packung",
+    "category": "Nüsse",
+    "default_unit": "g"
+  }
+]

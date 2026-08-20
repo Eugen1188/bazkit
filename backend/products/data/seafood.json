@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Garnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Garnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Garnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Garnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Garnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Garnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Garnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Garnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Garnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Garnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Garnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Garnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Garnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Garnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Riesengarnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Riesengarnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Riesengarnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Riesengarnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Riesengarnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Riesengarnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Riesengarnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Riesengarnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Riesengarnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Riesengarnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Riesengarnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Riesengarnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Riesengarnelen",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Riesengarnelen geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Riesengarnelen gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Riesengarnelen Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shrimps",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shrimps geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shrimps gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Shrimps Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shrimps",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shrimps geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shrimps gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Shrimps Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Shrimps",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Shrimps geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Shrimps gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Shrimps Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Shrimps",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Shrimps geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Shrimps gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Shrimps Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Krabben",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Krabben geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Krabben gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Krabben Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Krabben",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Krabben geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Krabben gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Krabben Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Krabben",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Krabben geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Krabben gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Krabben Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Krabben",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Krabben geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Krabben gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Krabben Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Miesmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Miesmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Miesmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Miesmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Miesmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Miesmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Miesmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Miesmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Miesmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Miesmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Miesmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Miesmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Miesmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Miesmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Miesmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Miesmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jakobsmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jakobsmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jakobsmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jakobsmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Jakobsmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Jakobsmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Jakobsmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Jakobsmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Jakobsmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Jakobsmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Jakobsmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Jakobsmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jakobsmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jakobsmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jakobsmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jakobsmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Venusmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Venusmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Venusmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Venusmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Venusmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Venusmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Venusmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Venusmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Venusmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Venusmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Venusmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Venusmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Venusmuscheln",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Venusmuscheln geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Venusmuscheln gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Venusmuscheln Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tintenfisch",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tintenfisch geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tintenfisch gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tintenfisch Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tintenfisch",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tintenfisch geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tintenfisch gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Tintenfisch Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Tintenfisch",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Tintenfisch geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Tintenfisch gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Tintenfisch Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tintenfisch",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tintenfisch geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tintenfisch gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tintenfisch Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Calamari",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Calamari geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Calamari gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Calamari Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Calamari",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Calamari geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Calamari gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Calamari Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Calamari",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Calamari geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Calamari gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Calamari Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Calamari",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Calamari geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Calamari gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Calamari Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oktopus",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oktopus geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oktopus gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Oktopus Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Oktopus",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Oktopus geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Oktopus gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Oktopus Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Oktopus",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Oktopus geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Oktopus gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Oktopus Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Oktopus",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Oktopus geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Oktopus gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Oktopus Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Scampi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Scampi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Scampi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Scampi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Scampi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Scampi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Scampi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Scampi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Scampi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Scampi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Scampi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Scampi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Scampi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Scampi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Scampi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Scampi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hummer",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hummer geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hummer gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hummer Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hummer",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hummer geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hummer gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Hummer Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Hummer",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Hummer geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Hummer gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Hummer Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hummer",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hummer geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hummer gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hummer Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langusten",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langusten geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langusten gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langusten Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Langusten",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Langusten geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Langusten gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Langusten Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Langusten",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Langusten geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Langusten gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Langusten Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langusten",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langusten geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langusten gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langusten Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meeresfrüchte Mix",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meeresfrüchte Mix geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meeresfrüchte Mix gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Meeresfrüchte Mix Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Meeresfrüchte Mix",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Meeresfrüchte Mix geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Meeresfrüchte Mix gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Meeresfrüchte Mix Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Meeresfrüchte Mix",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Meeresfrüchte Mix geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Meeresfrüchte Mix gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Meeresfrüchte Mix Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Meeresfrüchte Mix",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Meeresfrüchte Mix geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Meeresfrüchte Mix gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Meeresfrüchte Mix Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Surimi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Surimi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Surimi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Surimi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Surimi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Surimi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Surimi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frisch Surimi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Surimi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Surimi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Surimi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "TK Surimi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Surimi",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Surimi geschält",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Surimi gekocht",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Surimi Packung",
+    "category": "Meeresfrüchte",
+    "default_unit": "g"
+  }
+]

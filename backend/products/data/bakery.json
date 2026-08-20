@@ -1,1 +1,2402 @@
-﻿[]
+[
+  {
+    "name": "Brot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mischbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mischbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mischbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mischbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mischbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mischbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mischbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mischbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mischbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mischbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mischbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mischbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mischbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mischbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mischbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mischbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkornbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkornbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkornbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkornbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkornbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkornbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkornbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkornbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkornbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkornbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkornbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkornbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkornbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkornbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkornbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkornbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Roggenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Roggenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Roggenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Roggenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Roggenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Roggenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Roggenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Roggenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Roggenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Roggenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Roggenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Roggenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Roggenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Roggenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Roggenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Roggenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Dinkelbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Dinkelbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Dinkelbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Dinkelbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Dinkelbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Dinkelbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Dinkelbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Dinkelbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Dinkelbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Dinkelbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Dinkelbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Dinkelbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Dinkelbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Dinkelbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Dinkelbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Dinkelbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weizenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weizenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weizenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Weizenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weizenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weizenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weizenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Weizenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Weizenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Weizenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Weizenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Weizenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Weizenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Weizenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Weizenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Weizenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Toastbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Toastbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Toastbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Toastbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Toastbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Toastbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Toastbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Toastbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Toastbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Toastbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Toastbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Toastbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Toastbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Toastbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Toastbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Toastbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorntoast",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorntoast Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorntoast groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorntoast Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkorntoast",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkorntoast Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkorntoast groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Vollkorntoast Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkorntoast",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkorntoast Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkorntoast groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Vollkorntoast Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkorntoast",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkorntoast Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkorntoast groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Vollkorntoast Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kaiserbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kaiserbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kaiserbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kaiserbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kaiserbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kaiserbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kaiserbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kaiserbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kaiserbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kaiserbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kaiserbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kaiserbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Kaiserbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Kaiserbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Kaiserbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Kaiserbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mehrkornbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mehrkornbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mehrkornbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mehrkornbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mehrkornbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mehrkornbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mehrkornbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mehrkornbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mehrkornbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mehrkornbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mehrkornbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mehrkornbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mehrkornbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mehrkornbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mehrkornbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Mehrkornbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Croissant",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Croissant Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Croissant groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Croissant Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Croissant",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Croissant Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Croissant groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Croissant Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Croissant",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Croissant Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Croissant groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Croissant Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Croissant",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Croissant Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Croissant groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Croissant Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Baguette",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Baguette Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Baguette groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Baguette Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Baguette",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Baguette Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Baguette groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Baguette Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Baguette",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Baguette Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Baguette groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Baguette Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Baguette",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Baguette Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Baguette groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Baguette Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ciabatta",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ciabatta Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ciabatta groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ciabatta Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ciabatta",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ciabatta Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ciabatta groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ciabatta Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ciabatta",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ciabatta Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ciabatta groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ciabatta Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Ciabatta",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Ciabatta Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Ciabatta groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Ciabatta Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Fladenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Fladenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Fladenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Fladenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Fladenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Fladenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Fladenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Fladenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Fladenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Fladenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Fladenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Fladenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Fladenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Fladenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Fladenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Fladenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pita",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pita Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pita groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pita Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pita",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pita Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pita groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pita Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pita",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pita Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pita groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pita Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pita",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pita Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pita groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pita Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tortilla Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tortilla Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tortilla Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tortilla Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Tortilla Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Tortilla Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Tortilla Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Tortilla Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Tortilla Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Tortilla Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Tortilla Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Tortilla Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Tortilla Wraps",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Tortilla Wraps Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Tortilla Wraps groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Tortilla Wraps Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Knäckebrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Knäckebrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Knäckebrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Knäckebrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Knäckebrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Knäckebrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Knäckebrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Knäckebrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Knäckebrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Knäckebrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Knäckebrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Knäckebrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Knäckebrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Knäckebrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Knäckebrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Knäckebrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zwieback",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zwieback Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zwieback groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zwieback Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zwieback",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zwieback Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zwieback groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zwieback Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zwieback",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zwieback Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zwieback groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zwieback Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Zwieback",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Zwieback Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Zwieback groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Zwieback Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bagel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bagel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bagel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bagel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bagel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bagel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bagel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bagel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bagel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bagel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bagel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bagel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Bagel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Bagel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Bagel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Bagel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrezel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrezel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrezel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Laugenbrezel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrezel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrezel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrezel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Laugenbrezel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrezel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrezel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrezel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Laugenbrezel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrezel",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrezel Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrezel groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Laugenbrezel Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rosinenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rosinenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rosinenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rosinenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Rosinenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Rosinenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Rosinenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Rosinenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Rosinenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Rosinenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Rosinenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Rosinenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Rosinenbrot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Rosinenbrot Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Rosinenbrot groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Rosinenbrot Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Milchbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Milchbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Milchbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Milchbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Milchbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Milchbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Milchbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Milchbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Milchbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Milchbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Milchbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Milchbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Milchbrötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Milchbrötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Milchbrötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Milchbrötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Burger Buns",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Burger Buns Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Burger Buns groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Burger Buns Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Burger Buns",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Burger Buns Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Burger Buns groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Burger Buns Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Burger Buns",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Burger Buns Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Burger Buns groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Burger Buns Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Burger Buns",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Burger Buns Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Burger Buns groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Burger Buns Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hot Dog Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hot Dog Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hot Dog Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hot Dog Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hot Dog Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hot Dog Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hot Dog Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hot Dog Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hot Dog Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hot Dog Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hot Dog Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hot Dog Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hot Dog Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hot Dog Brötchen Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hot Dog Brötchen groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hot Dog Brötchen Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pizzateig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pizzateig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pizzateig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pizzateig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pizzateig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pizzateig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pizzateig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pizzateig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pizzateig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pizzateig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pizzateig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pizzateig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pizzateig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pizzateig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pizzateig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Pizzateig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blätterteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blätterteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blätterteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blätterteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blätterteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blätterteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blätterteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blätterteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blätterteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blätterteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blätterteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blätterteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Blätterteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Blätterteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Blätterteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Blätterteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hefeteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hefeteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hefeteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hefeteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hefeteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hefeteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hefeteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Hefeteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hefeteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hefeteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hefeteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Hefeteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hefeteig",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hefeteig Packung",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hefeteig groß",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Vollkorn Hefeteig Mehrpack",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  }
+]

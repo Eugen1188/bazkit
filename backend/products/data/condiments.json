@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatenketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatenketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatenketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatenketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatenketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatenketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatenketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatenketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatenketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatenketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatenketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatenketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatenketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatenketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatenketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatenketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Curry Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Curry Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Curry Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Curry Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Curry Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Curry Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Curry Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Curry Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Curry Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Curry Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Curry Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Curry Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Curry Ketchup",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Curry Ketchup Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Curry Ketchup Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Curry Ketchup Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mayonnaise",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mayonnaise Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mayonnaise Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mayonnaise Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mayonnaise",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mayonnaise Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mayonnaise Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mayonnaise Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mayonnaise",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mayonnaise Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mayonnaise Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mayonnaise Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mayonnaise",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mayonnaise Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mayonnaise Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mayonnaise Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mittelscharfer Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mittelscharfer Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mittelscharfer Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Mittelscharfer Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mittelscharfer Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mittelscharfer Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mittelscharfer Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Mittelscharfer Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mittelscharfer Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mittelscharfer Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mittelscharfer Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Mittelscharfer Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mittelscharfer Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mittelscharfer Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mittelscharfer Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Mittelscharfer Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Dijon Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Dijon Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Dijon Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Dijon Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Dijon Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Dijon Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Dijon Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Dijon Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Dijon Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Dijon Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Dijon Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Dijon Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Dijon Senf",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Dijon Senf Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Dijon Senf Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Dijon Senf Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Worcestersauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Worcestersauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Worcestersauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Worcestersauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Worcestersauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Worcestersauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Worcestersauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Worcestersauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Worcestersauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Worcestersauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Worcestersauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Worcestersauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Worcestersauce",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Worcestersauce Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Worcestersauce Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Worcestersauce Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tabasco",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tabasco Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tabasco Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tabasco Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tabasco",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tabasco Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tabasco Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tabasco Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tabasco",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tabasco Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tabasco Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tabasco Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tabasco",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tabasco Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tabasco Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tabasco Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Meerrettich",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Meerrettich Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Meerrettich Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Meerrettich Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Meerrettich",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Meerrettich Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Meerrettich Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Meerrettich Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Meerrettich",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Meerrettich Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Meerrettich Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Meerrettich Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Meerrettich",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Meerrettich Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Meerrettich Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Meerrettich Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Wasabi",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Wasabi Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Wasabi Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Wasabi Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Wasabi",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Wasabi Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Wasabi Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Wasabi Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Wasabi",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Wasabi Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Wasabi Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Wasabi Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Wasabi",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Wasabi Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Wasabi Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Wasabi Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Maggi Würze",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Maggi Würze Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Maggi Würze Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Maggi Würze Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Maggi Würze",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Maggi Würze Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Maggi Würze Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Maggi Würze Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Maggi Würze",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Maggi Würze Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Maggi Würze Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Maggi Würze Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Maggi Würze",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Maggi Würze Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Maggi Würze Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Maggi Würze Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Essig Essenz",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Essig Essenz Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Essig Essenz Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Essig Essenz Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Essig Essenz",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Essig Essenz Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Essig Essenz Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Essig Essenz Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Essig Essenz",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Essig Essenz Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Essig Essenz Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Essig Essenz Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Essig Essenz",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Essig Essenz Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Essig Essenz Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Essig Essenz Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sambal Oelek",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sambal Oelek Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sambal Oelek Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sambal Oelek Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sambal Oelek",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sambal Oelek Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sambal Oelek Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sambal Oelek Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sambal Oelek",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sambal Oelek Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sambal Oelek Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sambal Oelek Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sambal Oelek",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sambal Oelek Flasche",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sambal Oelek Glas",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sambal Oelek Tube",
+    "category": "Würzmittel",
+    "default_unit": "Flasche"
+  }
+]

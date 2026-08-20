@@ -1,1 +1,3502 @@
-﻿[]
+[
+  {
+    "name": "Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Paprika Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Paprika Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Paprika Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Paprika Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Paprika Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Paprika Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Paprika Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Paprika Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Paprika Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Paprika Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Paprika Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Paprika Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Paprika Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Paprika Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Paprika Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Paprika Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Paprika Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Paprika Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Paprika Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Paprika Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Paprika Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Paprika Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Paprika Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Paprika Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Paprika Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salz Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salz Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salz Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salz Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salz Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salz Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salz Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salz Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salz Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salz Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salz Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salz Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salz Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salz Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salz Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salz Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salz Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salz Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salz Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salz Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salz Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salz Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salz Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salz Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salz Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Käse Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Käse Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Käse Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Käse Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Käse Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Käse Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Käse Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Käse Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Käse Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Käse Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Käse Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Käse Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Käse Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Käse Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Käse Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Käse Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Käse Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Käse Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Käse Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Käse Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Käse Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Käse Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Käse Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Käse Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Käse Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tortilla Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tortilla Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tortilla Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tortilla Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tortilla Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tortilla Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tortilla Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tortilla Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tortilla Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tortilla Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Tortilla Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Tortilla Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Tortilla Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Tortilla Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Tortilla Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Tortilla Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Tortilla Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Tortilla Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Tortilla Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Tortilla Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tortilla Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tortilla Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tortilla Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tortilla Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tortilla Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nachos",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nachos Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nachos Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nachos 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nachos 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nachos",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nachos Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nachos Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nachos 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nachos 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nachos",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nachos Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nachos Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nachos 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nachos 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nachos",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nachos Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nachos Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nachos 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nachos 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nachos",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nachos Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nachos Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nachos 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nachos 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salzstangen",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salzstangen Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salzstangen Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salzstangen 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Salzstangen 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salzstangen",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salzstangen Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salzstangen Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salzstangen 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Salzstangen 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salzstangen",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salzstangen Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salzstangen Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salzstangen 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Salzstangen 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salzstangen",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salzstangen Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salzstangen Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salzstangen 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Salzstangen 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salzstangen",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salzstangen Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salzstangen Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salzstangen 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Salzstangen 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cracker",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cracker Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cracker Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cracker 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cracker 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cracker",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cracker Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cracker Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cracker 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cracker 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cracker",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cracker Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cracker Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cracker 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cracker 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cracker",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cracker Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cracker Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cracker 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cracker 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cracker",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cracker Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cracker Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cracker 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cracker 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrowellen Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrowellen Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrowellen Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrowellen Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mikrowellen Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mikrowellen Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mikrowellen Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mikrowellen Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mikrowellen Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mikrowellen Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrowellen Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrowellen Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrowellen Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrowellen Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mikrowellen Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mikrowellen Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mikrowellen Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mikrowellen Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mikrowellen Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mikrowellen Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mikrowellen Popcorn",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mikrowellen Popcorn Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mikrowellen Popcorn Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mikrowellen Popcorn 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mikrowellen Popcorn 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nussmix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nussmix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nussmix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nussmix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nussmix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nussmix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nussmix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nussmix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nussmix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nussmix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nussmix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nussmix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nussmix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nussmix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nussmix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nussmix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nussmix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nussmix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nussmix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nussmix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nussmix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nussmix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nussmix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nussmix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Nussmix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Studentenfutter",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Studentenfutter Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Studentenfutter Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Studentenfutter 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Studentenfutter 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Studentenfutter",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Studentenfutter Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Studentenfutter Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Studentenfutter 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Studentenfutter 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Studentenfutter",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Studentenfutter Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Studentenfutter Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Studentenfutter 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Studentenfutter 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Studentenfutter",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Studentenfutter Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Studentenfutter Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Studentenfutter 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Studentenfutter 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Studentenfutter",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Studentenfutter Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Studentenfutter Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Studentenfutter 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Studentenfutter 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnüsse",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnüsse Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnüsse Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnüsse 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnüsse 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnüsse",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnüsse Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnüsse Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnüsse 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnüsse 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Erdnüsse",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Erdnüsse Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Erdnüsse Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Erdnüsse 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Erdnüsse 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnüsse",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnüsse Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnüsse Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnüsse 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnüsse 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Erdnüsse",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Erdnüsse Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Erdnüsse Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Erdnüsse 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Erdnüsse 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cashews",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cashews Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cashews Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cashews 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cashews 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cashews",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cashews Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cashews Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cashews 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cashews 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cashews",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cashews Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cashews Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cashews 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Cashews 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cashews",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cashews Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cashews Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cashews 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cashews 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cashews",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cashews Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cashews Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cashews 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cashews 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mandeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mandeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mandeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mandeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mandeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mandeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mandeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mandeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mandeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mandeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mandeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mandeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mandeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mandeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mandeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pistazien",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pistazien Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pistazien Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pistazien 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pistazien 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pistazien",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pistazien Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pistazien Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pistazien 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pistazien 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pistazien",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pistazien Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pistazien Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pistazien 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pistazien 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Pistazien",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Pistazien Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Pistazien Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Pistazien 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Pistazien 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pistazien",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pistazien Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pistazien Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pistazien 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pistazien 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Reiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Reiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Reiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Reiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Reiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Reiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Reiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Reiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Reiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Reiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Maiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Maiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Maiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Maiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Maiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Maiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Maiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Maiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Maiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Maiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Maiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Maiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Maiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Maiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Maiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Maiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Maiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Maiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Maiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Maiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Maiswaffeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Maiswaffeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Maiswaffeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Maiswaffeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Maiswaffeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Proteinriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Proteinriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Proteinriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Proteinriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Proteinriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Proteinriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Proteinriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Proteinriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Proteinriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Proteinriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Proteinriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Proteinriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Proteinriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Proteinriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Proteinriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Proteinriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Proteinriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Proteinriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Proteinriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Proteinriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Proteinriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Proteinriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Proteinriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Proteinriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Proteinriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsliriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsliriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsliriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsliriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsliriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsliriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsliriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsliriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsliriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsliriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müsliriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müsliriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müsliriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müsliriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Müsliriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsliriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsliriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsliriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsliriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsliriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Müsliriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Müsliriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Müsliriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Müsliriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Müsliriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Fruchtriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Fruchtriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Fruchtriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Fruchtriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Fruchtriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtriegel",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtriegel Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtriegel Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtriegel 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtriegel 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Knäckebrot",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Knäckebrot Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Knäckebrot Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Knäckebrot 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Knäckebrot 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Knäckebrot",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Knäckebrot Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Knäckebrot Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Knäckebrot 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Knäckebrot 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Brezeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Brezeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Brezeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Brezeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Brezeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mini Brezeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mini Brezeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mini Brezeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mini Brezeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mini Brezeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mini Brezeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mini Brezeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mini Brezeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mini Brezeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mini Brezeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mini Brezeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mini Brezeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mini Brezeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mini Brezeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Mini Brezeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mini Brezeln",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mini Brezeln Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mini Brezeln Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mini Brezeln 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mini Brezeln 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Snack Mix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Snack Mix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Snack Mix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Snack Mix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Snack Mix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Snack Mix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Snack Mix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Snack Mix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Snack Mix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Snack Mix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Snack Mix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Snack Mix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Snack Mix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Snack Mix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Snack Mix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Snack Mix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Snack Mix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Snack Mix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Snack Mix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Snack Mix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Snack Mix",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Snack Mix Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Snack Mix Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Snack Mix 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Snack Mix 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kartoffelsticks",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kartoffelsticks Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kartoffelsticks Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kartoffelsticks 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kartoffelsticks 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kartoffelsticks",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kartoffelsticks Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kartoffelsticks Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kartoffelsticks 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kartoffelsticks 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kartoffelsticks",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kartoffelsticks Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kartoffelsticks Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kartoffelsticks 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kartoffelsticks 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kartoffelsticks",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kartoffelsticks Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kartoffelsticks Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kartoffelsticks 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kartoffelsticks 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kartoffelsticks",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kartoffelsticks Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kartoffelsticks Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kartoffelsticks 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kartoffelsticks 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taco Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taco Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taco Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taco Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Taco Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Taco Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Taco Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Taco Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Taco Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Taco Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taco Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taco Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taco Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taco Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Taco Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Taco Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Taco Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Taco Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Taco Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Taco Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Taco Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Taco Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Taco Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Taco Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Taco Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Linsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Linsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Linsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Linsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Linsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Linsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Linsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Linsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Linsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Linsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Linsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Linsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Linsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Linsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Linsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Linsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Linsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Linsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Linsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Linsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Linsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Linsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Linsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Linsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Linsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kichererbsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kichererbsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kichererbsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kichererbsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kichererbsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kichererbsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kichererbsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kichererbsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kichererbsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kichererbsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kichererbsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kichererbsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kichererbsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kichererbsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kichererbsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kichererbsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kichererbsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kichererbsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kichererbsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kichererbsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kichererbsen Chips",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kichererbsen Chips Packung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kichererbsen Chips Familienpackung",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kichererbsen Chips 200 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Kichererbsen Chips 300 g",
+    "category": "Snacks",
+    "default_unit": "Packung"
+  }
+]

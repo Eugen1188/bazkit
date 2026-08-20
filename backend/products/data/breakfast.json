@@ -1,1 +1,1582 @@
-﻿[]
+[
+  {
+    "name": "Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtemüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtemüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtemüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Früchtemüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtemüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtemüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtemüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Früchtemüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Früchtemüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Früchtemüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Früchtemüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Früchtemüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Früchtemüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Früchtemüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Früchtemüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Früchtemüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokomüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokomüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokomüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokomüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokomüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokomüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokomüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokomüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Schokomüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Schokomüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Schokomüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Schokomüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Schokomüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Schokomüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Schokomüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Schokomüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knuspermüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knuspermüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knuspermüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knuspermüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knuspermüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knuspermüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knuspermüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knuspermüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knuspermüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knuspermüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knuspermüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knuspermüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knuspermüsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cornflakes",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cornflakes 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cornflakes Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cornflakes Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cornflakes",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cornflakes 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cornflakes Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cornflakes Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cornflakes",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cornflakes 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cornflakes Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Cornflakes Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Cornflakes Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zarte Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zarte Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zarte Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zarte Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zarte Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zarte Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zarte Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Zarte Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Zarte Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Zarte Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Zarte Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Zarte Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Zarte Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Zarte Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Zarte Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Zarte Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kernige Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kernige Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kernige Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kernige Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kernige Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kernige Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kernige Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kernige Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kernige Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kernige Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kernige Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Kernige Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Kernige Haferflocken",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Kernige Haferflocken 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Kernige Haferflocken Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Kernige Haferflocken Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Granola",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Granola 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Granola Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Granola Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Granola",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Granola 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Granola Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Granola Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Granola",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Granola 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Granola Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Granola Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Granola",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Granola 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Granola Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Granola Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Porridge",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Porridge 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Porridge Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Porridge Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Porridge",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Porridge 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Porridge Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Porridge Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Porridge",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Porridge 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Porridge Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Porridge Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Porridge",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Porridge 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Porridge Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Porridge Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Honig",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Honig 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Honig Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Honig Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Honig",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Honig 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Honig Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Honig Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Honig",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Honig 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Honig Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Honig Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Honig",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Honig 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Honig Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Honig Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marmelade",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marmelade 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marmelade Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marmelade Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Marmelade",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Marmelade 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Marmelade Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Marmelade Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Marmelade",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Marmelade 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Marmelade Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Marmelade Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Marmelade",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Marmelade 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Marmelade Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Marmelade Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nuss-Nougat-Creme",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nuss-Nougat-Creme 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nuss-Nougat-Creme Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nuss-Nougat-Creme Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nuss-Nougat-Creme Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nuss-Nougat-Creme",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nuss-Nougat-Creme 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nuss-Nougat-Creme Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Nuss-Nougat-Creme Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Nuss-Nougat-Creme Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnussbutter",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnussbutter 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnussbutter Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Erdnussbutter Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnussbutter",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnussbutter 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnussbutter Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Erdnussbutter Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnussbutter",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnussbutter 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnussbutter Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Erdnussbutter Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Erdnussbutter",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Erdnussbutter 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Erdnussbutter Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Erdnussbutter Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ahornsirup",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ahornsirup 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ahornsirup Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Ahornsirup Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ahornsirup",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ahornsirup 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ahornsirup Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Ahornsirup Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Ahornsirup",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Ahornsirup 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Ahornsirup Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Ahornsirup Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Ahornsirup",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Ahornsirup 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Ahornsirup Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Ahornsirup Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frühstückskekse",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frühstückskekse 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frühstückskekse Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Frühstückskekse Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Frühstückskekse",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Frühstückskekse 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Frühstückskekse Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Frühstückskekse Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Frühstückskekse",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Frühstückskekse 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Frühstückskekse Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Frühstückskekse Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Frühstückskekse",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Frühstückskekse 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Frühstückskekse Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Frühstückskekse Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reiswaffeln Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reiswaffeln Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Reiswaffeln Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Reiswaffeln",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Reiswaffeln 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Reiswaffeln Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Reiswaffeln Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Knäckebrot Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Knäckebrot Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Knäckebrot Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knäckebrot",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knäckebrot 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knäckebrot Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Knäckebrot Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Protein Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Protein Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Protein Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Protein Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Protein Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Protein Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Protein Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Protein Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Protein Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Protein Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Protein Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Protein Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bircher Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bircher Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bircher Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bircher Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Bircher Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Bircher Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Bircher Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Bircher Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Bircher Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Bircher Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Bircher Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Protein Bircher Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Bircher Müsli",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Bircher Müsli 500 g",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Bircher Müsli Familienpackung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerreduziert Bircher Müsli Packung",
+    "category": "Frühstück",
+    "default_unit": "Packung"
+  }
+]

@@ -1,1 +1,2242 @@
-﻿[]
+[
+  {
+    "name": "Tiefkühlpizza",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlpizza Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlpizza 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlpizza 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlpizza",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlpizza Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlpizza 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlpizza 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlpizza",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlpizza Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlpizza 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlpizza 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlpizza",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlpizza Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlpizza 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlpizza 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Margherita",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Margherita Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Margherita 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Margherita 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Margherita",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Margherita Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Margherita 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Margherita 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Margherita",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Margherita Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Margherita 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Margherita 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Margherita",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Margherita Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Margherita 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Margherita 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Salami",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Salami Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Salami 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Salami 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Salami",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Salami Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Salami 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Salami 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Salami",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Salami Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Salami 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Salami 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Salami",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Salami Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Salami 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Salami 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Schinken",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Schinken Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Schinken 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Schinken 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Schinken",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Schinken Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Schinken 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Schinken 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Schinken",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Schinken Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Schinken 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Schinken 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Schinken",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Schinken Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Schinken 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Schinken 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Funghi",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Funghi Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Funghi 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pizza Funghi 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Funghi",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Funghi Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Funghi 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pizza Funghi 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Funghi",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Funghi Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Funghi 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pizza Funghi 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Funghi",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Funghi Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Funghi 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pizza Funghi 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pommes",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pommes Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pommes 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pommes 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pommes",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pommes Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pommes 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pommes 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pommes",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pommes Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pommes 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pommes 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pommes",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pommes Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pommes 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Pommes 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wedges",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wedges Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wedges 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wedges 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wedges",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wedges Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wedges 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wedges 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wedges",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wedges Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wedges 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wedges 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Wedges",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Wedges Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Wedges 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Wedges 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kroketten",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kroketten Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kroketten 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kroketten 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kroketten",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kroketten Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kroketten 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kroketten 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kroketten",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kroketten Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kroketten 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kroketten 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Kroketten",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Kroketten Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Kroketten 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Kroketten 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Gemüse",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Gemüse Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Gemüse 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Gemüse 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Gemüse",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Gemüse Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Gemüse 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Gemüse 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Gemüse",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Gemüse Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Gemüse 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Gemüse 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Gemüse",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Gemüse Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Gemüse 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Gemüse 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Brokkoli",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Brokkoli Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Brokkoli 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Brokkoli 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Brokkoli",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Brokkoli Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Brokkoli 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Brokkoli 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Brokkoli",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Brokkoli Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Brokkoli 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Brokkoli 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Brokkoli",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Brokkoli Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Brokkoli 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Brokkoli 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Spinat",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Spinat Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Spinat 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Spinat 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Spinat",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Spinat Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Spinat 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Spinat 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Spinat",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Spinat Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Spinat 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Spinat 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Spinat",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Spinat Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Spinat 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Spinat 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erbsen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erbsen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erbsen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erbsen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erbsen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erbsen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erbsen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erbsen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erbsen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erbsen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erbsen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erbsen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erbsen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erbsen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erbsen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erbsen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Beeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Beeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Beeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Beeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Beeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Beeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Beeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Beeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Beeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Beeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Beeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Beeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Beeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Beeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Beeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Beeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erdbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erdbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erdbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Erdbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erdbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erdbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erdbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Erdbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erdbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erdbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erdbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Erdbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erdbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erdbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erdbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Erdbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Himbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Himbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Himbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "TK Himbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Himbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Himbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Himbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio TK Himbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Himbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Himbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Himbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium TK Himbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Himbeeren",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Himbeeren Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Himbeeren 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien TK Himbeeren 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischstäbchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischstäbchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischstäbchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fischstäbchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fischstäbchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fischstäbchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fischstäbchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fischstäbchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischstäbchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischstäbchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischstäbchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fischstäbchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Fischstäbchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Fischstäbchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Fischstäbchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Fischstäbchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chicken Nuggets",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chicken Nuggets Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chicken Nuggets 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Chicken Nuggets 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chicken Nuggets",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chicken Nuggets Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chicken Nuggets 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Chicken Nuggets 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chicken Nuggets",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chicken Nuggets Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chicken Nuggets 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Chicken Nuggets 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Chicken Nuggets",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Chicken Nuggets Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Chicken Nuggets 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Chicken Nuggets 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hähnchen Wings",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hähnchen Wings Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hähnchen Wings 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Hähnchen Wings 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hähnchen Wings",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hähnchen Wings Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hähnchen Wings 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Hähnchen Wings 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hähnchen Wings",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hähnchen Wings Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hähnchen Wings 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Hähnchen Wings 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Hähnchen Wings",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Hähnchen Wings Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Hähnchen Wings 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Hähnchen Wings 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnitzel",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnitzel Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnitzel 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnitzel 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnitzel",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnitzel Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnitzel 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnitzel 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnitzel",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnitzel Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnitzel 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnitzel 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schnitzel",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schnitzel Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schnitzel 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schnitzel 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lasagne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lasagne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lasagne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lasagne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lasagne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lasagne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lasagne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lasagne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lasagne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lasagne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lasagne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lasagne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Lasagne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Lasagne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Lasagne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Lasagne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nudelpfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nudelpfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nudelpfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nudelpfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nudelpfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nudelpfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nudelpfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Nudelpfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nudelpfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nudelpfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nudelpfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nudelpfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Nudelpfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Nudelpfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Nudelpfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Nudelpfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reispfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reispfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reispfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Reispfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reispfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reispfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reispfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Reispfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Reispfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Reispfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Reispfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Reispfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Reispfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Reispfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Reispfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Reispfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsepfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsepfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsepfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsepfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsepfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsepfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsepfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsepfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsepfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsepfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsepfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsepfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Gemüsepfanne",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Gemüsepfanne Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Gemüsepfanne 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Gemüsepfanne 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eiscreme",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eiscreme Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eiscreme 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Eiscreme 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Eiscreme",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Eiscreme Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Eiscreme 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Eiscreme 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Eiscreme",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Eiscreme Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Eiscreme 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Eiscreme 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Eiscreme",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Eiscreme Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Eiscreme 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Eiscreme 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilleeis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilleeis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilleeis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilleeis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilleeis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilleeis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilleeis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilleeis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilleeis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilleeis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilleeis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilleeis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Vanilleeis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Vanilleeis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Vanilleeis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Vanilleeis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoladeneis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoladeneis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoladeneis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoladeneis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokoladeneis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokoladeneis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokoladeneis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokoladeneis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoladeneis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoladeneis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoladeneis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoladeneis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schokoladeneis",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schokoladeneis Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schokoladeneis 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Schokoladeneis 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sorbet",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sorbet Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sorbet 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sorbet 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Sorbet",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Sorbet Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Sorbet 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Sorbet 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Sorbet",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Sorbet Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Sorbet 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Sorbet 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Sorbet",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Sorbet Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Sorbet 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Sorbet 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlbrötchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlbrötchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlbrötchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiefkühlbrötchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlbrötchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlbrötchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlbrötchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiefkühlbrötchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlbrötchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlbrötchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlbrötchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiefkühlbrötchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlbrötchen",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlbrötchen Packung",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlbrötchen 500 g",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Familien Tiefkühlbrötchen 1 kg",
+    "category": "Tiefkühl",
+    "default_unit": "Packung"
+  }
+]

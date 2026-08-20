@@ -1,1 +1,3502 @@
-﻿[]
+[
+  {
+    "name": "Nutella",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nutella Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nutella Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nutella Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nutella 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nutella",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nutella Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nutella Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nutella Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nutella 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nutella",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nutella Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nutella Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nutella Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nutella 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nutella",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nutella Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nutella Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nutella Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nutella 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nutella",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nutella Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nutella Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nutella Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nutella 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vollmilchschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vollmilchschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vollmilchschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vollmilchschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vollmilchschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Vollmilchschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Vollmilchschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Vollmilchschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Vollmilchschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Vollmilchschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Vollmilchschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Vollmilchschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Vollmilchschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Vollmilchschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Vollmilchschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vollmilchschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vollmilchschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vollmilchschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vollmilchschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vollmilchschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Vollmilchschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Vollmilchschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Vollmilchschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Vollmilchschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Vollmilchschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zartbitterschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zartbitterschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zartbitterschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zartbitterschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zartbitterschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Zartbitterschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Zartbitterschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Zartbitterschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Zartbitterschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Zartbitterschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Zartbitterschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Zartbitterschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Zartbitterschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Zartbitterschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Zartbitterschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zartbitterschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zartbitterschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zartbitterschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zartbitterschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Zartbitterschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Zartbitterschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Zartbitterschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Zartbitterschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Zartbitterschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Zartbitterschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weiße Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weiße Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weiße Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weiße Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Weiße Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Weiße Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Weiße Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Weiße Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Weiße Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Weiße Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Weiße Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Weiße Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Weiße Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Weiße Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Weiße Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weiße Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weiße Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weiße Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weiße Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Weiße Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Weiße Schokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Weiße Schokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Weiße Schokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Weiße Schokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Weiße Schokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haselnussschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haselnussschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haselnussschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haselnussschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Haselnussschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Haselnussschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Haselnussschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Haselnussschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Haselnussschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Haselnussschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Haselnussschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Haselnussschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Haselnussschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Haselnussschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Haselnussschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Haselnussschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Haselnussschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Haselnussschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Haselnussschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Haselnussschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Haselnussschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Haselnussschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Haselnussschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Haselnussschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Haselnussschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandelschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandelschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandelschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandelschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mandelschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Mandelschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Mandelschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Mandelschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Mandelschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Mandelschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandelschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandelschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandelschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandelschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Mandelschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mandelschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mandelschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mandelschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mandelschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mandelschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Mandelschokolade",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Mandelschokolade Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Mandelschokolade Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Mandelschokolade Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Mandelschokolade 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokoriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokoriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokoriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokoriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokoriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokoriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokoriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokoriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokoriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokoriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokoriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokoriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokoriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokoriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokoriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokoriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokoriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellriegel",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellriegel Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellriegel Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellriegel Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellriegel 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummibärchen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummibärchen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummibärchen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummibärchen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gummibärchen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Gummibärchen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Gummibärchen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Gummibärchen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Gummibärchen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Gummibärchen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummibärchen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummibärchen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummibärchen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummibärchen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Gummibärchen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummibärchen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummibärchen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummibärchen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummibärchen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gummibärchen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Gummibärchen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Gummibärchen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Gummibärchen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Gummibärchen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Gummibärchen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtgummi",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtgummi Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtgummi Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtgummi Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtgummi 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Fruchtgummi",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Fruchtgummi Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Fruchtgummi Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Fruchtgummi Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Fruchtgummi 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtgummi",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtgummi Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtgummi Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtgummi Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Fruchtgummi 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtgummi",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtgummi Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtgummi Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtgummi Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtgummi 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Fruchtgummi",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Fruchtgummi Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Fruchtgummi Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Fruchtgummi Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Fruchtgummi 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Bonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Bonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Bonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Bonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Bonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Bonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Bonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Bonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Bonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Bonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Bonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Bonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaubonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaubonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaubonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaubonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kaubonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kaubonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kaubonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kaubonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kaubonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kaubonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaubonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaubonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaubonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaubonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kaubonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaubonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaubonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaubonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaubonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kaubonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kaubonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kaubonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kaubonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kaubonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kaubonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Kekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Kekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Kekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Butterkekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Butterkekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Butterkekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Butterkekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Butterkekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Butterkekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Butterkekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Butterkekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Butterkekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Butterkekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Butterkekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Butterkekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Butterkekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Butterkekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Butterkekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Butterkekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Butterkekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Butterkekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Butterkekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Butterkekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Butterkekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Butterkekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Butterkekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Butterkekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Butterkekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokokekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokokekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokokekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokokekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokokekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokokekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokokekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokokekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokokekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokokekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokokekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokokekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokokekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokokekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokokekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokokekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokokekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokokekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokokekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokokekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokokekse",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokokekse Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokokekse Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokokekse Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokokekse 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Waffeln",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Waffeln Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Waffeln Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Waffeln Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Waffeln 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Waffeln",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Waffeln Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Waffeln Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Waffeln Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Waffeln 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Waffeln",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Waffeln Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Waffeln Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Waffeln Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Waffeln 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Waffeln",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Waffeln Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Waffeln Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Waffeln Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Waffeln 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Waffeln",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Waffeln Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Waffeln Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Waffeln Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Waffeln 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pralinen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pralinen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pralinen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pralinen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pralinen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Pralinen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Pralinen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Pralinen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Pralinen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Pralinen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pralinen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pralinen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pralinen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pralinen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Pralinen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pralinen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pralinen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pralinen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pralinen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pralinen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Pralinen",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Pralinen Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Pralinen Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Pralinen Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Pralinen 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marshmallows",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marshmallows Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marshmallows Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marshmallows Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marshmallows 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marshmallows",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marshmallows Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marshmallows Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marshmallows Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marshmallows 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marshmallows",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marshmallows Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marshmallows Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marshmallows Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marshmallows 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marshmallows",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marshmallows Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marshmallows Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marshmallows Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marshmallows 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marshmallows",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marshmallows Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marshmallows Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marshmallows Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marshmallows 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lakritz",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lakritz Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lakritz Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lakritz Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lakritz 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lakritz",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lakritz Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lakritz Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lakritz Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lakritz 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lakritz",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lakritz Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lakritz Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lakritz Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lakritz 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lakritz",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lakritz Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lakritz Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lakritz Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lakritz 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lakritz",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lakritz Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lakritz Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lakritz Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lakritz 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schoko Bons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schoko Bons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schoko Bons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schoko Bons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schoko Bons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schoko Bons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schoko Bons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schoko Bons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schoko Bons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schoko Bons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schoko Bons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schoko Bons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schoko Bons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schoko Bons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schoko Bons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schoko Bons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schoko Bons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schoko Bons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schoko Bons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schoko Bons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schoko Bons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schoko Bons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schoko Bons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schoko Bons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schoko Bons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nougat",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nougat Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nougat Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nougat Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nougat 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nougat",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nougat Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nougat Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nougat Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Nougat 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nougat",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nougat Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nougat Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nougat Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Nougat 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nougat",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nougat Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nougat Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nougat Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Nougat 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nougat",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nougat Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nougat Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nougat Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Nougat 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marzipan",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marzipan Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marzipan Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marzipan Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Marzipan 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marzipan",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marzipan Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marzipan Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marzipan Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Marzipan 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marzipan",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marzipan Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marzipan Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marzipan Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Marzipan 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marzipan",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marzipan Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marzipan Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marzipan Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Marzipan 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marzipan",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marzipan Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marzipan Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marzipan Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Marzipan 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodrops",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodrops Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodrops Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodrops Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodrops 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokodrops",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokodrops Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokodrops Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokodrops Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Schokodrops 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokodrops",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokodrops Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokodrops Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokodrops Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Schokodrops 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodrops",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodrops Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodrops Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodrops Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodrops 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokodrops",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokodrops Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokodrops Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokodrops Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Schokodrops 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dragées",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dragées Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dragées Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dragées Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dragées 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Dragées",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Dragées Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Dragées Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Dragées Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Dragées 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Dragées",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Dragées Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Dragées Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Dragées Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Dragées 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dragées",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dragées Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dragées Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dragées Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dragées 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Dragées",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Dragées Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Dragées Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Dragées Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Dragées 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toffee",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toffee Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toffee Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toffee Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Toffee 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Toffee",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Toffee Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Toffee Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Toffee Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Toffee 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toffee",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toffee Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toffee Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toffee Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Toffee 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toffee",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toffee Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toffee Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toffee Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Toffee 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Toffee",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Toffee Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Toffee Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Toffee Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Toffee 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellbonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellbonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellbonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellbonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellbonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellbonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellbonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellbonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellbonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Karamellbonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellbonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellbonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellbonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellbonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Karamellbonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellbonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellbonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellbonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellbonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellbonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellbonbons",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellbonbons Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellbonbons Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellbonbons Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Karamellbonbons 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lutscher",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lutscher Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lutscher Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lutscher Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lutscher 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lutscher",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lutscher Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lutscher Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lutscher Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mini Lutscher 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lutscher",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lutscher Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lutscher Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lutscher Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "XXL Lutscher 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lutscher",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lutscher Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lutscher Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lutscher Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lutscher 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lutscher",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lutscher Packung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lutscher Familienpackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lutscher Vorratspackung",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Zuckerfrei Lutscher 200 g",
+    "category": "Süßwaren",
+    "default_unit": "Packung"
+  }
+]

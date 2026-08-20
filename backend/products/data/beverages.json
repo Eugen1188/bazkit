@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Fruchtsaftgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Fruchtsaftgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Fruchtsaftgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Fruchtsaftgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Fruchtsaftgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Fruchtsaftgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Fruchtsaftgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Fruchtsaftgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Fruchtsaftgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Fruchtsaftgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Fruchtsaftgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Fruchtsaftgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Fruchtsaftgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Fruchtsaftgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Fruchtsaftgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Fruchtsaftgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Nektar",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Nektar 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Nektar 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Nektar 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Nektar",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Nektar 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Nektar 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Nektar 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Nektar",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Nektar 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Nektar 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Nektar 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Nektar",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Nektar 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Nektar 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Nektar 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Schorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Schorle 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Schorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Schorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Schorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Schorle 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Schorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Schorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Schorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Schorle 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Schorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Schorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Schorle",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Schorle 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Schorle 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Schorle 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Vitaminwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Vitaminwasser 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Vitaminwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Vitaminwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Vitaminwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Vitaminwasser 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Vitaminwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Vitaminwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Vitaminwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Vitaminwasser 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Vitaminwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Vitaminwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Vitaminwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Vitaminwasser 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Vitaminwasser 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Vitaminwasser 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Elektrolytgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Elektrolytgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Elektrolytgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Elektrolytgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Elektrolytgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Elektrolytgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Elektrolytgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Elektrolytgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Elektrolytgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Elektrolytgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Elektrolytgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Elektrolytgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Elektrolytgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Elektrolytgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Elektrolytgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Elektrolytgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sportgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sportgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sportgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sportgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sportgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sportgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sportgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sportgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sportgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sportgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sportgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Sportgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Sportgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Sportgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Sportgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Sportgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Malzgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Malzgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Malzgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Malzgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Malzgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Malzgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Malzgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Malzgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Malzgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Malzgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Malzgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Malzgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Malzgetränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Malzgetränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Malzgetränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Malzgetränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ingwershot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ingwershot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ingwershot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Ingwershot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ingwershot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ingwershot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ingwershot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Ingwershot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ingwershot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ingwershot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ingwershot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Ingwershot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Ingwershot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Ingwershot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Ingwershot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Ingwershot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kurkuma Shot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kurkuma Shot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kurkuma Shot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kurkuma Shot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kurkuma Shot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kurkuma Shot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kurkuma Shot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kurkuma Shot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kurkuma Shot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kurkuma Shot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kurkuma Shot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kurkuma Shot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kurkuma Shot",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kurkuma Shot 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kurkuma Shot 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kurkuma Shot 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Aloe Vera Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Aloe Vera Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Aloe Vera Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Aloe Vera Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Aloe Vera Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Aloe Vera Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Aloe Vera Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Aloe Vera Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Aloe Vera Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Aloe Vera Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Aloe Vera Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Aloe Vera Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Aloe Vera Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Aloe Vera Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Aloe Vera Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Aloe Vera Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kombucha",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kombucha 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kombucha 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kombucha 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kombucha",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kombucha 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kombucha 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kombucha 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kombucha",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kombucha 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kombucha 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kombucha 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kombucha",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kombucha 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kombucha 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kombucha 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mate Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mate Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mate Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Mate Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mate Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mate Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mate Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Mate Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mate Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mate Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mate Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Mate Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Mate Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Mate Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Mate Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Mate Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kakao Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kakao Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kakao Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kakao Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kakao Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kakao Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kakao Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kakao Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kakao Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kakao Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kakao Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Kakao Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kakao Getränk",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kakao Getränk 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kakao Getränk 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Kakao Getränk 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Milchdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Milchdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Milchdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Milchdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Milchdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Milchdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Milchdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Milchdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Milchdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Milchdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Milchdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Milchdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Milchdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Milchdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Milchdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Milchdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Haferdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Haferdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Haferdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Haferdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Haferdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Haferdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Haferdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Haferdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Haferdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Haferdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Haferdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Zero Haferdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Haferdrink",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Haferdrink 0,33 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Haferdrink 0,5 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Natur Haferdrink 1 l",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  }
+]

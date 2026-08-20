@@ -1,1 +1,3202 @@
-﻿[]
+[
+  {
+    "name": "Apfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Apfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Apfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Apfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Apfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Apfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Apfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Apfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Apfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Apfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Apfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Apfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Apfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Apfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Apfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Apfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Äpfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Äpfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Äpfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Äpfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Äpfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Äpfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Äpfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Äpfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Äpfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Äpfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Äpfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Äpfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Äpfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Äpfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Äpfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Äpfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Banane",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Banane lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Banane Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Banane Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Banane",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Banane lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Banane Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Banane Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Banane",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Banane lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Banane Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Banane Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Banane",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Banane lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Banane Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Banane Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bananen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bananen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bananen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bananen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bananen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bananen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bananen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Bananen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bananen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bananen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bananen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Bananen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Bananen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Bananen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Bananen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Bananen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birne",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birne lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birne Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birne Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birne",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birne lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birne Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birne Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birne",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birne lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birne Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birne Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birne",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birne lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birne Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birne Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birnen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birnen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birnen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Birnen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birnen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birnen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birnen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Birnen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birnen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birnen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birnen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Birnen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birnen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birnen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birnen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Birnen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orange",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orange lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orange Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orange Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orange",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orange lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orange Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orange Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orange",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orange lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orange Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orange Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orange",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orange lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orange Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orange Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orangen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orangen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orangen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Orangen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orangen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orangen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orangen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Orangen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orangen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orangen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orangen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Orangen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orangen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orangen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orangen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Orangen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mandarinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mandarinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mandarinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mandarinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Clementinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Clementinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Clementinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementinen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementinen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementinen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Clementinen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitrone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitrone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitrone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitrone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitrone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitrone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitrone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitrone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitrone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitrone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitrone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitrone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitrone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitrone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitrone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitrone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitronen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitronen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitronen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zitronen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitronen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitronen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitronen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Zitronen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitronen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitronen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitronen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Zitronen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitronen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitronen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitronen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Zitronen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limette",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limette lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limette Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limette Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limette",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limette lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limette Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limette Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limette",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limette lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limette Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limette Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limette",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limette lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limette Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limette Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limetten",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limetten lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limetten Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Limetten Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limetten",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limetten lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limetten Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Limetten Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limetten",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limetten lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limetten Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Limetten Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limetten",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limetten lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limetten Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Limetten Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwi",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwi lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwi Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwi Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwi",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwi lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwi Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwi Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwi",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwi lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwi Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwi Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwi",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwi lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwi Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwi Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kiwis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kiwis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kiwis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kiwis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mango",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mango lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mango Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mango Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mango",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mango lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mango Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Mango Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mango",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mango lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mango Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Mango Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mango",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mango lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mango Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Mango Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ananas",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ananas lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ananas Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Ananas Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ananas",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ananas lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ananas Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Ananas Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ananas",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ananas lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ananas Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Ananas Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Ananas",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Ananas lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Ananas Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Ananas Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Avocado",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Avocado lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Avocado Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Avocado Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Avocado",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Avocado lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Avocado Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Avocado Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Avocado",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Avocado lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Avocado Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Avocado Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Avocado",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Avocado lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Avocado Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Avocado Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pfirsich",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pfirsich lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pfirsich Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pfirsich Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pfirsich",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pfirsich lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pfirsich Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pfirsich Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pfirsich",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pfirsich lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pfirsich Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pfirsich Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pfirsich",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pfirsich lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pfirsich Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pfirsich Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Nektarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Nektarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Nektarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Nektarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Nektarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Nektarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Nektarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Nektarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Nektarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Nektarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Nektarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Nektarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Nektarine",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Nektarine lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Nektarine Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Nektarine Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Aprikose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Aprikose lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Aprikose Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Aprikose Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Aprikose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Aprikose lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Aprikose Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Aprikose Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Aprikose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Aprikose lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Aprikose Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Aprikose Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Aprikose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Aprikose lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Aprikose Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Aprikose Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pflaume",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pflaume lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pflaume Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Pflaume Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pflaume",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pflaume lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pflaume Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Pflaume Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pflaume",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pflaume lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pflaume Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Pflaume Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pflaume",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pflaume lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pflaume Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Pflaume Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kirschen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kirschen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kirschen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Kirschen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kirschen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kirschen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kirschen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Kirschen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kirschen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kirschen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kirschen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Kirschen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kirschen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kirschen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kirschen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Kirschen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Trauben",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Trauben lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Trauben Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Trauben Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Trauben",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Trauben lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Trauben Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Trauben Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Trauben",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Trauben lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Trauben Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Trauben Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Trauben",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Trauben lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Trauben Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Trauben Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Erdbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Erdbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Erdbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Erdbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Erdbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Erdbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Erdbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Erdbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Erdbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Erdbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Erdbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Erdbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Erdbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Erdbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Erdbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Erdbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Himbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Himbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Himbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Himbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Himbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Himbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Himbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Himbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Himbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Himbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Himbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Himbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Himbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Himbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Himbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Himbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blaubeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blaubeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blaubeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Blaubeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blaubeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blaubeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blaubeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Blaubeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blaubeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blaubeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blaubeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Blaubeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Blaubeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Blaubeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Blaubeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Blaubeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Heidelbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Heidelbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Heidelbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Heidelbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Heidelbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Heidelbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Heidelbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Heidelbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Heidelbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Heidelbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Heidelbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Heidelbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Heidelbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Heidelbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Heidelbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Heidelbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brombeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brombeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brombeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brombeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brombeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brombeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brombeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Brombeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brombeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brombeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brombeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Brombeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Brombeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Brombeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Brombeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Brombeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Johannisbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Johannisbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Johannisbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Johannisbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Johannisbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Johannisbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Johannisbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Johannisbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Johannisbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Johannisbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Johannisbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Johannisbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Johannisbeeren",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Johannisbeeren lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Johannisbeeren Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Johannisbeeren Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Granatapfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Granatapfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Granatapfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Granatapfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Granatapfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Granatapfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Granatapfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Granatapfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Granatapfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Granatapfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Granatapfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Granatapfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Granatapfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Granatapfel lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Granatapfel Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Granatapfel Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Grapefruit",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Grapefruit lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Grapefruit Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Grapefruit Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Grapefruit",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Grapefruit lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Grapefruit Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Grapefruit Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Grapefruit",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Grapefruit lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Grapefruit Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Grapefruit Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Grapefruit",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Grapefruit lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Grapefruit Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Grapefruit Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wassermelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wassermelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wassermelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wassermelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wassermelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wassermelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wassermelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Wassermelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wassermelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wassermelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wassermelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Wassermelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Wassermelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Wassermelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Wassermelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Wassermelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Honigmelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Honigmelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Honigmelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Honigmelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Honigmelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Honigmelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Honigmelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Honigmelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Honigmelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Honigmelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Honigmelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Honigmelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Honigmelone",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Honigmelone lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Honigmelone Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Honigmelone Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Physalis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Physalis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Physalis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Physalis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Physalis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Physalis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Physalis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Physalis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Physalis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Physalis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Physalis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Physalis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Physalis",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Physalis lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Physalis Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Physalis Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feigen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feigen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feigen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feigen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Feigen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Feigen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Feigen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Feigen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Feigen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Feigen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Feigen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Feigen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Feigen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Feigen lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Feigen Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Feigen Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Datteln",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Datteln lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Datteln Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Datteln Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Datteln",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Datteln lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Datteln Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bio Datteln Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Datteln",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Datteln lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Datteln Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Frisch Datteln Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Datteln",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Datteln lose",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Datteln Schale",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Regional Datteln Packung",
+    "category": "Obst",
+    "default_unit": "Stück"
+  }
+]

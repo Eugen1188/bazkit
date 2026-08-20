@@ -1,1 +1,1122 @@
-﻿[]
+[
+  {
+    "name": "Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basmati Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basmati Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basmati Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Basmati Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basmati Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basmati Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basmati Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Basmati Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Basmati Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Basmati Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Basmati Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Basmati Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Basmati Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Basmati Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Basmati Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Basmati Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jasmin Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jasmin Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jasmin Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Jasmin Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Jasmin Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Jasmin Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Jasmin Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Jasmin Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jasmin Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jasmin Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jasmin Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Jasmin Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Jasmin Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Jasmin Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Jasmin Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Jasmin Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Langkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Langkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Langkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Langkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Langkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Langkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Langkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Langkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Langkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Langkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parboiled Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parboiled Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parboiled Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parboiled Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parboiled Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parboiled Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parboiled Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parboiled Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parboiled Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parboiled Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parboiled Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parboiled Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Parboiled Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Parboiled Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Parboiled Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Parboiled Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Vollkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Vollkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Vollkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Vollkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Vollkornreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Vollkornreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Vollkornreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Vollkornreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Risotto Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Risotto Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Risotto Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Risotto Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Risotto Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Risotto Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Risotto Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Risotto Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Risotto Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Risotto Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Risotto Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Risotto Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Risotto Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Risotto Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Risotto Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Risotto Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arborio Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arborio Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arborio Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arborio Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arborio Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arborio Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arborio Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arborio Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arborio Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arborio Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arborio Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arborio Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Arborio Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Arborio Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Arborio Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Arborio Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milchreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milchreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milchreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milchreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milchreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milchreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milchreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milchreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Milchreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Milchreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Milchreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Milchreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Milchreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Milchreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Milchreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Milchreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wildreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wildreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wildreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wildreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wildreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wildreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wildreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wildreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Wildreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Wildreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Wildreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Wildreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Wildreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Wildreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Wildreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Wildreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sushi Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sushi Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sushi Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sushi Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sushi Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sushi Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sushi Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sushi Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Sushi Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Sushi Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Sushi Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Sushi Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Sushi Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Sushi Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Sushi Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Sushi Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Naturreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Naturreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Naturreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Naturreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Naturreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Naturreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Naturreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Naturreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Duftreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Duftreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Duftreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Duftreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Duftreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Duftreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Duftreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Duftreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Duftreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Duftreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Duftreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Duftreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Duftreis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Duftreis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Duftreis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Duftreis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schwarzer Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schwarzer Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schwarzer Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schwarzer Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schwarzer Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schwarzer Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Schwarzer Reis",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Schwarzer Reis 500 g",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Schwarzer Reis 1 kg",
+    "category": "Reis",
+    "default_unit": "g"
+  },
+  {
+    "name": "Express Schwarzer Reis Beutel",
+    "category": "Reis",
+    "default_unit": "g"
+  }
+]

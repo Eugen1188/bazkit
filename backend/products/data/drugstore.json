@@ -1,1 +1,3602 @@
-﻿[]
+[
+  {
+    "name": "Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Anti-Schuppen Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Anti-Schuppen Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Anti-Schuppen Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Anti-Schuppen Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Anti-Schuppen Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Anti-Schuppen Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Anti-Schuppen Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Anti-Schuppen Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Anti-Schuppen Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Anti-Schuppen Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Anti-Schuppen Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Anti-Schuppen Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Anti-Schuppen Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Anti-Schuppen Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Anti-Schuppen Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Anti-Schuppen Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Anti-Schuppen Shampoo",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Anti-Schuppen Shampoo klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Anti-Schuppen Shampoo groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Anti-Schuppen Shampoo Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschgel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschgel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschgel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschgel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschgel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschgel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschgel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschgel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschgel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschgel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschgel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschgel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschgel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschgel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschgel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschgel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschgel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschgel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschgel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschgel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Duschcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Duschcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Duschcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Duschcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Duschcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnpasta",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnpasta klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnpasta groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnpasta Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnpasta",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnpasta klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnpasta groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnpasta Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnpasta",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnpasta klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnpasta groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnpasta Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnpasta",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnpasta klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnpasta groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnpasta Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnpasta",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnpasta klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnpasta groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnpasta Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnbürste",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnbürste klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnbürste groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnbürste Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnbürste",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnbürste klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnbürste groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnbürste Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnbürste",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnbürste klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnbürste groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnbürste Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnbürste",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnbürste klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnbürste groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnbürste Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnbürste",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnbürste klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnbürste groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnbürste Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mundspülung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mundspülung klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mundspülung groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Mundspülung Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Mundspülung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Mundspülung klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Mundspülung groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Mundspülung Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Mundspülung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Mundspülung klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Mundspülung groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Mundspülung Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Mundspülung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Mundspülung klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Mundspülung groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Mundspülung Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Mundspülung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Mundspülung klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Mundspülung groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Mundspülung Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnseide",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnseide klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnseide groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zahnseide Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnseide",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnseide klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnseide groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Zahnseide Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnseide",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnseide klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnseide groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Zahnseide Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnseide",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnseide klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnseide groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Zahnseide Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnseide",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnseide klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnseide groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Zahnseide Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deodorant",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deodorant klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deodorant groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deodorant Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deodorant",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deodorant klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deodorant groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deodorant Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deodorant",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deodorant klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deodorant groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deodorant Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deodorant",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deodorant klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deodorant groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deodorant Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deodorant",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deodorant klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deodorant groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deodorant Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deospray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deospray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deospray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deospray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deospray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deospray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deospray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deospray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deospray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deospray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deospray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deospray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deospray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deospray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deospray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deospray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deospray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deospray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deospray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deospray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deoroller",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deoroller klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deoroller groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Deoroller Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deoroller",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deoroller klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deoroller groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Deoroller Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deoroller",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deoroller klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deoroller groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Deoroller Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deoroller",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deoroller klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deoroller groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Deoroller Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deoroller",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deoroller klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deoroller groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Deoroller Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierschaum",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierschaum klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierschaum groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierschaum Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierschaum",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierschaum klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierschaum groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierschaum Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierschaum",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierschaum klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierschaum groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierschaum Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierschaum",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierschaum klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierschaum groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierschaum Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierschaum",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierschaum klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierschaum groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierschaum Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasiergel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasiergel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasiergel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasiergel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasiergel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasiergel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasiergel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasiergel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasiergel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasiergel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasiergel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasiergel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasiergel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasiergel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasiergel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasiergel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasiergel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasiergel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasiergel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasiergel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierklingen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierklingen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierklingen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Rasierklingen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierklingen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierklingen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierklingen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Rasierklingen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierklingen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierklingen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierklingen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Rasierklingen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierklingen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierklingen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierklingen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Rasierklingen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierklingen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierklingen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierklingen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Rasierklingen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Flüssigseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Flüssigseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Flüssigseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Flüssigseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Flüssigseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Flüssigseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Flüssigseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Flüssigseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Flüssigseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Flüssigseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Flüssigseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Flüssigseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Flüssigseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Flüssigseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Flüssigseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Flüssigseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Flüssigseife",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Flüssigseife klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Flüssigseife groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Flüssigseife Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodylotion",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodylotion klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodylotion groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Bodylotion Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Bodylotion",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Bodylotion klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Bodylotion groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Bodylotion Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Bodylotion",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Bodylotion klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Bodylotion groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Bodylotion Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Bodylotion",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Bodylotion klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Bodylotion groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Bodylotion Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Bodylotion",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Bodylotion klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Bodylotion groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Bodylotion Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Handcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Handcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Handcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Handcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handcreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handcreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handcreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Handcreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Gesichtscreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Gesichtscreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Gesichtscreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Gesichtscreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Gesichtscreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Gesichtscreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Gesichtscreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Gesichtscreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Gesichtscreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Gesichtscreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Gesichtscreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Gesichtscreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Gesichtscreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Gesichtscreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Gesichtscreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Gesichtscreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Gesichtscreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Gesichtscreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Gesichtscreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Gesichtscreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sonnencreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sonnencreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sonnencreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sonnencreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Sonnencreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Sonnencreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Sonnencreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Sonnencreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Sonnencreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Sonnencreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Sonnencreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Sonnencreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Sonnencreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Sonnencreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Sonnencreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Sonnencreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Sonnencreme",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Sonnencreme klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Sonnencreme groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Sonnencreme Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Lippenpflege",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Lippenpflege klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Lippenpflege groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Lippenpflege Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Lippenpflege",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Lippenpflege klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Lippenpflege groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Lippenpflege Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Lippenpflege",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Lippenpflege klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Lippenpflege groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Lippenpflege Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Lippenpflege",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Lippenpflege klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Lippenpflege groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Lippenpflege Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Lippenpflege",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Lippenpflege klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Lippenpflege groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Lippenpflege Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarspray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarspray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarspray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarspray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarspray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarspray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarspray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarspray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarspray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarspray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarspray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarspray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarspray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarspray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarspray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarspray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarspray",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarspray klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarspray groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarspray Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haargel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haargel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haargel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haargel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haargel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haargel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haargel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haargel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haargel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haargel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haargel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haargel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haargel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haargel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haargel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haargel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haargel",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haargel klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haargel groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haargel Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarwachs",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarwachs klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarwachs groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarwachs Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarwachs",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarwachs klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarwachs groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarwachs Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarwachs",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarwachs klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarwachs groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarwachs Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarwachs",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarwachs klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarwachs groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarwachs Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarwachs",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarwachs klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarwachs groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarwachs Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Conditioner",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Conditioner klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Conditioner groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Conditioner Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Conditioner",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Conditioner klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Conditioner groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Conditioner Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Conditioner",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Conditioner klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Conditioner groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Conditioner Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Conditioner",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Conditioner klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Conditioner groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Conditioner Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Conditioner",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Conditioner klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Conditioner groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Conditioner Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarkur",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarkur klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarkur groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Haarkur Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarkur",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarkur klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarkur groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Haarkur Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarkur",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarkur klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarkur groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Haarkur Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarkur",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarkur klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarkur groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Haarkur Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarkur",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarkur klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarkur groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Haarkur Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattestäbchen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattestäbchen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattestäbchen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattestäbchen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattestäbchen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattestäbchen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattestäbchen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattestäbchen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattestäbchen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattestäbchen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattestäbchen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattestäbchen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattestäbchen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattestäbchen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattestäbchen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattestäbchen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattestäbchen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattestäbchen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattestäbchen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattestäbchen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattepads",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattepads klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattepads groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Wattepads Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattepads",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattepads klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattepads groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Wattepads Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattepads",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattepads klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattepads groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Wattepads Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattepads",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattepads klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattepads groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Wattepads Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattepads",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattepads klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattepads groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Wattepads Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Taschentücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Taschentücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Taschentücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Taschentücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Taschentücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Taschentücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Taschentücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Taschentücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Taschentücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Taschentücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Taschentücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Taschentücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Taschentücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Taschentücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Taschentücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Taschentücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Taschentücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Taschentücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Taschentücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Taschentücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feuchttücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feuchttücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feuchttücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Feuchttücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Feuchttücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Feuchttücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Feuchttücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Feuchttücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Feuchttücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Feuchttücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Feuchttücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Feuchttücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Feuchttücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Feuchttücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Feuchttücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Feuchttücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Feuchttücher",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Feuchttücher klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Feuchttücher groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Feuchttücher Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tampons",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tampons klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tampons groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Tampons Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Tampons",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Tampons klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Tampons groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Tampons Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Tampons",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Tampons klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Tampons groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Tampons Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Tampons",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Tampons klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Tampons groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Tampons Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Tampons",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Tampons klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Tampons groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Tampons Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Binden",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Binden klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Binden groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Binden Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Binden",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Binden klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Binden groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Binden Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Binden",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Binden klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Binden groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Binden Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Binden",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Binden klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Binden groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Binden Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Binden",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Binden klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Binden groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Binden Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Slipeinlagen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Slipeinlagen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Slipeinlagen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Slipeinlagen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Slipeinlagen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Slipeinlagen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Slipeinlagen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Slipeinlagen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Slipeinlagen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Slipeinlagen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Slipeinlagen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Slipeinlagen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Slipeinlagen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Slipeinlagen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Slipeinlagen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Slipeinlagen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Slipeinlagen",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Slipeinlagen klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Slipeinlagen groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Slipeinlagen Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Damenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Damenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Damenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Damenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Damenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Damenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Damenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Damenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Damenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Damenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Damenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Damenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Damenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Damenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Damenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Damenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Damenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Damenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Damenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Damenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Herrenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Herrenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Herrenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Herrenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Herrenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Herrenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Herrenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Sensitive Herrenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Herrenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Herrenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Herrenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Premium Herrenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Herrenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Herrenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Herrenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Natur Herrenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Herrenrasierer",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Herrenrasierer klein",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Herrenrasierer groß",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Extra Herrenrasierer Vorratspackung",
+    "category": "Drogerie",
+    "default_unit": "Stück"
+  }
+]

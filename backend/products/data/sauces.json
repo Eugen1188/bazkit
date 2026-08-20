@@ -1,1 +1,2242 @@
-﻿[]
+[
+  {
+    "name": "Tomatensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tomatensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tomatensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tomatensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tomatensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pastasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pastasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pastasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pastasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pastasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pastasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pastasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pastasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pastasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pastasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pastasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pastasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pastasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pastasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pastasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pastasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bolognese Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bolognese Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bolognese Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bolognese Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bolognese Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bolognese Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bolognese Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bolognese Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bolognese Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bolognese Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bolognese Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bolognese Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bolognese Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bolognese Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bolognese Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bolognese Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Arrabbiata Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Arrabbiata Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Arrabbiata Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Arrabbiata Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Arrabbiata Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Arrabbiata Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Arrabbiata Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Arrabbiata Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Arrabbiata Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Arrabbiata Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Arrabbiata Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Arrabbiata Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Arrabbiata Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Arrabbiata Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Arrabbiata Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Arrabbiata Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "BBQ Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "BBQ Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "BBQ Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "BBQ Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio BBQ Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio BBQ Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio BBQ Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio BBQ Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf BBQ Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf BBQ Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf BBQ Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf BBQ Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light BBQ Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light BBQ Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light BBQ Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light BBQ Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Chilisauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Chilisauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Chilisauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Chilisauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Chilisauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Chilisauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Chilisauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Chilisauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Chilisauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Chilisauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Chilisauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Chilisauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Chilisauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Chilisauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Chilisauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Chilisauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sweet Chili Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sweet Chili Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sweet Chili Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sweet Chili Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sweet Chili Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sweet Chili Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sweet Chili Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sweet Chili Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sweet Chili Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sweet Chili Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sweet Chili Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sweet Chili Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sweet Chili Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sweet Chili Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sweet Chili Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sweet Chili Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Knoblauchsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Knoblauchsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Knoblauchsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Knoblauchsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Knoblauchsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Knoblauchsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Knoblauchsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Knoblauchsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Knoblauchsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Knoblauchsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Knoblauchsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Knoblauchsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Knoblauchsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Knoblauchsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Knoblauchsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Knoblauchsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Currysauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Currysauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Currysauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Currysauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Currysauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Currysauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Currysauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Currysauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Currysauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Currysauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Currysauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Currysauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Currysauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Currysauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Currysauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Currysauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Cocktailsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Cocktailsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Cocktailsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Cocktailsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Cocktailsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Cocktailsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Cocktailsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Cocktailsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Cocktailsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Cocktailsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Cocktailsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Cocktailsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Cocktailsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Cocktailsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Cocktailsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Cocktailsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Remoulade",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Remoulade Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Remoulade Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Remoulade XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Remoulade",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Remoulade Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Remoulade Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Remoulade XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Remoulade",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Remoulade Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Remoulade Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Remoulade XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Remoulade",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Remoulade Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Remoulade Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Remoulade XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Burger Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Burger Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Burger Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Burger Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Burger Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Burger Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Burger Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Burger Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Burger Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Burger Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Burger Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Burger Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Burger Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Burger Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Burger Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Burger Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teriyaki Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teriyaki Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teriyaki Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Teriyaki Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Teriyaki Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Teriyaki Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Teriyaki Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Teriyaki Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Teriyaki Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Teriyaki Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Teriyaki Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Teriyaki Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Teriyaki Sauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Teriyaki Sauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Teriyaki Sauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Teriyaki Sauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sojasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sojasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sojasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sojasauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fischsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fischsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fischsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Fischsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Fischsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Fischsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Fischsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Fischsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Fischsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Fischsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Fischsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Fischsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Fischsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Fischsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Fischsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Fischsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Austernsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Austernsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Austernsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Austernsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Austernsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Austernsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Austernsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Austernsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Austernsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Austernsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Austernsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Austernsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Austernsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Austernsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Austernsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Austernsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sriracha",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sriracha Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sriracha Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Sriracha XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sriracha",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sriracha Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sriracha Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Sriracha XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sriracha",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sriracha Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sriracha Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Sriracha XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sriracha",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sriracha Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sriracha Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Sriracha XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salsa",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salsa Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salsa Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salsa XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salsa",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salsa Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salsa Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salsa XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salsa",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salsa Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salsa Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salsa XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salsa",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salsa Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salsa Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salsa XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Rosso",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Rosso Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Rosso Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Rosso XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Rosso",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Rosso Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Rosso Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Rosso XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Rosso",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Rosso Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Rosso Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Rosso XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Rosso",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Rosso Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Rosso Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Rosso XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Verde",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Verde Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Verde Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Pesto Verde XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Verde",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Verde Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Verde Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Pesto Verde XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Verde",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Verde Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Verde Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Pesto Verde XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Verde",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Verde Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Verde Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Pesto Verde XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hollandaise",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hollandaise Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hollandaise Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Hollandaise XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Hollandaise",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Hollandaise Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Hollandaise Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Hollandaise XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Hollandaise",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Hollandaise Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Hollandaise Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Hollandaise XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Hollandaise",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Hollandaise Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Hollandaise Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Hollandaise XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bratensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bratensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bratensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bratensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bratensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bratensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bratensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Bratensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bratensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bratensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bratensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Bratensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bratensauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bratensauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bratensauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Bratensauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rahmsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rahmsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rahmsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Rahmsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Rahmsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Rahmsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Rahmsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Rahmsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Rahmsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Rahmsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Rahmsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Rahmsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Rahmsauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Rahmsauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Rahmsauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Rahmsauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Jägersauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Jägersauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Jägersauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Jägersauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Jägersauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Jägersauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Jägersauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Jägersauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Jägersauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Jägersauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Jägersauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Jägersauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Jägersauce",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Jägersauce Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Jägersauce Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Jägersauce XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tzatziki",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tzatziki Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tzatziki Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Tzatziki XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tzatziki",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tzatziki Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tzatziki Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Tzatziki XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tzatziki",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tzatziki Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tzatziki Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Tzatziki XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tzatziki",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tzatziki Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tzatziki Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Tzatziki XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Aioli",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Aioli Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Aioli Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Aioli XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Aioli",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Aioli Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Aioli Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Aioli XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Aioli",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Aioli Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Aioli Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Aioli XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Aioli",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Aioli Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Aioli Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Aioli XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salatdressing",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salatdressing Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salatdressing Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Salatdressing XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salatdressing",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salatdressing Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salatdressing Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Bio Salatdressing XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salatdressing",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salatdressing Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salatdressing Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Scharf Salatdressing XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salatdressing",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salatdressing Flasche",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salatdressing Glas",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  },
+  {
+    "name": "Light Salatdressing XXL",
+    "category": "Soßen",
+    "default_unit": "Flasche"
+  }
+]

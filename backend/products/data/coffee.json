@@ -1,1 +1,1502 @@
-﻿[]
+[
+  {
+    "name": "Kaffeebohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeebohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeebohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeebohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeebohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeebohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeebohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeebohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeebohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeebohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeebohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeebohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeebohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeebohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeebohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeebohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeebohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeebohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeebohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeebohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espressobohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espressobohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espressobohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espressobohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espressobohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espressobohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espressobohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espressobohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espressobohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espressobohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espressobohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espressobohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espressobohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espressobohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espressobohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espressobohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espressobohnen",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espressobohnen 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espressobohnen 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espressobohnen 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Filterkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Filterkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Filterkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Filterkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Filterkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Filterkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Filterkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Filterkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Filterkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Filterkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Filterkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Filterkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Filterkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Filterkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Filterkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Filterkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Filterkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Filterkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Filterkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Filterkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Instantkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Instantkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Instantkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Instantkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Instantkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Instantkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Instantkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Instantkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Instantkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Instantkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Instantkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Instantkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Instantkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Instantkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Instantkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Instantkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Instantkaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Instantkaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Instantkaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Instantkaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeepads",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeepads 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeepads 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeepads 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeepads",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeepads 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeepads 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeepads 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeepads",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeepads 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeepads 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeepads 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeepads",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeepads 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeepads 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeepads 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeepads",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeepads 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeepads 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeepads 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeekapseln",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeekapseln 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeekapseln 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kaffeekapseln 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeekapseln",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeekapseln 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeekapseln 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kaffeekapseln 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeekapseln",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeekapseln 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeekapseln 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Kaffeekapseln 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeekapseln",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeekapseln 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeekapseln 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Kaffeekapseln 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeekapseln",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeekapseln 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeekapseln 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Kaffeekapseln 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espresso",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espresso 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espresso 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Espresso 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espresso",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espresso 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espresso 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Espresso 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espresso",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espresso 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espresso 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Espresso 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espresso",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espresso 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espresso 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Espresso 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espresso",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espresso 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espresso 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Espresso 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Caffè Crema",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Caffè Crema 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Caffè Crema 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Caffè Crema 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Caffè Crema",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Caffè Crema 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Caffè Crema 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Caffè Crema 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Caffè Crema",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Caffè Crema 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Caffè Crema 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Caffè Crema 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Caffè Crema",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Caffè Crema 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Caffè Crema 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Caffè Crema 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Caffè Crema",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Caffè Crema 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Caffè Crema 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Caffè Crema 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arabica Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arabica Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arabica Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Arabica Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arabica Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arabica Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arabica Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Arabica Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arabica Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arabica Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arabica Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Arabica Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Arabica Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Arabica Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Arabica Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Arabica Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Arabica Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Arabica Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Arabica Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Arabica Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Robusta Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Robusta Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Robusta Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Robusta Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Robusta Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Robusta Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Robusta Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Robusta Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Robusta Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Robusta Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Robusta Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Robusta Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Robusta Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Robusta Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Robusta Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Robusta Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Robusta Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Robusta Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Robusta Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Robusta Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Entkoffeinierter Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Entkoffeinierter Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Entkoffeinierter Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Entkoffeinierter Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Entkoffeinierter Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Entkoffeinierter Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Entkoffeinierter Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Entkoffeinierter Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Entkoffeinierter Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Entkoffeinierter Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Entkoffeinierter Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Entkoffeinierter Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Entkoffeinierter Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Entkoffeinierter Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Entkoffeinierter Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Entkoffeinierter Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Entkoffeinierter Kaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Entkoffeinierter Kaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Entkoffeinierter Kaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Entkoffeinierter Kaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cold Brew",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cold Brew 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cold Brew 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cold Brew 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cold Brew",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cold Brew 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cold Brew 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cold Brew 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cold Brew",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cold Brew 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cold Brew 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cold Brew 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cold Brew",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cold Brew 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cold Brew 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cold Brew 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cold Brew",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cold Brew 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cold Brew 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cold Brew 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cappuccino Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cappuccino Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cappuccino Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cappuccino Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cappuccino Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cappuccino Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cappuccino Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cappuccino Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cappuccino Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cappuccino Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cappuccino Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cappuccino Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cappuccino Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cappuccino Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cappuccino Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Cappuccino Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cappuccino Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cappuccino Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cappuccino Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Cappuccino Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Latte Macchiato Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Latte Macchiato Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Latte Macchiato Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Latte Macchiato Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Latte Macchiato Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Latte Macchiato Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Latte Macchiato Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Latte Macchiato Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Latte Macchiato Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Latte Macchiato Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Latte Macchiato Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Latte Macchiato Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Latte Macchiato Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Latte Macchiato Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Latte Macchiato Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Latte Macchiato Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Latte Macchiato Pulver",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Latte Macchiato Pulver 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Latte Macchiato Pulver 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Latte Macchiato Pulver 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiskaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiskaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiskaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiskaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiskaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiskaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiskaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiskaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Eiskaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Eiskaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Eiskaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Eiskaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Eiskaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Eiskaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Eiskaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mild Eiskaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Eiskaffee",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Eiskaffee 250 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Eiskaffee 500 g",
+    "category": "Kaffee",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräftig Eiskaffee 1 kg",
+    "category": "Kaffee",
+    "default_unit": "g"
+  }
+]

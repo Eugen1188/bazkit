@@ -1,1 +1,1922 @@
-﻿[]
+[
+  {
+    "name": "Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghetti",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghetti 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghetti 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghetti Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghetti",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghetti 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghetti 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghetti Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghetti",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghetti 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghetti 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghetti Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghetti",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghetti 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghetti 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghetti Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghettini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghettini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghettini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Spaghettini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghettini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghettini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghettini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Spaghettini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghettini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghettini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghettini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Spaghettini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghettini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghettini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghettini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Spaghettini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Penne",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Penne 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Penne 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Penne Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Penne",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Penne 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Penne 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Penne Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Penne",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Penne 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Penne 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Penne Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Penne",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Penne 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Penne 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Penne Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fusilli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fusilli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fusilli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fusilli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fusilli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fusilli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fusilli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fusilli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Fusilli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Fusilli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Fusilli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Fusilli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Fusilli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Fusilli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Fusilli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Fusilli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Farfalle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Farfalle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Farfalle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Farfalle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Farfalle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Farfalle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Farfalle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Farfalle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Farfalle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Farfalle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Farfalle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Farfalle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Farfalle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Farfalle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Farfalle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Farfalle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rigatoni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rigatoni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rigatoni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rigatoni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rigatoni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rigatoni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rigatoni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Rigatoni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Rigatoni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Rigatoni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Rigatoni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Rigatoni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Rigatoni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Rigatoni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Rigatoni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Rigatoni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tagliatelle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tagliatelle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tagliatelle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tagliatelle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tagliatelle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tagliatelle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tagliatelle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tagliatelle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tagliatelle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tagliatelle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tagliatelle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tagliatelle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tagliatelle",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tagliatelle 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tagliatelle 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tagliatelle Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Linguine",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Linguine 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Linguine 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Linguine Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Linguine",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Linguine 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Linguine 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Linguine Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Linguine",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Linguine 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Linguine 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Linguine Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Linguine",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Linguine 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Linguine 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Linguine Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lasagneplatten",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lasagneplatten 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lasagneplatten 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Lasagneplatten Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lasagneplatten",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lasagneplatten 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lasagneplatten 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Lasagneplatten Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Lasagneplatten",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Lasagneplatten 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Lasagneplatten 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Lasagneplatten Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Lasagneplatten",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Lasagneplatten 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Lasagneplatten 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Lasagneplatten Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makkaroni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makkaroni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makkaroni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Makkaroni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makkaroni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makkaroni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makkaroni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Makkaroni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Makkaroni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Makkaroni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Makkaroni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Makkaroni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Makkaroni",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Makkaroni 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Makkaroni 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Makkaroni Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tortellini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tortellini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tortellini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tortellini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tortellini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tortellini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tortellini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tortellini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tortellini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tortellini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tortellini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Tortellini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tortellini",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tortellini 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tortellini 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Tortellini Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ravioli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ravioli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ravioli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ravioli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ravioli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ravioli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ravioli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ravioli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Ravioli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Ravioli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Ravioli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Ravioli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Ravioli",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Ravioli 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Ravioli 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Ravioli Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gnocchi",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gnocchi 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gnocchi 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gnocchi Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gnocchi",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gnocchi 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gnocchi 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gnocchi Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gnocchi",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gnocchi 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gnocchi 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gnocchi Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Gnocchi",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Gnocchi 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Gnocchi 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Gnocchi Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkornnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollkornnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Vollkornnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Vollkornnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Vollkornnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Vollkornnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Vollkornnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkelnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkelnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkelnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Dinkelnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Dinkelnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Dinkelnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Dinkelnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiernudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiernudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiernudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Eiernudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiernudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiernudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiernudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Eiernudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Eiernudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Eiernudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Eiernudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Eiernudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Eiernudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Eiernudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Eiernudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Eiernudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reisnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Reisnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Reisnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Reisnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Reisnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Reisnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Reisnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glasnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glasnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glasnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glasnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Glasnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Glasnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Glasnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Glasnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Glasnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Glasnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Glasnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Glasnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Glasnudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Glasnudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Glasnudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Glasnudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mie-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mie-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mie-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mie-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mie-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mie-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mie-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mie-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Mie-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Mie-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Mie-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Mie-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Mie-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Mie-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Mie-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Mie-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wok-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wok-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wok-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Wok-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wok-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wok-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wok-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Wok-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Wok-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Wok-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Wok-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Wok-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Wok-Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Wok-Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Wok-Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Wok-Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Udon Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Udon Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Udon Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Udon Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Udon Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Udon Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Udon Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Udon Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Udon Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Udon Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Udon Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Udon Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Udon Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Udon Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Udon Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Udon Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Soba Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Soba Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Soba Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Soba Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Soba Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Soba Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Soba Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Soba Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Soba Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Soba Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Soba Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Soba Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Soba Nudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Soba Nudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Soba Nudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Soba Nudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Suppennudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Suppennudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Suppennudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Suppennudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Suppennudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Suppennudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Suppennudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Suppennudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Suppennudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Suppennudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Suppennudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Suppennudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Suppennudeln",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Suppennudeln 500 g",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Suppennudeln 1 kg",
+    "category": "Nudeln",
+    "default_unit": "g"
+  },
+  {
+    "name": "Glutenfrei Suppennudeln Packung",
+    "category": "Nudeln",
+    "default_unit": "g"
+  }
+]

@@ -1,1 +1,2002 @@
-﻿[]
+[
+  {
+    "name": "Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Junger Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Junger Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Junger Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Junger Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Junger Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Junger Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Junger Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Junger Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Junger Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Junger Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Junger Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Junger Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Junger Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Junger Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Junger Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Junger Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mittelalter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mittelalter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mittelalter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mittelalter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mittelalter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mittelalter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mittelalter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mittelalter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mittelalter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mittelalter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mittelalter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mittelalter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mittelalter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mittelalter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mittelalter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mittelalter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Alter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Alter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Alter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Alter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Alter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Alter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Alter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Alter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Alter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Alter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Alter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Alter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Alter Gouda",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Alter Gouda Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Alter Gouda Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Alter Gouda Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Emmentaler",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Emmentaler Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Emmentaler Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Emmentaler Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Emmentaler",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Emmentaler Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Emmentaler Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Emmentaler Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Emmentaler",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Emmentaler Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Emmentaler Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Emmentaler Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Emmentaler",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Emmentaler Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Emmentaler Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Emmentaler Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Edamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Edamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Edamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Edamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Edamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Edamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Edamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Edamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Edamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Edamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Edamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Edamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Edamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Edamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Edamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Edamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Mozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Büffelmozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Büffelmozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Büffelmozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Büffelmozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Büffelmozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Büffelmozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Büffelmozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Büffelmozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Büffelmozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Büffelmozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Büffelmozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Büffelmozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Büffelmozzarella",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Büffelmozzarella Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Büffelmozzarella Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Büffelmozzarella Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parmesan",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parmesan Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parmesan Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Parmesan Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parmesan",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parmesan Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parmesan Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Parmesan Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Parmesan",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Parmesan Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Parmesan Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Parmesan Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parmesan",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parmesan Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parmesan Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Parmesan Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grana Padano",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grana Padano Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grana Padano Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grana Padano Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grana Padano",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grana Padano Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grana Padano Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grana Padano Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Grana Padano",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Grana Padano Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Grana Padano Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Grana Padano Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Grana Padano",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Grana Padano Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Grana Padano Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Grana Padano Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cheddar",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cheddar Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cheddar Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Cheddar Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cheddar",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cheddar Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cheddar Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Cheddar Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Cheddar",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Cheddar Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Cheddar Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Cheddar Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cheddar",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cheddar Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cheddar Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Cheddar Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feta",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feta Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feta Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Feta Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feta",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feta Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feta Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Feta Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Feta",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Feta Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Feta Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Feta Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Feta",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Feta Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Feta Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Feta Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirtenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirtenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirtenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirtenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirtenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirtenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirtenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirtenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hirtenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hirtenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hirtenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hirtenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hirtenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hirtenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hirtenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Hirtenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gorgonzola",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gorgonzola Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gorgonzola Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gorgonzola Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gorgonzola",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gorgonzola Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gorgonzola Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gorgonzola Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gorgonzola",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gorgonzola Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gorgonzola Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Gorgonzola Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gorgonzola",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gorgonzola Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gorgonzola Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Gorgonzola Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Camembert",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Camembert Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Camembert Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Camembert Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Camembert",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Camembert Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Camembert Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Camembert Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Camembert",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Camembert Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Camembert Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Camembert Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Camembert",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Camembert Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Camembert Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Camembert Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brie",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brie Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brie Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brie Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brie",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brie Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brie Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Brie Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Brie",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Brie Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Brie Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Brie Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Brie",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Brie Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Brie Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Brie Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bergkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bergkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bergkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bergkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bergkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bergkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bergkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bergkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Bergkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Bergkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Bergkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Bergkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Bergkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Bergkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Bergkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Bergkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Raclettekäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Raclettekäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Raclettekäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Raclettekäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Raclettekäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Raclettekäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Raclettekäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Raclettekäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Raclettekäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Raclettekäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Raclettekäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Raclettekäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Raclettekäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Raclettekäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Raclettekäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Raclettekäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Halloumi",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Halloumi Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Halloumi Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Halloumi Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Halloumi",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Halloumi Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Halloumi Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Halloumi Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Halloumi",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Halloumi Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Halloumi Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Halloumi Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Halloumi",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Halloumi Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Halloumi Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Halloumi Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Maasdamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Maasdamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Maasdamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Maasdamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Maasdamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Maasdamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Maasdamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Maasdamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Maasdamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Maasdamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Maasdamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Maasdamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Maasdamer",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Maasdamer Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Maasdamer Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Maasdamer Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tilsiter",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tilsiter Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tilsiter Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Tilsiter Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tilsiter",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tilsiter Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tilsiter Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Tilsiter Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Tilsiter",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Tilsiter Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Tilsiter Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Tilsiter Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tilsiter",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tilsiter Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tilsiter Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Tilsiter Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butterkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butterkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butterkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butterkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butterkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butterkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butterkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butterkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butterkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butterkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butterkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butterkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Butterkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Butterkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Butterkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Butterkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ziegenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ziegenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ziegenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ziegenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ziegenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ziegenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ziegenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ziegenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ziegenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ziegenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ziegenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ziegenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Ziegenkäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Ziegenkäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Ziegenkäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Ziegenkäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schafskäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schafskäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schafskäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schafskäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schafskäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schafskäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schafskäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schafskäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schafskäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schafskäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schafskäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schafskäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schafskäse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schafskäse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schafskäse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Schafskäse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Harzer Käse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Harzer Käse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Harzer Käse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Harzer Käse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Harzer Käse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Harzer Käse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Harzer Käse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Harzer Käse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Harzer Käse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Harzer Käse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Harzer Käse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Harzer Käse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Harzer Käse",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Harzer Käse Scheiben",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Harzer Käse Geraspelt",
+    "category": "Käse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Premium Harzer Käse Stück",
+    "category": "Käse",
+    "default_unit": "g"
+  }
+]

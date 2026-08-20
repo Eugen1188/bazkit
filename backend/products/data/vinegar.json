@@ -1,1 +1,802 @@
-﻿[]
+[
+  {
+    "name": "Apfelessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Apfelessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Apfelessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Apfelessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Apfelessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Apfelessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Apfelessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Apfelessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißer Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißer Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißer Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißer Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißer Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißer Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißer Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißer Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißer Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißer Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißer Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißer Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißer Balsamico",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißer Balsamico 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißer Balsamico 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißer Balsamico 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Weißweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Weißweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Weißweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Weißweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rotweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rotweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rotweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Rotweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rotweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rotweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rotweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Rotweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rotweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rotweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rotweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Rotweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Rotweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Rotweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Rotweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Rotweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kräuteressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kräuteressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kräuteressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kräuteressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kräuteressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kräuteressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kräuteressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Kräuteressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kräuteressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kräuteressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kräuteressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Kräuteressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Kräuteressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Kräuteressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Kräuteressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Kräuteressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Reisessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Reisessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Reisessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Reisessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Reisessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Reisessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Reisessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Reisessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Reisessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Reisessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Reisessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Reisessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Reisessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Reisessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Reisessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Reisessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Branntweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Branntweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Branntweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Branntweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Branntweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Branntweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Branntweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Branntweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Branntweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Branntweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Branntweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Branntweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Branntweinessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Branntweinessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Branntweinessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Branntweinessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Himbeeressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Himbeeressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Himbeeressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Himbeeressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Himbeeressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Himbeeressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Himbeeressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Himbeeressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Himbeeressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Himbeeressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Himbeeressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Himbeeressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Himbeeressig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Himbeeressig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Himbeeressig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Himbeeressig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sherryessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sherryessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sherryessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Sherryessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sherryessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sherryessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sherryessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Bio Sherryessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sherryessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sherryessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sherryessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Premium Sherryessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Sherryessig",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Sherryessig 250 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Sherryessig 500 ml",
+    "category": "Essig",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Naturtrüb Sherryessig 1 l",
+    "category": "Essig",
+    "default_unit": "Liter"
+  }
+]

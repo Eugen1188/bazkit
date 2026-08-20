@@ -1,1 +1,2402 @@
-﻿[]
+[
+  {
+    "name": "Babybrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Milchbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Milchbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Milchbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Milchbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Milchbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Milchbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Milchbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Milchbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Getreidebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Getreidebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Getreidebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Getreidebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Getreidebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Getreidebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Getreidebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Getreidebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Getreidebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Getreidebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Getreidebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Getreidebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Getreidebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Getreidebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Getreidebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Getreidebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Getreidebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Getreidebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Getreidebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Getreidebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Obstbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Obstbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Obstbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Obstbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Obstbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Obstbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Obstbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Obstbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Obstbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Obstbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Obstbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Obstbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Obstbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Obstbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Obstbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Obstbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Obstbrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Obstbrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Obstbrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Obstbrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Gemüsebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Gemüsebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Gemüsebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Gemüsebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Gemüsebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Gemüsebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Gemüsebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gemüsebrei",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gemüsebrei Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gemüsebrei Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Gemüsebrei Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babygläschen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babygläschen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babygläschen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babygläschen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babygläschen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babygläschen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babygläschen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babygläschen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babygläschen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babygläschen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babygläschen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babygläschen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babygläschen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babygläschen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babygläschen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babygläschen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babygläschen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babygläschen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babygläschen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babygläschen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babynahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babynahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babynahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babynahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babynahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babynahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babynahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babynahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babynahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babynahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babynahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babynahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babynahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babynahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babynahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babynahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babynahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babynahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babynahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babynahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babymilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babymilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babymilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babymilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babymilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babymilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babymilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babymilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babymilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babymilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babymilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babymilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babymilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babymilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babymilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babymilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babymilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babymilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babymilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babymilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pre Nahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pre Nahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pre Nahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pre Nahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pre Nahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pre Nahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pre Nahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pre Nahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pre Nahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pre Nahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pre Nahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pre Nahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pre Nahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pre Nahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pre Nahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pre Nahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pre Nahrung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pre Nahrung Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pre Nahrung Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pre Nahrung Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Folgemilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Folgemilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Folgemilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Folgemilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Folgemilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Folgemilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Folgemilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Folgemilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Folgemilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Folgemilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Folgemilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Folgemilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Folgemilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Folgemilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Folgemilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Folgemilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Folgemilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Folgemilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Folgemilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Folgemilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kindermilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kindermilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kindermilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Kindermilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kindermilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kindermilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kindermilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Kindermilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kindermilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kindermilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kindermilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Kindermilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kindermilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kindermilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kindermilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Kindermilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kindermilch",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kindermilch Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kindermilch Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Kindermilch Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Windeln",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Windeln Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Windeln Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Windeln Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Windeln",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Windeln Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Windeln Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Windeln Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Windeln",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Windeln Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Windeln Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Windeln Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Windeln",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Windeln Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Windeln Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Windeln Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Windeln",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Windeln Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Windeln Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Windeln Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pants",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pants Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pants Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pants Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pants",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pants Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pants Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pants Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pants",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pants Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pants Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Pants Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pants",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pants Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pants Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pants Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pants",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pants Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pants Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Pants Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuchttücher",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuchttücher Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuchttücher Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Feuchttücher Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Feuchttücher",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Feuchttücher Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Feuchttücher Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Feuchttücher Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Feuchttücher",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Feuchttücher Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Feuchttücher Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Feuchttücher Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuchttücher",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuchttücher Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuchttücher Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Feuchttücher Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuchttücher",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuchttücher Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuchttücher Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Feuchttücher Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyshampoo",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyshampoo Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyshampoo Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyshampoo Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyshampoo",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyshampoo Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyshampoo Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyshampoo Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyshampoo",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyshampoo Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyshampoo Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyshampoo Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyshampoo",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyshampoo Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyshampoo Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyshampoo Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyshampoo",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyshampoo Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyshampoo Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyshampoo Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybad",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybad Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybad Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babybad Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybad",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybad Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybad Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babybad Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybad",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybad Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybad Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babybad Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybad",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybad Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybad Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babybad Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybad",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybad Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybad Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babybad Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyöl",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyöl Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyöl Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyöl Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyöl",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyöl Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyöl Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyöl Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyöl",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyöl Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyöl Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyöl Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyöl",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyöl Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyöl Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyöl Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyöl",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyöl Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyöl Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyöl Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babycreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babycreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babycreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babycreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babycreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babycreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babycreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babycreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babycreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babycreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babycreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babycreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babycreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babycreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babycreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babycreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babycreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babycreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babycreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babycreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wundschutzcreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wundschutzcreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wundschutzcreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wundschutzcreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wundschutzcreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wundschutzcreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wundschutzcreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wundschutzcreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wundschutzcreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wundschutzcreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wundschutzcreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Wundschutzcreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wundschutzcreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wundschutzcreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wundschutzcreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wundschutzcreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wundschutzcreme",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wundschutzcreme Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wundschutzcreme Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Wundschutzcreme Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnuller",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnuller Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnuller Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schnuller Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnuller",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnuller Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnuller Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schnuller Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Schnuller",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Schnuller Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Schnuller Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Schnuller Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnuller",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnuller Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnuller Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schnuller Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schnuller",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schnuller Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schnuller Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Schnuller Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyflasche",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyflasche Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyflasche Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Babyflasche Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyflasche",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyflasche Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyflasche Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Babyflasche Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyflasche",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyflasche Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyflasche Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Babyflasche Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyflasche",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyflasche Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyflasche Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Babyflasche Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyflasche",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyflasche Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyflasche Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Babyflasche Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinksauger",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinksauger Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinksauger Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Trinksauger Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Trinksauger",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Trinksauger Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Trinksauger Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Trinksauger Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Trinksauger",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Trinksauger Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Trinksauger Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Trinksauger Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinksauger",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinksauger Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinksauger Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Trinksauger Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinksauger",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinksauger Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinksauger Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Trinksauger Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lätzchen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lätzchen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lätzchen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Lätzchen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lätzchen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lätzchen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lätzchen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Lätzchen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Lätzchen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Lätzchen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Lätzchen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Lätzchen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lätzchen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lätzchen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lätzchen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Lätzchen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Lätzchen",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Lätzchen Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Lätzchen Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Lätzchen Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Baby Snacks",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Baby Snacks Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Baby Snacks Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Baby Snacks Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Baby Snacks",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Baby Snacks Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Baby Snacks Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Baby Snacks Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Baby Snacks",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Baby Snacks Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Baby Snacks Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Sensitive Baby Snacks Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Baby Snacks",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Baby Snacks Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Baby Snacks Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Baby Snacks Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Baby Snacks",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Baby Snacks Packung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Baby Snacks Vorratspackung",
+    "category": "Baby",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Extra Baby Snacks Mehrpack",
+    "category": "Baby",
+    "default_unit": "Packung"
+  }
+]

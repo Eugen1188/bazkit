@@ -1,1 +1,1602 @@
-﻿[]
+[
+  {
+    "name": "Pudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Pudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Pudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Pudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Pudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillepudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillepudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillepudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillepudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillepudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillepudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillepudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillepudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillepudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillepudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillepudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillepudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillepudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillepudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillepudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillepudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokopudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokopudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokopudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokopudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokopudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokopudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokopudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokopudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokopudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokopudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokopudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokopudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokopudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokopudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokopudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokopudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Karamellpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Karamellpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Karamellpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Karamellpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Karamellpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Karamellpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Karamellpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Karamellpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Karamellpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Karamellpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiramisu",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiramisu Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiramisu 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Tiramisu 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiramisu",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiramisu Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiramisu 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Tiramisu 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tiramisu",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tiramisu Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tiramisu 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Tiramisu 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiramisu",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiramisu Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiramisu 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Tiramisu 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchreis",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchreis Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchreis 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Milchreis 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchreis",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchreis Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchreis 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Milchreis 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Milchreis",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Milchreis Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Milchreis 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Milchreis 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchreis",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchreis Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchreis 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Milchreis 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grießpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grießpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grießpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Grießpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grießpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grießpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grießpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Grießpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Grießpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Grießpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Grießpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Grießpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grießpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grießpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grießpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Grießpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mousse au Chocolat",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mousse au Chocolat Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mousse au Chocolat 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Mousse au Chocolat 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mousse au Chocolat",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mousse au Chocolat Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mousse au Chocolat 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Mousse au Chocolat 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mousse au Chocolat",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mousse au Chocolat Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mousse au Chocolat 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Mousse au Chocolat 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mousse au Chocolat",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mousse au Chocolat Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mousse au Chocolat 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Mousse au Chocolat 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Panna Cotta",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Panna Cotta Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Panna Cotta 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Panna Cotta 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Panna Cotta",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Panna Cotta Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Panna Cotta 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Panna Cotta 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Panna Cotta",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Panna Cotta Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Panna Cotta 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Panna Cotta 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Panna Cotta",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Panna Cotta Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Panna Cotta 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Panna Cotta 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rote Grütze",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rote Grütze Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rote Grütze 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Rote Grütze 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rote Grütze",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rote Grütze Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rote Grütze 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Rote Grütze 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Rote Grütze",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Rote Grütze Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Rote Grütze 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Rote Grütze 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rote Grütze",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rote Grütze Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rote Grütze 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Rote Grütze 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillesauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillesauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillesauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanillesauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillesauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillesauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillesauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanillesauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillesauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillesauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillesauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanillesauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillesauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillesauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillesauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanillesauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokosauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokosauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokosauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokosauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokosauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokosauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokosauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokosauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokosauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokosauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokosauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokosauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokosauce",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokosauce Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokosauce 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokosauce 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtquark",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtquark Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtquark 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Fruchtquark 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtquark",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtquark Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtquark 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Fruchtquark 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtquark",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtquark Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtquark 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Fruchtquark 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtquark",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtquark Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtquark 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Fruchtquark 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dessertcreme",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dessertcreme Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dessertcreme 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Dessertcreme 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Dessertcreme",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Dessertcreme Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Dessertcreme 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Dessertcreme 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Dessertcreme",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Dessertcreme Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Dessertcreme 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Dessertcreme 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dessertcreme",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dessertcreme Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dessertcreme 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Dessertcreme 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wackelpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wackelpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wackelpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Wackelpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wackelpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wackelpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wackelpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Wackelpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Wackelpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Wackelpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Wackelpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Wackelpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wackelpudding",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wackelpudding Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wackelpudding 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Wackelpudding 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cheesecake Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cheesecake Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cheesecake Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Cheesecake Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cheesecake Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cheesecake Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cheesecake Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Cheesecake Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cheesecake Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cheesecake Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cheesecake Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Cheesecake Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Cheesecake Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Cheesecake Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Cheesecake Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Cheesecake Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Profiteroles",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Profiteroles Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Profiteroles 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Profiteroles 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Profiteroles",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Profiteroles Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Profiteroles 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Profiteroles 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Profiteroles",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Profiteroles Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Profiteroles 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Profiteroles 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Profiteroles",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Profiteroles Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Profiteroles 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Profiteroles 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Schokodessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokodessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokodessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokodessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Schokodessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokodessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokodessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokodessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Schokodessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Schokodessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilledessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilledessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilledessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Vanilledessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilledessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilledessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilledessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Vanilledessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanilledessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanilledessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanilledessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Vanilledessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilledessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilledessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilledessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Vanilledessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Joghurt Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Joghurt Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Joghurt Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Joghurt Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Joghurt Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Joghurt Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Joghurt Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Bio Joghurt Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Joghurt Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Joghurt Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Joghurt Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Light Joghurt Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Joghurt Dessert",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Joghurt Dessert Becher",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Joghurt Dessert 2er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Premium Joghurt Dessert 4er Pack",
+    "category": "Desserts",
+    "default_unit": "Packung"
+  }
+]

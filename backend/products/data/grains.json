@@ -1,1 +1,1202 @@
-﻿[]
+[
+  {
+    "name": "Quinoa",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quinoa 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quinoa 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quinoa Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quinoa",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quinoa 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quinoa 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quinoa Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Quinoa",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Quinoa 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Quinoa 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Quinoa Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Quinoa",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Quinoa 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Quinoa 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Quinoa Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Couscous",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Couscous 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Couscous 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Couscous Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Couscous",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Couscous 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Couscous 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Couscous Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Couscous",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Couscous 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Couscous 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Couscous Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Couscous",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Couscous 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Couscous 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Couscous Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bulgur",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bulgur 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bulgur 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bulgur Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bulgur",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bulgur 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bulgur 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Bulgur Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Bulgur",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Bulgur 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Bulgur 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Bulgur Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Bulgur",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Bulgur 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Bulgur 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Bulgur Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirse",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirse 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirse 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hirse Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirse",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirse 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirse 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hirse Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hirse",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hirse 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hirse 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hirse Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hirse",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hirse 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hirse 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hirse Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gerste",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gerste 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gerste 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gerste Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gerste",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gerste 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gerste 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Gerste Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gerste",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gerste 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gerste 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Gerste Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Gerste",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Gerste 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Gerste 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Gerste Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkel",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkel 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkel 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Dinkel Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkel",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkel 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkel 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Dinkel Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkel",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkel 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkel 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Dinkel Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Dinkel",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Dinkel 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Dinkel 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Dinkel Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roggen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roggen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roggen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Roggen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roggen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roggen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roggen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Roggen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Roggen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Roggen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Roggen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Roggen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Roggen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Roggen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Roggen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Roggen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hafer",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hafer 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hafer 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hafer Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hafer",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hafer 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hafer 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hafer Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hafer",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hafer 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hafer 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hafer Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hafer",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hafer 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hafer 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hafer Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buchweizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buchweizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buchweizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buchweizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buchweizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buchweizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buchweizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buchweizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Buchweizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Buchweizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Buchweizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Buchweizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Buchweizen",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Buchweizen 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Buchweizen 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Buchweizen Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Amaranth",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Amaranth 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Amaranth 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Amaranth Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Amaranth",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Amaranth 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Amaranth 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Amaranth Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Amaranth",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Amaranth 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Amaranth 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Amaranth Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Amaranth",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Amaranth 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Amaranth 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Amaranth Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Polenta",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Polenta 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Polenta 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Polenta Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Polenta",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Polenta 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Polenta 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Polenta Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Polenta",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Polenta 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Polenta 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Polenta Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Polenta",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Polenta 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Polenta 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Polenta Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Grieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Grieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Grieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Grieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Grieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Grieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Grieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Grieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Grieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Grieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hartweizengrieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hartweizengrieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hartweizengrieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hartweizengrieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hartweizengrieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hartweizengrieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hartweizengrieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hartweizengrieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hartweizengrieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hartweizengrieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hartweizengrieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Hartweizengrieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hartweizengrieß",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hartweizengrieß 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hartweizengrieß 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Hartweizengrieß Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizenkleie",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizenkleie 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizenkleie 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Weizenkleie Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizenkleie",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizenkleie 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizenkleie 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Weizenkleie Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizenkleie",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizenkleie 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizenkleie 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollkorn Weizenkleie Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizenkleie",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizenkleie 500 g",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizenkleie 1 kg",
+    "category": "Getreide",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fein Weizenkleie Packung",
+    "category": "Getreide",
+    "default_unit": "g"
+  }
+]

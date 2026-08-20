@@ -1,1 +1,2402 @@
-﻿[]
+[
+  {
+    "name": "Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vollmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vollmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vollmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vollmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vollmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vollmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vollmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vollmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vollmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vollmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischmilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischmilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischmilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischmilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "H-Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "H-Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "H-Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "H-Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio H-Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio H-Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio H-Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio H-Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light H-Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light H-Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light H-Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light H-Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei H-Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei H-Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei H-Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei H-Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fettarme Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fettarme Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fettarme Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Fettarme Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fettarme Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fettarme Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fettarme Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Fettarme Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Fettarme Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Fettarme Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Fettarme Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Fettarme Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Fettarme Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Fettarme Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Fettarme Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Fettarme Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefreie Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefreie Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefreie Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefreie Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Laktosefreie Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Laktosefreie Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Laktosefreie Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Laktosefreie Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Laktosefreie Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Laktosefreie Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Laktosefreie Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Laktosefreie Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Laktosefreie Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Laktosefreie Milch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Laktosefreie Milch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Laktosefreie Milch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buttermilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buttermilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buttermilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Buttermilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buttermilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buttermilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buttermilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Buttermilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Buttermilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Buttermilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Buttermilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Buttermilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Buttermilch",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Buttermilch Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Buttermilch 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Buttermilch 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kefir",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kefir Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kefir 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kefir 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kefir",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kefir Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kefir 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kefir 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kefir",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kefir Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kefir 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kefir 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kefir",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kefir Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kefir 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kefir 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Naturjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Naturjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Naturjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Naturjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Naturjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Naturjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Naturjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Naturjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Naturjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Naturjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Griechischer Joghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Griechischer Joghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Griechischer Joghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Griechischer Joghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Griechischer Joghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Griechischer Joghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Griechischer Joghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Griechischer Joghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Griechischer Joghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Griechischer Joghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Griechischer Joghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Griechischer Joghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Griechischer Joghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Griechischer Joghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Griechischer Joghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Griechischer Joghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanillejoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanillejoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanillejoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Vanillejoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanillejoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanillejoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanillejoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Vanillejoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vanillejoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vanillejoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vanillejoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Vanillejoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vanillejoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vanillejoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vanillejoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Vanillejoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Erdbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Erdbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Erdbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Erdbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Erdbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Erdbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Erdbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Erdbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Erdbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Erdbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kirschjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kirschjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kirschjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kirschjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kirschjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kirschjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kirschjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kirschjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kirschjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kirschjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kirschjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kirschjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kirschjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kirschjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kirschjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kirschjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heidelbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heidelbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heidelbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Heidelbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heidelbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heidelbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heidelbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Heidelbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Heidelbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Heidelbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Heidelbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Heidelbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Heidelbeerjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Heidelbeerjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Heidelbeerjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Heidelbeerjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Skyr",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Skyr Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Skyr 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Skyr 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Skyr",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Skyr Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Skyr 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Skyr 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Skyr",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Skyr Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Skyr 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Skyr 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Skyr",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Skyr Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Skyr 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Skyr 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Quark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Quark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Quark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Quark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Quark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Quark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Quark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Quark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Quark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Quark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Magerquark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Magerquark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Magerquark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Magerquark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Magerquark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Magerquark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Magerquark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Magerquark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Magerquark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Magerquark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Magerquark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Magerquark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Magerquark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Magerquark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Magerquark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Magerquark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Speisequark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Speisequark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Speisequark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Speisequark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Speisequark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Speisequark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Speisequark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Speisequark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Speisequark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Speisequark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Speisequark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Speisequark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Speisequark",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Speisequark Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Speisequark 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Speisequark 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schlagsahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schlagsahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schlagsahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schlagsahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schlagsahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schlagsahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schlagsahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schlagsahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schlagsahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schlagsahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schlagsahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schlagsahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schlagsahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schlagsahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schlagsahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schlagsahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Saure Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Saure Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Saure Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Saure Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Saure Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Saure Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Saure Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Saure Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Saure Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Saure Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Saure Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Saure Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Saure Sahne",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Saure Sahne Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Saure Sahne 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Saure Sahne 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schmand",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schmand Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schmand 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Schmand 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schmand",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schmand Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schmand 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Schmand 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schmand",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schmand Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schmand 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Schmand 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schmand",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schmand Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schmand 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Schmand 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Crème fraîche",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Crème fraîche Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Crème fraîche 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Crème fraîche 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Crème fraîche",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Crème fraîche Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Crème fraîche 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Crème fraîche 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Crème fraîche",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Crème fraîche Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Crème fraîche 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Crème fraîche 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Crème fraîche",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Crème fraîche Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Crème fraîche 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Crème fraîche 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Butter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Butter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Butter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Butter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Butter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Butter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Butter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterbutter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterbutter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterbutter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kräuterbutter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterbutter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterbutter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterbutter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Kräuterbutter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kräuterbutter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kräuterbutter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kräuterbutter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Kräuterbutter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kräuterbutter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kräuterbutter Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kräuterbutter 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Kräuterbutter 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Frischkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Frischkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Frischkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Frischkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hüttenkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hüttenkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hüttenkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Hüttenkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hüttenkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hüttenkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hüttenkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Hüttenkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hüttenkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hüttenkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hüttenkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Hüttenkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Hüttenkäse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Hüttenkäse Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Hüttenkäse 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Hüttenkäse 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mascarpone",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mascarpone Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mascarpone 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Mascarpone 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mascarpone",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mascarpone Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mascarpone 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Mascarpone 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mascarpone",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mascarpone Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mascarpone 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Mascarpone 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Mascarpone",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Mascarpone Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Mascarpone 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Mascarpone 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ricotta",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ricotta Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ricotta 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Ricotta 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ricotta",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ricotta Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ricotta 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Ricotta 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ricotta",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ricotta Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ricotta 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Ricotta 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Ricotta",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Ricotta Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Ricotta 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Ricotta 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Trinkjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Trinkjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Trinkjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Trinkjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Trinkjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Trinkjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Trinkjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Bio Trinkjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Trinkjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Trinkjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Trinkjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Light Trinkjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Trinkjoghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Trinkjoghurt Natur",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Trinkjoghurt 1,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Laktosefrei Trinkjoghurt 3,5 %",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  }
+]
