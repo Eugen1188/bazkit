@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Milch",
+    "category": "Molkereiprodukte",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Butter",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Joghurt",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Käse",
+    "category": "Molkereiprodukte",
+    "default_unit": "g"
+  },
+  {
+    "name": "Brot",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Brötchen",
+    "category": "Backwaren",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Toast",
+    "category": "Backwaren",
+    "default_unit": "Packung"
+  },
+  {
+    "name": "Nudeln",
+    "category": "Grundnahrungsmittel",
+    "default_unit": "g"
+  },
+  {
+    "name": "Reis",
+    "category": "Grundnahrungsmittel",
+    "default_unit": "g"
+  },
+  {
+    "name": "Kartoffeln",
+    "category": "Gemüse",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Tomaten",
+    "category": "Gemüse",
+    "default_unit": "g"
+  },
+  {
+    "name": "Gurke",
+    "category": "Gemüse",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Paprika",
+    "category": "Gemüse",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Zwiebeln",
+    "category": "Gemüse",
+    "default_unit": "kg"
+  },
+  {
+    "name": "Bananen",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Äpfel",
+    "category": "Obst",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Eier",
+    "category": "Eier",
+    "default_unit": "Stück"
+  },
+  {
+    "name": "Hähnchenbrust",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Rinderhackfleisch",
+    "category": "Fleisch",
+    "default_unit": "g"
+  },
+  {
+    "name": "Nutella",
+    "category": "Brotaufstriche",
+    "default_unit": "Glas"
+  },
+  {
+    "name": "Mineralwasser",
+    "category": "Getränke",
+    "default_unit": "Liter"
+  },
+  {
+    "name": "Kaffee",
+    "category": "Getränke",
+    "default_unit": "g"
+  }
+]
