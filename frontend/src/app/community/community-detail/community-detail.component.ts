@@ -64,8 +64,10 @@ implements OnInit {
   isLoading =
     true;
 
+
   isSubmittingComment =
     false;
+
 
   isCopying =
     false;
@@ -73,6 +75,7 @@ implements OnInit {
 
   message =
     '';
+
 
   errorMessage =
     '';
@@ -141,6 +144,9 @@ implements OnInit {
 
     this.isLoading =
       true;
+
+    this.errorMessage =
+      '';
 
 
     this.communityService
@@ -253,6 +259,16 @@ implements OnInit {
 
             this.post.like_count =
               response.like_count;
+          },
+
+
+        error:
+          error => {
+
+            console.error(
+              'Like konnte nicht gespeichert werden:',
+              error
+            );
           }
 
       });
@@ -301,6 +317,16 @@ implements OnInit {
 
             this.post.rating_count =
               response.rating_count;
+          },
+
+
+        error:
+          error => {
+
+            console.error(
+              'Bewertung konnte nicht gespeichert werden:',
+              error
+            );
           }
 
       });

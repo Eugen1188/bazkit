@@ -1,29 +1,21 @@
 :host {
-  display:
-    block;
+  display: block;
 
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
-
-  min-height:
-    0;
+  min-height: 0;
 }
 
 
 .detail-container {
-  width:
-    100%;
-
-  height:
-    100%;
+  width: 100%;
+  height: 100%;
 
   padding:
-    31px
+    32px
     48px
-    50px;
+    52px;
 
   box-sizing:
     border-box;
@@ -40,18 +32,18 @@
 
 
 /* =====================================
-BACK BUTTON
+BACK
 ===================================== */
 
 .community-back-button {
   height:
-    38px;
+    39px;
 
   margin-bottom:
-    21px;
+    22px;
 
   padding:
-    0 12px
+    0 13px
     0 8px;
 
   border:
@@ -89,10 +81,8 @@ BACK BUTTON
     pointer;
 
   transition:
-    background
-    0.15s ease,
-    border-color
-    0.15s ease;
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 
@@ -107,10 +97,10 @@ BACK BUTTON
 
 .back-icon {
   width:
-    22px;
+    23px;
 
   height:
-    22px;
+    23px;
 
   border-radius:
     6px;
@@ -151,7 +141,7 @@ BACK BUTTON
 
 
 /* =====================================
-CARD
+DETAIL CARD
 ===================================== */
 
 .post-detail-card {
@@ -172,7 +162,7 @@ CARD
     var(--color-surface);
 
   box-shadow:
-    0 7px 25px
+    0 7px 26px
     rgba(
       0,
       0,
@@ -187,11 +177,17 @@ HERO
 ===================================== */
 
 .hero {
-  position:
-    relative;
-
   height:
-    260px;
+    235px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   overflow:
     hidden;
@@ -202,8 +198,8 @@ HERO
   background:
     linear-gradient(
       135deg,
-      #f1e2d1,
-      #ddc3a5
+      #efe4d6,
+      #dfccb5
     );
 }
 
@@ -212,8 +208,8 @@ HERO
   background:
     linear-gradient(
       135deg,
-      #e7eee2,
-      #bed0b6
+      #e6ede2,
+      #c8d7c1
     );
 }
 
@@ -222,76 +218,71 @@ HERO
   background:
     linear-gradient(
       135deg,
-      #e2ede6,
-      #bbd0c3
+      #e4eee8,
+      #c5d8cc
     );
 }
 
 
-.hero svg {
+.hero-symbol {
   width:
-    100%;
+    132px;
 
   height:
-    100%;
-}
+    132px;
 
+  border-radius:
+    30px;
 
-/* RECIPE */
+  display:
+    flex;
 
-.detail-plate-shadow {
-  fill:
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  background:
     rgba(
-      31,
-      42,
-      55,
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  color:
+    var(--color-primary);
+
+  box-shadow:
+    0 12px 40px
+    rgba(
+      43,
+      65,
+      53,
       0.08
     );
+
+  backdrop-filter:
+    blur(8px);
 }
 
 
-.detail-plate {
-  fill:
-    #fff;
-}
+.hero-symbol svg {
+  width:
+    88px;
 
+  height:
+    88px;
 
-.detail-plate-inner {
-  fill:
-    #f1ebe4;
-}
-
-
-.detail-pasta {
   fill:
     none;
 
   stroke:
-    #d69a3e;
+    currentColor;
 
   stroke-width:
-    13;
-
-  stroke-linecap:
-    round;
-}
-
-
-.detail-tomato {
-  fill:
-    #d65d48;
-}
-
-
-.detail-leaf {
-  fill:
-    none;
-
-  stroke:
-    #648768;
-
-  stroke-width:
-    10;
+    2.4;
 
   stroke-linecap:
     round;
@@ -301,85 +292,9 @@ HERO
 }
 
 
-/* LIST */
-
-.detail-bag {
-  fill:
-    #bf9161;
-}
-
-
-.detail-bag-handle {
+.hero-symbol circle {
   fill:
     none;
-
-  stroke:
-    #957048;
-
-  stroke-width:
-    12;
-
-  stroke-linecap:
-    round;
-}
-
-
-.detail-orange {
-  fill:
-    #e39b45;
-}
-
-
-.detail-apple {
-  fill:
-    #bd524a;
-}
-
-
-.detail-vegetable {
-  fill:
-    none;
-
-  stroke:
-    #6f916c;
-
-  stroke-width:
-    20;
-
-  stroke-linecap:
-    round;
-}
-
-
-.detail-baguette {
-  fill:
-    #d6a158;
-}
-
-
-/* THREAD */
-
-.detail-message-main {
-  fill:
-    #fff;
-
-  stroke:
-    #789b86;
-
-  stroke-width:
-    5;
-}
-
-
-.detail-message-secondary {
-  fill:
-    #6f907c;
-}
-
-
-.detail-message-dot {
-  fill:
-    #6f907c;
 }
 
 
@@ -389,7 +304,13 @@ CONTENT
 
 .detail-content {
   padding:
-    29px;
+    30px;
+}
+
+
+.post-heading {
+  margin-bottom:
+    26px;
 }
 
 
@@ -404,7 +325,7 @@ CONTENT
     700;
 
   letter-spacing:
-    0.06em;
+    0.07em;
 
   text-transform:
     uppercase;
@@ -413,10 +334,10 @@ CONTENT
 
 .detail-content h1 {
   margin:
-    7px 0 15px;
+    7px 0 16px;
 
   font-size:
-    30px;
+    31px;
 
   line-height:
     1.2;
@@ -435,19 +356,16 @@ CONTENT
 
   gap:
     10px;
-
-  margin-bottom:
-    28px;
 }
 
 
 .avatar,
 .comment-avatar {
   width:
-    35px;
+    36px;
 
   height:
-    35px;
+    36px;
 
   border-radius:
     50%;
@@ -478,7 +396,7 @@ CONTENT
 }
 
 
-.author-information strong {
+.author-info strong {
   display:
     block;
 
@@ -490,7 +408,7 @@ CONTENT
 }
 
 
-.author-information span {
+.author-info span {
   display:
     block;
 
@@ -519,6 +437,9 @@ CONTENT
 
 
 .recipe-description {
+  margin:
+    0 0 22px;
+
   color:
     var(--color-text-secondary);
 
@@ -526,13 +447,13 @@ CONTENT
     13px;
 
   line-height:
-    1.6;
+    1.65;
 }
 
 
 .content-section {
   margin-top:
-    25px;
+    24px;
 }
 
 
@@ -560,13 +481,13 @@ RECIPE META
     9px;
 
   margin-bottom:
-    19px;
+    20px;
 }
 
 
 .recipe-meta span {
   min-height:
-    34px;
+    35px;
 
   padding:
     0 11px;
@@ -581,7 +502,7 @@ RECIPE META
     center;
 
   gap:
-    6px;
+    7px;
 
   background:
     var(--color-primary-soft-bg);
@@ -622,7 +543,7 @@ RECIPE META
 
 
 /* =====================================
-INGREDIENTS / LIST
+INGREDIENTS
 ===================================== */
 
 .ingredients,
@@ -642,10 +563,10 @@ INGREDIENTS / LIST
 .ingredients > div,
 .list-items > div {
   min-height:
-    49px;
+    50px;
 
   padding:
-    0 14px;
+    0 15px;
 
   display:
     flex;
@@ -678,12 +599,12 @@ INGREDIENTS / LIST
 }
 
 
-.item-check {
+.list-check {
   width:
-    22px;
+    23px;
 
   height:
-    22px;
+    23px;
 
   border-radius:
     6px;
@@ -708,7 +629,7 @@ INGREDIENTS / LIST
 }
 
 
-.item-check svg {
+.list-check svg {
   width:
     13px;
 
@@ -732,7 +653,7 @@ INGREDIENTS / LIST
 }
 
 
-.item-name {
+.list-item-name {
   flex:
     1;
 }
@@ -744,10 +665,10 @@ INTERACTIONS
 
 .interaction-area {
   margin-top:
-    32px;
+    34px;
 
   padding-top:
-    22px;
+    23px;
 
   border-top:
     1px solid
@@ -763,7 +684,7 @@ INTERACTIONS
     space-between;
 
   gap:
-    25px;
+    26px;
 }
 
 
@@ -775,15 +696,17 @@ INTERACTIONS
     flex-end;
 
   gap:
-    22px;
+    25px;
 }
 
 
-/* LIKE */
+/* =====================================
+LIKE
+===================================== */
 
 .detail-like-button {
   min-height:
-    42px;
+    43px;
 
   padding:
     0 13px;
@@ -818,6 +741,11 @@ INTERACTIONS
 
   cursor:
     pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
 }
 
 
@@ -842,30 +770,27 @@ INTERACTIONS
 }
 
 
-.detail-like-button strong {
-  margin-left:
-    2px;
-}
-
-
 .detail-like-button:hover {
   border-color:
-    #e2b6b3;
+    #e3b8b5;
 
   background:
     #fff7f6;
+
+  color:
+    #ba5d58;
 }
 
 
 .detail-like-button.active {
   border-color:
-    #e5b4b1;
+    #e4b3b0;
 
   background:
-    #fff2f1;
+    #fff1f0;
 
   color:
-    #c4524f;
+    #c5524d;
 
   font-weight:
     600;
@@ -884,16 +809,13 @@ RATING
 
 .rating-block {
   min-width:
-    235px;
+    270px;
 }
 
 
-.rating-title-row {
-  min-height:
-    18px;
-
+.rating-header {
   margin-bottom:
-    5px;
+    6px;
 
   display:
     flex;
@@ -905,11 +827,11 @@ RATING
     space-between;
 
   gap:
-    12px;
+    15px;
 }
 
 
-.rating-title {
+.rating-header > span {
   color:
     var(--color-text-secondary);
 
@@ -919,20 +841,20 @@ RATING
   font-weight:
     700;
 
-  text-transform:
-    uppercase;
-
   letter-spacing:
     0.04em;
+
+  text-transform:
+    uppercase;
 }
 
 
-.rating-average {
+.rating-header small {
   color:
     var(--color-text-muted);
 
   font-size:
-    10px;
+    9px;
 }
 
 
@@ -944,25 +866,24 @@ RATING
     center;
 
   gap:
-    2px;
+    3px;
 }
 
 
 .star-button {
   width:
-    31px;
+    33px;
 
   height:
-    31px;
+    33px;
 
-  padding:
-    4px;
+  padding: 4px;
 
   border:
     none;
 
   border-radius:
-    6px;
+    7px;
 
   display:
     flex;
@@ -977,27 +898,24 @@ RATING
     transparent;
 
   color:
-    #c7c7c7;
+    #bbbdbb;
 
   cursor:
     pointer;
 
   transition:
-    background
-    0.12s ease,
-    color
-    0.12s ease,
-    transform
-    0.12s ease;
+    background 0.13s ease,
+    color 0.13s ease,
+    transform 0.13s ease;
 }
 
 
 .star-button:hover {
   background:
-    #fff7e7;
+    #fff8e9;
 
   color:
-    #c6932d;
+    #c49232;
 
   transform:
     translateY(-1px);
@@ -1006,10 +924,10 @@ RATING
 
 .star-button svg {
   width:
-    21px;
+    22px;
 
   height:
-    21px;
+    22px;
 
   fill:
     transparent;
@@ -1026,11 +944,11 @@ RATING
 
 
 .star-button.active {
-  color:
-    #c6932d;
-
   background:
-    #fff8e8;
+    #fff8e9;
+
+  color:
+    #c49232;
 }
 
 
@@ -1042,10 +960,10 @@ RATING
 
 .rating-feedback {
   min-height:
-    19px;
+    20px;
 
   margin-top:
-    5px;
+    6px;
 
   display:
     flex;
@@ -1061,6 +979,12 @@ RATING
 
   font-size:
     10px;
+}
+
+
+.rating-feedback.rated {
+  color:
+    var(--color-primary);
 }
 
 
@@ -1127,10 +1051,10 @@ COPY
 
 .copy-button {
   min-height:
-    43px;
+    44px;
 
   padding:
-    0 16px;
+    0 17px;
 
   border:
     none;
@@ -1167,6 +1091,9 @@ COPY
 
   cursor:
     pointer;
+
+  transition:
+    background 0.15s ease;
 }
 
 
@@ -1211,7 +1138,7 @@ COPY
 
 .success-message {
   margin-top:
-    17px;
+    18px;
 
   padding:
     11px 13px;
@@ -1236,7 +1163,7 @@ COMMENTS
 
 .comments-section {
   padding:
-    25px;
+    26px;
 
   border:
     1px solid
@@ -1259,13 +1186,13 @@ COMMENTS
 }
 
 
-.comments-heading {
+.comments-header {
   margin-bottom:
-    18px;
+    19px;
 }
 
 
-.comments-heading h2 {
+.comments-header h2 {
   margin:
     0 0 4px;
 
@@ -1274,9 +1201,8 @@ COMMENTS
 }
 
 
-.comments-heading p {
-  margin:
-    0;
+.comments-header p {
+  margin: 0;
 
   color:
     var(--color-text-muted);
@@ -1293,11 +1219,10 @@ COMMENTS
 
 
 .comment-form textarea {
-  width:
-    100%;
+  width: 100%;
 
   min-height:
-    90px;
+    92px;
 
   padding:
     12px;
@@ -1315,6 +1240,12 @@ COMMENTS
   resize:
     vertical;
 
+  background:
+    var(--color-surface);
+
+  color:
+    var(--color-text-primary);
+
   font-family:
     inherit;
 
@@ -1323,6 +1254,10 @@ COMMENTS
 
   outline:
     none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 
@@ -1358,6 +1293,12 @@ COMMENTS
   color:
     #fff;
 
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
   font-weight:
     600;
 
@@ -1366,9 +1307,18 @@ COMMENTS
 }
 
 
+.comment-form button:hover:not(:disabled) {
+  background:
+    var(--color-primary-hover);
+}
+
+
 .comment-form button:disabled {
   opacity:
     0.5;
+
+  cursor:
+    not-allowed;
 }
 
 
@@ -1414,13 +1364,19 @@ COMMENTS
     12px;
 
   line-height:
-    1.5;
+    1.55;
 }
 
 
 .comments-empty {
   padding:
-    25px;
+    26px;
+
+  border-radius:
+    9px;
+
+  background:
+    var(--color-page-bg);
 
   text-align:
     center;
@@ -1429,21 +1385,44 @@ COMMENTS
     var(--color-text-muted);
 
   font-size:
-    12px;
+    11px;
 }
 
 
-.loading,
-.error {
-  padding:
-    40px;
+/* =====================================
+STATES
+===================================== */
 
-  text-align:
+.loading-state,
+.error-state {
+  min-height:
+    220px;
+
+  display:
+    flex;
+
+  align-items:
     center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid
+    var(--color-divider);
+
+  border-radius:
+    14px;
+
+  color:
+    var(--color-text-muted);
 }
 
 
-.error {
+.error-state {
+  background:
+    #fff5f4;
+
   color:
     #c94f49;
 }
@@ -1461,19 +1440,40 @@ RESPONSIVE
     padding:
       22px
       15px
-      30px;
+      32px;
   }
 
 
   .hero {
     height:
-      190px;
+      185px;
+  }
+
+
+  .hero-symbol {
+    width:
+      105px;
+
+    height:
+      105px;
+
+    border-radius:
+      25px;
+  }
+
+
+  .hero-symbol svg {
+    width:
+      70px;
+
+    height:
+      70px;
   }
 
 
   .detail-content {
     padding:
-      20px;
+      21px;
   }
 
 
@@ -1504,6 +1504,9 @@ RESPONSIVE
   .rating-block {
     width:
       100%;
+
+    min-width:
+      0;
   }
 
 

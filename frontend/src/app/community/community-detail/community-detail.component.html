@@ -1,16 +1,25 @@
 <div class="detail-container">
 
   <button
-    class="back-button"
+    class="community-back-button"
     type="button"
     (click)="goBack()"
   >
-    ← Zur Community
+    <span class="back-icon">
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </span>
+
+    Community
   </button>
 
 
   <div
-    class="loading"
+    class="loading-state"
     *ngIf="isLoading"
   >
     Beitrag wird geladen...
@@ -18,7 +27,7 @@
 
 
   <div
-    class="error"
+    class="error-state"
     *ngIf="
       !isLoading &&
       errorMessage
@@ -37,131 +46,287 @@
 
     <article class="post-detail-card">
 
+      <!-- ===================================
+           HERO
+      ==================================== -->
+
       <div
         class="hero"
         [class.recipe]="
-          post.post_type ===
-            'recipe'
+          post.post_type === 'recipe'
         "
         [class.list]="
-          post.post_type ===
-            'list'
+          post.post_type === 'list'
         "
         [class.thread]="
-          post.post_type ===
-            'thread'
+          post.post_type === 'thread'
         "
       >
 
-        <span
-          *ngIf="
-            post.post_type ===
-              'recipe'
-          "
-        >
-          🍲
-        </span>
+        <!-- RECIPE -->
 
-        <span
+        <div
+          class="hero-symbol"
           *ngIf="
-            post.post_type ===
-              'list'
+            post.post_type === 'recipe'
           "
         >
-          🛒
-        </span>
+          <svg
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+          >
+            <circle
+              cx="60"
+              cy="60"
+              r="42"
+            ></circle>
 
-        <span
+            <circle
+              cx="60"
+              cy="60"
+              r="27"
+            ></circle>
+
+            <path
+              d="M44 55c8-8 15-8 23 0s15 8 23 0"
+            ></path>
+
+            <path
+              d="M42 66c8-8 16-8 24 0s16 8 24 0"
+            ></path>
+
+            <path
+              d="M33 23v25"
+            ></path>
+
+            <path
+              d="M27 23v13a6 6 0 0 0 12 0V23"
+            ></path>
+
+            <path
+              d="M95 23v25"
+            ></path>
+          </svg>
+        </div>
+
+
+        <!-- LIST -->
+
+        <div
+          class="hero-symbol"
           *ngIf="
-            post.post_type ===
-              'thread'
+            post.post_type === 'list'
           "
         >
-          💬
-        </span>
+          <svg
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+          >
+            <path
+              d="M34 37h56l-6 55H40z"
+            ></path>
+
+            <path
+              d="M46 37c0-20 28-20 28 0"
+            ></path>
+
+            <path
+              d="M48 56h28"
+            ></path>
+
+            <path
+              d="M48 68h28"
+            ></path>
+
+            <path
+              d="M48 80h20"
+            ></path>
+
+            <path
+              d="M30 56l4 4 8-9"
+            ></path>
+
+            <path
+              d="M30 68l4 4 8-9"
+            ></path>
+
+            <path
+              d="M30 80l4 4 8-9"
+            ></path>
+          </svg>
+        </div>
+
+
+        <!-- THREAD -->
+
+        <div
+          class="hero-symbol"
+          *ngIf="
+            post.post_type === 'thread'
+          "
+        >
+          <svg
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+          >
+            <path
+              d="M25 31h70a12 12 0 0 1 12 12v29a12 12 0 0 1-12 12H61L38 99l6-15H25a12 12 0 0 1-12-12V43a12 12 0 0 1 12-12Z"
+            ></path>
+
+            <circle
+              cx="43"
+              cy="58"
+              r="4"
+            ></circle>
+
+            <circle
+              cx="60"
+              cy="58"
+              r="4"
+            ></circle>
+
+            <circle
+              cx="77"
+              cy="58"
+              r="4"
+            ></circle>
+          </svg>
+        </div>
 
       </div>
 
 
+      <!-- ===================================
+           CONTENT
+      ==================================== -->
+
       <div class="detail-content">
 
-        <span class="type-label">
-          {{
-            post.post_type === 'recipe'
-              ? 'Rezept'
-              : post.post_type === 'list'
-                ? 'Einkaufsliste'
-                : 'Diskussion'
-          }}
-        </span>
+        <div class="post-heading">
 
-
-        <h1>
-          {{ post.display_title }}
-        </h1>
-
-
-        <div class="author-line">
-
-          <span class="avatar">
+          <span class="type-label">
             {{
-              post.author.name
-                .charAt(0)
-                .toUpperCase()
+              post.post_type === 'recipe'
+                ? 'Rezept'
+                : post.post_type === 'list'
+                  ? 'Einkaufsliste'
+                  : 'Diskussion'
             }}
           </span>
 
-          <strong>
-            {{ post.author.name }}
-          </strong>
+
+          <h1>
+            {{ post.display_title }}
+          </h1>
+
+
+          <div class="author-line">
+
+            <span class="avatar">
+              {{
+                post.author.name
+                  .charAt(0)
+                  .toUpperCase()
+              }}
+            </span>
+
+
+            <div class="author-info">
+
+              <strong>
+                {{ post.author.name }}
+              </strong>
+
+              <span>
+                Community-Beitrag
+              </span>
+
+            </div>
+
+          </div>
 
         </div>
 
 
+        <!-- THREAD -->
+
         <p
           class="thread-content"
           *ngIf="
-            post.post_type ===
-              'thread'
+            post.post_type === 'thread'
           "
         >
           {{ post.content }}
         </p>
 
 
-        <!-- RECIPE -->
+        <!-- ===================================
+             RECIPE
+        ==================================== -->
 
         <section
           class="content-section"
-          *ngIf="
-            post.recipe
-          "
+          *ngIf="post.recipe"
         >
 
           <div class="recipe-meta">
 
             <span>
-              👥
+
+              <svg viewBox="0 0 24 24">
+                <circle
+                  cx="9"
+                  cy="8"
+                  r="3"
+                ></circle>
+
+                <path
+                  d="M3 20v-2a6 6 0 0 1 12 0v2"
+                ></path>
+
+                <path
+                  d="M17 11a3 3 0 0 1 0 6"
+                ></path>
+
+                <path
+                  d="M19 20v-1"
+                ></path>
+              </svg>
+
               {{ post.recipe.servings }}
               Portionen
+
             </span>
+
 
             <span
               *ngIf="
                 post.recipe.preparation_time
               "
             >
-              ⏱
-              {{
-                post.recipe.preparation_time
-              }}
+
+              <svg viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                ></circle>
+
+                <path
+                  d="M12 7v5l3 2"
+                ></path>
+              </svg>
+
+              {{ post.recipe.preparation_time }}
               Min.
+
             </span>
 
           </div>
 
 
           <p
+            class="recipe-description"
             *ngIf="
               post.recipe.description
             "
@@ -202,6 +367,7 @@
             Zubereitung
           </h2>
 
+
           <p class="instructions">
             {{ post.recipe.instructions }}
           </p>
@@ -209,7 +375,9 @@
         </section>
 
 
-        <!-- LIST -->
+        <!-- ===================================
+             LIST
+        ==================================== -->
 
         <section
           class="content-section"
@@ -232,9 +400,21 @@
               "
             >
 
-              <span>
+              <span class="list-check">
+
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 12l4 4 10-10"
+                  ></path>
+                </svg>
+
+              </span>
+
+
+              <span class="list-item-name">
                 {{ item.name }}
               </span>
+
 
               <strong>
                 {{ item.quantity }}
@@ -248,67 +428,168 @@
         </section>
 
 
-        <div class="interaction-row">
+        <!-- ===================================
+             INTERACTIONS
+        ==================================== -->
 
-          <button
-            class="like-button"
-            type="button"
-            [class.active]="
-              post.liked_by_me
-            "
-            (click)="toggleLike()"
-          >
-            {{
-              post.liked_by_me
-                ? '♥'
-                : '♡'
-            }}
+        <div class="interaction-area">
 
-            {{ post.like_count }}
-          </button>
+          <div class="interaction-main">
 
+            <!-- LIKE -->
 
-          <div
-            class="rating"
-            *ngIf="
-              post.post_type !==
-                'thread'
-            "
-          >
-
-            <span
-              class="star"
-              *ngFor="
-                let star
-                of stars
-              "
+            <button
+              class="detail-like-button"
+              type="button"
               [class.active]="
-                post.my_rating !== null &&
-                star <= post.my_rating
+                post.liked_by_me
               "
-              (click)="rate(star)"
+              (click)="toggleLike()"
             >
-              ★
-            </span>
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"
+                ></path>
+              </svg>
 
 
-            <small>
-              {{
-                post.rating_average
-                  ?? 'Noch keine Bewertung'
-              }}
+              <span>
+                {{
+                  post.liked_by_me
+                    ? 'Gefällt dir'
+                    : 'Gefällt mir'
+                }}
+              </span>
 
-              <ng-container
+
+              <strong>
+                {{ post.like_count }}
+              </strong>
+
+            </button>
+
+
+            <!-- RATING -->
+
+            <div
+              class="rating-block"
+              *ngIf="
+                post.post_type !==
+                  'thread'
+              "
+            >
+
+              <div class="rating-header">
+
+                <span>
+                  Bewertung
+                </span>
+
+
+                <small
+                  *ngIf="
+                    post.rating_average !== null
+                  "
+                >
+                  {{ post.rating_average }}
+                  / 5
+
+                  ·
+
+                  {{ post.rating_count }}
+                  {{
+                    post.rating_count === 1
+                      ? 'Bewertung'
+                      : 'Bewertungen'
+                  }}
+                </small>
+
+              </div>
+
+
+              <div class="rating-stars">
+
+                <button
+                  class="star-button"
+                  type="button"
+                  *ngFor="
+                    let star
+                    of stars
+                  "
+                  [class.active]="
+                    post.my_rating !== null &&
+                    star <= post.my_rating
+                  "
+                  (click)="rate(star)"
+                  [attr.aria-label]="
+                    star +
+                    ' Sterne vergeben'
+                  "
+                >
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
+                    ></path>
+                  </svg>
+
+                </button>
+
+              </div>
+
+
+              <div
+                class="rating-feedback rated"
                 *ngIf="
-                  post.rating_average
+                  post.my_rating !== null
                 "
               >
-                / 5
-              </ng-container>
-            </small>
+
+                <span class="rating-check">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 12l4 4 10-10"
+                    ></path>
+                  </svg>
+
+                </span>
+
+
+                Deine Bewertung:
+
+                <strong>
+                  {{ post.my_rating }} / 5
+                </strong>
+
+              </div>
+
+
+              <div
+                class="rating-feedback"
+                *ngIf="
+                  post.my_rating === null
+                "
+              >
+                Wähle 1 bis 5 Sterne.
+              </div>
+
+            </div>
 
           </div>
 
+
+          <!-- COPY -->
 
           <button
             class="copy-button"
@@ -317,11 +598,28 @@
               post.post_type !==
                 'thread'
             "
-            [disabled]="
-              isCopying
-            "
+            [disabled]="isCopying"
             (click)="copyToMyAccount()"
           >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <rect
+                x="8"
+                y="8"
+                width="11"
+                height="11"
+                rx="2"
+              ></rect>
+
+              <path
+                d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"
+              ></path>
+            </svg>
+
+
             {{
               isCopying
                 ? 'Wird übernommen...'
@@ -329,6 +627,7 @@
                   ? 'Rezept übernehmen'
                   : 'Liste übernehmen'
             }}
+
           </button>
 
         </div>
@@ -346,20 +645,38 @@
     </article>
 
 
+    <!-- ===================================
+         COMMENTS
+    ==================================== -->
+
     <section class="comments-section">
 
-      <h2>
-        Kommentare
-        ({{ comments.length }})
-      </h2>
+      <div class="comments-header">
+
+        <div>
+
+          <h2>
+            Kommentare
+          </h2>
+
+          <p>
+            {{ comments.length }}
+            {{
+              comments.length === 1
+                ? 'Kommentar'
+                : 'Kommentare'
+            }}
+          </p>
+
+        </div>
+
+      </div>
 
 
       <div class="comment-form">
 
         <textarea
-          [(ngModel)]="
-            commentText
-          "
+          [(ngModel)]="commentText"
           placeholder="Schreibe einen Kommentar..."
         ></textarea>
 
@@ -410,7 +727,7 @@
         </span>
 
 
-        <div>
+        <div class="comment-content">
 
           <strong>
             {{ comment.author.name }}
