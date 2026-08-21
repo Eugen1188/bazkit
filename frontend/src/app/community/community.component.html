@@ -494,6 +494,7 @@
 
           <svg
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <circle
               cx="11"
@@ -714,9 +715,7 @@
         [(ngModel)]="selectedRecipeId"
       >
 
-        <option
-          [ngValue]="null"
-        >
+        <option [ngValue]="null">
           Rezept auswählen...
         </option>
 
@@ -814,9 +813,7 @@
         [(ngModel)]="selectedListId"
       >
 
-        <option
-          [ngValue]="null"
-        >
+        <option [ngValue]="null">
           Liste auswählen...
         </option>
 
