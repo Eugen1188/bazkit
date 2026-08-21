@@ -15,10 +15,21 @@
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
-        <path d="M7 10V8a5 5 0 0 1 10 0v2"></path>
-        <path d="M5 10h14l-1.2 10H6.2L5 10Z"></path>
-        <path d="M9 14v2"></path>
-        <path d="M15 14v2"></path>
+        <path
+          d="M7 10V8a5 5 0 0 1 10 0v2"
+        ></path>
+
+        <path
+          d="M5 10h14l-1.2 10H6.2L5 10Z"
+        ></path>
+
+        <path
+          d="M9 14v2"
+        ></path>
+
+        <path
+          d="M15 14v2"
+        ></path>
       </svg>
 
     </span>
@@ -117,6 +128,41 @@
 
     <a
       class="nav-item"
+      routerLink="/main/community"
+      routerLinkActive="active"
+    >
+
+      <span class="nav-icon">
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+          ></path>
+
+          <path
+            d="M15.5 11a3 3 0 1 0 0-6"
+          ></path>
+
+          <path
+            d="M3 19a5.5 5.5 0 0 1 11 0"
+          ></path>
+
+          <path
+            d="M14 14.5a5 5 0 0 1 7 4.5"
+          ></path>
+
+        </svg>
+
+      </span>
+
+      Community
+
+    </a>
+
+
+    <a
+      class="nav-item"
       routerLink="/main/settings"
       routerLinkActive="active"
     >
@@ -158,7 +204,9 @@
         Mehr Möglichkeiten.
       </p>
 
-      <button type="button">
+      <button
+        type="button"
+      >
         Jetzt upgraden
       </button>
 
@@ -174,9 +222,19 @@
       <span class="logout-icon">
 
         <svg viewBox="0 0 24 24">
-          <path d="M10 17l5-5-5-5"></path>
-          <path d="M15 12H3"></path>
-          <path d="M21 4v16"></path>
+
+          <path
+            d="M10 17l5-5-5-5"
+          ></path>
+
+          <path
+            d="M15 12H3"
+          ></path>
+
+          <path
+            d="M21 4v16"
+          ></path>
+
         </svg>
 
       </span>
@@ -267,7 +325,7 @@
 
   <a
     class="mobile-nav-item"
-    routerLink="/main/settings"
+    routerLink="/main/community"
     routerLinkActive="active"
   >
 
@@ -276,11 +334,19 @@
       <svg viewBox="0 0 24 24">
 
         <path
-          d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
+          d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
         ></path>
 
         <path
-          d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6A1.7 1.7 0 0 0 13.5 21a2 2 0 1 1-4 0 1.7 1.7 0 0 0-.5-1.2 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1.5 2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.6-1.5 1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6A1.7 1.7 0 0 0 10.5 3a2 2 0 1 1 4 0 1.7 1.7 0 0 0 .5 1.2 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.13.36.35.7.6 1 .33.33.76.5 1.2.5a2 2 0 1 1 0 4 1.7 1.7 0 0 0-1.8.5Z"
+          d="M15.5 11a3 3 0 1 0 0-6"
+        ></path>
+
+        <path
+          d="M3 19a5.5 5.5 0 0 1 11 0"
+        ></path>
+
+        <path
+          d="M14 14.5a5 5 0 0 1 7 4.5"
         ></path>
 
       </svg>
@@ -288,7 +354,7 @@
     </span>
 
     <span>
-      Einstellungen
+      Community
     </span>
 
   </a>
@@ -344,6 +410,42 @@
     </div>
 
 
+    <a
+      class="mobile-settings-action"
+      routerLink="/main/settings"
+    >
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
+        ></path>
+
+        <path
+          d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83"
+        ></path>
+
+      </svg>
+
+      <div>
+
+        <strong>
+          Einstellungen
+        </strong>
+
+        <small>
+          Konto und App verwalten
+        </small>
+
+      </div>
+
+    </a>
+
+
+    <div class="mobile-menu-divider">
+    </div>
+
+
     <button
       class="mobile-premium-action"
       type="button"
@@ -380,9 +482,19 @@
     >
 
       <svg viewBox="0 0 24 24">
-        <path d="M10 17l5-5-5-5"></path>
-        <path d="M15 12H3"></path>
-        <path d="M21 4v16"></path>
+
+        <path
+          d="M10 17l5-5-5-5"
+        ></path>
+
+        <path
+          d="M15 12H3"
+        ></path>
+
+        <path
+          d="M21 4v16"
+        ></path>
+
       </svg>
 
       Abmelden

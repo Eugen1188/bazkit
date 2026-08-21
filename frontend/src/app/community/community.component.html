@@ -1,0 +1,443 @@
+<div class="community-container">
+
+  <header class="community-header">
+
+    <div class="community-heading">
+
+      <h1>
+        Community
+      </h1>
+
+      <p>
+        Entdecke Rezepte, Einkaufslisten
+        und Diskussionen aus der Bazkit-Community.
+      </p>
+
+    </div>
+
+
+    <button
+      class="create-post-button"
+      type="button"
+    >
+
+      <span>
+        +
+      </span>
+
+      Beitrag erstellen
+
+    </button>
+
+  </header>
+
+
+  <section class="community-search">
+
+    <div class="search-field">
+
+      <span class="search-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+          ></circle>
+
+          <path
+            d="m20 20-3.5-3.5"
+          ></path>
+
+        </svg>
+
+      </span>
+
+
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Community durchsuchen..."
+      />
+
+    </div>
+
+  </section>
+
+
+  <section class="category-grid">
+
+    <button
+      class="category-card"
+      type="button"
+      (click)="
+        setFilter(
+          'recipe'
+        )
+      "
+    >
+
+      <div
+        class="
+          category-icon
+          recipe-icon
+        "
+      >
+        🍴
+      </div>
+
+
+      <div class="category-content">
+
+        <h2>
+          Rezepte
+        </h2>
+
+        <p>
+          Entdecke Rezepte,
+          die andere Nutzer teilen.
+        </p>
+
+      </div>
+
+
+      <span class="category-arrow">
+        →
+      </span>
+
+    </button>
+
+
+    <button
+      class="category-card"
+      type="button"
+      (click)="
+        setFilter(
+          'list'
+        )
+      "
+    >
+
+      <div
+        class="
+          category-icon
+          list-icon
+        "
+      >
+        🛒
+      </div>
+
+
+      <div class="category-content">
+
+        <h2>
+          Einkaufslisten
+        </h2>
+
+        <p>
+          Finde praktische Listen
+          und übernimm sie später direkt.
+        </p>
+
+      </div>
+
+
+      <span class="category-arrow">
+        →
+      </span>
+
+    </button>
+
+
+    <button
+      class="category-card"
+      type="button"
+      (click)="
+        setFilter(
+          'thread'
+        )
+      "
+    >
+
+      <div
+        class="
+          category-icon
+          thread-icon
+        "
+      >
+        💬
+      </div>
+
+
+      <div class="category-content">
+
+        <h2>
+          Diskussionen
+        </h2>
+
+        <p>
+          Stelle Fragen und
+          tausche dich mit anderen aus.
+        </p>
+
+      </div>
+
+
+      <span class="category-arrow">
+        →
+      </span>
+
+    </button>
+
+  </section>
+
+
+  <section class="feed-section">
+
+    <div class="feed-header">
+
+      <div>
+
+        <h2>
+          Neueste Beiträge
+        </h2>
+
+        <p>
+          Was gerade in der Community passiert.
+        </p>
+
+      </div>
+
+
+      <div class="feed-filters">
+
+        <button
+          type="button"
+          [class.active]="
+            activeFilter === 'all'
+          "
+          (click)="
+            setFilter(
+              'all'
+            )
+          "
+        >
+          Alle
+        </button>
+
+
+        <button
+          type="button"
+          [class.active]="
+            activeFilter === 'recipe'
+          "
+          (click)="
+            setFilter(
+              'recipe'
+            )
+          "
+        >
+          Rezepte
+        </button>
+
+
+        <button
+          type="button"
+          [class.active]="
+            activeFilter === 'list'
+          "
+          (click)="
+            setFilter(
+              'list'
+            )
+          "
+        >
+          Listen
+        </button>
+
+
+        <button
+          type="button"
+          [class.active]="
+            activeFilter === 'thread'
+          "
+          (click)="
+            setFilter(
+              'thread'
+            )
+          "
+        >
+          Diskussionen
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="feed-list">
+
+      <article
+        class="feed-card"
+        *ngFor="
+          let item
+          of filteredPreviews
+        "
+      >
+
+        <div
+          class="
+            feed-card-icon
+            {{
+              item.type
+            }}
+          "
+        >
+          {{
+            getTypeIcon(
+              item.type
+            )
+          }}
+        </div>
+
+
+        <div class="feed-card-content">
+
+          <div class="feed-card-meta">
+
+            <span class="post-type">
+              {{
+                getTypeLabel(
+                  item.type
+                )
+              }}
+            </span>
+
+
+            <span>
+              ·
+            </span>
+
+
+            <span>
+              {{ item.time }}
+            </span>
+
+          </div>
+
+
+          <h3>
+            {{ item.title }}
+          </h3>
+
+
+          <p class="feed-description">
+            {{ item.description }}
+          </p>
+
+
+          <div class="feed-footer">
+
+            <span class="author-avatar">
+              {{
+                item.author
+                  .charAt(0)
+                  .toUpperCase()
+              }}
+            </span>
+
+
+            <span class="author-name">
+              {{ item.author }}
+            </span>
+
+
+            <span class="feed-dot">
+              ·
+            </span>
+
+
+            <span class="feed-info">
+              {{ item.meta }}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="open-post-button"
+          type="button"
+          aria-label="Beitrag öffnen"
+        >
+          →
+        </button>
+
+      </article>
+
+
+      <div
+        class="feed-empty"
+        *ngIf="
+          filteredPreviews.length === 0
+        "
+      >
+
+        <div class="feed-empty-icon">
+          🔎
+        </div>
+
+
+        <strong>
+          Keine Beiträge gefunden
+        </strong>
+
+
+        <p>
+          Versuche einen anderen
+          Suchbegriff oder Filter.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="community-callout">
+
+    <div class="callout-icon">
+      💬
+    </div>
+
+
+    <div class="callout-text">
+
+      <strong>
+        Teile dein Wissen mit der Community
+      </strong>
+
+      <p>
+        Veröffentliche später ein Rezept,
+        teile eine Einkaufsliste oder starte
+        eine neue Diskussion.
+      </p>
+
+    </div>
+
+
+    <button
+      type="button"
+    >
+      Beitrag erstellen
+    </button>
+
+  </section>
+
+</div>
