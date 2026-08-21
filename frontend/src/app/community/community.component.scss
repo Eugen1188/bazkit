@@ -316,7 +316,6 @@ CATEGORY CARD
 
   transition:
     transform 0.17s ease,
-    border-color 0.17s ease,
     box-shadow 0.17s ease;
 }
 
@@ -325,8 +324,11 @@ CATEGORY CARD
   transform:
     translateY(-3px);
 
-  border-color:
-    var(--color-primary-soft);
+  /*
+  Border-Farbe bleibt gleich.
+  Dadurch entsteht oben kein
+  grüner Streifen beim Hover.
+  */
 
   box-shadow:
     0
@@ -343,10 +345,23 @@ CATEGORY CARD
 
 /* =====================================
 CATEGORY IMAGE
+
+Der Bildbereich hat jetzt bewusst
+eine feste Höhe.
+
+Dadurch werden die hochkant
+gespeicherten Dateien NICHT mehr
+komplett dargestellt.
+
+object-fit: cover schneidet sie
+passend auf Kartenformat zu.
 ===================================== */
 
 .category-image {
+  position: relative;
+
   width: 100%;
+  height: 220px;
 
   overflow: hidden;
 
@@ -355,19 +370,80 @@ CATEGORY IMAGE
 }
 
 
+/*
+Das Bild wird minimal größer als
+sein Container.
+
+Dadurch werden ca. 2px an jeder
+Außenkante abgeschnitten.
+
+So verschwinden auch letzte weiße
+Pixelränder aus den WebP-Dateien.
+*/
+
 .category-image img {
-  width: 100%;
-  height: auto;
+  position: absolute;
+
+  top: -2px;
+  left: -2px;
+
+  width:
+    calc(
+      100% + 4px
+    );
+
+  height:
+    calc(
+      100% + 4px
+    );
 
   display: block;
 
-  object-fit: contain;
+  object-fit: cover;
 
   object-position: center;
 
-  transform: none;
-
   border: 0;
+
+  transform: none;
+}
+
+
+/* =====================================
+CATEGORY INDIVIDUAL POSITIONING
+===================================== */
+
+/*
+Beim Bolognese-Bild darf der Teller
+etwas tiefer im Ausschnitt sitzen.
+*/
+
+.category-card:nth-child(1)
+.category-image img {
+  object-position:
+    center 48%;
+}
+
+
+/*
+Einkaufstüte etwas zentraler.
+*/
+
+.category-card:nth-child(2)
+.category-image img {
+  object-position:
+    center 48%;
+}
+
+
+/*
+Kaffee + Notizbuch etwas tiefer.
+*/
+
+.category-card:nth-child(3)
+.category-image img {
+  object-position:
+    center 53%;
 }
 
 
@@ -634,6 +710,8 @@ FEED CARD IMAGE
 ===================================== */
 
 .feed-card-image {
+  position: relative;
+
   width: 175px;
 
   min-height: 138px;
@@ -646,8 +724,20 @@ FEED CARD IMAGE
 
 
 .feed-card-image img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+
+  top: -1px;
+  left: -1px;
+
+  width:
+    calc(
+      100% + 2px
+    );
+
+  height:
+    calc(
+      100% + 2px
+    );
 
   display: block;
 
@@ -1674,6 +1764,16 @@ MEDIUM DESKTOP
   }
 
 
+  /*
+  Auf kleineren Desktopbreiten
+  werden die Bilder noch etwas flacher.
+  */
+
+  .category-image {
+    height: 190px;
+  }
+
+
   .feed-card {
     grid-template-columns:
       150px
@@ -1727,32 +1827,38 @@ TABLET
 
     grid-template-columns:
       minmax(
-        240px,
-        42%
+        230px,
+        38%
       )
       minmax(
         0,
         1fr
       );
 
-    min-height: 160px;
+    min-height: 170px;
   }
 
 
   .category-image {
     width: 100%;
-    height: 100%;
+    height: 170px;
 
-    min-height: 160px;
+    min-height: 0;
   }
 
 
   .category-image img {
-    width: 100%;
-    height: 100%;
+    width:
+      calc(
+        100% + 4px
+      );
+
+    height:
+      calc(
+        100% + 4px
+      );
 
     object-fit: cover;
-    object-position: center;
   }
 
 
@@ -1850,23 +1956,31 @@ MOBILE
   }
 
 
+  /*
+  Mobile ebenfalls feste Bildhöhe.
+  Kein height:auto mehr.
+  */
+
   .category-image {
     width: 100%;
-    height: auto;
+    height: 190px;
 
     min-height: 0;
   }
 
 
   .category-image img {
-    width: 100%;
-    height: auto;
+    width:
+      calc(
+        100% + 4px
+      );
 
-    display: block;
+    height:
+      calc(
+        100% + 4px
+      );
 
-    object-fit: contain;
-
-    object-position: center;
+    object-fit: cover;
   }
 
 
@@ -1948,6 +2062,11 @@ SMALL MOBILE
 @media (
   max-width: 430px
 ) {
+
+  .category-image {
+    height: 175px;
+  }
+
 
   .category-content {
     padding:
