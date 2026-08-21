@@ -1,5 +1,9 @@
 <div class="community-container">
 
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
   <header class="community-header">
 
     <div class="community-heading">
@@ -9,19 +13,19 @@
       </h1>
 
       <p>
-        Entdecke Rezepte, Einkaufslisten
-        und Diskussionen aus der Bazkit-Community.
+        Entdecke Rezepte, Einkaufslisten und Diskussionen
+        aus der Bazkit-Community.
       </p>
 
     </div>
 
 
-    <div class="header-actions">
+    <div class="community-header-actions">
 
       <button
         class="create-post-button"
         type="button"
-        (click)="openCreateModal()"
+        (click)="openCreatePost()"
       >
 
         <svg
@@ -32,7 +36,9 @@
           <path d="M5 12h14"></path>
         </svg>
 
-        Beitrag erstellen
+        <span>
+          Beitrag erstellen
+        </span>
 
       </button>
 
@@ -57,12 +63,7 @@
 
         <input
           type="text"
-          [ngModel]="searchQuery"
-          (ngModelChange)="
-            onSearchChange(
-              $event
-            )
-          "
+          [(ngModel)]="searchQuery"
           placeholder="Community durchsuchen..."
         />
 
@@ -74,7 +75,7 @@
 
 
   <!-- =====================================
-       KATEGORIEN
+       CATEGORY CARDS
   ====================================== -->
 
   <section class="category-grid">
@@ -84,11 +85,7 @@
     <button
       class="category-card"
       type="button"
-      (click)="
-        setFilter(
-          'recipe'
-        )
-      "
+      (click)="setFilter('recipe')"
     >
 
       <div class="category-image">
@@ -97,20 +94,6 @@
           src="/assets/images/community/community-recipes.webp"
           alt="Spaghetti Bolognese"
         />
-
-
-        <span class="category-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M7 3v18"></path>
-            <path d="M11 3v7a2 2 0 0 1-4 0V3"></path>
-            <path d="M17 3v18"></path>
-          </svg>
-
-        </span>
 
       </div>
 
@@ -139,11 +122,7 @@
     <button
       class="category-card"
       type="button"
-      (click)="
-        setFilter(
-          'list'
-        )
-      "
+      (click)="setFilter('list')"
     >
 
       <div class="category-image">
@@ -152,24 +131,6 @@
           src="/assets/images/community/community-lists.webp"
           alt="Einkaufstüte mit frischen Lebensmitteln"
         />
-
-
-        <span class="category-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M8 6h12"></path>
-            <path d="M8 12h12"></path>
-            <path d="M8 18h12"></path>
-
-            <path d="M4 6h.01"></path>
-            <path d="M4 12h.01"></path>
-            <path d="M4 18h.01"></path>
-          </svg>
-
-        </span>
 
       </div>
 
@@ -198,11 +159,7 @@
     <button
       class="category-card"
       type="button"
-      (click)="
-        setFilter(
-          'thread'
-        )
-      "
+      (click)="setFilter('thread')"
     >
 
       <div class="category-image">
@@ -211,20 +168,6 @@
           src="/assets/images/community/community-discussions.webp"
           alt="Kaffee und Notizbuch"
         />
-
-
-        <span class="category-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
-            ></path>
-          </svg>
-
-        </span>
 
       </div>
 
@@ -256,9 +199,9 @@
 
   <section class="feed-section">
 
-    <div class="feed-heading">
+    <div class="feed-header">
 
-      <div>
+      <div class="feed-heading">
 
         <h2>
           Neueste Beiträge
@@ -275,14 +218,8 @@
 
         <button
           type="button"
-          [class.active]="
-            activeFilter === 'all'
-          "
-          (click)="
-            setFilter(
-              'all'
-            )
-          "
+          [class.active]="activeFilter === 'all'"
+          (click)="setFilter('all')"
         >
           Alle
         </button>
@@ -290,14 +227,8 @@
 
         <button
           type="button"
-          [class.active]="
-            activeFilter === 'recipe'
-          "
-          (click)="
-            setFilter(
-              'recipe'
-            )
-          "
+          [class.active]="activeFilter === 'recipe'"
+          (click)="setFilter('recipe')"
         >
           Rezepte
         </button>
@@ -305,14 +236,8 @@
 
         <button
           type="button"
-          [class.active]="
-            activeFilter === 'list'
-          "
-          (click)="
-            setFilter(
-              'list'
-            )
-          "
+          [class.active]="activeFilter === 'list'"
+          (click)="setFilter('list')"
         >
           Einkaufslisten
         </button>
@@ -320,14 +245,8 @@
 
         <button
           type="button"
-          [class.active]="
-            activeFilter === 'thread'
-          "
-          (click)="
-            setFilter(
-              'thread'
-            )
-          "
+          [class.active]="activeFilter === 'thread'"
+          (click)="setFilter('thread')"
         >
           Diskussionen
         </button>
@@ -337,16 +256,20 @@
     </div>
 
 
+    <!-- LOADING -->
+
     <div
-      class="loading-state"
+      class="feed-state"
       *ngIf="isLoading"
     >
-      Community wird geladen...
+      Beiträge werden geladen...
     </div>
 
 
+    <!-- ERROR -->
+
     <div
-      class="error-state"
+      class="feed-state error"
       *ngIf="
         !isLoading &&
         errorMessage
@@ -356,8 +279,10 @@
     </div>
 
 
+    <!-- POSTS -->
+
     <div
-      class="posts-list"
+      class="feed-list"
       *ngIf="
         !isLoading &&
         !errorMessage
@@ -365,42 +290,38 @@
     >
 
       <article
-        class="post-card"
+        class="feed-card"
         *ngFor="
-          let post
-          of posts
+          let post of filteredPosts
         "
-        (click)="
-          openPost(
-            post
-          )
-        "
+        (click)="openPost(post)"
       >
 
-        <div class="post-image">
+        <!-- POST IMAGE -->
+
+        <div
+          class="feed-card-image"
+          [class.recipe]="post.post_type === 'recipe'"
+          [class.list]="post.post_type === 'list'"
+          [class.thread]="post.post_type === 'thread'"
+        >
 
           <img
-            *ngIf="
-              post.post_type === 'recipe'
-            "
+            *ngIf="post.post_type === 'recipe'"
             src="/assets/images/community/community-recipes.webp"
             alt=""
           />
 
 
           <img
-            *ngIf="
-              post.post_type === 'list'
-            "
+            *ngIf="post.post_type === 'list'"
             src="/assets/images/community/community-lists.webp"
             alt=""
           />
 
 
           <img
-            *ngIf="
-              post.post_type === 'thread'
-            "
+            *ngIf="post.post_type === 'thread'"
             src="/assets/images/community/community-discussions.webp"
             alt=""
           />
@@ -408,30 +329,33 @@
         </div>
 
 
-        <div class="post-content">
+        <!-- POST CONTENT -->
 
-          <div class="post-topline">
+        <div class="feed-card-content">
+
+          <div class="feed-card-type-row">
 
             <span class="post-type">
+
               {{
-                getPostTypeLabel(
-                  post
-                )
+                post.post_type === 'recipe'
+                  ? 'Rezept'
+                  : post.post_type === 'list'
+                    ? 'Einkaufsliste'
+                    : 'Diskussion'
               }}
+
             </span>
 
 
             <span
-              class="thread-category-label"
+              class="thread-category"
               *ngIf="
-                post.post_type === 'thread'
+                post.post_type === 'thread' &&
+                post.thread_category
               "
             >
-              {{
-                getThreadCategoryLabel(
-                  post.thread_category
-                )
-              }}
+              {{ post.thread_category }}
             </span>
 
           </div>
@@ -442,12 +366,12 @@
           </h3>
 
 
-          <p class="post-description">
-            {{ post.display_description }}
+          <p class="feed-description">
+            {{ getPostDescription(post) }}
           </p>
 
 
-          <div class="post-author">
+          <div class="feed-author">
 
             <span class="author-avatar">
               {{
@@ -457,20 +381,19 @@
               }}
             </span>
 
-            <span>
+
+            <span class="author-name">
               {{ post.author.name }}
             </span>
 
-            <span class="dot">
+
+            <span class="feed-dot">
               ·
             </span>
 
-            <span>
-              {{
-                getRelativeTime(
-                  post.created_at
-                )
-              }}
+
+            <span class="post-time">
+              {{ formatDate(post.created_at) }}
             </span>
 
           </div>
@@ -478,20 +401,13 @@
         </div>
 
 
-        <div class="post-actions">
+        <!-- INTERACTIONS -->
 
-          <button
-            class="feed-like-button"
-            type="button"
-            [class.active]="
-              post.liked_by_me
-            "
-            (click)="
-              toggleLike(
-                $event,
-                post
-              )
-            "
+        <div class="feed-interactions">
+
+          <div
+            class="feed-stat like-stat"
+            [class.active]="post.liked_by_me"
           >
 
             <svg
@@ -499,33 +415,60 @@
               aria-hidden="true"
             >
               <path
-                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"
+                d="
+                  M20.8 4.6
+                  a5.5 5.5 0 0 0
+                  -7.8 0
+                  L12 5.6
+                  l-1-1
+                  a5.5 5.5 0 0 0
+                  -7.8 7.8
+                  l1 1
+                  L12 21
+                  l7.8-7.6
+                  1-1
+                  a5.5 5.5 0 0 0
+                  0-7.8z
+                "
               ></path>
             </svg>
 
-            {{ post.like_count }}
+            <span>
+              {{ post.like_count }}
+            </span>
 
-          </button>
+          </div>
 
 
-          <span class="feed-stat">
+          <div class="feed-stat">
 
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
               <path
-                d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
+                d="
+                  M21 15
+                  a4 4 0 0 1
+                  -4 4
+                  H8
+                  l-5 3
+                  1.7-5
+                  A8 8 0 1 1
+                  21 15z
+                "
               ></path>
             </svg>
 
-            {{ post.comment_count }}
+            <span>
+              {{ post.comment_count }}
+            </span>
 
-          </span>
+          </div>
 
 
-          <span
-            class="feed-rating"
+          <div
+            class="feed-stat rating-stat"
             *ngIf="
               post.post_type !== 'thread'
             "
@@ -536,566 +479,100 @@
               aria-hidden="true"
             >
               <path
-                d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
+                d="
+                  M12 2
+                  l3.1 6.3
+                  7 .9
+                  -5 4.9
+                  1.2 6.9
+                  L12 17.8
+                  5.7 21
+                  l1.2-6.9
+                  -5-4.9
+                  7-.9
+                  z
+                "
               ></path>
             </svg>
 
-            {{
-              post.rating_average
-                ?? '–'
-            }}
+            <span>
+              {{
+                post.rating_average !== null
+                  ? post.rating_average
+                  : '–'
+              }}
+            </span>
 
-          </span>
+          </div>
 
 
-          <span class="post-open-icon">
+          <button
+            class="open-post-button"
+            type="button"
+            aria-label="Beitrag öffnen"
+            (click)="
+              $event.stopPropagation();
+              openPost(post)
+            "
+          >
 
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path
-                d="M9 18l6-6-6-6"
-              ></path>
+              <path d="m9 18 6-6-6-6"></path>
             </svg>
 
-          </span>
+          </button>
 
         </div>
 
       </article>
 
 
+      <!-- EMPTY -->
+
       <div
-        class="empty-state"
+        class="feed-empty"
         *ngIf="
-          posts.length === 0
+          filteredPosts.length === 0
         "
       >
 
-        <span class="empty-icon">
+        <div class="feed-empty-icon">
 
           <svg
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+            ></circle>
+
             <path
-              d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
+              d="m20 20-3.5-3.5"
             ></path>
           </svg>
 
-        </span>
+        </div>
 
 
         <strong>
-          Noch keine Beiträge
+          Keine Beiträge gefunden
         </strong>
 
+
         <p>
-          Sei der Erste und teile etwas
-          mit der Bazkit-Community.
+          Versuche einen anderen Suchbegriff
+          oder einen anderen Filter.
         </p>
-
-
-        <button
-          type="button"
-          (click)="openCreateModal()"
-        >
-          Beitrag erstellen
-        </button>
 
       </div>
 
     </div>
 
   </section>
-
-</div>
-
-
-<!-- =====================================
-     CREATE MODAL
-===================================== -->
-
-<div
-  class="modal-backdrop"
-  *ngIf="isCreateModalOpen"
-  (mousedown)="closeCreateModal()"
->
-
-  <div
-    class="create-modal"
-    (mousedown)="
-      $event.stopPropagation()
-    "
-  >
-
-    <div class="modal-header">
-
-      <div>
-
-        <h2>
-          Beitrag erstellen
-        </h2>
-
-        <p
-          *ngIf="
-            createStep === 'type'
-          "
-        >
-          Was möchtest du mit der Community teilen?
-        </p>
-
-      </div>
-
-
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Fenster schließen"
-        (click)="closeCreateModal()"
-      >
-
-        <svg
-          viewBox="0 0 24 24"
-        >
-          <path d="M6 6l12 12"></path>
-          <path d="M18 6 6 18"></path>
-        </svg>
-
-      </button>
-
-    </div>
-
-
-    <div
-      class="create-type-grid"
-      *ngIf="
-        createStep === 'type'
-      "
-    >
-
-      <button
-        type="button"
-        (click)="
-          selectCreateType(
-            'recipe'
-          )
-        "
-      >
-
-        <span class="create-type-icon">
-
-          <svg viewBox="0 0 24 24">
-            <path d="M7 3v18"></path>
-            <path d="M11 3v7a2 2 0 0 1-4 0V3"></path>
-            <path d="M17 3v18"></path>
-          </svg>
-
-        </span>
-
-        <strong>
-          Rezept teilen
-        </strong>
-
-        <small>
-          Eines deiner vorhandenen Rezepte veröffentlichen.
-        </small>
-
-      </button>
-
-
-      <button
-        type="button"
-        (click)="
-          selectCreateType(
-            'list'
-          )
-        "
-      >
-
-        <span class="create-type-icon">
-
-          <svg viewBox="0 0 24 24">
-            <path d="M8 6h12"></path>
-            <path d="M8 12h12"></path>
-            <path d="M8 18h12"></path>
-            <path d="M4 6h.01"></path>
-            <path d="M4 12h.01"></path>
-            <path d="M4 18h.01"></path>
-          </svg>
-
-        </span>
-
-        <strong>
-          Liste teilen
-        </strong>
-
-        <small>
-          Eine gespeicherte Einkaufsliste veröffentlichen.
-        </small>
-
-      </button>
-
-
-      <button
-        type="button"
-        (click)="
-          selectCreateType(
-            'thread'
-          )
-        "
-      >
-
-        <span class="create-type-icon">
-
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
-            ></path>
-          </svg>
-
-        </span>
-
-        <strong>
-          Diskussion starten
-        </strong>
-
-        <small>
-          Eine Frage stellen oder ein Thema eröffnen.
-        </small>
-
-      </button>
-
-    </div>
-
-
-    <!-- RECIPE -->
-
-    <div
-      class="create-form"
-      *ngIf="
-        createStep === 'recipe'
-      "
-    >
-
-      <button
-        class="selection-back-button"
-        type="button"
-        (click)="backToCreateType()"
-      >
-
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M15 18l-6-6 6-6"
-          ></path>
-        </svg>
-
-        Auswahl ändern
-
-      </button>
-
-
-      <h3>
-        Rezept teilen
-      </h3>
-
-      <p>
-        Wähle eines deiner vorhandenen Rezepte aus.
-      </p>
-
-
-      <label for="recipeSelect">
-        Rezept
-      </label>
-
-
-      <select
-        id="recipeSelect"
-        [(ngModel)]="
-          selectedRecipeId
-        "
-      >
-
-        <option
-          [ngValue]="null"
-        >
-          Rezept auswählen...
-        </option>
-
-        <option
-          *ngFor="
-            let recipe
-            of shareOptions.recipes
-          "
-          [ngValue]="recipe.id"
-        >
-          {{ recipe.name }}
-        </option>
-
-      </select>
-
-
-      <div
-        class="empty-own-content"
-        *ngIf="
-          shareOptions.recipes.length === 0
-        "
-      >
-        Du hast noch keine Rezepte,
-        die du teilen kannst.
-      </div>
-
-
-      <div
-        class="publish-error"
-        *ngIf="publishError"
-      >
-        {{ publishError }}
-      </div>
-
-
-      <button
-        class="publish-button"
-        type="button"
-        [disabled]="
-          selectedRecipeId === null ||
-          isPublishing
-        "
-        (click)="publishRecipe()"
-      >
-        {{
-          isPublishing
-            ? 'Wird veröffentlicht...'
-            : 'Rezept veröffentlichen'
-        }}
-      </button>
-
-    </div>
-
-
-    <!-- LIST -->
-
-    <div
-      class="create-form"
-      *ngIf="
-        createStep === 'list'
-      "
-    >
-
-      <button
-        class="selection-back-button"
-        type="button"
-        (click)="backToCreateType()"
-      >
-
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M15 18l-6-6 6-6"
-          ></path>
-        </svg>
-
-        Auswahl ändern
-
-      </button>
-
-
-      <h3>
-        Einkaufsliste teilen
-      </h3>
-
-      <p>
-        Wähle eine deiner gespeicherten Listen aus.
-      </p>
-
-
-      <label for="listSelect">
-        Einkaufsliste
-      </label>
-
-
-      <select
-        id="listSelect"
-        [(ngModel)]="
-          selectedListId
-        "
-      >
-
-        <option
-          [ngValue]="null"
-        >
-          Liste auswählen...
-        </option>
-
-        <option
-          *ngFor="
-            let list
-            of shareOptions.saved_lists
-          "
-          [ngValue]="list.id"
-        >
-          {{ list.title }}
-        </option>
-
-      </select>
-
-
-      <div
-        class="empty-own-content"
-        *ngIf="
-          shareOptions.saved_lists.length === 0
-        "
-      >
-        Du hast noch keine gespeicherten Listen,
-        die du teilen kannst.
-      </div>
-
-
-      <div
-        class="publish-error"
-        *ngIf="publishError"
-      >
-        {{ publishError }}
-      </div>
-
-
-      <button
-        class="publish-button"
-        type="button"
-        [disabled]="
-          selectedListId === null ||
-          isPublishing
-        "
-        (click)="publishList()"
-      >
-        {{
-          isPublishing
-            ? 'Wird veröffentlicht...'
-            : 'Liste veröffentlichen'
-        }}
-      </button>
-
-    </div>
-
-
-    <!-- THREAD -->
-
-    <div
-      class="create-form"
-      *ngIf="
-        createStep === 'thread'
-      "
-    >
-
-      <button
-        class="selection-back-button"
-        type="button"
-        (click)="backToCreateType()"
-      >
-
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M15 18l-6-6 6-6"
-          ></path>
-        </svg>
-
-        Auswahl ändern
-
-      </button>
-
-
-      <h3>
-        Neue Diskussion
-      </h3>
-
-      <p>
-        Starte ein neues Thema und tausche dich
-        mit anderen aus.
-      </p>
-
-
-      <label for="threadTitle">
-        Titel
-      </label>
-
-
-      <input
-        id="threadTitle"
-        type="text"
-        maxlength="160"
-        [(ngModel)]="
-          threadTitle
-        "
-        placeholder="z. B. Welche Heißluftfritteuse könnt ihr empfehlen?"
-      />
-
-
-      <label for="threadCategory">
-        Kategorie
-      </label>
-
-
-      <select
-        id="threadCategory"
-        [(ngModel)]="
-          threadCategory
-        "
-      >
-
-        <option
-          *ngFor="
-            let category
-            of threadCategories
-          "
-          [value]="category.value"
-        >
-          {{ category.label }}
-        </option>
-
-      </select>
-
-
-      <label for="threadContent">
-        Beschreibung
-      </label>
-
-
-      <textarea
-        id="threadContent"
-        maxlength="5000"
-        [(ngModel)]="
-          threadContent
-        "
-        placeholder="Beschreibe dein Thema oder deine Frage..."
-      ></textarea>
-
-
-      <div
-        class="publish-error"
-        *ngIf="publishError"
-      >
-        {{ publishError }}
-      </div>
-
-
-      <button
-        class="publish-button"
-        type="button"
-        [disabled]="
-          !threadTitle.trim() ||
-          !threadContent.trim() ||
-          isPublishing
-        "
-        (click)="publishThread()"
-      >
-        {{
-          isPublishing
-            ? 'Wird veröffentlicht...'
-            : 'Diskussion veröffentlichen'
-        }}
-      </button>
-
-    </div>
-
-  </div>
 
 </div>
