@@ -66,6 +66,10 @@ import {
   CommunityComponent
 } from './community/community.component';
 
+import {
+  CommunityDetailComponent
+} from './community/community-detail/community-detail.component';
+
 
 export const routes:
   Routes = [
@@ -177,6 +181,14 @@ export const routes:
 
         component:
           RecipeListComponent
+      },
+
+      {
+        path:
+          'community/:id',
+
+        component:
+          CommunityDetailComponent
       },
 
       {

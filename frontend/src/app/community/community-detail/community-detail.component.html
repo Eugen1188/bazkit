@@ -1,0 +1,431 @@
+<div class="detail-container">
+
+  <button
+    class="back-button"
+    type="button"
+    (click)="goBack()"
+  >
+    ← Zur Community
+  </button>
+
+
+  <div
+    class="loading"
+    *ngIf="isLoading"
+  >
+    Beitrag wird geladen...
+  </div>
+
+
+  <div
+    class="error"
+    *ngIf="
+      !isLoading &&
+      errorMessage
+    "
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <ng-container
+    *ngIf="
+      !isLoading &&
+      post
+    "
+  >
+
+    <article class="post-detail-card">
+
+      <div
+        class="hero"
+        [class.recipe]="
+          post.post_type ===
+            'recipe'
+        "
+        [class.list]="
+          post.post_type ===
+            'list'
+        "
+        [class.thread]="
+          post.post_type ===
+            'thread'
+        "
+      >
+
+        <span
+          *ngIf="
+            post.post_type ===
+              'recipe'
+          "
+        >
+          🍲
+        </span>
+
+        <span
+          *ngIf="
+            post.post_type ===
+              'list'
+          "
+        >
+          🛒
+        </span>
+
+        <span
+          *ngIf="
+            post.post_type ===
+              'thread'
+          "
+        >
+          💬
+        </span>
+
+      </div>
+
+
+      <div class="detail-content">
+
+        <span class="type-label">
+          {{
+            post.post_type === 'recipe'
+              ? 'Rezept'
+              : post.post_type === 'list'
+                ? 'Einkaufsliste'
+                : 'Diskussion'
+          }}
+        </span>
+
+
+        <h1>
+          {{ post.display_title }}
+        </h1>
+
+
+        <div class="author-line">
+
+          <span class="avatar">
+            {{
+              post.author.name
+                .charAt(0)
+                .toUpperCase()
+            }}
+          </span>
+
+          <strong>
+            {{ post.author.name }}
+          </strong>
+
+        </div>
+
+
+        <p
+          class="thread-content"
+          *ngIf="
+            post.post_type ===
+              'thread'
+          "
+        >
+          {{ post.content }}
+        </p>
+
+
+        <!-- RECIPE -->
+
+        <section
+          class="content-section"
+          *ngIf="
+            post.recipe
+          "
+        >
+
+          <div class="recipe-meta">
+
+            <span>
+              👥
+              {{ post.recipe.servings }}
+              Portionen
+            </span>
+
+            <span
+              *ngIf="
+                post.recipe.preparation_time
+              "
+            >
+              ⏱
+              {{
+                post.recipe.preparation_time
+              }}
+              Min.
+            </span>
+
+          </div>
+
+
+          <p
+            *ngIf="
+              post.recipe.description
+            "
+          >
+            {{ post.recipe.description }}
+          </p>
+
+
+          <h2>
+            Zutaten
+          </h2>
+
+
+          <div class="ingredients">
+
+            <div
+              *ngFor="
+                let ingredient
+                of post.recipe.ingredients
+              "
+            >
+
+              <span>
+                {{ ingredient.name }}
+              </span>
+
+              <strong>
+                {{ ingredient.quantity }}
+                {{ ingredient.unit }}
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <h2>
+            Zubereitung
+          </h2>
+
+          <p class="instructions">
+            {{ post.recipe.instructions }}
+          </p>
+
+        </section>
+
+
+        <!-- LIST -->
+
+        <section
+          class="content-section"
+          *ngIf="
+            post.saved_list
+          "
+        >
+
+          <h2>
+            Produkte
+          </h2>
+
+
+          <div class="list-items">
+
+            <div
+              *ngFor="
+                let item
+                of post.saved_list.items
+              "
+            >
+
+              <span>
+                {{ item.name }}
+              </span>
+
+              <strong>
+                {{ item.quantity }}
+                {{ item.unit }}
+              </strong>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <div class="interaction-row">
+
+          <button
+            class="like-button"
+            type="button"
+            [class.active]="
+              post.liked_by_me
+            "
+            (click)="toggleLike()"
+          >
+            {{
+              post.liked_by_me
+                ? '♥'
+                : '♡'
+            }}
+
+            {{ post.like_count }}
+          </button>
+
+
+          <div
+            class="rating"
+            *ngIf="
+              post.post_type !==
+                'thread'
+            "
+          >
+
+            <span
+              class="star"
+              *ngFor="
+                let star
+                of stars
+              "
+              [class.active]="
+                post.my_rating !== null &&
+                star <= post.my_rating
+              "
+              (click)="rate(star)"
+            >
+              ★
+            </span>
+
+
+            <small>
+              {{
+                post.rating_average
+                  ?? 'Noch keine Bewertung'
+              }}
+
+              <ng-container
+                *ngIf="
+                  post.rating_average
+                "
+              >
+                / 5
+              </ng-container>
+            </small>
+
+          </div>
+
+
+          <button
+            class="copy-button"
+            type="button"
+            *ngIf="
+              post.post_type !==
+                'thread'
+            "
+            [disabled]="
+              isCopying
+            "
+            (click)="copyToMyAccount()"
+          >
+            {{
+              isCopying
+                ? 'Wird übernommen...'
+                : post.post_type === 'recipe'
+                  ? 'Rezept übernehmen'
+                  : 'Liste übernehmen'
+            }}
+          </button>
+
+        </div>
+
+
+        <div
+          class="success-message"
+          *ngIf="message"
+        >
+          {{ message }}
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <section class="comments-section">
+
+      <h2>
+        Kommentare
+        ({{ comments.length }})
+      </h2>
+
+
+      <div class="comment-form">
+
+        <textarea
+          [(ngModel)]="
+            commentText
+          "
+          placeholder="Schreibe einen Kommentar..."
+        ></textarea>
+
+
+        <button
+          type="button"
+          [disabled]="
+            !commentText.trim() ||
+            isSubmittingComment
+          "
+          (click)="submitComment()"
+        >
+          {{
+            isSubmittingComment
+              ? 'Wird gesendet...'
+              : 'Kommentieren'
+          }}
+        </button>
+
+      </div>
+
+
+      <div
+        class="comments-empty"
+        *ngIf="
+          comments.length === 0
+        "
+      >
+        Noch keine Kommentare.
+        Starte die Unterhaltung.
+      </div>
+
+
+      <article
+        class="comment"
+        *ngFor="
+          let comment
+          of comments
+        "
+      >
+
+        <span class="comment-avatar">
+          {{
+            comment.author.name
+              .charAt(0)
+              .toUpperCase()
+          }}
+        </span>
+
+
+        <div>
+
+          <strong>
+            {{ comment.author.name }}
+          </strong>
+
+          <p>
+            {{ comment.content }}
+          </p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </ng-container>
+
+</div>
