@@ -1,23 +1,39 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
-from .models import User
-from .serializers import UserLoginSerializer, UserRegisterSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+
+from .models import User
+from .serializers import (
+    UserLoginSerializer,
+    UserRegisterSerializer,
+)
+
 
 class RegisterUserView(APIView):
     authentication_classes = []
     permission_classes = []
 
     def post(self, request):
-        serializer = UserRegisterSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        serializer = UserRegisterSerializer(
+            data=request.data
+        )
+
+        serializer.is_valid(
+            raise_exception=True
+        )
 
         data = serializer.validated_data
 
+        email = (
+            data["email"]
+            .strip()
+            .lower()
+        )
+
         user = User.objects.create_user(
-            username=data["email"],
-            email=data["email"],
+            username=email,
+            email=email,
             first_name=data["first_name"],
             last_name=data["last_name"],
             password=data["password"],
@@ -25,36 +41,66 @@ class RegisterUserView(APIView):
 
         return Response(
             {
+                "message":
+                    "Registrierung erfolgreich.",
+
                 "id": user.id,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "email": user.email,
+
+                "first_name":
+                    user.first_name,
+
+                "last_name":
+                    user.last_name,
+
+                "email":
+                    user.email,
             },
             status=status.HTTP_201_CREATED
         )
-    
+
+
 class LoginUserView(APIView):
     authentication_classes = []
     permission_classes = []
 
     def post(self, request):
-        serializer = UserLoginSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        serializer = UserLoginSerializer(
+            data=request.data
+        )
 
-        user = serializer.validated_data["user"]
+        serializer.is_valid(
+            raise_exception=True
+        )
 
-        refresh = RefreshToken.for_user(user)
+        user = serializer.validated_data[
+            "user"
+        ]
+
+        refresh = RefreshToken.for_user(
+            user
+        )
 
         return Response(
             {
-                "refresh": str(refresh),
-                "access": str(refresh.access_token),
+                "refresh":
+                    str(refresh),
+
+                "access":
+                    str(refresh.access_token),
+
                 "user": {
-                    "id": user.id,
-                    "first_name": user.first_name,
-                    "last_name": user.last_name,
-                    "email": user.email,
-                    }
+                    "id":
+                        user.id,
+
+                    "first_name":
+                        user.first_name,
+
+                    "last_name":
+                        user.last_name,
+
+                    "email":
+                        user.email,
+                }
             },
             status=status.HTTP_200_OK
         )

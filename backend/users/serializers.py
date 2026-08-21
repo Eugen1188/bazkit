@@ -1,22 +1,42 @@
-from rest_framework import serializers
-from .models import User
+import re
+
 from django.contrib.auth import authenticate
+from rest_framework import serializers
+
+from .models import User
 
 
 class UserRegisterSerializer(serializers.Serializer):
-    first_name = serializers.CharField(max_length=150)
-    last_name = serializers.CharField(max_length=150)
+    first_name = serializers.CharField(
+        max_length=150
+    )
+
+    last_name = serializers.CharField(
+        max_length=150
+    )
+
     email = serializers.EmailField()
-    password = serializers.CharField(write_only=True, min_length=8)
-    password2 = serializers.CharField(write_only=True)
+
+    password = serializers.CharField(
+        write_only=True,
+        min_length=8
+    )
+
+    password2 = serializers.CharField(
+        write_only=True
+    )
 
     def validate_email(self, value):
-        if User.objects.filter(email=value).exists():
+        email = value.strip().lower()
+
+        if User.objects.filter(
+            email__iexact=email
+        ).exists():
             raise serializers.ValidationError(
                 "Diese E-Mail wird bereits verwendet."
             )
 
-        return value
+        return email
 
     def validate_first_name(self, value):
         value = value.strip()
@@ -38,10 +58,35 @@ class UserRegisterSerializer(serializers.Serializer):
 
         return value
 
+    def validate_password(self, value):
+        if len(value) < 8:
+            raise serializers.ValidationError(
+                "Das Passwort muss mindestens 8 Zeichen lang sein."
+            )
+
+        if not re.search(
+            r"[A-Za-zÄÖÜäöüß]",
+            value
+        ):
+            raise serializers.ValidationError(
+                "Das Passwort muss mindestens einen Buchstaben enthalten."
+            )
+
+        if not re.search(r"\d", value):
+            raise serializers.ValidationError(
+                "Das Passwort muss mindestens eine Zahl enthalten."
+            )
+
+        return value
+
     def validate(self, attrs):
-        if attrs["password"] != attrs["password2"]:
+        if (
+            attrs["password"] !=
+            attrs["password2"]
+        ):
             raise serializers.ValidationError({
-                "password2": "Die Passwörter stimmen nicht überein."
+                "password2":
+                    "Die Passwörter stimmen nicht überein."
             })
 
         return attrs
@@ -49,26 +94,39 @@ class UserRegisterSerializer(serializers.Serializer):
 
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    password = serializers.CharField(write_only=True)
+
+    password = serializers.CharField(
+        write_only=True
+    )
 
     def validate(self, attrs):
-        email = attrs.get("email")
+        entered_email = (
+            attrs.get("email", "")
+            .strip()
+            .lower()
+        )
+
         password = attrs.get("password")
 
-        if not User.objects.filter(email=email).exists():
-            raise serializers.ValidationError({
-                "email": "Diese E-Mail existiert nicht."
-            })
+        try:
+            user = User.objects.get(
+                email__iexact=entered_email
+            )
+
+        except User.DoesNotExist:
+            raise serializers.ValidationError(
+                "E-Mail oder Passwort ist falsch."
+            )
 
         user = authenticate(
-            username=email,
+            username=user.username,
             password=password
         )
 
         if user is None:
-            raise serializers.ValidationError({
-                "password": "Das Passwort ist falsch."
-            })
+            raise serializers.ValidationError(
+                "E-Mail oder Passwort ist falsch."
+            )
 
         attrs["user"] = user
 
