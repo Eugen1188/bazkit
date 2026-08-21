@@ -269,6 +269,8 @@ CATEGORY GRID
     );
 
   gap: 20px;
+
+  align-items: stretch;
 }
 
 
@@ -280,6 +282,7 @@ CATEGORY CARD
   min-width: 0;
 
   padding: 0;
+  margin: 0;
 
   border:
     1px solid
@@ -290,6 +293,7 @@ CATEGORY CARD
   overflow: hidden;
 
   appearance: none;
+  -webkit-appearance: none;
 
   background:
     var(--color-surface);
@@ -299,9 +303,17 @@ CATEGORY CARD
 
   font-family: inherit;
 
+  font-size: inherit;
+  line-height: normal;
+
   text-align: left;
 
   cursor: pointer;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
 
   box-shadow:
     0
@@ -350,13 +362,23 @@ CATEGORY IMAGE
 
   width: 100%;
 
+  flex-shrink: 0;
+
   aspect-ratio:
     16 / 9;
 
   overflow: hidden;
 
+  border-radius:
+    15px
+    15px
+    0
+    0;
+
   background:
     var(--color-page-bg);
+
+  line-height: 0;
 }
 
 
@@ -370,13 +392,22 @@ CATEGORY IMAGE
 
   object-position: center;
 
-  border: 0;
+  border:
+    none;
+
+  border-radius:
+    15px
+    15px
+    0
+    0;
 
   margin: 0;
 
   padding: 0;
 
   transform: none;
+
+  vertical-align: top;
 }
 
 
@@ -389,6 +420,10 @@ CATEGORY CONTENT
     17px
     20px
     20px;
+
+  flex: 1;
+
+  box-sizing: border-box;
 
   background:
     var(--color-surface);
@@ -1760,6 +1795,12 @@ TABLET
     min-height: 160px;
 
     aspect-ratio: auto;
+
+    border-radius:
+      15px
+      0
+      0
+      15px;
   }
 
 
@@ -1770,6 +1811,12 @@ TABLET
     object-fit: cover;
 
     object-position: center;
+
+    border-radius:
+      15px
+      0
+      0
+      15px;
   }
 
 
@@ -1858,7 +1905,9 @@ MOBILE
 
 
   .category-card {
-    display: block;
+    display: flex;
+
+    flex-direction: column;
 
     min-height: 0;
 
@@ -1875,6 +1924,12 @@ MOBILE
 
     aspect-ratio:
       16 / 9;
+
+    border-radius:
+      12px
+      12px
+      0
+      0;
   }
 
 
@@ -1887,6 +1942,12 @@ MOBILE
     object-fit: cover;
 
     object-position: center;
+
+    border-radius:
+      12px
+      12px
+      0
+      0;
   }
 
 
