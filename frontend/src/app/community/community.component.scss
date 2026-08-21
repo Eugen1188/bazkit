@@ -21,9 +21,11 @@ PAGE
     46px
     50px;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
   background:
     var(--color-surface);
@@ -40,22 +42,29 @@ HEADER
 .community-header {
   width: 100%;
 
-  margin-bottom: 32px;
+  margin-bottom:
+    32px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: flex-start;
+  align-items:
+    flex-start;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 30px;
+  gap:
+    30px;
 }
 
 
 .community-heading {
-  min-width: 0;
+  min-width:
+    0;
 
-  flex: 1;
+  flex:
+    1;
 }
 
 
@@ -65,11 +74,14 @@ HEADER
     0
     7px;
 
-  font-size: 36px;
+  font-size:
+    36px;
 
-  line-height: 1.1;
+  line-height:
+    1.1;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     -0.035em;
@@ -77,25 +89,32 @@ HEADER
 
 
 .community-heading p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--color-text-secondary);
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.5;
+  line-height:
+    1.5;
 }
 
 
 .community-header-actions {
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 12px;
+  gap:
+    12px;
 
-  flex-shrink: 0;
+  flex-shrink:
+    0;
 }
 
 
@@ -104,39 +123,53 @@ CREATE BUTTON
 ===================================== */
 
 .create-post-button {
-  height: 46px;
+  height:
+    46px;
 
   padding:
     0
     18px;
 
-  border: none;
+  border:
+    none;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  gap: 8px;
+  gap:
+    8px;
 
   background:
     var(--color-primary);
 
-  color: #fff;
+  color:
+    #fff;
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease;
+    background
+    0.15s
+    ease;
 }
 
 
@@ -147,19 +180,26 @@ CREATE BUTTON
 
 
 .create-post-button svg {
-  width: 17px;
-  height: 17px;
+  width:
+    17px;
 
-  fill: none;
+  height:
+    17px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.9;
+  stroke-width:
+    1.9;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
@@ -168,33 +208,46 @@ SEARCH
 ===================================== */
 
 .search-field {
-  width: 280px;
-  height: 46px;
+  width:
+    280px;
+
+  height:
+    46px;
 
   padding:
     0
     14px;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-border);
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 10px;
+  gap:
+    10px;
 
   background:
     var(--color-surface);
 
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color
+    0.15s
+    ease,
+    box-shadow
+    0.15s
+    ease;
 }
 
 
@@ -212,35 +265,50 @@ SEARCH
 
 
 .search-field svg {
-  width: 17px;
-  height: 17px;
+  width:
+    17px;
 
-  flex-shrink: 0;
+  height:
+    17px;
 
-  fill: none;
+  flex-shrink:
+    0;
+
+  fill:
+    none;
 
   stroke:
     var(--color-icon);
 
-  stroke-width: 1.8;
+  stroke-width:
+    1.8;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
 .search-field input {
-  width: 100%;
-  height: 100%;
+  width:
+    100%;
 
-  min-width: 0;
+  height:
+    100%;
 
-  padding: 0;
+  min-width:
+    0;
 
-  border: none;
+  padding:
+    0;
 
-  outline: none;
+  border:
+    none;
+
+  outline:
+    none;
 
   background:
     transparent;
@@ -248,9 +316,11 @@ SEARCH
   color:
     var(--color-text-primary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 12px;
+  font-size:
+    12px;
 }
 
 
@@ -259,19 +329,26 @@ CATEGORY GRID
 ===================================== */
 
 .category-grid {
-  width: 100%;
+  width:
+    100%;
 
-  margin-bottom: 42px;
+  margin-bottom:
+    42px;
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     repeat(
       3,
-      minmax(0, 1fr)
+      minmax(
+        0,
+        1fr
+      )
     );
 
-  gap: 20px;
+  gap:
+    20px;
 }
 
 
@@ -280,21 +357,28 @@ CATEGORY CARD
 ===================================== */
 
 .category-card {
-  position: relative;
+  position:
+    relative;
 
-  min-width: 0;
+  min-width:
+    0;
 
-  padding: 0;
+  padding:
+    0;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 16px;
+  border-radius:
+    16px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  appearance: none;
+  appearance:
+    none;
 
   background:
     var(--color-surface);
@@ -302,11 +386,14 @@ CATEGORY CARD
   color:
     var(--color-text-primary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  text-align: left;
+  text-align:
+    left;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   box-shadow:
     0
@@ -320,15 +407,23 @@ CATEGORY CARD
     );
 
   transition:
-    transform 0.17s ease,
-    border-color 0.17s ease,
-    box-shadow 0.17s ease;
+    transform
+    0.17s
+    ease,
+    border-color
+    0.17s
+    ease,
+    box-shadow
+    0.17s
+    ease;
 }
 
 
 .category-card:hover {
   transform:
-    translateY(-3px);
+    translateY(
+      -3px
+    );
 
   border-color:
     var(--color-primary-soft);
@@ -349,25 +444,23 @@ CATEGORY CARD
 /* =====================================
 CATEGORY IMAGE
 
-Das Bild liegt minimal über dem inneren
-Kartenrand. Dadurch entstehen auch bei
-Browser-Zoom keine weißen Ecken.
+Die aktuellen Dateien enthalten bereits
+einen weißen Kartenrand aus dem Mockup.
 
-15px = 16px Kartenradius minus 1px Border.
+Deshalb wird das Bild etwas vergrößert,
+damit dieser eingebrannte Rand außerhalb
+des sichtbaren Bereichs liegt.
 ===================================== */
 
 .category-image {
-  position: relative;
+  position:
+    relative;
 
   width:
-    calc(100% + 2px);
+    100%;
 
-  margin:
-    -1px
-    -1px
-    0;
-
-  overflow: hidden;
+  overflow:
+    hidden;
 
   border-radius:
     15px
@@ -381,21 +474,44 @@ Browser-Zoom keine weißen Ecken.
 
 
 .category-image img {
-  width: 100%;
-  height: auto;
+  width:
+    100%;
 
-  display: block;
+  height:
+    auto;
 
-  border-radius:
-    15px
-    15px
-    0
-    0;
+  display:
+    block;
 
-  object-fit: contain;
+  /*
+  Aktuelles Mockup-Bild leicht vergrößern,
+  damit der bereits im Bild vorhandene
+  weiße Rand abgeschnitten wird.
+  */
+
+  transform:
+    scale(
+      1.035
+    );
+
+  transform-origin:
+    center
+    center;
+
+  object-fit:
+    contain;
 
   object-position:
     center;
+
+  /*
+  Die äußere Karte ist für die sichtbare
+  Rundung verantwortlich.
+  Das Bild selbst braucht keinen Radius.
+  */
+
+  border-radius:
+    0;
 }
 
 
@@ -404,9 +520,11 @@ CATEGORY CONTENT
 ===================================== */
 
 .category-content {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 1;
+  z-index:
+    1;
 
   padding:
     17px
@@ -419,16 +537,20 @@ CATEGORY CONTENT
 
 
 .category-label {
-  display: block;
+  display:
+    block;
 
-  margin-bottom: 5px;
+  margin-bottom:
+    5px;
 
   color:
     var(--color-primary);
 
-  font-size: 9px;
+  font-size:
+    9px;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     0.07em;
@@ -444,23 +566,29 @@ CATEGORY CONTENT
     0
     6px;
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 1.25;
+  line-height:
+    1.25;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
 .category-content p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  line-height: 1.45;
+  line-height:
+    1.45;
 }
 
 
@@ -469,15 +597,20 @@ FEED
 ===================================== */
 
 .feed-header {
-  margin-bottom: 15px;
+  margin-bottom:
+    15px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: flex-end;
+  align-items:
+    flex-end;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 24px;
+  gap:
+    24px;
 }
 
 
@@ -487,19 +620,23 @@ FEED
     0
     4px;
 
-  font-size: 23px;
+  font-size:
+    23px;
 
-  line-height: 1.2;
+  line-height:
+    1.2;
 }
 
 
 .feed-header p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 }
 
 
@@ -508,17 +645,22 @@ FILTERS
 ===================================== */
 
 .feed-filters {
-  padding: 4px;
+  padding:
+    4px;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 10px;
+  border-radius:
+    10px;
 
-  display: flex;
+  display:
+    flex;
 
-  gap: 2px;
+  gap:
+    2px;
 
   background:
     var(--color-page-bg);
@@ -526,15 +668,18 @@ FILTERS
 
 
 .feed-filters button {
-  min-height: 34px;
+  min-height:
+    34px;
 
   padding:
     0
     13px;
 
-  border: none;
+  border:
+    none;
 
-  border-radius: 7px;
+  border-radius:
+    7px;
 
   background:
     transparent;
@@ -542,17 +687,25 @@ FILTERS
   color:
     var(--color-text-secondary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 10px;
+  font-size:
+    10px;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease,
-    color 0.15s ease;
+    background
+    0.15s
+    ease,
+    color
+    0.15s
+    ease;
 }
 
 
@@ -587,11 +740,14 @@ FEED LIST
 ===================================== */
 
 .feed-list {
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  gap: 12px;
+  gap:
+    12px;
 }
 
 
@@ -600,29 +756,39 @@ FEED CARD
 ===================================== */
 
 .feed-card {
-  width: 100%;
+  width:
+    100%;
 
-  min-height: 138px;
+  min-height:
+    138px;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     175px
-    minmax(0, 1fr)
+    minmax(
+      0,
+      1fr
+    )
     auto;
 
   background:
     var(--color-surface);
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   box-shadow:
     0
@@ -636,15 +802,23 @@ FEED CARD
     );
 
   transition:
-    transform 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    transform
+    0.15s
+    ease,
+    border-color
+    0.15s
+    ease,
+    box-shadow
+    0.15s
+    ease;
 }
 
 
 .feed-card:hover {
   transform:
-    translateY(-1px);
+    translateY(
+      -1px
+    );
 
   border-color:
     var(--color-primary-soft);
@@ -667,11 +841,14 @@ FEED CARD IMAGE
 ===================================== */
 
 .feed-card-image {
-  width: 175px;
+  width:
+    175px;
 
-  min-height: 138px;
+  min-height:
+    138px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   background:
     var(--color-page-bg);
@@ -679,15 +856,30 @@ FEED CARD IMAGE
 
 
 .feed-card-image img {
-  width: 100%;
-  height: 100%;
+  width:
+    100%;
 
-  display: block;
+  height:
+    100%;
 
-  object-fit: cover;
+  display:
+    block;
+
+  object-fit:
+    cover;
 
   object-position:
     center;
+
+  /*
+  Auch hier die eingebrannten Ränder
+  der aktuellen Dateien verstecken.
+  */
+
+  transform:
+    scale(
+      1.04
+    );
 }
 
 
@@ -696,28 +888,36 @@ FEED CONTENT
 ===================================== */
 
 .feed-card-content {
-  min-width: 0;
+  min-width:
+    0;
 
   padding:
     18px
     20px;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  justify-content: center;
+  justify-content:
+    center;
 }
 
 
 .feed-topline {
-  margin-bottom: 4px;
+  margin-bottom:
+    4px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 7px;
+  gap:
+    7px;
 }
 
 
@@ -725,9 +925,11 @@ FEED CONTENT
   color:
     var(--color-primary);
 
-  font-size: 9px;
+  font-size:
+    9px;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     0.07em;
@@ -742,7 +944,8 @@ FEED CONTENT
     3px
     7px;
 
-  border-radius: 999px;
+  border-radius:
+    999px;
 
   background:
     var(--color-primary-soft-bg);
@@ -750,7 +953,8 @@ FEED CONTENT
   color:
     var(--color-primary);
 
-  font-size: 9px;
+  font-size:
+    9px;
 }
 
 
@@ -760,13 +964,17 @@ FEED CONTENT
     0
     6px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  line-height: 1.3;
+  line-height:
+    1.3;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   text-overflow:
     ellipsis;
@@ -782,14 +990,17 @@ FEED CONTENT
     0
     12px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   color:
     var(--color-text-secondary);
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  line-height: 1.45;
+  line-height:
+    1.45;
 
   display:
     -webkit-box;
@@ -810,39 +1021,53 @@ AUTHOR
 ===================================== */
 
 .feed-author {
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 7px;
+  gap:
+    7px;
 
   color:
     var(--color-text-muted);
 
-  font-size: 9px;
+  font-size:
+    9px;
 }
 
 
 .author-avatar {
-  width: 24px;
-  height: 24px;
+  width:
+    24px;
 
-  border-radius: 50%;
+  height:
+    24px;
 
-  display: flex;
+  border-radius:
+    50%;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   background:
     var(--color-primary);
 
-  color: #fff;
+  color:
+    #fff;
 
-  font-size: 9px;
+  font-size:
+    9px;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
@@ -850,7 +1075,8 @@ AUTHOR
   color:
     var(--color-text-secondary);
 
-  font-weight: 500;
+  font-weight:
+    500;
 }
 
 
@@ -865,38 +1091,49 @@ FEED ACTIONS
 ===================================== */
 
 .feed-actions {
-  min-width: 180px;
+  min-width:
+    180px;
 
   padding:
     0
     18px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: flex-end;
+  justify-content:
+    flex-end;
 
-  gap: 13px;
+  gap:
+    13px;
 }
 
 
 .feed-like-button {
-  height: 34px;
+  height:
+    34px;
 
   padding:
     0
     7px;
 
-  border: none;
+  border:
+    none;
 
-  border-radius: 8px;
+  border-radius:
+    8px;
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 5px;
+  gap:
+    5px;
 
   background:
     transparent;
@@ -904,30 +1141,43 @@ FEED ACTIONS
   color:
     var(--color-text-muted);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 10px;
+  font-size:
+    10px;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease,
-    color 0.15s ease;
+    background
+    0.15s
+    ease,
+    color
+    0.15s
+    ease;
 }
 
 
 .feed-like-button svg {
-  width: 17px;
-  height: 17px;
+  width:
+    17px;
 
-  fill: none;
+  height:
+    17px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.8;
+  stroke-width:
+    1.8;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
@@ -947,7 +1197,8 @@ FEED ACTIONS
   color:
     #c6534f;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
@@ -958,31 +1209,41 @@ FEED ACTIONS
 
 
 .feed-stat {
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 5px;
+  gap:
+    5px;
 
   color:
     var(--color-text-muted);
 
-  font-size: 10px;
+  font-size:
+    10px;
 }
 
 
 .feed-stat svg {
-  width: 17px;
-  height: 17px;
+  width:
+    17px;
 
-  fill: none;
+  height:
+    17px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.7;
+  stroke-width:
+    1.7;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
@@ -999,39 +1260,55 @@ FEED ACTIONS
 
 
 .open-post-icon {
-  width: 32px;
-  height: 32px;
+  width:
+    32px;
 
-  border-radius: 8px;
+  height:
+    32px;
 
-  display: flex;
+  border-radius:
+    8px;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   color:
     var(--color-primary);
 
   transition:
-    background 0.15s ease;
+    background
+    0.15s
+    ease;
 }
 
 
 .open-post-icon svg {
-  width: 18px;
-  height: 18px;
+  width:
+    18px;
 
-  fill: none;
+  height:
+    18px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 2;
+  stroke-width:
+    2;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
@@ -1047,24 +1324,31 @@ STATES
 ===================================== */
 
 .feed-state {
-  min-height: 180px;
+  min-height:
+    180px;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
   color:
     var(--color-text-muted);
 
-  font-size: 12px;
+  font-size:
+    12px;
 }
 
 
@@ -1078,39 +1362,55 @@ STATES
 
 
 .feed-empty {
-  min-height: 190px;
+  min-height:
+    190px;
 
   border:
-    1px dashed
+    1px
+    dashed
     var(--color-border);
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 
 .feed-empty-icon {
-  width: 42px;
-  height: 42px;
+  width:
+    42px;
 
-  margin-bottom: 11px;
+  height:
+    42px;
 
-  border-radius: 50%;
+  margin-bottom:
+    11px;
 
-  display: flex;
+  border-radius:
+    50%;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   background:
     var(--color-primary-soft-bg);
@@ -1121,30 +1421,38 @@ STATES
 
 
 .feed-empty-icon svg {
-  width: 19px;
-  height: 19px;
+  width:
+    19px;
 
-  fill: none;
+  height:
+    19px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.8;
+  stroke-width:
+    1.8;
 }
 
 
 .feed-empty strong {
-  margin-bottom: 5px;
+  margin-bottom:
+    5px;
 }
 
 
 .feed-empty p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 }
 
 
@@ -1153,21 +1461,29 @@ MODAL BACKDROP
 ===================================== */
 
 .modal-backdrop {
-  position: fixed;
+  position:
+    fixed;
 
-  inset: 0;
+  inset:
+    0;
 
-  z-index: 3000;
+  z-index:
+    3000;
 
-  padding: 24px;
+  padding:
+    24px;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
   background:
     rgba(
@@ -1178,7 +1494,9 @@ MODAL BACKDROP
     );
 
   backdrop-filter:
-    blur(3px);
+    blur(
+      3px
+    );
 }
 
 
@@ -1198,17 +1516,22 @@ CREATE MODAL
       100vh - 48px
     );
 
-  padding: 27px;
+  padding:
+    27px;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 18px;
+  border-radius:
+    18px;
 
   background:
     var(--color-surface);
@@ -1231,15 +1554,20 @@ MODAL HEADER
 ===================================== */
 
 .modal-header {
-  margin-bottom: 24px;
+  margin-bottom:
+    24px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: flex-start;
+  align-items:
+    flex-start;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 20px;
+  gap:
+    20px;
 }
 
 
@@ -1249,33 +1577,44 @@ MODAL HEADER
     0
     5px;
 
-  font-size: 23px;
+  font-size:
+    23px;
 }
 
 
 .modal-header p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 12px;
+  font-size:
+    12px;
 }
 
 
 .modal-close {
-  width: 36px;
-  height: 36px;
+  width:
+    36px;
 
-  border: none;
+  height:
+    36px;
 
-  border-radius: 9px;
+  border:
+    none;
 
-  display: flex;
+  border-radius:
+    9px;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   background:
     var(--color-page-bg);
@@ -1283,11 +1622,16 @@ MODAL HEADER
   color:
     var(--color-text-secondary);
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease,
-    color 0.15s ease;
+    background
+    0.15s
+    ease,
+    color
+    0.15s
+    ease;
 }
 
 
@@ -1301,17 +1645,23 @@ MODAL HEADER
 
 
 .modal-close svg {
-  width: 18px;
-  height: 18px;
+  width:
+    18px;
 
-  fill: none;
+  height:
+    18px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.9;
+  stroke-width:
+    1.9;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 }
 
 
@@ -1320,34 +1670,46 @@ CREATE TYPES
 ===================================== */
 
 .create-type-grid {
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     repeat(
       3,
-      minmax(0, 1fr)
+      minmax(
+        0,
+        1fr
+      )
     );
 
-  gap: 12px;
+  gap:
+    12px;
 }
 
 
 .create-type-grid > button {
-  min-height: 180px;
+  min-height:
+    180px;
 
-  padding: 20px;
+  padding:
+    20px;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  align-items: flex-start;
+  align-items:
+    flex-start;
 
   background:
     var(--color-surface);
@@ -1355,15 +1717,22 @@ CREATE TYPES
   color:
     var(--color-text-primary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  text-align: left;
+  text-align:
+    left;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    border-color 0.15s ease,
-    background 0.15s ease;
+    border-color
+    0.15s
+    ease,
+    background
+    0.15s
+    ease;
 }
 
 
@@ -1377,18 +1746,26 @@ CREATE TYPES
 
 
 .create-type-icon {
-  width: 48px;
-  height: 48px;
+  width:
+    48px;
 
-  margin-bottom: 20px;
+  height:
+    48px;
 
-  border-radius: 12px;
+  margin-bottom:
+    20px;
 
-  display: flex;
+  border-radius:
+    12px;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   background:
     var(--color-primary-soft-bg);
@@ -1399,26 +1776,35 @@ CREATE TYPES
 
 
 .create-type-icon svg {
-  width: 23px;
-  height: 23px;
+  width:
+    23px;
 
-  fill: none;
+  height:
+    23px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 1.8;
+  stroke-width:
+    1.8;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
 .create-type-grid strong {
-  margin-bottom: 6px;
+  margin-bottom:
+    6px;
 
-  font-size: 15px;
+  font-size:
+    15px;
 }
 
 
@@ -1426,9 +1812,11 @@ CREATE TYPES
   color:
     var(--color-text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  line-height: 1.45;
+  line-height:
+    1.45;
 }
 
 
@@ -1437,34 +1825,44 @@ CREATE FORM
 ===================================== */
 
 .create-form {
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 }
 
 
 .selection-back-button {
-  align-self: flex-start;
+  align-self:
+    flex-start;
 
-  height: 35px;
+  height:
+    35px;
 
-  margin-bottom: 20px;
+  margin-bottom:
+    20px;
 
   padding:
     0
     11px;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-divider);
 
-  border-radius: 8px;
+  border-radius:
+    8px;
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 5px;
+  gap:
+    5px;
 
   background:
     var(--color-surface);
@@ -1472,16 +1870,22 @@ CREATE FORM
   color:
     var(--color-primary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease;
+    background
+    0.15s
+    ease;
 }
 
 
@@ -1492,19 +1896,26 @@ CREATE FORM
 
 
 .selection-back-button svg {
-  width: 16px;
-  height: 16px;
+  width:
+    16px;
 
-  fill: none;
+  height:
+    16px;
+
+  fill:
+    none;
 
   stroke:
     currentColor;
 
-  stroke-width: 2;
+  stroke-width:
+    2;
 
-  stroke-linecap: round;
+  stroke-linecap:
+    round;
 
-  stroke-linejoin: round;
+  stroke-linejoin:
+    round;
 }
 
 
@@ -1514,7 +1925,8 @@ CREATE FORM
     0
     5px;
 
-  font-size: 21px;
+  font-size:
+    21px;
 }
 
 
@@ -1527,7 +1939,8 @@ CREATE FORM
   color:
     var(--color-text-muted);
 
-  font-size: 12px;
+  font-size:
+    12px;
 }
 
 
@@ -1537,30 +1950,37 @@ CREATE FORM
     0
     7px;
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
 .create-form input,
 .create-form select,
 .create-form textarea {
-  width: 100%;
+  width:
+    100%;
 
-  margin-bottom: 18px;
+  margin-bottom:
+    18px;
 
   padding:
     0
     13px;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
   border:
-    1px solid
+    1px
+    solid
     var(--color-border);
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   background:
     var(--color-surface);
@@ -1568,30 +1988,41 @@ CREATE FORM
   color:
     var(--color-text-primary);
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  outline: none;
+  outline:
+    none;
 
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color
+    0.15s
+    ease,
+    box-shadow
+    0.15s
+    ease;
 }
 
 
 .create-form input,
 .create-form select {
-  height: 46px;
+  height:
+    46px;
 }
 
 
 .create-form textarea {
-  min-height: 150px;
+  min-height:
+    150px;
 
-  padding: 13px;
+  padding:
+    13px;
 
-  resize: vertical;
+  resize:
+    vertical;
 }
 
 
@@ -1615,30 +2046,43 @@ PUBLISH
 ===================================== */
 
 .publish-button {
-  height: 46px;
+  height:
+    46px;
 
-  margin-top: 4px;
+  margin-top:
+    4px;
 
-  border: none;
+  border:
+    none;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   background:
     var(--color-primary);
 
-  color: #fff;
+  color:
+    #fff;
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
-    background 0.15s ease,
-    opacity 0.15s ease;
+    background
+    0.15s
+    ease,
+    opacity
+    0.15s
+    ease;
 }
 
 
@@ -1649,7 +2093,8 @@ PUBLISH
 
 
 .publish-button:disabled {
-  opacity: 0.5;
+  opacity:
+    0.5;
 
   cursor:
     not-allowed;
@@ -1657,13 +2102,15 @@ PUBLISH
 
 
 .publish-error {
-  margin-bottom: 14px;
+  margin-bottom:
+    14px;
 
   padding:
     10px
     12px;
 
-  border-radius: 8px;
+  border-radius:
+    8px;
 
   background:
     #fff5f4;
@@ -1671,7 +2118,8 @@ PUBLISH
   color:
     #c94f49;
 
-  font-size: 11px;
+  font-size:
+    11px;
 }
 
 
@@ -1684,7 +2132,8 @@ PUBLISH
   color:
     var(--color-text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 }
 
 
@@ -1693,7 +2142,8 @@ MEDIUM DESKTOP
 ===================================== */
 
 @media (
-  max-width: 1200px
+  max-width:
+    1200px
 ) {
 
   .community-container {
@@ -1705,20 +2155,25 @@ MEDIUM DESKTOP
 
 
   .category-grid {
-    gap: 16px;
+    gap:
+      16px;
   }
 
 
   .feed-card {
     grid-template-columns:
       150px
-      minmax(0, 1fr)
+      minmax(
+        0,
+        1fr
+      )
       auto;
   }
 
 
   .feed-card-image {
-    width: 150px;
+    width:
+      150px;
   }
 
 }
@@ -1729,25 +2184,31 @@ TABLET
 ===================================== */
 
 @media (
-  max-width: 950px
+  max-width:
+    950px
 ) {
 
   .community-header {
-    flex-direction: column;
+    flex-direction:
+      column;
 
-    align-items: stretch;
+    align-items:
+      stretch;
   }
 
 
   .community-header-actions {
-    width: 100%;
+    width:
+      100%;
   }
 
 
   .search-field {
-    flex: 1;
+    flex:
+      1;
 
-    width: auto;
+    width:
+      auto;
   }
 
 
@@ -1758,30 +2219,33 @@ TABLET
 
 
   .category-card {
-    display: grid;
+    display:
+      grid;
 
     grid-template-columns:
-      minmax(240px, 42%)
-      minmax(0, 1fr);
+      minmax(
+        240px,
+        42%
+      )
+      minmax(
+        0,
+        1fr
+      );
 
-    min-height: 160px;
+    min-height:
+      160px;
   }
 
 
   .category-image {
     width:
-      calc(100% + 1px);
+      100%;
 
     height:
-      calc(100% + 2px);
+      100%;
 
-    min-height: 160px;
-
-    margin:
-      -1px
-      0
-      -1px
-      -1px;
+    min-height:
+      160px;
 
     border-radius:
       15px
@@ -1792,61 +2256,77 @@ TABLET
 
 
   .category-image img {
-    width: 100%;
-    height: 100%;
+    width:
+      100%;
 
-    border-radius:
-      15px
-      0
-      0
-      15px;
+    height:
+      100%;
 
-    object-fit: cover;
+    object-fit:
+      cover;
 
     object-position:
       center;
+
+    transform:
+      scale(
+        1.04
+      );
   }
 
 
   .category-content {
-    display: flex;
+    display:
+      flex;
 
-    flex-direction: column;
+    flex-direction:
+      column;
 
-    justify-content: center;
+    justify-content:
+      center;
   }
 
 
   .feed-header {
-    align-items: flex-start;
+    align-items:
+      flex-start;
 
-    flex-direction: column;
+    flex-direction:
+      column;
   }
 
 
   .feed-filters {
-    max-width: 100%;
+    max-width:
+      100%;
 
-    overflow-x: auto;
+    overflow-x:
+      auto;
   }
 
 
   .feed-card {
     grid-template-columns:
       135px
-      minmax(0, 1fr);
+      minmax(
+        0,
+        1fr
+      );
   }
 
 
   .feed-card-image {
-    width: 135px;
+    width:
+      135px;
   }
 
 
   .feed-actions {
-    grid-column: 2;
+    grid-column:
+      2;
 
-    min-width: 0;
+    min-width:
+      0;
 
     padding:
       0
@@ -1865,7 +2345,8 @@ MOBILE
 ===================================== */
 
 @media (
-  max-width: 650px
+  max-width:
+    650px
 ) {
 
   .community-container {
@@ -1877,43 +2358,47 @@ MOBILE
 
 
   .community-heading h1 {
-    font-size: 30px;
+    font-size:
+      30px;
   }
 
 
   .community-header-actions {
-    flex-direction: column;
+    flex-direction:
+      column;
 
-    align-items: stretch;
+    align-items:
+      stretch;
   }
 
 
   .create-post-button,
   .search-field {
-    width: 100%;
+    width:
+      100%;
   }
 
 
   .category-card {
-    display: block;
+    display:
+      block;
 
-    min-height: 0;
+    min-height:
+      0;
 
-    border-radius: 13px;
+    border-radius:
+      13px;
   }
 
 
   .category-image {
     width:
-      calc(100% + 2px);
+      100%;
 
-    height: auto;
+    height:
+      auto;
 
-    min-height: 0;
-
-    margin:
-      -1px
-      -1px
+    min-height:
       0;
 
     border-radius:
@@ -1925,26 +2410,31 @@ MOBILE
 
 
   .category-image img {
-    width: 100%;
-    height: auto;
+    width:
+      100%;
 
-    display: block;
+    height:
+      auto;
 
-    border-radius:
-      12px
-      12px
-      0
-      0;
+    display:
+      block;
 
-    object-fit: contain;
+    object-fit:
+      contain;
 
     object-position:
       center;
+
+    transform:
+      scale(
+        1.035
+      );
   }
 
 
   .category-content {
-    display: block;
+    display:
+      block;
 
     padding:
       14px
@@ -1954,30 +2444,38 @@ MOBILE
 
 
   .category-content h2 {
-    font-size: 16px;
+    font-size:
+      16px;
   }
 
 
   .category-content p {
-    font-size: 11px;
+    font-size:
+      11px;
   }
 
 
   .feed-card {
-    display: block;
+    display:
+      block;
   }
 
 
   .feed-card-image {
-    width: 100%;
-    height: 155px;
+    width:
+      100%;
 
-    min-height: 0;
+    height:
+      155px;
+
+    min-height:
+      0;
   }
 
 
   .feed-card-content {
-    padding: 16px;
+    padding:
+      16px;
   }
 
 
@@ -1999,7 +2497,8 @@ MOBILE
 
 
   .open-post-icon {
-    margin-left: auto;
+    margin-left:
+      auto;
   }
 
 
@@ -2010,7 +2509,8 @@ MOBILE
 
 
   .create-type-grid > button {
-    min-height: auto;
+    min-height:
+      auto;
   }
 
 }
@@ -2021,7 +2521,8 @@ SMALL MOBILE
 ===================================== */
 
 @media (
-  max-width: 430px
+  max-width:
+    430px
 ) {
 
   .category-content {
@@ -2033,17 +2534,20 @@ SMALL MOBILE
 
 
   .category-content h2 {
-    font-size: 15px;
+    font-size:
+      15px;
   }
 
 
   .category-content p {
-    font-size: 10px;
+    font-size:
+      10px;
   }
 
 
   .modal-backdrop {
-    padding: 10px;
+    padding:
+      10px;
   }
 
 
@@ -2052,7 +2556,8 @@ SMALL MOBILE
       20px
       16px;
 
-    border-radius: 15px;
+    border-radius:
+      15px;
   }
 
 }
