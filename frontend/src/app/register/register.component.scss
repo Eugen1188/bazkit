@@ -24,7 +24,7 @@
   padding:
     28px
     20px
-    36px;
+    50px;
 
   display: flex;
 
@@ -146,6 +146,12 @@ LOGO
   font-weight: 700;
 
   white-space: nowrap;
+}
+
+
+.logo-text .dark {
+  color:
+    var(--color-text-primary);
 }
 
 
@@ -482,6 +488,8 @@ INPUTS
     var(--color-icon);
 
   cursor: pointer;
+
+  flex-shrink: 0;
 }
 
 
@@ -551,7 +559,7 @@ PASSWORD RULES
 
 
 /* =====================================
-REGISTER
+REGISTER BUTTON
 ===================================== */
 
 .register-btn {
@@ -577,6 +585,10 @@ REGISTER
   font-weight: 700;
 
   cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
 }
 
 
@@ -593,6 +605,10 @@ REGISTER
     not-allowed;
 }
 
+
+/* =====================================
+LOGIN LINK
+===================================== */
 
 .login-text {
   margin:
@@ -617,6 +633,11 @@ REGISTER
 }
 
 
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+
 /* =====================================
 MOBILE
 ===================================== */
@@ -625,17 +646,18 @@ MOBILE
 
   .register-page {
     /*
-     * Auf kleinen iPhones NIE vertikal
-     * zentrieren. Der Inhalt beginnt oben
-     * und kann normal gescrollt werden.
+     * svh berücksichtigt bei mobilen Browsern
+     * die eingeblendeten Browserleisten besser.
      */
+    min-height: 100svh;
+
     align-items: stretch;
 
     padding:
-      18px
+      16px
       20px
       calc(
-        34px +
+        90px +
         env(safe-area-inset-bottom)
       );
   }
@@ -647,21 +669,23 @@ MOBILE
 
 
   .back-button {
-    margin-bottom: 13px;
+    min-height: 38px;
+
+    margin-bottom: 10px;
 
     font-size: 15px;
   }
 
 
   .logo-section {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
 
 
   .logo-row {
     gap: 9px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
 
 
@@ -723,7 +747,7 @@ MOBILE
 
   .register-card {
     padding:
-      25px
+      24px
       20px
       22px;
 
@@ -732,7 +756,7 @@ MOBILE
 
 
   .register-card h2 {
-    margin-bottom: 21px;
+    margin-bottom: 20px;
 
     font-size: 30px;
   }
@@ -741,16 +765,16 @@ MOBILE
   .name-row {
     grid-template-columns: 1fr;
 
-    gap: 12px;
+    gap: 11px;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
   }
 
 
   .input-group {
-    height: 54px;
+    height: 53px;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
     padding:
       0
@@ -767,9 +791,9 @@ MOBILE
     margin:
       0
       5px
-      14px;
+      13px;
 
-    gap: 4px;
+    gap: 3px;
 
     font-size: 12px;
   }
@@ -781,14 +805,14 @@ MOBILE
 
 
   .register-btn {
-    height: 52px;
+    height: 51px;
 
     font-size: 16px;
   }
 
 
   .login-text {
-    margin-top: 19px;
+    margin-top: 17px;
 
     font-size: 14px;
   }
@@ -797,29 +821,40 @@ MOBILE
 
 
 /* =====================================
-IPHONE 12 / KLEINE HÖHE
+IPHONE 12 / KLEINERE MOBILE HÖHEN
 ===================================== */
 
 @media (
   max-width: 600px
 ) and (
-  max-height: 760px
+  max-height: 860px
 ) {
 
   .register-page {
-    padding-top: 10px;
+    padding:
+      10px
+      20px
+      calc(
+        100px +
+        env(safe-area-inset-bottom)
+      );
   }
 
 
   .back-button {
     min-height: 34px;
 
-    margin-bottom: 7px;
+    margin-bottom: 5px;
   }
 
 
   .logo-section {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+  }
+
+
+  .logo-row {
+    margin-bottom: 7px;
   }
 
 
@@ -829,8 +864,26 @@ IPHONE 12 / KLEINE HÖHE
 
 
   .basket-icon {
-    transform:
-      scale(0.9);
+    width: 45px;
+    height: 41px;
+
+    flex-basis: 45px;
+  }
+
+
+  .handle {
+    left: 12px;
+
+    width: 22px;
+    height: 16px;
+  }
+
+
+  .basket-body {
+    top: 13px;
+
+    width: 42px;
+    height: 28px;
   }
 
 
@@ -841,54 +894,72 @@ IPHONE 12 / KLEINE HÖHE
 
   .register-card {
     padding:
-      21px
+      20px
       18px
-      20px;
+      18px;
+
+    border-radius: 18px;
   }
 
 
   .register-card h2 {
-    margin-bottom: 17px;
+    margin-bottom: 16px;
 
     font-size: 27px;
   }
 
 
-  .input-group {
-    height: 50px;
+  .name-row {
+    gap: 9px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
 
 
-  .name-row {
-    gap: 10px;
+  .input-group {
+    height: 49px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
+  }
+
+
+  .input-group input {
+    font-size: 15px;
   }
 
 
   .password-rules {
-    margin-bottom: 11px;
+    margin:
+      0
+      4px
+      10px;
 
     gap: 2px;
 
     font-size: 11px;
+
+    line-height: 1.3;
   }
 
 
   .password-rules strong {
+    margin-bottom: 2px;
+
     font-size: 11px;
   }
 
 
   .register-btn {
-    height: 48px;
+    height: 47px;
+
+    margin-top: 2px;
   }
 
 
   .login-text {
-    margin-top: 15px;
+    margin-top: 13px;
+
+    font-size: 13px;
   }
 
 }
