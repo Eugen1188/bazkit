@@ -2,79 +2,89 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+
 import { RegisterData } from '../models/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+  private authService =
+    inject(AuthService);
 
-  private authService = inject(AuthService);
-  private router = inject(Router);
+  private router =
+    inject(Router);
 
   registerData: RegisterData = {
     first_name: '',
     last_name: '',
     email: '',
     password: '',
-    password2: '',
+    password2: ''
   };
 
   showPassword = false;
   showConfirmPassword = false;
 
   errorMessage = '';
+
   isLoading = false;
 
   togglePassword(): void {
-    this.showPassword = !this.showPassword;
+    this.showPassword =
+      !this.showPassword;
   }
 
   toggleConfirmPassword(): void {
-    this.showConfirmPassword = !this.showConfirmPassword;
+    this.showConfirmPassword =
+      !this.showConfirmPassword;
   }
 
-  get hasMinLength(): boolean {
-    return this.registerData.password.length >= 8;
-  }
-
-  get hasLetter(): boolean {
-    return /[A-Za-zÄÖÜäöüß]/.test(
-      this.registerData.password
+  hasMinimumLength(): boolean {
+    return (
+      this.registerData.password.length >=
+      8
     );
   }
 
-  get hasNumber(): boolean {
-    return /\d/.test(this.registerData.password);
-  }
-
-  get isPasswordValid(): boolean {
+  hasLetter(): boolean {
     return (
-      this.hasMinLength &&
-      this.hasLetter &&
-      this.hasNumber
+      /[A-Za-zÄÖÜäöüß]/.test(
+        this.registerData.password
+      )
     );
   }
 
-  get passwordsMatch(): boolean {
+  hasNumber(): boolean {
     return (
-      this.registerData.password.length > 0 &&
-      this.registerData.password ===
-        this.registerData.password2
+      /\d/.test(
+        this.registerData.password
+      )
+    );
+  }
+
+  isPasswordValid(): boolean {
+    return (
+      this.hasMinimumLength() &&
+      this.hasLetter() &&
+      this.hasNumber()
     );
   }
 
   onRegister(): void {
     this.errorMessage = '';
 
-    if (!this.isPasswordValid) {
+    if (!this.isPasswordValid()) {
       this.errorMessage =
-        'Das Passwort erfüllt noch nicht alle Anforderungen.';
+        'Bitte erfülle alle Passwort-Anforderungen.';
       return;
     }
 
@@ -88,111 +98,109 @@ export class RegisterComponent {
     }
 
     const payload = {
-      first_name: this.registerData.first_name.trim(),
-      last_name: this.registerData.last_name.trim(),
+      first_name:
+        this.registerData.first_name
+          .trim(),
 
-      // E-Mail immer normalisieren
-      email: this.registerData.email
-        .trim()
-        .toLowerCase(),
+      last_name:
+        this.registerData.last_name
+          .trim(),
 
-      password: this.registerData.password,
-      password2: this.registerData.password2,
+      email:
+        this.registerData.email
+          .trim()
+          .toLowerCase(),
+
+      password:
+        this.registerData.password,
+
+      password2:
+        this.registerData.password2
     };
 
     this.isLoading = true;
 
-    this.authService.register(payload).subscribe({
+    this.authService
+      .register(payload)
+      .subscribe({
+        next: () => {
+          this.isLoading = false;
 
-      next: (response) => {
-        this.isLoading = false;
+          this.router.navigate(
+            ['/'],
+            {
+              state: {
+                registrationSuccess:
+                  true
+              }
+            }
+          );
+        },
 
-        console.log(
-          'Erfolgreich registriert:',
-          response
-        );
+        error: error => {
+          this.isLoading = false;
 
-        this.router.navigate(
-          ['/'],
-          {
-            state: {
-              registrationSuccess: true,
-            },
+          console.error(
+            'Registrierung fehlgeschlagen:',
+            error
+          );
+
+          const response =
+            error.error;
+
+          if (response?.email) {
+            this.errorMessage =
+              Array.isArray(response.email)
+                ? response.email[0]
+                : response.email;
+
+            return;
           }
-        );
-      },
 
-      error: (error) => {
-        this.isLoading = false;
+          if (response?.password) {
+            this.errorMessage =
+              Array.isArray(response.password)
+                ? response.password[0]
+                : response.password;
 
-        console.error(
-          'Registrierung fehlgeschlagen:',
-          error
-        );
+            return;
+          }
 
-        if (error.status === 0) {
+          if (response?.password2) {
+            this.errorMessage =
+              Array.isArray(response.password2)
+                ? response.password2[0]
+                : response.password2;
+
+            return;
+          }
+
+          if (
+            Array.isArray(
+              response?.non_field_errors
+            )
+          ) {
+            this.errorMessage =
+              response.non_field_errors[0];
+
+            return;
+          }
+
           this.errorMessage =
-            'Der Server ist momentan nicht erreichbar. Bitte versuche es später erneut.';
-          return;
+            'Registrierung fehlgeschlagen. Bitte überprüfe deine Angaben.';
         }
-
-        if (error.error?.email) {
-          this.errorMessage =
-            this.getErrorText(error.error.email);
-          return;
-        }
-
-        if (error.error?.password) {
-          this.errorMessage =
-            this.getErrorText(error.error.password);
-          return;
-        }
-
-        if (error.error?.password2) {
-          this.errorMessage =
-            this.getErrorText(error.error.password2);
-          return;
-        }
-
-        if (error.error?.first_name) {
-          this.errorMessage =
-            this.getErrorText(error.error.first_name);
-          return;
-        }
-
-        if (error.error?.last_name) {
-          this.errorMessage =
-            this.getErrorText(error.error.last_name);
-          return;
-        }
-
-        if (error.error?.non_field_errors) {
-          this.errorMessage =
-            this.getErrorText(
-              error.error.non_field_errors
-            );
-          return;
-        }
-
-        this.errorMessage =
-          'Registrierung fehlgeschlagen. Bitte überprüfe deine Eingaben.';
-      },
-    });
+      });
   }
 
-  goToLogin(): void {
+  goBack(): void {
     this.router.navigate(['/']);
   }
 
-  private getErrorText(error: unknown): string {
-    if (Array.isArray(error)) {
-      return error.join(' ');
-    }
+  goToLogin(
+    event: Event
+  ): void {
+    event.preventDefault();
 
-    if (typeof error === 'string') {
-      return error;
-    }
-
-    return 'Es ist ein Fehler aufgetreten.';
+    this.router.navigate(['/']);
   }
 }

@@ -1,449 +1,442 @@
 <div class="register-page">
 
-  <button
-    type="button"
-    class="back-btn"
-    (click)="goToLogin()"
-    aria-label="Zurück zur Anmeldung"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+  <div class="register-wrapper">
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="goBack()"
     >
-      <path
-        d="M15 18L9 12L15 6"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
 
-    <span>Zurück</span>
-  </button>
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M15 18l-6-6 6-6"
+        ></path>
+      </svg>
+
+      Zurück
+
+    </button>
 
 
-  <div class="logo-section">
+    <div class="logo-section">
 
-    <div class="logo-row">
+      <div class="logo-row">
 
-      <div class="basket-icon">
-        <div class="handle"></div>
-        <div class="basket-body"></div>
+        <div
+          class="basket-icon"
+          aria-hidden="true"
+        >
+          <div class="handle"></div>
+
+          <div class="basket-body">
+            <span class="basket-detail"></span>
+          </div>
+        </div>
+
+
+        <h1 class="logo-text">
+          <span class="dark">baz</span><span class="green">kit</span>
+        </h1>
+
       </div>
 
-      <h1 class="logo-text">
-        <span class="dark">baz</span><span class="green">kit</span>
-      </h1>
+
+      <p class="subtitle">
+        Deine smarte Einkaufsliste
+      </p>
 
     </div>
 
-    <p class="subtitle">
-      Deine smarte Einkaufsliste
-    </p>
 
-  </div>
+    <div class="register-card">
 
-
-  <div class="register-card">
-
-    <h2>Registrieren</h2>
-
-
-    <div
-      *ngIf="errorMessage"
-      class="message error-message"
-    >
-      {{ errorMessage }}
-    </div>
-
-
-    <form
-      (ngSubmit)="onRegister()"
-      #registerForm="ngForm"
-    >
-
-      <div class="name-row">
-
-        <div class="input-group">
-
-          <span class="input-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 12C14.4853 12 16.5 9.98528 16.5 7.5C16.5 5.01472 14.4853 3 12 3C9.51472 3 7.5 5.01472 7.5 7.5C7.5 9.98528 9.51472 12 12 12Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-
-              <path
-                d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
-            </svg>
-          </span>
-
-          <input
-            type="text"
-            name="first_name"
-            [(ngModel)]="registerData.first_name"
-            placeholder="Vorname"
-            autocomplete="given-name"
-            required
-            maxlength="150"
-          />
-
-        </div>
-
-
-        <div class="input-group">
-
-          <span class="input-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 12C14.4853 12 16.5 9.98528 16.5 7.5C16.5 5.01472 14.4853 3 12 3C9.51472 3 7.5 5.01472 7.5 7.5C7.5 9.98528 9.51472 12 12 12Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-
-              <path
-                d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
-            </svg>
-          </span>
-
-          <input
-            type="text"
-            name="last_name"
-            [(ngModel)]="registerData.last_name"
-            placeholder="Nachname"
-            autocomplete="family-name"
-            required
-            maxlength="150"
-          />
-
-        </div>
-
-      </div>
-
-
-      <div class="input-group">
-
-        <span class="input-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <rect
-              x="3"
-              y="5"
-              width="18"
-              height="14"
-              rx="2.5"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <path
-              d="M5 7L12 12L19 7"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
-
-        <input
-          type="email"
-          name="email"
-          [(ngModel)]="registerData.email"
-          placeholder="E-Mail"
-          autocomplete="email"
-          autocapitalize="none"
-          spellcheck="false"
-          required
-        />
-
-      </div>
-
-
-      <div class="input-group">
-
-        <span class="input-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <rect
-              x="5"
-              y="10"
-              width="14"
-              height="10"
-              rx="2.5"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <path
-              d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
-
-        <input
-          [type]="showPassword ? 'text' : 'password'"
-          name="password"
-          [(ngModel)]="registerData.password"
-          placeholder="Passwort"
-          autocomplete="new-password"
-          required
-          minlength="8"
-        />
-
-        <button
-          type="button"
-          class="eye-btn"
-          (click)="togglePassword()"
-          aria-label="Passwort anzeigen"
-        >
-
-          <svg
-            *ngIf="!showPassword"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-          </svg>
-
-          <svg
-            *ngIf="showPassword"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 3L21 21"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-          </svg>
-
-        </button>
-
-      </div>
-
-
-      <div class="password-requirements">
-
-        <p>Das Passwort muss enthalten:</p>
-
-        <div
-          class="requirement"
-          [class.valid]="hasMinLength"
-        >
-          <span>{{ hasMinLength ? '✓' : '○' }}</span>
-          Mindestens 8 Zeichen
-        </div>
-
-        <div
-          class="requirement"
-          [class.valid]="hasLetter"
-        >
-          <span>{{ hasLetter ? '✓' : '○' }}</span>
-          Mindestens einen Buchstaben
-        </div>
-
-        <div
-          class="requirement"
-          [class.valid]="hasNumber"
-        >
-          <span>{{ hasNumber ? '✓' : '○' }}</span>
-          Mindestens eine Zahl
-        </div>
-
-      </div>
-
-
-      <div class="input-group">
-
-        <span class="input-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="5"
-              y="10"
-              width="14"
-              height="10"
-              rx="2.5"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <path
-              d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-          </svg>
-        </span>
-
-        <input
-          [type]="
-            showConfirmPassword
-              ? 'text'
-              : 'password'
-          "
-          name="confirmPassword"
-          [(ngModel)]="registerData.password2"
-          placeholder="Passwort bestätigen"
-          autocomplete="new-password"
-          required
-        />
-
-        <button
-          type="button"
-          class="eye-btn"
-          (click)="toggleConfirmPassword()"
-          aria-label="Passwort anzeigen"
-        >
-
-          <svg
-            *ngIf="!showConfirmPassword"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <circle
-              cx="12"
-              cy="12"
-              r="3"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-          </svg>
-
-          <svg
-            *ngIf="showConfirmPassword"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 3L21 21"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-          </svg>
-
-        </button>
-
-      </div>
+      <h2>
+        Registrieren
+      </h2>
 
 
       <div
-        *ngIf="
-          registerData.password2 &&
-          !passwordsMatch
-        "
-        class="password-mismatch"
+        class="error-message"
+        *ngIf="errorMessage"
       >
-        Die Passwörter stimmen nicht überein.
+        {{ errorMessage }}
       </div>
 
 
-      <button
-        type="submit"
-        class="register-btn"
-        [disabled]="
-          !registerForm.valid ||
-          !isPasswordValid ||
-          !passwordsMatch ||
-          isLoading
-        "
+      <form
+        (ngSubmit)="onRegister()"
+        #registerForm="ngForm"
       >
-        {{
-          isLoading
-            ? 'Registrieren...'
-            : 'Registrieren'
-        }}
-      </button>
 
-    </form>
+        <div class="name-row">
+
+          <div class="input-group">
+
+            <span class="input-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 12C14.4853 12 16.5 9.98528 16.5 7.5C16.5 5.01472 14.4853 3 12 3C9.51472 3 7.5 5.01472 7.5 7.5C7.5 9.98528 9.51472 12 12 12Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+
+                <path
+                  d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </span>
 
 
-    <p class="login-text">
-      Bereits ein Konto?
+            <input
+              type="text"
+              name="first_name"
+              [(ngModel)]="registerData.first_name"
+              placeholder="Vorname"
+              autocomplete="given-name"
+              maxlength="150"
+              required
+            />
 
-      <button
-        type="button"
-        class="login-link"
-        (click)="goToLogin()"
-      >
-        Anmelden
-      </button>
-    </p>
+          </div>
+
+
+          <div class="input-group">
+
+            <span class="input-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 12C14.4853 12 16.5 9.98528 16.5 7.5C16.5 5.01472 14.4853 3 12 3C9.51472 3 7.5 5.01472 7.5 7.5C7.5 9.98528 9.51472 12 12 12Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+
+                <path
+                  d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </span>
+
+
+            <input
+              type="text"
+              name="last_name"
+              [(ngModel)]="registerData.last_name"
+              placeholder="Nachname"
+              autocomplete="family-name"
+              maxlength="150"
+              required
+            />
+
+          </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <span class="input-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2.5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <path
+                d="M5 7L12 12L19 7"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </span>
+
+
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="registerData.email"
+            placeholder="E-Mail"
+            autocomplete="email"
+            autocapitalize="none"
+            spellcheck="false"
+            required
+          />
+
+        </div>
+
+
+        <div class="input-group">
+
+          <span class="input-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="5"
+                y="10"
+                width="14"
+                height="10"
+                rx="2.5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <path
+                d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </span>
+
+
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            name="password"
+            [(ngModel)]="registerData.password"
+            placeholder="Passwort"
+            autocomplete="new-password"
+            required
+            minlength="8"
+          />
+
+
+          <button
+            type="button"
+            class="eye-btn"
+            (click)="togglePassword()"
+            aria-label="Passwort anzeigen oder verbergen"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+            </svg>
+
+          </button>
+
+        </div>
+
+
+        <div class="password-rules">
+
+          <strong>
+            Das Passwort muss enthalten:
+          </strong>
+
+
+          <span
+            [class.valid]="hasMinimumLength()"
+          >
+            <span class="rule-dot">
+              {{
+                hasMinimumLength()
+                  ? '✓'
+                  : '○'
+              }}
+            </span>
+
+            Mindestens 8 Zeichen
+          </span>
+
+
+          <span
+            [class.valid]="hasLetter()"
+          >
+            <span class="rule-dot">
+              {{
+                hasLetter()
+                  ? '✓'
+                  : '○'
+              }}
+            </span>
+
+            Mindestens einen Buchstaben
+          </span>
+
+
+          <span
+            [class.valid]="hasNumber()"
+          >
+            <span class="rule-dot">
+              {{
+                hasNumber()
+                  ? '✓'
+                  : '○'
+              }}
+            </span>
+
+            Mindestens eine Zahl
+          </span>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <span class="input-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="5"
+                y="10"
+                width="14"
+                height="10"
+                rx="2.5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <path
+                d="M8 10V7.5C8 5.01472 10.0147 3 12.5 3C14.9853 3 17 5.01472 17 7.5V10"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </span>
+
+
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            name="password2"
+            [(ngModel)]="registerData.password2"
+            placeholder="Passwort bestätigen"
+            autocomplete="new-password"
+            required
+          />
+
+
+          <button
+            type="button"
+            class="eye-btn"
+            (click)="toggleConfirmPassword()"
+            aria-label="Passwort anzeigen oder verbergen"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 12C3.8 8.5 7.3 6 12 6C16.7 6 20.2 8.5 22 12C20.2 15.5 16.7 18 12 18C7.3 18 3.8 15.5 2 12Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+            </svg>
+
+          </button>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="register-btn"
+          [disabled]="
+            !registerForm.valid ||
+            !isPasswordValid() ||
+            registerData.password !== registerData.password2 ||
+            isLoading
+          "
+        >
+          {{
+            isLoading
+              ? 'Registrierung läuft...'
+              : 'Registrieren'
+          }}
+        </button>
+
+      </form>
+
+
+      <p class="login-text">
+        Bereits ein Konto?
+
+        <a
+          href="#"
+          (click)="goToLogin($event)"
+        >
+          Anmelden
+        </a>
+      </p>
+
+    </div>
 
   </div>
 
