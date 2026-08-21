@@ -74,15 +74,15 @@
 
 
   <!-- =====================================
-       CATEGORY CARDS
+       KATEGORIEN
   ====================================== -->
 
   <section class="category-grid">
 
-    <!-- RECIPES -->
+    <!-- REZEPTE -->
 
     <button
-      class="category-card recipe-category"
+      class="category-card"
       type="button"
       (click)="
         setFilter(
@@ -91,9 +91,15 @@
       "
     >
 
-      <div class="category-top recipe-visual">
+      <div class="category-image">
 
-        <span class="category-small-icon">
+        <img
+          src="/assets/images/community/community-recipes.webp"
+          alt="Spaghetti Bolognese"
+        />
+
+
+        <span class="category-icon">
 
           <svg
             viewBox="0 0 24 24"
@@ -106,99 +112,10 @@
 
         </span>
 
-
-        <svg
-          class="recipe-illustration"
-          viewBox="0 0 260 160"
-          aria-hidden="true"
-        >
-
-          <ellipse
-            cx="150"
-            cy="91"
-            rx="75"
-            ry="54"
-            class="plate-shadow"
-          ></ellipse>
-
-          <ellipse
-            cx="150"
-            cy="82"
-            rx="72"
-            ry="52"
-            class="plate"
-          ></ellipse>
-
-          <ellipse
-            cx="150"
-            cy="82"
-            rx="58"
-            ry="39"
-            class="plate-inner"
-          ></ellipse>
-
-          <path
-            d="M103 82c20-30 50-28 82-6"
-            class="pasta-line"
-          ></path>
-
-          <path
-            d="M108 94c24-28 53-28 84-6"
-            class="pasta-line"
-          ></path>
-
-          <path
-            d="M116 70c24 17 43 15 65-3"
-            class="pasta-line"
-          ></path>
-
-          <path
-            d="M119 101c24-12 46-10 66 4"
-            class="pasta-line"
-          ></path>
-
-          <circle
-            cx="126"
-            cy="76"
-            r="7"
-            class="tomato"
-          ></circle>
-
-          <circle
-            cx="172"
-            cy="91"
-            r="7"
-            class="tomato"
-          ></circle>
-
-          <circle
-            cx="155"
-            cy="70"
-            r="6"
-            class="tomato"
-          ></circle>
-
-          <path
-            d="M138 66l8-12 7 10"
-            class="leaf"
-          ></path>
-
-          <path
-            d="M180 81l10-10 3 13"
-            class="leaf"
-          ></path>
-
-          <path
-            d="M120 92l-8 12-6-9"
-            class="leaf"
-          ></path>
-
-        </svg>
-
       </div>
 
 
-      <div class="category-info">
+      <div class="category-content">
 
         <span class="category-label">
           Rezepte
@@ -209,8 +126,7 @@
         </h2>
 
         <p>
-          Lieblingsrezepte aus
-          der Community.
+          Lieblingsrezepte aus der Community.
         </p>
 
       </div>
@@ -218,10 +134,10 @@
     </button>
 
 
-    <!-- LISTS -->
+    <!-- EINKAUFSLISTEN -->
 
     <button
-      class="category-card list-category"
+      class="category-card"
       type="button"
       (click)="
         setFilter(
@@ -230,9 +146,15 @@
       "
     >
 
-      <div class="category-top list-visual">
+      <div class="category-image">
 
-        <span class="category-small-icon">
+        <img
+          src="/assets/images/community/community-lists.webp"
+          alt="Einkaufstüte mit frischen Lebensmitteln"
+        />
+
+
+        <span class="category-icon">
 
           <svg
             viewBox="0 0 24 24"
@@ -249,93 +171,10 @@
 
         </span>
 
-
-        <svg
-          class="list-illustration"
-          viewBox="0 0 260 160"
-          aria-hidden="true"
-        >
-
-          <path
-            d="M111 66h84l-7 70h-71z"
-            class="shopping-bag"
-          ></path>
-
-          <path
-            d="M130 67c0-22 38-22 38 0"
-            class="bag-handle"
-          ></path>
-
-
-          <path
-            d="M112 70c-19-18-30-35-18-44 10-7 25 10 30 37"
-            class="lettuce"
-          ></path>
-
-          <path
-            d="M130 68c-11-29 3-48 16-43 11 5 5 26-4 44"
-            class="leaf-green"
-          ></path>
-
-
-          <ellipse
-            cx="161"
-            cy="55"
-            rx="13"
-            ry="24"
-            class="baguette"
-            transform="rotate(16 161 55)"
-          ></ellipse>
-
-          <path
-            d="M153 42l16 8"
-            class="baguette-cut"
-          ></path>
-
-          <path
-            d="M151 52l16 8"
-            class="baguette-cut"
-          ></path>
-
-
-          <circle
-            cx="118"
-            cy="87"
-            r="13"
-            class="tomato"
-          ></circle>
-
-          <circle
-            cx="143"
-            cy="82"
-            r="12"
-            class="orange"
-          ></circle>
-
-          <circle
-            cx="169"
-            cy="88"
-            r="12"
-            class="apple"
-          ></circle>
-
-
-          <path
-            d="M106 53c-10-25 10-34 18-13 4 11 0 22-6 31"
-            class="spring-onion"
-          ></path>
-
-          <path
-            d="M184 72c17-20 30-19 32-7 2 12-12 18-28 22"
-            class="celery"
-          ></path>
-
-        </svg>
-
       </div>
 
 
-      <div class="category-info">
+      <div class="category-content">
 
         <span class="category-label">
           Einkaufslisten
@@ -346,8 +185,7 @@
         </h2>
 
         <p>
-          Praktische Listen direkt
-          übernehmen.
+          Praktische Listen direkt übernehmen.
         </p>
 
       </div>
@@ -355,10 +193,10 @@
     </button>
 
 
-    <!-- THREADS -->
+    <!-- DISKUSSIONEN -->
 
     <button
-      class="category-card thread-category"
+      class="category-card"
       type="button"
       (click)="
         setFilter(
@@ -367,9 +205,15 @@
       "
     >
 
-      <div class="category-top thread-visual">
+      <div class="category-image">
 
-        <span class="category-small-icon">
+        <img
+          src="/assets/images/community/community-discussions.webp"
+          alt="Kaffee und Notizbuch"
+        />
+
+
+        <span class="category-icon">
 
           <svg
             viewBox="0 0 24 24"
@@ -382,70 +226,10 @@
 
         </span>
 
-
-        <svg
-          class="thread-illustration"
-          viewBox="0 0 260 160"
-          aria-hidden="true"
-        >
-
-          <rect
-            x="73"
-            y="39"
-            width="115"
-            height="70"
-            rx="22"
-            class="message-main"
-          ></rect>
-
-          <path
-            d="M103 108l-24 20 8-29"
-            class="message-main"
-          ></path>
-
-
-          <rect
-            x="138"
-            y="77"
-            width="73"
-            height="48"
-            rx="17"
-            class="message-secondary"
-          ></rect>
-
-          <path
-            d="M186 122l18 15-4-22"
-            class="message-secondary"
-          ></path>
-
-
-          <circle
-            cx="107"
-            cy="74"
-            r="5"
-            class="message-dot"
-          ></circle>
-
-          <circle
-            cx="130"
-            cy="74"
-            r="5"
-            class="message-dot"
-          ></circle>
-
-          <circle
-            cx="153"
-            cy="74"
-            r="5"
-            class="message-dot"
-          ></circle>
-
-        </svg>
-
       </div>
 
 
-      <div class="category-info">
+      <div class="category-content">
 
         <span class="category-label">
           Diskussionen
@@ -456,8 +240,7 @@
         </h2>
 
         <p>
-          Fragen stellen und Erfahrungen
-          austauschen.
+          Fragen stellen und Erfahrungen austauschen.
         </p>
 
       </div>
@@ -594,192 +377,33 @@
         "
       >
 
-        <!-- RECIPE THUMBNAIL -->
+        <div class="post-image">
 
-        <div
-          class="post-thumbnail recipe-thumbnail"
-          *ngIf="
-            post.post_type ===
-              'recipe'
-          "
-        >
-
-          <svg
-            viewBox="0 0 180 130"
-            aria-hidden="true"
-          >
-
-            <ellipse
-              cx="90"
-              cy="70"
-              rx="55"
-              ry="41"
-              class="thumb-plate"
-            ></ellipse>
-
-            <ellipse
-              cx="90"
-              cy="69"
-              rx="44"
-              ry="32"
-              class="thumb-plate-inner"
-            ></ellipse>
-
-            <path
-              d="M55 69c18-21 43-20 70-3"
-              class="thumb-pasta"
-            ></path>
-
-            <path
-              d="M59 80c21-20 43-20 67-2"
-              class="thumb-pasta"
-            ></path>
-
-            <circle
-              cx="72"
-              cy="65"
-              r="5"
-              class="tomato"
-            ></circle>
-
-            <circle
-              cx="105"
-              cy="77"
-              r="5"
-              class="tomato"
-            ></circle>
-
-            <circle
-              cx="98"
-              cy="58"
-              r="5"
-              class="tomato"
-            ></circle>
-
-            <path
-              d="M80 55l6-8 5 7"
-              class="leaf"
-            ></path>
-
-            <path
-              d="M113 67l7-7 3 9"
-              class="leaf"
-            ></path>
-
-          </svg>
-
-        </div>
+          <img
+            *ngIf="
+              post.post_type === 'recipe'
+            "
+            src="/assets/images/community/community-recipes.webp"
+            alt=""
+          />
 
 
-        <!-- LIST THUMBNAIL -->
-
-        <div
-          class="post-thumbnail list-thumbnail"
-          *ngIf="
-            post.post_type ===
-              'list'
-          "
-        >
-
-          <svg
-            viewBox="0 0 180 130"
-            aria-hidden="true"
-          >
-
-            <path
-              d="M67 53h66l-7 63H74z"
-              class="thumb-bag"
-            ></path>
-
-            <path
-              d="M81 54c0-18 35-18 35 0"
-              class="thumb-handle"
-            ></path>
-
-            <circle
-              cx="72"
-              cy="70"
-              r="10"
-              class="tomato"
-            ></circle>
-
-            <circle
-              cx="97"
-              cy="67"
-              r="10"
-              class="orange"
-            ></circle>
-
-            <path
-              d="M63 58c-10-25 9-34 18-13 4 10 1 19-3 27"
-              class="leaf-green"
-            ></path>
-
-            <ellipse
-              cx="120"
-              cy="51"
-              rx="9"
-              ry="21"
-              class="baguette"
-              transform="rotate(15 120 51)"
-            ></ellipse>
-
-          </svg>
-
-        </div>
+          <img
+            *ngIf="
+              post.post_type === 'list'
+            "
+            src="/assets/images/community/community-lists.webp"
+            alt=""
+          />
 
 
-        <!-- THREAD THUMBNAIL -->
-
-        <div
-          class="post-thumbnail thread-thumbnail"
-          *ngIf="
-            post.post_type ===
-              'thread'
-          "
-        >
-
-          <svg
-            viewBox="0 0 180 130"
-            aria-hidden="true"
-          >
-
-            <rect
-              x="39"
-              y="32"
-              width="91"
-              height="57"
-              rx="18"
-              class="thumb-message"
-            ></rect>
-
-            <path
-              d="M64 87l-20 15 6-23"
-              class="thumb-message"
-            ></path>
-
-            <circle
-              cx="67"
-              cy="59"
-              r="4"
-              class="message-dot"
-            ></circle>
-
-            <circle
-              cx="85"
-              cy="59"
-              r="4"
-              class="message-dot"
-            ></circle>
-
-            <circle
-              cx="103"
-              cy="59"
-              r="4"
-              class="message-dot"
-            ></circle>
-
-          </svg>
+          <img
+            *ngIf="
+              post.post_type === 'thread'
+            "
+            src="/assets/images/community/community-discussions.webp"
+            alt=""
+          />
 
         </div>
 
@@ -800,8 +424,7 @@
             <span
               class="thread-category-label"
               *ngIf="
-                post.post_type ===
-                  'thread'
+                post.post_type === 'thread'
               "
             >
               {{
@@ -869,11 +492,6 @@
                 post
               )
             "
-            [attr.aria-label]="
-              post.liked_by_me
-                ? 'Gefällt mir entfernen'
-                : 'Gefällt mir'
-            "
           >
 
             <svg
@@ -909,8 +527,7 @@
           <span
             class="feed-rating"
             *ngIf="
-              post.post_type !==
-                'thread'
+              post.post_type !== 'thread'
             "
           >
 
@@ -919,7 +536,7 @@
               aria-hidden="true"
             >
               <path
-                d="m12 2.8 2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
+                d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
               ></path>
             </svg>
 
@@ -937,7 +554,9 @@
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path d="m9 18 6-6-6-6"></path>
+              <path
+                d="M9 18l6-6-6-6"
+              ></path>
             </svg>
 
           </span>
@@ -958,7 +577,6 @@
 
           <svg
             viewBox="0 0 24 24"
-            aria-hidden="true"
           >
             <path
               d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
@@ -1039,7 +657,6 @@
 
         <svg
           viewBox="0 0 24 24"
-          aria-hidden="true"
         >
           <path d="M6 6l12 12"></path>
           <path d="M18 6 6 18"></path>
@@ -1049,8 +666,6 @@
 
     </div>
 
-
-    <!-- TYPE SELECTION -->
 
     <div
       class="create-type-grid"
@@ -1083,8 +698,7 @@
         </strong>
 
         <small>
-          Eines deiner vorhandenen
-          Rezepte veröffentlichen.
+          Eines deiner vorhandenen Rezepte veröffentlichen.
         </small>
 
       </button>
@@ -1117,8 +731,7 @@
         </strong>
 
         <small>
-          Eine gespeicherte Einkaufsliste
-          veröffentlichen.
+          Eine gespeicherte Einkaufsliste veröffentlichen.
         </small>
 
       </button>
@@ -1148,8 +761,7 @@
         </strong>
 
         <small>
-          Eine Frage stellen oder
-          ein Thema eröffnen.
+          Eine Frage stellen oder ein Thema eröffnen.
         </small>
 
       </button>
@@ -1172,11 +784,10 @@
         (click)="backToCreateType()"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="m15 18-6-6 6-6"></path>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M15 18l-6-6 6-6"
+          ></path>
         </svg>
 
         Auswahl ändern
@@ -1189,14 +800,14 @@
       </h3>
 
       <p>
-        Wähle eines deiner vorhandenen
-        Rezepte aus.
+        Wähle eines deiner vorhandenen Rezepte aus.
       </p>
 
 
       <label for="recipeSelect">
         Rezept
       </label>
+
 
       <select
         id="recipeSelect"
@@ -1277,11 +888,10 @@
         (click)="backToCreateType()"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="m15 18-6-6 6-6"></path>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M15 18l-6-6 6-6"
+          ></path>
         </svg>
 
         Auswahl ändern
@@ -1294,14 +904,14 @@
       </h3>
 
       <p>
-        Wähle eine deiner gespeicherten
-        Listen aus.
+        Wähle eine deiner gespeicherten Listen aus.
       </p>
 
 
       <label for="listSelect">
         Einkaufsliste
       </label>
+
 
       <select
         id="listSelect"
@@ -1335,8 +945,8 @@
           shareOptions.saved_lists.length === 0
         "
       >
-        Du hast noch keine gespeicherten
-        Listen, die du teilen kannst.
+        Du hast noch keine gespeicherten Listen,
+        die du teilen kannst.
       </div>
 
 
@@ -1382,11 +992,10 @@
         (click)="backToCreateType()"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="m15 18-6-6 6-6"></path>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M15 18l-6-6 6-6"
+          ></path>
         </svg>
 
         Auswahl ändern
@@ -1399,14 +1008,15 @@
       </h3>
 
       <p>
-        Starte ein neues Thema und
-        tausche dich mit anderen aus.
+        Starte ein neues Thema und tausche dich
+        mit anderen aus.
       </p>
 
 
       <label for="threadTitle">
         Titel
       </label>
+
 
       <input
         id="threadTitle"
@@ -1422,6 +1032,7 @@
       <label for="threadCategory">
         Kategorie
       </label>
+
 
       <select
         id="threadCategory"
@@ -1446,6 +1057,7 @@
       <label for="threadContent">
         Beschreibung
       </label>
+
 
       <textarea
         id="threadContent"
