@@ -100,7 +100,7 @@ HEADER
 
 
 /* =====================================
-CREATE
+CREATE BUTTON
 ===================================== */
 
 .create-post-button {
@@ -233,7 +233,8 @@ SEARCH
 
   outline: none;
 
-  background: transparent;
+  background:
+    transparent;
 
   color:
     var(--color-text-primary);
@@ -324,21 +325,19 @@ CATEGORY GRID
 }
 
 
-/*
-IMPORTANT:
-No fixed 180px height anymore.
+/* =====================================
+CATEGORY IMAGES
 
-The image keeps a wide desktop ratio.
-This is what prevents the extreme cropping.
-*/
+WICHTIG:
+Keine feste Höhe und keine aspect-ratio.
+Dadurch wird das komplette Originalbild
+angezeigt und nicht abgeschnitten.
+===================================== */
 
 .category-image {
   position: relative;
 
   width: 100%;
-
-  aspect-ratio:
-    2.45 / 1;
 
   overflow: hidden;
 
@@ -349,26 +348,20 @@ This is what prevents the extreme cropping.
 
 .category-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
 
   display: block;
 
-  object-fit: cover;
+  object-fit: contain;
 
   object-position:
-    center center;
-
-  transition:
-    transform 0.3s ease;
+    center;
 }
 
 
-.category-card:hover
-.category-image img {
-  transform:
-    scale(1.015);
-}
-
+/* =====================================
+CATEGORY CONTENT
+===================================== */
 
 .category-content {
   padding:
@@ -530,7 +523,7 @@ FILTERS
 
 
 /* =====================================
-FEED CARDS
+FEED LIST
 ===================================== */
 
 .feed-list {
@@ -541,6 +534,10 @@ FEED CARDS
   gap: 12px;
 }
 
+
+/* =====================================
+FEED CARD
+===================================== */
 
 .feed-card {
   width: 100%;
@@ -601,6 +598,10 @@ FEED CARDS
 }
 
 
+/* =====================================
+FEED CARD IMAGE
+===================================== */
+
 .feed-card-image {
   width: 175px;
 
@@ -621,9 +622,14 @@ FEED CARDS
 
   object-fit: cover;
 
-  object-position: center;
+  object-position:
+    center;
 }
 
+
+/* =====================================
+FEED CONTENT
+===================================== */
 
 .feed-card-content {
   min-width: 0;
@@ -697,9 +703,11 @@ FEED CARDS
 
   font-weight: 700;
 
-  text-overflow: ellipsis;
+  text-overflow:
+    ellipsis;
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 }
 
 
@@ -718,13 +726,19 @@ FEED CARDS
 
   line-height: 1.45;
 
-  display: -webkit-box;
+  display:
+    -webkit-box;
 
   -webkit-line-clamp: 2;
 
-  -webkit-box-orient: vertical;
+  -webkit-box-orient:
+    vertical;
 }
 
+
+/* =====================================
+AUTHOR
+===================================== */
 
 .feed-author {
   display: flex;
@@ -778,7 +792,7 @@ FEED CARDS
 
 
 /* =====================================
-ACTIONS
+FEED ACTIONS
 ===================================== */
 
 .feed-actions {
@@ -813,7 +827,8 @@ ACTIONS
 
   gap: 5px;
 
-  background: transparent;
+  background:
+    transparent;
 
   color:
     var(--color-text-muted);
@@ -1056,7 +1071,7 @@ STATES
 
 
 /* =====================================
-MODAL
+MODAL BACKDROP
 ===================================== */
 
 .modal-backdrop {
@@ -1088,6 +1103,10 @@ MODAL
     blur(3px);
 }
 
+
+/* =====================================
+CREATE MODAL
+===================================== */
 
 .create-modal {
   width:
@@ -1126,6 +1145,10 @@ MODAL
     );
 }
 
+
+/* =====================================
+MODAL HEADER
+===================================== */
 
 .modal-header {
   margin-bottom: 24px;
@@ -1181,6 +1204,15 @@ MODAL
     var(--color-text-secondary);
 
   cursor: pointer;
+}
+
+
+.modal-close:hover {
+  background:
+    var(--color-primary-soft-bg);
+
+  color:
+    var(--color-primary);
 }
 
 
@@ -1478,6 +1510,10 @@ CREATE FORM
 }
 
 
+/* =====================================
+PUBLISH
+===================================== */
+
 .publish-button {
   height: 46px;
 
@@ -1511,7 +1547,8 @@ CREATE FORM
 .publish-button:disabled {
   opacity: 0.5;
 
-  cursor: not-allowed;
+  cursor:
+    not-allowed;
 }
 
 
@@ -1568,12 +1605,6 @@ MEDIUM DESKTOP
   }
 
 
-  .category-image {
-    aspect-ratio:
-      2.1 / 1;
-  }
-
-
   .feed-card {
     grid-template-columns:
       150px
@@ -1622,21 +1653,43 @@ TABLET
   }
 
 
+  /*
+  Auf Tablet wird die Karte horizontal.
+  Das Foto darf hier wieder eine feste
+  Fläche bekommen, weil das Layout sonst
+  sehr hoch werden würde.
+  */
+
   .category-card {
     display: grid;
 
     grid-template-columns:
-      minmax(220px, 40%)
+      minmax(240px, 42%)
       minmax(0, 1fr);
 
-    min-height: 150px;
+    min-height: 160px;
   }
 
 
   .category-image {
+    width: 100%;
     height: 100%;
 
-    aspect-ratio: auto;
+    min-height: 160px;
+
+    background:
+      var(--color-page-bg);
+  }
+
+
+  .category-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+      center;
   }
 
 
@@ -1685,7 +1738,8 @@ TABLET
       20px
       16px;
 
-    justify-content: flex-start;
+    justify-content:
+      flex-start;
   }
 
 }
@@ -1726,20 +1780,47 @@ MOBILE
 
 
   .category-card {
-    grid-template-columns:
-      42%
-      minmax(0, 1fr);
+    display: block;
 
-    min-height: 125px;
+    min-height: 0;
 
     border-radius: 13px;
   }
 
 
+  /*
+  Auf Mobile wieder das vollständige Bild
+  ohne Abschneiden anzeigen.
+  */
+
+  .category-image {
+    width: 100%;
+    height: auto;
+
+    min-height: 0;
+  }
+
+
+  .category-image img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    object-position:
+      center;
+
+    display: block;
+  }
+
+
   .category-content {
+    display: block;
+
     padding:
       14px
-      15px;
+      15px
+      17px;
   }
 
 
@@ -1772,7 +1853,8 @@ MOBILE
 
 
   .feed-card-content h3 {
-    white-space: normal;
+    white-space:
+      normal;
   }
 
 
@@ -1782,7 +1864,8 @@ MOBILE
       16px
       15px;
 
-    justify-content: flex-start;
+    justify-content:
+      flex-start;
   }
 
 
@@ -1812,17 +1895,11 @@ SMALL MOBILE
   max-width: 430px
 ) {
 
-  .category-card {
-    grid-template-columns:
-      42%
-      minmax(0, 1fr);
-
-    min-height: 115px;
-  }
-
-
   .category-content {
-    padding: 12px;
+    padding:
+      13px
+      14px
+      16px;
   }
 
 
