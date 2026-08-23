@@ -288,12 +288,107 @@
           </div>
 
 
-          <input
-            class="ingredient-name"
-            type="text"
-            [(ngModel)]="ingredient.name"
-            placeholder="z. B. Hähnchenbrust"
-          />
+          <div class="ingredient-autocomplete">
+
+  <input
+    class="ingredient-name"
+    type="text"
+    autocomplete="off"
+    [ngModel]="ingredient.name"
+    (ngModelChange)="
+      onIngredientNameChange(
+        i,
+        $event
+      )
+    "
+    (focus)="
+      openIngredientSuggestions(i)
+    "
+    (blur)="
+      closeIngredientSuggestions()
+    "
+    placeholder="z. B. Hähnchenbrust"
+  />
+
+
+  <div
+    class="ingredient-suggestions"
+    *ngIf="
+      isIngredientSuggestionsOpen &&
+      activeIngredientIndex === i
+    "
+  >
+
+    <div
+      class="ingredient-suggestions-loading"
+      *ngIf="isIngredientSearching"
+    >
+      Produkte werden gesucht...
+    </div>
+
+
+    <button
+      class="ingredient-suggestion"
+      type="button"
+      *ngFor="
+        let product
+        of ingredientSuggestions
+      "
+      (mousedown)="
+        selectIngredientSuggestion(
+          i,
+          product
+        )
+      "
+    >
+
+      <span class="ingredient-suggestion-avatar">
+        {{
+          product.name
+            .charAt(0)
+            .toUpperCase()
+        }}
+      </span>
+
+
+      <span class="ingredient-suggestion-content">
+
+        <strong>
+          {{ product.name }}
+        </strong>
+
+        <small
+          *ngIf="product.default_unit"
+        >
+          Standard:
+          {{ product.default_unit }}
+        </small>
+
+        <small
+          *ngIf="!product.default_unit"
+        >
+          Einheit selbst wählen
+        </small>
+
+      </span>
+
+    </button>
+
+
+    <div
+      class="ingredient-no-suggestions"
+      *ngIf="
+        !isIngredientSearching &&
+        ingredientSuggestions.length === 0
+      "
+    >
+      Kein passendes Produkt gefunden.
+      Du kannst den Namen trotzdem verwenden.
+    </div>
+
+  </div>
+
+</div>
 
 
           <input

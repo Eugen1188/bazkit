@@ -1,16 +1,18 @@
 import { CommonModule } from '@angular/common';
-
 import {
-  Component
+  Component,
+  OnDestroy
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {
-  FormsModule
-} from '@angular/forms';
-
-import {
-  Router
-} from '@angular/router';
+  Subject,
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs';
 
 import {
   RecipeIngredient,
@@ -18,9 +20,20 @@ import {
   RecipeService
 } from '../../services/recipe.service';
 
+import {
+  ProductService,
+  ProductSuggestion
+} from '../../services/product.service';
+
 
 interface PreparationStep {
   text: string;
+}
+
+
+interface IngredientSearch {
+  index: number;
+  query: string;
 }
 
 
@@ -40,7 +53,8 @@ interface PreparationStep {
   styleUrl:
     './create-recipe.component.scss'
 })
-export class CreateRecipeComponent {
+export class CreateRecipeComponent
+implements OnDestroy {
 
   recipeName = '';
 
@@ -76,6 +90,31 @@ export class CreateRecipeComponent {
         text: ''
       }
     ];
+
+
+  /* =========================
+     ZUTAT AUTOCOMPLETE
+  ========================= */
+
+  ingredientSuggestions:
+    ProductSuggestion[] = [];
+
+  activeIngredientIndex:
+    number | null = null;
+
+  isIngredientSearching =
+    false;
+
+  isIngredientSuggestionsOpen =
+    false;
+
+
+  private ingredientSearchSubject =
+    new Subject<IngredientSearch>();
+
+
+  private ingredientSearchSubscription:
+    Subscription;
 
 
   units = [
@@ -124,11 +163,260 @@ export class CreateRecipeComponent {
 
 
   constructor(
-    private router: Router,
-    private recipeService:
-      RecipeService
-  ) {}
+    private router:
+      Router,
 
+    private recipeService:
+      RecipeService,
+
+    private productService:
+      ProductService
+  ) {
+
+    this.ingredientSearchSubscription =
+      this.ingredientSearchSubject
+        .pipe(
+
+          debounceTime(
+            250
+          ),
+
+          distinctUntilChanged(
+            (
+              previous,
+              current
+            ) =>
+              previous.index ===
+                current.index &&
+              previous.query ===
+                current.query
+          ),
+
+          switchMap(
+            search => {
+
+              this.activeIngredientIndex =
+                search.index;
+
+              this.isIngredientSearching =
+                true;
+
+              return this.productService
+                .searchProducts(
+                  search.query
+                );
+            }
+          )
+
+        )
+        .subscribe({
+
+          next: (
+            products
+          ) => {
+
+            this.ingredientSuggestions =
+              products;
+
+            this.isIngredientSearching =
+              false;
+
+            this.isIngredientSuggestionsOpen =
+              (
+                this.activeIngredientIndex !==
+                null
+              );
+          },
+
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Zutatensuche fehlgeschlagen:',
+              error
+            );
+
+            this.ingredientSuggestions =
+              [];
+
+            this.isIngredientSearching =
+              false;
+
+            this.isIngredientSuggestionsOpen =
+              false;
+          }
+
+        });
+  }
+
+
+  ngOnDestroy(): void {
+
+    this.ingredientSearchSubscription
+      .unsubscribe();
+  }
+
+
+  /* =========================
+     AUTOCOMPLETE
+  ========================= */
+
+  onIngredientNameChange(
+    index: number,
+    value: string
+  ): void {
+
+    const ingredient =
+      this.ingredients[index];
+
+
+    if (!ingredient) {
+      return;
+    }
+
+
+    ingredient.name =
+      value;
+
+
+    const query =
+      value.trim();
+
+
+    this.activeIngredientIndex =
+      index;
+
+
+    if (
+      query.length < 2
+    ) {
+
+      this.ingredientSuggestions =
+        [];
+
+      this.isIngredientSuggestionsOpen =
+        false;
+
+      this.isIngredientSearching =
+        false;
+
+      return;
+    }
+
+
+    this.isIngredientSuggestionsOpen =
+      true;
+
+
+    this.ingredientSearchSubject.next({
+      index,
+      query
+    });
+  }
+
+
+  openIngredientSuggestions(
+    index: number
+  ): void {
+
+    const ingredient =
+      this.ingredients[index];
+
+
+    if (!ingredient) {
+      return;
+    }
+
+
+    this.activeIngredientIndex =
+      index;
+
+
+    if (
+      ingredient.name
+        .trim()
+        .length >= 2
+    ) {
+
+      this.isIngredientSuggestionsOpen =
+        true;
+
+
+      this.ingredientSearchSubject.next({
+        index,
+        query:
+          ingredient.name.trim()
+      });
+    }
+  }
+
+
+  closeIngredientSuggestions(): void {
+
+    window.setTimeout(
+      () => {
+
+        this.isIngredientSuggestionsOpen =
+          false;
+
+        this.activeIngredientIndex =
+          null;
+      },
+      180
+    );
+  }
+
+
+  selectIngredientSuggestion(
+    index: number,
+    product:
+      ProductSuggestion
+  ): void {
+
+    const ingredient =
+      this.ingredients[index];
+
+
+    if (!ingredient) {
+      return;
+    }
+
+
+    ingredient.name =
+      product.name;
+
+
+    if (
+      product.default_unit &&
+      this.units.includes(
+        product.default_unit
+      )
+    ) {
+
+      ingredient.unit =
+        product.default_unit;
+    }
+
+
+    this.ingredientSuggestions =
+      [];
+
+    this.isIngredientSuggestionsOpen =
+      false;
+
+    this.activeIngredientIndex =
+      null;
+
+    this.isIngredientSearching =
+      false;
+  }
+
+
+  /* =========================
+     INGREDIENTS
+  ========================= */
 
   addIngredient(): void {
 
@@ -138,11 +426,22 @@ export class CreateRecipeComponent {
       return;
     }
 
+
     this.ingredients.push({
       name: '',
       quantity: 1,
       unit: 'Stück'
     });
+
+
+    this.ingredientSuggestions =
+      [];
+
+    this.isIngredientSuggestionsOpen =
+      false;
+
+    this.activeIngredientIndex =
+      null;
   }
 
 
@@ -154,10 +453,12 @@ export class CreateRecipeComponent {
       return true;
     }
 
+
     const lastIngredient =
       this.ingredients[
         this.ingredients.length - 1
       ];
+
 
     return (
       lastIngredient.name
@@ -174,9 +475,11 @@ export class CreateRecipeComponent {
     const ingredient =
       this.ingredients[index];
 
+
     if (!ingredient) {
       return false;
     }
+
 
     return (
       ingredient.name
@@ -195,6 +498,17 @@ export class CreateRecipeComponent {
       1
     );
 
+
+    this.ingredientSuggestions =
+      [];
+
+    this.isIngredientSuggestionsOpen =
+      false;
+
+    this.activeIngredientIndex =
+      null;
+
+
     if (
       this.ingredients.length === 0
     ) {
@@ -208,6 +522,90 @@ export class CreateRecipeComponent {
   }
 
 
+  moveIngredientUp(
+    index: number
+  ): void {
+
+    if (
+      index <= 0
+    ) {
+      return;
+    }
+
+
+    const current =
+      this.ingredients[index];
+
+
+    this.ingredients[index] =
+      this.ingredients[
+        index - 1
+      ];
+
+
+    this.ingredients[
+      index - 1
+    ] =
+      current;
+
+
+    this.closeIngredientAutocompleteImmediately();
+  }
+
+
+  moveIngredientDown(
+    index: number
+  ): void {
+
+    if (
+      index >=
+      this.ingredients.length - 1
+    ) {
+      return;
+    }
+
+
+    const current =
+      this.ingredients[index];
+
+
+    this.ingredients[index] =
+      this.ingredients[
+        index + 1
+      ];
+
+
+    this.ingredients[
+      index + 1
+    ] =
+      current;
+
+
+    this.closeIngredientAutocompleteImmediately();
+  }
+
+
+  private closeIngredientAutocompleteImmediately():
+    void {
+
+    this.ingredientSuggestions =
+      [];
+
+    this.activeIngredientIndex =
+      null;
+
+    this.isIngredientSuggestionsOpen =
+      false;
+
+    this.isIngredientSearching =
+      false;
+  }
+
+
+  /* =========================
+     PREPARATION
+  ========================= */
+
   addPreparationStep(): void {
 
     if (
@@ -215,6 +613,7 @@ export class CreateRecipeComponent {
     ) {
       return;
     }
+
 
     this.preparationSteps.push({
       text: ''
@@ -230,10 +629,12 @@ export class CreateRecipeComponent {
       return true;
     }
 
+
     const lastStep =
       this.preparationSteps[
         this.preparationSteps.length - 1
       ];
+
 
     return (
       lastStep.text
@@ -250,9 +651,11 @@ export class CreateRecipeComponent {
     const step =
       this.preparationSteps[index];
 
+
     if (!step) {
       return false;
     }
+
 
     return (
       step.text
@@ -271,6 +674,7 @@ export class CreateRecipeComponent {
       1
     );
 
+
     if (
       this.preparationSteps.length === 0
     ) {
@@ -282,62 +686,30 @@ export class CreateRecipeComponent {
   }
 
 
-  moveIngredientUp(
-    index: number
-  ): void {
-
-    if (index <= 0) {
-      return;
-    }
-
-    const current =
-      this.ingredients[index];
-
-    this.ingredients[index] =
-      this.ingredients[index - 1];
-
-    this.ingredients[index - 1] =
-      current;
-  }
-
-
-  moveIngredientDown(
-    index: number
-  ): void {
-
-    if (
-      index >=
-      this.ingredients.length - 1
-    ) {
-      return;
-    }
-
-    const current =
-      this.ingredients[index];
-
-    this.ingredients[index] =
-      this.ingredients[index + 1];
-
-    this.ingredients[index + 1] =
-      current;
-  }
-
-
   moveStepUp(
     index: number
   ): void {
 
-    if (index <= 0) {
+    if (
+      index <= 0
+    ) {
       return;
     }
+
 
     const current =
       this.preparationSteps[index];
 
-    this.preparationSteps[index] =
-      this.preparationSteps[index - 1];
 
-    this.preparationSteps[index - 1] =
+    this.preparationSteps[index] =
+      this.preparationSteps[
+        index - 1
+      ];
+
+
+    this.preparationSteps[
+      index - 1
+    ] =
       current;
   }
 
@@ -353,22 +725,37 @@ export class CreateRecipeComponent {
       return;
     }
 
+
     const current =
       this.preparationSteps[index];
 
-    this.preparationSteps[index] =
-      this.preparationSteps[index + 1];
 
-    this.preparationSteps[index + 1] =
+    this.preparationSteps[index] =
+      this.preparationSteps[
+        index + 1
+      ];
+
+
+    this.preparationSteps[
+      index + 1
+    ] =
       current;
   }
 
 
+  /* =========================
+     SAVE
+  ========================= */
+
   saveRecipe(): void {
 
-    this.errorMessage = '';
+    this.errorMessage =
+      '';
 
-    if (!this.recipeName.trim()) {
+
+    if (
+      !this.recipeName.trim()
+    ) {
 
       this.errorMessage =
         'Bitte gib einen Rezeptnamen ein.';
@@ -473,7 +860,8 @@ export class CreateRecipeComponent {
     };
 
 
-    this.isSaving = true;
+    this.isSaving =
+      true;
 
 
     this.recipeService
@@ -487,11 +875,12 @@ export class CreateRecipeComponent {
           this.isSaving =
             false;
 
+
           this.router.navigate([
             '/main/recipe-list'
           ]);
-
         },
+
 
         error: (
           error
@@ -502,8 +891,10 @@ export class CreateRecipeComponent {
             error
           );
 
+
           this.isSaving =
             false;
+
 
           this.errorMessage =
             'Das Rezept konnte nicht gespeichert werden.';
@@ -520,6 +911,10 @@ export class CreateRecipeComponent {
     ]);
   }
 
+
+  /* =========================
+     GETTERS
+  ========================= */
 
   get ingredientCount():
     number {
