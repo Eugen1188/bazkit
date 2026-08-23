@@ -1,6 +1,4 @@
-<div class="saved-list-detail-page">
-
-  <!-- LOADING -->
+<div class="edit-list-page">
 
   <div
     class="loading-state"
@@ -10,489 +8,588 @@
   </div>
 
 
-  <!-- ERROR -->
-
-  <div
-    class="error-state"
-    *ngIf="
-      !isLoading &&
-      errorMessage
-    "
-  >
-    {{ errorMessage }}
-  </div>
-
-
-  <!-- SHARE MESSAGE -->
-
-  <div
-    class="share-toast"
-    *ngIf="shareMessage"
-  >
-    {{ shareMessage }}
-  </div>
-
-
-  <!-- CONTENT -->
-
   <ng-container
-    *ngIf="
-      !isLoading &&
-      savedList
-    "
+    *ngIf="!isLoading"
   >
 
-    <!-- HEADER -->
+    <header class="page-header">
 
-    <header class="detail-header">
+      <div class="header-left">
 
-      <div class="header-copy">
+        <button
+          class="back-button"
+          type="button"
+          aria-label="Zurück zur Liste"
+          (click)="cancel()"
+        >
 
-        <h1>
-          {{ savedList.title }}
-        </h1>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+
+        </button>
 
 
-        <p>
-          Erstellt am
+        <div>
 
-          {{
-            formatDate(
-              savedList.created_at
-            )
-          }}
-        </p>
+          <h1>
+            Liste bearbeiten
+          </h1>
+
+          <p>
+            Passe den Namen und die Produkte deiner Liste an.
+          </p>
+
+        </div>
 
       </div>
 
 
       <div class="header-actions">
 
-        <span class="header-count">
-
-          {{ itemCount }}
-
-          {{
-            itemCount === 1
-              ? 'Artikel'
-              : 'Artikel'
-          }}
-
-        </span>
+        <button
+          class="cancel-button"
+          type="button"
+          (click)="cancel()"
+        >
+          Abbrechen
+        </button>
 
 
-        <!-- THREE DOT MENU -->
-
-        <div
-          class="list-menu-wrapper"
-          (click)="$event.stopPropagation()"
+        <button
+          class="save-button"
+          type="button"
+          [disabled]="
+            !listName.trim() ||
+            isSaving
+          "
+          (click)="saveList()"
         >
 
-          <button
-            class="list-menu-button"
-            type="button"
-            aria-label="Weitere Aktionen"
-            [class.active]="isMenuOpen"
-            (click)="toggleMenu($event)"
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
           >
+            <path d="M5 4h14v16H5z"></path>
+            <path d="M8 4v6h8V4"></path>
+          </svg>
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
+          {{
+            isSaving
+              ? 'Wird gespeichert...'
+              : 'Änderungen speichern'
+          }}
 
-              <circle
-                cx="12"
-                cy="5"
-                r="1.8"
-              >
-              </circle>
-
-              <circle
-                cx="12"
-                cy="12"
-                r="1.8"
-              >
-              </circle>
-
-              <circle
-                cx="12"
-                cy="19"
-                r="1.8"
-              >
-              </circle>
-
-            </svg>
-
-          </button>
-
-
-          <div
-            class="list-menu"
-            *ngIf="isMenuOpen"
-          >
-
-            <!-- EDIT -->
-
-            <button
-              class="list-menu-item"
-              type="button"
-              (click)="editList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <path
-                  d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-                >
-                </path>
-
-                <path
-                  d="M13.5 8.5l3 3"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste bearbeiten
-              </span>
-
-            </button>
-
-
-            <!-- SHARE -->
-
-            <button
-              class="list-menu-item"
-              type="button"
-              (click)="shareList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <circle
-                  cx="18"
-                  cy="5"
-                  r="3"
-                >
-                </circle>
-
-                <circle
-                  cx="6"
-                  cy="12"
-                  r="3"
-                >
-                </circle>
-
-                <circle
-                  cx="18"
-                  cy="19"
-                  r="3"
-                >
-                </circle>
-
-                <path
-                  d="M8.7 10.7l6.6-4"
-                >
-                </path>
-
-                <path
-                  d="M8.7 13.3l6.6 4"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste teilen
-              </span>
-
-            </button>
-
-
-            <div
-              class="list-menu-divider"
-            >
-            </div>
-
-
-            <!-- DELETE -->
-
-            <button
-              class="
-                list-menu-item
-                danger
-              "
-              type="button"
-              (click)="deleteList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <path
-                  d="M4 7h16"
-                >
-                </path>
-
-                <path
-                  d="M9 7V4h6v3"
-                >
-                </path>
-
-                <path
-                  d="M7 7l1 13h8l1-13"
-                >
-                </path>
-
-                <path
-                  d="M10 11v5"
-                >
-                </path>
-
-                <path
-                  d="M14 11v5"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste löschen
-              </span>
-
-            </button>
-
-          </div>
-
-        </div>
+        </button>
 
       </div>
 
     </header>
 
 
-    <!-- PRODUCTS CARD -->
-
-    <section class="products-card">
-
-      <div class="products-card-header">
-
-        <h2>
-          Produkte
-        </h2>
+    <div
+      class="error-message"
+      *ngIf="errorMessage"
+    >
+      {{ errorMessage }}
+    </div>
 
 
-        <span class="products-count">
-          {{ itemCount }}
-        </span>
+    <main class="edit-content">
 
-      </div>
+      <section class="form-card">
 
+        <div class="card-heading">
 
-      <!-- EMPTY -->
+          <div>
 
-      <div
-        class="products-empty"
-        *ngIf="
-          itemCount === 0
-        "
-      >
+            <h2>
+              Allgemeine Informationen
+            </h2>
 
-        <strong>
-          Diese Liste ist leer
-        </strong>
-
-        <p>
-          Bearbeite die Liste,
-          um Produkte hinzuzufügen.
-        </p>
-
-        <button
-          type="button"
-          (click)="editList()"
-        >
-          Produkte hinzufügen
-        </button>
-
-      </div>
-
-
-      <!-- ITEMS -->
-
-      <div
-        class="product-row"
-        *ngFor="
-          let item of savedList.items
-        "
-      >
-
-        <!-- AVATAR -->
-
-        <div class="product-avatar">
-
-          {{
-            getItemName(
-              item
-            )
-              .charAt(0)
-              .toUpperCase()
-          }}
-
-        </div>
-
-
-        <!-- PRODUCT -->
-
-        <div class="product-content">
-
-          <strong class="product-name">
-
-            {{
-              getItemName(
-                item
-              )
-            }}
-
-          </strong>
-
-
-          <div class="product-meta">
-
-            <span
-              class="meta-chip"
-              *ngIf="
-                item.quantity !== null &&
-                item.quantity !== undefined
-              "
-            >
-              {{ item.quantity }}
-            </span>
-
-
-            <span
-              class="meta-chip"
-              *ngIf="item.unit"
-            >
-              {{ item.unit }}
-            </span>
+            <p>
+              Ändere den Namen deiner Einkaufsliste.
+            </p>
 
           </div>
 
         </div>
 
 
-        <!-- NOTE -->
+        <div class="field">
 
-        <div class="product-note">
+          <label for="listName">
+            Listenname
+          </label>
 
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M5 4h14v13H9l-4 4V4Z"
-            >
-            </path>
-          </svg>
-
-
-          <span
-            *ngIf="item.note"
-          >
-            {{ item.note }}
-          </span>
-
-
-          <span
-            class="empty-note"
-            *ngIf="!item.note"
-          >
-            Keine Notiz
-          </span>
+          <input
+            id="listName"
+            type="text"
+            maxlength="80"
+            [(ngModel)]="listName"
+            placeholder="z. B. Wocheneinkauf"
+          />
 
         </div>
 
+      </section>
 
-        <!-- ITEM ACTIONS -->
 
-        <div class="product-actions">
+      <div class="list-layout">
 
-          <button
-            class="product-action edit"
-            type="button"
-            aria-label="Produkt bearbeiten"
-            (click)="editItem(item)"
-          >
+        <section class="form-card">
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                Produkt hinzufügen
+              </h2>
+
+              <p>
+                Suche ein Produkt oder gib einen eigenen Namen ein.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="product-form">
+
+            <div
+              class="
+                field
+                product-name-field
+              "
             >
 
-              <path
-                d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
+              <label for="productName">
+                Produkt
+              </label>
+
+
+              <div class="autocomplete">
+
+                <input
+                  id="productName"
+                  type="text"
+                  autocomplete="off"
+                  [ngModel]="productName"
+                  (ngModelChange)="
+                    onProductNameChange(
+                      $event
+                    )
+                  "
+                  (focus)="
+                    openSuggestions()
+                  "
+                  (blur)="
+                    closeSuggestions()
+                  "
+                  (keyup.enter)="
+                    handleProductEnter()
+                  "
+                  placeholder="Produkt eingeben..."
+                />
+
+
+                <div
+                  class="suggestions-dropdown"
+                  *ngIf="isSuggestionsOpen"
+                >
+
+                  <div
+                    class="suggestions-loading"
+                    *ngIf="
+                      isSearchingProducts ||
+                      isSearchingExternal
+                    "
+                  >
+
+                    {{
+                      isSearchingExternal
+                        ? 'Externe Produktdatenbank wird durchsucht...'
+                        : 'Produkte werden gesucht...'
+                    }}
+
+                  </div>
+
+
+                  <button
+                    class="suggestion-item"
+                    type="button"
+                    *ngFor="
+                      let product
+                      of productSuggestions
+                    "
+                    (mousedown)="
+                      selectProductSuggestion(
+                        product
+                      )
+                    "
+                  >
+
+                    <span
+                      class="suggestion-avatar"
+                    >
+                      {{
+                        product.name
+                          .charAt(0)
+                          .toUpperCase()
+                      }}
+                    </span>
+
+
+                    <span
+                      class="suggestion-content"
+                    >
+
+                      <strong>
+                        {{ product.name }}
+                      </strong>
+
+
+                      <small
+                        *ngIf="
+                          product.source ===
+                          'external'
+                        "
+                      >
+                        Externer Treffer
+                      </small>
+
+
+                      <small
+                        *ngIf="
+                          product.source ===
+                            'local' &&
+                          product.default_unit
+                        "
+                      >
+                        Standard:
+                        {{ product.default_unit }}
+                      </small>
+
+
+                      <small
+                        *ngIf="
+                          product.source ===
+                            'local' &&
+                          !product.default_unit
+                        "
+                      >
+                        Einheit selbst wählen
+                      </small>
+
+                    </span>
+
+                  </button>
+
+
+                  <div
+                    class="no-suggestions"
+                    *ngIf="
+                      !isSearchingProducts &&
+                      !isSearchingExternal &&
+                      productSuggestions.length === 0
+                    "
+                  >
+
+                    <strong>
+                      „{{ productName }}“
+                    </strong>
+
+
+                    <span
+                      *ngIf="
+                        !externalSearchDone &&
+                        productName.trim().length >= 3
+                      "
+                    >
+                      Kein lokaler Treffer gefunden.
+                    </span>
+
+
+                    <span
+                      *ngIf="
+                        externalSearchDone &&
+                        !externalSearchError
+                      "
+                    >
+                      Auch extern wurde kein passendes
+                      Produkt gefunden.
+                    </span>
+
+
+                    <span
+                      class="external-error"
+                      *ngIf="externalSearchError"
+                    >
+                      {{ externalSearchError }}
+                    </span>
+
+
+                    <button
+                      class="external-search-button"
+                      type="button"
+                      *ngIf="
+                        !externalSearchDone &&
+                        productName.trim().length >= 3
+                      "
+                      (mousedown)="
+                        searchExternal()
+                      "
+                    >
+                      Extern suchen
+                    </button>
+
+
+                    <small>
+                      Du kannst den eingegebenen Namen
+                      trotzdem direkt verwenden.
+                    </small>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="productQuantity">
+                Menge
+              </label>
+
+              <input
+                id="productQuantity"
+                type="number"
+                min="0.01"
+                step="0.01"
+                [(ngModel)]="productQuantity"
+                (keyup.enter)="addProduct()"
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="productUnit">
+                Einheit
+              </label>
+
+              <select
+                id="productUnit"
+                [(ngModel)]="productUnit"
               >
-              </path>
 
-              <path
-                d="M13.5 8.5l3 3"
-              >
-              </path>
+                <option
+                  *ngFor="let unit of units"
+                  [value]="unit"
+                >
+                  {{ unit }}
+                </option>
 
-            </svg>
+              </select>
 
-          </button>
+            </div>
 
 
-          <button
-            class="product-action delete"
-            type="button"
-            aria-label="Produkt löschen"
-            (click)="deleteItem(item)"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+            <button
+              class="add-product-button"
+              type="button"
+              [disabled]="
+                !productName.trim() ||
+                productQuantity === null ||
+                productQuantity <= 0
+              "
+              (click)="addProduct()"
             >
 
-              <path
-                d="M4 7h16"
+              <span>
+                +
+              </span>
+
+              Produkt hinzufügen
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <section
+          class="
+            form-card
+            products-card
+          "
+        >
+
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                Produkte in der Liste
+              </h2>
+
+              <p>
+                Alle aktuell gespeicherten Produkte.
+              </p>
+
+            </div>
+
+
+            <span class="count-badge">
+              {{ products.length }}
+            </span>
+
+          </div>
+
+
+          <div
+            class="empty-products"
+            *ngIf="products.length === 0"
+          >
+
+            <span class="empty-products-icon">
+              +
+            </span>
+
+            <strong>
+              Noch keine Produkte
+            </strong>
+
+            <p>
+              Füge links dein erstes Produkt hinzu.
+            </p>
+
+          </div>
+
+
+          <div
+            class="product-item"
+            *ngFor="
+              let product of products;
+              let i = index
+            "
+          >
+
+            <span
+              class="product-icon"
+              aria-hidden="true"
+            >
+              {{
+                product.name
+                  .charAt(0)
+                  .toUpperCase()
+              }}
+            </span>
+
+
+            <div class="product-details">
+
+              <strong>
+                {{ product.name }}
+              </strong>
+
+              <span>
+                {{ product.quantity }}
+                {{ product.unit }}
+              </span>
+
+            </div>
+
+
+            <button
+              class="remove-button"
+              type="button"
+              aria-label="Produkt entfernen"
+              (click)="removeProduct(i)"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-              </path>
+                <path d="M4 7h16"></path>
+                <path d="M9 7V4h6v3"></path>
+                <path d="M7 7l1 13h8l1-13"></path>
+              </svg>
 
-              <path
-                d="M9 7V4h6v3"
-              >
-              </path>
+            </button>
 
-              <path
-                d="M7 7l1 13h8l1-13"
-              >
-              </path>
+          </div>
 
-            </svg>
-
-          </button>
-
-        </div>
+        </section>
 
       </div>
 
-    </section>
+
+      <section class="tip-card">
+
+        <span class="tip-icon">
+          💡
+        </span>
+
+        <div>
+
+          <strong>
+            Tipp
+          </strong>
+
+          <p>
+            Wenn ein Produkt nicht in deiner lokalen Datenbank
+            gefunden wird, kannst du direkt die externe Suche verwenden.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <div class="bottom-actions">
+
+        <button
+          class="cancel-button"
+          type="button"
+          (click)="cancel()"
+        >
+          Abbrechen
+        </button>
+
+
+        <button
+          class="save-button"
+          type="button"
+          [disabled]="
+            !listName.trim() ||
+            isSaving
+          "
+          (click)="saveList()"
+        >
+
+          {{
+            isSaving
+              ? 'Wird gespeichert...'
+              : 'Änderungen speichern'
+          }}
+
+        </button>
+
+      </div>
+
+    </main>
 
   </ng-container>
 
