@@ -6,6 +6,7 @@ import {
   Component,
   EventEmitter,
   OnDestroy,
+  OnInit,
   Output
 } from '@angular/core';
 
@@ -50,7 +51,7 @@ import {
     './add-product-modal.component.scss'
 })
 export class AddProductModalComponent
-implements OnDestroy {
+implements OnInit, OnDestroy {
 
   @Output()
   close =
@@ -69,30 +70,28 @@ implements OnDestroy {
   quantity:
     number | null = 1;
 
-  unit = 'Stück';
+  unit =
+    'Stück';
 
-  note = '';
+  note =
+    '';
 
 
   suggestions:
     ProductSuggestion[] = [];
 
 
-  isSearching = false;
+  isSearching =
+    false;
 
-  isSuggestionsOpen = false;
+  isSuggestionsOpen =
+    false;
 
-  isSaving = false;
+  isSaving =
+    false;
 
-  errorMessage = '';
-
-
-  private searchSubject =
-    new Subject<string>();
-
-
-  private searchSubscription:
-    Subscription;
+  errorMessage =
+    '';
 
 
   units = [
@@ -110,6 +109,18 @@ implements OnDestroy {
     'Bund',
     'Prise'
   ];
+
+
+  private searchSubject =
+    new Subject<string>();
+
+
+  private searchSubscription:
+    Subscription;
+
+
+  private previousBodyOverflow =
+    '';
 
 
   constructor(
@@ -184,10 +195,24 @@ implements OnDestroy {
   }
 
 
+  ngOnInit(): void {
+
+    this.previousBodyOverflow =
+      document.body.style.overflow;
+
+    document.body.style.overflow =
+      'hidden';
+  }
+
+
   ngOnDestroy(): void {
 
     this.searchSubscription
       .unsubscribe();
+
+
+    document.body.style.overflow =
+      this.previousBodyOverflow;
   }
 
 
@@ -237,8 +262,7 @@ implements OnDestroy {
 
 
     if (
-      product.default_unit
-      &&
+      product.default_unit &&
       this.units.includes(
         product.default_unit
       )
@@ -292,12 +316,9 @@ implements OnDestroy {
 
 
     if (
-      !name
-      ||
-      this.quantity === null
-      ||
-      this.quantity <= 0
-      ||
+      !name ||
+      this.quantity === null ||
+      this.quantity <= 0 ||
       !this.unit
     ) {
 

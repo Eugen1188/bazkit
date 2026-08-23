@@ -1,39 +1,107 @@
-<div class="modal-backdrop" (click)="close.emit()">
-
-  <div class="modal" (click)="$event.stopPropagation()">
-
+<div
+  class="modal-backdrop"
+  (click)="close.emit()"
+>
+  <div
+    class="modal"
+    (click)="$event.stopPropagation()"
+  >
     <div class="modal-header">
-      <h2>Was möchten Sie hinzufügen?</h2>
-      <button class="close-button" (click)="close.emit()">×</button>
+      <div class="modal-heading">
+        <h2>
+          Was möchten Sie hinzufügen?
+        </h2>
+
+        <p>
+          Wählen Sie aus, was Sie zu Ihrer
+          Einkaufsliste hinzufügen möchten.
+        </p>
+      </div>
+
+      <button
+        class="close-button"
+        type="button"
+        aria-label="Schließen"
+        (click)="close.emit()"
+      >
+        ×
+      </button>
     </div>
 
-    <button class="option-card" (click)="addProduct.emit()">
-      <div class="option-icon">🛒</div>
-      <div>
-        <h3>Produkt hinzufügen</h3>
-        <p>Einzelne Produkte manuell hinzufügen</p>
-      </div>
-      <span>›</span>
-    </button>
+    <div class="modal-content">
+      <button
+        class="option-card"
+        type="button"
+        (click)="addProduct.emit()"
+      >
+        <div class="option-icon">
+          🛒
+        </div>
 
-    <button class="option-card" (click)="addSavedList.emit()">
-      <div class="option-icon">📋</div>
-      <div>
-        <h3>Gespeicherte Liste übernehmen</h3>
-        <p>Produkte aus einer gespeicherten Liste übernehmen</p>
-      </div>
-      <span>›</span>
-    </button>
+        <div class="option-content">
+          <h3>
+            Produkt hinzufügen
+          </h3>
 
-    <button class="option-card" (click)="addRecipe.emit()">
-      <div class="option-icon">🍝</div>
-      <div>
-        <h3>Zutaten aus Rezept übernehmen</h3>
-        <p>Zutaten eines Rezepts zur Einkaufsliste hinzufügen</p>
-      </div>
-      <span>›</span>
-    </button>
+          <p>
+            Einzelne Produkte manuell hinzufügen
+          </p>
+        </div>
 
+        <span class="option-arrow">
+          ›
+        </span>
+      </button>
+
+      <button
+        class="option-card"
+        type="button"
+        (click)="addSavedList.emit()"
+      >
+        <div class="option-icon">
+          📋
+        </div>
+
+        <div class="option-content">
+          <h3>
+            Gespeicherte Liste übernehmen
+          </h3>
+
+          <p>
+            Produkte aus einer gespeicherten
+            Liste übernehmen
+          </p>
+        </div>
+
+        <span class="option-arrow">
+          ›
+        </span>
+      </button>
+
+      <button
+        class="option-card"
+        type="button"
+        (click)="addRecipe.emit()"
+      >
+        <div class="option-icon">
+          🍝
+        </div>
+
+        <div class="option-content">
+          <h3>
+            Zutaten aus Rezept übernehmen
+          </h3>
+
+          <p>
+            Zutaten eines Rezepts zur
+            Einkaufsliste hinzufügen
+          </p>
+        </div>
+
+        <span class="option-arrow">
+          ›
+        </span>
+      </button>
+    </div>
   </div>
-
 </div>
