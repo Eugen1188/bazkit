@@ -2,21 +2,36 @@ import { CommonModule } from '@angular/common';
 
 import {
   Component,
+  OnDestroy,
   OnInit
 } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import {
+  FormsModule
+} from '@angular/forms';
 
 import {
   ActivatedRoute,
-  Router,
-  RouterLink
+  Router
 } from '@angular/router';
+
+import {
+  Subject,
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs';
 
 import {
   CreateSavedListPayload,
   SavedListService
 } from '../../services/saved-list.service';
+
+import {
+  ProductService,
+  ProductSuggestion
+} from '../../services/product.service';
 
 
 interface Product {
@@ -28,13 +43,6 @@ interface Product {
 }
 
 
-interface ProductSuggestion {
-  name: string;
-  quantity: number;
-  unit: string;
-}
-
-
 @Component({
   selector: 'app-saved-list-edit',
 
@@ -42,33 +50,36 @@ interface ProductSuggestion {
 
   imports: [
     CommonModule,
-    FormsModule,
-    RouterLink
+    FormsModule
   ],
 
   templateUrl:
     './saved-list-edit.component.html',
 
-  styleUrls: [
-    '../create-list/create-list.component.scss',
+  styleUrl:
     './saved-list-edit.component.scss'
-  ]
 })
-
 export class SavedListEditComponent
-implements OnInit {
+implements OnInit, OnDestroy {
 
-  listId: number | null = null;
+  listId:
+    number | null = null;
+
 
   listName = '';
 
   productName = '';
 
-  productQuantity: number | null = 1;
+  productQuantity:
+    number | null = 1;
 
-  productUnit = 'Stück';
+  productUnit =
+    'Stück';
 
-  products: Product[] = [];
+
+  products:
+    Product[] = [];
+
 
   isLoading = true;
 
@@ -77,61 +88,50 @@ implements OnInit {
   errorMessage = '';
 
 
+  productSuggestions:
+    ProductSuggestion[] = [];
+
+  isSearchingProducts =
+    false;
+
+  isSearchingExternal =
+    false;
+
+  isSuggestionsOpen =
+    false;
+
+  externalSearchDone =
+    false;
+
+  externalSearchError =
+    '';
+
+  selectedProduct:
+    ProductSuggestion | null =
+      null;
+
+
+  private productSearchSubject =
+    new Subject<string>();
+
+  private productSearchSubscription:
+    Subscription;
+
+
   units = [
     'Stück',
     'g',
     'kg',
     'ml',
     'Liter',
+    'EL',
+    'TL',
     'Packung',
     'Dose',
     'Glas',
     'Becher',
-    'Bund'
-  ];
-
-
-  suggestions: ProductSuggestion[] = [
-    {
-      name: 'Milch',
-      quantity: 1,
-      unit: 'Liter'
-    },
-    {
-      name: 'Eier',
-      quantity: 10,
-      unit: 'Stück'
-    },
-    {
-      name: 'Brot',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Tomaten',
-      quantity: 500,
-      unit: 'g'
-    },
-    {
-      name: 'Gurken',
-      quantity: 1,
-      unit: 'Stück'
-    },
-    {
-      name: 'Äpfel',
-      quantity: 6,
-      unit: 'Stück'
-    },
-    {
-      name: 'Käse',
-      quantity: 200,
-      unit: 'g'
-    },
-    {
-      name: 'Hähnchen',
-      quantity: 500,
-      unit: 'g'
-    }
+    'Bund',
+    'Prise'
   ];
 
 
@@ -143,51 +143,161 @@ implements OnInit {
       Router,
 
     private savedListService:
-      SavedListService
-  ) {}
+      SavedListService,
+
+    private productService:
+      ProductService
+  ) {
+
+    this.productSearchSubscription =
+      this.productSearchSubject
+        .pipe(
+
+          debounceTime(
+            300
+          ),
+
+          distinctUntilChanged(),
+
+          switchMap(
+            query => {
+
+              this.isSearchingProducts =
+                true;
+
+              this.externalSearchDone =
+                false;
+
+              this.externalSearchError =
+                '';
+
+              return this.productService
+                .searchProducts(
+                  query
+                );
+            }
+          )
+
+        )
+        .subscribe({
+
+          next: (
+            products
+          ) => {
+
+            this.productSuggestions =
+              products;
+
+            this.isSearchingProducts =
+              false;
+
+            this.isSuggestionsOpen =
+              this.productName
+                .trim()
+                .length >= 2;
+          },
+
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Lokale Produktsuche fehlgeschlagen:',
+              error
+            );
+
+            this.productSuggestions =
+              [];
+
+            this.isSearchingProducts =
+              false;
+
+            this.externalSearchError =
+              'Die Produktsuche ist momentan nicht verfügbar.';
+
+            this.isSuggestionsOpen =
+              true;
+          }
+
+        });
+  }
 
 
   ngOnInit(): void {
-    const id = Number(
-      this.route
-        .snapshot
-        .paramMap
-        .get('id')
-    );
 
-    if (!id) {
+    const id =
+      Number(
+        this.route
+          .snapshot
+          .paramMap
+          .get('id')
+      );
+
+
+    if (
+      !id
+    ) {
+
       this.errorMessage =
         'Liste konnte nicht gefunden werden.';
 
-      this.isLoading = false;
+      this.isLoading =
+        false;
 
       return;
     }
 
-    this.listId = id;
+
+    this.listId =
+      id;
 
     this.loadList();
   }
 
 
+  ngOnDestroy(): void {
+
+    this.productSearchSubscription
+      .unsubscribe();
+  }
+
+
   loadList(): void {
-    if (!this.listId) {
+
+    if (
+      !this.listId
+    ) {
       return;
     }
 
-    this.isLoading = true;
+
+    this.isLoading =
+      true;
+
+    this.errorMessage =
+      '';
+
 
     this.savedListService
       .getSavedList(
         this.listId
       )
       .subscribe({
-        next: (list) => {
+
+        next: (
+          list
+        ) => {
+
           this.listName =
             list.title;
 
+
           this.products =
-            (list.items ?? [])
+            (
+              list.items ??
+              []
+            )
               .map(
                 item => ({
                   id:
@@ -211,13 +321,18 @@ implements OnInit {
                 })
               );
 
+
           this.isLoading =
             false;
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
+
           console.error(
-            'Fehler beim Laden:',
+            'Fehler beim Laden der Liste:',
             error
           );
 
@@ -227,41 +342,273 @@ implements OnInit {
           this.isLoading =
             false;
         }
+
       });
   }
 
 
-  addProduct(
-    suggestion?:
-      ProductSuggestion
+  onProductNameChange(
+    value: string
   ): void {
-    const name =
-      suggestion?.name ??
-      this.productName.trim();
 
-    const quantity =
-      suggestion?.quantity ??
-      this.productQuantity;
+    this.productName =
+      value;
 
-    const unit =
-      suggestion?.unit ??
-      this.productUnit;
+    this.selectedProduct =
+      null;
+
+
+    const query =
+      value.trim();
+
+
+    this.productSuggestions =
+      [];
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
 
     if (
-      !name ||
-      quantity === null ||
-      quantity <= 0 ||
-      !unit
+      query.length < 2
+    ) {
+
+      this.isSuggestionsOpen =
+        false;
+
+      return;
+    }
+
+
+    this.isSuggestionsOpen =
+      true;
+
+
+    this.productSearchSubject
+      .next(
+        query
+      );
+  }
+
+
+  selectProductSuggestion(
+    product:
+      ProductSuggestion
+  ): void {
+
+    this.selectedProduct =
+      product;
+
+    this.productName =
+      product.name;
+
+
+    if (
+      product.default_unit &&
+      this.units.includes(
+        product.default_unit
+      )
+    ) {
+
+      this.productUnit =
+        product.default_unit;
+    }
+
+
+    this.productSuggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+  }
+
+
+  searchExternal(): void {
+
+    const query =
+      this.productName
+        .trim();
+
+
+    if (
+      query.length < 3 ||
+      this.isSearchingExternal
     ) {
       return;
     }
 
+
+    this.isSearchingExternal =
+      true;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+
+    this.productService
+      .searchExternalProducts(
+        query
+      )
+      .subscribe({
+
+        next: (
+          products
+        ) => {
+
+          this.productSuggestions =
+            products;
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.isSuggestionsOpen =
+            true;
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Externe Produktsuche fehlgeschlagen:',
+            error
+          );
+
+          this.productSuggestions =
+            [];
+
+          this.isSearchingExternal =
+            false;
+
+          this.externalSearchDone =
+            true;
+
+          this.externalSearchError =
+            'Die externe Suche ist momentan nicht verfügbar.';
+
+          this.isSuggestionsOpen =
+            true;
+        }
+
+      });
+  }
+
+
+  handleProductEnter(): void {
+
+    if (
+      this.productSuggestions.length > 0
+    ) {
+
+      this.selectProductSuggestion(
+        this.productSuggestions[0]
+      );
+
+      return;
+    }
+
+
+    this.addProduct();
+  }
+
+
+  openSuggestions(): void {
+
+    if (
+      this.productName
+        .trim()
+        .length >= 2
+    ) {
+
+      this.isSuggestionsOpen =
+        true;
+    }
+  }
+
+
+  closeSuggestions(): void {
+
+    window.setTimeout(
+      () => {
+
+        this.isSuggestionsOpen =
+          false;
+      },
+      200
+    );
+  }
+
+
+  addProduct(): void {
+
+    const name =
+      this.productName
+        .trim();
+
+
+    if (
+      !name ||
+      this.productQuantity === null ||
+      this.productQuantity <= 0 ||
+      !this.productUnit
+    ) {
+      return;
+    }
+
+
     this.products.push({
       name,
-      quantity,
-      unit,
+
+      quantity:
+        this.productQuantity,
+
+      unit:
+        this.productUnit,
+
       note: ''
     });
+
+
+    if (
+      this.selectedProduct?.source ===
+      'external'
+    ) {
+
+      this.productService
+        .saveExternalProduct(
+          this.selectedProduct
+        )
+        .subscribe({
+
+          error: (
+            error
+          ) => {
+
+            console.error(
+              'Externes Produkt konnte nicht lokal gespeichert werden:',
+              error
+            );
+          }
+
+        });
+    }
+
 
     this.resetProductForm();
   }
@@ -270,6 +617,7 @@ implements OnInit {
   removeProduct(
     index: number
   ): void {
+
     this.products.splice(
       index,
       1
@@ -278,21 +626,40 @@ implements OnInit {
 
 
   saveList(): void {
+
     if (
-      !this.listId ||
-      !this.listName.trim()
+      !this.listId
     ) {
       return;
     }
 
+
+    const trimmedListName =
+      this.listName
+        .trim();
+
+
+    if (
+      !trimmedListName
+    ) {
+
+      this.errorMessage =
+        'Bitte geben Sie einen Listennamen ein.';
+
+      return;
+    }
+
+
     const payload:
       CreateSavedListPayload = {
+
       title:
-        this.listName.trim(),
+        trimmedListName,
 
       items:
         this.products.map(
           product => ({
+
             id:
               product.id,
 
@@ -311,9 +678,13 @@ implements OnInit {
         )
     };
 
-    this.isSaving = true;
 
-    this.errorMessage = '';
+    this.isSaving =
+      true;
+
+    this.errorMessage =
+      '';
+
 
     this.savedListService
       .updateSavedList(
@@ -321,7 +692,9 @@ implements OnInit {
         payload
       )
       .subscribe({
+
         next: () => {
+
           this.isSaving =
             false;
 
@@ -331,37 +704,105 @@ implements OnInit {
           ]);
         },
 
-        error: (error) => {
+
+        error: (
+          error
+        ) => {
+
           console.error(
-            'Fehler beim Speichern:',
+            'Fehler beim Speichern der Liste:',
             error
           );
 
           this.isSaving =
             false;
 
+
+          if (
+            error.status === 401
+          ) {
+
+            this.errorMessage =
+              'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.';
+
+            return;
+          }
+
+
+          if (
+            error.error?.title
+          ) {
+
+            this.errorMessage =
+              Array.isArray(
+                error.error.title
+              )
+                ? error.error.title[0]
+                : error.error.title;
+
+            return;
+          }
+
+
           this.errorMessage =
             'Die Änderungen konnten nicht gespeichert werden.';
         }
+
       });
   }
 
 
   cancel(): void {
-    this.router.navigate([
-      '/main/saved-list',
+
+    if (
       this.listId
+    ) {
+
+      this.router.navigate([
+        '/main/saved-list',
+        this.listId
+      ]);
+
+      return;
+    }
+
+
+    this.router.navigate([
+      '/main/saved-list'
     ]);
   }
 
 
-  private resetProductForm():
-    void {
-    this.productName = '';
+  private resetProductForm(): void {
 
-    this.productQuantity = 1;
+    this.productName =
+      '';
+
+    this.productQuantity =
+      1;
 
     this.productUnit =
       'Stück';
+
+    this.productSuggestions =
+      [];
+
+    this.isSuggestionsOpen =
+      false;
+
+    this.isSearchingProducts =
+      false;
+
+    this.isSearchingExternal =
+      false;
+
+    this.externalSearchDone =
+      false;
+
+    this.externalSearchError =
+      '';
+
+    this.selectedProduct =
+      null;
   }
 }

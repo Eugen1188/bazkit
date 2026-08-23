@@ -1,183 +1,486 @@
 import {
-  Injectable
+  CommonModule
+} from '@angular/common';
+
+import {
+  Component,
+  HostListener,
+  OnInit
 } from '@angular/core';
 
 import {
-  HttpClient,
-  HttpParams
-} from '@angular/common/http';
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 
 import {
-  Observable,
-  map
-} from 'rxjs';
+  SavedList,
+  SavedListItem,
+  SavedListService
+} from '../../services/saved-list.service';
+
+import {
+  ListShareService
+} from '../../services/list-share.service';
 
 
-export interface ProductSuggestion {
+@Component({
+  selector: 'app-saved-list-detail',
 
-  id:
-    number | null;
+  standalone: true,
 
-  name:
-    string;
+  imports: [
+    CommonModule
+  ],
 
-  category:
-    string;
+  templateUrl:
+    './saved-list-detail.component.html',
 
-  default_unit:
-    string;
-
-  source:
-    'local' | 'external';
-}
-
-
-interface ProductApiResponse {
-
-  id:
-    number;
-
-  name:
-    string;
-
-  category:
-    string;
-
-  default_unit:
-    string;
-}
-
-
-@Injectable({
-  providedIn: 'root'
+  styleUrl:
+    './saved-list-detail.component.scss'
 })
-export class ProductService {
+export class SavedListDetailComponent
+implements OnInit {
 
-  private apiUrl =
-    this.getApiUrl();
+  savedList:
+    SavedList | null = null;
+
+
+  isLoading = true;
+
+  errorMessage = '';
+
+  shareMessage = '';
+
+  isMenuOpen = false;
 
 
   constructor(
-    private http:
-      HttpClient
+    private route:
+      ActivatedRoute,
+
+    private router:
+      Router,
+
+    private savedListService:
+      SavedListService,
+
+    private listShareService:
+      ListShareService
   ) {}
 
 
-  private getApiUrl():
-    string {
+  ngOnInit(): void {
 
-    const hostname =
-      window.location.hostname;
+    this.loadSavedList();
+  }
 
 
-    const isLocal =
-      hostname === 'localhost'
-      ||
-      hostname === '127.0.0.1';
+  loadSavedList(): void {
+
+    const id =
+      Number(
+        this.route.snapshot
+          .paramMap
+          .get('id')
+      );
 
 
     if (
-      isLocal
+      !id
     ) {
 
-      return (
-        'http://localhost:8000/products/'
-      );
+      this.errorMessage =
+        'Die Liste konnte nicht gefunden werden.';
+
+      this.isLoading =
+        false;
+
+      return;
     }
 
 
-    return (
-      'http://178.104.47.231:8000/products/'
-    );
-  }
+    this.isLoading =
+      true;
+
+    this.errorMessage =
+      '';
 
 
-  searchProducts(
-    query: string
-  ): Observable<
-    ProductSuggestion[]
-  > {
-
-    const params =
-      new HttpParams()
-        .set(
-          'q',
-          query
-        );
-
-
-    return this.http.get<
-      ProductApiResponse[]
-    >(
-      `${this.apiUrl}search/`,
-      {
-        params
-      }
-    )
-    .pipe(
-
-      map(
-        products =>
-          products.map(
-            product => ({
-              ...product,
-              source:
-                'local' as const
-            })
-          )
+    this.savedListService
+      .getSavedList(
+        id
       )
+      .subscribe({
 
-    );
+        next: (
+          list
+        ) => {
+
+          this.savedList =
+            list;
+
+          this.isLoading =
+            false;
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Liste konnte nicht geladen werden:',
+            error
+          );
+
+          this.errorMessage =
+            'Die Liste konnte nicht geladen werden.';
+
+          this.isLoading =
+            false;
+        }
+
+      });
   }
 
 
-  searchExternalProducts(
-    query: string
-  ): Observable<
-    ProductSuggestion[]
-  > {
+  toggleMenu(
+    event: MouseEvent
+  ): void {
 
-    const params =
-      new HttpParams()
-        .set(
-          'q',
-          query
+    event.stopPropagation();
+
+    this.isMenuOpen =
+      !this.isMenuOpen;
+  }
+
+
+  @HostListener(
+    'document:click'
+  )
+  closeMenu(): void {
+
+    this.isMenuOpen =
+      false;
+  }
+
+
+  editList(): void {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    this.isMenuOpen =
+      false;
+
+
+    this.router.navigate([
+      '/main/saved-list',
+      this.savedList.id,
+      'edit'
+    ]);
+  }
+
+
+  editItem(
+    item: SavedListItem
+  ): void {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    /*
+     * Da du bereits eine komplette
+     * Edit-Seite für die Liste hast,
+     * öffnen wir diese auch beim
+     * Bearbeiten eines einzelnen Produkts.
+     */
+    this.router.navigate([
+      '/main/saved-list',
+      this.savedList.id,
+      'edit'
+    ]);
+  }
+
+
+  async shareList(): Promise<void> {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    this.isMenuOpen =
+      false;
+
+    this.shareMessage =
+      '';
+
+
+    try {
+
+      const result =
+        await this.listShareService
+          .shareList(
+            this.savedList.title,
+            (
+              this.savedList.items ??
+              []
+            ).map(
+              item => ({
+
+                name:
+                  item.name ||
+                  item.product_name ||
+                  '',
+
+                quantity:
+                  item.quantity,
+
+                unit:
+                  item.unit,
+
+                note:
+                  item.note,
+
+                isChecked:
+                  false
+
+              })
+            )
+          );
+
+
+      if (
+        result === 'copied'
+      ) {
+
+        this.showShareMessage(
+          'Liste wurde in die Zwischenablage kopiert.'
         );
-
-
-    return this.http.get<
-      ProductSuggestion[]
-    >(
-      `${this.apiUrl}external-search/`,
-      {
-        params
       }
+
+    } catch (
+      error
+    ) {
+
+      console.error(
+        'Liste konnte nicht geteilt werden:',
+        error
+      );
+
+
+      this.showShareMessage(
+        'Die Liste konnte nicht geteilt werden.'
+      );
+    }
+  }
+
+
+  deleteList(): void {
+
+    if (
+      !this.savedList
+    ) {
+      return;
+    }
+
+
+    this.isMenuOpen =
+      false;
+
+
+    const shouldDelete =
+      confirm(
+        `Möchtest du "${this.savedList.title}" wirklich löschen?`
+      );
+
+
+    if (
+      !shouldDelete
+    ) {
+      return;
+    }
+
+
+    this.savedListService
+      .deleteSavedList(
+        this.savedList.id
+      )
+      .subscribe({
+
+        next: () => {
+
+          this.router.navigate([
+            '/main/saved-list'
+          ]);
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Liste konnte nicht gelöscht werden:',
+            error
+          );
+
+          this.errorMessage =
+            'Die Liste konnte nicht gelöscht werden.';
+        }
+
+      });
+  }
+
+
+  deleteItem(
+    item: SavedListItem
+  ): void {
+
+    if (
+      !this.savedList ||
+      !item.id
+    ) {
+      return;
+    }
+
+
+    const shouldDelete =
+      confirm(
+        `Möchtest du "${this.getItemName(item)}" aus der Liste entfernen?`
+      );
+
+
+    if (
+      !shouldDelete
+    ) {
+      return;
+    }
+
+
+    this.savedListService
+      .deleteSavedListItem(
+        this.savedList.id,
+        item.id
+      )
+      .subscribe({
+
+        next: () => {
+
+          if (
+            !this.savedList
+          ) {
+            return;
+          }
+
+
+          this.savedList.items =
+            (
+              this.savedList.items ??
+              []
+            )
+              .filter(
+                currentItem =>
+                  currentItem.id !==
+                  item.id
+              );
+        },
+
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Produkt konnte nicht gelöscht werden:',
+            error
+          );
+        }
+
+      });
+  }
+
+
+  getItemName(
+    item: SavedListItem
+  ): string {
+
+    return (
+      item.name ||
+      item.product_name ||
+      'Produkt'
     );
   }
 
 
-  saveExternalProduct(
-    product:
-      ProductSuggestion
-  ): Observable<
-    ProductSuggestion
-  > {
+  get itemCount():
+    number {
 
-    return this.http.post<
-      ProductSuggestion
-    >(
-      `${this.apiUrl}save-external/`,
-      {
-        name:
-          product.name,
-
-        category:
-          product.category,
-
-        default_unit:
-          product.default_unit
-      }
+    return (
+      this.savedList?.items?.length ??
+      0
     );
   }
 
+
+  formatDate(
+    date: string
+  ): string {
+
+    return new Intl.DateTimeFormat(
+      'de-DE',
+      {
+        day:
+          '2-digit',
+
+        month:
+          '2-digit',
+
+        year:
+          'numeric'
+      }
+    ).format(
+      new Date(
+        date
+      )
+    );
+  }
+
+
+  private showShareMessage(
+    message: string
+  ): void {
+
+    this.shareMessage =
+      message;
+
+
+    window.setTimeout(
+      () => {
+
+        if (
+          this.shareMessage ===
+          message
+        ) {
+
+          this.shareMessage =
+            '';
+        }
+
+      },
+      3000
+    );
+  }
 }
