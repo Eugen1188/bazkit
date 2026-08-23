@@ -1,20 +1,10 @@
-import {
-  CommonModule
-} from '@angular/common';
-
+import { CommonModule } from '@angular/common';
 import {
   Component,
   OnDestroy
 } from '@angular/core';
-
-import {
-  FormsModule
-} from '@angular/forms';
-
-import {
-  Router,
-  RouterLink
-} from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {
   Subject,
@@ -51,8 +41,7 @@ interface Product {
 
   imports: [
     CommonModule,
-    FormsModule,
-    RouterLink
+    FormsModule
   ],
 
   templateUrl:
@@ -77,11 +66,13 @@ implements OnDestroy {
   products:
     Product[] = [];
 
+
   isSaving =
     false;
 
   errorMessage =
     '';
+
 
   productSuggestions:
     ProductSuggestion[] = [];
@@ -213,8 +204,7 @@ implements OnDestroy {
   }
 
 
-  ngOnDestroy():
-    void {
+  ngOnDestroy(): void {
 
     this.productSearchSubscription
       .unsubscribe();
@@ -275,8 +265,7 @@ implements OnDestroy {
       product.name;
 
     if (
-      product.default_unit
-      &&
+      product.default_unit &&
       this.units.includes(
         product.default_unit
       )
@@ -300,19 +289,16 @@ implements OnDestroy {
   }
 
 
-  searchExternal():
-    void {
+  searchExternal(): void {
 
     const query =
       this.productName
         .trim();
 
     if (
-      query.length < 3
-      ||
+      query.length < 3 ||
       this.isSearchingExternal
     ) {
-
       return;
     }
 
@@ -378,8 +364,7 @@ implements OnDestroy {
   }
 
 
-  handleProductEnter():
-    void {
+  handleProductEnter(): void {
 
     if (
       this.productSuggestions.length > 0
@@ -396,8 +381,7 @@ implements OnDestroy {
   }
 
 
-  openSuggestions():
-    void {
+  openSuggestions(): void {
 
     if (
       this.productName
@@ -411,8 +395,7 @@ implements OnDestroy {
   }
 
 
-  closeSuggestions():
-    void {
+  closeSuggestions(): void {
 
     window.setTimeout(
       () => {
@@ -425,25 +408,21 @@ implements OnDestroy {
   }
 
 
-  addProduct():
-    void {
+  addProduct(): void {
 
     const name =
       this.productName
         .trim();
 
     if (
-      !name
-      ||
-      this.productQuantity === null
-      ||
-      this.productQuantity <= 0
-      ||
+      !name ||
+      this.productQuantity === null ||
+      this.productQuantity <= 0 ||
       !this.productUnit
     ) {
-
       return;
     }
+
 
     this.products.push({
       name,
@@ -455,9 +434,10 @@ implements OnDestroy {
         this.productUnit
     });
 
+
     if (
-      this.selectedProduct?.source
-      === 'external'
+      this.selectedProduct?.source ===
+      'external'
     ) {
 
       this.productService
@@ -479,6 +459,7 @@ implements OnDestroy {
         });
     }
 
+
     this.resetProductForm();
   }
 
@@ -494,12 +475,12 @@ implements OnDestroy {
   }
 
 
-  createList():
-    void {
+  createList(): void {
 
     const trimmedListName =
       this.listName
         .trim();
+
 
     if (
       !trimmedListName
@@ -510,6 +491,7 @@ implements OnDestroy {
 
       return;
     }
+
 
     const payload:
       CreateSavedListPayload = {
@@ -536,11 +518,13 @@ implements OnDestroy {
         )
     };
 
+
     this.isSaving =
       true;
 
     this.errorMessage =
       '';
+
 
     this.savedListService
       .createSavedList(
@@ -571,6 +555,7 @@ implements OnDestroy {
           this.isSaving =
             false;
 
+
           if (
             error.status === 401
           ) {
@@ -580,6 +565,7 @@ implements OnDestroy {
 
             return;
           }
+
 
           if (
             error.error?.title
@@ -591,6 +577,7 @@ implements OnDestroy {
             return;
           }
 
+
           this.errorMessage =
             'Die Liste konnte nicht erstellt werden.';
         }
@@ -599,8 +586,7 @@ implements OnDestroy {
   }
 
 
-  cancel():
-    void {
+  cancel(): void {
 
     this.router.navigate([
       '/main/saved-list'
@@ -608,8 +594,7 @@ implements OnDestroy {
   }
 
 
-  private resetProductForm():
-    void {
+  private resetProductForm(): void {
 
     this.productName =
       '';
@@ -641,5 +626,4 @@ implements OnDestroy {
     this.selectedProduct =
       null;
   }
-
 }

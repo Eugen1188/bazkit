@@ -1,32 +1,52 @@
-<div class="create-list-container">
+<div class="create-list-page">
 
-  <header class="create-header">
+  <!-- ============================= -->
+  <!-- HEADER -->
+  <!-- ============================= -->
+
+  <header class="page-header">
 
     <div class="header-left">
 
-      <a
-        routerLink="/main/saved-list"
+      <button
         class="back-button"
+        type="button"
         aria-label="Zurück zu den gespeicherten Listen"
+        (click)="cancel()"
       >
-        ←
-      </a>
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
 
-      <h1>
-        Neue Liste erstellen
-      </h1>
+
+      <div class="header-copy">
+
+        <h1>
+          Neue Liste
+        </h1>
+
+        <p>
+          Erstelle deine Einkaufsliste Schritt für Schritt.
+        </p>
+
+      </div>
 
     </div>
 
 
     <div class="header-actions">
 
-      <a
-        routerLink="/main/saved-list"
+      <button
         class="cancel-button"
+        type="button"
+        (click)="cancel()"
       >
         Abbrechen
-      </a>
+      </button>
 
 
       <button
@@ -38,17 +58,31 @@
         "
         (click)="createList()"
       >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5 4h14v16H5z"></path>
+          <path d="M8 4v6h8V4"></path>
+        </svg>
+
         {{
           isSaving
             ? 'Wird erstellt...'
             : 'Liste erstellen'
         }}
+
       </button>
 
     </div>
 
   </header>
 
+
+  <!-- ============================= -->
+  <!-- ERROR -->
+  <!-- ============================= -->
 
   <div
     class="error-message"
@@ -58,35 +92,86 @@
   </div>
 
 
-  <section class="name-card">
+  <!-- ============================= -->
+  <!-- MAIN -->
+  <!-- ============================= -->
 
-    <label for="listName">
-      Listenname
-    </label>
-
-    <input
-      id="listName"
-      type="text"
-      [(ngModel)]="listName"
-      maxlength="80"
-      placeholder="z. B. Wocheneinkauf"
-    />
-
-  </section>
+  <main class="list-form">
 
 
-  <div class="content-grid">
+    <!-- ============================= -->
+    <!-- LISTENINFORMATIONEN -->
+    <!-- ============================= -->
 
-    <section
-      class="card add-product-card"
-    >
+    <section class="form-card">
 
-      <h2>
-        Produkte hinzufügen
-      </h2>
+      <div class="card-heading">
+
+        <div>
+
+          <h2>
+            Allgemeine Informationen
+          </h2>
+
+          <p>
+            Gib deiner Einkaufsliste einen Namen.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="listName">
+          Listenname
+        </label>
+
+        <input
+          id="listName"
+          type="text"
+          [(ngModel)]="listName"
+          maxlength="80"
+          placeholder="z. B. Wocheneinkauf"
+        />
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- PRODUKTE HINZUFÜGEN -->
+    <!-- ============================= -->
+
+    <section class="form-card">
+
+      <div class="card-heading">
+
+        <div>
+
+          <h2>
+            Produkte hinzufügen
+          </h2>
+
+          <p>
+            Füge Produkte mit Menge und Einheit
+            zu deiner Liste hinzu.
+          </p>
+
+        </div>
+
+        <span class="count-badge">
+          {{ products.length }}
+        </span>
+
+      </div>
 
 
       <div class="product-form">
+
+        <!-- PRODUKT -->
 
         <div
           class="
@@ -112,24 +197,18 @@
                   $event
                 )
               "
-              (focus)="
-                openSuggestions()
-              "
-              (blur)="
-                closeSuggestions()
-              "
-              (keyup.enter)="
-                handleProductEnter()
-              "
+              (focus)="openSuggestions()"
+              (blur)="closeSuggestions()"
+              (keyup.enter)="handleProductEnter()"
               placeholder="Produkt eingeben..."
             />
 
 
+            <!-- AUTOCOMPLETE -->
+
             <div
               class="suggestions-dropdown"
-              *ngIf="
-                isSuggestionsOpen
-              "
+              *ngIf="isSuggestionsOpen"
             >
 
               <div
@@ -255,9 +334,7 @@
 
                 <span
                   class="external-error"
-                  *ngIf="
-                    externalSearchError
-                  "
+                  *ngIf="externalSearchError"
                 >
                   {{ externalSearchError }}
                 </span>
@@ -270,17 +347,15 @@
                     !externalSearchDone &&
                     productName.trim().length >= 3
                   "
-                  (mousedown)="
-                    searchExternal()
-                  "
+                  (mousedown)="searchExternal()"
                 >
                   🔎 Extern suchen
                 </button>
 
 
                 <small>
-                  Du kannst den eingegebenen
-                  Namen trotzdem direkt verwenden.
+                  Du kannst den eingegebenen Namen
+                  trotzdem direkt verwenden.
                 </small>
 
               </div>
@@ -292,12 +367,9 @@
         </div>
 
 
-        <div
-          class="
-            form-field
-            quantity-field
-          "
-        >
+        <!-- MENGE -->
+
+        <div class="form-field quantity-field">
 
           <label for="productQuantity">
             Menge
@@ -308,21 +380,16 @@
             type="number"
             min="0.01"
             step="0.01"
-            [(ngModel)]="
-              productQuantity
-            "
+            [(ngModel)]="productQuantity"
             placeholder="1"
           />
 
         </div>
 
 
-        <div
-          class="
-            form-field
-            unit-field
-          "
-        >
+        <!-- EINHEIT -->
+
+        <div class="form-field unit-field">
 
           <label for="productUnit">
             Einheit
@@ -330,15 +397,11 @@
 
           <select
             id="productUnit"
-            [(ngModel)]="
-              productUnit
-            "
+            [(ngModel)]="productUnit"
           >
 
             <option
-              *ngFor="
-                let unit of units
-              "
+              *ngFor="let unit of units"
               [value]="unit"
             >
               {{ unit }}
@@ -359,7 +422,13 @@
           "
           (click)="addProduct()"
         >
-          Hinzufügen
+
+          <span>
+            +
+          </span>
+
+          Produkt hinzufügen
+
         </button>
 
       </div>
@@ -367,43 +436,58 @@
     </section>
 
 
-    <section
-      class="
-        card
-        product-list-card
-      "
-    >
+    <!-- ============================= -->
+    <!-- PRODUKTLISTE -->
+    <!-- ============================= -->
 
-      <h2>
-        Produkte in der Liste
-        ({{ products.length }})
-      </h2>
+    <section class="form-card product-list-card">
 
+      <div class="card-heading">
 
-      <div
-        class="empty-products"
-        *ngIf="
-          products.length === 0
-        "
-      >
+        <div>
 
-        <span
-          class="empty-products-icon"
-        >
-          +
+          <h2>
+            Produkte in der Liste
+          </h2>
+
+          <p>
+            Überprüfe die Produkte,
+            bevor du deine Liste speicherst.
+          </p>
+
+        </div>
+
+        <span class="count-badge">
+          {{ products.length }}
         </span>
-
-        <p>
-          Noch keine Produkte hinzugefügt.
-        </p>
-
-        <small>
-          Gib links ein Produkt
-          mit Menge und Einheit ein.
-        </small>
 
       </div>
 
+
+      <!-- LEER -->
+
+      <div
+        class="empty-products"
+        *ngIf="products.length === 0"
+      >
+
+        <span class="empty-products-icon">
+          +
+        </span>
+
+        <strong>
+          Noch keine Produkte
+        </strong>
+
+        <p>
+          Füge oben dein erstes Produkt
+          zur Einkaufsliste hinzu.
+        </p>
+
+      </div>
+
+
+      <!-- PRODUKTE -->
 
       <div
         class="product-item"
@@ -434,9 +518,7 @@
             {{ product.name }}
           </span>
 
-          <span
-            class="product-mobile-amount"
-          >
+          <span class="product-mobile-amount">
             {{ product.quantity }}
             {{ product.unit }}
           </span>
@@ -454,49 +536,83 @@
           class="remove-button"
           type="button"
           aria-label="Produkt entfernen"
-          (click)="
-            removeProduct(i)
-          "
+          (click)="removeProduct(i)"
         >
-          ×
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16"></path>
+            <path d="M9 7V4h6v3"></path>
+            <path d="M7 7l1 13h8l1-13"></path>
+          </svg>
         </button>
 
       </div>
 
     </section>
 
-  </div>
+
+    <!-- ============================= -->
+    <!-- TIPP -->
+    <!-- ============================= -->
+
+    <section class="tip-card">
+
+      <span class="tip-icon">
+        💡
+      </span>
 
 
-  <section class="tip-card">
+      <div>
 
-    <div class="tip-icon">
-      💡
+        <strong>
+          Tipp
+        </strong>
+
+        <p>
+          Du kannst deine Liste später jederzeit
+          bearbeiten, ergänzen oder mit anderen teilen.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- BOTTOM ACTIONS -->
+    <!-- ============================= -->
+
+    <div class="bottom-actions">
+
+      <button
+        class="cancel-button"
+        type="button"
+        (click)="cancel()"
+      >
+        Abbrechen
+      </button>
+
+
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="
+          !listName.trim() ||
+          isSaving
+        "
+        (click)="createList()"
+      >
+        {{
+          isSaving
+            ? 'Wird erstellt...'
+            : 'Liste erstellen'
+        }}
+      </button>
+
     </div>
 
-
-    <div class="tip-text">
-
-      <strong>
-        Tipps für deine Liste
-      </strong>
-
-      <p>
-        Füge häufig verwendete Produkte
-        hinzu oder übernehme Zutaten
-        aus einem Rezept.
-      </p>
-
-    </div>
-
-
-    <button
-      class="recipe-button"
-      type="button"
-    >
-      Aus Rezept hinzufügen
-    </button>
-
-  </section>
+  </main>
 
 </div>
