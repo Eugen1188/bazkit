@@ -1,27 +1,25 @@
 :host {
   display: block;
-
   width: 100%;
   height: 100%;
-
   min-height: 0;
-
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
-
 
 .saved-list-page {
   width: 100%;
-
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
 
   padding:
     38px
-    56px
+    46px
     60px;
 
   box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 
   background:
     var(--color-surface);
@@ -37,22 +35,21 @@
 
 .loading-state,
 .error-state {
-  min-height: 70vh;
+  height: 100%;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  font-size: 18px;
+  font-size: 15px;
 }
-
 
 .loading-state {
   color:
     var(--color-text-muted);
 }
-
 
 .error-state {
   color:
@@ -65,36 +62,45 @@
 ========================= */
 
 .empty-state {
+  width: 100%;
+
   min-height:
     calc(
-      100vh - 120px
+      100% - 10px
     );
+
+  box-sizing: border-box;
 
   display: flex;
 
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
   text-align: center;
 }
 
-
 .empty-image {
-  width: 220px;
+  width: 120px;
 
-  max-width: 70%;
+  max-width: 45%;
 
-  margin-bottom: 30px;
+  height: auto;
+
+  display: block;
+
+  margin-bottom: 24px;
 }
-
 
 .empty-state h2 {
   margin:
-    0 0 18px;
+    0 0 14px;
 
-  font-size: 34px;
+  font-size: 32px;
+
+  line-height: 1.2;
 
   font-weight: 600;
 
@@ -102,16 +108,17 @@
     var(--color-text-primary);
 }
 
-
 .empty-state p {
-  max-width: 760px;
+  width: 100%;
+
+  max-width: 690px;
 
   margin:
-    0 0 34px;
+    0 0 28px;
 
-  font-size: 22px;
+  font-size: 18px;
 
-  line-height: 1.6;
+  line-height: 1.55;
 
   color:
     var(--color-text-muted);
@@ -124,19 +131,22 @@
 
 .create-button,
 .create-small-button {
-  height: 54px;
+  min-height: 54px;
 
   padding:
-    0 28px;
+    0 26px;
+
+  box-sizing: border-box;
 
   border-radius: 10px;
 
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 12px;
+  gap: 11px;
 
   text-decoration: none;
 
@@ -154,7 +164,6 @@
     transform 0.15s ease;
 }
 
-
 .create-button:hover,
 .create-small-button:hover {
   background:
@@ -163,7 +172,6 @@
   transform:
     translateY(-1px);
 }
-
 
 .create-button span,
 .create-small-button span {
@@ -186,17 +194,16 @@
     0 auto;
 }
 
-
 .lists-topbar {
   display: flex;
 
   align-items: center;
+
   justify-content:
     space-between;
 
   margin-bottom: 24px;
 }
-
 
 .lists-heading {
   display: flex;
@@ -210,13 +217,11 @@
   text-align: center;
 }
 
-
 .lists-image {
   width: 105px;
 
   margin-bottom: 18px;
 }
-
 
 .lists-heading h1 {
   margin:
@@ -230,7 +235,6 @@
     var(--color-text-primary);
 }
 
-
 .lists-heading p {
   margin: 0;
 
@@ -239,7 +243,6 @@
   color:
     var(--color-text-muted);
 }
-
 
 .lists-container {
   display: flex;
@@ -285,7 +288,6 @@
     transform 0.15s ease;
 }
 
-
 .list-card:hover {
   border-color:
     var(--color-primary-soft);
@@ -327,12 +329,12 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   background:
     var(--color-primary-soft-bg);
 }
-
 
 .list-icon svg {
   width: 26px;
@@ -346,6 +348,7 @@
   stroke-width: 1.8;
 
   stroke-linecap: round;
+
   stroke-linejoin: round;
 }
 
@@ -359,7 +362,6 @@
 
   min-width: 0;
 }
-
 
 .list-info h2 {
   margin:
@@ -378,7 +380,6 @@
 
   white-space: nowrap;
 }
-
 
 .list-info span {
   font-size: 14px;
@@ -400,7 +401,6 @@
   gap: 10px;
 }
 
-
 .item-count {
   min-height: 38px;
 
@@ -412,6 +412,7 @@
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   background:
@@ -438,7 +439,6 @@
   flex-shrink: 0;
 }
 
-
 .list-menu-button {
   width: 46px;
   height: 46px;
@@ -454,6 +454,7 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   background:
@@ -471,7 +472,6 @@
     transform 0.15s ease;
 }
 
-
 .list-menu-button:hover {
   border-color:
     var(--color-primary-soft);
@@ -482,7 +482,6 @@
   transform:
     translateY(-1px);
 }
-
 
 .list-menu-button.active {
   border-color:
@@ -501,7 +500,6 @@
     );
 }
 
-
 .list-menu-button svg {
   width: 20px;
   height: 20px;
@@ -509,7 +507,6 @@
   fill:
     currentColor;
 }
-
 
 .list-menu {
   position: absolute;
@@ -553,9 +550,7 @@
     ease-out;
 }
 
-
 @keyframes menu-in {
-
   from {
     opacity: 0;
 
@@ -569,9 +564,7 @@
     transform:
       translateY(0);
   }
-
 }
-
 
 .list-menu-item {
   width: 100%;
@@ -612,12 +605,10 @@
     color 0.15s ease;
 }
 
-
 .list-menu-item:hover {
   background:
     var(--color-primary-soft-bg);
 }
-
 
 .list-menu-item svg {
   width: 19px;
@@ -633,9 +624,9 @@
   stroke-width: 1.8;
 
   stroke-linecap: round;
+
   stroke-linejoin: round;
 }
-
 
 .list-menu-divider {
   height: 1px;
@@ -648,18 +639,15 @@
     var(--color-divider);
 }
 
-
 .list-menu-item.danger {
   color:
     #d94d4d;
 }
 
-
 .list-menu-item.danger:hover {
   background:
     #fff1f1;
 }
-
 
 .list-menu-item.danger svg {
   stroke:
@@ -715,9 +703,7 @@
     ease-out;
 }
 
-
 @keyframes toast-in {
-
   from {
     opacity: 0;
 
@@ -737,7 +723,6 @@
         0
       );
   }
-
 }
 
 
@@ -772,26 +757,21 @@
     padding:
       28px
       24px
-      50px;
+      40px;
   }
-
 
   .lists-heading h1 {
     font-size: 36px;
   }
 
-
   .list-card {
     gap: 14px;
   }
 
-
   .list-info h2 {
     font-size: 19px;
   }
-
 }
-
 
 @media (
   max-width: 620px
@@ -799,17 +779,46 @@
 
   .saved-list-page {
     padding:
-      22px
+      20px
       16px
-      40px;
+      28px;
   }
 
+  .empty-image {
+    width: 92px;
+
+    margin-bottom: 18px;
+  }
+
+  .empty-state h2 {
+    margin-bottom: 10px;
+
+    font-size: 25px;
+  }
+
+  .empty-state p {
+    max-width: 430px;
+
+    margin-bottom: 22px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .create-button {
+    min-height: 50px;
+
+    padding:
+      0 18px;
+
+    font-size: 14px;
+  }
 
   .lists-topbar {
     justify-content:
       stretch;
   }
-
 
   .create-small-button {
     width: 100%;
@@ -817,18 +826,15 @@
     box-sizing: border-box;
   }
 
-
   .lists-heading h1 {
     font-size: 30px;
   }
-
 
   .lists-heading p {
     font-size: 15px;
 
     line-height: 1.5;
   }
-
 
   .list-card {
     display: grid;
@@ -845,12 +851,10 @@
       16px;
   }
 
-
   .list-icon {
     width: 50px;
     height: 50px;
   }
-
 
   .list-meta {
     grid-column:
@@ -860,17 +864,21 @@
       flex-end;
   }
 
-
   .list-menu {
     right: 0;
   }
-
 }
-
 
 @media (
   max-width: 420px
 ) {
+
+  .saved-list-page {
+    padding:
+      16px
+      13px
+      24px;
+  }
 
   .item-count {
     min-height: 34px;
@@ -881,15 +889,12 @@
     font-size: 12px;
   }
 
-
   .list-menu-button {
     width: 42px;
     height: 42px;
   }
 
-
   .list-menu {
     width: 205px;
   }
-
 }
