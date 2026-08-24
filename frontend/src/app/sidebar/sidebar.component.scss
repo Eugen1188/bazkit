@@ -14,7 +14,7 @@
 
 
 /* =====================================
-DESKTOP SIDEBAR
+   DESKTOP SIDEBAR
 ===================================== */
 
 .sidebar {
@@ -53,7 +53,7 @@ DESKTOP SIDEBAR
 
 
 /* =====================================
-LOGO
+   LOGO
 ===================================== */
 
 .logo {
@@ -129,7 +129,7 @@ LOGO
 
 
 /* =====================================
-USER
+   USER
 ===================================== */
 
 .user-box {
@@ -213,7 +213,7 @@ USER
 
 
 /* =====================================
-NAV
+   NAVIGATION
 ===================================== */
 
 .nav {
@@ -224,16 +224,16 @@ NAV
     column;
 
   gap:
-    8px;
+    7px;
 }
 
 
 .nav-item {
   min-height:
-    56px;
+    54px;
 
   padding:
-    0 18px;
+    0 17px;
 
   border-radius:
     12px;
@@ -248,7 +248,7 @@ NAV
     center;
 
   gap:
-    18px;
+    17px;
 
   color:
     var(--color-text-secondary);
@@ -266,6 +266,8 @@ NAV
     background
     0.15s ease,
     color
+    0.15s ease,
+    transform
     0.15s ease;
 }
 
@@ -293,27 +295,39 @@ NAV
 }
 
 
+.nav-item:active {
+  transform:
+    scale(0.985);
+}
+
+
 .nav-icon {
   width:
-    24px;
+    25px;
 
   height:
-    24px;
+    25px;
 
   flex-shrink:
     0;
 
   display:
     flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
 }
 
 
 .nav-icon svg {
   width:
-    24px;
+    25px;
 
   height:
-    24px;
+    25px;
 
   fill:
     none;
@@ -322,7 +336,7 @@ NAV
     currentColor;
 
   stroke-width:
-    1.8;
+    1.75;
 
   stroke-linecap:
     round;
@@ -333,7 +347,7 @@ NAV
 
 
 /* =====================================
-BOTTOM
+   BOTTOM
 ===================================== */
 
 .bottom {
@@ -421,7 +435,7 @@ BOTTOM
 
 
 /* =====================================
-LOGOUT
+   LOGOUT
 ===================================== */
 
 .logout {
@@ -513,7 +527,7 @@ LOGOUT
 
 
 /* =====================================
-MOBILE DEFAULT
+   MOBILE DEFAULT
 ===================================== */
 
 .mobile-bottom-nav {
@@ -523,7 +537,7 @@ MOBILE DEFAULT
 
 
 /* =====================================
-MOBILE
+   MOBILE
 ===================================== */
 
 @media (
@@ -596,7 +610,7 @@ MOBILE
 
     grid-template-columns:
       repeat(
-        5,
+        6,
         minmax(
           0,
           1fr
@@ -625,6 +639,9 @@ MOBILE
 
     backdrop-filter:
       blur(14px);
+
+    -webkit-backdrop-filter:
+      blur(14px);
   }
 
 
@@ -639,7 +656,7 @@ MOBILE
       56px;
 
     padding:
-      5px 3px;
+      5px 2px;
 
     border:
       none;
@@ -675,7 +692,7 @@ MOBILE
       inherit;
 
     font-size:
-      10px;
+      9px;
 
     font-weight:
       500;
@@ -683,8 +700,14 @@ MOBILE
     line-height:
       1.1;
 
+    text-align:
+      center;
+
     text-decoration:
       none;
+
+    white-space:
+      nowrap;
 
     cursor:
       pointer;
@@ -722,10 +745,10 @@ MOBILE
 
   .mobile-nav-icon {
     width:
-      23px;
+      24px;
 
     height:
-      23px;
+      24px;
 
     display:
       flex;
@@ -740,10 +763,10 @@ MOBILE
 
   .mobile-nav-icon svg {
     width:
-      23px;
+      24px;
 
     height:
-      23px;
+      24px;
 
     fill:
       none;
@@ -752,7 +775,7 @@ MOBILE
       currentColor;
 
     stroke-width:
-      1.9;
+      1.75;
 
     stroke-linecap:
       round;
@@ -762,7 +785,11 @@ MOBILE
   }
 
 
-  .mobile-more-button {
+  /* =====================================
+     PROFILE BUTTON
+  ===================================== */
+
+  .mobile-profile-button {
     appearance:
       none;
   }
@@ -770,10 +797,10 @@ MOBILE
 
   .mobile-avatar {
     width:
-      25px;
+      27px;
 
     height:
-      25px;
+      27px;
 
     border-radius:
       50%;
@@ -801,7 +828,9 @@ MOBILE
   }
 
 
-  /* MORE POPUP */
+  /* =====================================
+     PROFILE POPUP
+  ===================================== */
 
   .mobile-more-menu {
     position:
@@ -816,10 +845,10 @@ MOBILE
       );
 
     width:
-      260px;
+      280px;
 
     padding:
-      10px;
+      12px;
 
     box-sizing:
       border-box;
@@ -829,7 +858,7 @@ MOBILE
       var(--color-border);
 
     border-radius:
-      16px;
+      18px;
 
     background:
       var(--color-surface);
@@ -877,7 +906,7 @@ MOBILE
 
   .mobile-user {
     padding:
-      9px 8px;
+      10px 8px;
 
     display:
       flex;
@@ -892,10 +921,10 @@ MOBILE
 
   .mobile-user-avatar {
     width:
-      40px;
+      42px;
 
     height:
-      40px;
+      42px;
 
     flex-shrink:
       0;
@@ -955,7 +984,7 @@ MOBILE
       1px;
 
     margin:
-      6px 5px;
+      7px 5px;
 
     background:
       var(--color-divider);
@@ -969,7 +998,7 @@ MOBILE
       100%;
 
     min-height:
-      52px;
+      54px;
 
     padding:
       8px 10px;
@@ -978,7 +1007,7 @@ MOBILE
       none;
 
     border-radius:
-      10px;
+      11px;
 
     box-sizing:
       border-box;
@@ -990,7 +1019,7 @@ MOBILE
       center;
 
     gap:
-      11px;
+      12px;
 
     background:
       transparent;
@@ -1023,10 +1052,10 @@ MOBILE
 
   .mobile-settings-action svg {
     width:
-      21px;
+      22px;
 
     height:
-      21px;
+      22px;
 
     flex-shrink:
       0;
@@ -1038,7 +1067,7 @@ MOBILE
       var(--color-primary);
 
     stroke-width:
-      1.8;
+      1.75;
 
     stroke-linecap:
       round;
@@ -1048,7 +1077,8 @@ MOBILE
   }
 
 
-  .mobile-settings-action strong {
+  .mobile-settings-action strong,
+  .mobile-premium-action strong {
     display:
       block;
 
@@ -1060,12 +1090,13 @@ MOBILE
   }
 
 
-  .mobile-settings-action small {
+  .mobile-settings-action small,
+  .mobile-premium-action small {
     display:
       block;
 
     margin-top:
-      2px;
+      3px;
 
     color:
       var(--color-text-muted);
@@ -1081,36 +1112,9 @@ MOBILE
   }
 
 
-  .mobile-premium-action > span {
+  .premium-crown {
     font-size:
-      19px;
-  }
-
-
-  .mobile-premium-action strong {
-    display:
-      block;
-
-    color:
-      var(--color-text-primary);
-
-    font-size:
-      13px;
-  }
-
-
-  .mobile-premium-action small {
-    display:
-      block;
-
-    margin-top:
-      2px;
-
-    color:
-      var(--color-text-muted);
-
-    font-size:
-      10px;
+      20px;
   }
 
 
@@ -1134,10 +1138,10 @@ MOBILE
 
   .mobile-logout svg {
     width:
-      20px;
+      21px;
 
     height:
-      20px;
+      21px;
 
     fill:
       none;
@@ -1159,7 +1163,7 @@ MOBILE
 
 
 /* =====================================
-SMALL MOBILE
+   SMALL MOBILE
 ===================================== */
 
 @media (
@@ -1184,6 +1188,9 @@ SMALL MOBILE
     min-height:
       64px;
 
+    padding:
+      5px 3px;
+
     border-radius:
       16px;
   }
@@ -1193,8 +1200,11 @@ SMALL MOBILE
     min-height:
       52px;
 
+    padding:
+      4px 1px;
+
     font-size:
-      9px;
+      8px;
   }
 
 
@@ -1208,10 +1218,22 @@ SMALL MOBILE
   }
 
 
+  .mobile-avatar {
+    width:
+      24px;
+
+    height:
+      24px;
+
+    font-size:
+      10px;
+  }
+
+
   .mobile-more-menu {
     width:
       min(
-        260px,
+        280px,
         calc(
           100vw - 16px
         )

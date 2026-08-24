@@ -15,6 +15,10 @@ import {
 } from './main/main.component';
 
 import {
+  HomeComponent
+} from './home/home.component';
+
+import {
   SavedListComponent
 } from './saved-list/saved-list.component';
 
@@ -75,24 +79,17 @@ export const routes:
   Routes = [
 
   {
-    path:
-      '',
-
-    component:
-      LoginComponent
+    path: '',
+    component: LoginComponent
   },
 
   {
-    path:
-      'register',
-
-    component:
-      RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   },
 
   {
-    path:
-      'main',
+    path: 'main',
 
     component:
       MainComponent,
@@ -104,118 +101,79 @@ export const routes:
     children: [
 
       {
-        path:
-          'saved-list/create',
-
-        component:
-          CreateListComponent
+        path: 'home',
+        component: HomeComponent
       },
 
       {
-        path:
-          'saved-list/:id/edit',
-
-        component:
-          SavedListEditComponent
+        path: 'saved-list/create',
+        component: CreateListComponent
       },
 
       {
-        path:
-          'saved-list/:id',
-
-        component:
-          SavedListDetailComponent
+        path: 'saved-list/:id/edit',
+        component: SavedListEditComponent
       },
 
       {
-        path:
-          'saved-list',
-
-        component:
-          SavedListComponent
+        path: 'saved-list/:id',
+        component: SavedListDetailComponent
       },
 
       {
-        path:
-          'shopping-list',
-
-        component:
-          ShoppingListComponent
+        path: 'saved-list',
+        component: SavedListComponent
       },
 
       {
-        path:
-          'recipe-list/create',
-
-        component:
-          CreateRecipeComponent
+        path: 'shopping-list',
+        component: ShoppingListComponent
       },
 
       {
-        path:
-          'recipe-list/ai',
-
-        component:
-          GenerateRecipeComponent
+        path: 'recipe-list/create',
+        component: CreateRecipeComponent
       },
 
       {
-        path:
-          'recipe-list/:id/edit',
-
-        component:
-          EditRecipeComponent
+        path: 'recipe-list/ai',
+        component: GenerateRecipeComponent
       },
 
       {
-        path:
-          'recipe-list/:id',
-
-        component:
-          RecipeDetailComponent
+        path: 'recipe-list/:id/edit',
+        component: EditRecipeComponent
       },
 
       {
-        path:
-          'recipe-list',
-
-        component:
-          RecipeListComponent
+        path: 'recipe-list/:id',
+        component: RecipeDetailComponent
       },
 
       {
-        path:
-          'community/:id',
-
-        component:
-          CommunityDetailComponent
+        path: 'recipe-list',
+        component: RecipeListComponent
       },
 
       {
-        path:
-          'community',
-
-        component:
-          CommunityComponent
+        path: 'community/:id',
+        component: CommunityDetailComponent
       },
 
       {
-        path:
-          'settings',
-
-        component:
-          SettingsComponent
+        path: 'community',
+        component: CommunityComponent
       },
 
       {
-        path:
-          '',
+        path: 'settings',
+        component: SettingsComponent
+      },
 
-        redirectTo:
-          'saved-list',
-
-        pathMatch:
-          'full'
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
       }
 
     ]
