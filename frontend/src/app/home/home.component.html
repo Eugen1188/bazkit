@@ -1,23 +1,18 @@
 <div class="home-page">
 
+
   <!-- =====================================
        HERO
   ====================================== -->
 
   <section class="hero">
 
-    <div class="hero-decoration hero-decoration-left"></div>
-    <div class="hero-decoration hero-decoration-right"></div>
-
-
-    <!-- LEFT -->
-
     <div class="hero-content">
 
       <div class="hero-badge">
 
-        <span class="badge-icon">
-          ✓
+        <span class="hero-badge-icon">
+          ✦
         </span>
 
         Dein smarter Einkaufsbegleiter
@@ -26,34 +21,59 @@
 
 
       <h1>
-        Einkauf planen.
+
+        Alles für deinen Einkauf.
+
         <span>
-          Einfacher als je zuvor.
+          Einfach organisiert.
         </span>
+
       </h1>
 
 
-      <p class="hero-text">
-        Plane deine Einkäufe, entdecke Rezepte
-        und übernimm Zutaten direkt in deine Liste.
+      <p class="hero-description">
+
+        Plane Einkäufe, sammle Rezepte
+        und bringe Zutaten mit einem Klick
+        auf deine Einkaufsliste.
+
       </p>
 
 
       <div class="hero-actions">
 
         <a
-          class="hero-primary"
+          class="primary-action"
           routerLink="/main/shopping-list"
         >
 
-          <svg viewBox="0 0 24 24">
-            <path d="M8 6h12"></path>
-            <path d="M8 12h12"></path>
-            <path d="M8 18h12"></path>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M8 6h12"
+            ></path>
 
-            <path d="M4 6h.01"></path>
-            <path d="M4 12h.01"></path>
-            <path d="M4 18h.01"></path>
+            <path
+              d="M8 12h12"
+            ></path>
+
+            <path
+              d="M8 18h12"
+            ></path>
+
+            <path
+              d="M4 6h.01"
+            ></path>
+
+            <path
+              d="M4 12h.01"
+            ></path>
+
+            <path
+              d="M4 18h.01"
+            ></path>
           </svg>
 
           Einkauf starten
@@ -62,194 +82,103 @@
 
 
         <a
-          class="hero-secondary"
+          class="secondary-action"
           routerLink="/main/recipe-list"
         >
 
-          Rezepte ansehen
+          Rezepte entdecken
 
-          <svg viewBox="0 0 24 24">
-            <path d="m9 18 6-6-6-6"></path>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 12h14"
+            ></path>
+
+            <path
+              d="m14 7 5 5-5 5"
+            ></path>
           </svg>
 
         </a>
 
       </div>
 
-
-      <div class="hero-benefits">
-
-        <div class="hero-benefit">
-
-          <span>
-            ✓
-          </span>
-
-          Kostenlos starten
-
-        </div>
-
-
-        <div class="hero-benefit">
-
-          <span>
-            ✓
-          </span>
-
-          Einfach & schnell
-
-        </div>
-
-      </div>
-
     </div>
 
 
-
-    <!-- RIGHT / APP PREVIEW -->
+    <!-- VISUAL -->
 
     <div class="hero-visual">
 
-      <div class="visual-background"></div>
+      <div class="hero-glow">
+      </div>
 
 
-      <img
-        class="basket-image"
-        src="assets/images/home/home-basket.png"
-        alt=""
-      >
+      <div class="hero-image-wrap">
+
+        <img
+          src="assets/images/home/home-basket.png"
+          alt="Einkaufskorb mit Lebensmitteln"
+        >
+
+      </div>
 
 
-      <div class="shopping-card">
+      <div class="floating-card floating-list">
 
-        <div class="shopping-card-header">
+        <span class="floating-icon">
 
-          <div>
-
-            <span class="small-label">
-              Einkaufsliste
-            </span>
-
-            <strong>
-              Wocheneinkauf
-            </strong>
-
-          </div>
-
-
-          <button
-            type="button"
-            aria-label="Produkt hinzufügen"
+          <svg
+            viewBox="0 0 24 24"
           >
-            +
-          </button>
+            <path
+              d="M9 6h11"
+            ></path>
 
-        </div>
+            <path
+              d="M9 12h11"
+            ></path>
 
+            <path
+              d="M9 18h11"
+            ></path>
 
-        <div class="progress">
+            <path
+              d="M4 6h.01"
+            ></path>
 
-          <div class="progress-info">
+            <path
+              d="M4 12h.01"
+            ></path>
 
-            <span>
-              1 von 4 erledigt
-            </span>
+            <path
+              d="M4 18h.01"
+            ></path>
+          </svg>
 
-            <span>
-              25 %
-            </span>
-
-          </div>
-
-          <div class="progress-bar">
-            <span></span>
-          </div>
-
-        </div>
-
-
-        <div class="shopping-products">
-
-          <div class="shopping-product done">
-
-            <span class="product-check">
-              ✓
-            </span>
-
-            <div>
-              <strong>
-                Milch
-              </strong>
-
-              <small>
-                1 Liter
-              </small>
-            </div>
-
-          </div>
+        </span>
 
 
-          <div class="shopping-product">
+        <div>
 
-            <span class="product-check"></span>
+          <small>
+            Einkaufsliste
+          </small>
 
-            <div>
-              <strong>
-                Tomaten
-              </strong>
-
-              <small>
-                500 g
-              </small>
-            </div>
-
-          </div>
-
-
-          <div class="shopping-product">
-
-            <span class="product-check"></span>
-
-            <div>
-              <strong>
-                Pasta
-              </strong>
-
-              <small>
-                1 Packung
-              </small>
-            </div>
-
-          </div>
-
-
-          <div class="shopping-product">
-
-            <span class="product-check"></span>
-
-            <div>
-              <strong>
-                Parmesan
-              </strong>
-
-              <small>
-                200 g
-              </small>
-            </div>
-
-          </div>
+          <strong>
+            Alles im Blick
+          </strong>
 
         </div>
 
       </div>
 
 
+      <div class="floating-card floating-recipe">
 
-      <!-- FLOATING PRODUCT -->
-
-      <div class="floating-add">
-
-        <span class="floating-icon">
+        <span class="floating-plus">
           +
         </span>
 
@@ -260,43 +189,7 @@
           </small>
 
           <strong>
-            Produkte
-          </strong>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- FLOATING RECIPE -->
-
-      <div class="floating-recipe">
-
-        <span class="floating-recipe-icon">
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"
-            ></path>
-
-            <path
-              d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5Z"
-            ></path>
-
-          </svg>
-
-        </span>
-
-        <div>
-
-          <small>
-            Aus Rezept
-          </small>
-
-          <strong>
-            Zutaten übernehmen
+            Zutaten
           </strong>
 
         </div>
@@ -310,7 +203,7 @@
 
 
   <!-- =====================================
-       QUICK NAVIGATION
+       QUICK ACTIONS
   ====================================== -->
 
   <section class="quick-section">
@@ -319,8 +212,8 @@
 
       <div>
 
-        <span class="section-label">
-          Alles an einem Ort
+        <span class="eyebrow">
+          Schnellzugriff
         </span>
 
         <h2>
@@ -329,52 +222,63 @@
 
       </div>
 
-      <p>
-        Mit bazkit wird aus Planung
-        ganz schnell ein fertiger Einkauf.
-      </p>
-
     </div>
-
 
 
     <div class="quick-grid">
 
 
-      <!-- SHOPPING -->
+      <!-- EINKAUF -->
 
       <a
         class="quick-card"
         routerLink="/main/shopping-list"
       >
 
-        <div class="quick-card-icon">
+        <span class="quick-icon green">
 
-          <svg viewBox="0 0 24 24">
+          <svg
+            viewBox="0 0 24 24"
+          >
 
-            <path d="M8 6h12"></path>
-            <path d="M8 12h12"></path>
-            <path d="M8 18h12"></path>
+            <path
+              d="M8 6h12"
+            ></path>
 
-            <path d="M4 6h.01"></path>
-            <path d="M4 12h.01"></path>
-            <path d="M4 18h.01"></path>
+            <path
+              d="M8 12h12"
+            ></path>
+
+            <path
+              d="M8 18h12"
+            ></path>
+
+            <path
+              d="M4 6h.01"
+            ></path>
+
+            <path
+              d="M4 12h.01"
+            ></path>
+
+            <path
+              d="M4 18h.01"
+            ></path>
 
           </svg>
 
-        </div>
+        </span>
 
 
-        <div class="quick-card-content">
+        <div class="quick-content">
 
-          <h3>
-            Einkauf planen
-          </h3>
+          <strong>
+            Einkauf
+          </strong>
 
-          <p>
-            Produkte sammeln und beim
-            Einkaufen einfach abhaken.
-          </p>
+          <span>
+            Liste planen
+          </span>
 
         </div>
 
@@ -387,40 +291,45 @@
 
 
 
-      <!-- RECIPE -->
+      <!-- REZEPTE -->
 
       <a
         class="quick-card"
         routerLink="/main/recipe-list"
       >
 
-        <div class="quick-card-icon">
+        <span class="quick-icon cream">
 
-          <svg viewBox="0 0 24 24">
+          <svg
+            viewBox="0 0 24 24"
+          >
 
             <path
-              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"
+              d="M7 3v18"
             ></path>
 
             <path
-              d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5Z"
+              d="M11 3v8a2 2 0 0 1-4 0V3"
+            ></path>
+
+            <path
+              d="M17 3v18"
             ></path>
 
           </svg>
 
-        </div>
+        </span>
 
 
-        <div class="quick-card-content">
+        <div class="quick-content">
 
-          <h3>
-            Rezepte entdecken
-          </h3>
+          <strong>
+            Rezepte
+          </strong>
 
-          <p>
-            Eigene Rezepte speichern
-            oder neue Ideen finden.
-          </p>
+          <span>
+            Inspiration finden
+          </span>
 
         </div>
 
@@ -433,16 +342,18 @@
 
 
 
-      <!-- LISTS -->
+      <!-- LISTEN -->
 
       <a
         class="quick-card"
         routerLink="/main/saved-list"
       >
 
-        <div class="quick-card-icon">
+        <span class="quick-icon soft">
 
-          <svg viewBox="0 0 24 24">
+          <svg
+            viewBox="0 0 24 24"
+          >
 
             <rect
               x="5"
@@ -452,30 +363,91 @@
               rx="2"
             ></rect>
 
-            <path d="M9 2v4"></path>
-            <path d="M15 2v4"></path>
+            <path
+              d="M9 9h6"
+            ></path>
 
-            <path d="m8 11 1.5 1.5L12 10"></path>
-            <path d="M14 11h2"></path>
+            <path
+              d="M9 13h6"
+            ></path>
 
-            <path d="m8 16 1.5 1.5L12 15"></path>
-            <path d="M14 16h2"></path>
+            <path
+              d="M9 17h4"
+            ></path>
 
           </svg>
+
+        </span>
+
+
+        <div class="quick-content">
+
+          <strong>
+            Listen
+          </strong>
+
+          <span>
+            Vorlagen nutzen
+          </span>
 
         </div>
 
 
-        <div class="quick-card-content">
+        <span class="quick-arrow">
+          →
+        </span>
 
-          <h3>
-            Listen vorbereiten
-          </h3>
+      </a>
 
-          <p>
-            Häufige Einkäufe speichern
-            und jederzeit wiederverwenden.
-          </p>
+
+
+      <!-- COMMUNITY -->
+
+      <a
+        class="quick-card"
+        routerLink="/main/community"
+      >
+
+        <span class="quick-icon warm">
+
+          <svg
+            viewBox="0 0 24 24"
+          >
+
+            <circle
+              cx="8"
+              cy="8"
+              r="3"
+            ></circle>
+
+            <circle
+              cx="16"
+              cy="8"
+              r="3"
+            ></circle>
+
+            <path
+              d="M3 19c0-3 2-5 5-5s5 2 5 5"
+            ></path>
+
+            <path
+              d="M13 15c.8-.7 1.8-1 3-1 3 0 5 2 5 5"
+            ></path>
+
+          </svg>
+
+        </span>
+
+
+        <div class="quick-content">
+
+          <strong>
+            Community
+          </strong>
+
+          <span>
+            Rezepte entdecken
+          </span>
 
         </div>
 
@@ -493,71 +465,61 @@
 
 
   <!-- =====================================
-       RECIPE FEATURE
+       RECIPE WORKFLOW
   ====================================== -->
 
-  <section class="recipe-section">
+  <section class="workflow-section">
 
-    <div class="recipe-image-wrapper">
 
-      <div class="food-background"></div>
+    <div class="workflow-image">
+
+      <div class="food-image-background">
+      </div>
 
       <img
         src="assets/images/home/home-food.png"
-        alt="Frisches Gericht"
+        alt="Frische Zutaten und Gericht"
       >
 
 
-      <div class="recipe-overlay-card">
+      <div class="image-label">
 
-        <span class="recipe-overlay-icon">
+        <span>
           ✓
         </span>
 
-        <div>
-
-          <small>
-            Zur Einkaufsliste
-          </small>
-
-          <strong>
-            6 Zutaten hinzugefügt
-          </strong>
-
-        </div>
+        Zutaten übernommen
 
       </div>
 
     </div>
 
 
+    <div class="workflow-content">
 
-    <div class="recipe-content">
-
-      <span class="section-label">
+      <span class="eyebrow">
         Rezepte & Einkauf
       </span>
 
 
       <h2>
-        Ein Rezept.
+        Vom Rezept direkt
         <span>
-          Ein Klick.
+          zur Einkaufsliste.
         </span>
-        Fertig geplant.
       </h2>
 
 
       <p>
-        Gefällt dir ein Rezept, kannst du seine
-        Zutaten direkt in deine Einkaufsliste übernehmen.
+        Finde ein Rezept, übernimm die Zutaten
+        und schon weißt du, was beim nächsten
+        Einkauf mit muss.
       </p>
 
 
+      <div class="workflow-steps">
 
-      <div class="steps">
-
-        <div class="step">
+        <div class="workflow-step">
 
           <span class="step-number">
             1
@@ -570,7 +532,7 @@
             </strong>
 
             <small>
-              Finde etwas, auf das du Lust hast.
+              Eigene oder gespeicherte Rezepte
             </small>
 
           </div>
@@ -578,10 +540,11 @@
         </div>
 
 
-        <span class="step-line"></span>
+        <div class="workflow-line">
+        </div>
 
 
-        <div class="step">
+        <div class="workflow-step">
 
           <span class="step-number">
             2
@@ -594,7 +557,7 @@
             </strong>
 
             <small>
-              Mit einem Klick auf deine Liste.
+              Mit einem Klick
             </small>
 
           </div>
@@ -602,10 +565,11 @@
         </div>
 
 
-        <span class="step-line"></span>
+        <div class="workflow-line">
+        </div>
 
 
-        <div class="step">
+        <div class="workflow-step">
 
           <span class="step-number completed">
             ✓
@@ -618,7 +582,7 @@
             </strong>
 
             <small>
-              Deine Liste ist bereit.
+              Alles griffbereit
             </small>
 
           </div>
@@ -629,11 +593,11 @@
 
 
       <a
-        class="recipe-link"
+        class="workflow-link"
         routerLink="/main/recipe-list"
       >
 
-        Rezepte entdecken
+        Rezepte ansehen
 
         <span>
           →
@@ -648,43 +612,220 @@
 
 
   <!-- =====================================
-       AI SECTION
+       AI
   ====================================== -->
 
   <section class="ai-section">
 
-    <div class="ai-glow"></div>
+    <div class="ai-decoration ai-decoration-one">
+    </div>
+
+    <div class="ai-decoration ai-decoration-two">
+    </div>
 
 
-    <div class="ai-symbol">
+    <div class="ai-icon">
       ✦
     </div>
 
 
-    <div class="ai-text">
+    <div class="ai-content">
 
-      <span>
+      <span class="ai-label">
         bazkit AI
       </span>
 
       <h2>
-        Was soll ich heute kochen?
+        Keine Idee, was du kochen sollst?
       </h2>
 
       <p>
-        Sag bazkit, worauf du Lust hast.
-        Den Rest übernimmt die KI.
+        Lass dir passend zu deinen Wünschen
+        ein Rezept erstellen.
       </p>
 
     </div>
 
 
     <a
-      class="ai-action"
+      class="ai-button"
       routerLink="/main/recipe-list/ai"
     >
 
-      Rezept erstellen
+      <span>
+        ✦
+      </span>
+
+      Rezept generieren
+
+    </a>
+
+  </section>
+
+
+
+  <!-- =====================================
+       FEATURES
+  ====================================== -->
+
+  <section class="features-section">
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="eyebrow">
+          Ein Alltag. Weniger Chaos.
+        </span>
+
+        <h2>
+          Darum bazkit.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+          >
+
+            <path
+              d="M8 6h12"
+            ></path>
+
+            <path
+              d="M8 12h12"
+            ></path>
+
+            <path
+              d="M8 18h12"
+            ></path>
+
+            <path
+              d="M4 6h.01"
+            ></path>
+
+            <path
+              d="M4 12h.01"
+            ></path>
+
+            <path
+              d="M4 18h.01"
+            ></path>
+
+          </svg>
+
+        </div>
+
+
+        <strong>
+          Einfach planen
+        </strong>
+
+        <p>
+          Alles, was du brauchst,
+          an einem Ort.
+        </p>
+
+      </article>
+
+
+
+      <article class="feature-card">
+
+        <div class="feature-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+          >
+
+            <path
+              d="M5 4h14v16H5z"
+            ></path>
+
+            <path
+              d="M8 8h8"
+            ></path>
+
+            <path
+              d="M8 12h5"
+            ></path>
+
+          </svg>
+
+        </div>
+
+
+        <strong>
+          Wiederverwenden
+        </strong>
+
+        <p>
+          Häufige Einkäufe als
+          Listen speichern.
+        </p>
+
+      </article>
+
+
+
+      <article class="feature-card">
+
+        <div class="feature-icon sparkle">
+          ✦
+        </div>
+
+
+        <strong>
+          Smarter kochen
+        </strong>
+
+        <p>
+          Neue Ideen mit
+          bazkit AI entdecken.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================
+       FINAL CTA
+  ====================================== -->
+
+  <section class="final-cta">
+
+    <div>
+
+      <span>
+        Bereit?
+      </span>
+
+      <h2>
+        Mach deinen nächsten Einkauf einfacher.
+      </h2>
+
+    </div>
+
+
+    <a
+      routerLink="/main/shopping-list"
+    >
+
+      Loslegen
 
       <span>
         →
@@ -693,5 +834,6 @@
     </a>
 
   </section>
+
 
 </div>
