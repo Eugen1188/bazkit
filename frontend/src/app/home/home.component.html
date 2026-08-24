@@ -6,64 +6,74 @@
          HERO
     ========================================== -->
 
-    <section class="hero-section">
+    <section class="hero">
 
       <div class="hero-copy">
 
-        <span class="eyebrow">
+        <span class="hero-kicker">
           Dein smarter Einkaufsbegleiter
         </span>
 
+
         <h1>
           Einkauf planen.
+
           <span>
             Einfacher als je zuvor.
           </span>
         </h1>
 
-        <p class="hero-description">
+
+        <p class="hero-text">
           Plane Einkäufe, sammle deine Rezepte
           und übernimm Zutaten direkt in deine
           Einkaufsliste.
         </p>
 
+
         <div class="hero-actions">
 
           <a
-            class="primary-action"
+            class="hero-primary-button"
             routerLink="/main/shopping-list"
           >
-            <span class="action-icon">
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M9 6h11"></path>
-                <path d="M9 12h11"></path>
-                <path d="M9 18h11"></path>
-                <circle cx="4" cy="6" r="1"></circle>
-                <circle cx="4" cy="12" r="1"></circle>
-                <circle cx="4" cy="18" r="1"></circle>
-              </svg>
-            </span>
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M9 6h11"></path>
+              <path d="M9 12h11"></path>
+              <path d="M9 18h11"></path>
+
+              <circle cx="4" cy="6" r="1"></circle>
+              <circle cx="4" cy="12" r="1"></circle>
+              <circle cx="4" cy="18" r="1"></circle>
+            </svg>
 
             Einkauf starten
+
           </a>
 
+
           <a
-            class="secondary-action"
+            class="hero-secondary-button"
             routerLink="/main/recipe-list"
           >
+
             Meine Rezepte
 
-            <span class="circle-arrow">
+            <span class="round-link-icon">
+
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
               >
                 <path d="M9 6l6 6-6 6"></path>
               </svg>
+
             </span>
+
           </a>
 
         </div>
@@ -73,13 +83,21 @@
 
       <div class="hero-visual">
 
-        <div class="hero-glow"></div>
+        <div class="hero-circle hero-circle-one">
+        </div>
 
-        <div class="shopping-preview">
+        <div class="hero-circle hero-circle-two">
+        </div>
 
-          <div class="preview-top">
+
+        <!-- MINI EINKAUFSLISTE -->
+
+        <div class="hero-list-card">
+
+          <div class="hero-list-header">
 
             <div>
+
               <small>
                 Einkaufsliste
               </small>
@@ -87,28 +105,33 @@
               <strong>
                 Wocheneinkauf
               </strong>
+
             </div>
 
-            <span class="open-badge">
+
+            <span>
               4 offen
             </span>
 
           </div>
 
-          <div class="preview-progress">
 
-            <span></span>
+          <div class="hero-progress">
+
+            <div>
+            </div>
 
           </div>
 
 
-          <div class="preview-product completed">
+          <div class="hero-list-item done">
 
-            <span class="preview-check">
+            <span class="hero-checkbox">
               ✓
             </span>
 
             <div>
+
               <strong>
                 Milch
               </strong>
@@ -116,16 +139,19 @@
               <small>
                 1 Liter
               </small>
+
             </div>
 
           </div>
 
 
-          <div class="preview-product">
+          <div class="hero-list-item">
 
-            <span class="preview-check"></span>
+            <span class="hero-checkbox">
+            </span>
 
             <div>
+
               <strong>
                 Tomaten
               </strong>
@@ -133,16 +159,19 @@
               <small>
                 500 g
               </small>
+
             </div>
 
           </div>
 
 
-          <div class="preview-product">
+          <div class="hero-list-item">
 
-            <span class="preview-check"></span>
+            <span class="hero-checkbox">
+            </span>
 
             <div>
+
               <strong>
                 Brot
               </strong>
@@ -150,6 +179,7 @@
               <small>
                 1 Stück
               </small>
+
             </div>
 
           </div>
@@ -157,13 +187,17 @@
         </div>
 
 
-        <div class="quick-add-card">
+        <!-- QUICK ADD -->
 
-          <span class="quick-add-plus">
+        <div class="hero-quick-add">
+
+          <span class="hero-quick-plus">
             +
           </span>
 
+
           <div>
+
             <small>
               Schnell hinzufügen
             </small>
@@ -171,15 +205,18 @@
             <strong>
               Produkte
             </strong>
+
           </div>
 
         </div>
 
 
+        <!-- DEIN ALTES / BESSERES HERO BILD -->
+
         <img
-          src="assets/images/home/home-shopping.webp"
+          class="hero-basket"
+          src="assets/images/home/home-basket.png"
           alt="Einkaufskorb mit frischen Lebensmitteln"
-          class="hero-shopping-image"
         />
 
       </div>
@@ -188,14 +225,14 @@
 
 
     <!-- =========================================
-         QUICK ACCESS
+         SCHNELLZUGRIFF
     ========================================== -->
 
-    <section class="quick-section">
+    <section class="home-section">
 
       <div class="section-heading">
 
-        <span class="section-kicker">
+        <span>
           Schnellzugriff
         </span>
 
@@ -206,14 +243,16 @@
       </div>
 
 
-      <div class="quick-grid">
+      <div class="quick-layout">
+
+        <!-- EINKAUF -->
 
         <a
-          class="quick-card quick-card-main"
+          class="quick-main-card"
           routerLink="/main/shopping-list"
         >
 
-          <div class="quick-image-wrap">
+          <div class="quick-main-image">
 
             <img
               src="assets/images/home/home-shopping.webp"
@@ -223,9 +262,9 @@
           </div>
 
 
-          <div class="quick-card-content">
+          <div class="quick-content">
 
-            <span class="quick-label">
+            <span class="quick-category">
               Einkauf
             </span>
 
@@ -241,7 +280,7 @@
           </div>
 
 
-          <span class="quick-arrow">
+          <span class="quick-link-icon">
 
             <svg
               viewBox="0 0 24 24"
@@ -255,14 +294,16 @@
         </a>
 
 
-        <div class="quick-side">
+        <div class="quick-right">
+
+          <!-- REZEPTE -->
 
           <a
-            class="quick-card quick-card-small"
+            class="quick-small-card"
             routerLink="/main/recipe-list"
           >
 
-            <div class="quick-image-wrap">
+            <div class="quick-small-image">
 
               <img
                 src="assets/images/home/home-recipes.webp"
@@ -271,7 +312,8 @@
 
             </div>
 
-            <div class="quick-card-content">
+
+            <div class="quick-content">
 
               <h3>
                 Rezepte
@@ -283,7 +325,8 @@
 
             </div>
 
-            <span class="quick-arrow">
+
+            <span class="quick-link-icon">
 
               <svg
                 viewBox="0 0 24 24"
@@ -297,12 +340,14 @@
           </a>
 
 
+          <!-- LISTEN -->
+
           <a
-            class="quick-card quick-card-small"
+            class="quick-small-card"
             routerLink="/main/saved-list"
           >
 
-            <div class="quick-image-wrap">
+            <div class="quick-small-image">
 
               <img
                 src="assets/images/home/home-lists.webp"
@@ -311,7 +356,8 @@
 
             </div>
 
-            <div class="quick-card-content">
+
+            <div class="quick-content">
 
               <h3>
                 Listen
@@ -323,7 +369,8 @@
 
             </div>
 
-            <span class="quick-arrow">
+
+            <span class="quick-link-icon">
 
               <svg
                 viewBox="0 0 24 24"
@@ -339,8 +386,10 @@
         </div>
 
 
+        <!-- COMMUNITY -->
+
         <a
-          class="quick-card community-card"
+          class="community-card"
           routerLink="/main/community"
         >
 
@@ -353,7 +402,8 @@
 
           </div>
 
-          <div class="quick-card-content">
+
+          <div class="quick-content">
 
             <h3>
               Community entdecken
@@ -365,7 +415,8 @@
 
           </div>
 
-          <span class="quick-arrow">
+
+          <span class="quick-link-icon">
 
             <svg
               viewBox="0 0 24 24"
@@ -384,14 +435,14 @@
 
 
     <!-- =========================================
-         WHY BAZKIT
+         DARUM BAZKIT
     ========================================== -->
 
-    <section class="benefits-section">
+    <section class="home-section benefits-section">
 
       <div class="section-heading">
 
-        <span class="section-kicker">
+        <span>
           Ein Alltag. Weniger Chaos.
         </span>
 
@@ -402,7 +453,9 @@
       </div>
 
 
-      <div class="benefits-grid">
+      <div class="benefit-grid">
+
+        <!-- PLANEN -->
 
         <article class="benefit-card">
 
@@ -410,12 +463,13 @@
 
             <img
               src="assets/images/home/home-plan.webp"
-              alt="Geplanter Einkauf"
+              alt="Einkauf planen"
             />
 
           </div>
 
-          <div class="benefit-content">
+
+          <div class="benefit-copy">
 
             <span>
               Einkauf
@@ -426,7 +480,7 @@
             </h3>
 
             <p>
-              Alles, was du brauchst,
+              Behalte deinen gesamten Einkauf
               übersichtlich an einem Ort.
             </p>
 
@@ -435,18 +489,21 @@
         </article>
 
 
+        <!-- WIEDERVERWENDEN -->
+
         <article class="benefit-card">
 
           <div class="benefit-image">
 
             <img
               src="assets/images/home/home-reuse.webp"
-              alt="Gespeicherte Einkaufsvorlagen"
+              alt="Einkaufslisten wiederverwenden"
             />
 
           </div>
 
-          <div class="benefit-content">
+
+          <div class="benefit-copy">
 
             <span>
               Listen
@@ -458,7 +515,7 @@
 
             <p>
               Speichere häufige Einkäufe
-              und nutze sie jederzeit erneut.
+              und verwende sie jederzeit erneut.
             </p>
 
           </div>
@@ -466,18 +523,21 @@
         </article>
 
 
+        <!-- AI -->
+
         <article class="benefit-card">
 
           <div class="benefit-image">
 
             <img
               src="assets/images/home/home-ai-food.webp"
-              alt="Modern angerichtetes Gericht"
+              alt="Neue Rezeptideen"
             />
 
           </div>
 
-          <div class="benefit-content">
+
+          <div class="benefit-copy">
 
             <span>
               bazkit AI
@@ -488,8 +548,8 @@
             </h3>
 
             <p>
-              Lass dich von neuen Rezeptideen
-              passend zu deinem Alltag inspirieren.
+              Entdecke neue Rezeptideen
+              und bring Abwechslung in deinen Alltag.
             </p>
 
           </div>
@@ -502,14 +562,22 @@
 
 
     <!-- =========================================
-         CTA
+         FINAL CTA
+         KEIN EXTERNES BILD MEHR
     ========================================== -->
 
     <section class="final-cta">
 
+      <div class="final-decoration final-decoration-one">
+      </div>
+
+      <div class="final-decoration final-decoration-two">
+      </div>
+
+
       <div class="final-copy">
 
-        <span>
+        <span class="final-small">
           Bereit?
         </span>
 
@@ -519,18 +587,80 @@
         </h2>
 
         <p>
-          Deine Liste ist nur einen Klick entfernt.
+          Erstelle deine Einkaufsliste
+          und starte entspannter in deinen Einkauf.
         </p>
 
       </div>
 
 
+      <!-- CSS ILLUSTRATION -->
+
       <div class="final-visual">
 
-        <img
-          src="assets/images/home/home-food.webp"
-          alt=""
-        />
+        <div class="mini-list">
+
+          <div class="mini-list-top">
+
+            <span>
+              Einkauf
+            </span>
+
+            <strong>
+              Heute
+            </strong>
+
+          </div>
+
+
+          <div class="mini-line">
+
+            <span class="mini-check checked">
+              ✓
+            </span>
+
+            <strong>
+              Gemüse
+            </strong>
+
+          </div>
+
+
+          <div class="mini-line">
+
+            <span class="mini-check">
+            </span>
+
+            <strong>
+              Brot
+            </strong>
+
+          </div>
+
+
+          <div class="mini-line">
+
+            <span class="mini-check">
+            </span>
+
+            <strong>
+              Milch
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="mini-success">
+
+          <span>
+            ✓
+          </span>
+
+          Alles im Blick
+
+        </div>
 
       </div>
 
@@ -539,6 +669,7 @@
         class="final-button"
         routerLink="/main/shopping-list"
       >
+
         Loslegen
 
         <span>
