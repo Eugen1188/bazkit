@@ -26,13 +26,16 @@ from .ai_service import (
 class RecipeListCreateAPIView(
     generics.ListCreateAPIView
 ):
+
     serializer_class = RecipeSerializer
 
     permission_classes = [
         IsAuthenticated
     ]
 
+
     def get_queryset(self):
+
         return (
             Recipe.objects
             .filter(
@@ -50,13 +53,16 @@ class RecipeListCreateAPIView(
 class RecipeDetailAPIView(
     generics.RetrieveUpdateDestroyAPIView
 ):
+
     serializer_class = RecipeSerializer
 
     permission_classes = [
         IsAuthenticated
     ]
 
+
     def get_queryset(self):
+
         return (
             Recipe.objects
             .filter(
@@ -71,14 +77,17 @@ class RecipeDetailAPIView(
 class GenerateRecipeAPIView(
     APIView
 ):
+
     permission_classes = [
         IsAuthenticated
     ]
+
 
     def post(
         self,
         request
     ):
+
         serializer = GenerateRecipeSerializer(
             data=request.data
         )
@@ -87,7 +96,9 @@ class GenerateRecipeAPIView(
             raise_exception=True
         )
 
+
         try:
+
             recipe = generate_recipe_with_ai(
                 serializer.validated_data
             )
@@ -97,7 +108,9 @@ class GenerateRecipeAPIView(
                 status=status.HTTP_200_OK
             )
 
+
         except RecipeGenerationError as error:
+
             return Response(
                 {
                     "detail":

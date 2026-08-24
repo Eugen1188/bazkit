@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from rest_framework import serializers
 
 from .models import (
@@ -11,7 +13,9 @@ from products.models import Product
 class IngredientsSerializer(
     serializers.ModelSerializer
 ):
+
     class Meta:
+
         model = Ingredients
 
         fields = [
@@ -29,13 +33,19 @@ class IngredientsSerializer(
 class RecipeSerializer(
     serializers.ModelSerializer
 ):
+
     ingredients = IngredientsSerializer(
         many=True,
         required=False
     )
 
+    estimated_price_per_serving = (
+        serializers.SerializerMethodField()
+    )
+
 
     class Meta:
+
         model = Recipe
 
         fields = [
@@ -47,6 +57,16 @@ class RecipeSerializer(
             "category",
             "instructions",
             "notes",
+
+            "calories",
+            "protein",
+            "carbohydrates",
+            "fat",
+            "fiber",
+
+            "estimated_price",
+            "estimated_price_per_serving",
+
             "created_at",
             "updated_at",
             "ingredients"
@@ -54,15 +74,149 @@ class RecipeSerializer(
 
         read_only_fields = [
             "id",
+            "estimated_price_per_serving",
             "created_at",
             "updated_at"
         ]
+
+
+    def get_estimated_price_per_serving(
+        self,
+        obj
+    ):
+
+        if (
+            obj.estimated_price is None
+            or
+            not obj.servings
+        ):
+            return None
+
+        price = (
+            obj.estimated_price
+            /
+            Decimal(obj.servings)
+        )
+
+        return round(
+            price,
+            2
+        )
+
+
+    def validate_calories(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Kalorien dürfen nicht negativ sein."
+            )
+
+        return value
+
+
+    def validate_protein(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Protein darf nicht negativ sein."
+            )
+
+        return value
+
+
+    def validate_carbohydrates(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Kohlenhydrate dürfen nicht negativ sein."
+            )
+
+        return value
+
+
+    def validate_fat(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Fett darf nicht negativ sein."
+            )
+
+        return value
+
+
+    def validate_fiber(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Ballaststoffe dürfen nicht negativ sein."
+            )
+
+        return value
+
+
+    def validate_estimated_price(
+        self,
+        value
+    ):
+
+        if (
+            value is not None
+            and
+            value < 0
+        ):
+
+            raise serializers.ValidationError(
+                "Der Preis darf nicht negativ sein."
+            )
+
+        return value
 
 
     def sync_product(
         self,
         ingredient_data
     ):
+
         name = (
             ingredient_data
             .get(
@@ -96,6 +250,7 @@ class RecipeSerializer(
 
 
         if not product:
+
             Product.objects.create(
                 name=name,
                 default_unit=unit
@@ -109,6 +264,7 @@ class RecipeSerializer(
             and
             unit
         ):
+
             product.default_unit = unit
 
             product.save(
@@ -122,6 +278,7 @@ class RecipeSerializer(
         self,
         validated_data
     ):
+
         ingredients_data = (
             validated_data.pop(
                 "ingredients",
@@ -133,6 +290,7 @@ class RecipeSerializer(
             "request"
         ]
 
+
         recipe = Recipe.objects.create(
             user=request.user,
             **validated_data
@@ -140,6 +298,7 @@ class RecipeSerializer(
 
 
         for ingredient_data in ingredients_data:
+
             Ingredients.objects.create(
                 recipe=recipe,
                 **ingredient_data
@@ -158,6 +317,7 @@ class RecipeSerializer(
         instance,
         validated_data
     ):
+
         ingredients_data = (
             validated_data.pop(
                 "ingredients",
@@ -216,14 +376,59 @@ class RecipeSerializer(
         )
 
 
+        instance.calories = (
+            validated_data.get(
+                "calories",
+                instance.calories
+            )
+        )
+
+        instance.protein = (
+            validated_data.get(
+                "protein",
+                instance.protein
+            )
+        )
+
+        instance.carbohydrates = (
+            validated_data.get(
+                "carbohydrates",
+                instance.carbohydrates
+            )
+        )
+
+        instance.fat = (
+            validated_data.get(
+                "fat",
+                instance.fat
+            )
+        )
+
+        instance.fiber = (
+            validated_data.get(
+                "fiber",
+                instance.fiber
+            )
+        )
+
+        instance.estimated_price = (
+            validated_data.get(
+                "estimated_price",
+                instance.estimated_price
+            )
+        )
+
+
         instance.save()
 
 
         if ingredients_data is not None:
+
             instance.ingredients.all().delete()
 
 
             for ingredient_data in ingredients_data:
+
                 Ingredients.objects.create(
                     recipe=instance,
                     **ingredient_data
@@ -240,6 +445,7 @@ class RecipeSerializer(
 class GenerateRecipeSerializer(
     serializers.Serializer
 ):
+
     idea = serializers.CharField(
         required=False,
         allow_blank=True,
@@ -297,10 +503,12 @@ class GenerateRecipeSerializer(
         default="dinner"
     )
 
+
     def validate(
         self,
         attrs
     ):
+
         idea = attrs.get(
             "idea",
             ""
@@ -311,11 +519,13 @@ class GenerateRecipeSerializer(
             ""
         ).strip()
 
+
         if (
             not idea
             and
             not available_ingredients
         ):
+
             raise serializers.ValidationError(
                 {
                     "detail":
@@ -323,5 +533,6 @@ class GenerateRecipeSerializer(
                         "oder vorhandene Zutaten an."
                 }
             )
+
 
         return attrs

@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Recipe(models.Model):
+
     CATEGORY_CHOICES = [
         ("breakfast", "Frühstück"),
         ("lunch", "Mittagessen"),
@@ -47,6 +48,62 @@ class Recipe(models.Model):
         blank=True
     )
 
+    # ==========================================
+    # NÄHRWERTE PRO PORTION
+    # ==========================================
+
+    calories = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Kilokalorien pro Portion"
+    )
+
+    protein = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Protein in Gramm pro Portion"
+    )
+
+    carbohydrates = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Kohlenhydrate in Gramm pro Portion"
+    )
+
+    fat = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Fett in Gramm pro Portion"
+    )
+
+    fiber = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Ballaststoffe in Gramm pro Portion"
+    )
+
+    # ==========================================
+    # PREIS
+    # ==========================================
+
+    estimated_price = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text="Geschätzter Gesamtpreis des Rezepts"
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True
     )
@@ -60,6 +117,7 @@ class Recipe(models.Model):
 
 
 class Ingredients(models.Model):
+
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
