@@ -76,6 +76,7 @@ export interface Recipe {
 
 
 export interface RecipePayload {
+
   name: string;
 
   description: string;
@@ -91,22 +92,22 @@ export interface RecipePayload {
 
   notes: string;
 
-  calories:
+  calories?:
     number | null;
 
-  protein:
+  protein?:
     number | null;
 
-  carbohydrates:
+  carbohydrates?:
     number | null;
 
-  fat:
+  fat?:
     number | null;
 
-  fiber:
+  fiber?:
     number | null;
 
-  estimated_price:
+  estimated_price?:
     number | null;
 
   ingredients:
