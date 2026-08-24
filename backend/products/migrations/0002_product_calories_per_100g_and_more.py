@@ -22,11 +22,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='product',
-            name='default_unit',
-            field=models.CharField(blank=True, max_length=30),
-        ),
-        migrations.AddField(
-            model_name='product',
             name='fat_per_100g',
             field=models.DecimalField(blank=True, decimal_places=2, max_digits=8, null=True),
         ),
