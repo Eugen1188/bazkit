@@ -14,7 +14,7 @@
 
 
 /* =====================================
-   DESKTOP SIDEBAR
+DESKTOP SIDEBAR
 ===================================== */
 
 .sidebar {
@@ -53,7 +53,7 @@
 
 
 /* =====================================
-   LOGO
+LOGO
 ===================================== */
 
 .logo {
@@ -129,7 +129,7 @@
 
 
 /* =====================================
-   USER
+USER
 ===================================== */
 
 .user-box {
@@ -213,7 +213,7 @@
 
 
 /* =====================================
-   NAVIGATION
+NAVIGATION
 ===================================== */
 
 .nav {
@@ -224,16 +224,16 @@
     column;
 
   gap:
-    7px;
+    8px;
 }
 
 
 .nav-item {
   min-height:
-    54px;
+    56px;
 
   padding:
-    0 17px;
+    0 18px;
 
   border-radius:
     12px;
@@ -286,6 +286,12 @@
 }
 
 
+.nav-item:active {
+  transform:
+    scale(0.985);
+}
+
+
 .nav-item.active {
   background:
     var(--color-primary-soft-bg);
@@ -295,17 +301,18 @@
 }
 
 
-.nav-item:active {
-  transform:
-    scale(0.985);
-}
-
+/* =====================================
+NAVIGATION ICONS
+===================================== */
 
 .nav-icon {
   width:
     25px;
 
   height:
+    25px;
+
+  min-width:
     25px;
 
   flex-shrink:
@@ -319,6 +326,9 @@
 
   justify-content:
     center;
+
+  color:
+    currentColor;
 }
 
 
@@ -329,6 +339,12 @@
   height:
     25px;
 
+  display:
+    block;
+
+  overflow:
+    visible;
+
   fill:
     none;
 
@@ -336,18 +352,39 @@
     currentColor;
 
   stroke-width:
-    1.75;
+    1.7;
 
   stroke-linecap:
     round;
 
   stroke-linejoin:
     round;
+
+  vector-effect:
+    non-scaling-stroke;
+
+  transition:
+    stroke
+    0.15s ease,
+    transform
+    0.15s ease;
+}
+
+
+.nav-item:hover .nav-icon svg {
+  transform:
+    scale(1.04);
+}
+
+
+.nav-item.active .nav-icon {
+  color:
+    var(--color-primary);
 }
 
 
 /* =====================================
-   BOTTOM
+BOTTOM
 ===================================== */
 
 .bottom {
@@ -364,6 +401,10 @@
     22px;
 }
 
+
+/* =====================================
+PREMIUM
+===================================== */
 
 .premium-card {
   padding:
@@ -420,11 +461,20 @@
   color:
     #fff;
 
+  font-family:
+    inherit;
+
   font-weight:
     600;
 
   cursor:
     pointer;
+
+  transition:
+    background
+    0.15s ease,
+    transform
+    0.15s ease;
 }
 
 
@@ -434,8 +484,14 @@
 }
 
 
+.premium-card button:active {
+  transform:
+    scale(0.98);
+}
+
+
 /* =====================================
-   LOGOUT
+LOGOUT
 ===================================== */
 
 .logout {
@@ -498,17 +554,34 @@
 }
 
 
-.logout-icon,
+.logout-icon {
+  width:
+    22px;
+
+  height:
+    22px;
+
+  flex-shrink:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
 .logout-icon svg {
   width:
     22px;
 
   height:
     22px;
-}
 
-
-.logout-icon svg {
   fill:
     none;
 
@@ -527,7 +600,7 @@
 
 
 /* =====================================
-   MOBILE DEFAULT
+MOBILE DEFAULT
 ===================================== */
 
 .mobile-bottom-nav {
@@ -537,7 +610,7 @@
 
 
 /* =====================================
-   MOBILE
+MOBILE
 ===================================== */
 
 @media (
@@ -567,6 +640,10 @@
       none;
   }
 
+
+  /* =====================================
+  MOBILE BOTTOM NAV
+  ===================================== */
 
   .mobile-bottom-nav {
     position:
@@ -610,7 +687,7 @@
 
     grid-template-columns:
       repeat(
-        6,
+        5,
         minmax(
           0,
           1fr
@@ -645,6 +722,10 @@
   }
 
 
+  /* =====================================
+  MOBILE NAV ITEM
+  ===================================== */
+
   .mobile-nav-item {
     position:
       relative;
@@ -656,7 +737,7 @@
       56px;
 
     padding:
-      5px 2px;
+      5px 3px;
 
     border:
       none;
@@ -692,7 +773,7 @@
       inherit;
 
     font-size:
-      9px;
+      10px;
 
     font-weight:
       500;
@@ -705,9 +786,6 @@
 
     text-decoration:
       none;
-
-    white-space:
-      nowrap;
 
     cursor:
       pointer;
@@ -743,11 +821,18 @@
   }
 
 
+  /* =====================================
+  MOBILE ICONS
+  ===================================== */
+
   .mobile-nav-icon {
     width:
       24px;
 
     height:
+      24px;
+
+    min-width:
       24px;
 
     display:
@@ -758,6 +843,9 @@
 
     justify-content:
       center;
+
+    color:
+      currentColor;
   }
 
 
@@ -768,6 +856,12 @@
     height:
       24px;
 
+    display:
+      block;
+
+    overflow:
+      visible;
+
     fill:
       none;
 
@@ -775,21 +869,45 @@
       currentColor;
 
     stroke-width:
-      1.75;
+      1.7;
 
     stroke-linecap:
       round;
 
     stroke-linejoin:
       round;
+
+    vector-effect:
+      non-scaling-stroke;
+
+    transition:
+      stroke
+      0.15s ease,
+      transform
+      0.15s ease;
+  }
+
+
+  .mobile-nav-item.active
+  .mobile-nav-icon {
+    color:
+      var(--color-primary);
+  }
+
+
+  .mobile-nav-item.active
+  .mobile-nav-icon svg {
+    transform:
+      scale(1.03);
   }
 
 
   /* =====================================
-     PROFILE BUTTON
+  MOBILE MORE BUTTON
+  Falls du es später wieder verwendest
   ===================================== */
 
-  .mobile-profile-button {
+  .mobile-more-button {
     appearance:
       none;
   }
@@ -797,10 +915,10 @@
 
   .mobile-avatar {
     width:
-      27px;
+      25px;
 
     height:
-      27px;
+      25px;
 
     border-radius:
       50%;
@@ -829,7 +947,7 @@
 
 
   /* =====================================
-     PROFILE POPUP
+  MOBILE MORE POPUP
   ===================================== */
 
   .mobile-more-menu {
@@ -845,10 +963,10 @@
       );
 
     width:
-      280px;
+      260px;
 
     padding:
-      12px;
+      10px;
 
     box-sizing:
       border-box;
@@ -858,7 +976,7 @@
       var(--color-border);
 
     border-radius:
-      18px;
+      16px;
 
     background:
       var(--color-surface);
@@ -904,9 +1022,13 @@
   }
 
 
+  /* =====================================
+  MOBILE USER
+  ===================================== */
+
   .mobile-user {
     padding:
-      10px 8px;
+      9px 8px;
 
     display:
       flex;
@@ -921,10 +1043,10 @@
 
   .mobile-user-avatar {
     width:
-      42px;
+      40px;
 
     height:
-      42px;
+      40px;
 
     flex-shrink:
       0;
@@ -979,17 +1101,25 @@
   }
 
 
+  /* =====================================
+  MOBILE MENU DIVIDER
+  ===================================== */
+
   .mobile-menu-divider {
     height:
       1px;
 
     margin:
-      7px 5px;
+      6px 5px;
 
     background:
       var(--color-divider);
   }
 
+
+  /* =====================================
+  MOBILE MENU ACTIONS
+  ===================================== */
 
   .mobile-settings-action,
   .mobile-premium-action,
@@ -998,7 +1128,7 @@
       100%;
 
     min-height:
-      54px;
+      52px;
 
     padding:
       8px 10px;
@@ -1007,7 +1137,7 @@
       none;
 
     border-radius:
-      11px;
+      10px;
 
     box-sizing:
       border-box;
@@ -1019,7 +1149,7 @@
       center;
 
     gap:
-      12px;
+      11px;
 
     background:
       transparent;
@@ -1038,6 +1168,10 @@
   }
 
 
+  /* =====================================
+  SETTINGS
+  ===================================== */
+
   .mobile-settings-action {
     color:
       var(--color-text-primary);
@@ -1052,10 +1186,10 @@
 
   .mobile-settings-action svg {
     width:
-      22px;
+      21px;
 
     height:
-      22px;
+      21px;
 
     flex-shrink:
       0;
@@ -1067,7 +1201,7 @@
       var(--color-primary);
 
     stroke-width:
-      1.75;
+      1.7;
 
     stroke-linecap:
       round;
@@ -1077,7 +1211,49 @@
   }
 
 
-  .mobile-settings-action strong,
+  .mobile-settings-action strong {
+    display:
+      block;
+
+    color:
+      var(--color-text-primary);
+
+    font-size:
+      13px;
+  }
+
+
+  .mobile-settings-action small {
+    display:
+      block;
+
+    margin-top:
+      2px;
+
+    color:
+      var(--color-text-muted);
+
+    font-size:
+      10px;
+  }
+
+
+  /* =====================================
+  PREMIUM MOBILE
+  ===================================== */
+
+  .mobile-premium-action {
+    background:
+      #f6f1e9;
+  }
+
+
+  .mobile-premium-action > span {
+    font-size:
+      19px;
+  }
+
+
   .mobile-premium-action strong {
     display:
       block;
@@ -1090,13 +1266,12 @@
   }
 
 
-  .mobile-settings-action small,
   .mobile-premium-action small {
     display:
       block;
 
     margin-top:
-      3px;
+      2px;
 
     color:
       var(--color-text-muted);
@@ -1106,17 +1281,9 @@
   }
 
 
-  .mobile-premium-action {
-    background:
-      #f6f1e9;
-  }
-
-
-  .premium-crown {
-    font-size:
-      20px;
-  }
-
+  /* =====================================
+  MOBILE LOGOUT
+  ===================================== */
 
   .mobile-logout {
     color:
@@ -1138,10 +1305,13 @@
 
   .mobile-logout svg {
     width:
-      21px;
+      20px;
 
     height:
-      21px;
+      20px;
+
+    flex-shrink:
+      0;
 
     fill:
       none;
@@ -1163,7 +1333,7 @@
 
 
 /* =====================================
-   SMALL MOBILE
+SMALL MOBILE
 ===================================== */
 
 @media (
@@ -1189,7 +1359,7 @@
       64px;
 
     padding:
-      5px 3px;
+      5px;
 
     border-radius:
       16px;
@@ -1201,39 +1371,41 @@
       52px;
 
     padding:
-      4px 1px;
+      4px 2px;
 
     font-size:
-      8px;
+      9px;
+
+    gap:
+      3px;
   }
 
 
-  .mobile-nav-icon,
+  .mobile-nav-icon {
+    width:
+      22px;
+
+    height:
+      22px;
+
+    min-width:
+      22px;
+  }
+
+
   .mobile-nav-icon svg {
     width:
-      21px;
+      22px;
 
     height:
-      21px;
-  }
-
-
-  .mobile-avatar {
-    width:
-      24px;
-
-    height:
-      24px;
-
-    font-size:
-      10px;
+      22px;
   }
 
 
   .mobile-more-menu {
     width:
       min(
-        280px,
+        260px,
         calc(
           100vw - 16px
         )

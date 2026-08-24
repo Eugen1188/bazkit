@@ -8,29 +8,21 @@
     class="logo"
     routerLink="/main/home"
   >
-
     <span class="logo-icon">
-
       <svg
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
         <path d="M7 10V8a5 5 0 0 1 10 0v2"></path>
-
         <path d="M5 10h14l-1.2 10H6.2L5 10Z"></path>
-
         <path d="M9 14v2"></path>
-
         <path d="M15 14v2"></path>
       </svg>
-
     </span>
-
 
     <span class="logo-text">
       bazkit
     </span>
-
   </a>
 
 
@@ -40,11 +32,9 @@
       {{ userInitial }}
     </div>
 
-
     <span class="user-name">
       {{ userName }}
     </span>
-
 
     <span class="chevron">
       ⌄
@@ -56,236 +46,268 @@
   <nav class="nav">
 
     <!-- HOME -->
-
     <a
       class="nav-item"
       routerLink="/main/home"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M3.5 10.5 12 3.5l8.5 7"></path>
 
           <path
-            d="M3.5 10.5 12 3l8.5 7.5"
+            d="
+              M5.5 9.5
+              V20
+              H18.5
+              V9.5
+            "
           ></path>
 
           <path
-            d="M5.5 9.5V21h13V9.5"
+            d="
+              M9.5 20
+              V14
+              H14.5
+              V20
+            "
           ></path>
-
-          <path
-            d="M9.5 21v-5.5h5V21"
-          ></path>
-
-          <path
-            d="M14.8 10.3c-2.9.1-4.8 1.5-5.2 4.2 2.8.4 4.8-1.1 5.2-4.2Z"
-          ></path>
-
         </svg>
 
       </span>
 
       Home
-
     </a>
 
 
-    <!-- EINKAUF -->
-
+    <!-- EINKAUFSLISTE -->
     <a
       class="nav-item"
       routerLink="/main/shopping-list"
       routerLinkActive="active"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
-
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path
-            d="M7 9V7a5 5 0 0 1 10 0v2"
+            d="
+              M7 8
+              V6.8
+              A5 5 0 0 1 17 6.8
+              V8
+            "
           ></path>
 
           <path
-            d="M5 9h14l-1 12H6L5 9Z"
+            d="
+              M5.5 8
+              H18.5
+              L17.5 20
+              H6.5
+              Z
+            "
           ></path>
 
           <path
-            d="M14.7 13.2c-2.7 0-4.4 1.3-4.8 3.8 2.6.4 4.4-.9 4.8-3.8Z"
+            d="
+              M9 14
+              L11 16
+              L15.5 11.5
+            "
           ></path>
-
         </svg>
 
       </span>
 
       Einkaufsliste
-
     </a>
 
 
     <!-- REZEPTE -->
-
     <a
       class="nav-item"
       routerLink="/main/recipe-list"
       routerLinkActive="active"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
-
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path
-            d="M4 4.5c3.2-.8 5.8-.2 8 1.6v14c-2.2-1.8-4.8-2.4-8-1.6V4.5Z"
+            d="
+              M4 5.5
+              C6.6 4.8
+              9.1 5.2
+              12 7
+              V19
+              C9.2 17.4
+              6.5 17
+              4 17.7
+              Z
+            "
           ></path>
 
           <path
-            d="M20 4.5c-3.2-.8-5.8-.2-8 1.6v14c2.2-1.8 4.8-2.4 8-1.6V4.5Z"
+            d="
+              M20 5.5
+              C17.4 4.8
+              14.9 5.2
+              12 7
+              V19
+              C14.8 17.4
+              17.5 17
+              20 17.7
+              Z
+            "
           ></path>
 
-          <path
-            d="M9.2 11.5c0-1 .8-1.8 1.8-1.8.2-1.1 1.1-1.9 2.2-1.9 1.2 0 2.2 1 2.2 2.2 1 .1 1.8.9 1.8 1.9 0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2Z"
-          ></path>
-
+          <path d="M12 7V19"></path>
         </svg>
 
       </span>
 
       Rezepte
-
     </a>
 
 
     <!-- LISTEN -->
-
     <a
       class="nav-item"
       routerLink="/main/saved-list"
       routerLinkActive="active"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <rect
+            x="5"
+            y="3.5"
+            width="14"
+            height="17"
+            rx="2"
+          ></rect>
 
-          <path
-            d="M8 4h8"
-          ></path>
+          <path d="M8 8.5l1.4 1.4L12 7.5"></path>
+          <path d="M14 9h2"></path>
 
-          <path
-            d="M9 3h6v3H9V3Z"
-          ></path>
-
-          <path
-            d="M6 5h12a2 2 0 0 1 2 2v14H4V7a2 2 0 0 1 2-2Z"
-          ></path>
-
-          <path
-            d="m8 11 1.3 1.3L12 9.5"
-          ></path>
-
-          <path
-            d="M14 11h3"
-          ></path>
-
-          <path
-            d="m8 16 1.3 1.3L12 14.5"
-          ></path>
-
-          <path
-            d="M14 16h3"
-          ></path>
-
+          <path d="M8 14l1.4 1.4L12 13"></path>
+          <path d="M14 14.5h2"></path>
         </svg>
 
       </span>
 
       Listen
-
     </a>
 
 
     <!-- COMMUNITY -->
-
     <a
       class="nav-item"
       routerLink="/main/community"
       routerLinkActive="active"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
-
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <circle
-            cx="9"
+            cx="12"
             cy="8"
             r="3"
           ></circle>
 
           <circle
-            cx="17"
-            cy="9"
-            r="2.5"
+            cx="5.5"
+            cy="10"
+            r="2.2"
+          ></circle>
+
+          <circle
+            cx="18.5"
+            cy="10"
+            r="2.2"
           ></circle>
 
           <path
-            d="M3.5 19c.4-3.6 2.5-5.5 5.5-5.5s5.1 1.9 5.5 5.5"
+            d="
+              M7.5 20
+              C7.5 16.8
+              9.2 14.5
+              12 14.5
+              C14.8 14.5
+              16.5 16.8
+              16.5 20
+            "
           ></path>
 
           <path
-            d="M14.5 14.3c1-.7 2-.9 3-.9 2.3 0 3.8 1.5 4 4"
+            d="
+              M2.5 19
+              C2.5 16.8
+              3.6 15.2
+              5.5 15.2
+              C6.5 15.2
+              7.3 15.6
+              7.9 16.3
+            "
           ></path>
 
           <path
-            d="M13.7 15.4c-2.1.1-3.5 1.1-3.8 3 2.1.3 3.5-.8 3.8-3Z"
+            d="
+              M21.5 19
+              C21.5 16.8
+              20.4 15.2
+              18.5 15.2
+              C17.5 15.2
+              16.7 15.6
+              16.1 16.3
+            "
           ></path>
-
         </svg>
 
       </span>
 
       Community
-
     </a>
 
 
     <!-- EINSTELLUNGEN -->
-
     <a
       class="nav-item"
       routerLink="/main/settings"
       routerLinkActive="active"
     >
-
       <span class="nav-icon">
 
-        <svg viewBox="0 0 24 24">
-
-          <path
-            d="M4 7h10"
-          ></path>
-
-          <path
-            d="M18 7h2"
-          ></path>
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M4 7h7"></path>
+          <path d="M15 7h5"></path>
 
           <circle
-            cx="16"
+            cx="13"
             cy="7"
             r="2"
           ></circle>
 
-          <path
-            d="M4 12h3"
-          ></path>
-
-          <path
-            d="M11 12h9"
-          ></path>
+          <path d="M4 12h3"></path>
+          <path d="M11 12h9"></path>
 
           <circle
             cx="9"
@@ -293,26 +315,19 @@
             r="2"
           ></circle>
 
-          <path
-            d="M4 17h9"
-          ></path>
-
-          <path
-            d="M17 17h3"
-          ></path>
+          <path d="M4 17h9"></path>
+          <path d="M17 17h3"></path>
 
           <circle
             cx="15"
             cy="17"
             r="2"
           ></circle>
-
         </svg>
 
       </span>
 
       Einstellungen
-
     </a>
 
   </nav>
@@ -348,19 +363,9 @@
       <span class="logout-icon">
 
         <svg viewBox="0 0 24 24">
-
-          <path
-            d="M10 17l5-5-5-5"
-          ></path>
-
-          <path
-            d="M15 12H3"
-          ></path>
-
-          <path
-            d="M21 4v16"
-          ></path>
-
+          <path d="M10 17l5-5-5-5"></path>
+          <path d="M15 12H3"></path>
+          <path d="M21 4v16"></path>
         </svg>
 
       </span>
@@ -374,7 +379,6 @@
 </aside>
 
 
-
 <!-- =========================
      MOBILE BOTTOM NAV
 ========================= -->
@@ -382,32 +386,34 @@
 <nav class="mobile-bottom-nav">
 
   <!-- HOME -->
-
   <a
     class="mobile-nav-item"
     routerLink="/main/home"
     routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
   >
 
     <span class="mobile-nav-icon">
 
       <svg viewBox="0 0 24 24">
 
+        <path d="M3.5 10.5 12 3.5l8.5 7"></path>
+
         <path
-          d="M3.5 10.5 12 3l8.5 7.5"
+          d="
+            M5.5 9.5
+            V20
+            H18.5
+            V9.5
+          "
         ></path>
 
         <path
-          d="M5.5 9.5V21h13V9.5"
-        ></path>
-
-        <path
-          d="M9.5 21v-5.5h5V21"
-        ></path>
-
-        <path
-          d="M14.8 10.3c-2.9.1-4.8 1.5-5.2 4.2 2.8.4 4.8-1.1 5.2-4.2Z"
+          d="
+            M9.5 20
+            V14
+            H14.5
+            V20
+          "
         ></path>
 
       </svg>
@@ -422,7 +428,6 @@
 
 
   <!-- EINKAUF -->
-
   <a
     class="mobile-nav-item"
     routerLink="/main/shopping-list"
@@ -434,15 +439,30 @@
       <svg viewBox="0 0 24 24">
 
         <path
-          d="M7 9V7a5 5 0 0 1 10 0v2"
+          d="
+            M7 8
+            V6.8
+            A5 5 0 0 1 17 6.8
+            V8
+          "
         ></path>
 
         <path
-          d="M5 9h14l-1 12H6L5 9Z"
+          d="
+            M5.5 8
+            H18.5
+            L17.5 20
+            H6.5
+            Z
+          "
         ></path>
 
         <path
-          d="M14.7 13.2c-2.7 0-4.4 1.3-4.8 3.8 2.6.4 4.4-.9 4.8-3.8Z"
+          d="
+            M9 14
+            L11 16
+            L15.5 11.5
+          "
         ></path>
 
       </svg>
@@ -457,7 +477,6 @@
 
 
   <!-- REZEPTE -->
-
   <a
     class="mobile-nav-item"
     routerLink="/main/recipe-list"
@@ -469,16 +488,34 @@
       <svg viewBox="0 0 24 24">
 
         <path
-          d="M4 4.5c3.2-.8 5.8-.2 8 1.6v14c-2.2-1.8-4.8-2.4-8-1.6V4.5Z"
+          d="
+            M4 5.5
+            C6.6 4.8
+            9.1 5.2
+            12 7
+            V19
+            C9.2 17.4
+            6.5 17
+            4 17.7
+            Z
+          "
         ></path>
 
         <path
-          d="M20 4.5c-3.2-.8-5.8-.2-8 1.6v14c2.2-1.8 4.8-2.4 8-1.6V4.5Z"
+          d="
+            M20 5.5
+            C17.4 4.8
+            14.9 5.2
+            12 7
+            V19
+            C14.8 17.4
+            17.5 17
+            20 17.7
+            Z
+          "
         ></path>
 
-        <path
-          d="M9.2 11.5c0-1 .8-1.8 1.8-1.8.2-1.1 1.1-1.9 2.2-1.9 1.2 0 2.2 1 2.2 2.2 1 .1 1.8.9 1.8 1.9 0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2Z"
-        ></path>
+        <path d="M12 7V19"></path>
 
       </svg>
 
@@ -492,7 +529,6 @@
 
 
   <!-- LISTEN -->
-
   <a
     class="mobile-nav-item"
     routerLink="/main/saved-list"
@@ -503,45 +539,32 @@
 
       <svg viewBox="0 0 24 24">
 
-        <path d="M8 4h8"></path>
+        <rect
+          x="5"
+          y="3.5"
+          width="14"
+          height="17"
+          rx="2"
+        ></rect>
 
-        <path
-          d="M9 3h6v3H9V3Z"
-        ></path>
+        <path d="M8 8.5l1.4 1.4L12 7.5"></path>
+        <path d="M14 9h2"></path>
 
-        <path
-          d="M6 5h12a2 2 0 0 1 2 2v14H4V7a2 2 0 0 1 2-2Z"
-        ></path>
-
-        <path
-          d="m8 11 1.3 1.3L12 9.5"
-        ></path>
-
-        <path
-          d="M14 11h3"
-        ></path>
-
-        <path
-          d="m8 16 1.3 1.3L12 14.5"
-        ></path>
-
-        <path
-          d="M14 16h3"
-        ></path>
+        <path d="M8 14l1.4 1.4L12 13"></path>
+        <path d="M14 14.5h2"></path>
 
       </svg>
 
     </span>
 
     <span>
-      Listen
+      Meine Listen
     </span>
 
   </a>
 
 
   <!-- COMMUNITY -->
-
   <a
     class="mobile-nav-item"
     routerLink="/main/community"
@@ -553,23 +576,57 @@
       <svg viewBox="0 0 24 24">
 
         <circle
-          cx="9"
+          cx="12"
           cy="8"
           r="3"
         ></circle>
 
         <circle
-          cx="17"
-          cy="9"
-          r="2.5"
+          cx="5.5"
+          cy="10"
+          r="2.2"
+        ></circle>
+
+        <circle
+          cx="18.5"
+          cy="10"
+          r="2.2"
         ></circle>
 
         <path
-          d="M3.5 19c.4-3.6 2.5-5.5 5.5-5.5s5.1 1.9 5.5 5.5"
+          d="
+            M7.5 20
+            C7.5 16.8
+            9.2 14.5
+            12 14.5
+            C14.8 14.5
+            16.5 16.8
+            16.5 20
+          "
         ></path>
 
         <path
-          d="M14.5 14.3c1-.7 2-.9 3-.9 2.3 0 3.8 1.5 4 4"
+          d="
+            M2.5 19
+            C2.5 16.8
+            3.6 15.2
+            5.5 15.2
+            C6.5 15.2
+            7.3 15.6
+            7.9 16.3
+          "
+        ></path>
+
+        <path
+          d="
+            M21.5 19
+            C21.5 16.8
+            20.4 15.2
+            18.5 15.2
+            C17.5 15.2
+            16.7 15.6
+            16.1 16.3
+          "
         ></path>
 
       </svg>
@@ -581,189 +638,5 @@
     </span>
 
   </a>
-
-
-  <!-- PROFIL -->
-
-  <button
-    class="mobile-nav-item mobile-profile-button"
-    type="button"
-    [class.active]="isMobileMoreOpen"
-    (click)="toggleMobileMore($event)"
-  >
-
-    <span class="mobile-avatar">
-      {{ userInitial }}
-    </span>
-
-    <span>
-      Profil
-    </span>
-
-  </button>
-
-
-  <!-- PROFILE POPUP -->
-
-  <div
-    class="mobile-more-menu"
-    *ngIf="isMobileMoreOpen"
-    (click)="$event.stopPropagation()"
-  >
-
-    <div class="mobile-user">
-
-      <div class="mobile-user-avatar">
-        {{ userInitial }}
-      </div>
-
-
-      <div>
-
-        <strong>
-          {{ userName }}
-        </strong>
-
-        <span>
-          Mein Konto
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="mobile-menu-divider">
-    </div>
-
-
-    <a
-      class="mobile-settings-action"
-      routerLink="/main/settings"
-      (click)="isMobileMoreOpen = false"
-    >
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M4 7h10"
-        ></path>
-
-        <path
-          d="M18 7h2"
-        ></path>
-
-        <circle
-          cx="16"
-          cy="7"
-          r="2"
-        ></circle>
-
-        <path
-          d="M4 12h3"
-        ></path>
-
-        <path
-          d="M11 12h9"
-        ></path>
-
-        <circle
-          cx="9"
-          cy="12"
-          r="2"
-        ></circle>
-
-        <path
-          d="M4 17h9"
-        ></path>
-
-        <path
-          d="M17 17h3"
-        ></path>
-
-        <circle
-          cx="15"
-          cy="17"
-          r="2"
-        ></circle>
-
-      </svg>
-
-
-      <div>
-
-        <strong>
-          Einstellungen
-        </strong>
-
-        <small>
-          Konto und App verwalten
-        </small>
-
-      </div>
-
-    </a>
-
-
-    <div class="mobile-menu-divider">
-    </div>
-
-
-    <button
-      class="mobile-premium-action"
-      type="button"
-    >
-
-      <span class="premium-crown">
-        👑
-      </span>
-
-
-      <div>
-
-        <strong>
-          Premium
-        </strong>
-
-        <small>
-          Mehr Funktionen freischalten
-        </small>
-
-      </div>
-
-    </button>
-
-
-    <div class="mobile-menu-divider">
-    </div>
-
-
-    <button
-      class="mobile-logout"
-      type="button"
-      (click)="logout()"
-    >
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M9 5H5v14h4"
-        ></path>
-
-        <path
-          d="M13 8l4 4-4 4"
-        ></path>
-
-        <path
-          d="M17 12H9"
-        ></path>
-
-      </svg>
-
-      Abmelden
-
-    </button>
-
-  </div>
 
 </nav>
