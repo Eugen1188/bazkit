@@ -755,7 +755,7 @@ MOBILE
 
     width:
       min(
-        270px,
+        285px,
         calc(
           100vw - 20px
         )
@@ -882,7 +882,11 @@ MOBILE
   }
 
 
-  .mobile-settings-action,
+  /* =====================================
+  MOBILE POPUP ACTIONS
+  ===================================== */
+
+  .mobile-popup-action,
   .mobile-premium-action,
   .mobile-logout {
     width: 100%;
@@ -921,28 +925,48 @@ MOBILE
   }
 
 
-  .mobile-settings-action {
+  .mobile-popup-action {
     color:
       var(--color-text-primary);
+
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
   }
 
 
-  .mobile-settings-action:hover {
+  .mobile-popup-action:hover,
+  .mobile-popup-action.active {
     background:
       var(--color-primary-soft-bg);
   }
 
 
-  .mobile-settings-action svg {
-    width: 21px;
-    height: 21px;
+  .mobile-popup-icon {
+    width: 22px;
+    height: 22px;
 
     flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color:
+      var(--color-primary);
+  }
+
+
+  .mobile-popup-icon svg {
+    width: 21px;
+    height: 21px;
 
     fill: none;
 
     stroke:
-      var(--color-primary);
+      currentColor;
 
     stroke-width: 1.8;
 
@@ -954,27 +978,45 @@ MOBILE
   }
 
 
-  .mobile-settings-action strong {
+  .mobile-popup-action > div {
+    min-width: 0;
+  }
+
+
+  .mobile-popup-action strong {
     display: block;
 
     color:
       var(--color-text-primary);
 
     font-size: 13px;
+
+    font-weight: 600;
   }
 
 
-  .mobile-settings-action small {
+  .mobile-popup-action small {
     display: block;
 
     margin-top: 2px;
+
+    overflow: hidden;
 
     color:
       var(--color-text-muted);
 
     font-size: 10px;
+
+    text-overflow:
+      ellipsis;
+
+    white-space: nowrap;
   }
 
+
+  /* =====================================
+  PREMIUM
+  ===================================== */
 
   .mobile-premium-action {
     background:
@@ -1014,6 +1056,10 @@ MOBILE
     font-size: 10px;
   }
 
+
+  /* =====================================
+  MOBILE LOGOUT
+  ===================================== */
 
   .mobile-logout {
     color:
@@ -1111,7 +1157,7 @@ SMALL MOBILE
   .mobile-more-menu {
     width:
       min(
-        260px,
+        275px,
         calc(
           100vw - 12px
         )

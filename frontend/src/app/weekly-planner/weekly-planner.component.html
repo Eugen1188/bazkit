@@ -1,0 +1,833 @@
+<div class="weekly-planner-page">
+
+  <div class="planner-container">
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="planner-header">
+
+      <div class="header-copy">
+
+        <span class="eyebrow">
+          Deine Woche
+        </span>
+
+        <h1>
+          Wochenplaner
+        </h1>
+
+        <p>
+          Plane deine Mahlzeiten, behalte deine Nährwerte im Blick
+          und erstelle daraus direkt deinen Wocheneinkauf.
+        </p>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <button
+          class="ai-button"
+          type="button"
+          (click)="generateWeek()"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"></path>
+            <path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"></path>
+          </svg>
+
+          Woche mit KI planen
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================================
+         WEEK NAVIGATION
+    ========================================== -->
+
+    <section class="week-toolbar">
+
+      <button
+        class="week-arrow"
+        type="button"
+        aria-label="Vorherige Woche"
+        (click)="previousWeek()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+
+      </button>
+
+
+      <div class="week-title">
+
+        <span>
+          Wochenplan
+        </span>
+
+        <strong>
+          {{ weekLabel }}
+        </strong>
+
+      </div>
+
+
+      <button
+        class="today-button"
+        type="button"
+        (click)="goToCurrentWeek()"
+      >
+        Heute
+      </button>
+
+
+      <button
+        class="week-arrow"
+        type="button"
+        aria-label="Nächste Woche"
+        (click)="nextWeek()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M9 6l6 6-6 6"></path>
+        </svg>
+
+      </button>
+
+    </section>
+
+
+    <!-- =========================================
+         WEEK SUMMARY
+    ========================================== -->
+
+    <section class="week-summary">
+
+      <div class="summary-main">
+
+        <div class="summary-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 4h14v16H5z"></path>
+            <path d="M8 2v4"></path>
+            <path d="M16 2v4"></path>
+            <path d="M5 9h14"></path>
+          </svg>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Diese Woche
+          </span>
+
+          <strong>
+            {{ totalMeals }} Mahlzeiten geplant
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="summary-stats">
+
+        <div class="summary-stat">
+
+          <span>
+            Ø kcal / Tag
+          </span>
+
+          <strong>
+            {{ averageCalories }}
+          </strong>
+
+        </div>
+
+
+        <div class="summary-stat">
+
+          <span>
+            Protein
+          </span>
+
+          <strong>
+            {{ averageProtein }} g
+          </strong>
+
+        </div>
+
+
+        <div class="summary-stat">
+
+          <span>
+            Geplante Tage
+          </span>
+
+          <strong>
+            {{ plannedDays }}/7
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DESKTOP WEEK GRID
+    ========================================== -->
+
+    <section class="week-grid">
+
+      <article
+        class="day-card"
+        *ngFor="let day of days; let dayIndex = index"
+        [class.today]="day.isToday"
+      >
+
+        <div class="day-header">
+
+          <div>
+
+            <span class="day-name">
+              {{ day.shortName }}
+            </span>
+
+            <strong>
+              {{ day.date }}
+            </strong>
+
+          </div>
+
+
+          <span
+            class="today-chip"
+            *ngIf="day.isToday"
+          >
+            Heute
+          </span>
+
+        </div>
+
+
+        <div class="day-meals">
+
+          <!-- BREAKFAST -->
+
+          <div
+            class="meal-slot"
+            [class.empty]="!day.breakfast"
+          >
+
+            <div class="meal-slot-label">
+
+              <span class="meal-type-dot breakfast">
+              </span>
+
+              Frühstück
+
+            </div>
+
+
+            <ng-container *ngIf="day.breakfast; else emptyBreakfast">
+
+              <button
+                class="meal-card"
+                type="button"
+                (click)="openMeal(dayIndex, 'breakfast')"
+              >
+
+                <div
+                  class="meal-image"
+                  *ngIf="day.breakfast.image"
+                >
+
+                  <img
+                    [src]="day.breakfast.image"
+                    [alt]="day.breakfast.name"
+                  />
+
+                </div>
+
+
+                <div class="meal-content">
+
+                  <strong>
+                    {{ day.breakfast.name }}
+                  </strong>
+
+                  <span>
+                    {{ day.breakfast.calories }} kcal
+                    ·
+                    {{ day.breakfast.protein }} g Protein
+                  </span>
+
+                </div>
+
+              </button>
+
+            </ng-container>
+
+
+            <ng-template #emptyBreakfast>
+
+              <button
+                class="empty-meal-button"
+                type="button"
+                (click)="addMeal(dayIndex, 'breakfast')"
+              >
+
+                <span>
+                  +
+                </span>
+
+                Frühstück planen
+
+              </button>
+
+            </ng-template>
+
+          </div>
+
+
+          <!-- LUNCH -->
+
+          <div
+            class="meal-slot"
+            [class.empty]="!day.lunch"
+          >
+
+            <div class="meal-slot-label">
+
+              <span class="meal-type-dot lunch">
+              </span>
+
+              Mittagessen
+
+            </div>
+
+
+            <ng-container *ngIf="day.lunch; else emptyLunch">
+
+              <button
+                class="meal-card"
+                type="button"
+                (click)="openMeal(dayIndex, 'lunch')"
+              >
+
+                <div
+                  class="meal-image"
+                  *ngIf="day.lunch.image"
+                >
+
+                  <img
+                    [src]="day.lunch.image"
+                    [alt]="day.lunch.name"
+                  />
+
+                </div>
+
+
+                <div class="meal-content">
+
+                  <strong>
+                    {{ day.lunch.name }}
+                  </strong>
+
+                  <span>
+                    {{ day.lunch.calories }} kcal
+                    ·
+                    {{ day.lunch.protein }} g Protein
+                  </span>
+
+                </div>
+
+              </button>
+
+            </ng-container>
+
+
+            <ng-template #emptyLunch>
+
+              <button
+                class="empty-meal-button"
+                type="button"
+                (click)="addMeal(dayIndex, 'lunch')"
+              >
+
+                <span>
+                  +
+                </span>
+
+                Mittagessen planen
+
+              </button>
+
+            </ng-template>
+
+          </div>
+
+
+          <!-- DINNER -->
+
+          <div
+            class="meal-slot"
+            [class.empty]="!day.dinner"
+          >
+
+            <div class="meal-slot-label">
+
+              <span class="meal-type-dot dinner">
+              </span>
+
+              Abendessen
+
+            </div>
+
+
+            <ng-container *ngIf="day.dinner; else emptyDinner">
+
+              <button
+                class="meal-card"
+                type="button"
+                (click)="openMeal(dayIndex, 'dinner')"
+              >
+
+                <div
+                  class="meal-image"
+                  *ngIf="day.dinner.image"
+                >
+
+                  <img
+                    [src]="day.dinner.image"
+                    [alt]="day.dinner.name"
+                  />
+
+                </div>
+
+
+                <div class="meal-content">
+
+                  <strong>
+                    {{ day.dinner.name }}
+                  </strong>
+
+                  <span>
+                    {{ day.dinner.calories }} kcal
+                    ·
+                    {{ day.dinner.protein }} g Protein
+                  </span>
+
+                </div>
+
+              </button>
+
+            </ng-container>
+
+
+            <ng-template #emptyDinner>
+
+              <button
+                class="empty-meal-button"
+                type="button"
+                (click)="addMeal(dayIndex, 'dinner')"
+              >
+
+                <span>
+                  +
+                </span>
+
+                Abendessen planen
+
+              </button>
+
+            </ng-template>
+
+          </div>
+
+        </div>
+
+
+        <div class="day-footer">
+
+          <div>
+
+            <span>
+              Tagesgesamt
+            </span>
+
+            <strong>
+              {{ getDayCalories(day) }} kcal
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Protein
+            </span>
+
+            <strong>
+              {{ getDayProtein(day) }} g
+            </strong>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- =========================================
+         MOBILE DAY SELECTOR
+    ========================================== -->
+
+    <section class="mobile-day-navigation">
+
+      <button
+        *ngFor="let day of days; let i = index"
+        class="mobile-day-button"
+        type="button"
+        [class.active]="selectedDayIndex === i"
+        [class.today]="day.isToday"
+        (click)="selectedDayIndex = i"
+      >
+
+        <span>
+          {{ day.shortName }}
+        </span>
+
+        <strong>
+          {{ day.dayNumber }}
+        </strong>
+
+      </button>
+
+    </section>
+
+
+    <!-- =========================================
+         MOBILE SELECTED DAY
+    ========================================== -->
+
+    <section class="mobile-day-card">
+
+      <div class="mobile-selected-header">
+
+        <div>
+
+          <span>
+            {{ selectedDay.fullName }}
+          </span>
+
+          <h2>
+            {{ selectedDay.date }}
+          </h2>
+
+        </div>
+
+
+        <span
+          class="today-chip"
+          *ngIf="selectedDay.isToday"
+        >
+          Heute
+        </span>
+
+      </div>
+
+
+      <div class="mobile-meals">
+
+        <div
+          class="mobile-meal-section"
+          *ngFor="let mealType of mealTypes"
+        >
+
+          <div class="mobile-meal-heading">
+
+            <span
+              class="meal-type-dot"
+              [ngClass]="mealType.key"
+            >
+            </span>
+
+            {{ mealType.label }}
+
+          </div>
+
+
+          <ng-container
+            *ngIf="getMeal(selectedDay, mealType.key) as meal; else mobileEmptyMeal"
+          >
+
+            <button
+              class="mobile-meal-card"
+              type="button"
+              (click)="openMeal(selectedDayIndex, mealType.key)"
+            >
+
+              <div
+                class="mobile-meal-image"
+                *ngIf="meal.image"
+              >
+
+                <img
+                  [src]="meal.image"
+                  [alt]="meal.name"
+                />
+
+              </div>
+
+
+              <div class="mobile-meal-content">
+
+                <strong>
+                  {{ meal.name }}
+                </strong>
+
+                <span>
+                  {{ meal.calories }} kcal
+                  ·
+                  {{ meal.protein }} g Protein
+                </span>
+
+              </div>
+
+
+              <span class="mobile-meal-chevron">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M9 6l6 6-6 6"></path>
+                </svg>
+
+              </span>
+
+            </button>
+
+          </ng-container>
+
+
+          <ng-template #mobileEmptyMeal>
+
+            <button
+              class="mobile-add-meal"
+              type="button"
+              (click)="addMeal(selectedDayIndex, mealType.key)"
+            >
+
+              <span>
+                +
+              </span>
+
+              {{ mealType.label }} hinzufügen
+
+            </button>
+
+          </ng-template>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-day-summary">
+
+        <div>
+
+          <span>
+            Kalorien
+          </span>
+
+          <strong>
+            {{ getDayCalories(selectedDay) }}
+          </strong>
+
+          <small>
+            kcal
+          </small>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Protein
+          </span>
+
+          <strong>
+            {{ getDayProtein(selectedDay) }}
+          </strong>
+
+          <small>
+            g
+          </small>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Mahlzeiten
+          </span>
+
+          <strong>
+            {{ getMealCount(selectedDay) }}
+          </strong>
+
+          <small>
+            geplant
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SHOPPING CTA
+    ========================================== -->
+
+    <section class="shopping-summary">
+
+      <div class="shopping-summary-copy">
+
+        <div class="shopping-summary-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M7 10V8a5 5 0 0 1 10 0v2"></path>
+            <path d="M5 10h14l-1.2 10H6.2L5 10Z"></path>
+          </svg>
+
+        </div>
+
+
+        <div>
+
+          <span class="shopping-kicker">
+            Wocheneinkauf
+          </span>
+
+          <h2>
+            Alles für deine Woche auf einer Liste.
+          </h2>
+
+          <p>
+            bazkit fasst die Zutaten deiner geplanten Gerichte
+            automatisch für deinen Einkauf zusammen.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="shopping-summary-stats">
+
+        <div>
+
+          <strong>
+            {{ totalMeals }}
+          </strong>
+
+          <span>
+            Mahlzeiten
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            24
+          </strong>
+
+          <span>
+            Zutaten
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            18
+          </strong>
+
+          <span>
+            Produkte
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="shopping-button"
+        type="button"
+        (click)="createShoppingList()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M8 6h12"></path>
+          <path d="M8 12h12"></path>
+          <path d="M8 18h12"></path>
+          <path d="M4 6h.01"></path>
+          <path d="M4 12h.01"></path>
+          <path d="M4 18h.01"></path>
+        </svg>
+
+        Zur Einkaufsliste hinzufügen
+
+      </button>
+
+    </section>
+
+  </div>
+
+</div>

@@ -111,7 +111,8 @@ export class SidebarComponent {
   }
 
 
-  closeMobileMore(): void {
+  closeMobileMore():
+    void {
 
     this.isMobileMoreOpen =
       false;
@@ -121,14 +122,16 @@ export class SidebarComponent {
   @HostListener(
     'document:click'
   )
-  onDocumentClick(): void {
+  onDocumentClick():
+    void {
 
     this.isMobileMoreOpen =
       false;
   }
 
 
-  logout(): void {
+  logout():
+    void {
 
     this.closeMobileMore();
 
@@ -138,4 +141,5 @@ export class SidebarComponent {
       '/'
     ]);
   }
+
 }

@@ -74,109 +74,118 @@ import {
   CommunityDetailComponent
 } from './community/community-detail/community-detail.component';
 
+import {
+  WeeklyPlannerComponent
+} from './weekly-planner/weekly-planner.component';
 
 export const routes:
   Routes = [
 
-  {
-    path: '',
-    component: LoginComponent
-  },
+    {
+      path: '',
+      component: LoginComponent
+    },
 
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
+    {
+      path: 'register',
+      component: RegisterComponent
+    },
 
-  {
-    path: 'main',
+    {
+      path: 'main',
 
-    component:
-      MainComponent,
+      component:
+        MainComponent,
 
-    canActivate: [
-      authGuard
-    ],
+      canActivate: [
+        authGuard
+      ],
 
-    children: [
+      children: [
 
-      {
-        path: 'home',
-        component: HomeComponent
-      },
+        {
+          path: 'home',
+          component: HomeComponent
+        },
 
-      {
-        path: 'saved-list/create',
-        component: CreateListComponent
-      },
+        {
+          path: 'saved-list/create',
+          component: CreateListComponent
+        },
 
-      {
-        path: 'saved-list/:id/edit',
-        component: SavedListEditComponent
-      },
+        {
+          path: 'saved-list/:id/edit',
+          component: SavedListEditComponent
+        },
 
-      {
-        path: 'saved-list/:id',
-        component: SavedListDetailComponent
-      },
+        {
+          path: 'saved-list/:id',
+          component: SavedListDetailComponent
+        },
 
-      {
-        path: 'saved-list',
-        component: SavedListComponent
-      },
+        {
+          path: 'saved-list',
+          component: SavedListComponent
+        },
 
-      {
-        path: 'shopping-list',
-        component: ShoppingListComponent
-      },
+        {
+          path: 'shopping-list',
+          component: ShoppingListComponent
+        },
 
-      {
-        path: 'recipe-list/create',
-        component: CreateRecipeComponent
-      },
+        {
+          path: 'recipe-list/create',
+          component: CreateRecipeComponent
+        },
 
-      {
-        path: 'recipe-list/ai',
-        component: GenerateRecipeComponent
-      },
+        {
+          path: 'recipe-list/ai',
+          component: GenerateRecipeComponent
+        },
 
-      {
-        path: 'recipe-list/:id/edit',
-        component: EditRecipeComponent
-      },
+        {
+          path: 'recipe-list/:id/edit',
+          component: EditRecipeComponent
+        },
 
-      {
-        path: 'recipe-list/:id',
-        component: RecipeDetailComponent
-      },
+        {
+          path: 'recipe-list/:id',
+          component: RecipeDetailComponent
+        },
 
-      {
-        path: 'recipe-list',
-        component: RecipeListComponent
-      },
+        {
+          path: 'recipe-list',
+          component: RecipeListComponent
+        },
 
-      {
-        path: 'community/:id',
-        component: CommunityDetailComponent
-      },
+        {
+          path: 'community/:id',
+          component: CommunityDetailComponent
+        },
 
-      {
-        path: 'community',
-        component: CommunityComponent
-      },
+        {
+          path: 'community',
+          component: CommunityComponent
+        },
 
-      {
-        path: 'settings',
-        component: SettingsComponent
-      },
+        {
+          path: 'settings',
+          component: SettingsComponent
+        },
 
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      }
+        {
+          path:
+            'weekly-planner',
+          component: WeeklyPlannerComponent
+        },
 
-    ]
-  }
+        {
+          path: '',
+          redirectTo: 'home',
+          pathMatch: 'full'
+        }
 
-];
+      ]
+    }
+
+  ];
