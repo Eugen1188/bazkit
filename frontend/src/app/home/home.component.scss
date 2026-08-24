@@ -30,6 +30,9 @@
 
   scrollbar-gutter:
     stable;
+
+  -webkit-overflow-scrolling:
+    touch;
 }
 
 
@@ -78,13 +81,13 @@
 
   grid-template-columns:
     minmax(0, 1fr)
-    minmax(360px, 0.9fr);
+    minmax(380px, 0.95fr);
 
   align-items:
     center;
 
   gap:
-    50px;
+    46px;
 
   overflow:
     hidden;
@@ -105,16 +108,16 @@
     absolute;
 
   width:
-    420px;
+    440px;
 
   height:
-    420px;
+    440px;
 
   right:
     -120px;
 
   top:
-    -170px;
+    -180px;
 
   border-radius:
     50%;
@@ -124,7 +127,7 @@
       255,
       255,
       255,
-      0.65
+      0.62
     );
 }
 
@@ -134,7 +137,7 @@
     relative;
 
   z-index:
-    3;
+    6;
 
   max-width:
     560px;
@@ -165,7 +168,7 @@
       255,
       255,
       255,
-      0.72
+      0.74
     );
 
   color:
@@ -395,7 +398,7 @@
       255,
       255,
       255,
-      0.72
+      0.76
     );
 
   color:
@@ -533,7 +536,7 @@
     2;
 
   min-height:
-    390px;
+    400px;
 
   display:
     flex;
@@ -551,10 +554,16 @@
     absolute;
 
   width:
-    330px;
+    370px;
 
   height:
-    330px;
+    370px;
+
+  right:
+    -20px;
+
+  bottom:
+    -40px;
 
   border-radius:
     50%;
@@ -564,7 +573,7 @@
       255,
       255,
       255,
-      0.68
+      0.48
     );
 
   filter:
@@ -572,21 +581,67 @@
 }
 
 
-.visual-card {
+/* =====================================
+   LARGE BASKET
+===================================== */
+
+.hero-basket {
   position:
-    relative;
+    absolute;
 
   z-index:
-    3;
+    2;
 
   width:
-    min(
-      330px,
-      86%
+    270px;
+
+  right:
+    -32px;
+
+  bottom:
+    -34px;
+
+  opacity:
+    0.92;
+
+  pointer-events:
+    none;
+
+  filter:
+    drop-shadow(
+      0 18px 22px
+      rgba(
+        31,
+        42,
+        55,
+        0.08
+      )
     );
+}
+
+
+/* =====================================
+   SMALLER SHOPPING LIST
+===================================== */
+
+.visual-card {
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  width:
+    285px;
+
+  top:
+    32px;
+
+  right:
+    78px;
 
   padding:
-    25px;
+    21px;
 
   border:
     1px solid
@@ -598,14 +653,14 @@
     );
 
   border-radius:
-    22px;
+    19px;
 
   background:
     rgba(
       255,
       255,
       255,
-      0.94
+      0.97
     );
 
   box-shadow:
@@ -618,7 +673,7 @@
     );
 
   transform:
-    rotate(-2deg);
+    rotate(-1.8deg);
 }
 
 
@@ -642,13 +697,13 @@
     block;
 
   margin-bottom:
-    5px;
+    4px;
 
   color:
     var(--color-text-muted);
 
   font-size:
-    11px;
+    10px;
 }
 
 
@@ -660,13 +715,13 @@
     var(--color-text-primary);
 
   font-size:
-    18px;
+    17px;
 }
 
 
 .visual-status {
   padding:
-    6px 9px;
+    5px 8px;
 
   border-radius:
     999px;
@@ -678,7 +733,7 @@
     var(--color-primary);
 
   font-size:
-    10px;
+    9px;
 
   font-weight:
     700;
@@ -690,7 +745,7 @@
     5px;
 
   margin:
-    18px 0 22px;
+    16px 0 18px;
 
   border-radius:
     999px;
@@ -723,10 +778,10 @@
 
 .visual-product {
   min-height:
-    55px;
+    48px;
 
   padding:
-    10px 0;
+    8px 0;
 
   border-bottom:
     1px solid
@@ -739,7 +794,7 @@
     center;
 
   gap:
-    12px;
+    11px;
 }
 
 
@@ -751,16 +806,16 @@
 
 .visual-check {
   width:
-    23px;
+    21px;
 
   height:
-    23px;
+    21px;
 
   flex-shrink:
     0;
 
   border-radius:
-    7px;
+    6px;
 
   display:
     flex;
@@ -778,7 +833,7 @@
     #fff;
 
   font-size:
-    12px;
+    11px;
 
   font-weight:
     700;
@@ -803,7 +858,7 @@
     var(--color-text-primary);
 
   font-size:
-    13px;
+    12px;
 }
 
 
@@ -818,9 +873,13 @@
     var(--color-text-muted);
 
   font-size:
-    10px;
+    9px;
 }
 
+
+/* =====================================
+   FLOATING PRODUCT
+===================================== */
 
 .floating-product {
   position:
@@ -830,16 +889,25 @@
     5;
 
   right:
-    -5px;
+    -8px;
 
   top:
-    100px;
+    87px;
 
   min-width:
-    160px;
+    150px;
 
   padding:
-    12px 14px;
+    11px 13px;
+
+  border:
+    1px solid
+    rgba(
+      88,
+      118,
+      100,
+      0.08
+    );
 
   border-radius:
     15px;
@@ -869,10 +937,10 @@
 
 .floating-plus {
   width:
-    35px;
+    34px;
 
   height:
-    35px;
+    34px;
 
   flex-shrink:
     0;
@@ -896,7 +964,7 @@
     var(--color-primary);
 
   font-size:
-    23px;
+    22px;
 
   font-weight:
     300;
@@ -927,30 +995,6 @@
 
   font-size:
     12px;
-}
-
-
-.hero-basket {
-  position:
-    absolute;
-
-  z-index:
-    1;
-
-  right:
-    -35px;
-
-  bottom:
-    -45px;
-
-  width:
-    190px;
-
-  opacity:
-    0.48;
-
-  pointer-events:
-    none;
 }
 
 
@@ -1280,7 +1324,7 @@
 
 
 /* =====================================
-   QUICK SMALL
+   QUICK SIDE
 ===================================== */
 
 .quick-side {
@@ -1362,10 +1406,10 @@
 
 .small-icon {
   width:
-    46px;
+    48px;
 
   height:
-    46px;
+    48px;
 
   flex-shrink:
     0;
@@ -1386,10 +1430,10 @@
 
 .small-icon svg {
   width:
-    23px;
+    24px;
 
   height:
-    23px;
+    24px;
 
   fill:
     none;
@@ -1398,7 +1442,7 @@
     currentColor;
 
   stroke-width:
-    1.8;
+    1.7;
 
   stroke-linecap:
     round;
@@ -1408,12 +1452,14 @@
 }
 
 
+/* NEW RECIPE ICON */
+
 .recipe-icon {
   background:
-    #f7efe4;
+    #f5f0e8;
 
   color:
-    #8a745c;
+    #7d6b57;
 }
 
 
@@ -1423,6 +1469,12 @@
 
   color:
     #65717c;
+}
+
+
+.quick-small-copy {
+  min-width:
+    0;
 }
 
 
@@ -1443,13 +1495,16 @@
     block;
 
   margin-top:
-    3px;
+    4px;
 
   color:
     var(--color-text-muted);
 
   font-size:
     11px;
+
+  line-height:
+    1.35;
 }
 
 
@@ -2035,7 +2090,7 @@
   .home-container {
     width:
       min(
-        100% - 48px,
+        calc(100% - 48px),
         1050px
       );
   }
@@ -2047,16 +2102,34 @@
 
     grid-template-columns:
       minmax(0, 1fr)
-      340px;
+      350px;
 
     gap:
       30px;
   }
 
 
+  .visual-card {
+    right:
+      52px;
+
+    width:
+      265px;
+  }
+
+
+  .hero-basket {
+    width:
+      235px;
+
+    right:
+      -30px;
+  }
+
+
   .floating-product {
     right:
-      -10px;
+      -16px;
   }
 
 
@@ -2113,7 +2186,7 @@
       auto;
 
     padding:
-      30px 24px 25px;
+      30px 24px 20px;
 
     border-radius:
       23px;
@@ -2128,7 +2201,7 @@
       stretch;
 
     gap:
-      30px;
+      20px;
   }
 
 
@@ -2206,11 +2279,13 @@
   }
 
 
-  /* MOBILE VISUAL */
+  /* =====================================
+     MOBILE HERO VISUAL
+  ====================================== */
 
   .hero-visual {
     min-height:
-      310px;
+      335px;
 
     margin:
       0 -5px;
@@ -2219,37 +2294,76 @@
 
   .hero-glow {
     width:
-      280px;
+      290px;
 
     height:
-      280px;
+      290px;
+
+    right:
+      5px;
+
+    bottom:
+      -30px;
   }
 
 
   .visual-card {
+    top:
+      12px;
+
+    right:
+      38px;
+
     width:
-      min(
-        300px,
-        84%
-      );
+      245px;
 
     padding:
-      20px;
+      17px;
 
-    transform:
-      rotate(-1deg);
+    border-radius:
+      17px;
+  }
+
+
+  .visual-card-header strong {
+    font-size:
+      15px;
+  }
+
+
+  .visual-product {
+    min-height:
+      43px;
+
+    padding:
+      6px 0;
+  }
+
+
+  .hero-basket {
+    width:
+      215px;
+
+    right:
+      -24px;
+
+    bottom:
+      -14px;
+
+    opacity:
+      0.96;
   }
 
 
   .floating-product {
     right:
-      0;
+      -3px;
 
     top:
-      70px;
+      67px;
 
     min-width:
-      135px;
+      132px;
 
     padding:
       9px 10px;
@@ -2265,19 +2379,9 @@
   }
 
 
-  .hero-basket {
-    width:
-      135px;
-
-    right:
-      -25px;
-
-    bottom:
-      -15px;
-  }
-
-
-  /* SECTIONS */
+  /* =====================================
+     SECTIONS
+  ====================================== */
 
   .quick-section,
   .benefits-section {
@@ -2357,7 +2461,7 @@
 
   .quick-small-card {
     min-height:
-      78px;
+      82px;
 
     border-radius:
       16px;
@@ -2373,7 +2477,9 @@
   }
 
 
-  /* BENEFITS */
+  /* =====================================
+     BENEFITS
+  ====================================== */
 
   .benefits-content {
     margin-top:
@@ -2430,7 +2536,9 @@
   }
 
 
-  /* CTA */
+  /* =====================================
+     CTA
+  ====================================== */
 
   .final-cta {
     min-height:
@@ -2497,7 +2605,7 @@
 
   .hero {
     padding:
-      25px 19px 20px;
+      25px 19px 17px;
 
     border-radius:
       20px;
@@ -2518,30 +2626,67 @@
 
   .hero-visual {
     min-height:
-      285px;
+      315px;
   }
 
 
   .visual-card {
+    top:
+      8px;
+
+    right:
+      29px;
+
     width:
-      calc(
-        100% - 20px
-      );
+      218px;
 
     padding:
-      18px;
+      15px;
+  }
 
-    border-radius:
-      18px;
+
+  .visual-card-header strong {
+    font-size:
+      14px;
+  }
+
+
+  .visual-progress {
+    margin:
+      13px 0 13px;
+  }
+
+
+  .visual-product {
+    min-height:
+      39px;
+  }
+
+
+  .visual-product strong {
+    font-size:
+      11px;
+  }
+
+
+  .hero-basket {
+    width:
+      200px;
+
+    right:
+      -26px;
+
+    bottom:
+      -6px;
   }
 
 
   .floating-product {
     right:
-      -7px;
+      -8px;
 
     top:
-      65px;
+      60px;
   }
 
 
@@ -2590,6 +2735,21 @@
   .quick-small-card {
     padding:
       14px;
+  }
+
+
+  .small-icon {
+    width:
+      44px;
+
+    height:
+      44px;
+  }
+
+
+  .quick-small-copy span {
+    font-size:
+      10px;
   }
 
 
