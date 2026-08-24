@@ -1,839 +1,675 @@
-<div class="home-page">
-
-
-  <!-- =====================================
-       HERO
-  ====================================== -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <div class="hero-badge">
-
-        <span class="hero-badge-icon">
-          ✦
-        </span>
-
-        Dein smarter Einkaufsbegleiter
-
-      </div>
-
-
-      <h1>
-
-        Alles für deinen Einkauf.
-
-        <span>
-          Einfach organisiert.
-        </span>
-
-      </h1>
-
-
-      <p class="hero-description">
-
-        Plane Einkäufe, sammle Rezepte
-        und bringe Zutaten mit einem Klick
-        auf deine Einkaufsliste.
-
-      </p>
-
-
-      <div class="hero-actions">
-
-        <a
-          class="primary-action"
-          routerLink="/main/shopping-list"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M8 6h12"
-            ></path>
-
-            <path
-              d="M8 12h12"
-            ></path>
-
-            <path
-              d="M8 18h12"
-            ></path>
-
-            <path
-              d="M4 6h.01"
-            ></path>
-
-            <path
-              d="M4 12h.01"
-            ></path>
-
-            <path
-              d="M4 18h.01"
-            ></path>
-          </svg>
-
-          Einkauf starten
-
-        </a>
-
-
-        <a
-          class="secondary-action"
-          routerLink="/main/recipe-list"
-        >
-
-          Rezepte entdecken
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M5 12h14"
-            ></path>
-
-            <path
-              d="m14 7 5 5-5 5"
-            ></path>
-          </svg>
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- VISUAL -->
-
-    <div class="hero-visual">
-
-      <div class="hero-glow">
-      </div>
-
-
-      <div class="hero-image-wrap">
-
-        <img
-          src="assets/images/home/home-basket.png"
-          alt="Einkaufskorb mit Lebensmitteln"
-        >
-
-      </div>
-
-
-      <div class="floating-card floating-list">
-
-        <span class="floating-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M9 6h11"
-            ></path>
-
-            <path
-              d="M9 12h11"
-            ></path>
-
-            <path
-              d="M9 18h11"
-            ></path>
-
-            <path
-              d="M4 6h.01"
-            ></path>
-
-            <path
-              d="M4 12h.01"
-            ></path>
-
-            <path
-              d="M4 18h.01"
-            ></path>
-          </svg>
-
-        </span>
-
-
-        <div>
-
-          <small>
-            Einkaufsliste
-          </small>
-
-          <strong>
-            Alles im Blick
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="floating-card floating-recipe">
-
-        <span class="floating-plus">
-          +
-        </span>
-
-        <div>
-
-          <small>
-            Schnell hinzufügen
-          </small>
-
-          <strong>
-            Zutaten
-          </strong>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================
-       QUICK ACTIONS
-  ====================================== -->
-
-  <section class="quick-section">
-
-    <div class="section-heading">
-
-      <div>
-
-        <span class="eyebrow">
-          Schnellzugriff
-        </span>
-
-        <h2>
-          Was möchtest du machen?
-        </h2>
-
-      </div>
-
-    </div>
-
-
-    <div class="quick-grid">
-
-
-      <!-- EINKAUF -->
-
-      <a
-        class="quick-card"
-        routerLink="/main/shopping-list"
+<!-- =========================
+     DESKTOP SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+  <!-- LOGO -->
+  <a
+    class="logo"
+    routerLink="/main/home"
+  >
+
+    <span class="logo-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
       >
+        <path d="M7 10V8a5 5 0 0 1 10 0v2"></path>
+        <path d="M5 10h14l-1.2 10H6.2L5 10Z"></path>
+        <path d="M9 14v2"></path>
+        <path d="M15 14v2"></path>
+      </svg>
 
-        <span class="quick-icon green">
+    </span>
 
-          <svg
-            viewBox="0 0 24 24"
-          >
+    <span class="logo-text">
+      bazkit
+    </span>
 
-            <path
-              d="M8 6h12"
-            ></path>
+  </a>
 
-            <path
-              d="M8 12h12"
-            ></path>
 
-            <path
-              d="M8 18h12"
-            ></path>
+  <!-- USER -->
+  <button
+    class="user-box"
+    type="button"
+  >
 
-            <path
-              d="M4 6h.01"
-            ></path>
+    <span class="avatar">
+      {{ userInitial }}
+    </span>
 
-            <path
-              d="M4 12h.01"
-            ></path>
+    <span class="user-name">
+      {{ userName }}
+    </span>
 
-            <path
-              d="M4 18h.01"
-            ></path>
+    <span class="chevron">
+      ⌄
+    </span>
 
-          </svg>
+  </button>
 
-        </span>
 
+  <!-- NAVIGATION -->
+  <nav class="nav">
 
-        <div class="quick-content">
-
-          <strong>
-            Einkauf
-          </strong>
-
-          <span>
-            Liste planen
-          </span>
-
-        </div>
-
-
-        <span class="quick-arrow">
-          →
-        </span>
-
-      </a>
-
-
-
-      <!-- REZEPTE -->
-
-      <a
-        class="quick-card"
-        routerLink="/main/recipe-list"
-      >
-
-        <span class="quick-icon cream">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-
-            <path
-              d="M7 3v18"
-            ></path>
-
-            <path
-              d="M11 3v8a2 2 0 0 1-4 0V3"
-            ></path>
-
-            <path
-              d="M17 3v18"
-            ></path>
-
-          </svg>
-
-        </span>
-
-
-        <div class="quick-content">
-
-          <strong>
-            Rezepte
-          </strong>
-
-          <span>
-            Inspiration finden
-          </span>
-
-        </div>
-
-
-        <span class="quick-arrow">
-          →
-        </span>
-
-      </a>
-
-
-
-      <!-- LISTEN -->
-
-      <a
-        class="quick-card"
-        routerLink="/main/saved-list"
-      >
-
-        <span class="quick-icon soft">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-
-            <rect
-              x="5"
-              y="4"
-              width="14"
-              height="17"
-              rx="2"
-            ></rect>
-
-            <path
-              d="M9 9h6"
-            ></path>
-
-            <path
-              d="M9 13h6"
-            ></path>
-
-            <path
-              d="M9 17h4"
-            ></path>
-
-          </svg>
-
-        </span>
-
-
-        <div class="quick-content">
-
-          <strong>
-            Listen
-          </strong>
-
-          <span>
-            Vorlagen nutzen
-          </span>
-
-        </div>
-
-
-        <span class="quick-arrow">
-          →
-        </span>
-
-      </a>
-
-
-
-      <!-- COMMUNITY -->
-
-      <a
-        class="quick-card"
-        routerLink="/main/community"
-      >
-
-        <span class="quick-icon warm">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-
-            <circle
-              cx="8"
-              cy="8"
-              r="3"
-            ></circle>
-
-            <circle
-              cx="16"
-              cy="8"
-              r="3"
-            ></circle>
-
-            <path
-              d="M3 19c0-3 2-5 5-5s5 2 5 5"
-            ></path>
-
-            <path
-              d="M13 15c.8-.7 1.8-1 3-1 3 0 5 2 5 5"
-            ></path>
-
-          </svg>
-
-        </span>
-
-
-        <div class="quick-content">
-
-          <strong>
-            Community
-          </strong>
-
-          <span>
-            Rezepte entdecken
-          </span>
-
-        </div>
-
-
-        <span class="quick-arrow">
-          →
-        </span>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================
-       RECIPE WORKFLOW
-  ====================================== -->
-
-  <section class="workflow-section">
-
-
-    <div class="workflow-image">
-
-      <div class="food-image-background">
-      </div>
-
-      <img
-        src="assets/images/home/home-food.png"
-        alt="Frische Zutaten und Gericht"
-      >
-
-
-      <div class="image-label">
-
-        <span>
-          ✓
-        </span>
-
-        Zutaten übernommen
-
-      </div>
-
-    </div>
-
-
-    <div class="workflow-content">
-
-      <span class="eyebrow">
-        Rezepte & Einkauf
-      </span>
-
-
-      <h2>
-        Vom Rezept direkt
-        <span>
-          zur Einkaufsliste.
-        </span>
-      </h2>
-
-
-      <p>
-        Finde ein Rezept, übernimm die Zutaten
-        und schon weißt du, was beim nächsten
-        Einkauf mit muss.
-      </p>
-
-
-      <div class="workflow-steps">
-
-        <div class="workflow-step">
-
-          <span class="step-number">
-            1
-          </span>
-
-          <div>
-
-            <strong>
-              Rezept auswählen
-            </strong>
-
-            <small>
-              Eigene oder gespeicherte Rezepte
-            </small>
-
-          </div>
-
-        </div>
-
-
-        <div class="workflow-line">
-        </div>
-
-
-        <div class="workflow-step">
-
-          <span class="step-number">
-            2
-          </span>
-
-          <div>
-
-            <strong>
-              Zutaten übernehmen
-            </strong>
-
-            <small>
-              Mit einem Klick
-            </small>
-
-          </div>
-
-        </div>
-
-
-        <div class="workflow-line">
-        </div>
-
-
-        <div class="workflow-step">
-
-          <span class="step-number completed">
-            ✓
-          </span>
-
-          <div>
-
-            <strong>
-              Einkaufen
-            </strong>
-
-            <small>
-              Alles griffbereit
-            </small>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <a
-        class="workflow-link"
-        routerLink="/main/recipe-list"
-      >
-
-        Rezepte ansehen
-
-        <span>
-          →
-        </span>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================
-       AI
-  ====================================== -->
-
-  <section class="ai-section">
-
-    <div class="ai-decoration ai-decoration-one">
-    </div>
-
-    <div class="ai-decoration ai-decoration-two">
-    </div>
-
-
-    <div class="ai-icon">
-      ✦
-    </div>
-
-
-    <div class="ai-content">
-
-      <span class="ai-label">
-        bazkit AI
-      </span>
-
-      <h2>
-        Keine Idee, was du kochen sollst?
-      </h2>
-
-      <p>
-        Lass dir passend zu deinen Wünschen
-        ein Rezept erstellen.
-      </p>
-
-    </div>
-
-
+    <!-- HOME -->
     <a
-      class="ai-button"
-      routerLink="/main/recipe-list/ai"
+      class="nav-item"
+      routerLink="/main/home"
+      routerLinkActive="active"
     >
 
-      <span>
-        ✦
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M3 10.5 12 3l9 7.5"></path>
+          <path d="M5.5 9.5V21h13V9.5"></path>
+          <path d="M9.5 21v-6h5v6"></path>
+        </svg>
+
       </span>
 
-      Rezept generieren
+      <span>
+        Home
+      </span>
 
     </a>
 
-  </section>
 
-
-
-  <!-- =====================================
-       FEATURES
-  ====================================== -->
-
-  <section class="features-section">
-
-    <div class="section-heading">
-
-      <div>
-
-        <span class="eyebrow">
-          Ein Alltag. Weniger Chaos.
-        </span>
-
-        <h2>
-          Darum bazkit.
-        </h2>
-
-      </div>
-
-    </div>
-
-
-    <div class="features-grid">
-
-
-      <article class="feature-card">
-
-        <div class="feature-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-
-            <path
-              d="M8 6h12"
-            ></path>
-
-            <path
-              d="M8 12h12"
-            ></path>
-
-            <path
-              d="M8 18h12"
-            ></path>
-
-            <path
-              d="M4 6h.01"
-            ></path>
-
-            <path
-              d="M4 12h.01"
-            ></path>
-
-            <path
-              d="M4 18h.01"
-            ></path>
-
-          </svg>
-
-        </div>
-
-
-        <strong>
-          Einfach planen
-        </strong>
-
-        <p>
-          Alles, was du brauchst,
-          an einem Ort.
-        </p>
-
-      </article>
-
-
-
-      <article class="feature-card">
-
-        <div class="feature-icon">
-
-          <svg
-            viewBox="0 0 24 24"
-          >
-
-            <path
-              d="M5 4h14v16H5z"
-            ></path>
-
-            <path
-              d="M8 8h8"
-            ></path>
-
-            <path
-              d="M8 12h5"
-            ></path>
-
-          </svg>
-
-        </div>
-
-
-        <strong>
-          Wiederverwenden
-        </strong>
-
-        <p>
-          Häufige Einkäufe als
-          Listen speichern.
-        </p>
-
-      </article>
-
-
-
-      <article class="feature-card">
-
-        <div class="feature-icon sparkle">
-          ✦
-        </div>
-
-
-        <strong>
-          Smarter kochen
-        </strong>
-
-        <p>
-          Neue Ideen mit
-          bazkit AI entdecken.
-        </p>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================
-       FINAL CTA
-  ====================================== -->
-
-  <section class="final-cta">
-
-    <div>
-
-      <span>
-        Bereit?
-      </span>
-
-      <h2>
-        Mach deinen nächsten Einkauf einfacher.
-      </h2>
-
-    </div>
-
-
+    <!-- SHOPPING LIST -->
     <a
+      class="nav-item"
       routerLink="/main/shopping-list"
+      routerLinkActive="active"
     >
 
-      Loslegen
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M8 6h12"></path>
+          <path d="M8 12h12"></path>
+          <path d="M8 18h12"></path>
+
+          <circle
+            cx="4"
+            cy="6"
+            r="1.2"
+          ></circle>
+
+          <circle
+            cx="4"
+            cy="12"
+            r="1.2"
+          ></circle>
+
+          <circle
+            cx="4"
+            cy="18"
+            r="1.2"
+          ></circle>
+        </svg>
+
+      </span>
 
       <span>
-        →
+        Einkaufsliste
       </span>
 
     </a>
 
-  </section>
+
+    <!-- RECIPES -->
+    <a
+      class="nav-item"
+      routerLink="/main/recipe-list"
+      routerLinkActive="active"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path d="M7 3v8"></path>
+          <path d="M10 3v8"></path>
+          <path d="M7 7h3"></path>
+          <path d="M8.5 11v10"></path>
+
+          <path d="M16 3v18"></path>
+          <path d="M16 3c3 2.2 3.7 6 0 8"></path>
+
+        </svg>
+
+      </span>
+
+      <span>
+        Rezepte
+      </span>
+
+    </a>
 
 
-</div>
+    <!-- SAVED -->
+    <a
+      class="nav-item"
+      routerLink="/main/saved-list"
+      routerLinkActive="active"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <rect
+            x="5"
+            y="4"
+            width="14"
+            height="16"
+            rx="2"
+          ></rect>
+
+          <path d="M9 9h6"></path>
+          <path d="M9 13h6"></path>
+          <path d="M9 17h4"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        Meine Listen
+      </span>
+
+    </a>
+
+
+    <!-- COMMUNITY -->
+    <a
+      class="nav-item"
+      routerLink="/main/community"
+      routerLinkActive="active"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="9"
+            cy="8"
+            r="3"
+          ></circle>
+
+          <circle
+            cx="17"
+            cy="9"
+            r="2.4"
+          ></circle>
+
+          <path d="M3.5 19c.5-4 2.8-6 5.5-6s5 2 5.5 6"></path>
+
+          <path d="M14.5 14.5c1-.8 2.1-1.2 3.2-1.2 2.2 0 3.8 1.7 4.1 4.7"></path>
+
+        </svg>
+
+      </span>
+
+      <span>
+        Community
+      </span>
+
+    </a>
+
+
+    <!-- SETTINGS -->
+    <a
+      class="nav-item"
+      routerLink="/main/settings"
+      routerLinkActive="active"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+          ></circle>
+
+          <path d="M12 2.5v2"></path>
+          <path d="M12 19.5v2"></path>
+
+          <path d="M4.5 12h-2"></path>
+          <path d="M21.5 12h-2"></path>
+
+          <path d="m5.3 5.3 1.4 1.4"></path>
+          <path d="m17.3 17.3 1.4 1.4"></path>
+
+          <path d="m18.7 5.3-1.4 1.4"></path>
+          <path d="m6.7 17.3-1.4 1.4"></path>
+
+        </svg>
+
+      </span>
+
+      <span>
+        Einstellungen
+      </span>
+
+    </a>
+
+  </nav>
+
+
+  <!-- BOTTOM AREA -->
+  <div class="bottom">
+
+    <div class="premium-card">
+
+      <strong>
+        👑 Premium
+      </strong>
+
+      <p>
+        Mehr Funktionen.
+        <br>
+        Mehr Möglichkeiten.
+      </p>
+
+      <button
+        type="button"
+      >
+        Jetzt upgraden
+      </button>
+
+    </div>
+
+
+    <button
+      class="logout"
+      type="button"
+      (click)="logout()"
+    >
+
+      <span class="logout-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M10 17l5-5-5-5"></path>
+          <path d="M15 12H3"></path>
+          <path d="M21 4v16"></path>
+        </svg>
+
+      </span>
+
+      Abmelden
+
+    </button>
+
+  </div>
+
+</aside>
+
+
+<!-- =========================
+     MOBILE BOTTOM NAV
+========================= -->
+
+<nav class="mobile-bottom-nav">
+
+  <!-- HOME -->
+  <a
+    class="mobile-nav-item"
+    routerLink="/main/home"
+    routerLinkActive="active"
+  >
+
+    <span class="mobile-nav-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M3 10.5 12 3l9 7.5"></path>
+        <path d="M5.5 9.5V21h13V9.5"></path>
+        <path d="M9.5 21v-6h5v6"></path>
+      </svg>
+
+    </span>
+
+    <span>
+      Home
+    </span>
+
+  </a>
+
+
+  <!-- SHOPPING -->
+  <a
+    class="mobile-nav-item"
+    routerLink="/main/shopping-list"
+    routerLinkActive="active"
+  >
+
+    <span class="mobile-nav-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M8 6h12"></path>
+        <path d="M8 12h12"></path>
+        <path d="M8 18h12"></path>
+
+        <circle
+          cx="4"
+          cy="6"
+          r="1.2"
+        ></circle>
+
+        <circle
+          cx="4"
+          cy="12"
+          r="1.2"
+        ></circle>
+
+        <circle
+          cx="4"
+          cy="18"
+          r="1.2"
+        ></circle>
+      </svg>
+
+    </span>
+
+    <span>
+      Einkauf
+    </span>
+
+  </a>
+
+
+  <!-- RECIPES -->
+  <a
+    class="mobile-nav-item"
+    routerLink="/main/recipe-list"
+    routerLinkActive="active"
+  >
+
+    <span class="mobile-nav-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <path d="M7 3v8"></path>
+        <path d="M10 3v8"></path>
+        <path d="M7 7h3"></path>
+        <path d="M8.5 11v10"></path>
+
+        <path d="M16 3v18"></path>
+        <path d="M16 3c3 2.2 3.7 6 0 8"></path>
+
+      </svg>
+
+    </span>
+
+    <span>
+      Rezepte
+    </span>
+
+  </a>
+
+
+  <!-- SAVED -->
+  <a
+    class="mobile-nav-item"
+    routerLink="/main/saved-list"
+    routerLinkActive="active"
+  >
+
+    <span class="mobile-nav-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <rect
+          x="5"
+          y="4"
+          width="14"
+          height="16"
+          rx="2"
+        ></rect>
+
+        <path d="M9 9h6"></path>
+        <path d="M9 13h6"></path>
+        <path d="M9 17h4"></path>
+
+      </svg>
+
+    </span>
+
+    <span>
+      Meine Listen
+    </span>
+
+  </a>
+
+
+  <!-- COMMUNITY -->
+  <a
+    class="mobile-nav-item"
+    routerLink="/main/community"
+    routerLinkActive="active"
+  >
+
+    <span class="mobile-nav-icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <circle
+          cx="9"
+          cy="8"
+          r="3"
+        ></circle>
+
+        <circle
+          cx="17"
+          cy="9"
+          r="2.4"
+        ></circle>
+
+        <path d="M3.5 19c.5-4 2.8-6 5.5-6s5 2 5.5 6"></path>
+
+        <path d="M14.5 14.5c1-.8 2.1-1.2 3.2-1.2 2.2 0 3.8 1.7 4.1 4.7"></path>
+
+      </svg>
+
+    </span>
+
+    <span>
+      Community
+    </span>
+
+  </a>
+
+
+  <!-- PROFILE -->
+  <button
+    class="mobile-nav-item mobile-profile-button"
+    type="button"
+    [class.active]="isMobileMoreOpen"
+    (click)="toggleMobileMore($event)"
+  >
+
+    <span class="mobile-avatar">
+      {{ userInitial }}
+    </span>
+
+    <span>
+      Profil
+    </span>
+
+  </button>
+
+
+  <!-- PROFILE POPUP -->
+  <div
+    class="mobile-more-menu"
+    *ngIf="isMobileMoreOpen"
+    (click)="$event.stopPropagation()"
+  >
+
+    <div class="mobile-user">
+
+      <div class="mobile-user-avatar">
+        {{ userInitial }}
+      </div>
+
+      <div>
+
+        <strong>
+          {{ userName }}
+        </strong>
+
+        <span>
+          Mein Konto
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="mobile-menu-divider">
+    </div>
+
+
+    <a
+      class="mobile-settings-action"
+      routerLink="/main/settings"
+      (click)="isMobileMoreOpen = false"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <circle
+          cx="12"
+          cy="12"
+          r="3"
+        ></circle>
+
+        <path d="M12 2.5v2"></path>
+        <path d="M12 19.5v2"></path>
+
+        <path d="M4.5 12h-2"></path>
+        <path d="M21.5 12h-2"></path>
+
+        <path d="m5.3 5.3 1.4 1.4"></path>
+        <path d="m17.3 17.3 1.4 1.4"></path>
+
+        <path d="m18.7 5.3-1.4 1.4"></path>
+        <path d="m6.7 17.3-1.4 1.4"></path>
+
+      </svg>
+
+      <div>
+
+        <strong>
+          Einstellungen
+        </strong>
+
+        <small>
+          Konto und App verwalten
+        </small>
+
+      </div>
+
+    </a>
+
+
+    <div class="mobile-menu-divider">
+    </div>
+
+
+    <button
+      class="mobile-premium-action"
+      type="button"
+    >
+
+      <span>
+        👑
+      </span>
+
+      <div>
+
+        <strong>
+          Premium
+        </strong>
+
+        <small>
+          Mehr Funktionen freischalten
+        </small>
+
+      </div>
+
+    </button>
+
+
+    <div class="mobile-menu-divider">
+    </div>
+
+
+    <button
+      class="mobile-logout"
+      type="button"
+      (click)="logout()"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M10 17l5-5-5-5"></path>
+        <path d="M15 12H3"></path>
+        <path d="M21 4v16"></path>
+      </svg>
+
+      Abmelden
+
+    </button>
+
+  </div>
+
+</nav>
