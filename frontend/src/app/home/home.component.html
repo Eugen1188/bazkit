@@ -6,11 +6,24 @@
 
   <section class="hero">
 
+    <div class="hero-decoration hero-decoration-left"></div>
+    <div class="hero-decoration hero-decoration-right"></div>
+
+
+    <!-- LEFT -->
+
     <div class="hero-content">
 
-      <span class="eyebrow">
+      <div class="hero-badge">
+
+        <span class="badge-icon">
+          ✓
+        </span>
+
         Dein smarter Einkaufsbegleiter
-      </span>
+
+      </div>
+
 
       <h1>
         Einkauf planen.
@@ -19,83 +32,147 @@
         </span>
       </h1>
 
-      <p class="hero-description">
-        Plane Einkäufe, sammle Rezepte und
-        übernimm Zutaten direkt in deine Einkaufsliste.
+
+      <p class="hero-text">
+        Plane deine Einkäufe, entdecke Rezepte
+        und übernimm Zutaten direkt in deine Liste.
       </p>
+
 
       <div class="hero-actions">
 
         <a
-          class="primary-button"
+          class="hero-primary"
           routerLink="/main/shopping-list"
         >
+
           <svg viewBox="0 0 24 24">
-            <path d="M9 6h11"></path>
-            <path d="M9 12h11"></path>
-            <path d="M9 18h11"></path>
-            <path d="M5 6h.01"></path>
-            <path d="M5 12h.01"></path>
-            <path d="M5 18h.01"></path>
+            <path d="M8 6h12"></path>
+            <path d="M8 12h12"></path>
+            <path d="M8 18h12"></path>
+
+            <path d="M4 6h.01"></path>
+            <path d="M4 12h.01"></path>
+            <path d="M4 18h.01"></path>
           </svg>
 
           Einkauf starten
+
         </a>
 
+
         <a
-          class="secondary-button"
+          class="hero-secondary"
           routerLink="/main/recipe-list"
         >
-          Rezepte entdecken
+
+          Rezepte ansehen
 
           <svg viewBox="0 0 24 24">
             <path d="m9 18 6-6-6-6"></path>
           </svg>
+
         </a>
+
+      </div>
+
+
+      <div class="hero-benefits">
+
+        <div class="hero-benefit">
+
+          <span>
+            ✓
+          </span>
+
+          Kostenlos starten
+
+        </div>
+
+
+        <div class="hero-benefit">
+
+          <span>
+            ✓
+          </span>
+
+          Einfach & schnell
+
+        </div>
 
       </div>
 
     </div>
 
 
-    <!-- HERO VISUAL -->
+
+    <!-- RIGHT / APP PREVIEW -->
 
     <div class="hero-visual">
 
-      <div class="hero-glow"></div>
+      <div class="visual-background"></div>
 
 
-      <div class="shopping-preview">
+      <img
+        class="basket-image"
+        src="assets/images/home/home-basket.png"
+        alt=""
+      >
 
-        <div class="preview-header">
+
+      <div class="shopping-card">
+
+        <div class="shopping-card-header">
 
           <div>
-            <span class="preview-label">
+
+            <span class="small-label">
               Einkaufsliste
             </span>
 
             <strong>
               Wocheneinkauf
             </strong>
+
           </div>
 
-          <span class="preview-count">
-            4 Produkte
-          </span>
+
+          <button
+            type="button"
+            aria-label="Produkt hinzufügen"
+          >
+            +
+          </button>
 
         </div>
 
 
-        <div class="preview-progress">
-          <span></span>
+        <div class="progress">
+
+          <div class="progress-info">
+
+            <span>
+              1 von 4 erledigt
+            </span>
+
+            <span>
+              25 %
+            </span>
+
+          </div>
+
+          <div class="progress-bar">
+            <span></span>
+          </div>
+
         </div>
 
 
-        <div class="preview-products">
+        <div class="shopping-products">
 
-          <div class="preview-product checked">
+          <div class="shopping-product done">
 
-            <span class="check">
+            <span class="product-check">
               ✓
             </span>
 
@@ -112,9 +189,9 @@
           </div>
 
 
-          <div class="preview-product">
+          <div class="shopping-product">
 
-            <span class="check"></span>
+            <span class="product-check"></span>
 
             <div>
               <strong>
@@ -129,9 +206,9 @@
           </div>
 
 
-          <div class="preview-product">
+          <div class="shopping-product">
 
-            <span class="check"></span>
+            <span class="product-check"></span>
 
             <div>
               <strong>
@@ -145,18 +222,39 @@
 
           </div>
 
+
+          <div class="shopping-product">
+
+            <span class="product-check"></span>
+
+            <div>
+              <strong>
+                Parmesan
+              </strong>
+
+              <small>
+                200 g
+              </small>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
 
-      <div class="quick-add-card">
 
-        <span class="quick-add-icon">
+      <!-- FLOATING PRODUCT -->
+
+      <div class="floating-add">
+
+        <span class="floating-icon">
           +
         </span>
 
         <div>
+
           <small>
             Schnell hinzufügen
           </small>
@@ -164,16 +262,46 @@
           <strong>
             Produkte
           </strong>
+
         </div>
 
       </div>
 
 
-      <img
-        class="basket-image"
-        src="assets/images/home/home-basket.png"
-        alt="Einkaufskorb mit Lebensmitteln"
-      >
+
+      <!-- FLOATING RECIPE -->
+
+      <div class="floating-recipe">
+
+        <span class="floating-recipe-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"
+            ></path>
+
+            <path
+              d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5Z"
+            ></path>
+
+          </svg>
+
+        </span>
+
+        <div>
+
+          <small>
+            Aus Rezept
+          </small>
+
+          <strong>
+            Zutaten übernehmen
+          </strong>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -182,141 +310,140 @@
 
 
   <!-- =====================================
-       INTRO
+       QUICK NAVIGATION
   ====================================== -->
 
-  <section class="intro-section">
+  <section class="quick-section">
 
-    <span class="section-kicker">
-      Alles an einem Ort
-    </span>
+    <div class="section-heading">
 
-    <h2>
-      Von der Idee bis zum Einkauf.
-    </h2>
+      <div>
 
-    <p>
-      bazkit verbindet deine Rezepte und Listen,
-      damit weniger geplant und mehr gekocht wird.
-    </p>
-
-  </section>
-
-
-
-  <!-- =====================================
-       FEATURES
-  ====================================== -->
-
-  <section class="features">
-
-
-    <!-- EINKAUF -->
-
-    <a
-      class="feature-card shopping-feature"
-      routerLink="/main/shopping-list"
-    >
-
-      <div class="feature-top">
-
-        <span class="feature-icon">
-
-          <svg viewBox="0 0 24 24">
-            <path d="M9 6h11"></path>
-            <path d="M9 12h11"></path>
-            <path d="M9 18h11"></path>
-            <path d="M5 6h.01"></path>
-            <path d="M5 12h.01"></path>
-            <path d="M5 18h.01"></path>
-          </svg>
-
+        <span class="section-label">
+          Alles an einem Ort
         </span>
 
-        <span class="feature-arrow">
+        <h2>
+          Was möchtest du machen?
+        </h2>
+
+      </div>
+
+      <p>
+        Mit bazkit wird aus Planung
+        ganz schnell ein fertiger Einkauf.
+      </p>
+
+    </div>
+
+
+
+    <div class="quick-grid">
+
+
+      <!-- SHOPPING -->
+
+      <a
+        class="quick-card"
+        routerLink="/main/shopping-list"
+      >
+
+        <div class="quick-card-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M8 6h12"></path>
+            <path d="M8 12h12"></path>
+            <path d="M8 18h12"></path>
+
+            <path d="M4 6h.01"></path>
+            <path d="M4 12h.01"></path>
+            <path d="M4 18h.01"></path>
+
+          </svg>
+
+        </div>
+
+
+        <div class="quick-card-content">
+
+          <h3>
+            Einkauf planen
+          </h3>
+
+          <p>
+            Produkte sammeln und beim
+            Einkaufen einfach abhaken.
+          </p>
+
+        </div>
+
+
+        <span class="quick-arrow">
           →
         </span>
 
-      </div>
-
-      <div class="feature-content">
-
-        <span class="feature-number">
-          01
-        </span>
-
-        <h3>
-          Einkauf planen
-        </h3>
-
-        <p>
-          Alles, was du brauchst,
-          übersichtlich in einer Liste.
-        </p>
-
-      </div>
-
-    </a>
+      </a>
 
 
 
-    <!-- REZEPTE -->
+      <!-- RECIPE -->
 
-    <a
-      class="feature-card recipe-feature"
-      routerLink="/main/recipe-list"
-    >
+      <a
+        class="quick-card"
+        routerLink="/main/recipe-list"
+      >
 
-      <div class="feature-top">
-
-        <span class="feature-icon">
+        <div class="quick-card-icon">
 
           <svg viewBox="0 0 24 24">
-            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"></path>
-            <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5Z"></path>
+
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"
+            ></path>
+
+            <path
+              d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5Z"
+            ></path>
+
           </svg>
 
-        </span>
+        </div>
 
-        <span class="feature-arrow">
+
+        <div class="quick-card-content">
+
+          <h3>
+            Rezepte entdecken
+          </h3>
+
+          <p>
+            Eigene Rezepte speichern
+            oder neue Ideen finden.
+          </p>
+
+        </div>
+
+
+        <span class="quick-arrow">
           →
         </span>
 
-      </div>
-
-      <div class="feature-content">
-
-        <span class="feature-number">
-          02
-        </span>
-
-        <h3>
-          Rezepte entdecken
-        </h3>
-
-        <p>
-          Eigene Rezepte speichern oder
-          neue Ideen mit KI erstellen.
-        </p>
-
-      </div>
-
-    </a>
+      </a>
 
 
 
-    <!-- LISTEN -->
+      <!-- LISTS -->
 
-    <a
-      class="feature-card lists-feature"
-      routerLink="/main/saved-list"
-    >
+      <a
+        class="quick-card"
+        routerLink="/main/saved-list"
+      >
 
-      <div class="feature-top">
-
-        <span class="feature-icon">
+        <div class="quick-card-icon">
 
           <svg viewBox="0 0 24 24">
+
             <rect
               x="5"
               y="4"
@@ -327,161 +454,36 @@
 
             <path d="M9 2v4"></path>
             <path d="M15 2v4"></path>
+
             <path d="m8 11 1.5 1.5L12 10"></path>
             <path d="M14 11h2"></path>
+
             <path d="m8 16 1.5 1.5L12 15"></path>
             <path d="M14 16h2"></path>
+
           </svg>
 
-        </span>
+        </div>
 
-        <span class="feature-arrow">
+
+        <div class="quick-card-content">
+
+          <h3>
+            Listen vorbereiten
+          </h3>
+
+          <p>
+            Häufige Einkäufe speichern
+            und jederzeit wiederverwenden.
+          </p>
+
+        </div>
+
+
+        <span class="quick-arrow">
           →
         </span>
 
-      </div>
-
-      <div class="feature-content">
-
-        <span class="feature-number">
-          03
-        </span>
-
-        <h3>
-          Listen wiederverwenden
-        </h3>
-
-        <p>
-          Häufige Einkäufe speichern
-          und jederzeit erneut verwenden.
-        </p>
-
-      </div>
-
-    </a>
-
-  </section>
-
-
-
-  <!-- =====================================
-       RECIPE SHOWCASE
-  ====================================== -->
-
-  <section class="recipe-showcase">
-
-    <div class="recipe-image-area">
-
-      <div class="recipe-decoration decoration-one">
-      </div>
-
-      <div class="recipe-decoration decoration-two">
-      </div>
-
-      <img
-        src="assets/images/home/home-food.png"
-        alt="Frisches Gericht"
-      >
-
-    </div>
-
-
-    <div class="recipe-showcase-content">
-
-      <span class="section-kicker">
-        Rezepte & Einkauf verbinden
-      </span>
-
-      <h2>
-        Gefunden, gekocht,
-        <span>
-          eingekauft.
-        </span>
-      </h2>
-
-      <p>
-        Du hast ein Rezept gefunden?
-        Übernimm die Zutaten direkt in deine
-        Einkaufsliste.
-      </p>
-
-
-      <div class="recipe-flow">
-
-        <div class="flow-item">
-
-          <span>
-            1
-          </span>
-
-          <div>
-            <strong>
-              Rezept auswählen
-            </strong>
-
-            <small>
-              Eigenes oder gespeichertes Rezept
-            </small>
-          </div>
-
-        </div>
-
-
-        <div class="flow-line"></div>
-
-
-        <div class="flow-item">
-
-          <span>
-            2
-          </span>
-
-          <div>
-            <strong>
-              Zutaten übernehmen
-            </strong>
-
-            <small>
-              Mit einem Klick
-            </small>
-          </div>
-
-        </div>
-
-
-        <div class="flow-line"></div>
-
-
-        <div class="flow-item">
-
-          <span>
-            ✓
-          </span>
-
-          <div>
-            <strong>
-              Einkauf fertig
-            </strong>
-
-            <small>
-              Alles steht auf deiner Liste
-            </small>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <a
-        class="text-link"
-        routerLink="/main/recipe-list"
-      >
-        Rezepte ansehen
-
-        <span>
-          →
-        </span>
       </a>
 
     </div>
@@ -491,41 +493,203 @@
 
 
   <!-- =====================================
-       AI
+       RECIPE FEATURE
   ====================================== -->
 
-  <section class="ai-banner">
+  <section class="recipe-section">
 
-    <div class="ai-icon">
+    <div class="recipe-image-wrapper">
+
+      <div class="food-background"></div>
+
+      <img
+        src="assets/images/home/home-food.png"
+        alt="Frisches Gericht"
+      >
+
+
+      <div class="recipe-overlay-card">
+
+        <span class="recipe-overlay-icon">
+          ✓
+        </span>
+
+        <div>
+
+          <small>
+            Zur Einkaufsliste
+          </small>
+
+          <strong>
+            6 Zutaten hinzugefügt
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="recipe-content">
+
+      <span class="section-label">
+        Rezepte & Einkauf
+      </span>
+
+
+      <h2>
+        Ein Rezept.
+        <span>
+          Ein Klick.
+        </span>
+        Fertig geplant.
+      </h2>
+
+
+      <p>
+        Gefällt dir ein Rezept, kannst du seine
+        Zutaten direkt in deine Einkaufsliste übernehmen.
+      </p>
+
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <span class="step-number">
+            1
+          </span>
+
+          <div>
+
+            <strong>
+              Rezept auswählen
+            </strong>
+
+            <small>
+              Finde etwas, auf das du Lust hast.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <span class="step-line"></span>
+
+
+        <div class="step">
+
+          <span class="step-number">
+            2
+          </span>
+
+          <div>
+
+            <strong>
+              Zutaten übernehmen
+            </strong>
+
+            <small>
+              Mit einem Klick auf deine Liste.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <span class="step-line"></span>
+
+
+        <div class="step">
+
+          <span class="step-number completed">
+            ✓
+          </span>
+
+          <div>
+
+            <strong>
+              Einkaufen
+            </strong>
+
+            <small>
+              Deine Liste ist bereit.
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <a
+        class="recipe-link"
+        routerLink="/main/recipe-list"
+      >
+
+        Rezepte entdecken
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================
+       AI SECTION
+  ====================================== -->
+
+  <section class="ai-section">
+
+    <div class="ai-glow"></div>
+
+
+    <div class="ai-symbol">
       ✦
     </div>
 
-    <div class="ai-content">
+
+    <div class="ai-text">
 
       <span>
         bazkit AI
       </span>
 
       <h2>
-        Keine Idee, was du kochen sollst?
+        Was soll ich heute kochen?
       </h2>
 
       <p>
-        Lass dir passend zu deinen Wünschen
-        ein Rezept erstellen.
+        Sag bazkit, worauf du Lust hast.
+        Den Rest übernimmt die KI.
       </p>
 
     </div>
 
+
     <a
+      class="ai-action"
       routerLink="/main/recipe-list/ai"
-      class="ai-button"
     >
-      Rezept generieren
+
+      Rezept erstellen
 
       <span>
         →
       </span>
+
     </a>
 
   </section>
