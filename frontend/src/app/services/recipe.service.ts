@@ -23,6 +23,10 @@ export interface RecipeIngredient {
 }
 
 
+export type RecipeNumberValue =
+  number | string | null;
+
+
 export interface Recipe {
   id: number;
 
@@ -40,6 +44,27 @@ export interface Recipe {
   instructions: string;
 
   notes: string;
+
+  calories:
+    RecipeNumberValue;
+
+  protein:
+    RecipeNumberValue;
+
+  carbohydrates:
+    RecipeNumberValue;
+
+  fat:
+    RecipeNumberValue;
+
+  fiber:
+    RecipeNumberValue;
+
+  estimated_price:
+    RecipeNumberValue;
+
+  estimated_price_per_serving:
+    RecipeNumberValue;
 
   created_at: string;
 
@@ -65,6 +90,24 @@ export interface RecipePayload {
   instructions: string;
 
   notes: string;
+
+  calories:
+    number | null;
+
+  protein:
+    number | null;
+
+  carbohydrates:
+    number | null;
+
+  fat:
+    number | null;
+
+  fiber:
+    number | null;
+
+  estimated_price:
+    number | null;
 
   ingredients:
     RecipeIngredient[];
@@ -115,13 +158,39 @@ export interface GeneratedRecipe {
 export class RecipeService {
 
   private apiUrl =
-    'http://178.104.47.231:8000/recipes/';
+    this.getApiUrl();
 
 
   constructor(
     private http:
       HttpClient
   ) {}
+
+
+  private getApiUrl():
+    string {
+
+    const hostname =
+      window.location.hostname;
+
+    const isLocal =
+      hostname === 'localhost'
+      ||
+      hostname === '127.0.0.1';
+
+
+    if (isLocal) {
+
+      return (
+        'http://localhost:8000/recipes/'
+      );
+    }
+
+
+    return (
+      'http://178.104.47.231:8000/recipes/'
+    );
+  }
 
 
   getRecipes():
@@ -144,7 +213,8 @@ export class RecipeService {
 
 
   createRecipe(
-    payload: RecipePayload
+    payload:
+      RecipePayload
   ): Observable<Recipe> {
 
     return this.http.post<Recipe>(
@@ -156,7 +226,8 @@ export class RecipeService {
 
   updateRecipe(
     id: number,
-    payload: RecipePayload
+    payload:
+      RecipePayload
   ): Observable<Recipe> {
 
     return this.http.put<Recipe>(

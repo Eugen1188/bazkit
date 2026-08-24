@@ -1,10 +1,19 @@
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule
+} from '@angular/common';
+
 import {
   Component,
   OnDestroy
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+
+import {
+  FormsModule
+} from '@angular/forms';
+
+import {
+  Router
+} from '@angular/router';
 
 import {
   Subject,
@@ -38,9 +47,11 @@ interface IngredientSearch {
 
 
 @Component({
-  selector: 'app-create-recipe',
+  selector:
+    'app-create-recipe',
 
-  standalone: true,
+  standalone:
+    true,
 
   imports: [
     CommonModule,
@@ -56,22 +67,56 @@ interface IngredientSearch {
 export class CreateRecipeComponent
 implements OnDestroy {
 
-  recipeName = '';
+  recipeName =
+    '';
 
-  description = '';
+  description =
+    '';
 
-  servings = 2;
+  servings =
+    2;
 
   preparationTime:
-    number | null = 30;
+    number | null =
+      30;
 
-  category = 'dinner';
+  category =
+    'dinner';
 
-  notes = '';
+  notes =
+    '';
 
-  isSaving = false;
 
-  errorMessage = '';
+  calories:
+    number | null =
+      null;
+
+  protein:
+    number | null =
+      null;
+
+  carbohydrates:
+    number | null =
+      null;
+
+  fat:
+    number | null =
+      null;
+
+  fiber:
+    number | null =
+      null;
+
+  estimatedPrice:
+    number | null =
+      null;
+
+
+  isSaving =
+    false;
+
+  errorMessage =
+    '';
 
 
   ingredients:
@@ -92,15 +137,12 @@ implements OnDestroy {
     ];
 
 
-  /* =========================
-     ZUTAT AUTOCOMPLETE
-  ========================= */
-
   ingredientSuggestions:
     ProductSuggestion[] = [];
 
   activeIngredientIndex:
-    number | null = null;
+    number | null =
+      null;
 
   isIngredientSearching =
     false;
@@ -187,7 +229,8 @@ implements OnDestroy {
               current
             ) =>
               previous.index ===
-                current.index &&
+                current.index
+              &&
               previous.query ===
                 current.query
           ),
@@ -252,16 +295,13 @@ implements OnDestroy {
   }
 
 
-  ngOnDestroy(): void {
+  ngOnDestroy():
+    void {
 
     this.ingredientSearchSubscription
       .unsubscribe();
   }
 
-
-  /* =========================
-     AUTOCOMPLETE
-  ========================= */
 
   onIngredientNameChange(
     index: number,
@@ -346,6 +386,7 @@ implements OnDestroy {
 
       this.ingredientSearchSubject.next({
         index,
+
         query:
           ingredient.name.trim()
       });
@@ -353,7 +394,8 @@ implements OnDestroy {
   }
 
 
-  closeIngredientSuggestions(): void {
+  closeIngredientSuggestions():
+    void {
 
     window.setTimeout(
       () => {
@@ -389,7 +431,8 @@ implements OnDestroy {
 
 
     if (
-      product.default_unit &&
+      product.default_unit
+      &&
       this.units.includes(
         product.default_unit
       )
@@ -400,25 +443,12 @@ implements OnDestroy {
     }
 
 
-    this.ingredientSuggestions =
-      [];
-
-    this.isIngredientSuggestionsOpen =
-      false;
-
-    this.activeIngredientIndex =
-      null;
-
-    this.isIngredientSearching =
-      false;
+    this.closeIngredientAutocompleteImmediately();
   }
 
 
-  /* =========================
-     INGREDIENTS
-  ========================= */
-
-  addIngredient(): void {
+  addIngredient():
+    void {
 
     if (
       !this.canAddIngredient()
@@ -434,18 +464,12 @@ implements OnDestroy {
     });
 
 
-    this.ingredientSuggestions =
-      [];
-
-    this.isIngredientSuggestionsOpen =
-      false;
-
-    this.activeIngredientIndex =
-      null;
+    this.closeIngredientAutocompleteImmediately();
   }
 
 
-  canAddIngredient(): boolean {
+  canAddIngredient():
+    boolean {
 
     if (
       this.ingredients.length === 0
@@ -476,12 +500,9 @@ implements OnDestroy {
       this.ingredients[index];
 
 
-    if (!ingredient) {
-      return false;
-    }
-
-
-    return (
+    return !!(
+      ingredient
+      &&
       ingredient.name
         .trim()
         .length > 0
@@ -499,14 +520,7 @@ implements OnDestroy {
     );
 
 
-    this.ingredientSuggestions =
-      [];
-
-    this.isIngredientSuggestionsOpen =
-      false;
-
-    this.activeIngredientIndex =
-      null;
+    this.closeIngredientAutocompleteImmediately();
 
 
     if (
@@ -533,20 +547,13 @@ implements OnDestroy {
     }
 
 
-    const current =
-      this.ingredients[index];
-
-
-    this.ingredients[index] =
-      this.ingredients[
-        index - 1
-      ];
-
-
-    this.ingredients[
-      index - 1
-    ] =
-      current;
+    [
+      this.ingredients[index - 1],
+      this.ingredients[index]
+    ] = [
+      this.ingredients[index],
+      this.ingredients[index - 1]
+    ];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -565,20 +572,13 @@ implements OnDestroy {
     }
 
 
-    const current =
-      this.ingredients[index];
-
-
-    this.ingredients[index] =
-      this.ingredients[
-        index + 1
-      ];
-
-
-    this.ingredients[
-      index + 1
-    ] =
-      current;
+    [
+      this.ingredients[index + 1],
+      this.ingredients[index]
+    ] = [
+      this.ingredients[index],
+      this.ingredients[index + 1]
+    ];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -602,11 +602,8 @@ implements OnDestroy {
   }
 
 
-  /* =========================
-     PREPARATION
-  ========================= */
-
-  addPreparationStep(): void {
+  addPreparationStep():
+    void {
 
     if (
       !this.canAddPreparationStep()
@@ -621,7 +618,8 @@ implements OnDestroy {
   }
 
 
-  canAddPreparationStep(): boolean {
+  canAddPreparationStep():
+    boolean {
 
     if (
       this.preparationSteps.length === 0
@@ -652,12 +650,9 @@ implements OnDestroy {
       this.preparationSteps[index];
 
 
-    if (!step) {
-      return false;
-    }
-
-
-    return (
+    return !!(
+      step
+      &&
       step.text
         .trim()
         .length > 0
@@ -697,20 +692,13 @@ implements OnDestroy {
     }
 
 
-    const current =
-      this.preparationSteps[index];
-
-
-    this.preparationSteps[index] =
-      this.preparationSteps[
-        index - 1
-      ];
-
-
-    this.preparationSteps[
-      index - 1
-    ] =
-      current;
+    [
+      this.preparationSteps[index - 1],
+      this.preparationSteps[index]
+    ] = [
+      this.preparationSteps[index],
+      this.preparationSteps[index - 1]
+    ];
   }
 
 
@@ -726,28 +714,18 @@ implements OnDestroy {
     }
 
 
-    const current =
-      this.preparationSteps[index];
-
-
-    this.preparationSteps[index] =
-      this.preparationSteps[
-        index + 1
-      ];
-
-
-    this.preparationSteps[
-      index + 1
-    ] =
-      current;
+    [
+      this.preparationSteps[index + 1],
+      this.preparationSteps[index]
+    ] = [
+      this.preparationSteps[index],
+      this.preparationSteps[index + 1]
+    ];
   }
 
 
-  /* =========================
-     SAVE
-  ========================= */
-
-  saveRecipe(): void {
+  saveRecipe():
+    void {
 
     this.errorMessage =
       '';
@@ -759,6 +737,30 @@ implements OnDestroy {
 
       this.errorMessage =
         'Bitte gib einen Rezeptnamen ein.';
+
+      return;
+    }
+
+
+    if (
+      !this.servings
+      ||
+      this.servings < 1
+    ) {
+
+      this.errorMessage =
+        'Bitte gib mindestens eine Portion an.';
+
+      return;
+    }
+
+
+    if (
+      this.hasNegativeNutritionValue()
+    ) {
+
+      this.errorMessage =
+        'Nährwerte und Preis dürfen nicht negativ sein.';
 
       return;
     }
@@ -855,6 +857,24 @@ implements OnDestroy {
       notes:
         this.notes.trim(),
 
+      calories:
+        this.calories,
+
+      protein:
+        this.protein,
+
+      carbohydrates:
+        this.carbohydrates,
+
+      fat:
+        this.fat,
+
+      fiber:
+        this.fiber,
+
+      estimated_price:
+        this.estimatedPrice,
+
       ingredients:
         validIngredients
     };
@@ -904,17 +924,36 @@ implements OnDestroy {
   }
 
 
-  cancel(): void {
+  private hasNegativeNutritionValue():
+    boolean {
+
+    const values = [
+      this.calories,
+      this.protein,
+      this.carbohydrates,
+      this.fat,
+      this.fiber,
+      this.estimatedPrice
+    ];
+
+
+    return values.some(
+      value =>
+        value !== null
+        &&
+        value < 0
+    );
+  }
+
+
+  cancel():
+    void {
 
     this.router.navigate([
       '/main/recipe-list'
     ]);
   }
 
-
-  /* =========================
-     GETTERS
-  ========================= */
 
   get ingredientCount():
     number {
@@ -953,7 +992,47 @@ implements OnDestroy {
           category.value ===
           this.category
       )?.label
-      ?? 'Sonstiges'
+      ??
+      'Sonstiges'
+    );
+  }
+
+
+  get estimatedPricePerServing():
+    number | null {
+
+    if (
+      this.estimatedPrice === null
+      ||
+      !this.servings
+      ||
+      this.servings <= 0
+    ) {
+      return null;
+    }
+
+
+    return (
+      this.estimatedPrice
+      /
+      this.servings
+    );
+  }
+
+
+  get hasNutritionData():
+    boolean {
+
+    return (
+      this.calories !== null
+      ||
+      this.protein !== null
+      ||
+      this.carbohydrates !== null
+      ||
+      this.fat !== null
+      ||
+      this.fiber !== null
     );
   }
 }

@@ -88,6 +88,10 @@
     <main class="recipe-form">
 
 
+      <!-- =========================
+           ALLGEMEINE INFORMATIONEN
+      ========================== -->
+
       <section class="form-card">
 
         <div class="card-heading">
@@ -213,6 +217,260 @@
       </section>
 
 
+      <!-- =========================
+           NÄHRWERTE & PREIS
+      ========================== -->
+
+      <section class="form-card nutrition-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Nährwerte & Preis
+            </h2>
+
+            <p>
+              Optional: Gib ungefähre Nährwerte
+              pro Portion und den Gesamtpreis des Rezepts an.
+            </p>
+
+          </div>
+
+          <span class="optional-badge">
+            Optional
+          </span>
+
+        </div>
+
+
+        <div class="nutrition-grid">
+
+          <div class="field nutrition-field">
+
+            <label for="calories">
+              Kalorien
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="calories"
+                type="number"
+                min="0"
+                step="1"
+                [(ngModel)]="calories"
+                placeholder="650"
+              />
+
+              <span>
+                kcal
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="protein">
+              Protein
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="protein"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="protein"
+                placeholder="42"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="carbohydrates">
+              Kohlenhydrate
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="carbohydrates"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="carbohydrates"
+                placeholder="68"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="fat">
+              Fett
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="fat"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="fat"
+                placeholder="18"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="fiber">
+              Ballaststoffe
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="fiber"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="fiber"
+                placeholder="7"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="price-section">
+
+          <div class="price-section-text">
+
+            <strong>
+              Geschätzte Kosten
+            </strong>
+
+            <p>
+              Trage den ungefähren Preis aller Zutaten
+              für das gesamte Rezept ein.
+            </p>
+
+          </div>
+
+
+          <div class="price-fields">
+
+            <div class="field">
+
+              <label for="estimatedPrice">
+                Gesamtpreis
+              </label>
+
+              <div class="input-with-suffix">
+
+                <input
+                  id="estimatedPrice"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  [(ngModel)]="estimatedPrice"
+                  placeholder="9.50"
+                />
+
+                <span>
+                  €
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="price-per-serving">
+
+              <small>
+                Pro Portion
+              </small>
+
+              <strong>
+                {{
+                  estimatedPricePerServing !== null
+                    ? (estimatedPricePerServing | number:'1.2-2')
+                    : '–'
+                }}
+                €
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ZUTATEN
+      ========================== -->
+
       <section class="form-card">
 
         <div class="card-heading">
@@ -290,105 +548,96 @@
 
           <div class="ingredient-autocomplete">
 
-  <input
-    class="ingredient-name"
-    type="text"
-    autocomplete="off"
-    [ngModel]="ingredient.name"
-    (ngModelChange)="
-      onIngredientNameChange(
-        i,
-        $event
-      )
-    "
-    (focus)="
-      openIngredientSuggestions(i)
-    "
-    (blur)="
-      closeIngredientSuggestions()
-    "
-    placeholder="z. B. Hähnchenbrust"
-  />
+            <input
+              class="ingredient-name"
+              type="text"
+              autocomplete="off"
+              [ngModel]="ingredient.name"
+              (ngModelChange)="onIngredientNameChange(i, $event)"
+              (focus)="openIngredientSuggestions(i)"
+              (blur)="closeIngredientSuggestions()"
+              placeholder="z. B. Hähnchenbrust"
+            />
 
 
-  <div
-    class="ingredient-suggestions"
-    *ngIf="
-      isIngredientSuggestionsOpen &&
-      activeIngredientIndex === i
-    "
-  >
+            <div
+              class="ingredient-suggestions"
+              *ngIf="
+                isIngredientSuggestionsOpen &&
+                activeIngredientIndex === i
+              "
+            >
 
-    <div
-      class="ingredient-suggestions-loading"
-      *ngIf="isIngredientSearching"
-    >
-      Produkte werden gesucht...
-    </div>
-
-
-    <button
-      class="ingredient-suggestion"
-      type="button"
-      *ngFor="
-        let product
-        of ingredientSuggestions
-      "
-      (mousedown)="
-        selectIngredientSuggestion(
-          i,
-          product
-        )
-      "
-    >
-
-      <span class="ingredient-suggestion-avatar">
-        {{
-          product.name
-            .charAt(0)
-            .toUpperCase()
-        }}
-      </span>
+              <div
+                class="ingredient-suggestions-loading"
+                *ngIf="isIngredientSearching"
+              >
+                Produkte werden gesucht...
+              </div>
 
 
-      <span class="ingredient-suggestion-content">
+              <button
+                class="ingredient-suggestion"
+                type="button"
+                *ngFor="
+                  let product
+                  of ingredientSuggestions
+                "
+                (mousedown)="
+                  selectIngredientSuggestion(
+                    i,
+                    product
+                  )
+                "
+              >
 
-        <strong>
-          {{ product.name }}
-        </strong>
-
-        <small
-          *ngIf="product.default_unit"
-        >
-          Standard:
-          {{ product.default_unit }}
-        </small>
-
-        <small
-          *ngIf="!product.default_unit"
-        >
-          Einheit selbst wählen
-        </small>
-
-      </span>
-
-    </button>
+                <span class="ingredient-suggestion-avatar">
+                  {{
+                    product.name
+                      .charAt(0)
+                      .toUpperCase()
+                  }}
+                </span>
 
 
-    <div
-      class="ingredient-no-suggestions"
-      *ngIf="
-        !isIngredientSearching &&
-        ingredientSuggestions.length === 0
-      "
-    >
-      Kein passendes Produkt gefunden.
-      Du kannst den Namen trotzdem verwenden.
-    </div>
+                <span class="ingredient-suggestion-content">
 
-  </div>
+                  <strong>
+                    {{ product.name }}
+                  </strong>
 
-</div>
+                  <small
+                    *ngIf="product.default_unit"
+                  >
+                    Standard:
+                    {{ product.default_unit }}
+                  </small>
+
+                  <small
+                    *ngIf="!product.default_unit"
+                  >
+                    Einheit selbst wählen
+                  </small>
+
+                </span>
+
+              </button>
+
+
+              <div
+                class="ingredient-no-suggestions"
+                *ngIf="
+                  !isIngredientSearching &&
+                  ingredientSuggestions.length === 0
+                "
+              >
+                Kein passendes Produkt gefunden.
+                Du kannst den Namen trotzdem verwenden.
+              </div>
+
+            </div>
+
+          </div>
 
 
           <input
@@ -450,6 +699,10 @@
 
       </section>
 
+
+      <!-- =========================
+           ZUBEREITUNG
+      ========================== -->
 
       <section class="form-card">
 
@@ -560,6 +813,10 @@
       </section>
 
 
+      <!-- =========================
+           NOTIZEN
+      ========================== -->
+
       <section class="form-card">
 
         <div class="card-heading">
@@ -610,19 +867,21 @@
           [disabled]="isSaving"
           (click)="saveRecipe()"
         >
-
           {{
             isSaving
               ? 'Wird gespeichert...'
               : 'Rezept speichern'
           }}
-
         </button>
 
       </div>
 
     </main>
 
+
+    <!-- =========================
+         VORSCHAU
+    ========================== -->
 
     <aside class="recipe-preview">
 
@@ -678,9 +937,7 @@
               <div>
 
                 <strong>
-                  {{
-                    preparationTime || '–'
-                  }}
+                  {{ preparationTime || '–' }}
                   Min.
                 </strong>
 
@@ -757,6 +1014,102 @@
 
           </div>
 
+
+          <div
+            class="preview-nutrition"
+            *ngIf="hasNutritionData"
+          >
+
+            <div class="preview-section-title">
+              Pro Portion
+            </div>
+
+
+            <div class="preview-nutrition-grid">
+
+              <div class="nutrition-main">
+
+                <strong>
+                  {{ calories ?? '–' }}
+                </strong>
+
+                <small>
+                  kcal
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ protein ?? '–' }} g
+                </strong>
+
+                <small>
+                  Protein
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ carbohydrates ?? '–' }} g
+                </strong>
+
+                <small>
+                  Kohlenhydrate
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ fat ?? '–' }} g
+                </strong>
+
+                <small>
+                  Fett
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="preview-price"
+            *ngIf="estimatedPrice !== null"
+          >
+
+            <div>
+
+              <small>
+                Geschätzter Preis
+              </small>
+
+              <strong>
+                {{
+                  estimatedPricePerServing
+                    | number:'1.2-2'
+                }}
+                € / Portion
+              </strong>
+
+            </div>
+
+            <span>
+              ca.
+            </span>
+
+          </div>
+
         </div>
 
       </div>
@@ -775,9 +1128,9 @@
           </strong>
 
           <p>
-            Du kannst dein Rezept später jederzeit
-            bearbeiten und Zutaten zur Einkaufsliste
-            hinzufügen.
+            Nährwerte und Preise sind optional.
+            Später können wir diese Werte aus den
+            Zutaten automatisch berechnen lassen.
           </p>
 
         </div>
