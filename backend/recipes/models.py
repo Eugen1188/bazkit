@@ -124,6 +124,13 @@ class Ingredients(models.Model):
         related_name="ingredients"
     )
 
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+
     name = models.CharField(
         max_length=100
     )
