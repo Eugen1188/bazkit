@@ -22,18 +22,26 @@ export interface ProductSuggestion {
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private readonly apiUrl = '/api/products';
+  private readonly apiUrl = this.getApiUrl();
 
   constructor(private readonly http: HttpClient) {}
+
+  private getApiUrl(): string {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return 'http://localhost:8000/products/';
+    }
+    return 'http://178.104.47.231:8000/products/';
+  }
 
   searchProducts(query: string): Observable<ProductSuggestion[]> {
     const q = query.trim();
     if (q.length < 2) return of([]);
     const params = new HttpParams().set('q', q);
-    const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}/search/`, { params })
+    const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params })
       .pipe(catchError(() => of([] as ProductSuggestion[])));
     const external$ = q.length >= 3
-      ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}/external-search/`, { params })
+      ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params })
           .pipe(catchError(() => of([] as ProductSuggestion[])))
       : of([] as ProductSuggestion[]);
 
@@ -52,8 +60,25 @@ export class ProductService {
 
   persistExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {
     if (product.id !== null) return of(product);
-    return this.http.post<ProductSuggestion>(`${this.apiUrl}/save-external/`, {
+    return this.http.post<ProductSuggestion>(`${this.apiUrl}save-external/`, {
       source: product.source,
+      external_id: product.external_id,
+    });
+  }
+
+  searchExternalProducts(query: string): Observable<ProductSuggestion[]> {
+    const q = query.trim();
+    if (q.length < 3) return of([]);
+    const params = new HttpParams().set('q', q);
+    return this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params }).pipe(
+      map(products => products.map(product => ({ ...product, source: 'external' }))),
+    );
+  }
+
+  saveExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {
+    if (product.id !== null) return of(product);
+    return this.http.post<ProductSuggestion>(`${this.apiUrl}save-external/`, {
+      source: 'open_food_facts',
       external_id: product.external_id,
     });
   }

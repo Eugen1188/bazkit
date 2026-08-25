@@ -68,3 +68,28 @@ class RecipeSerializer(serializers.ModelSerializer):
             instance.ingredients.all().delete()
             Ingredients.objects.bulk_create([Ingredients(recipe=instance, **item) for item in ingredients])
         return instance
+
+
+class GenerateRecipeSerializer(serializers.Serializer):
+    idea = serializers.CharField(required=False, allow_blank=True, max_length=500)
+    available_ingredients = serializers.CharField(required=False, allow_blank=True, max_length=1000)
+    avoid_ingredients = serializers.CharField(required=False, allow_blank=True, max_length=500)
+    diet = serializers.ChoiceField(
+        choices=["none", "vegetarian", "vegan", "high_protein", "low_carb"],
+        default="none",
+    )
+    servings = serializers.IntegerField(min_value=1, max_value=20, default=2)
+    max_time = serializers.IntegerField(min_value=5, max_value=240, default=30)
+    category = serializers.ChoiceField(
+        choices=["breakfast", "lunch", "dinner", "snack", "dessert", "other"],
+        default="dinner",
+    )
+
+    def validate(self, attrs):
+        idea = attrs.get("idea", "").strip()
+        available = attrs.get("available_ingredients", "").strip()
+        if not idea and not available:
+            raise serializers.ValidationError({
+                "detail": "Gib entweder eine Rezeptidee oder vorhandene Zutaten an."
+            })
+        return attrs
