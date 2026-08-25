@@ -14,6 +14,9 @@ import {
 export interface RecipeIngredient {
   id?: number;
 
+  product:
+    number | null;
+
   name: string;
 
   quantity:

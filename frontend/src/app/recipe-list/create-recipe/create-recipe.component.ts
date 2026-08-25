@@ -122,6 +122,7 @@ implements OnDestroy {
   ingredients:
     RecipeIngredient[] = [
       {
+        product: null,
         name: '',
         quantity: 1,
         unit: 'Stück'
@@ -320,6 +321,13 @@ implements OnDestroy {
     ingredient.name =
       value;
 
+    /*
+     * Sobald der Benutzer den Namen manuell verändert,
+     * ist eine vorherige Produktauswahl nicht mehr gültig.
+     */
+    ingredient.product =
+      null;
+
 
     const query =
       value.trim();
@@ -426,6 +434,13 @@ implements OnDestroy {
     }
 
 
+    /*
+     * Wir übernehmen nicht nur den Namen,
+     * sondern auch die echte Product-ID.
+     */
+    ingredient.product =
+      product.id;
+
     ingredient.name =
       product.name;
 
@@ -458,6 +473,7 @@ implements OnDestroy {
 
 
     this.ingredients.push({
+      product: null,
       name: '',
       quantity: 1,
       unit: 'Stück'
@@ -528,6 +544,7 @@ implements OnDestroy {
     ) {
 
       this.ingredients.push({
+        product: null,
         name: '',
         quantity: 1,
         unit: 'Stück'
@@ -766,16 +783,56 @@ implements OnDestroy {
     }
 
 
-    const validIngredients =
+    const enteredIngredients =
       this.ingredients
         .filter(
           ingredient =>
             ingredient.name
               .trim()
               .length > 0
-        )
-        .map(
+        );
+
+
+    if (
+      enteredIngredients.length === 0
+    ) {
+
+      this.errorMessage =
+        'Bitte füge mindestens eine Zutat hinzu.';
+
+      return;
+    }
+
+
+    /*
+     * Ein eingegebener Text reicht nicht mehr.
+     * Die Zutat muss aus der Produktauswahl stammen.
+     */
+    const unselectedIngredient =
+      enteredIngredients.find(
+        ingredient =>
+          ingredient.product === null
+      );
+
+
+    if (
+      unselectedIngredient
+    ) {
+
+      this.errorMessage =
+        `Bitte wähle "${unselectedIngredient.name.trim()}" aus den Produktvorschlägen aus.`;
+
+      return;
+    }
+
+
+    const validIngredients:
+      RecipeIngredient[] =
+        enteredIngredients.map(
           ingredient => ({
+            product:
+              ingredient.product,
+
             name:
               ingredient.name.trim(),
 
@@ -786,17 +843,6 @@ implements OnDestroy {
               ingredient.unit
           })
         );
-
-
-    if (
-      validIngredients.length === 0
-    ) {
-
-      this.errorMessage =
-        'Bitte füge mindestens eine Zutat hinzu.';
-
-      return;
-    }
 
 
     const validSteps =
