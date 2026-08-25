@@ -8,6 +8,7 @@ from urllib3.util.retry import Retry
 from django.core.cache import cache
 from django.db import transaction
 from django.db.models import Case, IntegerField, Q, Value, When
+from django.db.models.functions import Length
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -95,10 +96,17 @@ class ProductSearchAPIView(APIView):
         products = Product.objects.filter(
             Q(source="bls") | Q(source="open_food_facts"),
         ).filter(
-            Q(name__istartswith=query) | Q(name__icontains=f" {query}")
+            name__icontains=query
         ).annotate(
-            relevance=Case(When(name__istartswith=query, then=Value(0)), default=Value(1), output_field=IntegerField())
-        ).order_by("relevance", "name")[:15]
+            relevance=Case(
+                When(name__iexact=query, then=Value(0)),
+                When(name__iendswith=query, then=Value(1)),
+                When(name__istartswith=query, then=Value(2)),
+                default=Value(3),
+                output_field=IntegerField(),
+            ),
+            name_length=Length("name"),
+        ).order_by("relevance", "name_length", "name")[:15]
         data = ProductSerializer(products, many=True).data
         for item in data:
             item["name"] = clean_name(item["name"])
