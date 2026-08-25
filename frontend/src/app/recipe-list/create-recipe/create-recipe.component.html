@@ -1,101 +1,63 @@
-<div class="create-recipe-page">
-  <header class="page-header">
-    <div class="header-left">
-      <button class="back-button" type="button" aria-label="Zurück zu den Rezepten" (click)="cancel()">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
-      </button>
-      <div><h1>Neues Rezept</h1><p>Erstelle dein Rezept Schritt für Schritt.</p></div>
+<main class="recipe-editor">
+  <header><h1>Rezept erstellen</h1><p>Produkt, Menge und Einheit werden getrennt gespeichert.</p></header>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <section class="card grid">
+    <label class="wide">Rezeptname<input [(ngModel)]="recipeName" name="recipeName" maxlength="100" required></label>
+    <label class="wide">Beschreibung<textarea [(ngModel)]="description" name="description" rows="3"></textarea></label>
+    <label>Portionen<input type="number" [(ngModel)]="servings" name="servings" min="1"></label>
+    <label>Zeit (Min.)<input type="number" [(ngModel)]="preparationTime" name="preparationTime" min="0"></label>
+    <label>Kategorie<select [(ngModel)]="category" name="category"><option *ngFor="let item of categories" [value]="item.value">{{ item.label }}</option></select></label>
+  </section>
+
+  <section class="card">
+    <h2>Zutaten</h2>
+    <div class="ingredient" *ngFor="let ingredient of ingredients; let i = index">
+      <div class="product-field">
+        <label [for]="'ingredient-' + i">Produkt</label>
+        <input [id]="'ingredient-' + i" [ngModel]="ingredient.name" (ngModelChange)="onIngredientNameChange(i, $event)"
+               (focus)="openIngredientSuggestions(i)" (blur)="closeIngredientSuggestions()" autocomplete="off" maxlength="100">
+        <small *ngIf="ingredient.product !== null" class="selected">✓ Produkt ausgewählt</small>
+        <div class="suggestions" *ngIf="activeIngredientIndex === i && isIngredientSuggestionsOpen">
+          <div class="status" *ngIf="isIngredientSearching">Suche …</div>
+          <button type="button" *ngFor="let product of ingredientSuggestions" (mousedown)="$event.preventDefault()"
+                  (click)="selectIngredientSuggestion(i, product)" [disabled]="selectingIngredientIndex !== null">
+            <span>{{ product.name }}<small *ngIf="product.brand"> · {{ product.brand }}</small></span>
+            <em>{{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Datenbank' }}</em>
+          </button>
+          <div class="status" *ngIf="!isIngredientSearching && !ingredientSuggestions.length">Keine passenden Produkte gefunden.</div>
+        </div>
+      </div>
+      <label>Menge<input type="number" [(ngModel)]="ingredient.quantity" [name]="'quantity-' + i" min="0" step="0.01"></label>
+      <label>Einheit<select [(ngModel)]="ingredient.unit" [name]="'unit-' + i"><option *ngFor="let unit of units" [value]="unit">{{ unit }}</option></select></label>
+      <div class="row-actions">
+        <button type="button" (click)="moveIngredientUp(i)" [disabled]="i === 0" aria-label="Nach oben">↑</button>
+        <button type="button" (click)="moveIngredientDown(i)" [disabled]="i === ingredients.length - 1" aria-label="Nach unten">↓</button>
+        <button type="button" class="danger" (click)="removeIngredient(i)">Entfernen</button>
+      </div>
     </div>
-    <div class="header-actions">
-      <button class="cancel-button" type="button" (click)="cancel()">Abbrechen</button>
-      <button class="save-button" type="button" [disabled]="isSaving || selectingIngredientIndex !== null" (click)="saveRecipe()">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"></path><path d="M8 4v6h8V4"></path></svg>
-        {{ isSaving ? 'Wird gespeichert...' : 'Rezept speichern' }}
-      </button>
+    <button type="button" (click)="addIngredient()" [disabled]="!canAddIngredient()">+ Zutat</button>
+  </section>
+
+  <section class="card">
+    <h2>Zubereitung</h2>
+    <div class="step" *ngFor="let step of preparationSteps; let i = index">
+      <span>{{ i + 1 }}.</span><textarea [(ngModel)]="step.text" [name]="'step-' + i" rows="2"></textarea>
+      <div class="row-actions"><button type="button" (click)="moveStepUp(i)" [disabled]="i === 0">↑</button><button type="button" (click)="moveStepDown(i)" [disabled]="i === preparationSteps.length - 1">↓</button><button type="button" class="danger" (click)="removePreparationStep(i)">Entfernen</button></div>
     </div>
-  </header>
+    <button type="button" (click)="addPreparationStep()" [disabled]="!canAddPreparationStep()">+ Schritt</button>
+  </section>
 
-  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <section class="card grid">
+    <h2 class="wide">Optionale Angaben pro Portion</h2>
+    <label>Kalorien<input type="number" [(ngModel)]="calories" name="calories" min="0" step="0.01"></label>
+    <label>Protein (g)<input type="number" [(ngModel)]="protein" name="protein" min="0" step="0.01"></label>
+    <label>Kohlenhydrate (g)<input type="number" [(ngModel)]="carbohydrates" name="carbohydrates" min="0" step="0.01"></label>
+    <label>Fett (g)<input type="number" [(ngModel)]="fat" name="fat" min="0" step="0.01"></label>
+    <label>Ballaststoffe (g)<input type="number" [(ngModel)]="fiber" name="fiber" min="0" step="0.01"></label>
+    <label>Gesamtpreis (€)<input type="number" [(ngModel)]="estimatedPrice" name="estimatedPrice" min="0" step="0.01"></label>
+    <label class="wide">Notizen<textarea [(ngModel)]="notes" name="notes" rows="3"></textarea></label>
+  </section>
 
-  <div class="recipe-layout">
-    <main class="recipe-form">
-      <section class="form-card">
-        <div class="card-heading"><div><h2>Allgemeine Informationen</h2><p>Gib deinem Rezept einen Namen und die wichtigsten Eckdaten.</p></div></div>
-        <div class="field"><label for="recipeName">Rezeptname</label><input id="recipeName" maxlength="100" [(ngModel)]="recipeName" placeholder="z. B. Hähnchen-Wok mit Gemüse"></div>
-        <div class="field"><label for="description">Beschreibung</label><textarea id="description" rows="3" maxlength="500" [(ngModel)]="description" placeholder="Beschreibe kurz, was dieses Rezept besonders macht..."></textarea></div>
-        <div class="recipe-meta-grid">
-          <div class="field"><label for="servings">Portionen</label><input id="servings" type="number" min="1" max="100" [(ngModel)]="servings"></div>
-          <div class="field"><label for="preparationTime">Zubereitungszeit</label><div class="input-with-suffix"><input id="preparationTime" type="number" min="1" [(ngModel)]="preparationTime"><span>Min.</span></div></div>
-          <div class="field"><label for="category">Kategorie</label><select id="category" [(ngModel)]="category"><option *ngFor="let option of categories" [value]="option.value">{{ option.label }}</option></select></div>
-        </div>
-      </section>
-
-      <section class="form-card">
-        <div class="card-heading"><div><h2>Zutaten</h2><p>Wähle jedes Produkt aus den Vorschlägen. Die Nährwerte werden automatisch übernommen.</p></div></div>
-        <div class="ingredient-card" *ngFor="let ingredient of ingredients; let i = index">
-          <div class="ingredient-grid">
-            <div class="field product-field">
-              <label [for]="'ingredient-' + i">Produkt</label>
-              <input [id]="'ingredient-' + i" [ngModel]="ingredient.name" (ngModelChange)="onIngredientNameChange(i, $event)" (focus)="openIngredientSuggestions(i)" (blur)="closeIngredientSuggestions()" autocomplete="off" maxlength="100" placeholder="Produkt suchen...">
-              <span class="selected-product" *ngIf="ingredient.product != null">✓ Produkt ausgewählt</span>
-              <div class="autocomplete-dropdown" *ngIf="activeIngredientIndex === i && isIngredientSuggestionsOpen">
-                <div class="autocomplete-state" *ngIf="isIngredientSearching">Produkte werden gesucht...</div>
-                <button type="button" class="suggestion-item" *ngFor="let product of ingredientSuggestions" (mousedown)="$event.preventDefault()" (click)="selectIngredientSuggestion(i, product)" [disabled]="selectingIngredientIndex !== null">
-                  <span><strong>{{ product.name }}</strong><small *ngIf="product.brand">{{ product.brand }}</small></span>
-                  <span class="source-badge">{{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</span>
-                </button>
-                <div class="autocomplete-state" *ngIf="!isIngredientSearching && !ingredientSuggestions.length">Keine passenden Produkte gefunden.</div>
-              </div>
-            </div>
-            <div class="field"><label [for]="'quantity-' + i">Menge</label><input [id]="'quantity-' + i" type="number" min="0" step="0.01" [(ngModel)]="ingredient.quantity"></div>
-            <div class="field"><label [for]="'unit-' + i">Einheit</label><select [id]="'unit-' + i" [(ngModel)]="ingredient.unit"><option *ngFor="let unit of units" [value]="unit">{{ unit }}</option></select></div>
-            <div class="row-actions"><button type="button" (click)="moveIngredientUp(i)" [disabled]="i === 0" aria-label="Nach oben">↑</button><button type="button" (click)="moveIngredientDown(i)" [disabled]="i === ingredients.length - 1" aria-label="Nach unten">↓</button><button type="button" class="remove-button" (click)="removeIngredient(i)">Entfernen</button></div>
-          </div>
-          <div class="ingredient-nutrition" *ngIf="selectedProducts[i] as product">
-            <div><span>Kalorien</span><strong>{{ nutritionValue(product, 'calories') ?? '–' }} kcal</strong></div>
-            <div><span>Protein</span><strong>{{ nutritionValue(product, 'protein') ?? '–' }} g</strong></div>
-            <div><span>Kohlenhydrate</span><strong>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g</strong></div>
-            <div><span>Fett</span><strong>{{ nutritionValue(product, 'fat') ?? '–' }} g</strong></div>
-            <div><span>Ballaststoffe</span><strong>{{ nutritionValue(product, 'fiber') ?? '–' }} g</strong></div>
-            <small>Werte pro 100 g laut {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Produktdatenbank' }}.</small>
-            <small class="nutrition-warning" *ngIf="!canCalculateIngredient(i)">Für {{ ingredient.unit }} fehlt ein verlässliches Grammgewicht; diese Zutat fließt noch nicht in die Portionssumme ein.</small>
-          </div>
-        </div>
-        <button class="add-button" type="button" (click)="addIngredient()" [disabled]="!canAddIngredient()">+ Weitere Zutat</button>
-      </section>
-
-      <section class="form-card">
-        <div class="card-heading"><div><h2>Zubereitung</h2><p>Beschreibe die einzelnen Schritte in der richtigen Reihenfolge.</p></div></div>
-        <div class="step-row" *ngFor="let step of preparationSteps; let i = index">
-          <span class="step-number">{{ i + 1 }}</span><textarea rows="2" [(ngModel)]="step.text" placeholder="Zubereitungsschritt beschreiben..."></textarea>
-          <div class="row-actions"><button type="button" (click)="moveStepUp(i)" [disabled]="i === 0">↑</button><button type="button" (click)="moveStepDown(i)" [disabled]="i === preparationSteps.length - 1">↓</button><button type="button" class="remove-button" (click)="removePreparationStep(i)">Entfernen</button></div>
-        </div>
-        <button class="add-button" type="button" (click)="addPreparationStep()" [disabled]="!canAddPreparationStep()">+ Weiterer Schritt</button>
-      </section>
-
-      <section class="form-card">
-        <div class="card-heading"><div><h2>Weitere Angaben</h2><p>Preis und persönliche Notizen sind optional.</p></div></div>
-        <div class="field"><label for="estimatedPrice">Geschätzter Gesamtpreis</label><div class="input-with-suffix"><input id="estimatedPrice" type="number" min="0" step="0.01" [(ngModel)]="estimatedPrice"><span>€</span></div></div>
-        <div class="field"><label for="notes">Notizen</label><textarea id="notes" rows="3" [(ngModel)]="notes" placeholder="Optionale Hinweise zum Rezept..."></textarea></div>
-      </section>
-    </main>
-
-    <aside class="recipe-summary">
-      <section class="summary-card nutrition-summary">
-        <span class="eyebrow">Automatisch berechnet</span><h2>Nährwerte pro Portion</h2>
-        <ng-container *ngIf="hasSelectedNutrition(); else noNutrition">
-          <div class="nutrition-total"><span>Kalorien</span><strong>{{ nutritionPerServing('calories') ?? '–' }} kcal</strong></div>
-          <div class="nutrition-total"><span>Protein</span><strong>{{ nutritionPerServing('protein') ?? '–' }} g</strong></div>
-          <div class="nutrition-total"><span>Kohlenhydrate</span><strong>{{ nutritionPerServing('carbohydrates') ?? '–' }} g</strong></div>
-          <div class="nutrition-total"><span>Fett</span><strong>{{ nutritionPerServing('fat') ?? '–' }} g</strong></div>
-          <div class="nutrition-total"><span>Ballaststoffe</span><strong>{{ nutritionPerServing('fiber') ?? '–' }} g</strong></div>
-          <p class="summary-hint">Schätzung aus den ausgewählten Produkten. Flüssigkeiten werden näherungsweise mit 1 g/ml gerechnet.</p>
-        </ng-container>
-        <ng-template #noNutrition><p class="empty-summary">Wähle eine Zutat aus, um ihre Nährwerte zu sehen.</p></ng-template>
-      </section>
-      <section class="summary-card"><span class="eyebrow">Übersicht</span><h2>{{ recipeName || 'Neues Rezept' }}</h2><p>{{ servings }} Portionen · {{ preparationTime || 0 }} Min.</p><p>{{ ingredients.length }} Zutaten · {{ preparationSteps.length }} Schritte</p></section>
-    </aside>
-  </div>
-
-  <div class="bottom-actions"><button class="cancel-button" type="button" (click)="cancel()">Abbrechen</button><button class="save-button" type="button" [disabled]="isSaving || selectingIngredientIndex !== null" (click)="saveRecipe()">{{ isSaving ? 'Wird gespeichert...' : 'Rezept speichern' }}</button></div>
-</div>
+  <footer><button type="button" class="secondary" (click)="cancel()" [disabled]="isSaving">Abbrechen</button><button type="button" class="primary" (click)="saveRecipe()" [disabled]="isSaving || selectingIngredientIndex !== null">{{ isSaving ? 'Speichert …' : 'Rezept speichern' }}</button></footer>
+</main>
