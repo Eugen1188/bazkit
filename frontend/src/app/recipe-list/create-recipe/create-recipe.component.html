@@ -1,63 +1,1144 @@
-<main class="recipe-editor">
-  <header><h1>Rezept erstellen</h1><p>Produkt, Menge und Einheit werden getrennt gespeichert.</p></header>
-  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+<div class="create-recipe-page">
 
-  <section class="card grid">
-    <label class="wide">Rezeptname<input [(ngModel)]="recipeName" name="recipeName" maxlength="100" required></label>
-    <label class="wide">Beschreibung<textarea [(ngModel)]="description" name="description" rows="3"></textarea></label>
-    <label>Portionen<input type="number" [(ngModel)]="servings" name="servings" min="1"></label>
-    <label>Zeit (Min.)<input type="number" [(ngModel)]="preparationTime" name="preparationTime" min="0"></label>
-    <label>Kategorie<select [(ngModel)]="category" name="category"><option *ngFor="let item of categories" [value]="item.value">{{ item.label }}</option></select></label>
-  </section>
+  <header class="page-header">
 
-  <section class="card">
-    <h2>Zutaten</h2>
-    <div class="ingredient" *ngFor="let ingredient of ingredients; let i = index">
-      <div class="product-field">
-        <label [for]="'ingredient-' + i">Produkt</label>
-        <input [id]="'ingredient-' + i" [ngModel]="ingredient.name" (ngModelChange)="onIngredientNameChange(i, $event)"
-               (focus)="openIngredientSuggestions(i)" (blur)="closeIngredientSuggestions()" autocomplete="off" maxlength="100">
-        <small *ngIf="ingredient.product !== null" class="selected">✓ Produkt ausgewählt</small>
-        <div class="suggestions" *ngIf="activeIngredientIndex === i && isIngredientSuggestionsOpen">
-          <div class="status" *ngIf="isIngredientSearching">Suche …</div>
-          <button type="button" *ngFor="let product of ingredientSuggestions" (mousedown)="$event.preventDefault()"
-                  (click)="selectIngredientSuggestion(i, product)" [disabled]="selectingIngredientIndex !== null">
-            <span>{{ product.name }}<small *ngIf="product.brand"> · {{ product.brand }}</small></span>
-            <em>{{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Datenbank' }}</em>
-          </button>
-          <div class="status" *ngIf="!isIngredientSearching && !ingredientSuggestions.length">Keine passenden Produkte gefunden.</div>
+    <div class="header-left">
+
+      <button
+        class="back-button"
+        type="button"
+        aria-label="Zurück zu den Rezepten"
+        (click)="cancel()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+
+      </button>
+
+
+      <div>
+
+        <h1>
+          Neues Rezept
+        </h1>
+
+        <p>
+          Erstelle dein Rezept Schritt für Schritt.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <button
+        class="cancel-button"
+        type="button"
+        (click)="cancel()"
+      >
+        Abbrechen
+      </button>
+
+
+      <button
+        class="save-button"
+        type="button"
+        [disabled]="isSaving"
+        (click)="saveRecipe()"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M5 4h14v16H5z"></path>
+          <path d="M8 4v6h8V4"></path>
+        </svg>
+
+        {{
+          isSaving
+            ? 'Wird gespeichert...'
+            : 'Rezept speichern'
+        }}
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <div
+    class="error-message"
+    *ngIf="errorMessage"
+  >
+    {{ errorMessage }}
+  </div>
+
+
+  <div class="recipe-layout">
+
+    <main class="recipe-form">
+
+
+      <!-- =========================
+           ALLGEMEINE INFORMATIONEN
+      ========================== -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Allgemeine Informationen
+            </h2>
+
+            <p>
+              Gib deinem Rezept einen Namen
+              und die wichtigsten Eckdaten.
+            </p>
+
+          </div>
+
         </div>
+
+
+        <div class="field">
+
+          <label for="recipeName">
+            Rezeptname
+          </label>
+
+          <input
+            id="recipeName"
+            type="text"
+            maxlength="100"
+            [(ngModel)]="recipeName"
+            placeholder="z. B. Hähnchen-Wok mit Gemüse"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="description">
+            Beschreibung
+          </label>
+
+          <textarea
+            id="description"
+            rows="3"
+            maxlength="500"
+            [(ngModel)]="description"
+            placeholder="Beschreibe kurz, was dieses Rezept besonders macht..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="recipe-meta-grid">
+
+          <div class="field">
+
+            <label for="servings">
+              Portionen
+            </label>
+
+            <input
+              id="servings"
+              type="number"
+              min="1"
+              max="100"
+              [(ngModel)]="servings"
+            />
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="preparationTime">
+              Zubereitungszeit
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="preparationTime"
+                type="number"
+                min="1"
+                [(ngModel)]="preparationTime"
+                placeholder="30"
+              />
+
+              <span>
+                Min.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="category">
+              Kategorie
+            </label>
+
+            <select
+              id="category"
+              [(ngModel)]="category"
+            >
+
+              <option
+                *ngFor="let categoryOption of categories"
+                [value]="categoryOption.value"
+              >
+                {{ categoryOption.label }}
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           NÄHRWERTE & PREIS
+      ========================== -->
+
+      <section class="form-card nutrition-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Nährwerte & Preis
+            </h2>
+
+            <p>
+              Optional: Gib ungefähre Nährwerte
+              pro Portion und den Gesamtpreis des Rezepts an.
+            </p>
+
+          </div>
+
+          <span class="optional-badge">
+            Optional
+          </span>
+
+        </div>
+
+
+        <div class="nutrition-grid">
+
+          <div class="field nutrition-field">
+
+            <label for="calories">
+              Kalorien
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="calories"
+                type="number"
+                min="0"
+                step="1"
+                [(ngModel)]="calories"
+                placeholder="650"
+              />
+
+              <span>
+                kcal
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="protein">
+              Protein
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="protein"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="protein"
+                placeholder="42"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="carbohydrates">
+              Kohlenhydrate
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="carbohydrates"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="carbohydrates"
+                placeholder="68"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="fat">
+              Fett
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="fat"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="fat"
+                placeholder="18"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+
+          <div class="field nutrition-field">
+
+            <label for="fiber">
+              Ballaststoffe
+            </label>
+
+            <div class="input-with-suffix">
+
+              <input
+                id="fiber"
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="fiber"
+                placeholder="7"
+              />
+
+              <span>
+                g
+              </span>
+
+            </div>
+
+            <small>
+              pro Portion
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="price-section">
+
+          <div class="price-section-text">
+
+            <strong>
+              Geschätzte Kosten
+            </strong>
+
+            <p>
+              Trage den ungefähren Preis aller Zutaten
+              für das gesamte Rezept ein.
+            </p>
+
+          </div>
+
+
+          <div class="price-fields">
+
+            <div class="field">
+
+              <label for="estimatedPrice">
+                Gesamtpreis
+              </label>
+
+              <div class="input-with-suffix">
+
+                <input
+                  id="estimatedPrice"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  [(ngModel)]="estimatedPrice"
+                  placeholder="9.50"
+                />
+
+                <span>
+                  €
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="price-per-serving">
+
+              <small>
+                Pro Portion
+              </small>
+
+              <strong>
+                {{
+                  estimatedPricePerServing !== null
+                    ? (estimatedPricePerServing | number:'1.2-2')
+                    : '–'
+                }}
+                €
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ZUTATEN
+      ========================== -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Zutaten
+            </h2>
+
+            <p>
+              Füge alle Zutaten mit Menge
+              und Einheit hinzu.
+            </p>
+
+          </div>
+
+
+          <span class="count-badge">
+            {{ ingredientCount }}
+          </span>
+
+        </div>
+
+
+        <div class="ingredient-headings">
+
+          <span>
+            Zutat
+          </span>
+
+          <span>
+            Menge
+          </span>
+
+          <span>
+            Einheit
+          </span>
+
+        </div>
+
+
+        <div
+          class="ingredient-row"
+          *ngFor="
+            let ingredient of ingredients;
+            let i = index
+          "
+        >
+
+          <div class="move-actions">
+
+            <button
+              type="button"
+              aria-label="Zutat nach oben"
+              [disabled]="i === 0"
+              (click)="moveIngredientUp(i)"
+            >
+              ↑
+            </button>
+
+            <button
+              type="button"
+              aria-label="Zutat nach unten"
+              [disabled]="
+                i === ingredients.length - 1
+              "
+              (click)="moveIngredientDown(i)"
+            >
+              ↓
+            </button>
+
+          </div>
+
+
+          <div class="ingredient-autocomplete">
+
+            <input
+              class="ingredient-name"
+              type="text"
+              autocomplete="off"
+              [ngModel]="ingredient.name"
+              (ngModelChange)="onIngredientNameChange(i, $event)"
+              (focus)="openIngredientSuggestions(i)"
+              (blur)="closeIngredientSuggestions()"
+              placeholder="z. B. Hähnchenbrust"
+            />
+
+
+            <div
+              class="ingredient-suggestions"
+              *ngIf="
+                isIngredientSuggestionsOpen &&
+                activeIngredientIndex === i
+              "
+            >
+
+              <div
+                class="ingredient-suggestions-loading"
+                *ngIf="isIngredientSearching"
+              >
+                Produkte werden gesucht...
+              </div>
+
+
+              <button
+                class="ingredient-suggestion"
+                type="button"
+                *ngFor="
+                  let product
+                  of ingredientSuggestions
+                "
+                (mousedown)="
+                  selectIngredientSuggestion(
+                    i,
+                    product
+                  )
+                "
+              >
+
+                <span class="ingredient-suggestion-avatar">
+                  {{
+                    product.name
+                      .charAt(0)
+                      .toUpperCase()
+                  }}
+                </span>
+
+
+                <span class="ingredient-suggestion-content">
+
+                  <strong>
+                    {{ product.name }}
+                  </strong>
+
+                  <small
+                    *ngIf="product.default_unit"
+                  >
+                    Standard:
+                    {{ product.default_unit }}
+                  </small>
+
+                  <small
+                    *ngIf="!product.default_unit"
+                  >
+                    Einheit selbst wählen
+                  </small>
+
+                </span>
+
+              </button>
+
+
+              <div
+                class="ingredient-no-suggestions"
+                *ngIf="
+                  !isIngredientSearching &&
+                  ingredientSuggestions.length === 0
+                "
+              >
+                Kein passendes Produkt gefunden.
+                Du kannst den Namen trotzdem verwenden.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <input
+            class="ingredient-quantity"
+            type="number"
+            min="0"
+            step="0.01"
+            [(ngModel)]="ingredient.quantity"
+            placeholder="500"
+          />
+
+
+          <select
+            class="ingredient-unit"
+            [(ngModel)]="ingredient.unit"
+          >
+
+            <option
+              *ngFor="let unit of units"
+              [value]="unit"
+            >
+              {{ unit }}
+            </option>
+
+          </select>
+
+
+          <button
+            class="delete-row-button"
+            type="button"
+            aria-label="Zutat entfernen"
+            *ngIf="hasIngredientContent(i)"
+            (click)="removeIngredient(i)"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7h16"></path>
+              <path d="M9 7V4h6v3"></path>
+              <path d="M7 7l1 13h8l1-13"></path>
+            </svg>
+
+          </button>
+
+        </div>
+
+
+        <button
+          class="add-row-button"
+          type="button"
+          [disabled]="!canAddIngredient()"
+          (click)="addIngredient()"
+        >
+
+          <span>+</span>
+
+          Zutat hinzufügen
+
+        </button>
+
+      </section>
+
+
+      <!-- =========================
+           ZUBEREITUNG
+      ========================== -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Zubereitung
+            </h2>
+
+            <p>
+              Beschreibe die einzelnen Schritte
+              der Zubereitung.
+            </p>
+
+          </div>
+
+
+          <span class="count-badge">
+            {{ stepCount }}
+          </span>
+
+        </div>
+
+
+        <div
+          class="preparation-row"
+          *ngFor="
+            let step of preparationSteps;
+            let i = index
+          "
+        >
+
+          <div class="step-number">
+            {{ i + 1 }}
+          </div>
+
+
+          <textarea
+            rows="2"
+            [(ngModel)]="step.text"
+            [placeholder]="
+              'Schritt ' +
+              (i + 1) +
+              ' beschreiben...'
+            "
+          ></textarea>
+
+
+          <div class="step-actions">
+
+            <button
+              type="button"
+              aria-label="Schritt nach oben"
+              [disabled]="i === 0"
+              (click)="moveStepUp(i)"
+            >
+              ↑
+            </button>
+
+            <button
+              type="button"
+              aria-label="Schritt nach unten"
+              [disabled]="
+                i === preparationSteps.length - 1
+              "
+              (click)="moveStepDown(i)"
+            >
+              ↓
+            </button>
+
+
+            <button
+              class="delete-step"
+              type="button"
+              aria-label="Schritt löschen"
+              *ngIf="hasStepContent(i)"
+              (click)="removePreparationStep(i)"
+            >
+
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16"></path>
+                <path d="M9 7V4h6v3"></path>
+                <path d="M7 7l1 13h8l1-13"></path>
+              </svg>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="add-row-button"
+          type="button"
+          [disabled]="!canAddPreparationStep()"
+          (click)="addPreparationStep()"
+        >
+
+          <span>+</span>
+
+          Schritt hinzufügen
+
+        </button>
+
+      </section>
+
+
+      <!-- =========================
+           NOTIZEN
+      ========================== -->
+
+      <section class="form-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              Notizen
+            </h2>
+
+            <p>
+              Optional kannst du Tipps,
+              Varianten oder persönliche Hinweise ergänzen.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="field">
+
+          <textarea
+            rows="5"
+            [(ngModel)]="notes"
+            placeholder="z. B. Beim nächsten Mal etwas mehr Chili verwenden..."
+          ></textarea>
+
+        </div>
+
+      </section>
+
+
+      <div class="bottom-actions">
+
+        <button
+          class="cancel-button"
+          type="button"
+          (click)="cancel()"
+        >
+          Abbrechen
+        </button>
+
+
+        <button
+          class="save-button"
+          type="button"
+          [disabled]="isSaving"
+          (click)="saveRecipe()"
+        >
+          {{
+            isSaving
+              ? 'Wird gespeichert...'
+              : 'Rezept speichern'
+          }}
+        </button>
+
       </div>
-      <label>Menge<input type="number" [(ngModel)]="ingredient.quantity" [name]="'quantity-' + i" min="0" step="0.01"></label>
-      <label>Einheit<select [(ngModel)]="ingredient.unit" [name]="'unit-' + i"><option *ngFor="let unit of units" [value]="unit">{{ unit }}</option></select></label>
-      <div class="row-actions">
-        <button type="button" (click)="moveIngredientUp(i)" [disabled]="i === 0" aria-label="Nach oben">↑</button>
-        <button type="button" (click)="moveIngredientDown(i)" [disabled]="i === ingredients.length - 1" aria-label="Nach unten">↓</button>
-        <button type="button" class="danger" (click)="removeIngredient(i)">Entfernen</button>
+
+    </main>
+
+
+    <!-- =========================
+         VORSCHAU
+    ========================== -->
+
+    <aside class="recipe-preview">
+
+      <div class="preview-card">
+
+        <div class="preview-title">
+          <span>
+            Vorschau
+          </span>
+        </div>
+
+
+        <div class="preview-image">
+          <span>
+            🍽️
+          </span>
+        </div>
+
+
+        <div class="preview-content">
+
+          <span class="category-chip">
+            {{ categoryLabel }}
+          </span>
+
+
+          <h2>
+            {{
+              recipeName.trim()
+                ? recipeName
+                : 'Dein Rezept'
+            }}
+          </h2>
+
+
+          <p>
+            {{
+              description.trim()
+                ? description
+                : 'Hier erscheint die Beschreibung deines Rezepts.'
+            }}
+          </p>
+
+
+          <div class="preview-meta">
+
+            <div>
+
+              <span class="meta-icon">
+                ⏱
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ preparationTime || '–' }}
+                  Min.
+                </strong>
+
+                <small>
+                  Zubereitung
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                👥
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ servings }}
+                </strong>
+
+                <small>
+                  Portionen
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                🥕
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ ingredientCount }}
+                </strong>
+
+                <small>
+                  Zutaten
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <span class="meta-icon">
+                📝
+              </span>
+
+              <div>
+
+                <strong>
+                  {{ stepCount }}
+                </strong>
+
+                <small>
+                  Schritte
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="preview-nutrition"
+            *ngIf="hasNutritionData"
+          >
+
+            <div class="preview-section-title">
+              Pro Portion
+            </div>
+
+
+            <div class="preview-nutrition-grid">
+
+              <div class="nutrition-main">
+
+                <strong>
+                  {{ calories ?? '–' }}
+                </strong>
+
+                <small>
+                  kcal
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ protein ?? '–' }} g
+                </strong>
+
+                <small>
+                  Protein
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ carbohydrates ?? '–' }} g
+                </strong>
+
+                <small>
+                  Kohlenhydrate
+                </small>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  {{ fat ?? '–' }} g
+                </strong>
+
+                <small>
+                  Fett
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="preview-price"
+            *ngIf="estimatedPrice !== null"
+          >
+
+            <div>
+
+              <small>
+                Geschätzter Preis
+              </small>
+
+              <strong>
+                {{
+                  estimatedPricePerServing
+                    | number:'1.2-2'
+                }}
+                € / Portion
+              </strong>
+
+            </div>
+
+            <span>
+              ca.
+            </span>
+
+          </div>
+
+        </div>
+
       </div>
-    </div>
-    <button type="button" (click)="addIngredient()" [disabled]="!canAddIngredient()">+ Zutat</button>
-  </section>
 
-  <section class="card">
-    <h2>Zubereitung</h2>
-    <div class="step" *ngFor="let step of preparationSteps; let i = index">
-      <span>{{ i + 1 }}.</span><textarea [(ngModel)]="step.text" [name]="'step-' + i" rows="2"></textarea>
-      <div class="row-actions"><button type="button" (click)="moveStepUp(i)" [disabled]="i === 0">↑</button><button type="button" (click)="moveStepDown(i)" [disabled]="i === preparationSteps.length - 1">↓</button><button type="button" class="danger" (click)="removePreparationStep(i)">Entfernen</button></div>
-    </div>
-    <button type="button" (click)="addPreparationStep()" [disabled]="!canAddPreparationStep()">+ Schritt</button>
-  </section>
 
-  <section class="card grid">
-    <h2 class="wide">Optionale Angaben pro Portion</h2>
-    <label>Kalorien<input type="number" [(ngModel)]="calories" name="calories" min="0" step="0.01"></label>
-    <label>Protein (g)<input type="number" [(ngModel)]="protein" name="protein" min="0" step="0.01"></label>
-    <label>Kohlenhydrate (g)<input type="number" [(ngModel)]="carbohydrates" name="carbohydrates" min="0" step="0.01"></label>
-    <label>Fett (g)<input type="number" [(ngModel)]="fat" name="fat" min="0" step="0.01"></label>
-    <label>Ballaststoffe (g)<input type="number" [(ngModel)]="fiber" name="fiber" min="0" step="0.01"></label>
-    <label>Gesamtpreis (€)<input type="number" [(ngModel)]="estimatedPrice" name="estimatedPrice" min="0" step="0.01"></label>
-    <label class="wide">Notizen<textarea [(ngModel)]="notes" name="notes" rows="3"></textarea></label>
-  </section>
+      <div class="preview-tip">
 
-  <footer><button type="button" class="secondary" (click)="cancel()" [disabled]="isSaving">Abbrechen</button><button type="button" class="primary" (click)="saveRecipe()" [disabled]="isSaving || selectingIngredientIndex !== null">{{ isSaving ? 'Speichert …' : 'Rezept speichern' }}</button></footer>
-</main>
+        <span>
+          💡
+        </span>
+
+        <div>
+
+          <strong>
+            Tipp
+          </strong>
+
+          <p>
+            Nährwerte und Preise sind optional.
+            Später können wir diese Werte aus den
+            Zutaten automatisch berechnen lassen.
+          </p>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>
