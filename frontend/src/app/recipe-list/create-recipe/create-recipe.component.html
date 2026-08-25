@@ -50,7 +50,7 @@
       <button
         class="save-button"
         type="button"
-        [disabled]="isSaving"
+        [disabled]="isSaving || selectingIngredientIndex !== null"
         (click)="saveRecipe()"
       >
 
@@ -232,14 +232,14 @@
             </h2>
 
             <p>
-              Optional: Gib ungefähre Nährwerte
-              pro Portion und den Gesamtpreis des Rezepts an.
+              Die Nährwerte werden automatisch aus den
+              ausgewählten BLS- und Produktdaten berechnet.
             </p>
 
           </div>
 
           <span class="optional-badge">
-            Optional
+            Automatisch
           </span>
 
         </div>
@@ -247,153 +247,38 @@
 
         <div class="nutrition-grid">
 
-          <div class="field nutrition-field">
-
-            <label for="calories">
-              Kalorien
-            </label>
-
-            <div class="input-with-suffix">
-
-              <input
-                id="calories"
-                type="number"
-                min="0"
-                step="1"
-                [(ngModel)]="calories"
-                placeholder="650"
-              />
-
-              <span>
-                kcal
-              </span>
-
-            </div>
-
-            <small>
-              pro Portion
-            </small>
-
+          <div class="field nutrition-field nutrition-value">
+            <label>Kalorien</label>
+            <strong>{{ nutritionPerServing('calories') ?? '–' }} kcal</strong>
+            <small>pro Portion</small>
           </div>
 
 
-          <div class="field nutrition-field">
-
-            <label for="protein">
-              Protein
-            </label>
-
-            <div class="input-with-suffix">
-
-              <input
-                id="protein"
-                type="number"
-                min="0"
-                step="0.1"
-                [(ngModel)]="protein"
-                placeholder="42"
-              />
-
-              <span>
-                g
-              </span>
-
-            </div>
-
-            <small>
-              pro Portion
-            </small>
-
+          <div class="field nutrition-field nutrition-value">
+            <label>Protein</label>
+            <strong>{{ nutritionPerServing('protein') ?? '–' }} g</strong>
+            <small>pro Portion</small>
           </div>
 
 
-          <div class="field nutrition-field">
-
-            <label for="carbohydrates">
-              Kohlenhydrate
-            </label>
-
-            <div class="input-with-suffix">
-
-              <input
-                id="carbohydrates"
-                type="number"
-                min="0"
-                step="0.1"
-                [(ngModel)]="carbohydrates"
-                placeholder="68"
-              />
-
-              <span>
-                g
-              </span>
-
-            </div>
-
-            <small>
-              pro Portion
-            </small>
-
+          <div class="field nutrition-field nutrition-value">
+            <label>Kohlenhydrate</label>
+            <strong>{{ nutritionPerServing('carbohydrates') ?? '–' }} g</strong>
+            <small>pro Portion</small>
           </div>
 
 
-          <div class="field nutrition-field">
-
-            <label for="fat">
-              Fett
-            </label>
-
-            <div class="input-with-suffix">
-
-              <input
-                id="fat"
-                type="number"
-                min="0"
-                step="0.1"
-                [(ngModel)]="fat"
-                placeholder="18"
-              />
-
-              <span>
-                g
-              </span>
-
-            </div>
-
-            <small>
-              pro Portion
-            </small>
-
+          <div class="field nutrition-field nutrition-value">
+            <label>Fett</label>
+            <strong>{{ nutritionPerServing('fat') ?? '–' }} g</strong>
+            <small>pro Portion</small>
           </div>
 
 
-          <div class="field nutrition-field">
-
-            <label for="fiber">
-              Ballaststoffe
-            </label>
-
-            <div class="input-with-suffix">
-
-              <input
-                id="fiber"
-                type="number"
-                min="0"
-                step="0.1"
-                [(ngModel)]="fiber"
-                placeholder="7"
-              />
-
-              <span>
-                g
-              </span>
-
-            </div>
-
-            <small>
-              pro Portion
-            </small>
-
+          <div class="field nutrition-field nutrition-value">
+            <label>Ballaststoffe</label>
+            <strong>{{ nutritionPerServing('fiber') ?? '–' }} g</strong>
+            <small>pro Portion</small>
           </div>
 
         </div>
@@ -611,6 +496,14 @@
                   >
                     Standard:
                     {{ product.default_unit }}
+                    ·
+                    {{
+                      product.origin === 'bls'
+                        ? 'BLS'
+                        : product.origin === 'open_food_facts'
+                          ? 'Open Food Facts'
+                          : 'Bazkit'
+                    }}
                   </small>
 
                   <small
@@ -632,7 +525,7 @@
                 "
               >
                 Kein passendes Produkt gefunden.
-                Du kannst den Namen trotzdem verwenden.
+                Bitte versuche einen allgemeineren Suchbegriff.
               </div>
 
             </div>
@@ -681,6 +574,20 @@
 
           </button>
 
+        </div>
+
+        <div
+          class="selected-ingredient-nutrition"
+          *ngFor="let product of selectedProducts; let i = index"
+        >
+          <ng-container *ngIf="product && ingredients[i].name">
+            <strong>{{ ingredients[i].name }}</strong>
+            <span>{{ nutritionValue(product, 'calories') ?? '–' }} kcal</span>
+            <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
+            <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g Kohlenhydrate</span>
+            <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
+            <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
+          </ng-container>
         </div>
 
 
@@ -864,7 +771,7 @@
         <button
           class="save-button"
           type="button"
-          [disabled]="isSaving"
+          [disabled]="isSaving || selectingIngredientIndex !== null"
           (click)="saveRecipe()"
         >
           {{
@@ -1017,7 +924,7 @@
 
           <div
             class="preview-nutrition"
-            *ngIf="hasNutritionData"
+            *ngIf="hasSelectedNutrition()"
           >
 
             <div class="preview-section-title">
@@ -1030,7 +937,7 @@
               <div class="nutrition-main">
 
                 <strong>
-                  {{ calories ?? '–' }}
+                  {{ nutritionPerServing('calories') ?? '–' }}
                 </strong>
 
                 <small>
@@ -1043,7 +950,7 @@
               <div>
 
                 <strong>
-                  {{ protein ?? '–' }} g
+                  {{ nutritionPerServing('protein') ?? '–' }} g
                 </strong>
 
                 <small>
@@ -1056,7 +963,7 @@
               <div>
 
                 <strong>
-                  {{ carbohydrates ?? '–' }} g
+                  {{ nutritionPerServing('carbohydrates') ?? '–' }} g
                 </strong>
 
                 <small>
@@ -1069,7 +976,7 @@
               <div>
 
                 <strong>
-                  {{ fat ?? '–' }} g
+                  {{ nutritionPerServing('fat') ?? '–' }} g
                 </strong>
 
                 <small>

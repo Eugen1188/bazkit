@@ -3,6 +3,9 @@ import re
 from decimal import Decimal, InvalidOperation
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+from django.core.cache import cache
 from django.db import transaction
 from django.db.models import Case, IntegerField, Q, Value, When
 from rest_framework import status
@@ -24,6 +27,21 @@ AMOUNT_SUFFIX = re.compile(
     r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
     re.I,
 )
+
+
+def off_session():
+    session = requests.Session()
+    retries = Retry(
+        total=2,
+        connect=2,
+        read=2,
+        status=2,
+        backoff_factor=0.4,
+        status_forcelist=(429, 502, 503, 504),
+        allowed_methods=("GET",),
+    )
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    return session
 
 
 def clean_text(value, limit):
@@ -92,10 +110,14 @@ class ExternalProductSearchAPIView(APIView):
 
     def get(self, request):
         query = clean_text(request.query_params.get("q"), 100)
-        if len(query) < 3:
+        if len(query) < 4:
             return Response([])
+        cache_key = f"off-search:{query.casefold()}"
+        cached = cache.get(cache_key)
+        if cached is not None:
+            return Response(cached)
         try:
-            response = requests.get(OFF_SEARCH_URL, params={
+            response = off_session().get(OFF_SEARCH_URL, params={
                 "search_terms": query, "search_simple": 1, "action": "process", "json": 1,
                 "page_size": 30, "fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments",
             }, headers=OFF_HEADERS, timeout=8)
@@ -103,7 +125,7 @@ class ExternalProductSearchAPIView(APIView):
             items = response.json().get("products", [])
         except (requests.RequestException, ValueError) as error:
             logger.warning("Open Food Facts search failed: %s", error)
-            return Response({"detail": "Open Food Facts ist momentan nicht erreichbar."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response([])
         words = query.casefold().split()
         results, seen = [], set()
         for item in items:
@@ -117,6 +139,7 @@ class ExternalProductSearchAPIView(APIView):
             results.append(product)
             if len(results) == 10:
                 break
+        cache.set(cache_key, results, 60 * 15)
         return Response(results)
 
 

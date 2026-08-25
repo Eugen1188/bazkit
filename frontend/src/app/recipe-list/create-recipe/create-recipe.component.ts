@@ -56,7 +56,7 @@ export class CreateRecipeComponent implements OnDestroy {
     private readonly productService: ProductService,
   ) {
     this.searchSubscription = this.search$.pipe(
-      debounceTime(250),
+      debounceTime(450),
       distinctUntilChanged((a, b) => a.index === b.index && a.query === b.query),
       switchMap(search => {
         this.activeIngredientIndex = search.index;
@@ -127,11 +127,13 @@ export class CreateRecipeComponent implements OnDestroy {
 
   addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   canAddIngredient(): boolean { return !this.ingredients.length || !!this.ingredients.at(-1)?.name.trim(); }
+  hasIngredientContent(index: number): boolean { return !!this.ingredients[index]?.name.trim(); }
   removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   moveIngredientUp(index: number): void { if (index > 0) { [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]]; } }
   moveIngredientDown(index: number): void { if (index < this.ingredients.length - 1) { [this.ingredients[index + 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index + 1]]; [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]]; } }
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
+  hasStepContent(index: number): boolean { return !!this.preparationSteps[index]?.text.trim(); }
   removePreparationStep(index: number): void { this.preparationSteps.splice(index, 1); if (!this.preparationSteps.length) this.preparationSteps.push({ text: '' }); }
   moveStepUp(index: number): void { if (index > 0) [this.preparationSteps[index - 1], this.preparationSteps[index]] = [this.preparationSteps[index], this.preparationSteps[index - 1]]; }
   moveStepDown(index: number): void { if (index < this.preparationSteps.length - 1) [this.preparationSteps[index + 1], this.preparationSteps[index]] = [this.preparationSteps[index], this.preparationSteps[index + 1]]; }
@@ -162,6 +164,12 @@ export class CreateRecipeComponent implements OnDestroy {
   }
 
   cancel(): void { void this.router.navigate(['/main/recipe-list']); }
+  get ingredientCount(): number { return this.ingredients.filter(item => item.name.trim()).length; }
+  get stepCount(): number { return this.preparationSteps.filter(item => item.text.trim()).length; }
+  get categoryLabel(): string { return this.categories.find(item => item.value === this.category)?.label ?? 'Sonstiges'; }
+  get estimatedPricePerServing(): number | null {
+    return this.estimatedPrice !== null && this.servings > 0 ? this.estimatedPrice / this.servings : null;
+  }
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
     if (!product) return null;
     const value = product[`${field}_per_100g` as keyof ProductSuggestion];

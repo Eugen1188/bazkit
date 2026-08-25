@@ -1693,3 +1693,56 @@ RESPONSIVE
   }
 
 }
+
+
+/* =====================================
+AUTOMATISCHE NÄHRWERTE
+Ergänzung zur bestehenden Gestaltung
+===================================== */
+
+.nutrition-value {
+  min-height: 82px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 9px;
+  justify-content: center;
+  background: var(--color-primary-soft-bg);
+}
+
+.nutrition-value strong {
+  color: var(--color-primary);
+  font-size: 17px;
+}
+
+.selected-ingredient-nutrition {
+  margin: 0 48px 10px 42px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  background: var(--color-primary-soft-bg);
+  font-size: 11px;
+}
+
+.selected-ingredient-nutrition strong {
+  color: var(--color-primary);
+  font-size: 12px;
+}
+
+.selected-ingredient-nutrition small {
+  margin-left: auto;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 560px) {
+  .selected-ingredient-nutrition {
+    margin: 0 0 10px;
+  }
+
+  .selected-ingredient-nutrition small {
+    width: 100%;
+    margin-left: 0;
+  }
+}

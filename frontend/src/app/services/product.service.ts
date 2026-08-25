@@ -40,7 +40,7 @@ export class ProductService {
     const params = new HttpParams().set('q', q);
     const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params })
       .pipe(catchError(() => of([] as ProductSuggestion[])));
-    const external$ = q.length >= 3
+    const external$ = q.length >= 4
       ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params })
           .pipe(catchError(() => of([] as ProductSuggestion[])))
       : of([] as ProductSuggestion[]);
