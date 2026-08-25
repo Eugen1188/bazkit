@@ -13,15 +13,9 @@ import {
 
 export interface RecipeIngredient {
   id?: number;
-
-  product:
-    number | null;
-
+  product?: number | null;
   name: string;
-
-  quantity:
-    number | null;
-
+  quantity: number | null;
   unit: string;
 }
 
@@ -40,7 +34,7 @@ export interface Recipe {
   servings: number;
 
   preparation_time:
-    number | null;
+  number | null;
 
   category: string;
 
@@ -49,32 +43,32 @@ export interface Recipe {
   notes: string;
 
   calories:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   protein:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   carbohydrates:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   fat:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   fiber:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   estimated_price:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   estimated_price_per_serving:
-    RecipeNumberValue;
+  RecipeNumberValue;
 
   created_at: string;
 
   updated_at: string;
 
   ingredients:
-    RecipeIngredient[];
+  RecipeIngredient[];
 }
 
 
@@ -87,7 +81,7 @@ export interface RecipePayload {
   servings: number;
 
   preparation_time:
-    number | null;
+  number | null;
 
   category: string;
 
@@ -96,25 +90,25 @@ export interface RecipePayload {
   notes: string;
 
   calories?:
-    number | null;
+  number | null;
 
   protein?:
-    number | null;
+  number | null;
 
   carbohydrates?:
-    number | null;
+  number | null;
 
   fat?:
-    number | null;
+  number | null;
 
   fiber?:
-    number | null;
+  number | null;
 
   estimated_price?:
-    number | null;
+  number | null;
 
   ingredients:
-    RecipeIngredient[];
+  RecipeIngredient[];
 }
 
 
@@ -147,10 +141,10 @@ export interface GeneratedRecipe {
   category: string;
 
   ingredients:
-    RecipeIngredient[];
+  RecipeIngredient[];
 
   steps:
-    string[];
+  string[];
 
   notes: string;
 }
@@ -168,7 +162,7 @@ export class RecipeService {
   constructor(
     private http:
       HttpClient
-  ) {}
+  ) { }
 
 
   private getApiUrl():
