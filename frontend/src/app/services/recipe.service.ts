@@ -12,11 +12,25 @@ export interface RecipeIngredient {
 
 export type RecipeNumberValue = number | string | null;
 
-export interface Recipe extends RecipePayload {
+export interface Recipe {
   id: number;
+  name: string;
+  description: string;
+  servings: number;
+  preparation_time: number | null;
+  category: string;
+  instructions: string;
+  notes: string;
+  calories: RecipeNumberValue;
+  protein: RecipeNumberValue;
+  carbohydrates: RecipeNumberValue;
+  fat: RecipeNumberValue;
+  fiber: RecipeNumberValue;
+  estimated_price: RecipeNumberValue;
   estimated_price_per_serving: RecipeNumberValue;
   created_at: string;
   updated_at: string;
+  ingredients: RecipeIngredient[];
 }
 
 export interface GenerateRecipePayload {
