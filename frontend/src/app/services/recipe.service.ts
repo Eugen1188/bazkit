@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface RecipeIngredient {
   id?: number;
-  product: number | null;
+  product?: number | null;
   name: string;
   quantity: number | null;
   unit: string;
@@ -48,12 +48,12 @@ export interface RecipePayload {
   category: string;
   instructions: string;
   notes: string;
-  calories: number | null;
-  protein: number | null;
-  carbohydrates: number | null;
-  fat: number | null;
-  fiber: number | null;
-  estimated_price: number | null;
+  calories?: number | null;
+  protein?: number | null;
+  carbohydrates?: number | null;
+  fat?: number | null;
+  fiber?: number | null;
+  estimated_price?: number | null;
   ingredients: RecipeIngredient[];
 }
 
