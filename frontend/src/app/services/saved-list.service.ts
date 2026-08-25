@@ -111,6 +111,7 @@ export class SavedListService {
     return this.http.put<SavedListItem>(
       `${this.apiUrl}${listId}/items/${itemId}/`,
       {
+        product: item.product ?? null,
         name: item.name,
         quantity: item.quantity,
         unit: item.unit,

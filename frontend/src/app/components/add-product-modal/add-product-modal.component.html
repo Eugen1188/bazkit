@@ -79,9 +79,17 @@
 
               <span
                 class="suggestion-unit"
-                *ngIf="product.default_unit"
               >
-                {{ product.default_unit }}
+                {{
+                  product.origin === 'bls'
+                    ? 'BLS'
+                    : product.origin === 'open_food_facts'
+                      ? 'Open Food Facts'
+                      : 'Bazkit'
+                }}
+                <ng-container *ngIf="product.default_unit">
+                  · {{ product.default_unit }}
+                </ng-container>
               </span>
             </button>
 
@@ -96,6 +104,11 @@
             </div>
           </div>
         </div>
+
+        <small class="product-help">
+          Kein passender Treffer? Eigene Produktnamen sind erlaubt und
+          werden nur in dieser Einkaufsliste gespeichert.
+        </small>
       </div>
 
       <div class="two-columns">

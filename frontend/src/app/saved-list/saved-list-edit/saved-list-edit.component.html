@@ -254,36 +254,17 @@
                       </strong>
 
 
-                      <small
-                        *ngIf="
-                          product.source ===
-                          'external'
-                        "
-                      >
-                        Externer Treffer
-                      </small>
-
-
-                      <small
-                        *ngIf="
-                          product.source ===
-                            'local' &&
-                          product.default_unit
-                        "
-                      >
-                        Standard:
-                        {{ product.default_unit }}
-                      </small>
-
-
-                      <small
-                        *ngIf="
-                          product.source ===
-                            'local' &&
-                          !product.default_unit
-                        "
-                      >
-                        Einheit selbst wählen
+                      <small>
+                        {{
+                          product.origin === 'bls'
+                            ? 'BLS'
+                            : product.origin === 'open_food_facts'
+                              ? 'Open Food Facts'
+                              : 'Bazkit'
+                        }}
+                        <ng-container *ngIf="product.default_unit">
+                          · Standard: {{ product.default_unit }}
+                        </ng-container>
                       </small>
 
                     </span>
@@ -308,7 +289,7 @@
                     <span
                       *ngIf="
                         !externalSearchDone &&
-                        productName.trim().length >= 3
+                        productName.trim().length >= 4
                       "
                     >
                       Kein lokaler Treffer gefunden.
@@ -339,7 +320,7 @@
                       type="button"
                       *ngIf="
                         !externalSearchDone &&
-                        productName.trim().length >= 3
+                        productName.trim().length >= 4
                       "
                       (mousedown)="
                         searchExternal()
@@ -350,8 +331,8 @@
 
 
                     <small>
-                      Du kannst den eingegebenen Namen
-                      trotzdem direkt verwenden.
+                      Eigene Produktnamen sind erlaubt und werden
+                      ausschließlich in dieser Liste gespeichert.
                     </small>
 
                   </div>

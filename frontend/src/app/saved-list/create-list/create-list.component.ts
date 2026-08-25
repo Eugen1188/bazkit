@@ -27,6 +27,7 @@ import {
 
 interface Product {
   id?: number;
+  product?: number | null;
   name: string;
   quantity: number;
   unit: string;
@@ -296,7 +297,7 @@ implements OnDestroy {
         .trim();
 
     if (
-      query.length < 3 ||
+      query.length < 4 ||
       this.isSearchingExternal
     ) {
       return;
@@ -425,6 +426,9 @@ implements OnDestroy {
 
 
     this.products.push({
+      product:
+        this.selectedProduct?.id ?? null,
+
       name,
 
       quantity:
@@ -433,31 +437,6 @@ implements OnDestroy {
       unit:
         this.productUnit
     });
-
-
-    if (
-      this.selectedProduct?.source ===
-      'external'
-    ) {
-
-      this.productService
-        .saveExternalProduct(
-          this.selectedProduct
-        )
-        .subscribe({
-
-          error: (
-            error
-          ) => {
-
-            console.error(
-              'Externes Produkt konnte nicht lokal gespeichert werden:',
-              error
-            );
-          }
-
-        });
-    }
 
 
     this.resetProductForm();
@@ -502,6 +481,9 @@ implements OnDestroy {
       items:
         this.products.map(
           product => ({
+
+            product:
+              product.product ?? null,
 
             name:
               product.name,

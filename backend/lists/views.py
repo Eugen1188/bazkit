@@ -678,7 +678,8 @@ class AddRecipeToShoppingListAPIView(
                     shopping_list=
                         shopping_list,
 
-                    product=None,
+                    product=
+                        ingredient.product,
 
                     name=
                         ingredient.name,

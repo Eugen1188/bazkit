@@ -80,6 +80,10 @@ implements OnInit, OnDestroy {
   suggestions:
     ProductSuggestion[] = [];
 
+  selectedProduct:
+    ProductSuggestion | null =
+      null;
+
 
   isSearching =
     false;
@@ -223,6 +227,9 @@ implements OnInit, OnDestroy {
     this.productName =
       value;
 
+    this.selectedProduct =
+      null;
+
 
     const query =
       value.trim();
@@ -256,6 +263,9 @@ implements OnInit, OnDestroy {
     product:
       ProductSuggestion
   ): void {
+
+    this.selectedProduct =
+      product;
 
     this.productName =
       product.name;
@@ -338,6 +348,9 @@ implements OnInit, OnDestroy {
 
     this.shoppingListService
       .addItem({
+        product:
+          this.selectedProduct?.id ?? null,
+
         name,
 
         quantity:

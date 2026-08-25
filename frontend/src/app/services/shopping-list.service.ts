@@ -50,6 +50,8 @@ export interface ShoppingList {
 
 
 export interface CreateShoppingListItemPayload {
+  product?: number | null;
+
   name: string;
 
   quantity: number;
@@ -90,6 +92,9 @@ export class ShoppingListService {
     return this.http.post<ShoppingListItem>(
       `${this.apiUrl}items/`,
       {
+        product:
+          item.product ?? null,
+
         name:
           item.name,
 

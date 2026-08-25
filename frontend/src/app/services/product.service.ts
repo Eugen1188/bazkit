@@ -68,7 +68,7 @@ export class ProductService {
 
   searchExternalProducts(query: string): Observable<ProductSuggestion[]> {
     const q = query.trim();
-    if (q.length < 3) return of([]);
+    if (q.length < 4) return of([]);
     const params = new HttpParams().set('q', q);
     return this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params }).pipe(
       map(products => products.map(product => ({ ...product, source: 'external' }))),
