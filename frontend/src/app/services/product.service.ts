@@ -1,183 +1,60 @@
-import {
-  Injectable
-} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, forkJoin, map, Observable, of } from 'rxjs';
 
-import {
-  HttpClient,
-  HttpParams
-} from '@angular/common/http';
-
-import {
-  Observable,
-  map
-} from 'rxjs';
-
+export type ProductOrigin = 'local' | 'bls' | 'open_food_facts';
 
 export interface ProductSuggestion {
-
-  id:
-    number | null;
-
-  name:
-    string;
-
-  category:
-    string;
-
-  default_unit:
-    string;
-
-  source:
-    'local' | 'external';
+  id: number | null;
+  name: string;
+  category: string;
+  brand: string;
+  source: string | null;
+  external_id: string | null;
+  default_unit: string;
+  calories_per_100g: string | null;
+  protein_per_100g: string | null;
+  carbohydrates_per_100g: string | null;
+  fat_per_100g: string | null;
+  fiber_per_100g: string | null;
+  origin: ProductOrigin;
 }
 
-
-interface ProductApiResponse {
-
-  id:
-    number;
-
-  name:
-    string;
-
-  category:
-    string;
-
-  default_unit:
-    string;
-}
-
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ProductService {
+  private readonly apiUrl = '/api/products';
 
-  private apiUrl =
-    this.getApiUrl();
+  constructor(private readonly http: HttpClient) {}
 
+  searchProducts(query: string): Observable<ProductSuggestion[]> {
+    const q = query.trim();
+    if (q.length < 2) return of([]);
+    const params = new HttpParams().set('q', q);
+    const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}/search/`, { params })
+      .pipe(catchError(() => of([] as ProductSuggestion[])));
+    const external$ = q.length >= 3
+      ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}/external-search/`, { params })
+          .pipe(catchError(() => of([] as ProductSuggestion[])))
+      : of([] as ProductSuggestion[]);
 
-  constructor(
-    private http:
-      HttpClient
-  ) {}
-
-
-  private getApiUrl():
-    string {
-
-    const hostname =
-      window.location.hostname;
-
-
-    const isLocal =
-      hostname === 'localhost'
-      ||
-      hostname === '127.0.0.1';
-
-
-    if (
-      isLocal
-    ) {
-
-      return (
-        'http://localhost:8000/products/'
-      );
-    }
-
-
-    return (
-      'http://178.104.47.231:8000/products/'
-    );
+    return forkJoin([local$, external$]).pipe(map(([local, external]) => {
+      const seen = new Set<string>();
+      return [...local, ...external].filter(product => {
+        const key = product.id !== null
+          ? `id:${product.id}`
+          : `${product.source}:${product.external_id}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      }).slice(0, 20);
+    }));
   }
 
-
-  searchProducts(
-    query: string
-  ): Observable<
-    ProductSuggestion[]
-  > {
-
-    const params =
-      new HttpParams()
-        .set(
-          'q',
-          query
-        );
-
-
-    return this.http.get<
-      ProductApiResponse[]
-    >(
-      `${this.apiUrl}search/`,
-      {
-        params
-      }
-    )
-    .pipe(
-
-      map(
-        products =>
-          products.map(
-            product => ({
-              ...product,
-              source:
-                'local' as const
-            })
-          )
-      )
-
-    );
+  persistExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {
+    if (product.id !== null) return of(product);
+    return this.http.post<ProductSuggestion>(`${this.apiUrl}/save-external/`, {
+      source: product.source,
+      external_id: product.external_id,
+    });
   }
-
-
-  searchExternalProducts(
-    query: string
-  ): Observable<
-    ProductSuggestion[]
-  > {
-
-    const params =
-      new HttpParams()
-        .set(
-          'q',
-          query
-        );
-
-
-    return this.http.get<
-      ProductSuggestion[]
-    >(
-      `${this.apiUrl}external-search/`,
-      {
-        params
-      }
-    );
-  }
-
-
-  saveExternalProduct(
-    product:
-      ProductSuggestion
-  ): Observable<
-    ProductSuggestion
-  > {
-
-    return this.http.post<
-      ProductSuggestion
-    >(
-      `${this.apiUrl}save-external/`,
-      {
-        name:
-          product.name,
-
-        category:
-          product.category,
-
-        default_unit:
-          product.default_unit
-      }
-    );
-  }
-
 }

@@ -1,10 +1,11 @@
 import logging
 import re
+from decimal import Decimal, InvalidOperation
 
 import requests
-
+from django.db import transaction
+from django.db.models import Case, IntegerField, Q, Value, When
 from rest_framework import status
-from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,382 +13,124 @@ from rest_framework.views import APIView
 from .models import Product
 from .serializers import ProductSerializer
 
-
 logger = logging.getLogger(__name__)
+OFF_SEARCH_URL = "https://world.openfoodfacts.org/cgi/search.pl"
+OFF_PRODUCT_URL = "https://world.openfoodfacts.org/api/v2/product/{code}.json"
+OFF_HEADERS = {"User-Agent": "Bazkit/1.0 (product-search; contact: admin@bazkit.local)"}
+AMOUNT_SUFFIX = re.compile(r"\s*[,\-–]?\s*\d+(?:[.,]\d+)?\s*(?:mg|g|kg|ml|cl|dl|l)\s*$", re.I)
 
 
-OPEN_FOOD_FACTS_URL = (
-    "https://world.openfoodfacts.org/cgi/search.pl"
-)
+def clean_text(value, limit):
+    return re.sub(r"\s+", " ", str(value or "")).strip()[:limit]
 
 
-OPEN_FOOD_FACTS_HEADERS = {
-    "User-Agent": "Bazkit/1.0 (product-search)"
-}
+def clean_name(value):
+    return AMOUNT_SUFFIX.sub("", clean_text(value, 150)).strip(" ,-–")
 
 
-class ProductSearchAPIView(
-    ListAPIView
-):
-    serializer_class = ProductSerializer
+def decimal_or_none(value):
+    if value in (None, ""):
+        return None
+    try:
+        result = Decimal(str(value))
+        return result if result >= 0 else None
+    except (InvalidOperation, TypeError, ValueError):
+        return None
 
-    permission_classes = [
-        IsAuthenticated
-    ]
 
-    def get_queryset(
-        self
-    ):
-        query = (
-            self.request
-            .query_params
-            .get(
-                "q",
-                ""
-            )
-            .strip()
-        )
+def off_payload(item):
+    code = clean_text(item.get("code") or item.get("_id"), 100)
+    name = clean_name(item.get("product_name_de") or item.get("product_name") or item.get("generic_name_de") or item.get("generic_name"))
+    if not code or not name:
+        return None
+    nutriments = item.get("nutriments") or {}
+    return {
+        "id": None,
+        "name": name,
+        "category": clean_text(item.get("categories"), 150),
+        "brand": clean_text(item.get("brands"), 150),
+        "source": "open_food_facts",
+        "external_id": code,
+        "default_unit": "g",
+        "calories_per_100g": decimal_or_none(nutriments.get("energy-kcal_100g")),
+        "protein_per_100g": decimal_or_none(nutriments.get("proteins_100g")),
+        "carbohydrates_per_100g": decimal_or_none(nutriments.get("carbohydrates_100g")),
+        "fat_per_100g": decimal_or_none(nutriments.get("fat_100g")),
+        "fiber_per_100g": decimal_or_none(nutriments.get("fiber_100g")),
+        "origin": "open_food_facts",
+    }
 
+
+class ProductSearchAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        query = clean_text(request.query_params.get("q"), 100)
         if len(query) < 2:
-            return Product.objects.none()
-
-        return (
-            Product.objects
-            .filter(
-                name__istartswith=query
-            )
-            .order_by(
-                "name"
-            )[:10]
-        )
+            return Response([])
+        products = Product.objects.filter(
+            Q(name__istartswith=query) | Q(name__icontains=f" {query}")
+        ).annotate(
+            relevance=Case(When(name__istartswith=query, then=Value(0)), default=Value(1), output_field=IntegerField())
+        ).order_by("relevance", "name")[:15]
+        return Response(ProductSerializer(products, many=True).data)
 
 
-class ExternalProductSearchAPIView(
-    APIView
-):
-    permission_classes = [
-        IsAuthenticated
-    ]
+class ExternalProductSearchAPIView(APIView):
+    permission_classes = [IsAuthenticated]
 
-    def get(
-        self,
-        request
-    ):
-        query = (
-            request
-            .query_params
-            .get(
-                "q",
-                ""
-            )
-            .strip()
-        )
-
+    def get(self, request):
+        query = clean_text(request.query_params.get("q"), 100)
         if len(query) < 3:
-            return Response(
-                {
-                    "detail":
-                        "Bitte mindestens "
-                        "3 Zeichen eingeben."
-                },
-                status=
-                    status.HTTP_400_BAD_REQUEST
-            )
-
+            return Response([])
         try:
-            response = requests.get(
-                OPEN_FOOD_FACTS_URL,
-                params={
-                    "search_terms":
-                        query,
-
-                    "search_simple":
-                        1,
-
-                    "action":
-                        "process",
-
-                    "json":
-                        1,
-
-                    "page_size":
-                        50
-                },
-                headers=
-                    OPEN_FOOD_FACTS_HEADERS,
-                timeout=8
-            )
-
+            response = requests.get(OFF_SEARCH_URL, params={
+                "search_terms": query, "search_simple": 1, "action": "process", "json": 1,
+                "page_size": 30, "fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments",
+            }, headers=OFF_HEADERS, timeout=8)
             response.raise_for_status()
-
-            response_data = (
-                response.json()
-            )
-
-            external_products = (
-                response_data.get(
-                    "products",
-                    []
-                )
-            )
-
-        except requests.RequestException as error:
-            logger.exception(
-                "Open Food Facts request failed: %s",
-                error
-            )
-
-            return Response(
-                {
-                    "detail":
-                        "Die externe Produktsuche "
-                        "ist momentan nicht erreichbar."
-                },
-                status=
-                    status.HTTP_502_BAD_GATEWAY
-            )
-
-        except ValueError as error:
-            logger.exception(
-                "Invalid Open Food Facts response: %s",
-                error
-            )
-
-            return Response(
-                {
-                    "detail":
-                        "Die externe API hat eine "
-                        "ungültige Antwort geliefert."
-                },
-                status=
-                    status.HTTP_502_BAD_GATEWAY
-            )
-
-        results = []
-
-        used_names = set()
-
-        normalized_query = (
-            query.casefold()
-        )
-
-        for item in external_products:
-            raw_name = (
-                item.get(
-                    "product_name"
-                )
-                or
-                item.get(
-                    "generic_name"
-                )
-                or
-                ""
-            )
-
-            name = (
-                raw_name
-                .strip()
-            )
-
-            if not name:
+            items = response.json().get("products", [])
+        except (requests.RequestException, ValueError) as error:
+            logger.warning("Open Food Facts search failed: %s", error)
+            return Response({"detail": "Open Food Facts ist momentan nicht erreichbar."}, status=status.HTTP_502_BAD_GATEWAY)
+        words = query.casefold().split()
+        results, seen = [], set()
+        for item in items:
+            product = off_payload(item)
+            if not product or product["external_id"] in seen:
                 continue
-
-            if len(name) > 100:
-                name = (
-                    name[:100]
-                    .strip()
-                )
-
-            normalized_name = (
-                name.casefold()
-            )
-
-            words = [
-                word
-                for word
-                in re.split(
-                    r"[\s\-_/,.]+",
-                    normalized_name
-                )
-                if word
-            ]
-
-            is_relevant = (
-                normalized_name.startswith(
-                    normalized_query
-                )
-                or
-                any(
-                    word.startswith(
-                        normalized_query
-                    )
-                    for word
-                    in words
-                )
-            )
-
-            if not is_relevant:
+            searchable = f'{product["name"]} {product["brand"]}'.casefold()
+            if not all(word in searchable for word in words):
                 continue
-
-            if (
-                normalized_name
-                in used_names
-            ):
-                continue
-
-            used_names.add(
-                normalized_name
-            )
-
-            category = (
-                item.get(
-                    "categories",
-                    ""
-                )
-                or
-                ""
-            )
-
-            category = (
-                category[:100]
-                .strip()
-            )
-
-            results.append(
-                {
-                    "id": None,
-                    "name": name,
-                    "category": category,
-                    "default_unit": "",
-                    "source": "external"
-                }
-            )
-
-            if len(results) >= 10:
+            seen.add(product["external_id"])
+            results.append(product)
+            if len(results) == 10:
                 break
-
-        results.sort(
-            key=lambda product: (
-                0
-                if product["name"]
-                .casefold()
-                .startswith(
-                    normalized_query
-                )
-                else 1,
-                product["name"]
-                .casefold()
-            )
-        )
-
-        return Response(
-            results,
-            status=
-                status.HTTP_200_OK
-        )
+        return Response(results)
 
 
-class SaveExternalProductAPIView(
-    APIView
-):
-    permission_classes = [
-        IsAuthenticated
-    ]
+class SaveExternalProductAPIView(APIView):
+    permission_classes = [IsAuthenticated]
 
-    def post(
-        self,
-        request
-    ):
-        name = (
-            str(
-                request.data.get(
-                    "name",
-                    ""
-                )
-            )
-            .strip()
-        )
-
-        category = (
-            str(
-                request.data.get(
-                    "category",
-                    ""
-                )
-            )
-            .strip()
-        )
-
-        default_unit = (
-            str(
-                request.data.get(
-                    "default_unit",
-                    ""
-                )
-            )
-            .strip()
-        )
-
-        if not name:
-            return Response(
-                {
-                    "detail":
-                        "Produktname fehlt."
-                },
-                status=
-                    status.HTTP_400_BAD_REQUEST
-            )
-
-        if len(name) > 100:
-            return Response(
-                {
-                    "detail":
-                        "Der Produktname ist zu lang."
-                },
-                status=
-                    status.HTTP_400_BAD_REQUEST
-            )
-
-        product = (
-            Product.objects
-            .filter(
-                name__iexact=name
-            )
-            .first()
-        )
-
-        created = False
-
-        if product is None:
-            product = (
-                Product.objects
-                .create(
-                    name=name,
-                    category=
-                        category[:100],
-                    default_unit=
-                        default_unit[:30]
-                )
-            )
-
-            created = True
-
-        serializer = (
-            ProductSerializer(
-                product
-            )
-        )
-
-        response_data = {
-            **serializer.data,
-            "source": "local"
-        }
-
-        return Response(
-            response_data,
-            status=(
-                status.HTTP_201_CREATED
-                if created
-                else status.HTTP_200_OK
-            )
-        )
+    def post(self, request):
+        source = request.data.get("source")
+        external_id = clean_text(request.data.get("external_id"), 100)
+        if source != "open_food_facts" or not external_id:
+            return Response({"detail": "Ungültiger externer Produktverweis."}, status=status.HTTP_400_BAD_REQUEST)
+        existing = Product.objects.filter(source=source, external_id=external_id).first()
+        if existing:
+            return Response(ProductSerializer(existing).data)
+        try:
+            response = requests.get(OFF_PRODUCT_URL.format(code=external_id), params={"fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments"}, headers=OFF_HEADERS, timeout=8)
+            response.raise_for_status()
+            body = response.json()
+            product_data = off_payload(body.get("product") or {}) if body.get("status") == 1 else None
+        except (requests.RequestException, ValueError) as error:
+            logger.warning("Open Food Facts product lookup failed: %s", error)
+            return Response({"detail": "Das externe Produkt konnte nicht geprüft werden."}, status=status.HTTP_502_BAD_GATEWAY)
+        if not product_data or product_data["external_id"] != external_id:
+            return Response({"detail": "Das externe Produkt existiert nicht mehr."}, status=status.HTTP_404_NOT_FOUND)
+        defaults = {key: value for key, value in product_data.items() if key not in {"id", "origin", "source", "external_id"}}
+        with transaction.atomic():
+            product, created = Product.objects.get_or_create(source=source, external_id=external_id, defaults=defaults)
+        return Response(ProductSerializer(product).data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
