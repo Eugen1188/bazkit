@@ -32,6 +32,7 @@ export class CreateRecipeComponent implements OnDestroy {
   isSaving = false;
   errorMessage = '';
   ingredients: RecipeIngredient[] = [this.emptyIngredient()];
+  selectedProducts: Array<ProductSuggestion | null> = [null];
   preparationSteps: PreparationStep[] = [{ text: '' }];
   ingredientSuggestions: ProductSuggestion[] = [];
   activeIngredientIndex: number | null = null;
@@ -83,6 +84,7 @@ export class CreateRecipeComponent implements OnDestroy {
     if (!ingredient) return;
     ingredient.name = value;
     ingredient.product = null;
+    this.selectedProducts[index] = null;
     const query = value.trim();
     this.activeIngredientIndex = index;
     if (query.length < 2) { this.closeAutocomplete(); return; }
@@ -111,6 +113,7 @@ export class CreateRecipeComponent implements OnDestroy {
         if (!ingredient || product.id === null) return;
         ingredient.product = product.id;
         ingredient.name = product.name;
+        this.selectedProducts[index] = product;
         if (product.default_unit && this.units.includes(product.default_unit)) ingredient.unit = product.default_unit;
         this.selectingIngredientIndex = null;
         this.closeAutocomplete();
@@ -122,11 +125,11 @@ export class CreateRecipeComponent implements OnDestroy {
     });
   }
 
-  addIngredient(): void { if (this.canAddIngredient()) this.ingredients.push(this.emptyIngredient()); }
+  addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   canAddIngredient(): boolean { return !this.ingredients.length || !!this.ingredients.at(-1)?.name.trim(); }
-  removeIngredient(index: number): void { this.ingredients.splice(index, 1); if (!this.ingredients.length) this.ingredients.push(this.emptyIngredient()); }
-  moveIngredientUp(index: number): void { if (index > 0) [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; }
-  moveIngredientDown(index: number): void { if (index < this.ingredients.length - 1) [this.ingredients[index + 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index + 1]]; }
+  removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
+  moveIngredientUp(index: number): void { if (index > 0) { [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]]; } }
+  moveIngredientDown(index: number): void { if (index < this.ingredients.length - 1) { [this.ingredients[index + 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index + 1]]; [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]]; } }
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
   removePreparationStep(index: number): void { this.preparationSteps.splice(index, 1); if (!this.preparationSteps.length) this.preparationSteps.push({ text: '' }); }
@@ -140,17 +143,15 @@ export class CreateRecipeComponent implements OnDestroy {
     if (!this.recipeName.trim()) return this.fail('Bitte gib einen Rezeptnamen ein.');
     if (this.servings < 1) return this.fail('Bitte gib mindestens eine Portion an.');
     if (!ingredients.length) return this.fail('Bitte füge mindestens eine Zutat hinzu.');
-    const unselected = ingredients.find(item => item.product === null);
+    const unselected = ingredients.find(item => item.product == null);
     if (unselected) return this.fail(`Bitte wähle „${unselected.name.trim()}“ aus den Produktvorschlägen aus.`);
     if (!steps.length) return this.fail('Bitte füge mindestens einen Zubereitungsschritt hinzu.');
-    const numeric = [this.calories, this.protein, this.carbohydrates, this.fat, this.fiber, this.estimatedPrice];
-    if (numeric.some(value => value !== null && value < 0)) return this.fail('Nährwerte und Preis dürfen nicht negativ sein.');
+    if (this.estimatedPrice !== null && this.estimatedPrice < 0) return this.fail('Der Preis darf nicht negativ sein.');
     const payload: RecipePayload = {
       name: this.recipeName.trim(), description: this.description.trim(), servings: this.servings,
       preparation_time: this.preparationTime, category: this.category,
       instructions: steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), notes: this.notes.trim(),
-      calories: this.calories, protein: this.protein, carbohydrates: this.carbohydrates,
-      fat: this.fat, fiber: this.fiber, estimated_price: this.estimatedPrice,
+      estimated_price: this.estimatedPrice,
       ingredients: ingredients.map(item => ({ ...item, name: item.name.trim() })),
     };
     this.isSaving = true;
@@ -161,6 +162,31 @@ export class CreateRecipeComponent implements OnDestroy {
   }
 
   cancel(): void { void this.router.navigate(['/main/recipe-list']); }
+  nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
+    if (!product) return null;
+    const value = product[`${field}_per_100g` as keyof ProductSuggestion];
+    if (value === null || value === '') return null;
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  nutritionPerServing(field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
+    let total = 0;
+    let hasValue = false;
+    this.ingredients.forEach((ingredient, index) => {
+      const per100g = this.nutritionValue(this.selectedProducts[index], field);
+      const grams = this.ingredientGrams(ingredient);
+      if (per100g !== null && grams !== null) { total += per100g * grams / 100; hasValue = true; }
+    });
+    return hasValue && this.servings > 0 ? Math.round(total / this.servings * 100) / 100 : null;
+  }
+  canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index]) !== null; }
+  hasSelectedNutrition(): boolean { return this.selectedProducts.some(product => product && ['calories', 'protein', 'carbohydrates', 'fat', 'fiber'].some(field => this.nutritionValue(product, field as any) !== null)); }
+  private ingredientGrams(ingredient: RecipeIngredient | undefined): number | null {
+    if (!ingredient || ingredient.quantity === null || ingredient.quantity === undefined) return null;
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000 };
+    const factor = factors[ingredient.unit.trim().toLocaleLowerCase('de-DE')];
+    return factor === undefined ? null : ingredient.quantity * factor;
+  }
   private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück' }; }
   private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; }
   private fail(message: string): void { this.errorMessage = message; }

@@ -1,3 +1,4 @@
+import re
 from decimal import Decimal
 
 from django.db import transaction
@@ -5,6 +6,44 @@ from rest_framework import serializers
 
 from products.models import Product
 from .models import Ingredients, Recipe
+
+
+AMOUNT_SUFFIX = re.compile(
+    r"(?:\s*[,\-–|/]?\s*|\s*\(\s*)"
+    r"(?:\d+\s*[x×]\s*)?\d+(?:[.,]\d+)?\s*"
+    r"(?:mg|g|kg|ml|cl|dl|l|liter)\b"
+    r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
+    re.I,
+)
+GRAMS_PER_UNIT = {"g": Decimal("1"), "kg": Decimal("1000"), "ml": Decimal("1"), "l": Decimal("1000"), "liter": Decimal("1000")}
+
+
+def clean_product_name(value):
+    name = re.sub(r"\s+", " ", str(value or "")).strip()
+    return AMOUNT_SUFFIX.sub("", name).strip(" ,-–")[:100]
+
+
+def calculate_recipe_nutrition(recipe, ingredients):
+    totals = {field: Decimal("0") for field in ("calories", "protein", "carbohydrates", "fat", "fiber")}
+    found = {field: False for field in totals}
+    for ingredient in ingredients:
+        factor = GRAMS_PER_UNIT.get((ingredient.unit or "").strip().casefold())
+        if factor is None or ingredient.quantity is None or ingredient.product is None:
+            continue
+        portions_of_100g = ingredient.quantity * factor / Decimal("100")
+        for target, source in (
+            ("calories", "calories_per_100g"), ("protein", "protein_per_100g"),
+            ("carbohydrates", "carbohydrates_per_100g"), ("fat", "fat_per_100g"),
+            ("fiber", "fiber_per_100g"),
+        ):
+            value = getattr(ingredient.product, source)
+            if value is not None:
+                totals[target] += value * portions_of_100g
+                found[target] = True
+    servings = Decimal(recipe.servings or 1)
+    for field in totals:
+        setattr(recipe, field, (totals[field] / servings).quantize(Decimal("0.01")) if found[field] else None)
+    recipe.save(update_fields=list(totals))
 
 
 class IngredientsSerializer(serializers.ModelSerializer):
@@ -19,7 +58,7 @@ class IngredientsSerializer(serializers.ModelSerializer):
         product = attrs.get("product")
         if product is None:
             raise serializers.ValidationError({"product": "Bitte ein Produkt aus den Vorschlägen auswählen."})
-        attrs["name"] = product.name
+        attrs["name"] = clean_product_name(product.name)
         return attrs
 
 
@@ -34,7 +73,10 @@ class RecipeSerializer(serializers.ModelSerializer):
             "instructions", "notes", "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "created_at", "updated_at", "ingredients",
         ]
-        read_only_fields = ["id", "estimated_price_per_serving", "created_at", "updated_at"]
+        read_only_fields = [
+            "id", "calories", "protein", "carbohydrates", "fat", "fiber",
+            "estimated_price_per_serving", "created_at", "updated_at",
+        ]
 
     def get_estimated_price_per_serving(self, obj):
         if obj.estimated_price is None or not obj.servings:
@@ -55,7 +97,8 @@ class RecipeSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         ingredients = validated_data.pop("ingredients")
         recipe = Recipe.objects.create(user=self.context["request"].user, **validated_data)
-        Ingredients.objects.bulk_create([Ingredients(recipe=recipe, **item) for item in ingredients])
+        created_ingredients = [Ingredients.objects.create(recipe=recipe, **item) for item in ingredients]
+        calculate_recipe_nutrition(recipe, created_ingredients)
         return recipe
 
     @transaction.atomic
@@ -66,7 +109,13 @@ class RecipeSerializer(serializers.ModelSerializer):
         instance.save()
         if ingredients is not None:
             instance.ingredients.all().delete()
-            Ingredients.objects.bulk_create([Ingredients(recipe=instance, **item) for item in ingredients])
+            created_ingredients = [Ingredients.objects.create(recipe=instance, **item) for item in ingredients]
+            calculate_recipe_nutrition(instance, created_ingredients)
+        else:
+            calculate_recipe_nutrition(
+                instance,
+                list(instance.ingredients.select_related("product")),
+            )
         return instance
 
 

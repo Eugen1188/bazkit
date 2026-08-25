@@ -17,7 +17,13 @@ logger = logging.getLogger(__name__)
 OFF_SEARCH_URL = "https://world.openfoodfacts.org/cgi/search.pl"
 OFF_PRODUCT_URL = "https://world.openfoodfacts.org/api/v2/product/{code}.json"
 OFF_HEADERS = {"User-Agent": "Bazkit/1.0 (product-search; contact: admin@bazkit.local)"}
-AMOUNT_SUFFIX = re.compile(r"\s*[,\-–]?\s*\d+(?:[.,]\d+)?\s*(?:mg|g|kg|ml|cl|dl|l)\s*$", re.I)
+AMOUNT_SUFFIX = re.compile(
+    r"(?:\s*[,\-–|/]?\s*|\s*\(\s*)"
+    r"(?:\d+\s*[x×]\s*)?\d+(?:[.,]\d+)?\s*"
+    r"(?:mg|g|kg|ml|cl|dl|l|liter)\b"
+    r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
+    re.I,
+)
 
 
 def clean_text(value, limit):
@@ -69,11 +75,16 @@ class ProductSearchAPIView(APIView):
         if len(query) < 2:
             return Response([])
         products = Product.objects.filter(
+            Q(source="bls") | Q(source="open_food_facts"),
+        ).filter(
             Q(name__istartswith=query) | Q(name__icontains=f" {query}")
         ).annotate(
             relevance=Case(When(name__istartswith=query, then=Value(0)), default=Value(1), output_field=IntegerField())
         ).order_by("relevance", "name")[:15]
-        return Response(ProductSerializer(products, many=True).data)
+        data = ProductSerializer(products, many=True).data
+        for item in data:
+            item["name"] = clean_name(item["name"])
+        return Response([item for item in data if item["name"]])
 
 
 class ExternalProductSearchAPIView(APIView):
