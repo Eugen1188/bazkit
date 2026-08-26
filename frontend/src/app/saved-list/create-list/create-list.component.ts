@@ -21,11 +21,13 @@ import {
 
 import {
   ProductService,
-  ProductSuggestion
+  ProductSuggestion,
+  PriceEstimate,
+  PriceSnapshot
 } from '../../services/product.service';
 
 
-interface Product {
+interface Product extends PriceSnapshot {
   id?: number;
   product?: number | null;
   name: string;
@@ -63,6 +65,9 @@ implements OnDestroy {
 
   productUnit =
     'Stück';
+  productPrice: number | null = null;
+  priceEstimate: PriceEstimate | null = null;
+  isPriceLoading = false;
 
   products:
     Product[] = [];
@@ -221,6 +226,8 @@ implements OnDestroy {
 
     this.selectedProduct =
       null;
+    this.productPrice = null;
+    this.priceEstimate = null;
 
     const query =
       value.trim();
@@ -287,6 +294,26 @@ implements OnDestroy {
 
     this.externalSearchError =
       '';
+
+    this.refreshProductPrice();
+  }
+
+  refreshProductPrice(): void {
+    if (!this.selectedProduct || this.productQuantity === null || this.productQuantity <= 0) return;
+    this.isPriceLoading = true;
+    this.productService.estimatePrice(this.selectedProduct, this.productQuantity, this.productUnit, 'purchase')
+      .subscribe({
+        next: estimate => {
+          this.isPriceLoading = false;
+          this.priceEstimate = estimate;
+          this.productPrice = estimate.available ? Number(estimate.estimated_price) : null;
+        },
+        error: () => { this.isPriceLoading = false; this.priceEstimate = null; },
+      });
+  }
+
+  onManualPriceChange(): void {
+    this.priceEstimate = null;
   }
 
 
@@ -435,7 +462,9 @@ implements OnDestroy {
         this.productQuantity,
 
       unit:
-        this.productUnit
+        this.productUnit,
+
+      ...this.priceSnapshot()
     });
 
 
@@ -482,6 +511,8 @@ implements OnDestroy {
         this.products.map(
           product => ({
 
+            ...product,
+
             product:
               product.product ?? null,
 
@@ -494,8 +525,7 @@ implements OnDestroy {
             unit:
               product.unit,
 
-            note:
-              product.note ?? ''
+            note: product.note ?? ''
           })
         )
     };
@@ -586,6 +616,9 @@ implements OnDestroy {
 
     this.productUnit =
       'Stück';
+    this.productPrice = null;
+    this.priceEstimate = null;
+    this.isPriceLoading = false;
 
     this.productSuggestions =
       [];
@@ -607,5 +640,15 @@ implements OnDestroy {
 
     this.selectedProduct =
       null;
+  }
+
+  get estimatedTotal(): number {
+    return this.products.reduce((sum, product) => sum + Number(product.estimated_price ?? 0), 0);
+  }
+
+  private priceSnapshot(): PriceSnapshot {
+    const estimate = this.priceEstimate;
+    if (!estimate) return { estimated_price: this.productPrice, price_source: this.productPrice === null ? '' : 'manual', price_currency: 'EUR' };
+    return { ...estimate, estimated_price: this.productPrice };
   }
 }

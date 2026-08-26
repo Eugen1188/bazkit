@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { PriceSnapshot } from './product.service';
 
-export interface SavedListItem {
+export interface SavedListItem extends PriceSnapshot {
   id?: number;
 
   product?: number | null;
@@ -26,6 +27,8 @@ export interface SavedList {
   created_at: string;
 
   item_count: number;
+
+  estimated_total?: number | null;
 
   items?: SavedListItem[];
 }
@@ -115,7 +118,18 @@ export class SavedListService {
         name: item.name,
         quantity: item.quantity,
         unit: item.unit,
-        note: item.note ?? ''
+        note: item.note ?? '',
+        estimated_price: item.estimated_price ?? null,
+        price_source: item.price_source ?? '',
+        price_currency: item.price_currency ?? 'EUR',
+        price_date: item.price_date ?? null,
+        price_store: item.price_store ?? '',
+        price_sample_count: item.price_sample_count ?? 0,
+        price_min: item.price_min ?? null,
+        price_max: item.price_max ?? null,
+        package_price: item.package_price ?? null,
+        package_quantity: item.package_quantity ?? null,
+        package_unit: item.package_unit ?? ''
       }
     );
   }

@@ -20,6 +20,26 @@ export interface ProductSuggestion {
   origin: ProductOrigin;
 }
 
+export interface PriceSnapshot {
+  estimated_price?: number | null;
+  price_source?: string;
+  price_currency?: string;
+  price_date?: string | null;
+  price_store?: string;
+  price_sample_count?: number;
+  price_min?: number | null;
+  price_max?: number | null;
+  package_price?: number | null;
+  package_quantity?: number | null;
+  package_unit?: string;
+}
+
+export interface PriceEstimate extends PriceSnapshot {
+  available: boolean;
+  confidence: 'low' | 'medium' | 'high' | null;
+  message: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private readonly apiUrl = this.getApiUrl();
@@ -66,13 +86,27 @@ export class ProductService {
     });
   }
 
+  estimatePrice(
+    product: ProductSuggestion,
+    quantity: number | null,
+    unit: string,
+    mode: 'consumption' | 'purchase' = 'purchase',
+  ): Observable<PriceEstimate> {
+    let params = new HttpParams()
+      .set('quantity', String(quantity ?? 1))
+      .set('unit', unit || '')
+      .set('mode', mode);
+    params = product.id !== null
+      ? params.set('product_id', String(product.id))
+      : params.set('source', product.source ?? '').set('external_id', product.external_id ?? '');
+    return this.http.get<PriceEstimate>(`${this.apiUrl}price-estimate/`, { params });
+  }
+
   searchExternalProducts(query: string): Observable<ProductSuggestion[]> {
     const q = query.trim();
     if (q.length < 4) return of([]);
     const params = new HttpParams().set('q', q);
-    return this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params }).pipe(
-      map(products => products.map(product => ({ ...product, source: 'external' }))),
-    );
+    return this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params });
   }
 
   saveExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {

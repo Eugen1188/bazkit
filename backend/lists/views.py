@@ -12,6 +12,7 @@ from rest_framework.views import APIView
 
 
 from recipes.models import Recipe
+from products.pricing import scaled_price
 
 
 from .models import (
@@ -28,6 +29,13 @@ from .serializers import (
     SavedListItemSerializer,
     ShoppingListSerializer,
     ShoppingListItemSerializer
+)
+
+
+PRICE_SNAPSHOT_FIELDS = (
+    "estimated_price", "price_source", "price_currency", "price_date",
+    "price_store", "price_sample_count", "price_min", "price_max",
+    "package_price", "package_quantity", "package_unit",
 )
 
 
@@ -595,7 +603,12 @@ class AddSavedListToShoppingListAPIView(
                     note=
                         saved_item.note,
 
-                    is_checked=False
+                    is_checked=False,
+
+                    **{
+                        field: getattr(saved_item, field)
+                        for field in PRICE_SNAPSHOT_FIELDS
+                    }
                 )
             )
 
@@ -673,6 +686,23 @@ class AddRecipeToShoppingListAPIView(
             recipe.ingredients.all()
         ):
 
+            price_data = {
+                field: getattr(ingredient, field)
+                for field in PRICE_SNAPSHOT_FIELDS
+            }
+
+            if ingredient.package_price is not None:
+                price_data["estimated_price"] = scaled_price(
+                    ingredient.package_price,
+                    ingredient.package_quantity,
+                    ingredient.package_unit,
+                    ingredient.quantity,
+                    ingredient.unit,
+                    mode="purchase",
+                )
+                price_data["price_min"] = None
+                price_data["price_max"] = None
+
             new_items.append(
                 ShoppingListItem(
                     shopping_list=
@@ -692,7 +722,9 @@ class AddRecipeToShoppingListAPIView(
 
                     note='',
 
-                    is_checked=False
+                    is_checked=False,
+
+                    **price_data
                 )
             )
 

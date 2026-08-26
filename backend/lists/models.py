@@ -3,6 +3,23 @@ from django.db import models
 from products.models import Product
 
 
+class PriceSnapshotMixin(models.Model):
+    estimated_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    price_source = models.CharField(max_length=30, blank=True)
+    price_currency = models.CharField(max_length=3, default="EUR")
+    price_date = models.DateField(null=True, blank=True)
+    price_store = models.CharField(max_length=150, blank=True)
+    price_sample_count = models.PositiveSmallIntegerField(default=0)
+    price_min = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    price_max = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    package_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    package_quantity = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    package_unit = models.CharField(max_length=20, blank=True)
+
+    class Meta:
+        abstract = True
+
+
 class SavedList(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -22,7 +39,7 @@ class SavedList(models.Model):
         return self.title
 
 
-class SavedListItem(models.Model):
+class SavedListItem(PriceSnapshotMixin):
     saved_list = models.ForeignKey(
         SavedList,
         on_delete=models.CASCADE,
@@ -86,7 +103,7 @@ class ShoppingList(models.Model):
         return self.title
 
 
-class ShoppingListItem(models.Model):
+class ShoppingListItem(PriceSnapshotMixin):
     shopping_list = models.ForeignKey(
         ShoppingList,
         on_delete=models.CASCADE,

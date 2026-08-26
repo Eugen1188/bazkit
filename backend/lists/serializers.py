@@ -8,6 +8,18 @@ from .models import (
 )
 
 
+PRICE_FIELDS = [
+    "estimated_price", "price_source", "price_currency", "price_date",
+    "price_store", "price_sample_count", "price_min", "price_max",
+    "package_price", "package_quantity", "package_unit",
+]
+
+
+def estimated_total(obj):
+    prices = [item.estimated_price for item in obj.items.all() if item.estimated_price is not None]
+    return round(sum(prices), 2) if prices else None
+
+
 class SavedListItemSerializer(
     serializers.ModelSerializer
 ):
@@ -30,7 +42,8 @@ class SavedListItemSerializer(
             "name",
             "quantity",
             "unit",
-            "note"
+            "note",
+            *PRICE_FIELDS,
         ]
 
     def validate(self, attrs):
@@ -62,6 +75,9 @@ class SavedListItemSerializer(
         elif "name" in attrs:
             attrs["name"] = name
 
+        if attrs.get("estimated_price") is not None and attrs["estimated_price"] < 0:
+            raise serializers.ValidationError({"estimated_price": "Der Preis darf nicht negativ sein."})
+
         return attrs
 
 
@@ -69,6 +85,7 @@ class SavedListSerializer(
     serializers.ModelSerializer
 ):
     item_count = serializers.SerializerMethodField()
+    estimated_total = serializers.SerializerMethodField()
 
     items = SavedListItemSerializer(
         many=True,
@@ -83,6 +100,7 @@ class SavedListSerializer(
             "title",
             "created_at",
             "item_count",
+            "estimated_total",
             "items"
         ]
 
@@ -94,6 +112,9 @@ class SavedListSerializer(
 
     def get_item_count(self, obj):
         return obj.items.count()
+
+    def get_estimated_total(self, obj):
+        return estimated_total(obj)
 
     def create(self, validated_data):
         items_data = validated_data.pop(
@@ -182,10 +203,9 @@ class SavedListSerializer(
                     item.product
                 )
 
-                if "note" in item_data:
-                    item.note = item_data[
-                        "note"
-                    ]
+                for field in ["note", *PRICE_FIELDS]:
+                    if field in item_data:
+                        setattr(item, field, item_data[field])
 
                 item.save()
 
@@ -219,6 +239,7 @@ class SavedListDetailSerializer(
         many=True,
         read_only=True
     )
+    estimated_total = serializers.SerializerMethodField()
 
     class Meta:
         model = SavedList
@@ -227,8 +248,12 @@ class SavedListDetailSerializer(
             "id",
             "title",
             "created_at",
+            "estimated_total",
             "items"
         ]
+
+    def get_estimated_total(self, obj):
+        return estimated_total(obj)
 
 
 # ==========================================
@@ -255,7 +280,8 @@ class ShoppingListItemSerializer(
             "unit",
             "note",
             "is_checked",
-            "created_at"
+            "created_at",
+            *PRICE_FIELDS,
         ]
 
         read_only_fields = [
@@ -300,6 +326,9 @@ class ShoppingListItemSerializer(
         elif "name" in attrs:
             attrs["name"] = name
 
+        if attrs.get("estimated_price") is not None and attrs["estimated_price"] < 0:
+            raise serializers.ValidationError({"estimated_price": "Der Preis darf nicht negativ sein."})
+
         return attrs
 
 
@@ -314,6 +343,7 @@ class ShoppingListSerializer(
     item_count = serializers.SerializerMethodField()
 
     completed_count = serializers.SerializerMethodField()
+    estimated_total = serializers.SerializerMethodField()
 
     class Meta:
         model = ShoppingList
@@ -325,6 +355,7 @@ class ShoppingListSerializer(
             "updated_at",
             "item_count",
             "completed_count",
+            "estimated_total",
             "items"
         ]
 
@@ -344,3 +375,6 @@ class ShoppingListSerializer(
         return obj.items.filter(
             is_checked=True
         ).count()
+
+    def get_estimated_total(self, obj):
+        return estimated_total(obj)

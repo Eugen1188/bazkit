@@ -293,8 +293,8 @@
             </strong>
 
             <p>
-              Trage den ungefähren Preis aller Zutaten
-              für das gesamte Rezept ein.
+              Der Gesamtpreis wird aus den Zutaten berechnet.
+              Fehlende Preise kannst du direkt an der Zutat ergänzen.
             </p>
 
           </div>
@@ -316,6 +316,7 @@
                   min="0"
                   step="0.01"
                   [(ngModel)]="estimatedPrice"
+                  readonly
                   placeholder="9.50"
                 />
 
@@ -539,6 +540,7 @@
             min="0"
             step="0.01"
             [(ngModel)]="ingredient.quantity"
+            (change)="refreshIngredientPrice(i)"
             placeholder="500"
           />
 
@@ -546,6 +548,7 @@
           <select
             class="ingredient-unit"
             [(ngModel)]="ingredient.unit"
+            (change)="refreshIngredientPrice(i)"
           >
 
             <option
@@ -586,6 +589,24 @@
             <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
             <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g Kohlenhydrate</span>
             <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
+            <label class="ingredient-price-field">
+              <span>Preis für diese Menge</span>
+              <span class="ingredient-price-input">
+                <input type="number" min="0" step="0.01" [(ngModel)]="ingredients[i].estimated_price"
+                  (ngModelChange)="onIngredientPriceChange(i)" [disabled]="ingredientPriceLoading[i]" />
+                <b>€</b>
+              </span>
+            </label>
+            <small *ngIf="ingredientPriceLoading[i]">Preis wird ermittelt…</small>
+            <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices'">
+              Open Prices · {{ ingredients[i].price_sample_count }} Marktpreise
+              <ng-container *ngIf="ingredients[i].price_min !== null && ingredients[i].price_max !== null">
+                · {{ ingredients[i].price_min | number:'1.2-2' }}–{{ ingredients[i].price_max | number:'1.2-2' }} €
+              </ng-container>
+            </small>
+            <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source !== 'open_prices'">
+              Für BLS oder fehlende Marktdaten optional manuell eintragen
+            </small>
             <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
           </ng-container>
         </div>

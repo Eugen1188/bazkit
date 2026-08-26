@@ -46,12 +46,24 @@ def calculate_recipe_nutrition(recipe, ingredients):
     recipe.save(update_fields=list(totals))
 
 
+def calculate_recipe_price(recipe, ingredients):
+    prices = [ingredient.estimated_price for ingredient in ingredients if ingredient.estimated_price is not None]
+    if prices:
+        recipe.estimated_price = sum(prices).quantize(Decimal("0.01"))
+        recipe.save(update_fields=["estimated_price"])
+
+
 class IngredientsSerializer(serializers.ModelSerializer):
     product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), allow_null=False, required=True)
 
     class Meta:
         model = Ingredients
-        fields = ["id", "product", "name", "quantity", "unit"]
+        fields = [
+            "id", "product", "name", "quantity", "unit", "estimated_price",
+            "price_source", "price_currency", "price_date", "price_store",
+            "price_sample_count", "price_min", "price_max", "package_price",
+            "package_quantity", "package_unit",
+        ]
         read_only_fields = ["id", "name"]
 
     def validate(self, attrs):
@@ -59,6 +71,8 @@ class IngredientsSerializer(serializers.ModelSerializer):
         if product is None:
             raise serializers.ValidationError({"product": "Bitte ein Produkt aus den Vorschlägen auswählen."})
         attrs["name"] = clean_product_name(product.name)
+        if attrs.get("estimated_price") is not None and attrs["estimated_price"] < 0:
+            raise serializers.ValidationError({"estimated_price": "Der Preis darf nicht negativ sein."})
         return attrs
 
 
@@ -99,6 +113,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         recipe = Recipe.objects.create(user=self.context["request"].user, **validated_data)
         created_ingredients = [Ingredients.objects.create(recipe=recipe, **item) for item in ingredients]
         calculate_recipe_nutrition(recipe, created_ingredients)
+        calculate_recipe_price(recipe, created_ingredients)
         return recipe
 
     @transaction.atomic
@@ -111,11 +126,11 @@ class RecipeSerializer(serializers.ModelSerializer):
             instance.ingredients.all().delete()
             created_ingredients = [Ingredients.objects.create(recipe=instance, **item) for item in ingredients]
             calculate_recipe_nutrition(instance, created_ingredients)
+            calculate_recipe_price(instance, created_ingredients)
         else:
-            calculate_recipe_nutrition(
-                instance,
-                list(instance.ingredients.select_related("product")),
-            )
+            existing_ingredients = list(instance.ingredients.select_related("product"))
+            calculate_recipe_nutrition(instance, existing_ingredients)
+            calculate_recipe_price(instance, existing_ingredients)
         return instance
 
 

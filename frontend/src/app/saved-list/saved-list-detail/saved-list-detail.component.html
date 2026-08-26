@@ -80,6 +80,10 @@
 
         </span>
 
+        <span class="price-chip" *ngIf="savedList.estimated_total !== null && savedList.estimated_total !== undefined">
+          Gesamt ca. {{ savedList.estimated_total | number:'1.2-2' }} €
+        </span>
+
 
         <!-- THREE DOT MENU -->
 
@@ -387,6 +391,10 @@
               *ngIf="item.unit"
             >
               {{ item.unit }}
+            </span>
+
+            <span class="meta-chip price-chip" *ngIf="item.estimated_price !== null && item.estimated_price !== undefined">
+              ca. {{ item.estimated_price | number:'1.2-2' }} €
             </span>
 
           </div>

@@ -15,6 +15,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Product
+from .pricing import estimate_open_price
 from .serializers import ProductSerializer
 
 logger = logging.getLogger(__name__)
@@ -111,6 +112,38 @@ class ProductSearchAPIView(APIView):
         for item in data:
             item["name"] = clean_name(item["name"])
         return Response([item for item in data if item["name"]])
+
+
+class ProductPriceEstimateAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        product = None
+        product_id = request.query_params.get("product_id")
+        external_id = clean_text(request.query_params.get("external_id"), 100)
+        source = clean_text(request.query_params.get("source"), 30)
+
+        if product_id:
+            product = Product.objects.filter(id=product_id).first()
+            if product is None:
+                return Response({"detail": "Produkt nicht gefunden."}, status=status.HTTP_404_NOT_FOUND)
+            source = product.source or ""
+            external_id = product.external_id or ""
+
+        if source != "open_food_facts":
+            return Response({
+                "available": False,
+                "estimated_price": None,
+                "message": "Für BLS- und freie Produkte kann ein eigener Schätzpreis eingetragen werden.",
+            })
+
+        quantity = request.query_params.get("quantity", "1")
+        unit = clean_text(request.query_params.get("unit"), 30)
+        mode = request.query_params.get("mode", "purchase")
+        if mode not in {"purchase", "consumption"}:
+            return Response({"detail": "Ungültiger Berechnungsmodus."}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(estimate_open_price(external_id, quantity, unit, mode))
 
 
 class ExternalProductSearchAPIView(APIView):

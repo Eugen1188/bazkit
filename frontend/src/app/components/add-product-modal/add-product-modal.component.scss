@@ -872,6 +872,11 @@ input::placeholder {
 
 }
 
+.price-input { position: relative; }
+.price-input input { padding-right: 38px; }
+.price-input span { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #64716a; }
+.price-field small { display: block; margin-top: 7px; color: #6b746f; line-height: 1.35; }
+
 .product-help {
   display: block;
 
