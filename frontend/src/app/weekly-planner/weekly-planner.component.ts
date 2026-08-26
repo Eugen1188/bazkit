@@ -1,814 +1,543 @@
+import { CommonModule } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize, forkJoin } from 'rxjs';
+
+import { Recipe, RecipeService } from '../services/recipe.service';
 import {
-  CommonModule
-} from '@angular/common';
-
-import {
-  Component
-} from '@angular/core';
+  PlannerMealType,
+  WeeklyPlanEntry,
+  WeeklyPlannerService
+} from '../services/weekly-planner.service';
 
 
-type MealType =
-  'breakfast' |
-  'lunch' |
-  'dinner';
-
+type MealType = PlannerMealType;
+type FeedbackKind = 'success' | 'error' | '';
 
 interface Meal {
-  id: number;
-
+  entryId: number;
+  recipeId: number;
   name: string;
-
-  image?: string;
-
+  image: string;
   calories: number;
-
   protein: number;
-
   carbohydrates: number;
-
   fat: number;
-
   servings: number;
+  ingredientCount: number;
 }
-
 
 interface PlannerDay {
   fullName: string;
-
   shortName: string;
-
   date: string;
-
+  dateKey: string;
   dayNumber: number;
-
-  isToday?: boolean;
-
-  breakfast:
-    Meal | null;
-
-  lunch:
-    Meal | null;
-
-  dinner:
-    Meal | null;
+  isToday: boolean;
+  breakfast: Meal | null;
+  lunch: Meal | null;
+  dinner: Meal | null;
 }
 
 
 @Component({
-  selector:
-    'app-weekly-planner',
-
-  standalone:
-    true,
-
-  imports: [
-    CommonModule
-  ],
-
-  templateUrl:
-    './weekly-planner.component.html',
-
-  styleUrl:
-    './weekly-planner.component.scss'
+  selector: 'app-weekly-planner',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './weekly-planner.component.html',
+  styleUrl: './weekly-planner.component.scss'
 })
-export class WeeklyPlannerComponent {
-
-  weekLabel =
-    '24. – 30. August';
-
-
-  selectedDayIndex =
-    0;
-
-
-  mealTypes: {
-    key: MealType;
-    label: string;
-  }[] = [
-
-    {
-      key:
-        'breakfast',
-
-      label:
-        'Frühstück'
-    },
-
-    {
-      key:
-        'lunch',
-
-      label:
-        'Mittagessen'
-    },
-
-    {
-      key:
-        'dinner',
-
-      label:
-        'Abendessen'
-    }
-
+export class WeeklyPlannerComponent implements OnInit {
+  readonly mealTypes: { key: MealType; label: string }[] = [
+    { key: 'breakfast', label: 'Frühstück' },
+    { key: 'lunch', label: 'Mittagessen' },
+    { key: 'dinner', label: 'Abendessen' }
   ];
 
-
-  days:
-    PlannerDay[] = [
-
-    {
-      fullName:
-        'Montag',
-
-      shortName:
-        'Mo',
-
-      date:
-        '24. August',
-
-      dayNumber:
-        24,
-
-      isToday:
-        true,
-
-      breakfast: {
-        id:
-          1,
-
-        name:
-          'Overnight Oats',
-
-        image:
-          'assets/images/home/home-ai-food.webp',
-
-        calories:
-          420,
-
-        protein:
-          22,
-
-        carbohydrates:
-          54,
-
-        fat:
-          13,
-
-        servings:
-          1
-      },
-
-      lunch: {
-        id:
-          2,
-
-        name:
-          'Chicken Caesar Salad',
-
-        image:
-          'assets/images/home/home-food.webp',
-
-        calories:
-          590,
-
-        protein:
-          41,
-
-        carbohydrates:
-          34,
-
-        fat:
-          29,
-
-        servings:
-          1
-      },
-
-      dinner: {
-        id:
-          3,
-
-        name:
-          'Pasta Bolognese',
-
-        image:
-          'assets/images/home/home-recipes.webp',
-
-        calories:
-          710,
-
-        protein:
-          38,
-
-        carbohydrates:
-          82,
-
-        fat:
-          24,
-
-        servings:
-          2
-      }
-    },
-
-
-    {
-      fullName:
-        'Dienstag',
-
-      shortName:
-        'Di',
-
-      date:
-        '25. August',
-
-      dayNumber:
-        25,
-
-      breakfast: {
-        id:
-          4,
-
-        name:
-          'Joghurt mit Früchten',
-
-        image:
-          'assets/images/home/home-ai-food.webp',
-
-        calories:
-          360,
-
-        protein:
-          24,
-
-        carbohydrates:
-          45,
-
-        fat:
-          8,
-
-        servings:
-          1
-      },
-
-      lunch:
-        null,
-
-      dinner: {
-        id:
-          5,
-
-        name:
-          'Hähnchen Curry',
-
-        image:
-          'assets/images/home/home-food.webp',
-
-        calories:
-          680,
-
-        protein:
-          46,
-
-        carbohydrates:
-          72,
-
-        fat:
-          22,
-
-        servings:
-          2
-      }
-    },
-
-
-    {
-      fullName:
-        'Mittwoch',
-
-      shortName:
-        'Mi',
-
-      date:
-        '26. August',
-
-      dayNumber:
-        26,
-
-      breakfast:
-        null,
-
-      lunch: {
-        id:
-          6,
-
-        name:
-          'Mediterrane Bowl',
-
-        image:
-          'assets/images/home/home-food.webp',
-
-        calories:
-          570,
-
-        protein:
-          27,
-
-        carbohydrates:
-          69,
-
-        fat:
-          21,
-
-        servings:
-          1
-      },
-
-      dinner: {
-        id:
-          7,
-
-        name:
-          'Lachs mit Gemüse',
-
-        image:
-          'assets/images/home/home-recipes.webp',
-
-        calories:
-          640,
-
-        protein:
-          45,
-
-        carbohydrates:
-          39,
-
-        fat:
-          31,
-
-        servings:
-          2
-      }
-    },
-
-
-    {
-      fullName:
-        'Donnerstag',
-
-      shortName:
-        'Do',
-
-      date:
-        '27. August',
-
-      dayNumber:
-        27,
-
-      breakfast:
-        null,
-
-      lunch:
-        null,
-
-      dinner: {
-        id:
-          8,
-
-        name:
-          'Gemüse Pasta',
-
-        image:
-          'assets/images/home/home-ai-food.webp',
-
-        calories:
-          620,
-
-        protein:
-          24,
-
-        carbohydrates:
-          88,
-
-        fat:
-          18,
-
-        servings:
-          2
-      }
-    },
-
-
-    {
-      fullName:
-        'Freitag',
-
-      shortName:
-        'Fr',
-
-      date:
-        '28. August',
-
-      dayNumber:
-        28,
-
-      breakfast:
-        null,
-
-      lunch:
-        null,
-
-      dinner: {
-        id:
-          9,
-
-        name:
-          'Chicken Tacos',
-
-        image:
-          'assets/images/home/home-food.webp',
-
-        calories:
-          730,
-
-        protein:
-          43,
-
-        carbohydrates:
-          76,
-
-        fat:
-          29,
-
-        servings:
-          2
-      }
-    },
-
-
-    {
-      fullName:
-        'Samstag',
-
-      shortName:
-        'Sa',
-
-      date:
-        '29. August',
-
-      dayNumber:
-        29,
-
-      breakfast:
-        null,
-
-      lunch:
-        null,
-
-      dinner:
-        null
-    },
-
-
-    {
-      fullName:
-        'Sonntag',
-
-      shortName:
-        'So',
-
-      date:
-        '30. August',
-
-      dayNumber:
-        30,
-
-      breakfast:
-        null,
-
-      lunch:
-        null,
-
-      dinner: {
-        id:
-          10,
-
-        name:
-          'Rinderrouladen',
-
-        image:
-          'assets/images/home/home-recipes.webp',
-
-        calories:
-          810,
-
-        protein:
-          52,
-
-        carbohydrates:
-          58,
-
-        fat:
-          38,
-
-        servings:
-          2
-      }
+  days: PlannerDay[] = [];
+  recipes: Recipe[] = [];
+  selectedDayIndex = 0;
+  weekStart = this.startOfWeek(new Date());
+
+  isLoading = true;
+  isSaving = false;
+  isGenerating = false;
+  isCreatingShoppingList = false;
+  feedbackMessage = '';
+  feedbackKind: FeedbackKind = '';
+
+  mealDialogOpen = false;
+  dialogDayIndex = 0;
+  dialogMealType: MealType = 'dinner';
+  selectedRecipeId: number | null = null;
+  selectedServings = 1;
+  recipeSearch = '';
+
+  constructor(
+    private readonly router: Router,
+    private readonly recipeService: RecipeService,
+    private readonly plannerService: WeeklyPlannerService
+  ) {}
+
+  ngOnInit(): void {
+    this.buildDays();
+    this.loadInitialData();
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeMealDialog();
+  }
+
+  get weekLabel(): string {
+    const end = this.addDays(this.weekStart, 6);
+    const startDay = this.weekStart.getDate();
+    const endDay = end.getDate();
+    const startMonth = this.monthName(this.weekStart);
+    const endMonth = this.monthName(end);
+    const startYear = this.weekStart.getFullYear();
+    const endYear = end.getFullYear();
+
+    if (startYear !== endYear) {
+      return `${startDay}. ${startMonth} ${startYear} – ${endDay}. ${endMonth} ${endYear}`;
     }
-
-  ];
-
-
-  get selectedDay():
-    PlannerDay {
-
-    return (
-      this.days[
-        this.selectedDayIndex
-      ]
-      ??
-      this.days[0]
-    );
-  }
-
-
-  get totalMeals():
-    number {
-
-    return this.days
-      .reduce(
-        (
-          total,
-          day
-        ) => {
-
-          return (
-            total +
-            this.getMealCount(
-              day
-            )
-          );
-
-        },
-        0
-      );
-  }
-
-
-  get plannedDays():
-    number {
-
-    return this.days
-      .filter(
-        day =>
-          this.getMealCount(
-            day
-          ) > 0
-      )
-      .length;
-  }
-
-
-  get averageCalories():
-    number {
-
-    if (
-      this.plannedDays === 0
-    ) {
-
-      return 0;
+    if (startMonth !== endMonth) {
+      return `${startDay}. ${startMonth} – ${endDay}. ${endMonth} ${endYear}`;
     }
+    return `${startDay}. – ${endDay}. ${endMonth} ${endYear}`;
+  }
 
+  get selectedDay(): PlannerDay {
+    return this.days[this.selectedDayIndex] ?? this.days[0];
+  }
 
-    const total =
-      this.days
-        .reduce(
-          (
-            sum,
-            day
-          ) =>
-            sum +
-            this.getDayCalories(
-              day
-            ),
-          0
+  get dialogDay(): PlannerDay | null {
+    return this.days[this.dialogDayIndex] ?? null;
+  }
+
+  get dialogMealLabel(): string {
+    return this.mealTypes.find(item => item.key === this.dialogMealType)?.label ?? 'Mahlzeit';
+  }
+
+  get dialogEntry(): Meal | null {
+    return this.dialogDay?.[this.dialogMealType] ?? null;
+  }
+
+  get selectedRecipe(): Recipe | null {
+    return this.recipes.find(recipe => recipe.id === this.selectedRecipeId) ?? null;
+  }
+
+  get filteredRecipes(): Recipe[] {
+    const query = this.recipeSearch.trim().toLocaleLowerCase('de-DE');
+    return this.recipes
+      .filter(recipe => !query || `${recipe.name} ${recipe.description}`.toLocaleLowerCase('de-DE').includes(query))
+      .sort((left, right) => {
+        const leftMatch = left.category === this.dialogMealType ? 0 : 1;
+        const rightMatch = right.category === this.dialogMealType ? 0 : 1;
+        return leftMatch - rightMatch || left.name.localeCompare(right.name, 'de-DE');
+      });
+  }
+
+  get totalMeals(): number {
+    return this.days.reduce((total, day) => total + this.getMealCount(day), 0);
+  }
+
+  get plannedDays(): number {
+    return this.days.filter(day => this.getMealCount(day) > 0).length;
+  }
+
+  get averageCalories(): number {
+    return this.plannedDays
+      ? Math.round(this.days.reduce((sum, day) => sum + this.getDayCalories(day), 0) / this.plannedDays)
+      : 0;
+  }
+
+  get averageProtein(): number {
+    return this.plannedDays
+      ? Math.round(this.days.reduce((sum, day) => sum + this.getDayProtein(day), 0) / this.plannedDays)
+      : 0;
+  }
+
+  get weeklyIngredientCount(): number {
+    return this.allMeals().reduce((total, meal) => total + meal.ingredientCount, 0);
+  }
+
+  get weeklyProductCount(): number {
+    const products = new Set<string>();
+    for (const meal of this.allMeals()) {
+      const recipe = this.recipes.find(item => item.id === meal.recipeId);
+      for (const ingredient of recipe?.ingredients ?? []) {
+        products.add(
+          ingredient.product != null
+            ? `product:${ingredient.product}`
+            : `name:${ingredient.name.trim().toLocaleLowerCase('de-DE')}`
         );
-
-
-    return Math.round(
-      total /
-      this.plannedDays
-    );
-  }
-
-
-  get averageProtein():
-    number {
-
-    if (
-      this.plannedDays === 0
-    ) {
-
-      return 0;
+      }
     }
-
-
-    const total =
-      this.days
-        .reduce(
-          (
-            sum,
-            day
-          ) =>
-            sum +
-            this.getDayProtein(
-              day
-            ),
-          0
-        );
-
-
-    return Math.round(
-      total /
-      this.plannedDays
-    );
+    return products.size;
   }
 
-
-  getMeal(
-    day:
-      PlannerDay,
-
-    type:
-      MealType
-  ): Meal | null {
-
+  getMeal(day: PlannerDay, type: MealType): Meal | null {
     return day[type];
   }
 
-
-  getMealCount(
-    day:
-      PlannerDay
-  ): number {
-
-    return [
-      day.breakfast,
-      day.lunch,
-      day.dinner
-    ]
-      .filter(
-        meal =>
-          !!meal
-      )
-      .length;
+  getMealCount(day: PlannerDay): number {
+    return [day.breakfast, day.lunch, day.dinner].filter(Boolean).length;
   }
 
-
-  getDayCalories(
-    day:
-      PlannerDay
-  ): number {
-
-    return [
-      day.breakfast,
-      day.lunch,
-      day.dinner
-    ]
-      .reduce(
-        (
-          total:
-            number,
-
-          meal:
-            Meal | null
-        ) =>
-          total +
-          (
-            meal?.calories ??
-            0
-          ),
-        0
-      );
+  getDayCalories(day: PlannerDay): number {
+    return Math.round(this.dayMeals(day).reduce((total, meal) => total + meal.calories, 0));
   }
 
-
-  getDayProtein(
-    day:
-      PlannerDay
-  ): number {
-
-    return [
-      day.breakfast,
-      day.lunch,
-      day.dinner
-    ]
-      .reduce(
-        (
-          total:
-            number,
-
-          meal:
-            Meal | null
-        ) =>
-          total +
-          (
-            meal?.protein ??
-            0
-          ),
-        0
-      );
+  getDayProtein(day: PlannerDay): number {
+    return Math.round(this.dayMeals(day).reduce((total, meal) => total + meal.protein, 0));
   }
 
-
-  addMeal(
-    dayIndex:
-      number,
-
-    type:
-      MealType
-  ): void {
-
-    console.log(
-      'Mahlzeit hinzufügen:',
-      dayIndex,
-      type
-    );
-
-    /*
-     * Später öffnen wir hier
-     * einen Dialog mit:
-     *
-     * - Meine Rezepte
-     * - Community
-     * - eigenes Gericht
-     */
+  addMeal(dayIndex: number, type: MealType): void {
+    this.openMealDialog(dayIndex, type, null);
   }
 
-
-  openMeal(
-    dayIndex:
-      number,
-
-    type:
-      MealType
-  ): void {
-
-    const meal =
-      this.days[
-        dayIndex
-      ][type];
-
-
-    console.log(
-      'Mahlzeit öffnen:',
-      meal
-    );
+  openMeal(dayIndex: number, type: MealType): void {
+    this.openMealDialog(dayIndex, type, this.days[dayIndex]?.[type] ?? null);
   }
 
-
-  previousWeek():
-    void {
-
-    console.log(
-      'Vorherige Woche'
-    );
+  closeMealDialog(): void {
+    if (this.isSaving) {
+      return;
+    }
+    this.mealDialogOpen = false;
+    this.recipeSearch = '';
   }
 
-
-  nextWeek():
-    void {
-
-    console.log(
-      'Nächste Woche'
-    );
+  chooseRecipe(recipe: Recipe): void {
+    this.selectedRecipeId = recipe.id;
+    if (!this.dialogEntry) {
+      this.selectedServings = Math.max(Number(recipe.servings) || 1, 1);
+    }
   }
 
+  saveMeal(): void {
+    const day = this.dialogDay;
+    if (!day || this.selectedRecipeId == null) {
+      this.showFeedback('Bitte wähle zuerst ein Rezept aus.', 'error');
+      return;
+    }
 
-  goToCurrentWeek():
-    void {
-
-    console.log(
-      'Aktuelle Woche'
-    );
+    this.isSaving = true;
+    this.plannerService.saveEntry({
+      date: day.dateKey,
+      meal_type: this.dialogMealType,
+      servings: Math.max(Math.round(Number(this.selectedServings) || 1), 1),
+      recipe: this.selectedRecipeId
+    })
+      .pipe(finalize(() => { this.isSaving = false; }))
+      .subscribe({
+        next: entry => {
+          day[this.dialogMealType] = this.entryToMeal(entry);
+          this.mealDialogOpen = false;
+          this.showFeedback(`${this.dialogMealLabel} wurde gespeichert.`, 'success');
+        },
+        error: error => this.showFeedback(
+          this.apiError(error, 'Die Mahlzeit konnte nicht gespeichert werden.'),
+          'error'
+        )
+      });
   }
 
-
-  generateWeek():
-    void {
-
-    console.log(
-      'Wochenplan mit KI erstellen'
-    );
+  removeMeal(): void {
+    const day = this.dialogDay;
+    const entry = this.dialogEntry;
+    if (!day || !entry) {
+      return;
+    }
+    this.isSaving = true;
+    this.plannerService.deleteEntry(entry.entryId)
+      .pipe(finalize(() => { this.isSaving = false; }))
+      .subscribe({
+        next: () => {
+          day[this.dialogMealType] = null;
+          this.mealDialogOpen = false;
+          this.showFeedback('Die Mahlzeit wurde aus dem Wochenplan entfernt.', 'success');
+        },
+        error: error => this.showFeedback(
+          this.apiError(error, 'Die Mahlzeit konnte nicht entfernt werden.'),
+          'error'
+        )
+      });
   }
 
-
-  createShoppingList():
-    void {
-
-    console.log(
-      'Wochenzutaten zur Einkaufsliste hinzufügen'
-    );
+  openSelectedRecipe(): void {
+    if (this.selectedRecipeId == null) {
+      return;
+    }
+    this.mealDialogOpen = false;
+    void this.router.navigate(['/main/recipe-list', this.selectedRecipeId]);
   }
 
+  createRecipe(): void {
+    this.mealDialogOpen = false;
+    void this.router.navigate(['/main/recipe-list/create']);
+  }
+
+  previousWeek(): void {
+    this.changeWeek(-7);
+  }
+
+  nextWeek(): void {
+    this.changeWeek(7);
+  }
+
+  goToCurrentWeek(): void {
+    this.weekStart = this.startOfWeek(new Date());
+    this.buildDays();
+    this.selectedDayIndex = this.todayIndexForWeek();
+    this.loadEntries();
+  }
+
+  generateWeek(): void {
+    if (!this.recipes.length) {
+      this.showFeedback('Erstelle zuerst mindestens ein Rezept.', 'error');
+      return;
+    }
+    this.isGenerating = true;
+    this.clearFeedback();
+    this.plannerService.generateWeek(this.weekStartKey, this.weekEndKey)
+      .pipe(finalize(() => { this.isGenerating = false; }))
+      .subscribe({
+        next: response => {
+          this.applyEntries(response.entries);
+          this.showFeedback(response.message, 'success');
+        },
+        error: error => this.showFeedback(
+          this.apiError(error, 'Die Woche konnte nicht automatisch geplant werden.'),
+          'error'
+        )
+      });
+  }
+
+  createShoppingList(): void {
+    if (!this.totalMeals) {
+      this.showFeedback('Plane zuerst mindestens eine Mahlzeit.', 'error');
+      return;
+    }
+    this.isCreatingShoppingList = true;
+    this.clearFeedback();
+    this.plannerService.createShoppingList(this.weekStartKey, this.weekEndKey)
+      .pipe(finalize(() => { this.isCreatingShoppingList = false; }))
+      .subscribe({
+        next: response => {
+          this.showFeedback(response.message, 'success');
+          void this.router.navigate(['/main/shopping-list']);
+        },
+        error: error => this.showFeedback(
+          this.apiError(error, 'Der Wocheneinkauf konnte nicht erstellt werden.'),
+          'error'
+        )
+      });
+  }
+
+  categoryLabel(category: string): string {
+    return {
+      breakfast: 'Frühstück',
+      lunch: 'Mittagessen',
+      dinner: 'Abendessen',
+      snack: 'Snack',
+      dessert: 'Dessert',
+      other: 'Sonstiges'
+    }[category] ?? 'Sonstiges';
+  }
+
+  recipeNutrition(recipe: Recipe): string {
+    const calories = this.numberValue(recipe.calories);
+    const protein = this.numberValue(recipe.protein);
+    if (!calories && !protein) {
+      return 'Noch keine Nährwerte berechnet';
+    }
+    return `${Math.round(calories)} kcal · ${this.roundNumber(protein)} g Protein`;
+  }
+
+  private loadInitialData(): void {
+    this.isLoading = true;
+    this.clearFeedback();
+    forkJoin({
+      recipes: this.recipeService.getRecipes(),
+      entries: this.plannerService.getEntries(this.weekStartKey, this.weekEndKey)
+    })
+      .pipe(finalize(() => { this.isLoading = false; }))
+      .subscribe({
+        next: ({ recipes, entries }) => {
+          this.recipes = recipes;
+          this.applyEntries(entries);
+          this.selectedDayIndex = this.todayIndexForWeek();
+        },
+        error: error => this.showFeedback(
+          this.apiError(error, 'Der Wochenplan konnte nicht geladen werden.'),
+          'error'
+        )
+      });
+  }
+
+  private loadEntries(): void {
+    this.isLoading = true;
+    this.clearFeedback();
+    this.plannerService.getEntries(this.weekStartKey, this.weekEndKey)
+      .pipe(finalize(() => { this.isLoading = false; }))
+      .subscribe({
+        next: entries => this.applyEntries(entries),
+        error: error => this.showFeedback(
+          this.apiError(error, 'Der Wochenplan konnte nicht geladen werden.'),
+          'error'
+        )
+      });
+  }
+
+  private openMealDialog(dayIndex: number, type: MealType, meal: Meal | null): void {
+    this.dialogDayIndex = dayIndex;
+    this.dialogMealType = type;
+    this.recipeSearch = '';
+    this.selectedRecipeId = meal?.recipeId ?? null;
+    this.selectedServings = meal?.servings ?? 1;
+
+    if (!meal) {
+      const preferred = this.recipes.find(recipe => recipe.category === type) ?? this.recipes[0];
+      if (preferred) {
+        this.selectedRecipeId = preferred.id;
+        this.selectedServings = Math.max(Number(preferred.servings) || 1, 1);
+      }
+    }
+    this.mealDialogOpen = true;
+  }
+
+  private changeWeek(offset: number): void {
+    this.weekStart = this.addDays(this.weekStart, offset);
+    this.buildDays();
+    this.selectedDayIndex = this.todayIndexForWeek();
+    this.loadEntries();
+  }
+
+  private buildDays(): void {
+    const fullNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+    const shortNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+    const todayKey = this.dateKey(new Date());
+    this.days = fullNames.map((fullName, index) => {
+      const dayDate = this.addDays(this.weekStart, index);
+      return {
+        fullName,
+        shortName: shortNames[index],
+        date: new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long' }).format(dayDate),
+        dateKey: this.dateKey(dayDate),
+        dayNumber: dayDate.getDate(),
+        isToday: this.dateKey(dayDate) === todayKey,
+        breakfast: null,
+        lunch: null,
+        dinner: null
+      };
+    });
+  }
+
+  private applyEntries(entries: WeeklyPlanEntry[]): void {
+    this.buildDays();
+    const daysByDate = new Map(this.days.map(day => [day.dateKey, day]));
+    for (const entry of entries) {
+      const day = daysByDate.get(entry.date);
+      if (day) {
+        day[entry.meal_type] = this.entryToMeal(entry);
+      }
+    }
+  }
+
+  private entryToMeal(entry: WeeklyPlanEntry): Meal {
+    const recipe = entry.recipe_detail;
+    return {
+      entryId: entry.id,
+      recipeId: recipe.id,
+      name: recipe.name,
+      image: this.categoryImage(recipe.category),
+      calories: this.numberValue(recipe.calories),
+      protein: this.numberValue(recipe.protein),
+      carbohydrates: this.numberValue(recipe.carbohydrates),
+      fat: this.numberValue(recipe.fat),
+      servings: entry.servings,
+      ingredientCount: recipe.ingredient_count ?? 0
+    };
+  }
+
+  private categoryImage(category: string): string {
+    if (category === 'breakfast') {
+      return 'assets/images/home/home-ai-food.webp';
+    }
+    if (category === 'lunch') {
+      return 'assets/images/home/home-food.webp';
+    }
+    return 'assets/images/home/home-recipes.webp';
+  }
+
+  private dayMeals(day: PlannerDay): Meal[] {
+    return [day.breakfast, day.lunch, day.dinner].filter((meal): meal is Meal => meal != null);
+  }
+
+  private allMeals(): Meal[] {
+    return this.days.flatMap(day => this.dayMeals(day));
+  }
+
+  private get weekStartKey(): string {
+    return this.dateKey(this.weekStart);
+  }
+
+  private get weekEndKey(): string {
+    return this.dateKey(this.addDays(this.weekStart, 6));
+  }
+
+  private startOfWeek(value: Date): Date {
+    const result = new Date(value.getFullYear(), value.getMonth(), value.getDate(), 12);
+    result.setDate(result.getDate() - ((result.getDay() + 6) % 7));
+    return result;
+  }
+
+  private addDays(value: Date, days: number): Date {
+    const result = new Date(value.getFullYear(), value.getMonth(), value.getDate(), 12);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  private dateKey(value: Date): string {
+    const month = String(value.getMonth() + 1).padStart(2, '0');
+    const day = String(value.getDate()).padStart(2, '0');
+    return `${value.getFullYear()}-${month}-${day}`;
+  }
+
+  private monthName(value: Date): string {
+    return new Intl.DateTimeFormat('de-DE', { month: 'long' }).format(value);
+  }
+
+  private todayIndexForWeek(): number {
+    const todayKey = this.dateKey(new Date());
+    const index = this.days.findIndex(day => day.dateKey === todayKey);
+    return index >= 0 ? index : 0;
+  }
+
+  private numberValue(value: number | string | null | undefined): number {
+    const parsed = Number(value ?? 0);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  private roundNumber(value: number): string {
+    return Number(value.toFixed(1)).toLocaleString('de-DE');
+  }
+
+  private showFeedback(message: string, kind: FeedbackKind): void {
+    this.feedbackMessage = message;
+    this.feedbackKind = kind;
+  }
+
+  private clearFeedback(): void {
+    this.feedbackMessage = '';
+    this.feedbackKind = '';
+  }
+
+  private apiError(error: unknown, fallback: string): string {
+    const response = error as { error?: { detail?: string } };
+    return response?.error?.detail || fallback;
+  }
 }

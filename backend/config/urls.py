@@ -47,6 +47,13 @@ urlpatterns = [
     ),
 
     path(
+        "planner/",
+        include(
+            "planner.urls"
+        )
+    ),
+
+    path(
         "community/",
         include(
             "community.urls"

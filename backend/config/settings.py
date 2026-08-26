@@ -110,6 +110,8 @@ INSTALLED_APPS = [
 
     "recipes",
 
+    "planner",
+
     "community",
 ]
 

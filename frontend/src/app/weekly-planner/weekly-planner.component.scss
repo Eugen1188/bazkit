@@ -2313,3 +2313,389 @@
   }
 
 }
+
+
+/* =========================================
+   INTERACTION STATES
+========================================= */
+
+.planner-feedback,
+.planner-loading {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.planner-feedback.success {
+  border-color: #bcd7c7;
+  background: #eef6f1;
+  color: #37684f;
+}
+
+.planner-feedback.error {
+  border-color: #efc6c6;
+  background: #fff2f2;
+  color: #a23838;
+}
+
+.planner-spinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--color-primary-soft-bg);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: planner-spin 0.8s linear infinite;
+}
+
+@keyframes planner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ai-button:disabled,
+.shopping-button:disabled,
+.planner-dialog button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================
+   RECIPE SELECTION DIALOG
+========================================= */
+
+.planner-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 7000;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 30, 27, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.planner-dialog {
+  width: min(680px, 100%);
+  max-height: min(780px, calc(100vh - 48px));
+  padding: 25px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  box-shadow: 0 24px 70px rgba(15, 29, 24, 0.22);
+}
+
+.planner-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.planner-dialog-header > div > span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.planner-dialog-header h2 {
+  margin: 0 0 6px;
+  color: var(--color-text-primary);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.planner-dialog-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.dialog-close {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dialog-close:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.recipe-search {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.recipe-search > span,
+.planner-dialog-settings label > span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-text-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.recipe-search input,
+.planner-dialog-settings input {
+  width: 100%;
+  min-height: 45px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: 13px;
+}
+
+.recipe-search input:focus,
+.planner-dialog-settings input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft-bg);
+}
+
+.recipe-choice-list {
+  min-height: 120px;
+  max-height: 345px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.recipe-choice {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-divider);
+  border-radius: 13px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.recipe-choice:hover,
+.recipe-choice.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+}
+
+.recipe-choice-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-soft-bg);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.recipe-choice-copy {
+  min-width: 0;
+}
+
+.recipe-choice-copy strong,
+.recipe-choice-copy small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recipe-choice-copy strong {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.recipe-choice-copy small {
+  color: var(--color-text-muted);
+  font-size: 10px;
+}
+
+.recipe-choice-check {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.recipe-choice.selected .recipe-choice-check {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.dialog-empty {
+  padding: 34px 20px;
+  border: 1px dashed var(--color-border);
+  border-radius: 13px;
+  background: #fcfcfc;
+  text-align: center;
+}
+
+.dialog-empty strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.dialog-empty p {
+  margin: 7px 0 15px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.dialog-empty button,
+.open-recipe-button {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.planner-dialog-settings {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.planner-dialog-settings label {
+  width: 190px;
+}
+
+.planner-dialog-actions {
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dialog-action-spacer {
+  flex: 1;
+}
+
+.planner-dialog-actions button {
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-meal-button {
+  border: 1px solid #efc8c8;
+  background: #fff4f4;
+  color: #bf4444;
+}
+
+.dialog-cancel-button {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-primary);
+}
+
+.dialog-save-button {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+@media (max-width: 620px) {
+  .planner-dialog-backdrop {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .planner-dialog {
+    max-height: calc(100vh - 20px);
+    padding: 19px 15px;
+    border-radius: 19px 19px 12px 12px;
+  }
+
+  .planner-dialog-header h2 {
+    font-size: 21px;
+  }
+
+  .planner-dialog-settings {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .planner-dialog-settings label,
+  .open-recipe-button {
+    width: 100%;
+  }
+
+  .planner-dialog-actions {
+    flex-wrap: wrap;
+  }
+
+  .dialog-action-spacer {
+    display: none;
+  }
+
+  .remove-meal-button {
+    width: 100%;
+  }
+
+  .dialog-cancel-button,
+  .dialog-save-button {
+    flex: 1;
+  }
+}

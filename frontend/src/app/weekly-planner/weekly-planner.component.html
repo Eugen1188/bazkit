@@ -31,6 +31,7 @@
         <button
           class="ai-button"
           type="button"
+          [disabled]="isLoading || isGenerating"
           (click)="generateWeek()"
         >
 
@@ -42,13 +43,30 @@
             <path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"></path>
           </svg>
 
-          Woche mit KI planen
+          {{ isGenerating ? 'Woche wird geplant…' : 'Woche mit KI planen' }}
 
         </button>
 
       </div>
 
     </header>
+
+
+    <div
+      class="planner-feedback"
+      [class.success]="feedbackKind === 'success'"
+      [class.error]="feedbackKind === 'error'"
+      *ngIf="feedbackMessage"
+      role="status"
+    >
+      {{ feedbackMessage }}
+    </div>
+
+
+    <div class="planner-loading" *ngIf="isLoading">
+      <span class="planner-spinner"></span>
+      Wochenplan wird geladen…
+    </div>
 
 
     <!-- =========================================
@@ -779,7 +797,7 @@
         <div>
 
           <strong>
-            24
+            {{ weeklyIngredientCount }}
           </strong>
 
           <span>
@@ -792,7 +810,7 @@
         <div>
 
           <strong>
-            18
+            {{ weeklyProductCount }}
           </strong>
 
           <span>
@@ -807,6 +825,7 @@
       <button
         class="shopping-button"
         type="button"
+        [disabled]="!totalMeals || isCreatingShoppingList"
         (click)="createShoppingList()"
       >
 
@@ -822,12 +841,141 @@
           <path d="M4 18h.01"></path>
         </svg>
 
-        Zur Einkaufsliste hinzufügen
+        {{ isCreatingShoppingList ? 'Einkauf wird erstellt…' : 'Zur Einkaufsliste hinzufügen' }}
 
       </button>
 
     </section>
 
+  </div>
+
+
+  <div
+    class="planner-dialog-backdrop"
+    *ngIf="mealDialogOpen"
+    (click)="closeMealDialog()"
+  >
+    <section
+      class="planner-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="meal-dialog-title"
+      (click)="$event.stopPropagation()"
+    >
+      <header class="planner-dialog-header">
+        <div>
+          <span>{{ dialogDay?.fullName }} · {{ dialogMealLabel }}</span>
+          <h2 id="meal-dialog-title">
+            {{ dialogEntry ? 'Mahlzeit bearbeiten' : 'Rezept auswählen' }}
+          </h2>
+          <p>Wähle eines deiner gespeicherten Rezepte für diesen Platz aus.</p>
+        </div>
+
+        <button
+          class="dialog-close"
+          type="button"
+          aria-label="Dialog schließen"
+          (click)="closeMealDialog()"
+        >
+          ×
+        </button>
+      </header>
+
+      <label class="recipe-search">
+        <span>Rezepte durchsuchen</span>
+        <input
+          type="search"
+          placeholder="z. B. Pasta, Frühstück oder Curry"
+          [(ngModel)]="recipeSearch"
+        />
+      </label>
+
+      <div class="dialog-empty" *ngIf="!recipes.length">
+        <strong>Noch keine eigenen Rezepte</strong>
+        <p>Erstelle zuerst ein Rezept und plane es anschließend in deine Woche ein.</p>
+        <button type="button" (click)="createRecipe()">Rezept erstellen</button>
+      </div>
+
+      <div class="dialog-empty" *ngIf="recipes.length && !filteredRecipes.length">
+        <strong>Kein passendes Rezept gefunden</strong>
+        <p>Versuche einen anderen Suchbegriff.</p>
+      </div>
+
+      <div class="recipe-choice-list" *ngIf="filteredRecipes.length">
+        <button
+          class="recipe-choice"
+          type="button"
+          *ngFor="let recipe of filteredRecipes"
+          [class.selected]="selectedRecipeId === recipe.id"
+          (click)="chooseRecipe(recipe)"
+        >
+          <span class="recipe-choice-icon">
+            {{ recipe.name.charAt(0).toUpperCase() }}
+          </span>
+          <span class="recipe-choice-copy">
+            <strong>{{ recipe.name }}</strong>
+            <small>
+              {{ categoryLabel(recipe.category) }} · {{ recipeNutrition(recipe) }}
+            </small>
+          </span>
+          <span class="recipe-choice-check" aria-hidden="true">
+            ✓
+          </span>
+        </button>
+      </div>
+
+      <div class="planner-dialog-settings" *ngIf="selectedRecipe">
+        <label>
+          <span>Portionen für den Einkauf</span>
+          <input
+            type="number"
+            min="1"
+            max="30"
+            [(ngModel)]="selectedServings"
+          />
+        </label>
+
+        <button
+          class="open-recipe-button"
+          type="button"
+          (click)="openSelectedRecipe()"
+        >
+          Rezept ansehen
+        </button>
+      </div>
+
+      <footer class="planner-dialog-actions">
+        <button
+          class="remove-meal-button"
+          type="button"
+          *ngIf="dialogEntry"
+          [disabled]="isSaving"
+          (click)="removeMeal()"
+        >
+          Entfernen
+        </button>
+
+        <span class="dialog-action-spacer"></span>
+
+        <button
+          class="dialog-cancel-button"
+          type="button"
+          [disabled]="isSaving"
+          (click)="closeMealDialog()"
+        >
+          Abbrechen
+        </button>
+
+        <button
+          class="dialog-save-button"
+          type="button"
+          [disabled]="selectedRecipeId === null || isSaving"
+          (click)="saveMeal()"
+        >
+          {{ isSaving ? 'Wird gespeichert…' : 'Mahlzeit speichern' }}
+        </button>
+      </footer>
+    </section>
   </div>
 
 </div>
