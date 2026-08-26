@@ -1,0 +1,155 @@
+import re
+
+
+AMOUNT_SUFFIX = re.compile(
+    r"(?:\s*[,\-–|/]?\s*|\s*\(\s*)"
+    r"(?:\d+\s*[x×]\s*)?\d+(?:[.,]\d+)?\s*"
+    r"(?:mg|g|kg|ml|cl|dl|l|liter)\b"
+    r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
+    re.I,
+)
+
+CANONICAL_RULES = (
+    (re.compile(r"^(?:h-)?milch\b|^vollmilch\b", re.I), "Milch"),
+    (re.compile(r"^buttermilch\b", re.I), "Buttermilch"),
+    (re.compile(r"^kokos(?:nuss)?milch\b", re.I), "Kokosmilch"),
+    (re.compile(r"^(?:hähnchen|huhn|hühner)brust", re.I), "Hähnchenbrust"),
+    (re.compile(r"^putenbrust", re.I), "Putenbrust"),
+    (re.compile(r"^(?:cherry)?tomaten?\b", re.I), "Tomate"),
+    (re.compile(r"^(?:zwiebeln?)\b", re.I), "Zwiebel"),
+    (re.compile(r"^knoblauch\b", re.I), "Knoblauch"),
+    (re.compile(r"^kartoffeln?\b", re.I), "Kartoffel"),
+    (re.compile(r"^(?:karotten?|möhren?)\b", re.I), "Karotte"),
+    (re.compile(r"^(?:salat)?gurken?\b", re.I), "Gurke"),
+    (re.compile(r"^äpfel?\b|^apfel\b", re.I), "Apfel"),
+    (re.compile(r"^bananen?\b", re.I), "Banane"),
+    (re.compile(r"^erdbeeren?\b", re.I), "Erdbeere"),
+    (re.compile(r"^himbeeren?\b", re.I), "Himbeere"),
+    (re.compile(r"^(?:blaubeeren?|heidelbeeren?)\b", re.I), "Blaubeere"),
+    (re.compile(r"^eier?\b|^hühnerei\b", re.I), "Ei"),
+    (re.compile(r"^olivenöl\b", re.I), "Olivenöl"),
+    (re.compile(r"^rapsöl\b", re.I), "Rapsöl"),
+    (re.compile(r"^sonnenblumenöl\b", re.I), "Sonnenblumenöl"),
+    (re.compile(r"^(?:speise|tafel)?salz\b", re.I), "Salz"),
+    (re.compile(r"^weizenmehl\b", re.I), "Weizenmehl"),
+    (re.compile(r"^dinkelmehl\b", re.I), "Dinkelmehl"),
+    (re.compile(r"^zucker\b", re.I), "Zucker"),
+    (re.compile(r"^butter\b", re.I), "Butter"),
+)
+
+ALLOWED_INGREDIENT = re.compile(
+    r"\b(?:brühe|fond|tomatenmark|senf|ketchup|mayonnaise|sojasauce|pesto|essig|"
+    r"semmelbrösel|paniermehl|kaffee|kaffeepulver|tee|kakaopulver|backkakao|"
+    r"wein|bier|rum|cognac|sherry|marsala|schokolade|honig|sirup|zucker)\b",
+    re.I,
+)
+PREPARED_FOOD = re.compile(
+    r"(?:suppe|eintopf|pfanne|auflauf|pizza|lasagne|burger|sandwich|wrap|"
+    r"bami\s+goreng|nasi\s+goreng|gulasch|ragout|frikassee|roulade|currygericht|"
+    r"tellergericht|fertiggericht|menü|mahlzeit|risotto|paella|fischstäbchen|"
+    r"cordon\s+bleu|döner|gyros|hot\s+dog|hamburger)\b",
+    re.I,
+)
+PREPARED_VARIANT = re.compile(
+    r"\b(?:gebraten|frittiert|paniert|verzehrfertig|küchenfertig|zubereitet|"
+    r"servierfertig|aufgebrüht|gekocht|gegart|geschmort|überbacken)"
+    r"(?:e|en|em|er|es)?\b",
+    re.I,
+)
+NON_INGREDIENT = re.compile(
+    r"\b(?:nahrungsergänzung|vitaminpräparat|mineralstoffpräparat|säuglingsnahrung|"
+    r"sondennahrung|limonade|cola|energydrink|energy-drink|erfrischungsgetränk|"
+    r"eistee|cocktail|torte|kuchen|muffin|keks|plätzchen|praline|schokoriegel|"
+    r"müsliriegel|chips|cracker|gummibonbon|bonbon|dessert|pudding)\b",
+    re.I,
+)
+OFF_MEAL_CATEGORY = re.compile(
+    r"(?:^|[,; ])(?:meals?|pizzas?|sandwiches?|frozen-meals?|prepared-meals?)"
+    r"(?:$|[,; ])",
+    re.I,
+)
+
+
+def clean_product_name(value):
+    name = re.sub(r"\s+", " ", str(value or "")).strip()
+    return AMOUNT_SUFFIX.sub("", name).strip(" ,-–")[:150]
+
+
+def canonical_recipe_name(value):
+    name = clean_product_name(value)
+    for pattern, replacement in CANONICAL_RULES:
+        if pattern.search(name):
+            return replacement
+    canonical = re.sub(r"\([^)]*\)", "", name).split(",", 1)[0]
+    canonical = re.sub(
+        r"\b(?:roh|frisch|tiefgefroren|pasteurisiert|geschält|ungeschält)\b",
+        "",
+        canonical,
+        flags=re.I,
+    )
+    canonical = re.sub(r"\s+", " ", canonical).strip(" ,-–/")
+    return (canonical or name)[:150]
+
+
+def recipe_ingredient_status(name, category="", source="", external_id=""):
+    cleaned_name = clean_product_name(name)
+    searchable = f"{cleaned_name} {category or ''}"
+    if not cleaned_name:
+        return False, "Produktname fehlt"
+    if PREPARED_FOOD.search(searchable):
+        return False, "Fertiggericht oder zusammengesetzte Speise"
+    if PREPARED_VARIANT.search(cleaned_name) and not ALLOWED_INGREDIENT.search(cleaned_name):
+        return False, "Bereits zubereitete Produktvariante"
+    if NON_INGREDIENT.search(searchable) and not ALLOWED_INGREDIENT.search(cleaned_name):
+        return False, "Kein typisches Kochprodukt"
+    if source == "bls" and str(external_id or "").upper().startswith("Y"):
+        return False, "BLS-Rezeptur oder zusammengesetzte Speise"
+    if source == "open_food_facts" and OFF_MEAL_CATEGORY.search(str(category or "")):
+        return False, "Open-Food-Facts-Kategorie Fertiggericht"
+    return True, ""
+
+
+CATEGORY_INGREDIENT_NAMES = {
+    "en:bananas": "Banane",
+    "en:cucumbers": "Gurke",
+    "en:apples": "Apfel",
+    "en:kohlrabi": "Kohlrabi",
+    "en:tomatoes": "Tomate",
+    "en:avocados": "Avocado",
+    "en:zucchini": "Zucchini",
+    "en:garlic": "Knoblauch",
+    "en:scallions": "Frühlingszwiebel",
+    "en:carrots": "Karotte",
+    "en:cabbages": "Kohl",
+    "en:cauliflowers": "Blumenkohl",
+    "en:lettuces": "Blattsalat",
+    "en:ginger": "Ingwer",
+    "en:mangoes": "Mango",
+    "en:leeks": "Lauch",
+    "en:radishes": "Radieschen",
+    "en:aubergines": "Aubergine",
+    "en:sweet-potatoes": "Süßkartoffel",
+    "en:fennel-bulbs": "Fenchel",
+    "en:pineapple": "Ananas",
+    "en:pumpkins": "Kürbis",
+    "en:potatoes": "Kartoffel",
+    "en:cherry-tomatoes": "Tomate",
+    "en:raspberries": "Himbeere",
+    "en:mushrooms": "Champignon",
+    "en:broccoli": "Brokkoli",
+    "en:strawberries": "Erdbeere",
+    "en:onions": "Zwiebel",
+    "en:blueberries": "Blaubeere",
+    "en:kiwis": "Kiwi",
+    "en:chicken-eggs": "Ei",
+    "en:lemons": "Zitrone",
+    "en:plums": "Pflaume",
+    "en:pears": "Birne",
+    "en:oranges": "Orange",
+    "en:asparagus": "Spargel",
+    "en:nectarines": "Nektarine",
+    "en:chili-peppers": "Chilischote",
+    "en:pork-tenderloin": "Schweinefilet",
+    "en:beef-steaks": "Rindersteak",
+    "en:chicken-breasts": "Hähnchenbrust",
+}

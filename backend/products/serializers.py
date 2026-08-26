@@ -9,7 +9,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
-            "id", "name", "category", "brand", "source", "external_id",
+            "id", "name", "canonical_name", "is_recipe_ingredient",
+            "category", "brand", "source", "external_id",
             "default_unit", "calories_per_100g", "protein_per_100g",
             "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
             "origin",

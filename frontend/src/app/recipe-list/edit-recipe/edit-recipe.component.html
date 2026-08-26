@@ -410,28 +410,9 @@
 
             <div class="price-fields">
 
-              <div class="field">
-
-                <label for="estimatedPrice">
-                  Gesamtpreis
-                </label>
-
-                <div class="input-with-suffix">
-
-                  <input
-                    id="estimatedPrice"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    [(ngModel)]="estimatedPrice"
-                    readonly
-                    placeholder="9.50"
-                  />
-
-                  <span>€</span>
-
-                </div>
-
+              <div class="price-per-serving">
+                <small>Gesamtpreis</small>
+                <strong>{{ estimatedPrice !== null ? (estimatedPrice | number:'1.2-2') : '–' }} €</strong>
               </div>
 
 
@@ -684,20 +665,23 @@
               <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
               <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g Kohlenhydrate</span>
               <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
-              <label class="ingredient-price-field">
-                <span>Preis für diese Menge</span>
-                <span class="ingredient-price-input">
-                  <input type="number" min="0" step="0.01" [(ngModel)]="ingredients[i].estimated_price"
-                    (ngModelChange)="onIngredientPriceChange(i)" [disabled]="ingredientPriceLoading[i]" />
-                  <b>€</b>
-                </span>
-              </label>
+              <span class="ingredient-price-field">
+                <span>Automatischer Preis</span>
+                <strong>
+                  {{ ingredients[i].estimated_price !== null && ingredients[i].estimated_price !== undefined
+                    ? (ingredients[i].estimated_price | number:'1.2-2') + ' €'
+                    : '–' }}
+              </strong>
+              </span>
               <small *ngIf="ingredientPriceLoading[i]">Preis wird ermittelt…</small>
               <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices'">
                 {{ ingredients[i].price_store }} · {{ ingredients[i].price_sample_count }} Marktpreise
               </small>
-              <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source !== 'open_prices'">
-                Keine Open-Prices-Marktdaten – optional manuell eintragen
+              <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices_category'">
+                Deutscher Zutaten-Median · {{ ingredients[i].price_sample_count }} Marktbeobachtungen
+              </small>
+              <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
+                Noch kein belastbarer automatischer Preis verfügbar
               </small>
               <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
             </ng-container>

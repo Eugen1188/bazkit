@@ -253,7 +253,8 @@ implements OnInit, OnDestroy {
 
               return this.productService
                 .searchProducts(
-                  search.query
+                  search.query,
+                  true
                 );
             }
           )
@@ -817,20 +818,6 @@ implements OnInit, OnDestroy {
     });
   }
 
-  onIngredientPriceChange(index: number): void {
-    const ingredient = this.ingredients[index];
-    ingredient.price_source = ingredient.estimated_price === null ? '' : 'manual';
-    ingredient.price_date = null;
-    ingredient.price_store = '';
-    ingredient.price_sample_count = 0;
-    ingredient.price_min = null;
-    ingredient.price_max = null;
-    ingredient.package_price = null;
-    ingredient.package_quantity = null;
-    ingredient.package_unit = '';
-    this.recalculateEstimatedPrice();
-  }
-
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
     if (!product) return null;
     const raw = product[`${field}_per_100g` as keyof ProductSuggestion];
@@ -1045,19 +1032,7 @@ implements OnInit, OnDestroy {
               ingredient.quantity,
 
             unit:
-              ingredient.unit,
-
-            estimated_price: ingredient.estimated_price ?? null,
-            price_source: ingredient.price_source ?? '',
-            price_currency: ingredient.price_currency ?? 'EUR',
-            price_date: ingredient.price_date ?? null,
-            price_store: ingredient.price_store ?? '',
-            price_sample_count: ingredient.price_sample_count ?? 0,
-            price_min: ingredient.price_min ?? null,
-            price_max: ingredient.price_max ?? null,
-            package_price: ingredient.package_price ?? null,
-            package_quantity: ingredient.package_quantity ?? null,
-            package_unit: ingredient.package_unit ?? ''
+              ingredient.unit
           })
         );
 
@@ -1151,9 +1126,6 @@ implements OnInit, OnDestroy {
 
       fiber:
         this.fiber,
-
-      estimated_price:
-        this.estimatedPrice,
 
       ingredients
     };

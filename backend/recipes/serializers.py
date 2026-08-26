@@ -5,6 +5,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from products.models import Product
+from products.pricing import estimate_product_price
 from products.serializers import ProductSerializer
 from .models import Ingredients, Recipe
 
@@ -49,9 +50,38 @@ def calculate_recipe_nutrition(recipe, ingredients):
 
 def calculate_recipe_price(recipe, ingredients):
     prices = [ingredient.estimated_price for ingredient in ingredients if ingredient.estimated_price is not None]
-    if prices:
-        recipe.estimated_price = sum(prices).quantize(Decimal("0.01"))
-        recipe.save(update_fields=["estimated_price"])
+    recipe.estimated_price = sum(prices).quantize(Decimal("0.01")) if prices else None
+    recipe.save(update_fields=["estimated_price"])
+
+
+def apply_automatic_price(attrs):
+    estimate = estimate_product_price(
+        attrs["product"],
+        attrs.get("quantity"),
+        attrs.get("unit"),
+        mode="consumption",
+    )
+    if not estimate.get("available"):
+        attrs.update({
+            "estimated_price": None,
+            "price_source": "",
+            "price_currency": "EUR",
+            "price_date": None,
+            "price_store": "",
+            "price_sample_count": 0,
+            "price_min": None,
+            "price_max": None,
+            "package_price": None,
+            "package_quantity": None,
+            "package_unit": "",
+        })
+        return
+    for field in (
+        "estimated_price", "price_source", "price_currency", "price_date",
+        "price_store", "price_sample_count", "price_min", "price_max",
+        "package_price", "package_quantity", "package_unit",
+    ):
+        attrs[field] = estimate.get(field)
 
 
 class IngredientsSerializer(serializers.ModelSerializer):
@@ -66,15 +96,22 @@ class IngredientsSerializer(serializers.ModelSerializer):
             "price_sample_count", "price_min", "price_max", "package_price",
             "package_quantity", "package_unit",
         ]
-        read_only_fields = ["id", "name"]
+        read_only_fields = [
+            "id", "name", "estimated_price", "price_source", "price_currency",
+            "price_date", "price_store", "price_sample_count", "price_min",
+            "price_max", "package_price", "package_quantity", "package_unit",
+        ]
 
     def validate(self, attrs):
         product = attrs.get("product")
         if product is None:
             raise serializers.ValidationError({"product": "Bitte ein Produkt aus den Vorschlägen auswählen."})
-        attrs["name"] = clean_product_name(product.name)
-        if attrs.get("estimated_price") is not None and attrs["estimated_price"] < 0:
-            raise serializers.ValidationError({"estimated_price": "Der Preis darf nicht negativ sein."})
+        if not product.is_recipe_ingredient:
+            raise serializers.ValidationError({
+                "product": "Dieses Produkt ist keine freigegebene Kochzutat. Bitte wähle eine Zutat aus den Vorschlägen."
+            })
+        attrs["name"] = clean_product_name(product.canonical_name or product.name)
+        apply_automatic_price(attrs)
         return attrs
 
 
@@ -91,7 +128,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [
             "id", "calories", "protein", "carbohydrates", "fat", "fiber",
-            "estimated_price_per_serving", "created_at", "updated_at",
+            "estimated_price", "estimated_price_per_serving", "created_at", "updated_at",
         ]
 
     def get_estimated_price_per_serving(self, obj):
@@ -100,7 +137,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         return round(obj.estimated_price / Decimal(obj.servings), 2)
 
     def validate(self, attrs):
-        for field in ("calories", "protein", "carbohydrates", "fat", "fiber", "estimated_price"):
+        for field in ("calories", "protein", "carbohydrates", "fat", "fiber"):
             value = attrs.get(field)
             if value is not None and value < 0:
                 raise serializers.ValidationError({field: "Der Wert darf nicht negativ sein."})

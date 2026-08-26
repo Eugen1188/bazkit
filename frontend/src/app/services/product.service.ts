@@ -7,6 +7,8 @@ export type ProductOrigin = 'local' | 'bls' | 'open_food_facts';
 export interface ProductSuggestion {
   id: number | null;
   name: string;
+  canonical_name?: string;
+  is_recipe_ingredient?: boolean;
   category: string;
   brand: string;
   source: string | null;
@@ -54,13 +56,14 @@ export class ProductService {
     return 'http://178.104.47.231:8000/products/';
   }
 
-  searchProducts(query: string): Observable<ProductSuggestion[]> {
+  searchProducts(query: string, recipeOnly = false): Observable<ProductSuggestion[]> {
     const q = query.trim();
     if (q.length < 2) return of([]);
-    const params = new HttpParams().set('q', q);
+    let params = new HttpParams().set('q', q);
+    if (recipeOnly) params = params.set('recipe_only', '1');
     const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params })
       .pipe(catchError(() => of([] as ProductSuggestion[])));
-    const external$ = q.length >= 4
+    const external$ = !recipeOnly && q.length >= 4
       ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params })
           .pipe(catchError(() => of([] as ProductSuggestion[])))
       : of([] as ProductSuggestion[]);

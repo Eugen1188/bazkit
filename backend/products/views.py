@@ -14,8 +14,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from .catalog import canonical_recipe_name, recipe_ingredient_status
 from .models import Product
-from .pricing import estimate_open_price
+from .pricing import estimate_open_price, estimate_product_price
 from .serializers import ProductSerializer
 
 logger = logging.getLogger(__name__)
@@ -70,9 +71,19 @@ def off_payload(item):
     if not code or not name:
         return None
     nutriments = item.get("nutriments") or {}
+    canonical_name = canonical_recipe_name(name)
+    is_recipe_ingredient, exclusion_reason = recipe_ingredient_status(
+        name,
+        item.get("categories"),
+        "open_food_facts",
+        code,
+    )
     return {
         "id": None,
         "name": name,
+        "canonical_name": canonical_name,
+        "is_recipe_ingredient": is_recipe_ingredient,
+        "recipe_exclusion_reason": exclusion_reason,
         "category": clean_text(item.get("categories"), 150),
         "brand": clean_text(item.get("brands"), 150),
         "source": "open_food_facts",
@@ -92,26 +103,44 @@ class ProductSearchAPIView(APIView):
 
     def get(self, request):
         query = clean_text(request.query_params.get("q"), 100)
+        recipe_only = request.query_params.get("recipe_only") in {"1", "true", "yes"}
         if len(query) < 2:
             return Response([])
         products = Product.objects.filter(
             Q(source="bls") | Q(source="open_food_facts"),
         ).filter(
-            name__icontains=query
+            Q(name__icontains=query) | Q(canonical_name__icontains=query)
         ).annotate(
             relevance=Case(
+                When(canonical_name__iexact=query, then=Value(0)),
                 When(name__iexact=query, then=Value(0)),
-                When(name__iendswith=query, then=Value(1)),
+                When(canonical_name__istartswith=query, then=Value(1)),
                 When(name__istartswith=query, then=Value(2)),
-                default=Value(3),
+                When(name__iendswith=query, then=Value(3)),
+                default=Value(4),
                 output_field=IntegerField(),
             ),
             name_length=Length("name"),
-        ).order_by("relevance", "name_length", "name")[:15]
+        )
+        if recipe_only:
+            products = products.filter(is_recipe_ingredient=True)
+        products = products.order_by("relevance", "name_length", "name")[:60 if recipe_only else 15]
         data = ProductSerializer(products, many=True).data
+        results = []
+        seen = set()
         for item in data:
-            item["name"] = clean_name(item["name"])
-        return Response([item for item in data if item["name"]])
+            display_name = clean_name(item["canonical_name"] if recipe_only else item["name"])
+            if not display_name:
+                continue
+            key = display_name.casefold() if recipe_only else f'{item["source"]}:{item["external_id"]}'
+            if key in seen:
+                continue
+            seen.add(key)
+            item["name"] = display_name
+            results.append(item)
+            if len(results) == 15:
+                break
+        return Response(results)
 
 
 class ProductPriceEstimateAPIView(APIView):
@@ -133,20 +162,28 @@ class ProductPriceEstimateAPIView(APIView):
         else:
             product_name = clean_text(request.query_params.get("product_name"), 150)
 
-        if source != "open_food_facts":
-            return Response({
-                "available": False,
-                "estimated_price": None,
-                "message": "Für BLS- und freie Produkte kann ein eigener Schätzpreis eingetragen werden.",
-            })
-
         quantity = request.query_params.get("quantity", "1")
         unit = clean_text(request.query_params.get("unit"), 30)
         mode = request.query_params.get("mode", "purchase")
         if mode not in {"purchase", "consumption"}:
             return Response({"detail": "Ungültiger Berechnungsmodus."}, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(estimate_open_price(external_id, quantity, unit, mode, product_name=product_name))
+        if product is not None:
+            return Response(estimate_product_price(product, quantity, unit, mode))
+        if source == "open_food_facts":
+            return Response(estimate_open_price(
+                external_id,
+                quantity,
+                unit,
+                mode,
+                product_name=product_name,
+                allow_similar=False,
+            ))
+        return Response({
+            "available": False,
+            "estimated_price": None,
+            "message": "Für diese Zutat ist noch kein belastbarer automatischer Referenzpreis verfügbar.",
+        })
 
 
 class ExternalProductSearchAPIView(APIView):

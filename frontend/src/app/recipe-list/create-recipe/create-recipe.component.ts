@@ -62,7 +62,7 @@ export class CreateRecipeComponent implements OnDestroy {
       switchMap(search => {
         this.activeIngredientIndex = search.index;
         this.isIngredientSearching = true;
-        return this.productService.searchProducts(search.query);
+        return this.productService.searchProducts(search.query, true);
       }),
     ).subscribe({
       next: products => {
@@ -147,14 +147,6 @@ export class CreateRecipeComponent implements OnDestroy {
       error: () => { this.ingredientPriceLoading[index] = false; },
     });
   }
-  onIngredientPriceChange(index: number): void {
-    const ingredient = this.ingredients[index];
-    ingredient.price_source = ingredient.estimated_price === null ? '' : 'manual';
-    ingredient.price_date = null; ingredient.price_store = ''; ingredient.price_sample_count = 0;
-    ingredient.price_min = null; ingredient.price_max = null; ingredient.package_price = null;
-    ingredient.package_quantity = null; ingredient.package_unit = '';
-    this.recalculateEstimatedPrice();
-  }
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
   hasStepContent(index: number): boolean { return !!this.preparationSteps[index]?.text.trim(); }
@@ -172,13 +164,16 @@ export class CreateRecipeComponent implements OnDestroy {
     const unselected = ingredients.find(item => item.product == null);
     if (unselected) return this.fail(`Bitte wähle „${unselected.name.trim()}“ aus den Produktvorschlägen aus.`);
     if (!steps.length) return this.fail('Bitte füge mindestens einen Zubereitungsschritt hinzu.');
-    if (this.estimatedPrice !== null && this.estimatedPrice < 0) return this.fail('Der Preis darf nicht negativ sein.');
     const payload: RecipePayload = {
       name: this.recipeName.trim(), description: this.description.trim(), servings: this.servings,
       preparation_time: this.preparationTime, category: this.category,
       instructions: steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), notes: this.notes.trim(),
-      estimated_price: this.estimatedPrice,
-      ingredients: ingredients.map(item => ({ ...item, name: item.name.trim() })),
+      ingredients: ingredients.map(item => ({
+        product: item.product,
+        name: item.name.trim(),
+        quantity: item.quantity,
+        unit: item.unit,
+      })),
     };
     this.isSaving = true;
     this.recipeService.createRecipe(payload).subscribe({

@@ -7,6 +7,7 @@ from xml.etree import ElementTree
 from django.core.management.base import BaseCommand, CommandError
 
 from products.models import Product
+from products.catalog import canonical_recipe_name, recipe_ingredient_status
 
 
 CELL_REFERENCE = re.compile(r"([A-Z]+)\d+")
@@ -109,8 +110,16 @@ class Command(BaseCommand):
                 name = re.sub(r"\s+", " ", str(row.get(columns["name"], ""))).strip()
                 if not external_id or not name:
                     continue
+                is_recipe_ingredient, exclusion_reason = recipe_ingredient_status(
+                    name,
+                    source="bls",
+                    external_id=external_id,
+                )
                 products.append(Product(
                     source="bls", external_id=external_id, name=name[:150], default_unit="g",
+                    canonical_name=canonical_recipe_name(name),
+                    is_recipe_ingredient=is_recipe_ingredient,
+                    recipe_exclusion_reason=exclusion_reason,
                     calories_per_100g=decimal_or_none(row.get(columns["calories_per_100g"])),
                     protein_per_100g=decimal_or_none(row.get(columns["protein_per_100g"])),
                     carbohydrates_per_100g=decimal_or_none(row.get(columns["carbohydrates_per_100g"])),
@@ -126,7 +135,8 @@ class Command(BaseCommand):
                 update_conflicts=True,
                 unique_fields=["source", "external_id"],
                 update_fields=[
-                    "name", "default_unit", "calories_per_100g", "protein_per_100g",
+                    "name", "canonical_name", "is_recipe_ingredient", "recipe_exclusion_reason",
+                    "default_unit", "calories_per_100g", "protein_per_100g",
                     "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
                 ],
             )

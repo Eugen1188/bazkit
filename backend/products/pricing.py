@@ -9,6 +9,9 @@ import requests
 from django.conf import settings
 from django.core.cache import cache
 
+from .catalog import canonical_recipe_name
+from .models import IngredientPriceReference
+
 
 OPEN_PRICES_URL = "https://prices.openfoodfacts.org/api/v1/prices"
 OPEN_PRICES_PRODUCTS_URL = "https://prices.openfoodfacts.org/api/v1/products"
@@ -66,6 +69,71 @@ def unavailable(message):
         "estimated_price": None,
         "message": message,
     }
+
+
+def scale_reference_price(price, basis, quantity, unit):
+    amount = decimal_or_none(quantity)
+    normalized_unit = str(unit or "").strip().casefold()
+    if amount is None:
+        return None
+    if basis == "kg":
+        factor = {"g": Decimal("1"), "kg": Decimal("1000")}.get(normalized_unit)
+        return price * amount * factor / Decimal("1000") if factor is not None else None
+    if basis == "unit" and normalized_unit in {"stück", "stueck"}:
+        return price * amount
+    return None
+
+
+def estimate_reference_price(product, quantity, unit):
+    canonical_name = product.canonical_name or canonical_recipe_name(product.name)
+    normalized_unit = str(unit or "").strip().casefold()
+    preferred_basis = "kg" if normalized_unit in {"g", "kg"} else "unit"
+    references = list(
+        IngredientPriceReference.objects.filter(
+            canonical_name__iexact=canonical_name,
+            is_active=True,
+            region="DE",
+        )
+    )
+    references.sort(key=lambda item: (item.basis != preferred_basis, -item.observation_count))
+    for reference in references:
+        estimated = scale_reference_price(reference.median_price, reference.basis, quantity, unit)
+        if estimated is None:
+            continue
+        scaled_min = scale_reference_price(reference.price_min, reference.basis, quantity, unit) if reference.price_min else None
+        scaled_max = scale_reference_price(reference.price_max, reference.basis, quantity, unit) if reference.price_max else None
+        return {
+            "available": True,
+            "estimated_price": estimated.quantize(Decimal("0.01")),
+            "package_price": reference.median_price,
+            "package_quantity": Decimal("1000") if reference.basis == "kg" else Decimal("1"),
+            "package_unit": "g" if reference.basis == "kg" else "Stück",
+            "price_currency": reference.currency,
+            "price_date": reference.newest_price_date,
+            "price_store": "Deutschland (Kategorie-Median)",
+            "price_sample_count": reference.observation_count,
+            "price_min": scaled_min.quantize(Decimal("0.01")) if scaled_min is not None else None,
+            "price_max": scaled_max.quantize(Decimal("0.01")) if scaled_max is not None else None,
+            "confidence": reference.confidence,
+            "price_source": reference.source,
+            "message": "Automatischer deutscher Referenzpreis für die kanonische Kochzutat.",
+        }
+    return unavailable("Für diese Zutat ist noch kein belastbarer automatischer Referenzpreis verfügbar.")
+
+
+def estimate_product_price(product, quantity, unit, mode="consumption"):
+    if product.source == "open_food_facts" and product.external_id:
+        exact = estimate_open_price(
+            product.external_id,
+            quantity,
+            unit,
+            mode,
+            product_name=product.name,
+            allow_similar=False,
+        )
+        if exact.get("available"):
+            return exact
+    return estimate_reference_price(product, quantity, unit)
 
 
 def similar_priced_product(product_name, excluded_barcode):
