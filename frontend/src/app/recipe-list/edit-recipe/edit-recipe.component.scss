@@ -1639,6 +1639,8 @@ select:focus {
 
 .ingredient-price-field { display: inline-flex; align-items: center; gap: 8px; }
 .ingredient-price-field strong { color: var(--color-primary); font-size: 12px; }
+.price-coverage-status { grid-column: 1 / -1; min-height: 62px; }
+.price-coverage-status span { margin-top: 3px; color: var(--color-text-muted); font-size: 10px; line-height: 1.35; }
 .ingredient-price-input { position: relative; display: inline-flex; align-items: center; }
 .ingredient-price-input input { width: 92px; min-height: 34px; padding: 6px 28px 6px 9px; border: 1px solid #cad4ce; border-radius: 8px; }
 .ingredient-price-input b { position: absolute; right: 9px; color: #64716a; font-weight: 600; }

@@ -42,7 +42,7 @@ class RecipeListCreateAPIView(
                 user=self.request.user
             )
             .prefetch_related(
-                "ingredients"
+                "ingredients__product"
             )
             .order_by(
                 "-created_at"
@@ -69,7 +69,7 @@ class RecipeDetailAPIView(
                 user=self.request.user
             )
             .prefetch_related(
-                "ingredients"
+                "ingredients__product"
             )
         )
 

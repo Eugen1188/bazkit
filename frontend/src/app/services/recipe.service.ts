@@ -30,6 +30,11 @@ export interface Recipe {
   fiber: RecipeNumberValue;
   estimated_price: RecipeNumberValue;
   estimated_price_per_serving: RecipeNumberValue;
+  price_ingredient_count: number;
+  price_missing_ingredient_count: number;
+  price_coverage_percent: number;
+  price_is_complete: boolean;
+  price_is_sufficient: boolean;
   created_at: string;
   updated_at: string;
   ingredients: RecipeIngredient[];

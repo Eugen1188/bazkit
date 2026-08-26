@@ -864,7 +864,9 @@ implements OnInit, OnDestroy {
 
   private recalculateEstimatedPrice(): void {
     const prices = this.ingredients.map(item => item.estimated_price).filter((value): value is number => value !== null && value !== undefined);
-    this.estimatedPrice = prices.length ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100 : null;
+    this.estimatedPrice = prices.length && this.hasSufficientPriceCoverage
+      ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100
+      : null;
   }
 
 
@@ -1278,6 +1280,55 @@ implements OnInit, OnDestroy {
       /
       this.servings
     );
+  }
+
+
+  get totalPriceIngredientCount():
+    number {
+
+    return this.ingredients.filter(
+      (ingredient, index) =>
+        !!this.selectedProducts[index]
+        && ingredient.product != null
+        && ingredient.name.trim().length > 0
+    ).length;
+  }
+
+
+  get priceIngredientCount():
+    number {
+
+    return this.ingredients.filter(
+      (ingredient, index) =>
+        !!this.selectedProducts[index]
+        && ingredient.estimated_price !== null
+        && ingredient.estimated_price !== undefined
+    ).length;
+  }
+
+
+  get priceCoveragePercent():
+    number {
+
+    return this.totalPriceIngredientCount > 0
+      ? Math.round(this.priceIngredientCount / this.totalPriceIngredientCount * 100)
+      : 0;
+  }
+
+
+  get hasSufficientPriceCoverage():
+    boolean {
+
+    return this.totalPriceIngredientCount > 0
+      && this.priceCoveragePercent >= 70;
+  }
+
+
+  get priceIsComplete():
+    boolean {
+
+    return this.totalPriceIngredientCount > 0
+      && this.priceIngredientCount === this.totalPriceIngredientCount;
   }
 
 

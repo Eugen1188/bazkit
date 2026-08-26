@@ -196,6 +196,27 @@ export class CreateRecipeComponent implements OnDestroy {
   get estimatedPricePerServing(): number | null {
     return this.estimatedPrice !== null && this.servings > 0 ? this.estimatedPrice / this.servings : null;
   }
+  get totalPriceIngredientCount(): number {
+    return this.ingredients.filter((ingredient, index) =>
+      !!this.selectedProducts[index] && ingredient.product != null && ingredient.name.trim().length > 0
+    ).length;
+  }
+  get priceIngredientCount(): number {
+    return this.ingredients.filter((ingredient, index) =>
+      !!this.selectedProducts[index] && ingredient.estimated_price !== null && ingredient.estimated_price !== undefined
+    ).length;
+  }
+  get priceCoveragePercent(): number {
+    return this.totalPriceIngredientCount > 0
+      ? Math.round(this.priceIngredientCount / this.totalPriceIngredientCount * 100)
+      : 0;
+  }
+  get hasSufficientPriceCoverage(): boolean {
+    return this.totalPriceIngredientCount > 0 && this.priceCoveragePercent >= 70;
+  }
+  get priceIsComplete(): boolean {
+    return this.totalPriceIngredientCount > 0 && this.priceIngredientCount === this.totalPriceIngredientCount;
+  }
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
     if (!product) return null;
     const value = product[`${field}_per_100g` as keyof ProductSuggestion];
@@ -242,7 +263,9 @@ export class CreateRecipeComponent implements OnDestroy {
   }
   private recalculateEstimatedPrice(): void {
     const prices = this.ingredients.map(item => item.estimated_price).filter((value): value is number => value !== null && value !== undefined);
-    this.estimatedPrice = prices.length ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100 : null;
+    this.estimatedPrice = prices.length && this.hasSufficientPriceCoverage
+      ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100
+      : null;
   }
   private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; }
   private fail(message: string): void { this.errorMessage = message; }

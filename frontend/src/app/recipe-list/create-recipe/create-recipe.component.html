@@ -289,18 +289,26 @@
           <div class="price-section-text">
 
             <strong>
-              Geschätzte Kosten
+              Geschätzte Kosten (Beta)
             </strong>
 
             <p>
-              Der Gesamtpreis wird aus den Zutaten berechnet.
-              Es ist keine manuelle Preiseingabe nötig.
+              <ng-container *ngIf="totalPriceIngredientCount > 0; else noCreatePriceIngredients">
+                {{ priceIngredientCount }} von {{ totalPriceIngredientCount }} Zutaten berücksichtigt
+                ({{ priceCoveragePercent }} %).
+                <ng-container *ngIf="hasSufficientPriceCoverage && !priceIsComplete">
+                  Die Summe ist eine Teil-Schätzung.
+                </ng-container>
+              </ng-container>
+              <ng-template #noCreatePriceIngredients>
+                Wähle Zutaten aus, um die Preisabdeckung zu berechnen.
+              </ng-template>
             </p>
 
           </div>
 
 
-          <div class="price-fields">
+          <div class="price-fields" *ngIf="hasSufficientPriceCoverage; else createPriceCoverageInsufficient">
 
             <div class="price-per-serving">
               <small>Gesamtpreis</small>
@@ -326,6 +334,16 @@
             </div>
 
           </div>
+
+          <ng-template #createPriceCoverageInsufficient>
+            <div class="price-fields">
+              <div class="price-per-serving price-coverage-status">
+                <small>Preisdaten-Abdeckung</small>
+                <strong>{{ priceCoveragePercent }} %</strong>
+                <span>Noch nicht genügend Preisdaten für eine sinnvolle Gesamtschätzung.</span>
+              </div>
+            </div>
+          </ng-template>
 
         </div>
 
@@ -568,13 +586,12 @@
             <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
             <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g Kohlenhydrate</span>
             <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
-            <span class="ingredient-price-field">
+            <span
+              class="ingredient-price-field"
+              *ngIf="ingredients[i].estimated_price !== null && ingredients[i].estimated_price !== undefined"
+            >
               <span>Automatischer Preis</span>
-              <strong>
-                {{ ingredients[i].estimated_price !== null && ingredients[i].estimated_price !== undefined
-                  ? (ingredients[i].estimated_price | number:'1.2-2') + ' €'
-                  : '–' }}
-              </strong>
+              <strong>{{ ingredients[i].estimated_price | number:'1.2-2' }} €</strong>
             </span>
             <small *ngIf="ingredientPriceLoading[i]">Preis wird ermittelt…</small>
             <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices'">
@@ -588,7 +605,7 @@
               <ng-container *ngIf="(ingredients[i].price_sample_count || 0) < 3"> · grobe Schätzung</ng-container>
             </small>
             <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
-              Noch kein belastbarer automatischer Preis verfügbar
+              Keine Marktdaten – nicht in der Kostenschätzung berücksichtigt
             </small>
             <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
           </ng-container>
@@ -1039,9 +1056,9 @@
           </strong>
 
           <p>
-            Nährwerte und Preise sind optional.
-            Später können wir diese Werte aus den
-            Zutaten automatisch berechnen lassen.
+            Nährwerte werden automatisch berechnet.
+            Die Kostenschätzung erscheint, sobald für
+            genügend Zutaten Marktdaten vorhanden sind.
           </p>
 
         </div>

@@ -1,5 +1,5 @@
 import re
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 from django.db import transaction
 from rest_framework import serializers
@@ -18,6 +18,9 @@ AMOUNT_SUFFIX = re.compile(
     r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
     re.I,
 )
+MINIMUM_PRICE_COVERAGE = Decimal("0.70")
+
+
 def clean_product_name(value):
     name = re.sub(r"\s+", " ", str(value or "")).strip()
     return AMOUNT_SUFFIX.sub("", name).strip(" ,-–")[:100]
@@ -52,9 +55,41 @@ def calculate_recipe_nutrition(recipe, ingredients):
     recipe.save(update_fields=list(totals))
 
 
+def recipe_price_coverage(ingredients):
+    ingredients = list(ingredients)
+    ingredient_count = len(ingredients)
+    priced_ingredient_count = sum(
+        ingredient.estimated_price is not None for ingredient in ingredients
+    )
+    ratio = (
+        Decimal(priced_ingredient_count) / Decimal(ingredient_count)
+        if ingredient_count else Decimal("0")
+    )
+    coverage_percent = int(
+        (ratio * Decimal("100")).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+    )
+    return {
+        "ingredient_count": ingredient_count,
+        "priced_ingredient_count": priced_ingredient_count,
+        "missing_ingredient_count": ingredient_count - priced_ingredient_count,
+        "coverage_percent": coverage_percent,
+        "is_complete": ingredient_count > 0 and priced_ingredient_count == ingredient_count,
+        "is_sufficient": ingredient_count > 0 and ratio >= MINIMUM_PRICE_COVERAGE,
+    }
+
+
 def calculate_recipe_price(recipe, ingredients):
-    prices = [ingredient.estimated_price for ingredient in ingredients if ingredient.estimated_price is not None]
-    recipe.estimated_price = sum(prices).quantize(Decimal("0.01")) if prices else None
+    ingredients = list(ingredients)
+    coverage = recipe_price_coverage(ingredients)
+    prices = [
+        ingredient.estimated_price
+        for ingredient in ingredients
+        if ingredient.estimated_price is not None
+    ]
+    recipe.estimated_price = (
+        sum(prices).quantize(Decimal("0.01"))
+        if prices and coverage["is_sufficient"] else None
+    )
     recipe.save(update_fields=["estimated_price"])
 
 
@@ -122,18 +157,45 @@ class IngredientsSerializer(serializers.ModelSerializer):
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = IngredientsSerializer(many=True, required=True)
     estimated_price_per_serving = serializers.SerializerMethodField()
+    price_ingredient_count = serializers.SerializerMethodField()
+    price_missing_ingredient_count = serializers.SerializerMethodField()
+    price_coverage_percent = serializers.SerializerMethodField()
+    price_is_complete = serializers.SerializerMethodField()
+    price_is_sufficient = serializers.SerializerMethodField()
 
     class Meta:
         model = Recipe
         fields = [
             "id", "name", "description", "servings", "preparation_time", "category",
             "instructions", "notes", "calories", "protein", "carbohydrates", "fat", "fiber",
-            "estimated_price", "estimated_price_per_serving", "created_at", "updated_at", "ingredients",
+            "estimated_price", "estimated_price_per_serving", "price_ingredient_count",
+            "price_missing_ingredient_count", "price_coverage_percent", "price_is_complete",
+            "price_is_sufficient", "created_at", "updated_at", "ingredients",
         ]
         read_only_fields = [
             "id", "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "created_at", "updated_at",
+            "price_ingredient_count", "price_missing_ingredient_count", "price_coverage_percent",
+            "price_is_complete", "price_is_sufficient",
         ]
+
+    def get_price_coverage(self, obj):
+        return recipe_price_coverage(obj.ingredients.all())
+
+    def get_price_ingredient_count(self, obj):
+        return self.get_price_coverage(obj)["priced_ingredient_count"]
+
+    def get_price_missing_ingredient_count(self, obj):
+        return self.get_price_coverage(obj)["missing_ingredient_count"]
+
+    def get_price_coverage_percent(self, obj):
+        return self.get_price_coverage(obj)["coverage_percent"]
+
+    def get_price_is_complete(self, obj):
+        return self.get_price_coverage(obj)["is_complete"]
+
+    def get_price_is_sufficient(self, obj):
+        return self.get_price_coverage(obj)["is_sufficient"]
 
     def get_estimated_price_per_serving(self, obj):
         if obj.estimated_price is None or not obj.servings:

@@ -5,7 +5,8 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 from products.models import IngredientPriceReference, Product
-from .serializers import RecipeSerializer
+from .models import Ingredients, Recipe
+from .serializers import RecipeSerializer, calculate_recipe_price
 
 
 class RecipeSerializerTests(TestCase):
@@ -116,3 +117,54 @@ class RecipeSerializerTests(TestCase):
         recipe = serializer.save()
         self.assertEqual(recipe.calories, Decimal("106.80"))
         self.assertEqual(recipe.estimated_price, Decimal("0.24"))
+
+    def test_price_is_hidden_below_seventy_percent_coverage(self):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Unvollständige Preise",
+            servings=2,
+            category="dinner",
+            instructions="1. Kochen",
+        )
+        ingredients = [
+            Ingredients.objects.create(
+                recipe=recipe, product=self.product, name=f"Zutat {index}",
+                quantity=Decimal("100"), unit="g",
+                estimated_price=price, price_source="open_prices_category" if price else "",
+            )
+            for index, price in enumerate((Decimal("1.00"), Decimal("2.00"), None), start=1)
+        ]
+        calculate_recipe_price(recipe, ingredients)
+        recipe.refresh_from_db()
+        data = RecipeSerializer(recipe).data
+        self.assertIsNone(recipe.estimated_price)
+        self.assertEqual(data["price_ingredient_count"], 2)
+        self.assertEqual(data["price_missing_ingredient_count"], 1)
+        self.assertEqual(data["price_coverage_percent"], 67)
+        self.assertFalse(data["price_is_sufficient"])
+
+    def test_partial_price_is_shown_at_seventy_percent_coverage(self):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Ausreichende Preise",
+            servings=2,
+            category="dinner",
+            instructions="1. Kochen",
+        )
+        ingredients = [
+            Ingredients.objects.create(
+                recipe=recipe, product=self.product, name=f"Zutat {index}",
+                quantity=Decimal("100"), unit="g",
+                estimated_price=price, price_source="open_prices_category" if price else "",
+            )
+            for index, price in enumerate(
+                (Decimal("1.00"), Decimal("2.00"), Decimal("3.00"), None), start=1
+            )
+        ]
+        calculate_recipe_price(recipe, ingredients)
+        recipe.refresh_from_db()
+        data = RecipeSerializer(recipe).data
+        self.assertEqual(recipe.estimated_price, Decimal("6.00"))
+        self.assertEqual(data["price_coverage_percent"], 75)
+        self.assertFalse(data["price_is_complete"])
+        self.assertTrue(data["price_is_sufficient"])
