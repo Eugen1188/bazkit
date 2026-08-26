@@ -167,6 +167,7 @@
                 min="1"
                 max="100"
                 [(ngModel)]="servings"
+                (change)="recalculateNutrition()"
               />
 
             </div>
@@ -244,7 +245,7 @@
             </div>
 
             <span class="optional-badge">
-              Optional
+              Automatisch
             </span>
 
           </div>
@@ -266,6 +267,7 @@
                   min="0"
                   step="1"
                   [(ngModel)]="calories"
+                  readonly
                   placeholder="650"
                 />
 
@@ -294,6 +296,7 @@
                   min="0"
                   step="0.1"
                   [(ngModel)]="protein"
+                  readonly
                   placeholder="42"
                 />
 
@@ -320,6 +323,7 @@
                   min="0"
                   step="0.1"
                   [(ngModel)]="carbohydrates"
+                  readonly
                   placeholder="68"
                 />
 
@@ -346,6 +350,7 @@
                   min="0"
                   step="0.1"
                   [(ngModel)]="fat"
+                  readonly
                   placeholder="18"
                 />
 
@@ -372,6 +377,7 @@
                   min="0"
                   step="0.1"
                   [(ngModel)]="fiber"
+                  readonly
                   placeholder="7"
                 />
 
@@ -418,6 +424,7 @@
                     min="0"
                     step="0.01"
                     [(ngModel)]="estimatedPrice"
+                    readonly
                     placeholder="9.50"
                   />
 
@@ -631,6 +638,7 @@
               min="0"
               step="0.01"
               [(ngModel)]="ingredient.quantity"
+              (change)="onIngredientAmountChange(i)"
               placeholder="500"
             />
 
@@ -638,6 +646,7 @@
             <select
               class="ingredient-unit"
               [(ngModel)]="ingredient.unit"
+              (change)="onIngredientAmountChange(i)"
             >
 
               <option
@@ -666,6 +675,32 @@
 
             </button>
 
+          </div>
+
+          <div class="selected-ingredient-nutrition" *ngFor="let product of selectedProducts; let i = index">
+            <ng-container *ngIf="product && ingredients[i].name">
+              <strong>{{ ingredients[i].name }}</strong>
+              <span>{{ nutritionValue(product, 'calories') ?? '–' }} kcal</span>
+              <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
+              <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g Kohlenhydrate</span>
+              <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
+              <label class="ingredient-price-field">
+                <span>Preis für diese Menge</span>
+                <span class="ingredient-price-input">
+                  <input type="number" min="0" step="0.01" [(ngModel)]="ingredients[i].estimated_price"
+                    (ngModelChange)="onIngredientPriceChange(i)" [disabled]="ingredientPriceLoading[i]" />
+                  <b>€</b>
+                </span>
+              </label>
+              <small *ngIf="ingredientPriceLoading[i]">Preis wird ermittelt…</small>
+              <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices'">
+                {{ ingredients[i].price_store }} · {{ ingredients[i].price_sample_count }} Marktpreise
+              </small>
+              <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source !== 'open_prices'">
+                Keine Open-Prices-Marktdaten – optional manuell eintragen
+              </small>
+              <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
+            </ng-container>
           </div>
 
 

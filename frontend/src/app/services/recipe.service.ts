@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PriceSnapshot } from './product.service';
+import { PriceSnapshot, ProductSuggestion } from './product.service';
 
 export interface RecipeIngredient extends PriceSnapshot {
   id?: number;
   product?: number | null;
+  product_detail?: ProductSuggestion | null;
   name: string;
   quantity: number | null;
   unit: string;

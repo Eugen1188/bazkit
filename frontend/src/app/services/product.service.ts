@@ -95,7 +95,8 @@ export class ProductService {
     let params = new HttpParams()
       .set('quantity', String(quantity ?? 1))
       .set('unit', unit || '')
-      .set('mode', mode);
+      .set('mode', mode)
+      .set('product_name', product.name);
     params = product.id !== null
       ? params.set('product_id', String(product.id))
       : params.set('source', product.source ?? '').set('external_id', product.external_id ?? '');

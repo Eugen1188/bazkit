@@ -5,6 +5,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from products.models import Product
+from products.serializers import ProductSerializer
 from .models import Ingredients, Recipe
 
 
@@ -55,11 +56,12 @@ def calculate_recipe_price(recipe, ingredients):
 
 class IngredientsSerializer(serializers.ModelSerializer):
     product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), allow_null=False, required=True)
+    product_detail = ProductSerializer(source="product", read_only=True)
 
     class Meta:
         model = Ingredients
         fields = [
-            "id", "product", "name", "quantity", "unit", "estimated_price",
+            "id", "product", "product_detail", "name", "quantity", "unit", "estimated_price",
             "price_source", "price_currency", "price_date", "price_store",
             "price_sample_count", "price_min", "price_max", "package_price",
             "package_quantity", "package_unit",

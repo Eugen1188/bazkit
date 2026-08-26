@@ -1,6 +1,8 @@
 import math
+from hashlib import sha256
 from datetime import date, timedelta
 from decimal import Decimal, InvalidOperation
+from difflib import SequenceMatcher
 from statistics import median
 
 import requests
@@ -9,6 +11,7 @@ from django.core.cache import cache
 
 
 OPEN_PRICES_URL = "https://prices.openfoodfacts.org/api/v1/prices"
+OPEN_PRICES_PRODUCTS_URL = "https://prices.openfoodfacts.org/api/v1/products"
 OPEN_PRICES_HEADERS = {
     "User-Agent": "Bazkit/1.0 (price-estimation; contact: admin@bazkit.local)"
 }
@@ -65,7 +68,55 @@ def unavailable(message):
     }
 
 
-def estimate_open_price(barcode, quantity, unit, mode="purchase"):
+def similar_priced_product(product_name, excluded_barcode):
+    query = str(product_name or "").strip()
+    if len(query) < 3:
+        return None
+    query_hash = sha256(query.casefold().encode("utf-8")).hexdigest()
+    cache_key = f"open-prices-similar:{query_hash}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return cached
+    try:
+        response = requests.get(
+            OPEN_PRICES_PRODUCTS_URL,
+            params={
+                "product_name__like": query,
+                "price_count__gte": 1,
+                "order_by": "-price_count",
+                "size": 20,
+            },
+            headers=OPEN_PRICES_HEADERS,
+            timeout=8,
+        )
+        response.raise_for_status()
+        products = response.json().get("items", [])
+    except (requests.RequestException, ValueError):
+        return None
+
+    query_words = set(query.casefold().split())
+    candidates = []
+    for product in products:
+        code = str(product.get("code") or "").strip()
+        name = str(product.get("product_name") or "").strip()
+        if not code or code == excluded_barcode or not name:
+            continue
+        name_words = set(name.casefold().split())
+        word_overlap = len(query_words & name_words) / max(len(query_words), 1)
+        similarity = SequenceMatcher(None, query.casefold(), name.casefold()).ratio()
+        score = max(word_overlap, similarity)
+        if score >= 0.5:
+            candidates.append((score, int(product.get("price_count") or 0), code, name))
+
+    result = None
+    if candidates:
+        _, _, code, name = max(candidates)
+        result = {"code": code, "name": name}
+    cache.set(cache_key, result, 6 * 60 * 60)
+    return result
+
+
+def estimate_open_price(barcode, quantity, unit, mode="purchase", product_name="", allow_similar=True):
     barcode = str(barcode or "").strip()
     if not barcode:
         return unavailable("Für dieses Produkt ist kein Barcode hinterlegt.")
@@ -125,6 +176,20 @@ def estimate_open_price(barcode, quantity, unit, mode="purchase"):
     prices = [decimal_or_none(item.get("price")) for item in observations]
     prices = [price for price in prices if price is not None]
     if not prices:
+        if allow_similar:
+            similar = similar_priced_product(product_name, barcode)
+            if similar:
+                estimate = estimate_open_price(
+                    similar["code"], quantity, unit, mode,
+                    product_name="", allow_similar=False,
+                )
+                if estimate.get("available"):
+                    estimate["confidence"] = "low"
+                    estimate["comparable_product_name"] = similar["name"]
+                    estimate["message"] = (
+                        f"Keine exakten Preisdaten: Vergleichsschätzung anhand „{similar['name']}“."
+                    )
+                    return estimate
         return unavailable("Für dieses Produkt wurden keine passenden Open-Prices-Marktdaten gefunden.")
 
     package_amount = None
@@ -145,6 +210,20 @@ def estimate_open_price(barcode, quantity, unit, mode="purchase"):
     package_amount = package_amount or Decimal("1")
     estimated = scaled_price(center, package_amount, package_unit, quantity, unit, mode)
     if estimated is None:
+        if allow_similar:
+            similar = similar_priced_product(product_name, barcode)
+            if similar:
+                estimate = estimate_open_price(
+                    similar["code"], quantity, unit, mode,
+                    product_name="", allow_similar=False,
+                )
+                if estimate.get("available"):
+                    estimate["confidence"] = "low"
+                    estimate["comparable_product_name"] = similar["name"]
+                    estimate["message"] = (
+                        f"Packungsgröße fehlt: Vergleichsschätzung anhand „{similar['name']}“."
+                    )
+                    return estimate
         return unavailable("Die gewählte Menge kann nicht sicher auf die Packungsgröße umgerechnet werden.")
 
     scaled_min = scaled_price(min(prices), package_amount, package_unit, quantity, unit, mode)

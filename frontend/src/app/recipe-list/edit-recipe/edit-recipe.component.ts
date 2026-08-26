@@ -34,6 +34,7 @@ import {
 } from '../../services/recipe.service';
 
 import {
+  PriceEstimate,
   ProductService,
   ProductSuggestion
 } from '../../services/product.service';
@@ -131,6 +132,9 @@ implements OnInit, OnDestroy {
 
   ingredients:
     RecipeIngredient[] = [];
+
+  selectedProducts: Array<ProductSuggestion | null> = [];
+  ingredientPriceLoading: boolean[] = [];
 
 
   preparationSteps:
@@ -395,6 +399,13 @@ implements OnInit, OnDestroy {
                   }
                 ];
 
+          this.selectedProducts = this.ingredients.map(
+            ingredient => ingredient.product_detail ?? null
+          );
+          this.ingredientPriceLoading = this.ingredients.map(() => false);
+          this.recalculateNutrition();
+          this.recalculateEstimatedPrice();
+
 
           this.preparationSteps =
             recipe.instructions
@@ -493,6 +504,10 @@ implements OnInit, OnDestroy {
 
     ingredient.name =
       value;
+
+    ingredient.product = null;
+    ingredient.product_detail = null;
+    this.selectedProducts[index] = null;
 
 
     const query =
@@ -596,24 +611,22 @@ implements OnInit, OnDestroy {
     }
 
 
-    ingredient.name =
-      product.name;
-
-
-    if (
-      product.default_unit
-      &&
-      this.units.includes(
-        product.default_unit
-      )
-    ) {
-
-      ingredient.unit =
-        product.default_unit;
-    }
-
-
-    this.closeIngredientAutocompleteImmediately();
+    this.productService.persistExternalProduct(product).subscribe({
+      next: savedProduct => {
+        if (savedProduct.id === null) return;
+        ingredient.product = savedProduct.id;
+        ingredient.product_detail = savedProduct;
+        ingredient.name = savedProduct.name;
+        this.selectedProducts[index] = savedProduct;
+        if (savedProduct.default_unit && this.units.includes(savedProduct.default_unit)) {
+          ingredient.unit = savedProduct.default_unit;
+        }
+        this.closeIngredientAutocompleteImmediately();
+        this.recalculateNutrition();
+        this.refreshIngredientPrice(index);
+      },
+      error: () => { this.errorMessage = 'Das ausgewählte Produkt konnte nicht übernommen werden.'; },
+    });
   }
 
 
@@ -645,10 +658,13 @@ implements OnInit, OnDestroy {
 
 
     this.ingredients.push({
+      product: null,
       name: '',
       quantity: 1,
       unit: 'Stück'
     });
+    this.selectedProducts.push(null);
+    this.ingredientPriceLoading.push(false);
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -685,6 +701,8 @@ implements OnInit, OnDestroy {
       index,
       1
     );
+    this.selectedProducts.splice(index, 1);
+    this.ingredientPriceLoading.splice(index, 1);
 
 
     if (
@@ -692,10 +710,13 @@ implements OnInit, OnDestroy {
     ) {
 
       this.ingredients.push({
+        product: null,
         name: '',
         quantity: 1,
         unit: 'Stück'
       });
+      this.selectedProducts.push(null);
+      this.ingredientPriceLoading.push(false);
     }
 
 
@@ -721,6 +742,8 @@ implements OnInit, OnDestroy {
       this.ingredients[index],
       this.ingredients[index - 1]
     ];
+    [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]];
+    [this.ingredientPriceLoading[index - 1], this.ingredientPriceLoading[index]] = [this.ingredientPriceLoading[index], this.ingredientPriceLoading[index - 1]];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -746,6 +769,8 @@ implements OnInit, OnDestroy {
       this.ingredients[index],
       this.ingredients[index + 1]
     ];
+    [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]];
+    [this.ingredientPriceLoading[index + 1], this.ingredientPriceLoading[index]] = [this.ingredientPriceLoading[index], this.ingredientPriceLoading[index + 1]];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -760,6 +785,87 @@ implements OnInit, OnDestroy {
       .ingredients[index]
       ?.name
       .trim();
+  }
+
+  onIngredientAmountChange(index: number): void {
+    this.recalculateNutrition();
+    this.refreshIngredientPrice(index);
+  }
+
+  refreshIngredientPrice(index: number): void {
+    const product = this.selectedProducts[index];
+    const ingredient = this.ingredients[index];
+    if (!product || !ingredient || ingredient.quantity === null || ingredient.quantity <= 0) return;
+    this.ingredientPriceLoading[index] = true;
+    this.productService.estimatePrice(product, ingredient.quantity, ingredient.unit, 'consumption').subscribe({
+      next: (estimate: PriceEstimate) => {
+        this.ingredientPriceLoading[index] = false;
+        ingredient.estimated_price = estimate.available ? Number(estimate.estimated_price) : null;
+        ingredient.price_source = estimate.price_source ?? '';
+        ingredient.price_currency = estimate.price_currency ?? 'EUR';
+        ingredient.price_date = estimate.price_date ?? null;
+        ingredient.price_store = estimate.price_store ?? '';
+        ingredient.price_sample_count = estimate.price_sample_count ?? 0;
+        ingredient.price_min = estimate.price_min ?? null;
+        ingredient.price_max = estimate.price_max ?? null;
+        ingredient.package_price = estimate.package_price ?? null;
+        ingredient.package_quantity = estimate.package_quantity ?? null;
+        ingredient.package_unit = estimate.package_unit ?? '';
+        this.recalculateEstimatedPrice();
+      },
+      error: () => { this.ingredientPriceLoading[index] = false; },
+    });
+  }
+
+  onIngredientPriceChange(index: number): void {
+    const ingredient = this.ingredients[index];
+    ingredient.price_source = ingredient.estimated_price === null ? '' : 'manual';
+    ingredient.price_date = null;
+    ingredient.price_store = '';
+    ingredient.price_sample_count = 0;
+    ingredient.price_min = null;
+    ingredient.price_max = null;
+    ingredient.package_price = null;
+    ingredient.package_quantity = null;
+    ingredient.package_unit = '';
+    this.recalculateEstimatedPrice();
+  }
+
+  nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
+    if (!product) return null;
+    const raw = product[`${field}_per_100g` as keyof ProductSuggestion];
+    if (raw === null || raw === '') return null;
+    const value = Number(raw);
+    return Number.isFinite(value) ? value : null;
+  }
+
+  recalculateNutrition(): void {
+    const fields = ['calories', 'protein', 'carbohydrates', 'fat', 'fiber'] as const;
+    for (const field of fields) {
+      let total = 0;
+      let found = false;
+      this.ingredients.forEach((ingredient, index) => {
+        const per100g = this.nutritionValue(this.selectedProducts[index], field);
+        const grams = this.ingredientGrams(ingredient);
+        if (per100g !== null && grams !== null) {
+          total += per100g * grams / 100;
+          found = true;
+        }
+      });
+      this[field] = found && this.servings > 0 ? Math.round(total / this.servings * 100) / 100 : null;
+    }
+  }
+
+  private ingredientGrams(ingredient: RecipeIngredient): number | null {
+    if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000 };
+    const factor = factors[ingredient.unit.trim().toLocaleLowerCase('de-DE')];
+    return factor === undefined ? null : Number(ingredient.quantity) * factor;
+  }
+
+  private recalculateEstimatedPrice(): void {
+    const prices = this.ingredients.map(item => item.estimated_price).filter((value): value is number => value !== null && value !== undefined);
+    this.estimatedPrice = prices.length ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100 : null;
   }
 
 
@@ -929,6 +1035,9 @@ implements OnInit, OnDestroy {
             id:
               ingredient.id,
 
+            product:
+              ingredient.product ?? null,
+
             name:
               ingredient.name.trim(),
 
@@ -936,7 +1045,19 @@ implements OnInit, OnDestroy {
               ingredient.quantity,
 
             unit:
-              ingredient.unit
+              ingredient.unit,
+
+            estimated_price: ingredient.estimated_price ?? null,
+            price_source: ingredient.price_source ?? '',
+            price_currency: ingredient.price_currency ?? 'EUR',
+            price_date: ingredient.price_date ?? null,
+            price_store: ingredient.price_store ?? '',
+            price_sample_count: ingredient.price_sample_count ?? 0,
+            price_min: ingredient.price_min ?? null,
+            price_max: ingredient.price_max ?? null,
+            package_price: ingredient.package_price ?? null,
+            package_quantity: ingredient.package_quantity ?? null,
+            package_unit: ingredient.package_unit ?? ''
           })
         );
 
@@ -948,6 +1069,12 @@ implements OnInit, OnDestroy {
       this.errorMessage =
         'Bitte füge mindestens eine Zutat hinzu.';
 
+      return;
+    }
+
+    const unselectedIngredient = ingredients.find(ingredient => ingredient.product === null);
+    if (unselectedIngredient) {
+      this.errorMessage = `Bitte wähle „${unselectedIngredient.name}“ aus den Produktvorschlägen aus.`;
       return;
     }
 

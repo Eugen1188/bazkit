@@ -1636,3 +1636,16 @@ select:focus {
   }
 
 }
+
+.ingredient-price-field { display: inline-flex; align-items: center; gap: 8px; }
+.ingredient-price-input { position: relative; display: inline-flex; align-items: center; }
+.ingredient-price-input input { width: 92px; min-height: 34px; padding: 6px 28px 6px 9px; border: 1px solid #cad4ce; border-radius: 8px; }
+.ingredient-price-input b { position: absolute; right: 9px; color: #64716a; font-weight: 600; }
+.selected-ingredient-nutrition { margin: 0 48px 10px 42px; padding: 10px 12px; border-radius: 9px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; background: var(--color-primary-soft-bg); font-size: 11px; }
+.selected-ingredient-nutrition strong { color: var(--color-primary); font-size: 12px; }
+.selected-ingredient-nutrition small { margin-left: auto; color: var(--color-text-muted); }
+
+@media (max-width: 560px) {
+  .selected-ingredient-nutrition { margin: 0 0 10px; }
+  .selected-ingredient-nutrition small { width: 100%; margin-left: 0; }
+}

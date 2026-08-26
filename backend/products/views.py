@@ -129,6 +129,9 @@ class ProductPriceEstimateAPIView(APIView):
                 return Response({"detail": "Produkt nicht gefunden."}, status=status.HTTP_404_NOT_FOUND)
             source = product.source or ""
             external_id = product.external_id or ""
+            product_name = product.name
+        else:
+            product_name = clean_text(request.query_params.get("product_name"), 150)
 
         if source != "open_food_facts":
             return Response({
@@ -143,7 +146,7 @@ class ProductPriceEstimateAPIView(APIView):
         if mode not in {"purchase", "consumption"}:
             return Response({"detail": "Ungültiger Berechnungsmodus."}, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(estimate_open_price(external_id, quantity, unit, mode))
+        return Response(estimate_open_price(external_id, quantity, unit, mode, product_name=product_name))
 
 
 class ExternalProductSearchAPIView(APIView):
