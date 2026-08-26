@@ -85,7 +85,9 @@
                     ? 'BLS'
                     : product.origin === 'open_food_facts'
                       ? 'Open Food Facts'
-                      : 'Bazkit'
+                      : product.origin === 'usda'
+                        ? 'USDA FoodData Central'
+                        : 'Bazkit'
                 }}
                 <ng-container *ngIf="product.default_unit">
                   · {{ product.default_unit }}

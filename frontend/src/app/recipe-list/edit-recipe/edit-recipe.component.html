@@ -701,7 +701,7 @@
               <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
                 Keine Marktdaten – nicht in der Kostenschätzung berücksichtigt
               </small>
-              <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : 'Bazkit' }}</small>
+              <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : product.origin === 'usda' ? 'USDA FoodData Central' : 'Bazkit' }}</small>
             </ng-container>
           </div>
 

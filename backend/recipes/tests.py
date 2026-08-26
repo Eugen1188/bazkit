@@ -85,6 +85,25 @@ class RecipeSerializerTests(TestCase):
         self.assertFalse(serializer.is_valid())
         self.assertIn("product", serializer.errors["ingredients"][0])
 
+    def test_stale_prepared_meal_flag_cannot_bypass_runtime_filter(self):
+        prepared = Product.objects.create(
+            name="Chili sin carne",
+            canonical_name="Chili sin carne",
+            source="bls",
+            external_id="X4A8000",
+            is_recipe_ingredient=True,
+        )
+        serializer = RecipeSerializer(data={
+            "name": "Nicht erlaubt",
+            "description": "",
+            "servings": 2,
+            "category": "dinner",
+            "instructions": "1. Öffnen",
+            "ingredients": [{"product": prepared.id, "quantity": "1", "unit": "Stück"}],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("product", serializer.errors["ingredients"][0])
+
     def test_piece_ingredient_uses_average_weight_for_nutrition(self):
         banana = Product.objects.create(
             name="Banane roh",

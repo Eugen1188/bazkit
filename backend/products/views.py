@@ -14,7 +14,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .catalog import canonical_recipe_name, recipe_ingredient_status
+from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
 from .models import Product
 from .pricing import estimate_open_price, estimate_product_price
 from .serializers import ProductSerializer
@@ -106,17 +106,20 @@ class ProductSearchAPIView(APIView):
         recipe_only = request.query_params.get("recipe_only") in {"1", "true", "yes"}
         if len(query) < 2:
             return Response([])
+        ranking_query = canonical_search_query(query) if recipe_only else query
+        search_terms = {query, ranking_query}
+        search_filter = Q()
+        for term in search_terms:
+            search_filter |= Q(name__icontains=term) | Q(canonical_name__icontains=term)
         products = Product.objects.filter(
-            Q(source="bls") | Q(source="open_food_facts"),
-        ).filter(
-            Q(name__icontains=query) | Q(canonical_name__icontains=query)
-        ).annotate(
+            source__in=("bls", "open_food_facts", "usda"),
+        ).filter(search_filter).annotate(
             relevance=Case(
-                When(canonical_name__iexact=query, then=Value(0)),
-                When(name__iexact=query, then=Value(0)),
-                When(canonical_name__istartswith=query, then=Value(1)),
-                When(name__istartswith=query, then=Value(2)),
-                When(name__iendswith=query, then=Value(3)),
+                When(canonical_name__iexact=ranking_query, then=Value(0)),
+                When(name__iexact=ranking_query, then=Value(0)),
+                When(canonical_name__istartswith=ranking_query, then=Value(1)),
+                When(name__istartswith=ranking_query, then=Value(2)),
+                When(name__iendswith=ranking_query, then=Value(3)),
                 default=Value(4),
                 output_field=IntegerField(),
             ),
@@ -124,11 +127,18 @@ class ProductSearchAPIView(APIView):
         )
         if recipe_only:
             products = products.filter(is_recipe_ingredient=True)
-        products = products.order_by("relevance", "name_length", "name")[:60 if recipe_only else 15]
+        products = products.order_by("relevance", "name_length", "name")[:160 if recipe_only else 15]
         data = ProductSerializer(products, many=True).data
         results = []
         seen = set()
         for item in data:
+            if recipe_only and not recipe_ingredient_status(
+                item["name"],
+                item["category"],
+                item["source"],
+                item["external_id"],
+            )[0]:
+                continue
             display_name = clean_name(item["canonical_name"] if recipe_only else item["name"])
             if not display_name:
                 continue
@@ -191,9 +201,10 @@ class ExternalProductSearchAPIView(APIView):
 
     def get(self, request):
         query = clean_text(request.query_params.get("q"), 100)
+        recipe_only = request.query_params.get("recipe_only") in {"1", "true", "yes"}
         if len(query) < 4:
             return Response([])
-        cache_key = f"off-search:{query.casefold()}"
+        cache_key = f"off-search:{query.casefold()}:{int(recipe_only)}"
         cached = cache.get(cache_key)
         if cached is not None:
             return Response(cached)
@@ -213,13 +224,24 @@ class ExternalProductSearchAPIView(APIView):
             product = off_payload(item)
             if not product or product["external_id"] in seen:
                 continue
+            if recipe_only and not product["is_recipe_ingredient"]:
+                continue
             searchable = f'{product["name"]} {product["brand"]}'.casefold()
             if not all(word in searchable for word in words):
                 continue
             seen.add(product["external_id"])
             results.append(product)
-            if len(results) == 10:
-                break
+        if recipe_only:
+            normalized_query = query.casefold()
+            results.sort(key=lambda product: (
+                0 if product["canonical_name"].casefold() == normalized_query else
+                1 if product["name"].casefold() == normalized_query else
+                2 if product["canonical_name"].casefold().startswith(normalized_query) else
+                3 if product["name"].casefold().startswith(normalized_query) else 4,
+                len(product["name"]),
+                product["name"].casefold(),
+            ))
+        results = results[:10]
         cache.set(cache_key, results, 60 * 15)
         return Response(results)
 

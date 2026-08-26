@@ -4,7 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from django.db import transaction
 from rest_framework import serializers
 
-from products.catalog import ingredient_quantity_grams
+from products.catalog import ingredient_quantity_grams, recipe_ingredient_status
 from products.models import Product
 from products.pricing import estimate_product_price
 from products.serializers import ProductSerializer
@@ -145,9 +145,18 @@ class IngredientsSerializer(serializers.ModelSerializer):
         product = attrs.get("product")
         if product is None:
             raise serializers.ValidationError({"product": "Bitte ein Produkt aus den Vorschlägen auswählen."})
-        if not product.is_recipe_ingredient:
+        is_recipe_ingredient, exclusion_reason = recipe_ingredient_status(
+            product.name,
+            product.category,
+            product.source,
+            product.external_id,
+        )
+        if not product.is_recipe_ingredient or not is_recipe_ingredient:
             raise serializers.ValidationError({
-                "product": "Dieses Produkt ist keine freigegebene Kochzutat. Bitte wähle eine Zutat aus den Vorschlägen."
+                "product": exclusion_reason or (
+                    "Dieses Produkt ist keine freigegebene Kochzutat. "
+                    "Bitte wähle eine Zutat aus den Vorschlägen."
+                )
             })
         attrs["name"] = clean_product_name(product.canonical_name or product.name)
         apply_automatic_price(attrs)

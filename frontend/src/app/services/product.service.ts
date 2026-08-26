@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, forkJoin, map, Observable, of } from 'rxjs';
 
-export type ProductOrigin = 'local' | 'bls' | 'open_food_facts';
+export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
 
 export interface ProductSuggestion {
   id: number | null;
@@ -63,7 +63,7 @@ export class ProductService {
     if (recipeOnly) params = params.set('recipe_only', '1');
     const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params })
       .pipe(catchError(() => of([] as ProductSuggestion[])));
-    const external$ = !recipeOnly && q.length >= 4
+    const external$ = q.length >= 4
       ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params })
           .pipe(catchError(() => of([] as ProductSuggestion[])))
       : of([] as ProductSuggestion[]);

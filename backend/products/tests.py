@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory, force_authenticate
 
-from .catalog import canonical_recipe_name, recipe_ingredient_status
+from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
 from .models import IngredientPriceReference, Product
 from .pricing import estimate_product_price
 from .views import ProductSearchAPIView
@@ -20,8 +20,45 @@ class RecipeCatalogTests(TestCase):
 
     def test_catalog_classification_and_canonical_name(self):
         self.assertEqual(canonical_recipe_name("H-Milch fettarm, 1,5 % Fett"), "Milch")
+        self.assertEqual(canonical_recipe_name("Chilischoten, frisch"), "Chilischote")
+        self.assertEqual(canonical_search_query("Chilischotten"), "Chilischote")
+        self.assertEqual(canonical_search_query("Peperoni"), "Chilischote")
         self.assertEqual(recipe_ingredient_status("Kürbissuppe mit Kokosmilch")[0], False)
+        self.assertEqual(recipe_ingredient_status("Chili sin carne")[0], False)
+        self.assertEqual(recipe_ingredient_status("Chili con carne einfach")[0], False)
         self.assertEqual(recipe_ingredient_status("Hähnchenbrust, roh")[0], True)
+
+    def test_recipe_search_shows_chili_pepper_and_hides_stale_chili_meals(self):
+        curated_chili = Product.objects.get(
+            source="usda",
+            external_id="170497",
+        )
+        self.assertTrue(curated_chili.is_recipe_ingredient)
+        self.assertEqual(curated_chili.calories_per_100g, Decimal("40.00"))
+        Product.objects.create(
+            name="Chili sin carne",
+            canonical_name="Chili sin carne",
+            source="bls",
+            external_id="X4A8000",
+            is_recipe_ingredient=True,
+        )
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Chili", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["name"], "Chilischote")
+        self.assertNotIn("Chili sin carne", [item["name"] for item in response.data])
+
+        typo_request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Chilischotten", "recipe_only": "1"},
+        )
+        force_authenticate(typo_request, user=self.user)
+        typo_response = ProductSearchAPIView.as_view()(typo_request)
+        self.assertEqual(typo_response.data[0]["name"], "Chilischote")
 
     def test_recipe_search_prioritizes_canonical_milk_and_hides_meals(self):
         Product.objects.create(

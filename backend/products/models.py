@@ -12,6 +12,10 @@ class Product(models.Model):
             "open_food_facts",
             "Open Food Facts"
         ),
+        (
+            "usda",
+            "USDA FoodData Central"
+        ),
     ]
 
     name = models.CharField(

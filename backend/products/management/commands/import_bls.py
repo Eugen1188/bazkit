@@ -8,6 +8,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from products.models import Product
 from products.catalog import canonical_recipe_name, recipe_ingredient_status
+from products.curated import ensure_curated_ingredients
 
 
 CELL_REFERENCE = re.compile(r"([A-Z]+)\d+")
@@ -140,6 +141,7 @@ class Command(BaseCommand):
                     "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
                 ],
             )
+            ensure_curated_ingredients()
             self.stdout.write(self.style.SUCCESS(f"{len(products)} BLS-Produkte importiert/aktualisiert."))
         finally:
             rows.close()

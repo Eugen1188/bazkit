@@ -11,6 +11,7 @@ AMOUNT_SUFFIX = re.compile(
 )
 
 CANONICAL_RULES = (
+    (re.compile(r"^(?:chili|chilli)(?:schote|schoten|pepper|peppers)?\b", re.I), "Chilischote"),
     (re.compile(r"^(?:h-)?milch\b|^vollmilch\b", re.I), "Milch"),
     (re.compile(r"^buttermilch\b", re.I), "Buttermilch"),
     (re.compile(r"^kokos(?:nuss)?milch\b", re.I), "Kokosmilch"),
@@ -47,6 +48,7 @@ ALLOWED_INGREDIENT = re.compile(
 PREPARED_FOOD = re.compile(
     r"(?:suppe|eintopf|pfanne|auflauf|pizza|lasagne|burger|sandwich|wrap|"
     r"bami\s+goreng|nasi\s+goreng|gulasch|ragout|frikassee|roulade|currygericht|"
+    r"chili\s+(?:con|sin)\s+carne|"
     r"tellergericht|fertiggericht|menü|mahlzeit|risotto|paella|fischstäbchen|"
     r"cordon\s+bleu|döner|gyros|hot\s+dog|hamburger)\b",
     re.I,
@@ -76,6 +78,17 @@ def clean_product_name(value):
     return AMOUNT_SUFFIX.sub("", name).strip(" ,-–")[:150]
 
 
+def canonical_search_query(value):
+    query = re.sub(r"\s+", " ", str(value or "")).strip()
+    compact = re.sub(r"[\s\-_]", "", query.casefold())
+    if re.fullmatch(
+        r"(?:chili|chilli)(?:s|schot+t?e?n?)?|peperoni(?:schot+t?e?n?)?",
+        compact,
+    ):
+        return "Chilischote"
+    return query
+
+
 def canonical_recipe_name(value):
     name = clean_product_name(value)
     for pattern, replacement in CANONICAL_RULES:
@@ -103,7 +116,7 @@ def recipe_ingredient_status(name, category="", source="", external_id=""):
         return False, "Bereits zubereitete Produktvariante"
     if NON_INGREDIENT.search(searchable) and not ALLOWED_INGREDIENT.search(cleaned_name):
         return False, "Kein typisches Kochprodukt"
-    if source == "bls" and str(external_id or "").upper().startswith("Y"):
+    if source == "bls" and str(external_id or "").upper().startswith(("X", "Y")):
         return False, "BLS-Rezeptur oder zusammengesetzte Speise"
     if source == "open_food_facts" and OFF_MEAL_CATEGORY.search(str(category or "")):
         return False, "Open-Food-Facts-Kategorie Fertiggericht"
@@ -176,6 +189,7 @@ AVERAGE_UNIT_WEIGHT_GRAMS = {
     "Gurke": Decimal("350"),
     "Zucchini": Decimal("200"),
     "Paprika": Decimal("150"),
+    "Chilischote": Decimal("15"),
     "Ei": Decimal("60"),
     "Hähnchenbrust": Decimal("180"),
 }
