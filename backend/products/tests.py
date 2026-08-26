@@ -76,3 +76,28 @@ class RecipeCatalogTests(TestCase):
         self.assertTrue(estimate["available"])
         self.assertEqual(estimate["estimated_price"], Decimal("0.75"))
         self.assertEqual(estimate["price_source"], "open_prices_category")
+
+    def test_low_confidence_reference_uses_average_piece_weight(self):
+        product = Product.objects.create(
+            name="Banane roh",
+            canonical_name="Banane",
+            source="bls",
+            external_id="F110100",
+            is_recipe_ingredient=True,
+        )
+        IngredientPriceReference.objects.create(
+            canonical_name="Banane",
+            category_tag="en:bananas",
+            basis="kg",
+            median_price=Decimal("2.00"),
+            price_min=Decimal("1.50"),
+            price_max=Decimal("2.50"),
+            observation_count=1,
+            location_count=1,
+            confidence="low",
+            is_active=True,
+        )
+        estimate = estimate_product_price(product, Decimal("1"), "Stück")
+        self.assertTrue(estimate["available"])
+        self.assertEqual(estimate["estimated_price"], Decimal("0.24"))
+        self.assertEqual(estimate["confidence"], "low")

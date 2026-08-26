@@ -1,4 +1,5 @@
 import re
+from decimal import Decimal, InvalidOperation
 
 
 AMOUNT_SUFFIX = re.compile(
@@ -153,3 +154,59 @@ CATEGORY_INGREDIENT_NAMES = {
     "en:beef-steaks": "Rindersteak",
     "en:chicken-breasts": "Hähnchenbrust",
 }
+
+
+# Durchschnittliches essbares Gewicht pro Stück. Diese Werte werden nur für
+# die Vorschau und automatische Schätzung verwendet, wenn der Nutzer bewusst
+# "Stück" statt einer Gewichtsangabe auswählt.
+AVERAGE_UNIT_WEIGHT_GRAMS = {
+    "Banane": Decimal("120"),
+    "Apfel": Decimal("180"),
+    "Birne": Decimal("180"),
+    "Orange": Decimal("150"),
+    "Mandarine": Decimal("80"),
+    "Zitrone": Decimal("80"),
+    "Kiwi": Decimal("75"),
+    "Avocado": Decimal("150"),
+    "Tomate": Decimal("120"),
+    "Kartoffel": Decimal("150"),
+    "Süßkartoffel": Decimal("250"),
+    "Zwiebel": Decimal("100"),
+    "Karotte": Decimal("80"),
+    "Gurke": Decimal("350"),
+    "Zucchini": Decimal("200"),
+    "Paprika": Decimal("150"),
+    "Ei": Decimal("60"),
+    "Hähnchenbrust": Decimal("180"),
+}
+
+
+def ingredient_quantity_grams(name, quantity, unit):
+    try:
+        amount = Decimal(str(quantity))
+    except (InvalidOperation, TypeError, ValueError):
+        return None
+    if amount <= 0:
+        return None
+
+    normalized_unit = str(unit or "").strip().casefold()
+    factor = {
+        "g": Decimal("1"),
+        "kg": Decimal("1000"),
+        "ml": Decimal("1"),
+        "l": Decimal("1000"),
+        "liter": Decimal("1000"),
+        "el": Decimal("15"),
+        "esslöffel": Decimal("15"),
+        "tl": Decimal("5"),
+        "teelöffel": Decimal("5"),
+        "prise": Decimal("0.35"),
+    }.get(normalized_unit)
+    if factor is not None:
+        return amount * factor
+
+    if normalized_unit in {"stück", "stueck"}:
+        canonical_name = canonical_recipe_name(name)
+        average_weight = AVERAGE_UNIT_WEIGHT_GRAMS.get(canonical_name)
+        return amount * average_weight if average_weight is not None else None
+    return None

@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.db import transaction
 from rest_framework import serializers
 
+from products.catalog import ingredient_quantity_grams
 from products.models import Product
 from products.pricing import estimate_product_price
 from products.serializers import ProductSerializer
@@ -17,9 +18,6 @@ AMOUNT_SUFFIX = re.compile(
     r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
     re.I,
 )
-GRAMS_PER_UNIT = {"g": Decimal("1"), "kg": Decimal("1000"), "ml": Decimal("1"), "l": Decimal("1000"), "liter": Decimal("1000")}
-
-
 def clean_product_name(value):
     name = re.sub(r"\s+", " ", str(value or "")).strip()
     return AMOUNT_SUFFIX.sub("", name).strip(" ,-–")[:100]
@@ -29,10 +27,16 @@ def calculate_recipe_nutrition(recipe, ingredients):
     totals = {field: Decimal("0") for field in ("calories", "protein", "carbohydrates", "fat", "fiber")}
     found = {field: False for field in totals}
     for ingredient in ingredients:
-        factor = GRAMS_PER_UNIT.get((ingredient.unit or "").strip().casefold())
-        if factor is None or ingredient.quantity is None or ingredient.product is None:
+        if ingredient.quantity is None or ingredient.product is None:
             continue
-        portions_of_100g = ingredient.quantity * factor / Decimal("100")
+        grams = ingredient_quantity_grams(
+            ingredient.product.canonical_name or ingredient.product.name,
+            ingredient.quantity,
+            ingredient.unit,
+        )
+        if grams is None:
+            continue
+        portions_of_100g = grams / Decimal("100")
         for target, source in (
             ("calories", "calories_per_100g"), ("protein", "protein_per_100g"),
             ("carbohydrates", "carbohydrates_per_100g"), ("fat", "fat_per_100g"),

@@ -44,6 +44,13 @@ interface PreparationStep {
   text: string;
 }
 
+const AVERAGE_UNIT_WEIGHT_GRAMS: Record<string, number> = {
+  banane: 120, apfel: 180, birne: 180, orange: 150, mandarine: 80,
+  zitrone: 80, kiwi: 75, avocado: 150, tomate: 120, kartoffel: 150,
+  süßkartoffel: 250, zwiebel: 100, karotte: 80, gurke: 350,
+  zucchini: 200, paprika: 150, ei: 60, hähnchenbrust: 180,
+};
+
 
 interface IngredientSearch {
   index: number;
@@ -833,7 +840,7 @@ implements OnInit, OnDestroy {
       let found = false;
       this.ingredients.forEach((ingredient, index) => {
         const per100g = this.nutritionValue(this.selectedProducts[index], field);
-        const grams = this.ingredientGrams(ingredient);
+        const grams = this.ingredientGrams(ingredient, this.selectedProducts[index]);
         if (per100g !== null && grams !== null) {
           total += per100g * grams / 100;
           found = true;
@@ -843,11 +850,16 @@ implements OnInit, OnDestroy {
     }
   }
 
-  private ingredientGrams(ingredient: RecipeIngredient): number | null {
+  private ingredientGrams(ingredient: RecipeIngredient, product: ProductSuggestion | null): number | null {
     if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000 };
-    const factor = factors[ingredient.unit.trim().toLocaleLowerCase('de-DE')];
-    return factor === undefined ? null : Number(ingredient.quantity) * factor;
+    const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000, el: 15, esslöffel: 15, tl: 5, teelöffel: 5, prise: 0.35 };
+    const factor = factors[unit];
+    if (factor !== undefined) return Number(ingredient.quantity) * factor;
+    if (unit !== 'stück' && unit !== 'stueck') return null;
+    const productName = (product?.canonical_name || product?.name || ingredient.name).trim().toLocaleLowerCase('de-DE');
+    const averageWeight = AVERAGE_UNIT_WEIGHT_GRAMS[productName];
+    return averageWeight === undefined ? null : Number(ingredient.quantity) * averageWeight;
   }
 
   private recalculateEstimatedPrice(): void {

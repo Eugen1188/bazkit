@@ -116,7 +116,10 @@ class Command(BaseCommand):
                 "newest_price_date": max(item["date"] for item in observations),
                 "confidence": confidence,
                 "source": "open_prices_category",
-                "is_active": confidence in {"medium", "high"},
+                # Auch eine einzelne deutsche Beobachtung ist als grobe
+                # Schätzung hilfreicher als gar kein Preis. Die Konfidenz und
+                # Stichprobengröße bleiben für die transparente Anzeige erhalten.
+                "is_active": observation_count >= 1 and location_count >= 1,
             })
 
         active_count = sum(1 for item in references if item["is_active"])

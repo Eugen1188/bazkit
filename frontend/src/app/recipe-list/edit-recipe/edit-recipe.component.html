@@ -679,6 +679,7 @@
               </small>
               <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices_category'">
                 Deutscher Zutaten-Median · {{ ingredients[i].price_sample_count }} Marktbeobachtungen
+                <ng-container *ngIf="(ingredients[i].price_sample_count || 0) < 3"> · grobe Schätzung</ng-container>
               </small>
               <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
                 Noch kein belastbarer automatischer Preis verfügbar

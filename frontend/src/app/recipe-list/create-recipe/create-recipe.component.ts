@@ -9,6 +9,13 @@ import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/r
 interface PreparationStep { text: string; }
 interface IngredientSearch { index: number; query: string; }
 
+const AVERAGE_UNIT_WEIGHT_GRAMS: Record<string, number> = {
+  banane: 120, apfel: 180, birne: 180, orange: 150, mandarine: 80,
+  zitrone: 80, kiwi: 75, avocado: 150, tomate: 120, kartoffel: 150,
+  süßkartoffel: 250, zwiebel: 100, karotte: 80, gurke: 350,
+  zucchini: 200, paprika: 150, ei: 60, hähnchenbrust: 180,
+};
+
 @Component({
   selector: 'app-create-recipe',
   standalone: true,
@@ -201,18 +208,23 @@ export class CreateRecipeComponent implements OnDestroy {
     let hasValue = false;
     this.ingredients.forEach((ingredient, index) => {
       const per100g = this.nutritionValue(this.selectedProducts[index], field);
-      const grams = this.ingredientGrams(ingredient);
+      const grams = this.ingredientGrams(ingredient, this.selectedProducts[index]);
       if (per100g !== null && grams !== null) { total += per100g * grams / 100; hasValue = true; }
     });
     return hasValue && this.servings > 0 ? Math.round(total / this.servings * 100) / 100 : null;
   }
-  canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index]) !== null; }
+  canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index], this.selectedProducts[index]) !== null; }
   hasSelectedNutrition(): boolean { return this.selectedProducts.some(product => product && ['calories', 'protein', 'carbohydrates', 'fat', 'fiber'].some(field => this.nutritionValue(product, field as any) !== null)); }
-  private ingredientGrams(ingredient: RecipeIngredient | undefined): number | null {
+  private ingredientGrams(ingredient: RecipeIngredient | undefined, product: ProductSuggestion | null): number | null {
     if (!ingredient || ingredient.quantity === null || ingredient.quantity === undefined) return null;
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000 };
-    const factor = factors[ingredient.unit.trim().toLocaleLowerCase('de-DE')];
-    return factor === undefined ? null : ingredient.quantity * factor;
+    const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000, el: 15, esslöffel: 15, tl: 5, teelöffel: 5, prise: 0.35 };
+    const factor = factors[unit];
+    if (factor !== undefined) return Number(ingredient.quantity) * factor;
+    if (unit !== 'stück' && unit !== 'stueck') return null;
+    const productName = (product?.canonical_name || product?.name || ingredient.name).trim().toLocaleLowerCase('de-DE');
+    const averageWeight = AVERAGE_UNIT_WEIGHT_GRAMS[productName];
+    return averageWeight === undefined ? null : Number(ingredient.quantity) * averageWeight;
   }
   private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück', estimated_price: null, price_source: '', price_currency: 'EUR', price_sample_count: 0 }; }
   private applyPriceEstimate(ingredient: RecipeIngredient, estimate: PriceEstimate): void {

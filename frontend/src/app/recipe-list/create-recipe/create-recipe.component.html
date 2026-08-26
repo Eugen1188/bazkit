@@ -578,13 +578,14 @@
             </span>
             <small *ngIf="ingredientPriceLoading[i]">Preis wird ermittelt…</small>
             <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices'">
-              Open Prices · {{ ingredients[i].price_sample_count }} Marktpreise
+              {{ ingredients[i].price_store || 'Open Prices' }} · {{ ingredients[i].price_sample_count }} Marktpreise
               <ng-container *ngIf="ingredients[i].price_min !== null && ingredients[i].price_max !== null">
                 · {{ ingredients[i].price_min | number:'1.2-2' }}–{{ ingredients[i].price_max | number:'1.2-2' }} €
               </ng-container>
             </small>
             <small *ngIf="!ingredientPriceLoading[i] && ingredients[i].price_source === 'open_prices_category'">
               Deutscher Zutaten-Median · {{ ingredients[i].price_sample_count }} Marktbeobachtungen
+              <ng-container *ngIf="(ingredients[i].price_sample_count || 0) < 3"> · grobe Schätzung</ng-container>
             </small>
             <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
               Noch kein belastbarer automatischer Preis verfügbar

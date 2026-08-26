@@ -83,3 +83,36 @@ class RecipeSerializerTests(TestCase):
         }, context={"request": SimpleNamespace(user=self.user)})
         self.assertFalse(serializer.is_valid())
         self.assertIn("product", serializer.errors["ingredients"][0])
+
+    def test_piece_ingredient_uses_average_weight_for_nutrition(self):
+        banana = Product.objects.create(
+            name="Banane roh",
+            canonical_name="Banane",
+            source="bls",
+            external_id="F110100",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("89"),
+        )
+        IngredientPriceReference.objects.create(
+            canonical_name="Banane",
+            category_tag="en:bananas",
+            basis="kg",
+            median_price=Decimal("2.00"),
+            observation_count=1,
+            location_count=1,
+            confidence="low",
+            is_active=True,
+        )
+        serializer = RecipeSerializer(data={
+            "name": "Bananenrezept",
+            "description": "",
+            "servings": 1,
+            "preparation_time": 5,
+            "category": "snack",
+            "instructions": "1. Schälen",
+            "ingredients": [{"product": banana.id, "quantity": "1", "unit": "Stück"}],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+        recipe = serializer.save()
+        self.assertEqual(recipe.calories, Decimal("106.80"))
+        self.assertEqual(recipe.estimated_price, Decimal("0.24"))

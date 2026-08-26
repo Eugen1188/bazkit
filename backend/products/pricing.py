@@ -1,4 +1,5 @@
 import math
+import re
 from hashlib import sha256
 from datetime import date, timedelta
 from decimal import Decimal, InvalidOperation
@@ -9,7 +10,7 @@ import requests
 from django.conf import settings
 from django.core.cache import cache
 
-from .catalog import canonical_recipe_name
+from .catalog import canonical_recipe_name, ingredient_quantity_grams, recipe_ingredient_status
 from .models import IngredientPriceReference
 
 
@@ -71,15 +72,17 @@ def unavailable(message):
     }
 
 
-def scale_reference_price(price, basis, quantity, unit):
+def scale_reference_price(price, basis, quantity, unit, canonical_name=""):
     amount = decimal_or_none(quantity)
     normalized_unit = str(unit or "").strip().casefold()
     if amount is None:
         return None
     if basis == "kg":
-        factor = {"g": Decimal("1"), "kg": Decimal("1000")}.get(normalized_unit)
-        return price * amount * factor / Decimal("1000") if factor is not None else None
-    if basis == "unit" and normalized_unit in {"stück", "stueck"}:
+        grams = ingredient_quantity_grams(canonical_name, amount, normalized_unit)
+        return price * grams / Decimal("1000") if grams is not None else None
+    if basis == "unit" and normalized_unit in {
+        "stück", "stueck", "packung", "dose", "glas", "becher", "flasche", "bund"
+    }:
         return price * amount
     return None
 
@@ -97,11 +100,17 @@ def estimate_reference_price(product, quantity, unit):
     )
     references.sort(key=lambda item: (item.basis != preferred_basis, -item.observation_count))
     for reference in references:
-        estimated = scale_reference_price(reference.median_price, reference.basis, quantity, unit)
+        estimated = scale_reference_price(
+            reference.median_price, reference.basis, quantity, unit, canonical_name
+        )
         if estimated is None:
             continue
-        scaled_min = scale_reference_price(reference.price_min, reference.basis, quantity, unit) if reference.price_min else None
-        scaled_max = scale_reference_price(reference.price_max, reference.basis, quantity, unit) if reference.price_max else None
+        scaled_min = scale_reference_price(
+            reference.price_min, reference.basis, quantity, unit, canonical_name
+        ) if reference.price_min else None
+        scaled_max = scale_reference_price(
+            reference.price_max, reference.basis, quantity, unit, canonical_name
+        ) if reference.price_max else None
         return {
             "available": True,
             "estimated_price": estimated.quantize(Decimal("0.01")),
@@ -133,7 +142,26 @@ def estimate_product_price(product, quantity, unit, mode="consumption"):
         )
         if exact.get("available"):
             return exact
-    return estimate_reference_price(product, quantity, unit)
+    reference = estimate_reference_price(product, quantity, unit)
+    if reference.get("available"):
+        return reference
+
+    canonical_name = product.canonical_name or canonical_recipe_name(product.name)
+    similar = similar_priced_product(canonical_name, product.external_id or "")
+    if similar:
+        estimate = estimate_open_price(
+            similar["code"], quantity, unit, mode,
+            product_name="", allow_similar=False,
+        )
+        if estimate.get("available"):
+            estimate["confidence"] = "low"
+            estimate["comparable_product_name"] = similar["name"]
+            estimate["price_store"] = f"Vergleich: {similar['name']}"[:150]
+            estimate["message"] = (
+                f"Grobe Marktschätzung anhand der vergleichbaren Zutat „{similar['name']}“."
+            )
+            return estimate
+    return reference
 
 
 def similar_priced_product(product_name, excluded_barcode):
@@ -162,23 +190,32 @@ def similar_priced_product(product_name, excluded_barcode):
     except (requests.RequestException, ValueError):
         return None
 
-    query_words = set(query.casefold().split())
+    normalized_query = " ".join(re.findall(r"\w+", query.casefold()))
+    query_words = set(normalized_query.split())
     candidates = []
     for product in products:
         code = str(product.get("code") or "").strip()
         name = str(product.get("product_name") or "").strip()
         if not code or code == excluded_barcode or not name:
             continue
-        name_words = set(name.casefold().split())
+        if not recipe_ingredient_status(name, source="open_food_facts", external_id=code)[0]:
+            continue
+        normalized_name = " ".join(re.findall(r"\w+", name.casefold()))
+        name_words = set(normalized_name.split())
         word_overlap = len(query_words & name_words) / max(len(query_words), 1)
-        similarity = SequenceMatcher(None, query.casefold(), name.casefold()).ratio()
+        similarity = SequenceMatcher(None, normalized_query, normalized_name).ratio()
         score = max(word_overlap, similarity)
-        if score >= 0.5:
-            candidates.append((score, int(product.get("price_count") or 0), code, name))
+        if query_words.issubset(name_words) and score >= 0.5:
+            exactness = (
+                2 if normalized_name == normalized_query
+                else 1 if normalized_name.startswith(f"{normalized_query} ")
+                else 0
+            )
+            candidates.append((exactness, score, int(product.get("price_count") or 0), code, name))
 
     result = None
     if candidates:
-        _, _, code, name = max(candidates)
+        _, _, _, code, name = max(candidates)
         result = {"code": code, "name": name}
     cache.set(cache_key, result, 6 * 60 * 60)
     return result
