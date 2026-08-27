@@ -18,6 +18,11 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            set -e
             cd /opt/bazkit
-            git pull origin main
-            docker compose up -d --build
+            git pull --ff-only origin main
+            docker compose build backend frontend
+            docker compose up -d db
+            docker compose run --rm backend python manage.py migrate --noinput
+            docker compose up -d backend frontend
+            docker compose exec -T backend python manage.py check

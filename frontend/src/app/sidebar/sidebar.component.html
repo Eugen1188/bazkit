@@ -1,777 +1,123 @@
-<!-- =========================
-     DESKTOP SIDEBAR
-========================= -->
-
 <aside class="sidebar">
-
-  <!-- LOGO -->
-  <a
-    class="logo"
-    routerLink="/main/home"
-  >
-
-    <span class="logo-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M7 10V8a5 5 0 0 1 10 0v2"></path>
-        <path d="M5 10h14l-1.2 10H6.2L5 10Z"></path>
-        <path d="M9 14v2"></path>
-        <path d="M15 14v2"></path>
-      </svg>
-
-    </span>
-
-    <span class="logo-text">
-      bazkit
-    </span>
-
+  <a class="logo" routerLink="/main/home" aria-label="Bazkit Startseite">
+    <span class="logo-icon"><app-ui-icon name="shopping-basket"></app-ui-icon></span>
+    <span class="logo-text">bazkit</span>
   </a>
 
-
-  <!-- USER -->
-  <button
-    class="user-box"
-    type="button"
-  >
-
-    <span class="avatar">
-      {{ userInitial }}
-    </span>
-
-    <span class="user-name">
-      {{ userName }}
-    </span>
-
-    <span class="chevron">
-      ⌄
-    </span>
-
+  <button class="user-box" type="button">
+    <span class="avatar">{{ userInitial }}</span>
+    <span class="user-name">{{ userName }}</span>
+    <span class="chevron"><app-ui-icon name="chevron-down"></app-ui-icon></span>
   </button>
 
-
-  <!-- NAVIGATION -->
-  <nav class="nav">
-
-    <!-- HOME -->
-    <a
-      class="nav-item"
-      routerLink="/main/home"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M3 10.5 12 3l9 7.5"></path>
-          <path d="M5.5 9.5V21h13V9.5"></path>
-          <path d="M9.5 21v-6h5v6"></path>
-        </svg>
-
-      </span>
-
-      <span>
-        Home
-      </span>
-
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="nav-item" routerLink="/main/home" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="home"></app-ui-icon></span>
+      <span>Home</span>
     </a>
-
-
-    <!-- SHOPPING LIST -->
-    <a
-      class="nav-item"
-      routerLink="/main/shopping-list"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M8 6h12"></path>
-          <path d="M8 12h12"></path>
-          <path d="M8 18h12"></path>
-
-          <circle
-            cx="4"
-            cy="6"
-            r="1.2"
-          ></circle>
-
-          <circle
-            cx="4"
-            cy="12"
-            r="1.2"
-          ></circle>
-
-          <circle
-            cx="4"
-            cy="18"
-            r="1.2"
-          ></circle>
-        </svg>
-
-      </span>
-
-      <span>
-        Einkaufsliste
-      </span>
-
+    <a class="nav-item" routerLink="/main/shopping-list" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="shopping-cart"></app-ui-icon></span>
+      <span>Einkaufsliste</span>
     </a>
-
-
-    <!-- RECIPES -->
-    <a
-      class="nav-item"
-      routerLink="/main/recipe-list"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <path d="M7 3v8"></path>
-          <path d="M10 3v8"></path>
-          <path d="M7 7h3"></path>
-          <path d="M8.5 11v10"></path>
-
-          <path d="M16 3v18"></path>
-          <path d="M16 3c3 2.2 3.7 6 0 8"></path>
-
-        </svg>
-
-      </span>
-
-      <span>
-        Rezepte
-      </span>
-
+    <a class="nav-item" routerLink="/main/recipe-list" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="chef-hat"></app-ui-icon></span>
+      <span>Rezepte</span>
     </a>
-
-
-    <!-- WEEKLY PLANNER -->
-    <a
-      class="nav-item"
-      routerLink="/main/weekly-planner"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <rect
-            x="3.5"
-            y="5"
-            width="17"
-            height="15"
-            rx="2.5"
-          ></rect>
-
-          <path d="M8 3v4"></path>
-          <path d="M16 3v4"></path>
-          <path d="M3.5 9.5h17"></path>
-
-          <path d="M7.5 13h2"></path>
-          <path d="M11 13h2"></path>
-          <path d="M14.5 13h2"></path>
-
-          <path d="M7.5 16.5h2"></path>
-          <path d="M11 16.5h2"></path>
-          <path d="M14.5 16.5h2"></path>
-        </svg>
-
-      </span>
-
-      <span>
-        Wochenplaner
-      </span>
-
+    <a class="nav-item" routerLink="/main/weekly-planner" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="calendar-days"></app-ui-icon></span>
+      <span>Wochenplaner</span>
     </a>
-
-
-    <!-- SAVED -->
-    <a
-      class="nav-item"
-      routerLink="/main/saved-list"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <rect
-            x="5"
-            y="4"
-            width="14"
-            height="16"
-            rx="2"
-          ></rect>
-
-          <path d="M9 9h6"></path>
-          <path d="M9 13h6"></path>
-          <path d="M9 17h4"></path>
-
-        </svg>
-
-      </span>
-
-      <span>
-        Meine Listen
-      </span>
-
+    <a class="nav-item" routerLink="/main/saved-list" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="clipboard-list"></app-ui-icon></span>
+      <span>Meine Listen</span>
     </a>
-
-
-    <!-- COMMUNITY -->
-    <a
-      class="nav-item"
-      routerLink="/main/community"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="9"
-            cy="8"
-            r="3"
-          ></circle>
-
-          <circle
-            cx="17"
-            cy="9"
-            r="2.4"
-          ></circle>
-
-          <path d="M3.5 19c.5-4 2.8-6 5.5-6s5 2 5.5 6"></path>
-
-          <path d="M14.5 14.5c1-.8 2.1-1.2 3.2-1.2 2.2 0 3.8 1.7 4.1 4.7"></path>
-
-        </svg>
-
-      </span>
-
-      <span>
-        Community
-      </span>
-
+    <a class="nav-item" routerLink="/main/community" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="users-round"></app-ui-icon></span>
+      <span>Community</span>
     </a>
-
-
-    <!-- SETTINGS -->
-    <a
-      class="nav-item"
-      routerLink="/main/settings"
-      routerLinkActive="active"
-    >
-
-      <span class="nav-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="12"
-            cy="12"
-            r="3"
-          ></circle>
-
-          <path d="M12 2.5v2"></path>
-          <path d="M12 19.5v2"></path>
-
-          <path d="M4.5 12h-2"></path>
-          <path d="M21.5 12h-2"></path>
-
-          <path d="m5.3 5.3 1.4 1.4"></path>
-          <path d="m17.3 17.3 1.4 1.4"></path>
-
-          <path d="m18.7 5.3-1.4 1.4"></path>
-          <path d="m6.7 17.3-1.4 1.4"></path>
-
-        </svg>
-
-      </span>
-
-      <span>
-        Einstellungen
-      </span>
-
+    <a class="nav-item" routerLink="/main/settings" routerLinkActive="active">
+      <span class="nav-icon"><app-ui-icon name="settings"></app-ui-icon></span>
+      <span>Einstellungen</span>
     </a>
-
   </nav>
 
-
-  <!-- BOTTOM AREA -->
   <div class="bottom">
-
     <div class="premium-card">
-
-      <strong>
-        👑 Premium
-      </strong>
-
-      <p>
-        Mehr Funktionen.
-        <br>
-        Mehr Möglichkeiten.
-      </p>
-
-      <button
-        type="button"
-      >
-        Jetzt upgraden
-      </button>
-
+      <strong><app-ui-icon name="crown"></app-ui-icon> Premium</strong>
+      <p>Mehr Funktionen.<br>Mehr Möglichkeiten.</p>
+      <button type="button">Jetzt upgraden</button>
     </div>
-
-
-    <button
-      class="logout"
-      type="button"
-      (click)="logout()"
-    >
-
-      <span class="logout-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M10 17l5-5-5-5"></path>
-          <path d="M15 12H3"></path>
-          <path d="M21 4v16"></path>
-        </svg>
-
-      </span>
-
+    <button class="logout" type="button" (click)="logout()">
+      <span class="logout-icon"><app-ui-icon name="log-out"></app-ui-icon></span>
       Abmelden
-
     </button>
-
   </div>
-
 </aside>
 
-
-<!-- =========================
-     MOBILE BOTTOM NAV
-========================= -->
-
-<nav class="mobile-bottom-nav">
-
-  <!-- HOME -->
-  <a
-    class="mobile-nav-item"
-    routerLink="/main/home"
-    routerLinkActive="active"
-  >
-
-    <span class="mobile-nav-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M3 10.5 12 3l9 7.5"></path>
-        <path d="M5.5 9.5V21h13V9.5"></path>
-        <path d="M9.5 21v-6h5v6"></path>
-      </svg>
-
-    </span>
-
-    <span>
-      Home
-    </span>
-
+<nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+  <a class="mobile-nav-item" routerLink="/main/home" routerLinkActive="active">
+    <span class="mobile-nav-icon"><app-ui-icon name="home"></app-ui-icon></span>
+    <span>Home</span>
   </a>
-
-
-  <!-- SHOPPING -->
-  <a
-    class="mobile-nav-item"
-    routerLink="/main/shopping-list"
-    routerLinkActive="active"
-  >
-
-    <span class="mobile-nav-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M8 6h12"></path>
-        <path d="M8 12h12"></path>
-        <path d="M8 18h12"></path>
-
-        <circle
-          cx="4"
-          cy="6"
-          r="1.2"
-        ></circle>
-
-        <circle
-          cx="4"
-          cy="12"
-          r="1.2"
-        ></circle>
-
-        <circle
-          cx="4"
-          cy="18"
-          r="1.2"
-        ></circle>
-      </svg>
-
-    </span>
-
-    <span>
-      Einkauf
-    </span>
-
+  <a class="mobile-nav-item" routerLink="/main/shopping-list" routerLinkActive="active">
+    <span class="mobile-nav-icon"><app-ui-icon name="shopping-cart"></app-ui-icon></span>
+    <span>Einkauf</span>
   </a>
-
-
-  <!-- RECIPES -->
-  <a
-    class="mobile-nav-item"
-    routerLink="/main/recipe-list"
-    routerLinkActive="active"
-  >
-
-    <span class="mobile-nav-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-
-        <path d="M7 3v8"></path>
-        <path d="M10 3v8"></path>
-        <path d="M7 7h3"></path>
-        <path d="M8.5 11v10"></path>
-
-        <path d="M16 3v18"></path>
-        <path d="M16 3c3 2.2 3.7 6 0 8"></path>
-
-      </svg>
-
-    </span>
-
-    <span>
-      Rezepte
-    </span>
-
+  <a class="mobile-nav-item" routerLink="/main/recipe-list" routerLinkActive="active">
+    <span class="mobile-nav-icon"><app-ui-icon name="chef-hat"></app-ui-icon></span>
+    <span>Rezepte</span>
   </a>
-
-
-  <!-- SAVED -->
-  <a
-    class="mobile-nav-item"
-    routerLink="/main/saved-list"
-    routerLinkActive="active"
-  >
-
-    <span class="mobile-nav-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-
-        <rect
-          x="5"
-          y="4"
-          width="14"
-          height="16"
-          rx="2"
-        ></rect>
-
-        <path d="M9 9h6"></path>
-        <path d="M9 13h6"></path>
-        <path d="M9 17h4"></path>
-
-      </svg>
-
-    </span>
-
-    <span>
-      Meine Listen
-    </span>
-
+  <a class="mobile-nav-item" routerLink="/main/saved-list" routerLinkActive="active">
+    <span class="mobile-nav-icon"><app-ui-icon name="clipboard-list"></app-ui-icon></span>
+    <span>Meine Listen</span>
   </a>
-
-
-  <!-- COMMUNITY -->
-  <a
-    class="mobile-nav-item"
-    routerLink="/main/community"
-    routerLinkActive="active"
-  >
-
-    <span class="mobile-nav-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-
-        <circle
-          cx="9"
-          cy="8"
-          r="3"
-        ></circle>
-
-        <circle
-          cx="17"
-          cy="9"
-          r="2.4"
-        ></circle>
-
-        <path d="M3.5 19c.5-4 2.8-6 5.5-6s5 2 5.5 6"></path>
-
-        <path d="M14.5 14.5c1-.8 2.1-1.2 3.2-1.2 2.2 0 3.8 1.7 4.1 4.7"></path>
-
-      </svg>
-
-    </span>
-
-    <span>
-      Community
-    </span>
-
+  <a class="mobile-nav-item" routerLink="/main/community" routerLinkActive="active">
+    <span class="mobile-nav-icon"><app-ui-icon name="users-round"></app-ui-icon></span>
+    <span>Community</span>
   </a>
-
-
-  <!-- PROFILE -->
   <button
     class="mobile-nav-item mobile-profile-button"
     type="button"
     [class.active]="isMobileMoreOpen"
     (click)="toggleMobileMore($event)"
   >
-
-    <span class="mobile-avatar">
-      {{ userInitial }}
-    </span>
-
-    <span>
-      Profil
-    </span>
-
+    <span class="mobile-avatar">{{ userInitial }}</span>
+    <span>Profil</span>
   </button>
 
-
-  <!-- PROFILE POPUP -->
-  <div
-    class="mobile-more-menu"
-    *ngIf="isMobileMoreOpen"
-    (click)="$event.stopPropagation()"
-  >
-
+  <div class="mobile-more-menu" *ngIf="isMobileMoreOpen" (click)="$event.stopPropagation()">
     <div class="mobile-user">
-
-      <div class="mobile-user-avatar">
-        {{ userInitial }}
-      </div>
-
-      <div>
-
-        <strong>
-          {{ userName }}
-        </strong>
-
-        <span>
-          Mein Konto
-        </span>
-
-      </div>
-
+      <div class="mobile-user-avatar">{{ userInitial }}</div>
+      <div><strong>{{ userName }}</strong><span>Mein Konto</span></div>
     </div>
-
-
     <div class="mobile-menu-divider"></div>
-
-
-    <!-- WEEKLY PLANNER -->
     <a
       class="mobile-popup-action"
       routerLink="/main/weekly-planner"
       routerLinkActive="active"
       (click)="isMobileMoreOpen = false"
     >
-
-      <span class="mobile-popup-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <rect
-            x="3.5"
-            y="5"
-            width="17"
-            height="15"
-            rx="2.5"
-          ></rect>
-
-          <path d="M8 3v4"></path>
-          <path d="M16 3v4"></path>
-          <path d="M3.5 9.5h17"></path>
-
-          <path d="M7.5 13h2"></path>
-          <path d="M11 13h2"></path>
-          <path d="M14.5 13h2"></path>
-
-          <path d="M7.5 16.5h2"></path>
-          <path d="M11 16.5h2"></path>
-          <path d="M14.5 16.5h2"></path>
-        </svg>
-
-      </span>
-
-      <div>
-
-        <strong>
-          Wochenplaner
-        </strong>
-
-        <small>
-          Mahlzeiten für deine Woche planen
-        </small>
-
-      </div>
-
+      <span class="mobile-popup-icon"><app-ui-icon name="calendar-days"></app-ui-icon></span>
+      <div><strong>Wochenplaner</strong><small>Mahlzeiten für deine Woche planen</small></div>
     </a>
-
-
-    <!-- SETTINGS -->
     <a
       class="mobile-popup-action"
       routerLink="/main/settings"
       routerLinkActive="active"
       (click)="isMobileMoreOpen = false"
     >
-
-      <span class="mobile-popup-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="12"
-            cy="12"
-            r="3"
-          ></circle>
-
-          <path d="M12 2.5v2"></path>
-          <path d="M12 19.5v2"></path>
-
-          <path d="M4.5 12h-2"></path>
-          <path d="M21.5 12h-2"></path>
-
-          <path d="m5.3 5.3 1.4 1.4"></path>
-          <path d="m17.3 17.3 1.4 1.4"></path>
-
-          <path d="m18.7 5.3-1.4 1.4"></path>
-          <path d="m6.7 17.3-1.4 1.4"></path>
-
-        </svg>
-
-      </span>
-
-      <div>
-
-        <strong>
-          Einstellungen
-        </strong>
-
-        <small>
-          Konto und App verwalten
-        </small>
-
-      </div>
-
+      <span class="mobile-popup-icon"><app-ui-icon name="settings"></app-ui-icon></span>
+      <div><strong>Einstellungen</strong><small>Konto und App verwalten</small></div>
     </a>
-
-
     <div class="mobile-menu-divider"></div>
-
-
-    <!-- PREMIUM -->
-    <button
-      class="mobile-premium-action"
-      type="button"
-    >
-
-      <span>
-        👑
-      </span>
-
-      <div>
-
-        <strong>
-          Premium
-        </strong>
-
-        <small>
-          Mehr Funktionen freischalten
-        </small>
-
-      </div>
-
+    <button class="mobile-premium-action" type="button">
+      <span><app-ui-icon name="crown"></app-ui-icon></span>
+      <div><strong>Premium</strong><small>Mehr Funktionen freischalten</small></div>
     </button>
-
-
     <div class="mobile-menu-divider"></div>
-
-
-    <!-- LOGOUT -->
-    <button
-      class="mobile-logout"
-      type="button"
-      (click)="logout()"
-    >
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M10 17l5-5-5-5"></path>
-        <path d="M15 12H3"></path>
-        <path d="M21 4v16"></path>
-      </svg>
-
+    <button class="mobile-logout" type="button" (click)="logout()">
+      <app-ui-icon name="log-out"></app-ui-icon>
       Abmelden
-
     </button>
-
   </div>
-
 </nav>

@@ -33,6 +33,7 @@ import {
 import {
   CommunityService
 } from '../services/community.service';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 
 @Component({
@@ -44,7 +45,8 @@ import {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
 
   templateUrl:

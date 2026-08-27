@@ -28,13 +28,7 @@
         (click)="openCreateModal()"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M12 5v14"></path>
-          <path d="M5 12h14"></path>
-        </svg>
+        <app-ui-icon name="plus"></app-ui-icon>
 
         Beitrag erstellen
 
@@ -43,20 +37,7 @@
 
       <div class="search-field">
 
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-          ></circle>
-
-          <path
-            d="m20 20-3.5-3.5"
-          ></path>
-        </svg>
+        <app-ui-icon name="search"></app-ui-icon>
 
 
         <input
@@ -408,14 +389,10 @@
             (click)="toggleLike($event, post)"
           >
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"
-              ></path>
-            </svg>
+            <app-ui-icon
+              name="heart"
+              [class.filled]="post.liked_by_me"
+            ></app-ui-icon>
 
             {{ post.like_count }}
 
@@ -424,14 +401,7 @@
 
           <span class="feed-stat">
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
-              ></path>
-            </svg>
+            <app-ui-icon name="message-circle"></app-ui-icon>
 
             {{ post.comment_count }}
 
@@ -445,14 +415,7 @@
             "
           >
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
-              ></path>
-            </svg>
+            <app-ui-icon class="filled" name="star"></app-ui-icon>
 
             {{
               post.rating_average !== null
@@ -465,14 +428,7 @@
 
           <span class="open-post-icon">
 
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M9 18l6-6-6-6"
-              ></path>
-            </svg>
+            <app-ui-icon name="chevron-right"></app-ui-icon>
 
           </span>
 
@@ -492,20 +448,7 @@
 
         <span class="feed-empty-icon">
 
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-            ></circle>
-
-            <path
-              d="m20 20-3.5-3.5"
-            ></path>
-          </svg>
+          <app-ui-icon name="search"></app-ui-icon>
 
         </span>
 
@@ -570,10 +513,7 @@
         (click)="closeCreateModal()"
       >
 
-        <svg viewBox="0 0 24 24">
-          <path d="M6 6l12 12"></path>
-          <path d="M18 6 6 18"></path>
-        </svg>
+        <app-ui-icon name="x"></app-ui-icon>
 
       </button>
 
@@ -596,11 +536,7 @@
 
         <span class="create-type-icon">
 
-          <svg viewBox="0 0 24 24">
-            <path d="M7 3v18"></path>
-            <path d="M11 3v7a2 2 0 0 1-4 0V3"></path>
-            <path d="M17 3v18"></path>
-          </svg>
+          <app-ui-icon name="book-open"></app-ui-icon>
 
         </span>
 
@@ -622,14 +558,7 @@
 
         <span class="create-type-icon">
 
-          <svg viewBox="0 0 24 24">
-            <path d="M8 6h12"></path>
-            <path d="M8 12h12"></path>
-            <path d="M8 18h12"></path>
-            <path d="M4 6h.01"></path>
-            <path d="M4 12h.01"></path>
-            <path d="M4 18h.01"></path>
-          </svg>
+          <app-ui-icon name="clipboard-list"></app-ui-icon>
 
         </span>
 
@@ -651,11 +580,7 @@
 
         <span class="create-type-icon">
 
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"
-            ></path>
-          </svg>
+          <app-ui-icon name="messages-square"></app-ui-icon>
 
         </span>
 
@@ -687,9 +612,7 @@
         (click)="backToCreateType()"
       >
 
-        <svg viewBox="0 0 24 24">
-          <path d="M15 18l-6-6 6-6"></path>
-        </svg>
+        <app-ui-icon name="arrow-left"></app-ui-icon>
 
         Auswahl ändern
 
@@ -785,9 +708,7 @@
         (click)="backToCreateType()"
       >
 
-        <svg viewBox="0 0 24 24">
-          <path d="M15 18l-6-6 6-6"></path>
-        </svg>
+        <app-ui-icon name="arrow-left"></app-ui-icon>
 
         Auswahl ändern
 
@@ -883,9 +804,7 @@
         (click)="backToCreateType()"
       >
 
-        <svg viewBox="0 0 24 24">
-          <path d="M15 18l-6-6 6-6"></path>
-        </svg>
+        <app-ui-icon name="arrow-left"></app-ui-icon>
 
         Auswahl ändern
 

@@ -21,6 +21,7 @@ import {
 import {
   AuthService
 } from '../services/auth.service';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 
 @Component({
@@ -30,7 +31,8 @@ import {
 
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    UiIconComponent
   ],
 
   templateUrl:

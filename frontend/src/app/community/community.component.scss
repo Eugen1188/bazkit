@@ -2092,3 +2092,80 @@ SMALL MOBILE
     border-radius: 15px;
   }
 }
+
+/* Einheitliche, skalierbare Community-Icons */
+.create-post-button app-ui-icon,
+.search-field app-ui-icon,
+.feed-like-button app-ui-icon,
+.feed-stat app-ui-icon,
+.open-post-icon app-ui-icon,
+.feed-empty-icon app-ui-icon,
+.modal-close app-ui-icon,
+.create-type-icon app-ui-icon,
+.selection-back-button app-ui-icon {
+  flex: 0 0 auto;
+}
+
+.create-post-button app-ui-icon,
+.search-field app-ui-icon,
+.feed-like-button app-ui-icon,
+.feed-stat app-ui-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.search-field app-ui-icon {
+  color: var(--color-icon);
+}
+
+.feed-rating app-ui-icon {
+  color: #c69231;
+}
+
+.open-post-icon app-ui-icon,
+.modal-close app-ui-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.feed-empty-icon app-ui-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.selection-back-button app-ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.create-type-icon app-ui-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.create-type-icon {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(88, 118, 100, 0.12);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #f3f8f5, #e7f0ea);
+  box-shadow: 0 8px 18px rgba(74, 105, 87, 0.1);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.create-type-grid > button {
+  outline: none;
+}
+
+.create-type-grid > button:hover .create-type-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 22px rgba(74, 105, 87, 0.15);
+}
+
+.create-type-grid > button:focus-visible,
+.create-post-button:focus-visible,
+.modal-close:focus-visible,
+.selection-back-button:focus-visible {
+  outline: 2px solid var(--color-primary-soft);
+  outline-offset: 3px;
+}
