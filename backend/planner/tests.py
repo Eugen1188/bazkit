@@ -56,7 +56,7 @@ class WeeklyPlannerAPITests(APITestCase):
             price_source="open_prices_category",
         )
 
-    def test_slot_is_created_and_then_replaced(self):
+    def test_multiple_meals_can_be_created_for_the_same_slot(self):
         payload = {
             "date": "2026-08-24",
             "meal_type": "dinner",
@@ -70,9 +70,17 @@ class WeeklyPlannerAPITests(APITestCase):
             format="json",
         )
         self.assertEqual(first.status_code, 201)
-        self.assertEqual(second.status_code, 200)
-        self.assertEqual(WeeklyPlanEntry.objects.count(), 1)
-        self.assertEqual(WeeklyPlanEntry.objects.get().servings, 4)
+        self.assertEqual(second.status_code, 201)
+        self.assertEqual(WeeklyPlanEntry.objects.count(), 2)
+
+        updated = self.client.patch(
+            f"/planner/entries/{first.data['id']}/",
+            {"servings": 5},
+            format="json",
+        )
+        self.assertEqual(updated.status_code, 200)
+        self.assertEqual(WeeklyPlanEntry.objects.count(), 2)
+        self.assertEqual(WeeklyPlanEntry.objects.get(pk=first.data["id"]).servings, 5)
 
     def test_recipe_of_another_user_is_rejected(self):
         foreign_recipe = Recipe.objects.create(

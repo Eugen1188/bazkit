@@ -27,7 +27,9 @@
       >
 
         <span class="button-icon">
-          +
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14"></path>
+          </svg>
         </span>
 
         Rezept erstellen
@@ -41,9 +43,7 @@
         (click)="generateWithAI()"
       >
 
-        <span>
-          ✨
-        </span>
+        <app-ui-icon name="sparkles"></app-ui-icon>
 
         Mit KI generieren
 
@@ -146,7 +146,7 @@
           <div class="creation-card-top">
 
             <div class="creation-icon manual">
-              ✎
+              <app-ui-icon name="steps"></app-ui-icon>
             </div>
 
             <div>
@@ -168,17 +168,17 @@
           <ul>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Zutaten selbst hinzufügen
             </li>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Eigene Zubereitungsschritte
             </li>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Individuell und persönlich
             </li>
 
@@ -205,7 +205,7 @@
           <div class="creation-card-top">
 
             <div class="creation-icon ai">
-              ✨
+              <app-ui-icon name="sparkles"></app-ui-icon>
             </div>
 
             <div>
@@ -227,17 +227,17 @@
           <ul>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Ideen nach deinen Wünschen
             </li>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Schnell und unkompliziert
             </li>
 
             <li>
-              <span>✓</span>
+              <app-ui-icon name="check"></app-ui-icon>
               Inspiration für jeden Geschmack
             </li>
 
@@ -248,7 +248,8 @@
             class="ai-action"
             type="button"
           >
-            ✨ Mit KI generieren
+            <app-ui-icon name="sparkles"></app-ui-icon>
+            Mit KI generieren
           </button>
 
         </article>
@@ -301,7 +302,9 @@
           >
 
             <span class="button-icon">
-              +
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
             </span>
 
             Rezept erstellen
@@ -315,7 +318,8 @@
             (click)="generateWithAI()"
           >
 
-            ✨ Mit KI generieren
+            <app-ui-icon name="sparkles"></app-ui-icon>
+            Mit KI generieren
 
           </button>
 
@@ -373,7 +377,7 @@
         <div class="recipe-cover">
 
           <div class="recipe-placeholder">
-            🍽️
+            <app-ui-icon name="plate"></app-ui-icon>
           </div>
 
           <span class="category-chip">
@@ -405,7 +409,7 @@
           <div class="recipe-meta">
 
             <span>
-              ⏱
+              <app-ui-icon name="clock"></app-ui-icon>
 
               {{
                 recipe.preparation_time
@@ -416,13 +420,13 @@
 
 
             <span>
-              👥
+              <app-ui-icon name="users"></app-ui-icon>
               {{ recipe.servings }}
             </span>
 
 
             <span>
-              🥕
+              <app-ui-icon name="ingredient"></app-ui-icon>
               {{ recipe.ingredients.length }}
             </span>
 

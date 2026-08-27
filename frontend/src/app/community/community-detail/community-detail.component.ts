@@ -72,6 +72,13 @@ implements OnInit {
   isCopying =
     false;
 
+  isEditing = false;
+  isSavingPost = false;
+  isDeletingPost = false;
+  editTitle = '';
+  editContent = '';
+  editThreadCategory = 'other';
+
 
   message =
     '';
@@ -462,6 +469,68 @@ implements OnInit {
           }
 
       });
+  }
+
+  editPost(): void {
+    if (!this.post || !this.post.is_author) return;
+    if (this.post.post_type === 'recipe' && this.post.recipe) {
+      void this.router.navigate(
+        ['/main/recipe-list', this.post.recipe.id, 'edit'],
+        { queryParams: { communityPost: this.post.id } }
+      );
+      return;
+    }
+    if (this.post.post_type === 'list' && this.post.saved_list) {
+      void this.router.navigate(
+        ['/main/saved-list', this.post.saved_list.id, 'edit'],
+        { queryParams: { communityPost: this.post.id } }
+      );
+      return;
+    }
+    this.editTitle = this.post.title;
+    this.editContent = this.post.content;
+    this.editThreadCategory = this.post.thread_category || 'other';
+    this.isEditing = true;
+  }
+
+  cancelEdit(): void {
+    if (!this.isSavingPost) this.isEditing = false;
+  }
+
+  savePost(): void {
+    if (!this.post || !this.editTitle.trim() || !this.editContent.trim()) return;
+    this.isSavingPost = true;
+    this.communityService.updatePost(this.post.id, {
+      title: this.editTitle.trim(),
+      content: this.editContent.trim(),
+      thread_category: this.editThreadCategory
+    }).subscribe({
+      next: post => {
+        this.post = post;
+        this.isSavingPost = false;
+        this.isEditing = false;
+        this.message = 'Der Beitrag wurde aktualisiert.';
+      },
+      error: error => {
+        console.error('Beitrag konnte nicht aktualisiert werden:', error);
+        this.isSavingPost = false;
+        this.errorMessage = 'Der Beitrag konnte nicht aktualisiert werden.';
+      }
+    });
+  }
+
+  deletePost(): void {
+    if (!this.post || !this.post.is_author || this.isDeletingPost) return;
+    if (!confirm(`Möchtest du den Community-Beitrag „${this.post.display_title}“ wirklich löschen?`)) return;
+    this.isDeletingPost = true;
+    this.communityService.deletePost(this.post.id).subscribe({
+      next: () => void this.router.navigate(['/main/community']),
+      error: error => {
+        console.error('Beitrag konnte nicht gelöscht werden:', error);
+        this.isDeletingPost = false;
+        this.errorMessage = 'Der Beitrag konnte nicht gelöscht werden.';
+      }
+    });
   }
 
 }

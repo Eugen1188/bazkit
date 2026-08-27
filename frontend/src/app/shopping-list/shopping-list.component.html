@@ -62,9 +62,7 @@
       (click)="openAddOptions()"
     >
 
-      <span>
-        +
-      </span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 
       Zur Einkaufsliste hinzufügen
 
@@ -121,9 +119,7 @@
           (click)="openAddOptions()"
         >
 
-          <span class="add-button-icon">
-            +
-          </span>
+          <span class="add-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span>
 
           Produkt hinzufügen
 
@@ -303,8 +299,10 @@
     <div class="filter-row">
 
       <button
-        class="filter-button active"
+        class="filter-button"
+        [class.active]="activeFilter === 'all'"
         type="button"
+        (click)="setFilter('all')"
       >
         Alle
 
@@ -316,7 +314,9 @@
 
       <button
         class="filter-button"
+        [class.active]="activeFilter === 'open'"
         type="button"
+        (click)="setFilter('open')"
       >
         Offen
 
@@ -331,7 +331,9 @@
 
       <button
         class="filter-button"
+        [class.active]="activeFilter === 'completed'"
         type="button"
+        (click)="setFilter('completed')"
       >
         Erledigt
 
@@ -343,17 +345,25 @@
     </div>
 
 
-    <section class="shopping-card">
+    <div class="category-list" *ngIf="categoryGroups.length; else noFilteredItems">
+
+    <section class="shopping-card shopping-category-section" *ngFor="let group of categoryGroups">
 
       <div class="shopping-card-header">
 
-        <h2>
-          Produkte
-        </h2>
+        <div class="category-heading">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 8h16l-1 11H5L4 8Z"></path>
+              <path d="M8 8a4 4 0 0 1 8 0"></path>
+            </svg>
+          </span>
+          <h2>{{ group.label }}</h2>
+        </div>
 
 
         <span class="shopping-count">
-          {{ items.length }}
+          {{ group.items.length }}
         </span>
 
       </div>
@@ -362,8 +372,7 @@
       <div
         class="shopping-item"
         *ngFor="
-          let item of items;
-          let i = index
+          let item of group.items
         "
         [class.completed]="
           item.is_checked
@@ -469,7 +478,7 @@
           class="delete-item"
           type="button"
           aria-label="Produkt entfernen"
-          (click)="removeItem(i)"
+          (click)="removeItem(item)"
         >
 
           <svg
@@ -493,6 +502,15 @@
       </div>
 
     </section>
+
+    </div>
+
+    <ng-template #noFilteredItems>
+      <div class="filtered-empty">
+        <strong>Keine passenden Produkte</strong>
+        <span>In diesem Filter sind aktuell keine Einträge vorhanden.</span>
+      </div>
+    </ng-template>
 
   </div>
 

@@ -34,7 +34,9 @@ from .serializers import (
     CommunityCreatePostSerializer,
     CommunityPostSerializer,
     CommunityRatingSerializer,
+    CommunityUpdatePostSerializer,
 )
+from .snapshots import clone_recipe, clone_saved_list, delete_post_snapshot
 
 
 class CommunityPostListCreateAPIView(
@@ -225,6 +227,27 @@ class CommunityPostDetailAPIView(
             ).data
         )
 
+    def patch(self, request, pk):
+        post = self.get_object(pk)
+        if not post or post.author_id != request.user.id:
+            return Response(
+                {"detail": "Beitrag nicht gefunden oder keine Berechtigung."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        serializer = CommunityUpdatePostSerializer(
+            post,
+            data=request.data,
+            partial=True,
+            context={"post": post},
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        post = self.get_object(pk)
+        return Response(
+            CommunityPostSerializer(post, context={"request": request}).data
+        )
+
+    @transaction.atomic
     def delete(
         self,
         request,
@@ -252,7 +275,7 @@ class CommunityPostDetailAPIView(
                     status.HTTP_404_NOT_FOUND
             )
 
-        post.delete()
+        delete_post_snapshot(post)
 
         return Response(
             status=
@@ -585,7 +608,8 @@ class CommunityShareOptionsAPIView(
         recipes = (
             Recipe.objects
             .filter(
-                user=request.user
+                user=request.user,
+                is_community_snapshot=False,
             )
             .order_by(
                 "-created_at"
@@ -599,7 +623,8 @@ class CommunityShareOptionsAPIView(
         saved_lists = (
             SavedList.objects
             .filter(
-                user=request.user
+                user=request.user,
+                is_community_snapshot=False,
             )
             .order_by(
                 "-created_at"
@@ -671,54 +696,7 @@ class CommunityCopyPostAPIView(
             post.recipe
         ):
 
-            source = post.recipe
-
-            recipe = (
-                Recipe.objects.create(
-                    user=request.user,
-
-                    name=source.name,
-
-                    description=
-                        source.description,
-
-                    servings=
-                        source.servings,
-
-                    preparation_time=
-                        source.preparation_time,
-
-                    category=
-                        source.category,
-
-                    instructions=
-                        source.instructions,
-
-                    notes=
-                        source.notes
-                )
-            )
-
-            ingredients = [
-                Ingredients(
-                    recipe=recipe,
-
-                    name=item.name,
-
-                    quantity=
-                        item.quantity,
-
-                    unit=
-                        item.unit
-                )
-
-                for item
-                in source.ingredients.all()
-            ]
-
-            Ingredients.objects.bulk_create(
-                ingredients
-            )
+            recipe = clone_recipe(post.recipe, request.user)
 
             return Response(
                 {
@@ -744,43 +722,7 @@ class CommunityCopyPostAPIView(
             post.saved_list
         ):
 
-            source = post.saved_list
-
-            saved_list = (
-                SavedList.objects.create(
-                    user=request.user,
-                    title=source.title
-                )
-            )
-
-            items = [
-                SavedListItem(
-                    saved_list=
-                        saved_list,
-
-                    product=
-                        item.product,
-
-                    name=
-                        item.name,
-
-                    quantity=
-                        item.quantity,
-
-                    unit=
-                        item.unit,
-
-                    note=
-                        item.note
-                )
-
-                for item
-                in source.items.all()
-            ]
-
-            SavedListItem.objects.bulk_create(
-                items
-            )
+            saved_list = clone_saved_list(post.saved_list, request.user)
 
             return Response(
                 {

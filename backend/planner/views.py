@@ -90,14 +90,12 @@ class WeeklyPlanEntryListCreateAPIView(APIView):
         )
         serializer.is_valid(raise_exception=True)
         values = serializer.validated_data
-        entry, created = WeeklyPlanEntry.objects.update_or_create(
+        entry = WeeklyPlanEntry.objects.create(
             user=request.user,
             date=values["date"],
             meal_type=values["meal_type"],
-            defaults={
-                "recipe": values["recipe"],
-                "servings": values.get("servings") or max(values["recipe"].servings, 1),
-            },
+            recipe=values["recipe"],
+            servings=values.get("servings") or max(values["recipe"].servings, 1),
         )
         entry = (
             WeeklyPlanEntry.objects
@@ -107,7 +105,7 @@ class WeeklyPlanEntryListCreateAPIView(APIView):
         )
         return Response(
             WeeklyPlanEntrySerializer(entry, context={"request": request}).data,
-            status=status.HTTP_201_CREATED if created else status.HTTP_200_OK,
+            status=status.HTTP_201_CREATED,
         )
 
 
@@ -169,7 +167,7 @@ class WeeklyPlanGenerateAPIView(APIView):
 
         recipes = list(
             Recipe.objects
-            .filter(user=request.user)
+            .filter(user=request.user, is_community_snapshot=False)
             .prefetch_related("ingredients")
             .order_by("category", "name", "id")
             [:120]
@@ -181,8 +179,8 @@ class WeeklyPlanGenerateAPIView(APIView):
             )
 
         overwrite = bool(request.data.get("overwrite", False))
-        existing = {
-            (entry.date, entry.meal_type): entry
+        occupied_slots = {
+            (entry.date, entry.meal_type)
             for entry in WeeklyPlanEntry.objects.filter(
                 user=request.user,
                 date__range=(start, end),
@@ -203,7 +201,7 @@ class WeeklyPlanGenerateAPIView(APIView):
         day = start
         while day <= end:
             for meal_type in MEAL_TYPES:
-                if existing.get((day, meal_type)) is None or overwrite:
+                if (day, meal_type) not in occupied_slots or overwrite:
                     slots_to_plan.append((day, meal_type))
             day += timedelta(days=1)
 
@@ -213,22 +211,26 @@ class WeeklyPlanGenerateAPIView(APIView):
         day = start
         while day <= end:
             for meal_type in MEAL_TYPES:
-                slot = existing.get((day, meal_type))
-                if slot is not None and not overwrite:
+                has_entries = (day, meal_type) in occupied_slots
+                if has_entries and not overwrite:
                     continue
                 pool = pools[meal_type]
                 recipe = recipes_by_id.get(
                     ai_assignments.get((day.isoformat(), meal_type))
                 ) or pool[counters[meal_type] % len(pool)]
                 counters[meal_type] += 1
-                WeeklyPlanEntry.objects.update_or_create(
+                if overwrite:
+                    WeeklyPlanEntry.objects.filter(
+                        user=request.user,
+                        date=day,
+                        meal_type=meal_type,
+                    ).delete()
+                WeeklyPlanEntry.objects.create(
                     user=request.user,
                     date=day,
                     meal_type=meal_type,
-                    defaults={
-                        "recipe": recipe,
-                        "servings": max(recipe.servings, 1),
-                    },
+                    recipe=recipe,
+                    servings=max(recipe.servings, 1),
                 )
                 changed += 1
             day += timedelta(days=1)

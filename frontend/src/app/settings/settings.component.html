@@ -177,7 +177,7 @@
           >
             {{ preference.label }}
 
-            <span *ngIf="preference.selected" aria-hidden="true">✓</span>
+            <span *ngIf="preference.selected" aria-hidden="true"><app-ui-icon name="check"></app-ui-icon></span>
           </button>
         </div>
       </div>
@@ -195,7 +195,7 @@
           >
             {{ cuisine.label }}
 
-            <span *ngIf="cuisine.selected" aria-hidden="true">✓</span>
+            <span *ngIf="cuisine.selected" aria-hidden="true"><app-ui-icon name="check"></app-ui-icon></span>
           </button>
 
           <button

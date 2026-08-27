@@ -19,7 +19,8 @@ import {
   CommunityPostType,
   CommunityRatingResponse,
   CommunityShareOptions,
-  CreateCommunityPostPayload
+  CreateCommunityPostPayload,
+  UpdateCommunityPostPayload
 } from '../models/community.model';
 
 
@@ -158,6 +159,16 @@ export class CommunityService {
 
     return this.http.delete<void>(
       `${this.apiUrl}posts/${id}/`
+    );
+  }
+
+  updatePost(
+    id: number,
+    payload: UpdateCommunityPostPayload
+  ): Observable<CommunityPost> {
+    return this.http.patch<CommunityPost>(
+      `${this.apiUrl}posts/${id}/`,
+      payload
     );
   }
 

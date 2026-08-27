@@ -20,6 +20,7 @@ import {
   RecipePayload,
   RecipeService
 } from '../../services/recipe.service';
+import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 
 
 @Component({
@@ -29,7 +30,8 @@ import {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
 
   templateUrl:

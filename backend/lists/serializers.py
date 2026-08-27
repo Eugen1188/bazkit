@@ -6,6 +6,7 @@ from .models import (
     ShoppingList,
     ShoppingListItem
 )
+from .categories import shopping_category
 
 
 PRICE_FIELDS = [
@@ -44,6 +45,14 @@ class SavedListItemSerializer(
             "unit",
             "note",
             *PRICE_FIELDS,
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at",
+            "shopping_category",
+            "shopping_category_label",
+            "shopping_category_order",
         ]
 
     def validate(self, attrs):
@@ -268,6 +277,10 @@ class ShoppingListItemSerializer(
         read_only=True
     )
 
+    shopping_category = serializers.SerializerMethodField()
+    shopping_category_label = serializers.SerializerMethodField()
+    shopping_category_order = serializers.SerializerMethodField()
+
     class Meta:
         model = ShoppingListItem
 
@@ -281,14 +294,20 @@ class ShoppingListItemSerializer(
             "note",
             "is_checked",
             "created_at",
+            "shopping_category",
+            "shopping_category_label",
+            "shopping_category_order",
             *PRICE_FIELDS,
         ]
 
-        read_only_fields = [
-            "id",
-            "created_at"
-        ]
+    def get_shopping_category(self, obj):
+        return shopping_category(obj)[0]
 
+    def get_shopping_category_label(self, obj):
+        return shopping_category(obj)[1]
+
+    def get_shopping_category_order(self, obj):
+        return shopping_category(obj)[2]
 
     def validate(
         self,

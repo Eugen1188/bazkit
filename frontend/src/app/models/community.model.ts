@@ -41,6 +41,18 @@ export interface CommunityRecipe {
 
   notes: string;
 
+  calories: number | string | null;
+
+  protein: number | string | null;
+
+  carbohydrates: number | string | null;
+
+  fat: number | string | null;
+
+  fiber: number | string | null;
+
+  estimated_price: number | string | null;
+
   ingredients:
     CommunityIngredient[];
 
@@ -114,6 +126,8 @@ export interface CommunityPost {
 
   my_rating:
     number | null;
+
+  is_author: boolean;
 
   created_at: string;
 
@@ -203,4 +217,10 @@ export interface CommunityCopyResponse {
   id: number;
 
   detail: string;
+}
+
+export interface UpdateCommunityPostPayload {
+  title?: string;
+  content?: string;
+  thread_category?: string;
 }

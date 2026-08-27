@@ -34,6 +34,7 @@ import {
   PriceEstimate,
   PriceSnapshot
 } from '../../services/product.service';
+import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 
 
 interface Product extends PriceSnapshot {
@@ -53,7 +54,8 @@ interface Product extends PriceSnapshot {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
 
   templateUrl:
@@ -67,6 +69,8 @@ implements OnInit, OnDestroy {
 
   listId:
     number | null = null;
+
+  communityPostId: number | null = null;
 
 
   listName = '';
@@ -231,6 +235,9 @@ implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    const communityPost = Number(this.route.snapshot.queryParamMap.get('communityPost'));
+    this.communityPostId = communityPost > 0 ? communityPost : null;
 
     const id =
       Number(
@@ -722,10 +729,11 @@ implements OnInit, OnDestroy {
           this.isSaving =
             false;
 
-          this.router.navigate([
-            '/main/saved-list',
-            this.listId
-          ]);
+          if (this.communityPostId) {
+            this.router.navigate(['/main/community', this.communityPostId]);
+          } else {
+            this.router.navigate(['/main/saved-list', this.listId]);
+          }
         },
 
 
@@ -777,6 +785,11 @@ implements OnInit, OnDestroy {
 
 
   cancel(): void {
+
+    if (this.communityPostId) {
+      this.router.navigate(['/main/community', this.communityPostId]);
+      return;
+    }
 
     if (
       this.listId

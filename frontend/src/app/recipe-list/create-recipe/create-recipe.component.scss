@@ -1138,8 +1138,14 @@ PREVIEW
 }
 
 
-.preview-image span {
-  font-size: 70px;
+.preview-image > svg {
+  width: 70px;
+  height: 70px;
+  fill: none;
+  stroke: #7e6ea5;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -1223,7 +1229,29 @@ PREVIEW
 
 
 .meta-icon {
-  font-size: 16px;
+  display: inline-flex;
+  color: var(--color-primary);
+}
+
+.add-row-button svg {
+  width: 17px;
+  height: 17px;
+  margin-right: 6px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.meta-icon svg,
+.preview-tip > span svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -1399,7 +1427,14 @@ TIP
 
 
 .preview-tip > span {
-  font-size: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
 }
 
 

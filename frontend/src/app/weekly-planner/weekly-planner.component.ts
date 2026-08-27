@@ -35,9 +35,9 @@ interface PlannerDay {
   dateKey: string;
   dayNumber: number;
   isToday: boolean;
-  breakfast: Meal | null;
-  lunch: Meal | null;
-  dinner: Meal | null;
+  breakfast: Meal[];
+  lunch: Meal[];
+  dinner: Meal[];
 }
 
 
@@ -73,6 +73,7 @@ export class WeeklyPlannerComponent implements OnInit {
   selectedRecipeId: number | null = null;
   selectedServings = 1;
   recipeSearch = '';
+  dialogEntry: Meal | null = null;
 
   constructor(
     private readonly router: Router,
@@ -118,10 +119,6 @@ export class WeeklyPlannerComponent implements OnInit {
 
   get dialogMealLabel(): string {
     return this.mealTypes.find(item => item.key === this.dialogMealType)?.label ?? 'Mahlzeit';
-  }
-
-  get dialogEntry(): Meal | null {
-    return this.dialogDay?.[this.dialogMealType] ?? null;
   }
 
   get selectedRecipe(): Recipe | null {
@@ -178,12 +175,12 @@ export class WeeklyPlannerComponent implements OnInit {
     return products.size;
   }
 
-  getMeal(day: PlannerDay, type: MealType): Meal | null {
+  getMeals(day: PlannerDay, type: MealType): Meal[] {
     return day[type];
   }
 
   getMealCount(day: PlannerDay): number {
-    return [day.breakfast, day.lunch, day.dinner].filter(Boolean).length;
+    return day.breakfast.length + day.lunch.length + day.dinner.length;
   }
 
   getDayCalories(day: PlannerDay): number {
@@ -198,8 +195,8 @@ export class WeeklyPlannerComponent implements OnInit {
     this.openMealDialog(dayIndex, type, null);
   }
 
-  openMeal(dayIndex: number, type: MealType): void {
-    this.openMealDialog(dayIndex, type, this.days[dayIndex]?.[type] ?? null);
+  openMeal(dayIndex: number, type: MealType, meal: Meal): void {
+    this.openMealDialog(dayIndex, type, meal);
   }
 
   closeMealDialog(): void {
@@ -208,6 +205,7 @@ export class WeeklyPlannerComponent implements OnInit {
     }
     this.mealDialogOpen = false;
     this.recipeSearch = '';
+    this.dialogEntry = null;
   }
 
   chooseRecipe(recipe: Recipe): void {
@@ -225,16 +223,24 @@ export class WeeklyPlannerComponent implements OnInit {
     }
 
     this.isSaving = true;
-    this.plannerService.saveEntry({
+    const payload = {
       date: day.dateKey,
       meal_type: this.dialogMealType,
       servings: Math.max(Math.round(Number(this.selectedServings) || 1), 1),
       recipe: this.selectedRecipeId
-    })
+    };
+    const request = this.dialogEntry
+      ? this.plannerService.updateEntry(this.dialogEntry.entryId, payload)
+      : this.plannerService.saveEntry(payload);
+    request
       .pipe(finalize(() => { this.isSaving = false; }))
       .subscribe({
         next: entry => {
-          day[this.dialogMealType] = this.entryToMeal(entry);
+          const meals = day[this.dialogMealType];
+          const updatedMeal = this.entryToMeal(entry);
+          const index = meals.findIndex(meal => meal.entryId === entry.id);
+          if (index >= 0) meals[index] = updatedMeal;
+          else meals.push(updatedMeal);
           this.mealDialogOpen = false;
           this.showFeedback(`${this.dialogMealLabel} wurde gespeichert.`, 'success');
         },
@@ -256,7 +262,8 @@ export class WeeklyPlannerComponent implements OnInit {
       .pipe(finalize(() => { this.isSaving = false; }))
       .subscribe({
         next: () => {
-          day[this.dialogMealType] = null;
+          day[this.dialogMealType] = day[this.dialogMealType]
+            .filter(meal => meal.entryId !== entry.entryId);
           this.mealDialogOpen = false;
           this.showFeedback('Die Mahlzeit wurde aus dem Wochenplan entfernt.', 'success');
         },
@@ -396,6 +403,7 @@ export class WeeklyPlannerComponent implements OnInit {
     this.dialogDayIndex = dayIndex;
     this.dialogMealType = type;
     this.recipeSearch = '';
+    this.dialogEntry = meal;
     this.selectedRecipeId = meal?.recipeId ?? null;
     this.selectedServings = meal?.servings ?? 1;
 
@@ -429,9 +437,9 @@ export class WeeklyPlannerComponent implements OnInit {
         dateKey: this.dateKey(dayDate),
         dayNumber: dayDate.getDate(),
         isToday: this.dateKey(dayDate) === todayKey,
-        breakfast: null,
-        lunch: null,
-        dinner: null
+        breakfast: [],
+        lunch: [],
+        dinner: []
       };
     });
   }
@@ -442,7 +450,7 @@ export class WeeklyPlannerComponent implements OnInit {
     for (const entry of entries) {
       const day = daysByDate.get(entry.date);
       if (day) {
-        day[entry.meal_type] = this.entryToMeal(entry);
+        day[entry.meal_type].push(this.entryToMeal(entry));
       }
     }
   }
@@ -474,7 +482,7 @@ export class WeeklyPlannerComponent implements OnInit {
   }
 
   private dayMeals(day: PlannerDay): Meal[] {
-    return [day.breakfast, day.lunch, day.dinner].filter((meal): meal is Meal => meal != null);
+    return [...day.breakfast, ...day.lunch, ...day.dinner];
   }
 
   private allMeals(): Meal[] {

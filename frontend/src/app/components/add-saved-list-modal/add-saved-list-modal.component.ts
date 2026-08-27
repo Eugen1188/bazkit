@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { UiIconComponent } from '../ui-icon/ui-icon.component';
 
 import {
   SavedList,
@@ -18,7 +19,8 @@ import {
   standalone: true,
 
   imports: [
-    CommonModule
+    CommonModule,
+    UiIconComponent
   ],
 
   templateUrl:

@@ -5,6 +5,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { UiIconComponent } from '../ui-icon/ui-icon.component';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {
 
   standalone: true,
 
-  imports: [],
+  imports: [UiIconComponent],
 
   templateUrl:
     './add-to-shopping-list-modal.component.html',

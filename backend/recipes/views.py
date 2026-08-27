@@ -39,7 +39,8 @@ class RecipeListCreateAPIView(
         return (
             Recipe.objects
             .filter(
-                user=self.request.user
+                user=self.request.user,
+                is_community_snapshot=False,
             )
             .prefetch_related(
                 "ingredients__product"

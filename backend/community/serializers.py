@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.db.models import Avg
 
 from rest_framework import serializers
@@ -18,6 +19,7 @@ from .models import (
     CommunityPost,
     CommunityRating,
 )
+from .snapshots import clone_recipe, clone_saved_list
 
 
 class CommunityAuthorSerializer(
@@ -82,6 +84,12 @@ class CommunityRecipeSerializer(
             "category",
             "instructions",
             "notes",
+            "calories",
+            "protein",
+            "carbohydrates",
+            "fat",
+            "fiber",
+            "estimated_price",
             "ingredients",
             "created_at",
         ]
@@ -223,6 +231,8 @@ class CommunityPostSerializer(
         serializers.SerializerMethodField()
     )
 
+    is_author = serializers.SerializerMethodField()
+
     class Meta:
 
         model = CommunityPost
@@ -244,6 +254,7 @@ class CommunityPostSerializer(
             "rating_average",
             "rating_count",
             "my_rating",
+            "is_author",
             "created_at",
             "updated_at",
         ]
@@ -402,6 +413,14 @@ class CommunityPostSerializer(
 
         return rating.value
 
+    def get_is_author(self, obj):
+        request = self.context.get("request")
+        return bool(
+            request
+            and request.user.is_authenticated
+            and obj.author_id == request.user.id
+        )
+
 
 class CommunityCreatePostSerializer(
     serializers.Serializer
@@ -485,7 +504,8 @@ class CommunityCreatePostSerializer(
                 Recipe.objects
                 .filter(
                     id=recipe_id,
-                    user=request.user
+                    user=request.user,
+                    is_community_snapshot=False,
                 )
                 .first()
             )
@@ -502,7 +522,7 @@ class CommunityCreatePostSerializer(
                 CommunityPost.objects
                 .filter(
                     author=request.user,
-                    recipe=recipe,
+                    source_recipe=recipe,
                     post_type=
                         CommunityPost
                         .POST_TYPE_RECIPE
@@ -544,7 +564,8 @@ class CommunityCreatePostSerializer(
                 SavedList.objects
                 .filter(
                     id=saved_list_id,
-                    user=request.user
+                    user=request.user,
+                    is_community_snapshot=False,
                 )
                 .first()
             )
@@ -561,7 +582,7 @@ class CommunityCreatePostSerializer(
                 CommunityPost.objects
                 .filter(
                     author=request.user,
-                    saved_list=saved_list,
+                    source_saved_list=saved_list,
                     post_type=
                         CommunityPost
                         .POST_TYPE_LIST
@@ -621,6 +642,7 @@ class CommunityCreatePostSerializer(
 
         return attrs
 
+    @transaction.atomic
     def create(
         self,
         validated_data
@@ -634,18 +656,31 @@ class CommunityCreatePostSerializer(
             "post_type"
         ]
 
+        source_recipe = validated_data.get("recipe_object")
+        source_saved_list = validated_data.get("saved_list_object")
+        recipe = (
+            clone_recipe(source_recipe, request.user, community_snapshot=True)
+            if source_recipe is not None
+            else None
+        )
+        saved_list = (
+            clone_saved_list(source_saved_list, request.user, community_snapshot=True)
+            if source_saved_list is not None
+            else None
+        )
+
         return CommunityPost.objects.create(
             author=request.user,
 
             post_type=post_type,
 
-            recipe=validated_data.get(
-                "recipe_object"
-            ),
+            recipe=recipe,
 
-            saved_list=validated_data.get(
-                "saved_list_object"
-            ),
+            source_recipe=source_recipe,
+
+            saved_list=saved_list,
+
+            source_saved_list=source_saved_list,
 
             title=validated_data.get(
                 "title",
@@ -663,6 +698,36 @@ class CommunityCreatePostSerializer(
                     ""
                 )
         )
+
+
+class CommunityUpdatePostSerializer(serializers.Serializer):
+    title = serializers.CharField(required=False, allow_blank=True, max_length=160)
+    content = serializers.CharField(required=False, allow_blank=True, max_length=5000)
+    thread_category = serializers.ChoiceField(
+        choices=[choice[0] for choice in CommunityPost.THREAD_CATEGORY_CHOICES],
+        required=False,
+        allow_blank=True,
+    )
+
+    def validate(self, attrs):
+        post = self.context["post"]
+        if post.post_type == CommunityPost.POST_TYPE_THREAD:
+            title = attrs.get("title", post.title).strip()
+            content = attrs.get("content", post.content).strip()
+            if not title:
+                raise serializers.ValidationError({"title": "Bitte gib einen Titel ein."})
+            if not content:
+                raise serializers.ValidationError({"content": "Bitte beschreibe dein Thema."})
+            attrs["title"] = title
+            attrs["content"] = content
+        return attrs
+
+    def update(self, instance, validated_data):
+        for field in ("title", "content", "thread_category"):
+            if field in validated_data:
+                setattr(instance, field, validated_data[field])
+        instance.save(update_fields=[*validated_data.keys(), "updated_at"])
+        return instance
 
 
 class CommunityRatingSerializer(

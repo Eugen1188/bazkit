@@ -214,6 +214,17 @@
             }}
           </span>
 
+          <div class="author-actions" *ngIf="post.is_author">
+            <button type="button" class="author-edit" (click)="editPost()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2 2 0 0 0-3-3L5 17l-1 3ZM14 8l3 3"></path></svg>
+              Bearbeiten
+            </button>
+            <button type="button" class="author-delete" [disabled]="isDeletingPost" (click)="deletePost()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path></svg>
+              {{ isDeletingPost ? 'Wird gelöscht…' : 'Löschen' }}
+            </button>
+          </div>
+
 
           <h1>
             {{ post.display_title }}
@@ -322,6 +333,13 @@
 
             </span>
 
+          </div>
+
+          <div class="community-nutrition-grid">
+            <span><small>Kalorien</small><strong>{{ post.recipe.calories !== null ? (post.recipe.calories | number:'1.0-0') : '–' }} kcal</strong></span>
+            <span><small>Protein</small><strong>{{ post.recipe.protein !== null ? (post.recipe.protein | number:'1.0-2') : '–' }} g</strong></span>
+            <span><small>Kohlenhydrate</small><strong>{{ post.recipe.carbohydrates !== null ? (post.recipe.carbohydrates | number:'1.0-2') : '–' }} g</strong></span>
+            <span><small>Fett</small><strong>{{ post.recipe.fat !== null ? (post.recipe.fat | number:'1.0-2') : '–' }} g</strong></span>
           </div>
 
 
@@ -744,5 +762,18 @@
     </section>
 
   </ng-container>
+
+  <div class="edit-dialog-backdrop" *ngIf="isEditing" (click)="cancelEdit()">
+    <section class="edit-dialog" role="dialog" aria-modal="true" aria-labelledby="edit-post-title" (click)="$event.stopPropagation()">
+      <header>
+        <div><span>Community-Beitrag</span><h2 id="edit-post-title">Diskussion bearbeiten</h2></div>
+        <button type="button" aria-label="Dialog schließen" (click)="cancelEdit()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      </header>
+      <label><span>Titel</span><input type="text" maxlength="160" [(ngModel)]="editTitle" /></label>
+      <label><span>Kategorie</span><select [(ngModel)]="editThreadCategory"><option value="cooking">Kochen</option><option value="shopping">Einkaufen</option><option value="nutrition">Ernährung</option><option value="saving">Sparen</option><option value="products">Lebensmittel & Produkte</option><option value="appliances">Küchengeräte</option><option value="other">Sonstiges</option></select></label>
+      <label><span>Beitrag</span><textarea rows="7" maxlength="5000" [(ngModel)]="editContent"></textarea></label>
+      <footer><button type="button" class="cancel-edit" [disabled]="isSavingPost" (click)="cancelEdit()">Abbrechen</button><button type="button" class="save-edit" [disabled]="isSavingPost || !editTitle.trim() || !editContent.trim()" (click)="savePost()">{{ isSavingPost ? 'Wird gespeichert…' : 'Änderungen speichern' }}</button></footer>
+    </section>
+  </div>
 
 </div>

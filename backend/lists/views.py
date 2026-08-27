@@ -58,7 +58,8 @@ class SavedListListCreateAPIView(
         saved_lists = (
             SavedList.objects
             .filter(
-                user=request.user
+                user=request.user,
+                is_community_snapshot=False,
             )
             .prefetch_related(
                 "items"
@@ -362,7 +363,7 @@ class ShoppingListAPIView(
         shopping_list = (
             ShoppingList.objects
             .prefetch_related(
-                "items"
+                "items__product"
             )
             .get(
                 id=shopping_list.id

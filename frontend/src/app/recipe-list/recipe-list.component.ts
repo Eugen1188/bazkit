@@ -15,6 +15,7 @@ import {
   Recipe,
   RecipeService
 } from '../services/recipe.service';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 
 @Component({
@@ -23,7 +24,8 @@ import {
   standalone: true,
 
   imports: [
-    CommonModule
+    CommonModule,
+    UiIconComponent
   ],
 
   templateUrl:

@@ -8,6 +8,7 @@ import {
 import {
   CommonModule
 } from '@angular/common';
+import { UiIconComponent } from '../ui-icon/ui-icon.component';
 
 import {
   Recipe,
@@ -27,7 +28,8 @@ import {
   standalone: true,
 
   imports: [
-    CommonModule
+    CommonModule,
+    UiIconComponent
   ],
 
   templateUrl:

@@ -35,6 +35,11 @@ class SavedList(models.Model):
         auto_now_add=True
     )
 
+    is_community_snapshot = models.BooleanField(
+        default=False,
+        db_index=True,
+    )
+
     def __str__(self):
         return self.title
 

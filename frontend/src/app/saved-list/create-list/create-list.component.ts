@@ -25,6 +25,7 @@ import {
   PriceEstimate,
   PriceSnapshot
 } from '../../services/product.service';
+import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 
 
 interface Product extends PriceSnapshot {
@@ -44,7 +45,8 @@ interface Product extends PriceSnapshot {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
 
   templateUrl:

@@ -2314,6 +2314,44 @@
 
 }
 
+.meal-card + .meal-card {
+  margin-top: 8px;
+}
+
+.add-another-meal {
+  width: 100%;
+  min-height: 34px;
+  margin-top: 7px;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--color-primary);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-another-meal:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+}
+
+.add-another-meal svg,
+.empty-meal-button svg,
+.mobile-add-meal svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
 
 /* =========================================
    INTERACTION STATES
@@ -2446,6 +2484,21 @@
 .dialog-close:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+}
+
+.dialog-close svg,
+.recipe-choice-check svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.add-another-mobile {
+  margin-top: 8px;
 }
 
 .recipe-search {

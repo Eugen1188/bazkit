@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 interface PreferenceItem {
   label: string;
@@ -18,7 +19,8 @@ interface AccentColor {
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss'

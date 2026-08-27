@@ -259,7 +259,7 @@
 
           <div
             class="meal-slot"
-            [class.empty]="!day.breakfast"
+            [class.empty]="!day.breakfast.length"
           >
 
             <div class="meal-slot-label">
@@ -272,22 +272,23 @@
             </div>
 
 
-            <ng-container *ngIf="day.breakfast; else emptyBreakfast">
+            <ng-container *ngIf="day.breakfast.length; else emptyBreakfast">
 
               <button
                 class="meal-card"
                 type="button"
-                (click)="openMeal(dayIndex, 'breakfast')"
+                *ngFor="let meal of day.breakfast"
+                (click)="openMeal(dayIndex, 'breakfast', meal)"
               >
 
                 <div
                   class="meal-image"
-                  *ngIf="day.breakfast.image"
+                  *ngIf="meal.image"
                 >
 
                   <img
-                    [src]="day.breakfast.image"
-                    [alt]="day.breakfast.name"
+                    [src]="meal.image"
+                    [alt]="meal.name"
                   />
 
                 </div>
@@ -296,17 +297,22 @@
                 <div class="meal-content">
 
                   <strong>
-                    {{ day.breakfast.name }}
+                    {{ meal.name }}
                   </strong>
 
                   <span>
-                    {{ day.breakfast.calories }} kcal
+                    {{ meal.calories }} kcal
                     ·
-                    {{ day.breakfast.protein }} g Protein
+                    {{ meal.protein }} g Protein
                   </span>
 
                 </div>
 
+              </button>
+
+              <button class="add-another-meal" type="button" (click)="addMeal(dayIndex, 'breakfast')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+                Weiteres Frühstück
               </button>
 
             </ng-container>
@@ -320,9 +326,7 @@
                 (click)="addMeal(dayIndex, 'breakfast')"
               >
 
-                <span>
-                  +
-                </span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 
                 Frühstück planen
 
@@ -337,7 +341,7 @@
 
           <div
             class="meal-slot"
-            [class.empty]="!day.lunch"
+            [class.empty]="!day.lunch.length"
           >
 
             <div class="meal-slot-label">
@@ -350,22 +354,23 @@
             </div>
 
 
-            <ng-container *ngIf="day.lunch; else emptyLunch">
+            <ng-container *ngIf="day.lunch.length; else emptyLunch">
 
               <button
                 class="meal-card"
                 type="button"
-                (click)="openMeal(dayIndex, 'lunch')"
+                *ngFor="let meal of day.lunch"
+                (click)="openMeal(dayIndex, 'lunch', meal)"
               >
 
                 <div
                   class="meal-image"
-                  *ngIf="day.lunch.image"
+                  *ngIf="meal.image"
                 >
 
                   <img
-                    [src]="day.lunch.image"
-                    [alt]="day.lunch.name"
+                    [src]="meal.image"
+                    [alt]="meal.name"
                   />
 
                 </div>
@@ -374,17 +379,22 @@
                 <div class="meal-content">
 
                   <strong>
-                    {{ day.lunch.name }}
+                    {{ meal.name }}
                   </strong>
 
                   <span>
-                    {{ day.lunch.calories }} kcal
+                    {{ meal.calories }} kcal
                     ·
-                    {{ day.lunch.protein }} g Protein
+                    {{ meal.protein }} g Protein
                   </span>
 
                 </div>
 
+              </button>
+
+              <button class="add-another-meal" type="button" (click)="addMeal(dayIndex, 'lunch')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+                Weiteres Mittagessen
               </button>
 
             </ng-container>
@@ -398,9 +408,7 @@
                 (click)="addMeal(dayIndex, 'lunch')"
               >
 
-                <span>
-                  +
-                </span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 
                 Mittagessen planen
 
@@ -415,7 +423,7 @@
 
           <div
             class="meal-slot"
-            [class.empty]="!day.dinner"
+            [class.empty]="!day.dinner.length"
           >
 
             <div class="meal-slot-label">
@@ -428,22 +436,23 @@
             </div>
 
 
-            <ng-container *ngIf="day.dinner; else emptyDinner">
+            <ng-container *ngIf="day.dinner.length; else emptyDinner">
 
               <button
                 class="meal-card"
                 type="button"
-                (click)="openMeal(dayIndex, 'dinner')"
+                *ngFor="let meal of day.dinner"
+                (click)="openMeal(dayIndex, 'dinner', meal)"
               >
 
                 <div
                   class="meal-image"
-                  *ngIf="day.dinner.image"
+                  *ngIf="meal.image"
                 >
 
                   <img
-                    [src]="day.dinner.image"
-                    [alt]="day.dinner.name"
+                    [src]="meal.image"
+                    [alt]="meal.name"
                   />
 
                 </div>
@@ -452,17 +461,22 @@
                 <div class="meal-content">
 
                   <strong>
-                    {{ day.dinner.name }}
+                    {{ meal.name }}
                   </strong>
 
                   <span>
-                    {{ day.dinner.calories }} kcal
+                    {{ meal.calories }} kcal
                     ·
-                    {{ day.dinner.protein }} g Protein
+                    {{ meal.protein }} g Protein
                   </span>
 
                 </div>
 
+              </button>
+
+              <button class="add-another-meal" type="button" (click)="addMeal(dayIndex, 'dinner')">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+                Weiteres Abendessen
               </button>
 
             </ng-container>
@@ -476,9 +490,7 @@
                 (click)="addMeal(dayIndex, 'dinner')"
               >
 
-                <span>
-                  +
-                </span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 
                 Abendessen planen
 
@@ -605,13 +617,14 @@
 
 
           <ng-container
-            *ngIf="getMeal(selectedDay, mealType.key) as meal; else mobileEmptyMeal"
+            *ngIf="getMeals(selectedDay, mealType.key).length; else mobileEmptyMeal"
           >
 
             <button
               class="mobile-meal-card"
               type="button"
-              (click)="openMeal(selectedDayIndex, mealType.key)"
+              *ngFor="let meal of getMeals(selectedDay, mealType.key)"
+              (click)="openMeal(selectedDayIndex, mealType.key, meal)"
             >
 
               <div
@@ -655,6 +668,11 @@
 
             </button>
 
+            <button class="mobile-add-meal add-another-mobile" type="button" (click)="addMeal(selectedDayIndex, mealType.key)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+              Weiteres {{ mealType.label }}
+            </button>
+
           </ng-container>
 
 
@@ -666,9 +684,7 @@
               (click)="addMeal(selectedDayIndex, mealType.key)"
             >
 
-              <span>
-                +
-              </span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 
               {{ mealType.label }} hinzufügen
 
@@ -877,7 +893,7 @@
           aria-label="Dialog schließen"
           (click)="closeMealDialog()"
         >
-          ×
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
         </button>
       </header>
 
@@ -919,7 +935,7 @@
             </small>
           </span>
           <span class="recipe-choice-check" aria-hidden="true">
-            ✓
+            <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"></path></svg>
           </span>
         </button>
       </div>

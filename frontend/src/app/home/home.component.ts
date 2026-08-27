@@ -9,6 +9,7 @@ import {
 import {
   RouterLink
 } from '@angular/router';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 
 @Component({
@@ -20,7 +21,8 @@ import {
 
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    UiIconComponent
   ],
 
   templateUrl:

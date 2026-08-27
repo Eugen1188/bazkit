@@ -79,6 +79,10 @@ export class WeeklyPlannerService {
     return this.http.post<WeeklyPlanEntry>(`${this.apiUrl}entries/`, payload);
   }
 
+  updateEntry(entryId: number, payload: WeeklyPlanEntryPayload): Observable<WeeklyPlanEntry> {
+    return this.http.patch<WeeklyPlanEntry>(`${this.apiUrl}entries/${entryId}/`, payload);
+  }
+
   deleteEntry(entryId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}entries/${entryId}/`);
   }

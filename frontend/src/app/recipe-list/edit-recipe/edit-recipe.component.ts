@@ -80,6 +80,7 @@ export class EditRecipeComponent
 implements OnInit, OnDestroy {
 
   recipeId!: number;
+  communityPostId: number | null = null;
 
 
   recipeName =
@@ -305,6 +306,9 @@ implements OnInit, OnDestroy {
 
   ngOnInit():
     void {
+
+    const communityPost = Number(this.route.snapshot.queryParamMap.get('communityPost'));
+    this.communityPostId = communityPost > 0 ? communityPost : null;
 
     this.recipeId =
       Number(
@@ -1162,10 +1166,11 @@ implements OnInit, OnDestroy {
             false;
 
 
-          this.router.navigate([
-            '/main/recipe-list',
-            this.recipeId
-          ]);
+          if (this.communityPostId) {
+            this.router.navigate(['/main/community', this.communityPostId]);
+          } else {
+            this.router.navigate(['/main/recipe-list', this.recipeId]);
+          }
         },
 
 
@@ -1214,11 +1219,11 @@ implements OnInit, OnDestroy {
 
   cancel():
     void {
-
-    this.router.navigate([
-      '/main/recipe-list',
-      this.recipeId
-    ]);
+    if (this.communityPostId) {
+      this.router.navigate(['/main/community', this.communityPostId]);
+    } else {
+      this.router.navigate(['/main/recipe-list', this.recipeId]);
+    }
   }
 
 

@@ -5,13 +5,15 @@ import { Router } from '@angular/router';
 
 import { RegisterData } from '../models/user';
 import { AuthService } from '../services/auth.service';
+import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiIconComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'

@@ -547,8 +547,18 @@ PASSWORD RULES
 
 .password-rules .rule-dot {
   width: 18px;
+  height: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   flex-shrink: 0;
+}
+
+.password-rules span.valid .rule-dot {
+  border-color: var(--color-primary);
 }
 
 

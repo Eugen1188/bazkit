@@ -186,10 +186,11 @@
     <section class="hero-card">
 
       <div class="hero-image">
-
-        <span>
-          🍽️
-        </span>
+        <svg viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="25"></circle>
+          <circle cx="48" cy="48" r="16"></circle>
+          <path d="M20 21v26M14 21v14a6 6 0 0 0 12 0V21M76 21v26M82 21v54"></path>
+        </svg>
 
       </div>
 
@@ -198,9 +199,7 @@
 
         <div class="meta-item">
 
-          <span class="meta-icon">
-            ⏱
-          </span>
+          <span class="meta-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l3 2M9 3h6"></path></svg></span>
 
           <strong>
 
@@ -222,9 +221,7 @@
 
         <div class="meta-item">
 
-          <span class="meta-icon">
-            👥
-          </span>
+          <span class="meta-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 11a3 3 0 0 1 0 6M19 20v-1"></path></svg></span>
 
           <strong>
             {{ recipe.servings }}
@@ -239,9 +236,7 @@
 
         <div class="meta-item">
 
-          <span class="meta-icon">
-            🥕
-          </span>
+          <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M7 8c4-2 8 2 6 6l-5 7c-1 1-3 0-3-1L4 11c0-2 1-3 3-3ZM10 7c0-2 1-4 3-5M11 8c2-2 4-2 6-1"></path></svg></span>
 
           <strong>
             {{ recipe.ingredients.length }}
@@ -256,9 +251,7 @@
 
         <div class="meta-item">
 
-          <span class="meta-icon">
-            📝
-          </span>
+          <span class="meta-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"></path></svg></span>
 
           <strong>
             {{ preparationSteps.length }}
@@ -272,6 +265,38 @@
 
       </div>
 
+    </section>
+
+    <section class="nutrition-summary-card">
+      <div class="nutrition-heading">
+        <div>
+          <h2>Nährwerte & Preis</h2>
+          <p>Automatisch berechnete Werte pro Portion.</p>
+        </div>
+        <span class="automatic-badge">Automatisch</span>
+      </div>
+
+      <div class="nutrition-grid">
+        <div class="nutrition-value"><span>Kalorien</span><strong>{{ recipe.calories !== null ? (recipe.calories | number:'1.0-0') : '–' }} kcal</strong><small>pro Portion</small></div>
+        <div class="nutrition-value"><span>Protein</span><strong>{{ recipe.protein !== null ? (recipe.protein | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
+        <div class="nutrition-value"><span>Kohlenhydrate</span><strong>{{ recipe.carbohydrates !== null ? (recipe.carbohydrates | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
+        <div class="nutrition-value"><span>Fett</span><strong>{{ recipe.fat !== null ? (recipe.fat | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
+        <div class="nutrition-value"><span>Ballaststoffe</span><strong>{{ recipe.fiber !== null ? (recipe.fiber | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
+      </div>
+
+      <div class="detail-price-row">
+        <div>
+          <strong>Geschätzte Kosten (Beta)</strong>
+          <span>{{ recipe.price_ingredient_count }} von {{ recipe.price_ingredient_count + recipe.price_missing_ingredient_count }} Zutaten mit Preisdaten</span>
+        </div>
+        <div class="detail-price-values" *ngIf="recipe.price_is_sufficient && recipe.estimated_price !== null; else priceCoverageMissing">
+          <span><small>Gesamtpreis</small><strong>{{ recipe.estimated_price | number:'1.2-2' }} €</strong></span>
+          <span><small>Pro Portion</small><strong>{{ recipe.estimated_price_per_serving | number:'1.2-2' }} €</strong></span>
+        </div>
+        <ng-template #priceCoverageMissing>
+          <span class="coverage-chip"><small>Preisdaten-Abdeckung</small><strong>{{ recipe.price_coverage_percent }} %</strong></span>
+        </ng-template>
+      </div>
     </section>
 
 
@@ -409,10 +434,7 @@
     >
 
       <div class="notes-heading">
-
-        <span>
-          💡
-        </span>
+        <span><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3Z"></path></svg></span>
 
         <h2>
           Notizen

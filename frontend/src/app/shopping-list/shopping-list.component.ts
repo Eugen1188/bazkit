@@ -43,6 +43,16 @@ import {
 } from '../components/add-recipe-ingredients-modal/add-recipe-ingredients-modal.component';
 
 
+type ShoppingFilter = 'all' | 'open' | 'completed';
+
+interface ShoppingCategoryGroup {
+  key: string;
+  label: string;
+  order: number;
+  items: ShoppingListItem[];
+}
+
+
 @Component({
   selector: 'app-shopping-list',
 
@@ -77,6 +87,8 @@ export class ShoppingListComponent
   errorMessage = '';
 
   shareMessage = '';
+
+  activeFilter: ShoppingFilter = 'all';
 
 
   isAddOptionsOpen =
@@ -445,20 +457,8 @@ export class ShoppingListComponent
 
 
   removeItem(
-    index: number
+    item: ShoppingListItem
   ): void {
-
-    const item =
-      this.items[index];
-
-
-    if (
-      !item
-    ) {
-      return;
-    }
-
-
     this.shoppingListService
       .deleteItem(
         item.id
@@ -466,11 +466,7 @@ export class ShoppingListComponent
       .subscribe({
 
         next: () => {
-
-          this.items.splice(
-            index,
-            1
-          );
+          this.items = this.items.filter(current => current.id !== item.id);
         },
 
 
@@ -570,5 +566,37 @@ export class ShoppingListComponent
 
   get estimatedTotal(): number {
     return Math.round(this.items.reduce((sum, item) => sum + Number(item.estimated_price ?? 0), 0) * 100) / 100;
+  }
+
+  setFilter(filter: ShoppingFilter): void {
+    this.activeFilter = filter;
+  }
+
+  get categoryGroups(): ShoppingCategoryGroup[] {
+    const filteredItems = this.items.filter(item => {
+      if (this.activeFilter === 'open') return !item.is_checked;
+      if (this.activeFilter === 'completed') return item.is_checked;
+      return true;
+    });
+    const groups = new Map<string, ShoppingCategoryGroup>();
+    for (const item of filteredItems) {
+      const key = item.shopping_category || 'other';
+      const group = groups.get(key) ?? {
+        key,
+        label: item.shopping_category_label || 'Sonstiges',
+        order: item.shopping_category_order ?? 90,
+        items: []
+      };
+      group.items.push(item);
+      groups.set(key, group);
+    }
+    return [...groups.values()]
+      .sort((left, right) => left.order - right.order || left.label.localeCompare(right.label, 'de-DE'))
+      .map(group => ({
+        ...group,
+        items: [...group.items].sort((left, right) =>
+          Number(left.is_checked) - Number(right.is_checked) || left.name.localeCompare(right.name, 'de-DE')
+        )
+      }));
   }
 }

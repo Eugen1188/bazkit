@@ -30,6 +30,12 @@ export interface ShoppingListItem extends PriceSnapshot {
   is_checked: boolean;
 
   created_at?: string;
+
+  shopping_category?: string;
+
+  shopping_category_label?: string;
+
+  shopping_category_order?: number;
 }
 
 

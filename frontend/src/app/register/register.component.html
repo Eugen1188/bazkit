@@ -288,11 +288,10 @@
             [class.valid]="hasMinimumLength()"
           >
             <span class="rule-dot">
-              {{
-                hasMinimumLength()
-                  ? '✓'
-                  : '○'
-              }}
+              <app-ui-icon
+                *ngIf="hasMinimumLength()"
+                name="check"
+              ></app-ui-icon>
             </span>
 
             Mindestens 8 Zeichen
@@ -303,11 +302,10 @@
             [class.valid]="hasLetter()"
           >
             <span class="rule-dot">
-              {{
-                hasLetter()
-                  ? '✓'
-                  : '○'
-              }}
+              <app-ui-icon
+                *ngIf="hasLetter()"
+                name="check"
+              ></app-ui-icon>
             </span>
 
             Mindestens einen Buchstaben
@@ -318,11 +316,10 @@
             [class.valid]="hasNumber()"
           >
             <span class="rule-dot">
-              {{
-                hasNumber()
-                  ? '✓'
-                  : '○'
-              }}
+              <app-ui-icon
+                *ngIf="hasNumber()"
+                name="check"
+              ></app-ui-icon>
             </span>
 
             Mindestens eine Zahl

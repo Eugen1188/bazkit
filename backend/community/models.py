@@ -91,6 +91,22 @@ class CommunityPost(models.Model):
         related_name="community_posts"
     )
 
+    source_recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="published_community_posts",
+    )
+
+    source_saved_list = models.ForeignKey(
+        SavedList,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="published_community_posts",
+    )
+
     title = models.CharField(
         max_length=160,
         blank=True

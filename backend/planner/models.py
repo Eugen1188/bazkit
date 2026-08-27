@@ -28,13 +28,7 @@ class WeeklyPlanEntry(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ["date", "meal_type"]
-        constraints = [
-            models.UniqueConstraint(
-                fields=["user", "date", "meal_type"],
-                name="unique_weekly_plan_slot",
-            )
-        ]
+        ordering = ["date", "meal_type", "created_at", "id"]
         indexes = [
             models.Index(
                 fields=["user", "date"],
@@ -44,4 +38,3 @@ class WeeklyPlanEntry(models.Model):
 
     def __str__(self):
         return f"{self.date} · {self.get_meal_type_display()} · {self.recipe.name}"
-
