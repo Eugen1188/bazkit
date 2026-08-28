@@ -28,7 +28,7 @@ DAIRY_WITHOUT_FIBER = re.compile(
     re.I,
 )
 ALCOHOLIC_DRINK = re.compile(
-    r"\b(?:bier|wein|sekt|schaumwein|most)\b|^(?:pilsner|export hell)",
+    r"(?:bier|wein|sekt|schaumwein|most)\b|^(?:pilsner|export hell)",
     re.I,
 )
 TEA_DRINK = re.compile(r"tee \(getränk\)|kaffee \(getränk\)", re.I)

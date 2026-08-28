@@ -53,6 +53,8 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(recipe_ingredient_status("Chili sin carne")[0], False)
         self.assertEqual(recipe_ingredient_status("Chili con carne einfach")[0], False)
         self.assertEqual(recipe_ingredient_status("Hähnchenbrust, roh")[0], True)
+        self.assertEqual(recipe_ingredient_status("Rotweinkuchen")[0], False)
+        self.assertEqual(recipe_ingredient_status("Rotweinpunsch")[0], False)
 
     def test_recipe_search_shows_chili_pepper_and_hides_stale_chili_meals(self):
         curated_chili = Product.objects.get(
@@ -358,6 +360,55 @@ class RecipeCatalogTests(TestCase):
             },
         )
         self.assertIsNone(acerola["fiber_per_100g"])
+
+        dry_red_wine = apply_safe_zero_defaults(
+            "Rotwein trocken",
+            "bls",
+            "P2A3000",
+            {
+                "calories_per_100g": Decimal("70"),
+                "protein_per_100g": Decimal("0.22"),
+                "carbohydrates_per_100g": Decimal("0.7"),
+                "fat_per_100g": None,
+                "fiber_per_100g": Decimal("0"),
+            },
+        )
+        self.assertEqual(dry_red_wine["fat_per_100g"], Decimal("0"))
+        self.assertTrue(nutrition_is_complete(dry_red_wine))
+
+    def test_dry_red_wine_aliases_find_the_exact_complete_bls_product(self):
+        wine = Product.objects.create(
+            name="Rotwein trocken",
+            canonical_name=canonical_recipe_name(
+                "Rotwein trocken",
+                "bls",
+                "P2A3000",
+            ),
+            source="bls",
+            external_id="P2A3000",
+            default_unit="ml",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("70"),
+            protein_per_100g=Decimal("0.22"),
+            carbohydrates_per_100g=Decimal("0.7"),
+            fat_per_100g=Decimal("0"),
+            fiber_per_100g=Decimal("0"),
+        )
+        replace_product_aliases(wine)
+
+        for query in ("Rotwein trocken", "trockener Rotwein", "Rotwein"):
+            request = APIRequestFactory().get(
+                "/products/search/",
+                {"q": query, "recipe_only": "1"},
+            )
+            force_authenticate(request, user=self.user)
+            response = ProductSearchAPIView.as_view()(request)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.data[0]["name"], "Rotwein trocken")
+            self.assertEqual(response.data[0]["external_id"], "P2A3000")
+            self.assertEqual(response.data[0]["default_unit"], "ml")
+            self.assertTrue(response.data[0]["nutrition_complete"])
 
     def test_curated_oregano_is_available_without_live_usda_request(self):
         oregano = Product.objects.get(source="usda", external_id="171328")

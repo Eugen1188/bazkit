@@ -94,6 +94,12 @@ EXTENDED_INGREDIENT_DEFINITIONS = (
     ("Apfelessig", ("apfelessig", "apfel essig", "apple cider vinegar"), "apple cider vinegar", ("R123100",), ()),
     ("Balsamicoessig", ("balsamico", "balsamicoessig", "aceto balsamico", "balsamic vinegar"), "balsamic vinegar", ("R125000",), ()),
 
+    # Alkoholische Kochzutaten
+    ("Rotwein trocken", ("rotwein", "rotwein trocken", "trockener rotwein", "trockenen rotwein", "roter wein", "kochrotwein", "dry red wine"), "red wine dry", ("P2A3000",), ()),
+    ("Weißwein trocken", ("weißwein", "weisswein", "weißwein trocken", "weisswein trocken", "trockener weißwein", "trockener weisswein", "kochweißwein", "kochweisswein", "dry white wine"), "white wine dry", ("P210000",), ()),
+    ("Sherry trocken", ("sherry", "sherry trocken", "trockener sherry", "dry sherry"), "sherry dry", ("P461000",), ()),
+    ("Portwein", ("portwein", "port wine", "port"), "port wine", ("P431000",), ()),
+
     # USDA-Ergänzungen für im BLS nicht vorhandene Grundzutaten
     ("Koriander", ("koriander", "koriandergrün", "koriandergruen", "cilantro", "korianderblätter", "korianderblaetter"), "coriander leaves raw", (), ("169997",)),
     ("Koriandersamen", ("koriandersamen", "korianderkörner", "korianderkoerner", "coriander seeds"), "coriander seed", (), ("170922",)),

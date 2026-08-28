@@ -239,7 +239,13 @@ def display_name_for_query(value):
     definition = definition_for_query(value)
     if not definition:
         return str(value or "").strip()
-    if definition.canonical_name == "Chilischote":
+    if definition.canonical_name in {
+        "Chilischote",
+        "Rotwein trocken",
+        "Weißwein trocken",
+        "Sherry trocken",
+        "Portwein",
+    }:
         return definition.canonical_name
     normalized = normalize_alias(value)
     if normalized == normalize_alias(definition.canonical_name):

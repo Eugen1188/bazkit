@@ -139,7 +139,8 @@ class Command(BaseCommand):
                     external_id=external_id,
                 )
                 products.append(Product(
-                    source="bls", external_id=external_id, name=name[:150], default_unit="g",
+                    source="bls", external_id=external_id, name=name[:150],
+                    default_unit="ml" if shopping_category == "drinks" else "g",
                     canonical_name=canonical_name,
                     is_recipe_ingredient=is_recipe_ingredient,
                     recipe_exclusion_reason=exclusion_reason,

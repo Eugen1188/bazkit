@@ -49,6 +49,11 @@ class Command(BaseCommand):
                 product.source,
                 product.external_id,
             )
+            default_unit = (
+                "ml"
+                if product.source == "bls" and shopping_category == "drinks"
+                else product.default_unit
+            )
             original_nutrients = {
                 field: getattr(product, field)
                 for field in NUTRIENT_FIELDS
@@ -78,6 +83,7 @@ class Command(BaseCommand):
                 or product.recipe_exclusion_reason != reason
                 or product.shopping_category != shopping_category
                 or product.is_common_pantry != is_common_pantry
+                or product.default_unit != default_unit
                 or nutrients_changed
             ):
                 product.canonical_name = canonical_name
@@ -85,6 +91,7 @@ class Command(BaseCommand):
                 product.recipe_exclusion_reason = reason
                 product.shopping_category = shopping_category
                 product.is_common_pantry = is_common_pantry
+                product.default_unit = default_unit
                 for field in NUTRIENT_FIELDS:
                     setattr(product, field, nutrients[field])
                 pending.append(product)
@@ -107,6 +114,7 @@ class Command(BaseCommand):
                 [
                     "canonical_name", "is_recipe_ingredient", "recipe_exclusion_reason",
                     "shopping_category", "is_common_pantry",
+                    "default_unit",
                     *NUTRIENT_FIELDS,
                 ],
                 batch_size=500,

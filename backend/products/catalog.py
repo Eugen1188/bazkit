@@ -87,6 +87,11 @@ NON_INGREDIENT = re.compile(
     r"milchmischgetränk|trinkjoghurt|frühstückscerealien)\b",
     re.I,
 )
+COMPOSITE_NON_INGREDIENT = re.compile(
+    r"(?:torte|kuchen|muffin|keks|plätzchen|praline|riegel|bonbon|pudding|"
+    r"punsch|schorle|cocktail)\b",
+    re.I,
+)
 OFF_MEAL_CATEGORY = re.compile(
     r"(?:^|[,; ])(?:meals?|pizzas?|sandwiches?|frozen-meals?|prepared-meals?)"
     r"(?:$|[,; ])",
@@ -141,6 +146,8 @@ def recipe_ingredient_status(name, category="", source="", external_id=""):
         return True, ""
     if PREPARED_FOOD.search(searchable):
         return False, "Fertiggericht oder zusammengesetzte Speise"
+    if COMPOSITE_NON_INGREDIENT.search(cleaned_name):
+        return False, "Zusammengesetztes Produkt statt Kochzutat"
     if PREPARED_VARIANT.search(cleaned_name) and not ALLOWED_INGREDIENT.search(cleaned_name):
         return False, "Bereits zubereitete Produktvariante"
     if NON_INGREDIENT.search(searchable) and not ALLOWED_INGREDIENT.search(cleaned_name):
