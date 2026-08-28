@@ -36,6 +36,8 @@ export interface ShoppingListItem extends PriceSnapshot {
   shopping_category_label?: string;
 
   shopping_category_order?: number;
+
+  is_common_pantry?: boolean;
 }
 
 
@@ -147,12 +149,15 @@ export class ShoppingListService {
 
 
   addRecipe(
-    recipeId: number
+    recipeId: number,
+    includedPantryProductIds?: number[]
   ): Observable<ShoppingList> {
 
     return this.http.post<ShoppingList>(
       `${this.apiUrl}add-recipe/${recipeId}/`,
-      {}
+      includedPantryProductIds === undefined
+        ? {}
+        : { included_pantry_product_ids: includedPantryProductIds }
     );
   }
 

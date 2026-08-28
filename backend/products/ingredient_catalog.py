@@ -28,7 +28,7 @@ CORE_INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Paprika gelb", ("gelbe paprika", "paprika gelb", "gelbe paprikaschote", "gelber paprika"), "peppers sweet yellow raw", ("G542100",)),
     IngredientDefinition("Paprika grün", ("grüne paprika", "paprika grün", "grüne paprikaschote", "gruene paprika", "grüner paprika"), "peppers sweet green raw", ("G541100",)),
     IngredientDefinition("Paprika", ("paprika", "paprikaschote", "paprikaschoten", "gemüsepaprika"), "peppers sweet red raw", ("G543100", "G542100", "G541100")),
-    IngredientDefinition("Zwiebel", ("zwiebel", "zwiebeln", "speisezwiebel", "gemüsezwiebel", "rote zwiebel"), "onions raw", ("G480100",)),
+    IngredientDefinition("Zwiebel", ("zwiebel", "zwiebeln", "speisezwiebel", "gemüsezwiebel", "gemüsezwiebeln", "küchenzwiebel", "haushaltszwiebel", "gelbe zwiebel", "weiße zwiebel", "rote zwiebel", "riesenzwiebel", "spanische zwiebel"), "onions raw", ("G480100",)),
     IngredientDefinition("Frühlingszwiebel", ("frühlingszwiebel", "frühlingszwiebeln", "lauchzwiebel", "lauchzwiebeln", "spring onion"), "onions spring raw", ("G482100",)),
     IngredientDefinition("Knoblauch", ("knoblauch", "knoblauchzehe", "knoblauchzehen"), "garlic raw", ("G490100",)),
     IngredientDefinition("Kartoffel", ("kartoffel", "kartoffeln", "speisekartoffel", "erdapfel"), "potatoes flesh and skin raw", ("K110100",)),

@@ -57,7 +57,7 @@ def entries_for_range(user, start, end):
         WeeklyPlanEntry.objects
         .filter(user=user, date__range=(start, end))
         .select_related("recipe")
-        .prefetch_related("recipe__ingredients")
+        .prefetch_related("recipe__ingredients__product")
         .order_by("date", "meal_type")
     )
 
@@ -265,12 +265,34 @@ class WeeklyPlanShoppingListAPIView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        included_pantry_ids = request.data.get("included_pantry_product_ids")
+        if included_pantry_ids is not None:
+            if not isinstance(included_pantry_ids, list):
+                return Response(
+                    {"detail": "Die ausgewählten Vorratszutaten sind ungültig."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            try:
+                included_pantry_ids = {int(value) for value in included_pantry_ids}
+            except (TypeError, ValueError):
+                return Response(
+                    {"detail": "Die ausgewählten Vorratszutaten sind ungültig."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
         grouped = {}
         ingredient_lines = 0
         for entry in entries:
             recipe_servings = Decimal(entry.recipe.servings or 1)
             factor = Decimal(entry.servings) / recipe_servings
             for ingredient in entry.recipe.ingredients.all():
+                if (
+                    included_pantry_ids is not None
+                    and ingredient.product is not None
+                    and ingredient.product.is_common_pantry
+                    and ingredient.product_id not in included_pantry_ids
+                ):
+                    continue
                 ingredient_lines += 1
                 product_id = ingredient.product_id
                 name = ingredient.name or (ingredient.product.name if ingredient.product else "Zutat")

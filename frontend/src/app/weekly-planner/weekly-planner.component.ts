@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, forkJoin } from 'rxjs';
 
-import { Recipe, RecipeService } from '../services/recipe.service';
+import { Recipe, RecipeIngredient, RecipeService } from '../services/recipe.service';
 import {
   PlannerMealType,
   WeeklyPlanEntry,
@@ -64,6 +64,8 @@ export class WeeklyPlannerComponent implements OnInit {
   isSaving = false;
   isGenerating = false;
   isCreatingShoppingList = false;
+  pantryDialogOpen = false;
+  includedPantryProductIds = new Set<number>();
   feedbackMessage = '';
   feedbackKind: FeedbackKind = '';
 
@@ -88,6 +90,10 @@ export class WeeklyPlannerComponent implements OnInit {
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
+    if (this.pantryDialogOpen) {
+      this.closePantryDialog();
+      return;
+    }
     this.closeMealDialog();
   }
 
@@ -173,6 +179,31 @@ export class WeeklyPlannerComponent implements OnInit {
       }
     }
     return products.size;
+  }
+
+  get weeklyPantryIngredients(): RecipeIngredient[] {
+    const unique = new Map<number, RecipeIngredient>();
+    const plannedRecipeIds = new Set(
+      this.allMeals().map(meal => meal.recipeId)
+    );
+
+    for (const recipe of this.recipes) {
+      if (!plannedRecipeIds.has(recipe.id)) {
+        continue;
+      }
+      for (const ingredient of recipe.ingredients) {
+        const productId = this.pantryProductId(ingredient);
+        if (
+          productId !== null &&
+          ingredient.product_detail?.is_common_pantry
+        ) {
+          unique.set(productId, ingredient);
+        }
+      }
+    }
+
+    return Array.from(unique.values())
+      .sort((left, right) => left.name.localeCompare(right.name, 'de-DE'));
   }
 
   getMeals(day: PlannerDay, type: MealType): Meal[] {
@@ -328,12 +359,62 @@ export class WeeklyPlannerComponent implements OnInit {
       this.showFeedback('Plane zuerst mindestens eine Mahlzeit.', 'error');
       return;
     }
+
+    if (this.weeklyPantryIngredients.length) {
+      this.includedPantryProductIds.clear();
+      this.pantryDialogOpen = true;
+      return;
+    }
+
+    this.submitShoppingList();
+  }
+
+  closePantryDialog(): void {
+    if (this.isCreatingShoppingList) {
+      return;
+    }
+    this.pantryDialogOpen = false;
+    this.includedPantryProductIds.clear();
+  }
+
+  pantryProductId(ingredient: RecipeIngredient): number | null {
+    return ingredient.product ?? ingredient.product_detail?.id ?? null;
+  }
+
+  isPantryIngredientIncluded(ingredient: RecipeIngredient): boolean {
+    const productId = this.pantryProductId(ingredient);
+    return productId !== null && this.includedPantryProductIds.has(productId);
+  }
+
+  togglePantryIngredient(ingredient: RecipeIngredient): void {
+    const productId = this.pantryProductId(ingredient);
+    if (productId === null) {
+      return;
+    }
+    if (this.includedPantryProductIds.has(productId)) {
+      this.includedPantryProductIds.delete(productId);
+    } else {
+      this.includedPantryProductIds.add(productId);
+    }
+  }
+
+  confirmShoppingList(): void {
+    this.submitShoppingList(Array.from(this.includedPantryProductIds));
+  }
+
+  private submitShoppingList(includedPantryProductIds?: number[]): void {
     this.isCreatingShoppingList = true;
     this.clearFeedback();
-    this.plannerService.createShoppingList(this.weekStartKey, this.weekEndKey)
+    this.plannerService.createShoppingList(
+      this.weekStartKey,
+      this.weekEndKey,
+      includedPantryProductIds
+    )
       .pipe(finalize(() => { this.isCreatingShoppingList = false; }))
       .subscribe({
         next: response => {
+          this.pantryDialogOpen = false;
+          this.includedPantryProductIds.clear();
           this.showFeedback(response.message, 'success');
           void this.router.navigate(['/main/shopping-list']);
         },

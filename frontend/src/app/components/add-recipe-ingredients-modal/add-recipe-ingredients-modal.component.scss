@@ -440,3 +440,154 @@
   }
 
 }
+
+
+.pantry-step {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+.pantry-heading {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--color-primary-soft-bg);
+}
+
+
+.pantry-heading > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+.pantry-heading h3 {
+  margin: 0 0 6px;
+  color: var(--color-text-primary);
+  font-size: 18px;
+}
+
+
+.pantry-heading p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+.pantry-options {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+
+.pantry-option {
+  min-height: 62px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-divider);
+  border-radius: 11px;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+}
+
+
+.pantry-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+}
+
+
+.pantry-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.pantry-check {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 13px;
+}
+
+
+.pantry-option.selected .pantry-check {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+
+.pantry-name strong,
+.pantry-name small {
+  display: block;
+}
+
+
+.pantry-name strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+
+.pantry-name small {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
+
+.pantry-status {
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+
+.pantry-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+
+.pantry-actions button {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+
+.pantry-back {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+
+.pantry-confirm {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}

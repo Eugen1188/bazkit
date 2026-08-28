@@ -280,6 +280,7 @@ class ShoppingListItemSerializer(
     shopping_category = serializers.SerializerMethodField()
     shopping_category_label = serializers.SerializerMethodField()
     shopping_category_order = serializers.SerializerMethodField()
+    is_common_pantry = serializers.SerializerMethodField()
 
     class Meta:
         model = ShoppingListItem
@@ -297,6 +298,7 @@ class ShoppingListItemSerializer(
             "shopping_category",
             "shopping_category_label",
             "shopping_category_order",
+            "is_common_pantry",
             *PRICE_FIELDS,
         ]
 
@@ -308,6 +310,9 @@ class ShoppingListItemSerializer(
 
     def get_shopping_category_order(self, obj):
         return shopping_category(obj)[2]
+
+    def get_is_common_pantry(self, obj):
+        return bool(obj.product and obj.product.is_common_pantry)
 
     def validate(
         self,

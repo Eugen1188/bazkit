@@ -17,9 +17,16 @@
         </h2>
 
         <p>
-          Wähle ein Rezept aus.
-          Alle Zutaten werden zu deiner
-          Einkaufsliste hinzugefügt.
+          <ng-container *ngIf="!pendingRecipe">
+            Wähle ein Rezept aus.
+            Vorhandene Vorratszutaten kannst du
+            vor dem Übernehmen abwählen.
+          </ng-container>
+
+          <ng-container *ngIf="pendingRecipe">
+            Wähle nur die Vorratszutaten aus,
+            die du tatsächlich nachkaufen möchtest.
+          </ng-container>
         </p>
 
       </div>
@@ -100,6 +107,7 @@
       class="recipe-options"
       *ngIf="
         !isLoading &&
+        !pendingRecipe &&
         recipes.length > 0
       "
     >
@@ -178,6 +186,86 @@
       </button>
 
     </div>
+
+
+    <!-- PANTRY CHECK -->
+
+    <section
+      class="pantry-step"
+      *ngIf="
+        !isLoading &&
+        pendingRecipe
+      "
+    >
+
+      <div class="pantry-heading">
+        <span>Vorrat prüfen</span>
+        <h3>{{ pendingRecipe.name }}</h3>
+        <p>
+          Frische Zutaten werden immer übernommen.
+          Markiere hier nur Salz, Gewürze und andere
+          Vorräte, die dir gerade fehlen.
+        </p>
+      </div>
+
+      <div class="pantry-options">
+        <label
+          class="pantry-option"
+          *ngFor="let ingredient of pantryIngredients(pendingRecipe)"
+          [class.selected]="isPantryIngredientIncluded(ingredient)"
+        >
+          <input
+            type="checkbox"
+            [checked]="isPantryIngredientIncluded(ingredient)"
+            (change)="togglePantryIngredient(ingredient)"
+          />
+
+          <span class="pantry-check" aria-hidden="true">
+            ✓
+          </span>
+
+          <span class="pantry-name">
+            <strong>{{ ingredient.name }}</strong>
+            <small>
+              {{ ingredient.quantity }} {{ ingredient.unit }}
+            </small>
+          </span>
+
+          <span class="pantry-status">
+            {{
+              isPantryIngredientIncluded(ingredient)
+                ? 'Nachkaufen'
+                : 'Vorhanden'
+            }}
+          </span>
+        </label>
+      </div>
+
+      <div class="pantry-actions">
+        <button
+          class="pantry-back"
+          type="button"
+          [disabled]="isAdding"
+          (click)="backToRecipes()"
+        >
+          Zurück
+        </button>
+
+        <button
+          class="pantry-confirm"
+          type="button"
+          [disabled]="isAdding"
+          (click)="confirmPantrySelection()"
+        >
+          {{
+            isAdding
+              ? 'Wird übernommen…'
+              : 'Auswahl übernehmen'
+          }}
+        </button>
+      </div>
+
+    </section>
 
 
     <button

@@ -11,6 +11,7 @@ from products.catalog import canonical_recipe_name, recipe_ingredient_status
 from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
 from products.nutrition_quality import apply_safe_zero_defaults
+from products.shopping_taxonomy import infer_product_taxonomy
 
 
 CELL_REFERENCE = re.compile(r"([A-Z]+)\d+")
@@ -130,11 +131,20 @@ class Command(BaseCommand):
                         "fiber_per_100g": decimal_or_none(row.get(columns["fiber_per_100g"])),
                     },
                 )
+                canonical_name = canonical_recipe_name(name, "bls", external_id)
+                shopping_category, is_common_pantry = infer_product_taxonomy(
+                    name,
+                    canonical_name,
+                    source="bls",
+                    external_id=external_id,
+                )
                 products.append(Product(
                     source="bls", external_id=external_id, name=name[:150], default_unit="g",
-                    canonical_name=canonical_recipe_name(name, "bls", external_id),
+                    canonical_name=canonical_name,
                     is_recipe_ingredient=is_recipe_ingredient,
                     recipe_exclusion_reason=exclusion_reason,
+                    shopping_category=shopping_category,
+                    is_common_pantry=is_common_pantry,
                     **nutrients,
                 ))
             if options["dry_run"]:
@@ -147,6 +157,7 @@ class Command(BaseCommand):
                 unique_fields=["source", "external_id"],
                 update_fields=[
                     "name", "canonical_name", "is_recipe_ingredient", "recipe_exclusion_reason",
+                    "shopping_category", "is_common_pantry",
                     "default_unit", "calories_per_100g", "protein_per_100g",
                     "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
                 ],

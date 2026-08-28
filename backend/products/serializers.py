@@ -11,7 +11,8 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = [
             "id", "name", "canonical_name", "is_recipe_ingredient",
-            "category", "brand", "source", "external_id",
+            "category", "shopping_category", "is_common_pantry",
+            "brand", "source", "external_id",
             "default_unit", "calories_per_100g", "protein_per_100g",
             "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
             "nutrition_complete", "origin",

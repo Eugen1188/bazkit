@@ -50,4 +50,12 @@ CURATED_USDA_PRODUCTS = (
     product("168576", "Jalapeño", "Gewürzgemüse", "29", "0.91", "6.5", "0.37", "2.8"),
     product("169698", "Maisstärke", "Stärke", "381", "0.26", "91.27", "0.05", "0.9"),
     product("175040", "Natron", "Backzutaten", "0", "0", "0", "0", "0"),
+    product("169210", "Bambussprossen", "Gemüse", "27", "2.6", "5.2", "0.3", "2.2"),
+    product("171691", "Getrocknete Äpfel", "Trockenobst", "243", "0.93", "65.89", "0.32", "8.7"),
+    product("168162", "Trockenpflaume", "Trockenobst", "240", "2.18", "63.88", "0.38", "7.1"),
+    product("171686", "Acerola", "Obst", "32", "0.4", "7.69", "0.3", "1.1"),
+    product("169098", "Orangensaft", "Getränke", "45", "0.7", "10.4", "0.2", "0.2", "ml"),
+    product("170174", "Kokoswasser", "Getränke", "19", "0.72", "3.71", "0.2", "1.1", "ml"),
+    product("167771", "Apfelsaft", "Getränke", "46", "0.1", "11.3", "0.13", "0.2", "ml"),
+    product("168558", "Gewürzgurke", "Konserve", "12", "0.5", "2.41", "0.3", "1"),
 )

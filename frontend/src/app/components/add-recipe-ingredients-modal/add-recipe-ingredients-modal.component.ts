@@ -12,6 +12,7 @@ import { UiIconComponent } from '../ui-icon/ui-icon.component';
 
 import {
   Recipe,
+  RecipeIngredient,
   RecipeService
 } from '../../services/recipe.service';
 
@@ -61,6 +62,12 @@ implements OnInit {
 
   selectedRecipeId:
     number | null = null;
+
+  pendingRecipe:
+    Recipe | null = null;
+
+  includedPantryProductIds =
+    new Set<number>();
 
   errorMessage = '';
 
@@ -137,6 +144,158 @@ implements OnInit {
 
 
     if (
+      this.pantryIngredients(recipe).length > 0
+    ) {
+
+      this.pendingRecipe =
+        recipe;
+
+      this.includedPantryProductIds.clear();
+
+      this.errorMessage =
+        '';
+
+      return;
+    }
+
+
+    this.submitRecipe(
+      recipe
+    );
+  }
+
+
+  pantryIngredients(
+    recipe: Recipe | null
+  ): RecipeIngredient[] {
+
+    if (!recipe) {
+      return [];
+    }
+
+    const unique =
+      new Map<number, RecipeIngredient>();
+
+    for (
+      const ingredient of recipe.ingredients
+    ) {
+
+      const productId =
+        ingredient.product ??
+        ingredient.product_detail?.id ??
+        null;
+
+      if (
+        productId !== null &&
+        ingredient.product_detail?.is_common_pantry
+      ) {
+        unique.set(
+          productId,
+          ingredient
+        );
+      }
+    }
+
+    return Array.from(
+      unique.values()
+    );
+  }
+
+
+  pantryProductId(
+    ingredient: RecipeIngredient
+  ): number | null {
+
+    return (
+      ingredient.product ??
+      ingredient.product_detail?.id ??
+      null
+    );
+  }
+
+
+  togglePantryIngredient(
+    ingredient: RecipeIngredient
+  ): void {
+
+    const productId =
+      this.pantryProductId(
+        ingredient
+      );
+
+    if (productId === null) {
+      return;
+    }
+
+    if (
+      this.includedPantryProductIds.has(
+        productId
+      )
+    ) {
+      this.includedPantryProductIds.delete(
+        productId
+      );
+    } else {
+      this.includedPantryProductIds.add(
+        productId
+      );
+    }
+  }
+
+
+  isPantryIngredientIncluded(
+    ingredient: RecipeIngredient
+  ): boolean {
+
+    const productId =
+      this.pantryProductId(
+        ingredient
+      );
+
+    return (
+      productId !== null &&
+      this.includedPantryProductIds.has(
+        productId
+      )
+    );
+  }
+
+
+  confirmPantrySelection(): void {
+
+    if (!this.pendingRecipe) {
+      return;
+    }
+
+    this.submitRecipe(
+      this.pendingRecipe,
+      Array.from(
+        this.includedPantryProductIds
+      )
+    );
+  }
+
+
+  backToRecipes(): void {
+
+    if (this.isAdding) {
+      return;
+    }
+
+    this.pendingRecipe =
+      null;
+
+    this.includedPantryProductIds.clear();
+  }
+
+
+  private submitRecipe(
+    recipe: Recipe,
+    includedPantryProductIds?: number[]
+  ): void {
+
+
+    if (
       recipe.ingredients.length === 0
     ) {
 
@@ -159,7 +318,8 @@ implements OnInit {
 
     this.shoppingListService
       .addRecipe(
-        recipe.id
+        recipe.id,
+        includedPantryProductIds
       )
       .subscribe({
 
@@ -172,6 +332,11 @@ implements OnInit {
 
           this.selectedRecipeId =
             null;
+
+          this.pendingRecipe =
+            null;
+
+          this.includedPantryProductIds.clear();
 
           this.shoppingListUpdated.emit(
             shoppingList

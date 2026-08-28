@@ -95,10 +95,17 @@ export class WeeklyPlannerService {
     });
   }
 
-  createShoppingList(start: string, end: string): Observable<WeeklyShoppingListResponse> {
+  createShoppingList(
+    start: string,
+    end: string,
+    includedPantryProductIds?: number[]
+  ): Observable<WeeklyShoppingListResponse> {
     return this.http.post<WeeklyShoppingListResponse>(`${this.apiUrl}shopping-list/`, {
       start,
-      end
+      end,
+      ...(includedPantryProductIds === undefined
+        ? {}
+        : { included_pantry_product_ids: includedPantryProductIds })
     });
   }
 }

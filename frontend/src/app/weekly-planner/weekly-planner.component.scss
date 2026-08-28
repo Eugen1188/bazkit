@@ -2621,6 +2621,85 @@
   color: #fff;
 }
 
+.pantry-dialog {
+  width: min(610px, 100%);
+}
+
+.pantry-choice-list {
+  max-height: 390px;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  overflow-y: auto;
+}
+
+.pantry-choice {
+  min-height: 62px;
+  padding: 10px 13px;
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.pantry-choice.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+}
+
+.pantry-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pantry-choice-check {
+  width: 23px;
+  height: 23px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+}
+
+.pantry-choice-check svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pantry-choice.selected .pantry-choice-check {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.pantry-choice strong,
+.pantry-choice small {
+  display: block;
+}
+
+.pantry-choice strong {
+  color: var(--color-text-primary);
+  font-size: 13px;
+}
+
+.pantry-choice small {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
 .dialog-empty {
   padding: 34px 20px;
   border: 1px dashed var(--color-border);

@@ -11,6 +11,7 @@ from products.nutrition_quality import (
     apply_safe_zero_defaults,
     nutrition_is_complete,
 )
+from products.shopping_taxonomy import infer_product_taxonomy
 
 
 class Command(BaseCommand):
@@ -37,6 +38,13 @@ class Command(BaseCommand):
             )
             is_ingredient, reason = recipe_ingredient_status(
                 product.name,
+                product.category,
+                product.source,
+                product.external_id,
+            )
+            shopping_category, is_common_pantry = infer_product_taxonomy(
+                product.name,
+                canonical_name,
                 product.category,
                 product.source,
                 product.external_id,
@@ -68,11 +76,15 @@ class Command(BaseCommand):
                 product.canonical_name != canonical_name
                 or product.is_recipe_ingredient != is_ingredient
                 or product.recipe_exclusion_reason != reason
+                or product.shopping_category != shopping_category
+                or product.is_common_pantry != is_common_pantry
                 or nutrients_changed
             ):
                 product.canonical_name = canonical_name
                 product.is_recipe_ingredient = is_ingredient
                 product.recipe_exclusion_reason = reason
+                product.shopping_category = shopping_category
+                product.is_common_pantry = is_common_pantry
                 for field in NUTRIENT_FIELDS:
                     setattr(product, field, nutrients[field])
                 pending.append(product)
@@ -94,6 +106,7 @@ class Command(BaseCommand):
                 pending,
                 [
                     "canonical_name", "is_recipe_ingredient", "recipe_exclusion_reason",
+                    "shopping_category", "is_common_pantry",
                     *NUTRIENT_FIELDS,
                 ],
                 batch_size=500,

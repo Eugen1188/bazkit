@@ -1,5 +1,7 @@
 from django.db import models
 
+from .shopping_taxonomy import SHOPPING_CATEGORY_CHOICES
+
 
 class Product(models.Model):
 
@@ -41,6 +43,18 @@ class Product(models.Model):
     category = models.CharField(
         max_length=150,
         blank=True
+    )
+
+    shopping_category = models.CharField(
+        max_length=30,
+        choices=SHOPPING_CATEGORY_CHOICES,
+        default="other",
+        db_index=True,
+    )
+
+    is_common_pantry = models.BooleanField(
+        default=False,
+        db_index=True,
     )
 
     brand = models.CharField(

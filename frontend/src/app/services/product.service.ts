@@ -10,6 +10,8 @@ export interface ProductSuggestion {
   canonical_name?: string;
   is_recipe_ingredient?: boolean;
   category: string;
+  shopping_category?: string;
+  is_common_pantry?: boolean;
   brand: string;
   source: string | null;
   external_id: string | null;

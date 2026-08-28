@@ -15,6 +15,7 @@ from .ingredient_catalog import (
 from .models import IngredientPriceReference, Product
 from .nutrition_quality import apply_safe_zero_defaults, nutrition_is_complete
 from .pricing import estimate_product_price
+from .shopping_taxonomy import infer_product_taxonomy
 from .views import ExternalProductSearchAPIView, ProductSearchAPIView, usda_payload
 
 
@@ -159,6 +160,50 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(alias_response.data[0]["canonical_name"], "Staudensellerie")
         self.assertEqual(alias_response.data[0]["id"], response.data[0]["id"])
 
+    def test_gemuesezwiebel_alias_selects_the_complete_onion_product(self):
+        onion = Product.objects.create(
+            name="Speisezwiebel roh",
+            canonical_name="Zwiebel",
+            source="bls",
+            external_id="G480100",
+            is_recipe_ingredient=True,
+            shopping_category="produce",
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(onion)
+
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Gemüsezwiebel", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual([item["name"] for item in response.data], ["Gemüsezwiebel"])
+        self.assertEqual(response.data[0]["canonical_name"], "Zwiebel")
+        self.assertEqual(response.data[0]["external_id"], "G480100")
+        self.assertEqual(response.data[0]["shopping_category"], "produce")
+        self.assertTrue(response.data[0]["nutrition_complete"])
+
+    def test_shopping_taxonomy_separates_category_from_pantry_status(self):
+        self.assertEqual(
+            infer_product_taxonomy("Gemüsezwiebel", "Zwiebel"),
+            ("produce", False),
+        )
+        self.assertEqual(
+            infer_product_taxonomy("Speisesalz", "Salz"),
+            ("pantry", True),
+        )
+        self.assertEqual(
+            infer_product_taxonomy("Erbsen tiefgekühlt", "Erbse"),
+            ("frozen", False),
+        )
+        self.assertEqual(
+            infer_product_taxonomy("Tomaten Konserve", "Dosentomaten"),
+            ("pantry", False),
+        )
+
     def test_walnut_typo_and_prefix_find_generic_walnut_not_composite_products(self):
         walnut = Product.objects.create(
             name="Walnuss",
@@ -278,6 +323,11 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(cumin.protein_per_100g, Decimal("17.81"))
         self.assertEqual(definition_for_query("Cumin").canonical_name, "Kreuzkümmel")
         self.assertEqual(display_name_for_query("Cumin"), "Cumin")
+
+        bamboo = Product.objects.get(source="usda", external_id="169210")
+        self.assertEqual(bamboo.canonical_name, "Bambussprossen")
+        self.assertTrue(bamboo.has_complete_nutrition)
+        self.assertEqual(bamboo.fiber_per_100g, Decimal("2.20"))
 
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(

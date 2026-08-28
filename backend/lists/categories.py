@@ -1,5 +1,10 @@
 import re
 
+from products.shopping_taxonomy import (
+    SHOPPING_CATEGORY_META,
+    infer_product_taxonomy,
+)
+
 
 CATEGORY_RULES = (
     (
@@ -85,7 +90,14 @@ def shopping_category(item):
         getattr(product, "canonical_name", ""),
         getattr(product, "category", ""),
     ]))
-    for key, label, pattern in CATEGORY_RULES:
-        if pattern.search(searchable):
-            return key, label, CATEGORY_ORDER[key]
-    return "other", "Sonstiges", CATEGORY_ORDER["other"]
+    key = getattr(product, "shopping_category", "") if product else ""
+    if not key or key == "other":
+        key, _ = infer_product_taxonomy(
+            getattr(item, "name", ""),
+            getattr(product, "canonical_name", "") if product else "",
+            getattr(product, "category", "") if product else "",
+            getattr(product, "source", "") if product else "",
+            getattr(product, "external_id", "") if product else "",
+        )
+    meta = SHOPPING_CATEGORY_META.get(key, SHOPPING_CATEGORY_META["other"])
+    return key, meta["label"], meta["order"]

@@ -2,6 +2,7 @@ from decimal import Decimal
 
 from .curated_ingredient_data import CURATED_USDA_PRODUCTS
 from .models import Product
+from .shopping_taxonomy import infer_product_taxonomy
 
 
 def ensure_curated_ingredients():
@@ -37,6 +38,16 @@ def ensure_curated_ingredients():
         }),
     )
     for external_id, defaults in ingredients:
+        defaults = defaults.copy()
+        shopping_category, is_common_pantry = infer_product_taxonomy(
+            defaults["name"],
+            defaults["canonical_name"],
+            defaults["category"],
+            "usda",
+            external_id,
+        )
+        defaults["shopping_category"] = shopping_category
+        defaults["is_common_pantry"] = is_common_pantry
         Product.objects.update_or_create(
             source="usda",
             external_id=external_id,
@@ -46,15 +57,25 @@ def ensure_curated_ingredients():
     for item in CURATED_USDA_PRODUCTS:
         external_id = item["external_id"]
         name = item["name"]
+        source_category = (
+            f'{item["category"]} · USDA FoodData Central {external_id}'
+        )
+        shopping_category, is_common_pantry = infer_product_taxonomy(
+            name,
+            name,
+            source_category,
+            "usda",
+            external_id,
+        )
         Product.objects.update_or_create(
             source="usda",
             external_id=external_id,
             defaults={
                 "name": name,
                 "canonical_name": name,
-                "category": (
-                    f'{item["category"]} · USDA FoodData Central {external_id}'
-                ),
+                "category": source_category,
+                "shopping_category": shopping_category,
+                "is_common_pantry": is_common_pantry,
                 "brand": "USDA FoodData Central",
                 "default_unit": item["default_unit"],
                 "is_recipe_ingredient": True,

@@ -656,7 +656,7 @@ class AddRecipeToShoppingListAPIView(
                 user=request.user
             )
             .prefetch_related(
-                "ingredients"
+                "ingredients__product"
             )
             .first()
         )
@@ -682,10 +682,33 @@ class AddRecipeToShoppingListAPIView(
 
         new_items = []
 
+        included_pantry_ids = request.data.get("included_pantry_product_ids")
+        if included_pantry_ids is not None:
+            if not isinstance(included_pantry_ids, list):
+                return Response(
+                    {"detail": "Die ausgewählten Vorratszutaten sind ungültig."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            try:
+                included_pantry_ids = {int(value) for value in included_pantry_ids}
+            except (TypeError, ValueError):
+                return Response(
+                    {"detail": "Die ausgewählten Vorratszutaten sind ungültig."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
 
         for ingredient in (
             recipe.ingredients.all()
         ):
+
+            if (
+                included_pantry_ids is not None
+                and ingredient.product is not None
+                and ingredient.product.is_common_pantry
+                and ingredient.product_id not in included_pantry_ids
+            ):
+                continue
 
             price_data = {
                 field: getattr(ingredient, field)

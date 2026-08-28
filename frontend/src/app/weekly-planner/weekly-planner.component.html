@@ -994,4 +994,87 @@
     </section>
   </div>
 
+
+  <div
+    class="planner-dialog-backdrop"
+    *ngIf="pantryDialogOpen"
+    (click)="closePantryDialog()"
+  >
+    <section
+      class="planner-dialog pantry-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pantry-dialog-title"
+      (click)="$event.stopPropagation()"
+    >
+      <header class="planner-dialog-header">
+        <div>
+          <span>Wocheneinkauf · Vorrat prüfen</span>
+          <h2 id="pantry-dialog-title">Was fehlt dir noch?</h2>
+          <p>
+            Frische Zutaten werden immer hinzugefügt. Wähle nur die
+            Vorratszutaten aus, die du nachkaufen möchtest.
+          </p>
+        </div>
+
+        <button
+          class="dialog-close"
+          type="button"
+          aria-label="Dialog schließen"
+          [disabled]="isCreatingShoppingList"
+          (click)="closePantryDialog()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+      </header>
+
+      <div class="pantry-choice-list">
+        <label
+          class="pantry-choice"
+          *ngFor="let ingredient of weeklyPantryIngredients"
+          [class.selected]="isPantryIngredientIncluded(ingredient)"
+        >
+          <input
+            type="checkbox"
+            [checked]="isPantryIngredientIncluded(ingredient)"
+            (change)="togglePantryIngredient(ingredient)"
+          />
+          <span class="pantry-choice-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"></path></svg>
+          </span>
+          <span>
+            <strong>{{ ingredient.name }}</strong>
+            <small>
+              {{
+                isPantryIngredientIncluded(ingredient)
+                  ? 'Wird nachgekauft'
+                  : 'Ist bereits vorhanden'
+              }}
+            </small>
+          </span>
+        </label>
+      </div>
+
+      <footer class="planner-dialog-actions">
+        <span class="dialog-action-spacer"></span>
+        <button
+          class="dialog-cancel-button"
+          type="button"
+          [disabled]="isCreatingShoppingList"
+          (click)="closePantryDialog()"
+        >
+          Abbrechen
+        </button>
+        <button
+          class="dialog-save-button"
+          type="button"
+          [disabled]="isCreatingShoppingList"
+          (click)="confirmShoppingList()"
+        >
+          {{ isCreatingShoppingList ? 'Wird erstellt…' : 'Einkaufsliste erstellen' }}
+        </button>
+      </footer>
+    </section>
+  </div>
+
 </div>
