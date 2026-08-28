@@ -7,7 +7,11 @@ from xml.etree import ElementTree
 from django.core.management.base import BaseCommand, CommandError
 
 from products.models import Product
-from products.catalog import canonical_recipe_name, recipe_ingredient_status
+from products.catalog import (
+    canonical_recipe_name,
+    recipe_ingredient_status,
+    suggested_unit_for_product,
+)
 from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
 from products.nutrition_quality import apply_safe_zero_defaults
@@ -140,7 +144,11 @@ class Command(BaseCommand):
                 )
                 products.append(Product(
                     source="bls", external_id=external_id, name=name[:150],
-                    default_unit="ml" if shopping_category == "drinks" else "g",
+                    default_unit=suggested_unit_for_product(
+                        name,
+                        canonical_name,
+                        shopping_category,
+                    ),
                     canonical_name=canonical_name,
                     is_recipe_ingredient=is_recipe_ingredient,
                     recipe_exclusion_reason=exclusion_reason,

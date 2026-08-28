@@ -5,18 +5,33 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory, force_authenticate
 
-from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
+from .catalog import (
+    AVERAGE_UNIT_WEIGHT_GRAMS,
+    canonical_recipe_name,
+    canonical_search_query,
+    ingredient_quantity_grams,
+    recipe_ingredient_status,
+    suggested_unit_for_product,
+)
 from .ingredient_catalog import (
+    INGREDIENT_DEFINITIONS,
     canonical_query,
     definition_for_query,
     display_name_for_query,
+    normalize_alias,
     replace_product_aliases,
 )
-from .models import IngredientPriceReference, Product
+from .models import IngredientPriceReference, IngredientSearchMetric, Product
 from .nutrition_quality import apply_safe_zero_defaults, nutrition_is_complete
 from .pricing import estimate_product_price
+from .serializers import ProductSerializer
 from .shopping_taxonomy import infer_product_taxonomy
-from .views import ExternalProductSearchAPIView, ProductSearchAPIView, usda_payload
+from .views import (
+    ExternalProductSearchAPIView,
+    IngredientSearchFeedbackAPIView,
+    ProductSearchAPIView,
+    usda_payload,
+)
 
 
 COMPLETE_NUTRITION = {
@@ -35,6 +50,95 @@ class RecipeCatalogTests(TestCase):
             email="catalog@example.com",
             password="test-password",
         )
+
+    def test_every_curated_definition_has_one_unambiguous_nutrition_source(self):
+        alias_owners = {}
+        for definition in INGREDIENT_DEFINITIONS:
+            self.assertTrue(
+                definition.preferred_bls_codes or definition.preferred_usda_ids,
+                f"{definition.canonical_name} hat keine geprüfte Nährwertquelle.",
+            )
+            for alias in (definition.canonical_name, *definition.aliases):
+                normalized = normalize_alias(alias)
+                previous = alias_owners.setdefault(normalized, definition.canonical_name)
+                self.assertEqual(
+                    previous,
+                    definition.canonical_name,
+                    f"{alias} ist mehreren Zutaten zugeordnet.",
+                )
+
+    def test_piece_units_use_central_weights_and_parmesan_stays_in_grams(self):
+        self.assertEqual(
+            ingredient_quantity_grams("Knoblauchzehe", 2, "Stück"),
+            Decimal("6"),
+        )
+        self.assertEqual(
+            ingredient_quantity_grams("Ei", 3, "Stück"),
+            Decimal("180"),
+        )
+        self.assertEqual(
+            suggested_unit_for_product("Knoblauch", "Knoblauch", "produce"),
+            "Stück",
+        )
+        self.assertEqual(
+            suggested_unit_for_product("Parmesan gerieben", "Parmesan", "dairy"),
+            "g",
+        )
+        self.assertEqual(
+            suggested_unit_for_product("Fischsauce", "Fischsauce", "pantry", "ml"),
+            "ml",
+        )
+        garlic = Product(
+            name="Knoblauch roh",
+            canonical_name="Knoblauch",
+            default_unit="Stück",
+        )
+        self.assertEqual(ProductSerializer(garlic).data["grams_per_unit"], "3")
+        self.assertTrue(all(weight > 0 for weight in AVERAGE_UNIT_WEIGHT_GRAMS.values()))
+
+    def test_search_feedback_is_aggregated_without_user_data(self):
+        for result_count in (0, 0, 3):
+            request = APIRequestFactory().post(
+                "/products/search-feedback/",
+                {
+                    "query": "Gemüsezwiebel",
+                    "context": "recipe_create",
+                    "event": "search",
+                    "result_count": result_count,
+                },
+                format="json",
+            )
+            force_authenticate(request, user=self.user)
+            response = IngredientSearchFeedbackAPIView.as_view()(request)
+            self.assertEqual(response.status_code, 204)
+
+        product = Product.objects.get(source="usda", external_id="170497")
+        selection_request = APIRequestFactory().post(
+            "/products/search-feedback/",
+            {
+                "query": "Gemüsezwiebel",
+                "context": "recipe_create",
+                "event": "selected",
+                "product_id": product.id,
+                "selected_rank": 2,
+            },
+            format="json",
+        )
+        force_authenticate(selection_request, user=self.user)
+        selection_response = IngredientSearchFeedbackAPIView.as_view()(selection_request)
+        self.assertEqual(selection_response.status_code, 204)
+
+        metric = IngredientSearchMetric.objects.get(
+            normalized_query="gemuesezwiebel",
+            context="recipe_create",
+        )
+        self.assertEqual(metric.search_count, 3)
+        self.assertEqual(metric.zero_result_count, 2)
+        self.assertEqual(metric.selection_count, 1)
+        self.assertEqual(metric.last_result_count, 3)
+        self.assertEqual(metric.last_selected_rank, 2)
+        self.assertEqual(metric.last_selected_product, product)
+        self.assertEqual(metric.selection_counts, {str(product.id): 1})
 
     def test_catalog_classification_and_canonical_name(self):
         self.assertEqual(canonical_recipe_name("H-Milch fettarm, 1,5 % Fett"), "Fettarme Milch")

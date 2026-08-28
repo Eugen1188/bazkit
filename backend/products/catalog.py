@@ -209,26 +209,96 @@ CATEGORY_INGREDIENT_NAMES = {
 # die Vorschau und automatische Schätzung verwendet, wenn der Nutzer bewusst
 # "Stück" statt einer Gewichtsangabe auswählt.
 AVERAGE_UNIT_WEIGHT_GRAMS = {
+    # Obst (durchschnittlicher essbarer Anteil)
     "Banane": Decimal("120"),
     "Apfel": Decimal("180"),
     "Birne": Decimal("180"),
     "Orange": Decimal("150"),
     "Mandarine": Decimal("80"),
     "Zitrone": Decimal("80"),
+    "Limette": Decimal("65"),
     "Kiwi": Decimal("75"),
     "Avocado": Decimal("150"),
+    "Mango": Decimal("200"),
+    "Ananas": Decimal("900"),
+    "Granatapfel": Decimal("280"),
+    "Pfirsich": Decimal("150"),
+    "Nektarine": Decimal("140"),
+    "Aprikose": Decimal("35"),
+    "Pflaume": Decimal("70"),
+    "Feige": Decimal("50"),
+    "Dattel": Decimal("8"),
+    "Physalis": Decimal("5"),
+
+    # Gemüse
     "Tomate": Decimal("120"),
     "Kartoffel": Decimal("150"),
     "Süßkartoffel": Decimal("250"),
     "Zwiebel": Decimal("100"),
+    "Schalotte": Decimal("25"),
+    "Frühlingszwiebel": Decimal("15"),
+    # Bei der Suche nach Knoblauchzehe bezeichnet ein Stück eine Zehe,
+    # nicht die ganze Knolle.
+    "Knoblauch": Decimal("3"),
     "Karotte": Decimal("80"),
+    "Pastinake": Decimal("120"),
+    "Rote Bete": Decimal("150"),
+    "Steckrübe": Decimal("600"),
     "Gurke": Decimal("350"),
     "Zucchini": Decimal("200"),
+    "Aubergine": Decimal("300"),
     "Paprika": Decimal("150"),
+    "Paprika rot": Decimal("150"),
+    "Paprika gelb": Decimal("150"),
+    "Paprika grün": Decimal("150"),
     "Chilischote": Decimal("15"),
+    "Staudensellerie": Decimal("40"),
+    "Knollensellerie": Decimal("500"),
+    "Fenchel": Decimal("250"),
+    "Kohlrabi": Decimal("350"),
+    "Brokkoli": Decimal("400"),
+    "Blumenkohl": Decimal("700"),
+    "Pak Choi": Decimal("250"),
+    "Chinakohl": Decimal("800"),
+    "Artischocke": Decimal("300"),
+    "Lauch": Decimal("200"),
+    "Radieschen": Decimal("15"),
+    "Rettich": Decimal("350"),
+    "Spargel": Decimal("20"),
+    "Champignon": Decimal("20"),
+    "Hokkaidokürbis": Decimal("1200"),
+    "Kürbis": Decimal("1000"),
+
+    # Tierische Zutaten, wenn Nutzer statt Gramm bewusst Stück wählen
     "Ei": Decimal("60"),
     "Hähnchenbrust": Decimal("180"),
+    "Putenbrust": Decimal("180"),
+    "Lachs": Decimal("150"),
+    "Wildlachs": Decimal("150"),
+    "Seelachs": Decimal("150"),
+    "Alaska-Seelachs": Decimal("150"),
+    "Kabeljau": Decimal("150"),
 }
+
+
+def average_unit_weight_grams(name):
+    canonical_name = canonical_query(name)
+    if canonical_name == str(name or "").strip():
+        canonical_name = canonical_recipe_name(name)
+    return AVERAGE_UNIT_WEIGHT_GRAMS.get(canonical_name)
+
+
+def suggested_unit_for_product(
+    name,
+    canonical_name="",
+    shopping_category="",
+    fallback_unit="g",
+):
+    if shopping_category == "drinks":
+        return "ml"
+    if average_unit_weight_grams(canonical_name or name) is not None:
+        return "Stück"
+    return str(fallback_unit or "g")
 
 
 def ingredient_quantity_grams(name, quantity, unit):
@@ -256,7 +326,6 @@ def ingredient_quantity_grams(name, quantity, unit):
         return amount * factor
 
     if normalized_unit in {"stück", "stueck"}:
-        canonical_name = canonical_recipe_name(name)
-        average_weight = AVERAGE_UNIT_WEIGHT_GRAMS.get(canonical_name)
+        average_weight = average_unit_weight_grams(name)
         return amount * average_weight if average_weight is not None else None
     return None

@@ -2,19 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { PriceEstimate, ProductService, ProductSuggestion } from '../../services/product.service';
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
 
 interface PreparationStep { text: string; }
 interface IngredientSearch { index: number; query: string; }
-
-const AVERAGE_UNIT_WEIGHT_GRAMS: Record<string, number> = {
-  banane: 120, apfel: 180, birne: 180, orange: 150, mandarine: 80,
-  zitrone: 80, kiwi: 75, avocado: 150, tomate: 120, kartoffel: 150,
-  süßkartoffel: 250, zwiebel: 100, karotte: 80, gurke: 350,
-  zucchini: 200, paprika: 150, ei: 60, hähnchenbrust: 180,
-};
 
 @Component({
   selector: 'app-create-recipe',
@@ -69,13 +62,20 @@ export class CreateRecipeComponent implements OnDestroy {
       switchMap(search => {
         this.activeIngredientIndex = search.index;
         this.isIngredientSearching = true;
-        return this.productService.searchProducts(search.query, true);
+        return this.productService.searchProducts(search.query, true).pipe(
+          map(products => ({ search, products })),
+        );
       }),
     ).subscribe({
-      next: products => {
+      next: ({ search, products }) => {
         this.ingredientSuggestions = products;
         this.isIngredientSearching = false;
         this.isIngredientSuggestionsOpen = this.activeIngredientIndex !== null;
+        this.productService.recordIngredientSearch(
+          search.query,
+          products.length,
+          'recipe_create',
+        ).subscribe();
       },
       error: () => {
         this.ingredientSuggestions = [];
@@ -113,6 +113,8 @@ export class CreateRecipeComponent implements OnDestroy {
 
   selectIngredientSuggestion(index: number, suggestion: ProductSuggestion): void {
     if (!this.ingredients[index] || this.selectingIngredientIndex !== null) return;
+    const searchQuery = this.ingredients[index].name.trim();
+    const selectedRank = Math.max(1, this.ingredientSuggestions.indexOf(suggestion) + 1);
     this.selectingIngredientIndex = index;
     this.errorMessage = '';
     this.productService.persistExternalProduct(suggestion).subscribe({
@@ -126,6 +128,12 @@ export class CreateRecipeComponent implements OnDestroy {
         this.selectingIngredientIndex = null;
         this.closeAutocomplete();
         this.refreshIngredientPrice(index);
+        this.productService.recordIngredientSelection(
+          searchQuery,
+          product.id,
+          selectedRank,
+          'recipe_create',
+        ).subscribe();
       },
       error: () => {
         this.selectingIngredientIndex = null;
@@ -243,9 +251,12 @@ export class CreateRecipeComponent implements OnDestroy {
     const factor = factors[unit];
     if (factor !== undefined) return Number(ingredient.quantity) * factor;
     if (unit !== 'stück' && unit !== 'stueck') return null;
-    const productName = (product?.canonical_name || product?.name || ingredient.name).trim().toLocaleLowerCase('de-DE');
-    const averageWeight = AVERAGE_UNIT_WEIGHT_GRAMS[productName];
-    return averageWeight === undefined ? null : Number(ingredient.quantity) * averageWeight;
+    const averageWeight = product?.grams_per_unit == null
+      ? null
+      : Number(product.grams_per_unit);
+    return averageWeight !== null && Number.isFinite(averageWeight) && averageWeight > 0
+      ? Number(ingredient.quantity) * averageWeight
+      : null;
   }
   private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück', estimated_price: null, price_source: '', price_currency: 'EUR', price_sample_count: 0 }; }
   private applyPriceEstimate(ingredient: RecipeIngredient, estimate: PriceEstimate): void {

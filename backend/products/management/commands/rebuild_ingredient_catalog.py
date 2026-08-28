@@ -2,7 +2,11 @@ from collections import Counter
 
 from django.core.management.base import BaseCommand
 
-from products.catalog import canonical_recipe_name, recipe_ingredient_status
+from products.catalog import (
+    canonical_recipe_name,
+    recipe_ingredient_status,
+    suggested_unit_for_product,
+)
 from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
 from products.models import Product
@@ -49,10 +53,11 @@ class Command(BaseCommand):
                 product.source,
                 product.external_id,
             )
-            default_unit = (
-                "ml"
-                if product.source == "bls" and shopping_category == "drinks"
-                else product.default_unit
+            default_unit = suggested_unit_for_product(
+                product.name,
+                canonical_name,
+                shopping_category,
+                product.default_unit,
             )
             original_nutrients = {
                 field: getattr(product, field)

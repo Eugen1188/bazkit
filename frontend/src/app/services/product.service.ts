@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, forkJoin, map, Observable, of } from 'rxjs';
 
 export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
+export type IngredientSearchContext = 'recipe_create' | 'recipe_edit' | 'shopping_list' | 'saved_list';
 
 export interface ProductSuggestion {
   id: number | null;
@@ -16,6 +17,7 @@ export interface ProductSuggestion {
   source: string | null;
   external_id: string | null;
   default_unit: string;
+  grams_per_unit?: string | null;
   calories_per_100g: string | null;
   protein_per_100g: string | null;
   carbohydrates_per_100g: string | null;
@@ -98,6 +100,34 @@ export class ProductService {
       source: product.source,
       external_id: product.external_id,
     });
+  }
+
+  recordIngredientSearch(
+    query: string,
+    resultCount: number,
+    context: IngredientSearchContext,
+  ): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}search-feedback/`, {
+      query: query.trim(),
+      context,
+      event: 'search',
+      result_count: resultCount,
+    }).pipe(catchError(() => of(void 0)));
+  }
+
+  recordIngredientSelection(
+    query: string,
+    productId: number,
+    selectedRank: number,
+    context: IngredientSearchContext,
+  ): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}search-feedback/`, {
+      query: query.trim(),
+      context,
+      event: 'selected',
+      product_id: productId,
+      selected_rank: selectedRank,
+    }).pipe(catchError(() => of(void 0)));
   }
 
   estimatePrice(

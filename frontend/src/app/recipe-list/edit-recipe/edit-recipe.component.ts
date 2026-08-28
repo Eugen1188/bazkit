@@ -22,6 +22,7 @@ import {
   Subscription,
   debounceTime,
   distinctUntilChanged,
+  map,
   switchMap
 } from 'rxjs';
 
@@ -43,14 +44,6 @@ import {
 interface PreparationStep {
   text: string;
 }
-
-const AVERAGE_UNIT_WEIGHT_GRAMS: Record<string, number> = {
-  banane: 120, apfel: 180, birne: 180, orange: 150, mandarine: 80,
-  zitrone: 80, kiwi: 75, avocado: 150, tomate: 120, kartoffel: 150,
-  süßkartoffel: 250, zwiebel: 100, karotte: 80, gurke: 350,
-  zucchini: 200, paprika: 150, ei: 60, hähnchenbrust: 180,
-};
-
 
 interface IngredientSearch {
   index: number;
@@ -263,6 +256,9 @@ implements OnInit, OnDestroy {
                 .searchProducts(
                   search.query,
                   true
+                )
+                .pipe(
+                  map(products => ({ search, products }))
                 );
             }
           )
@@ -271,11 +267,11 @@ implements OnInit, OnDestroy {
         .subscribe({
 
           next: (
-            products
+            result
           ) => {
 
             this.ingredientSuggestions =
-              products;
+              result.products;
 
             this.isIngredientSearching =
               false;
@@ -285,6 +281,12 @@ implements OnInit, OnDestroy {
                 this.activeIngredientIndex !==
                 null
               );
+
+            this.productService.recordIngredientSearch(
+              result.search.query,
+              result.products.length,
+              'recipe_edit'
+            ).subscribe();
           },
 
 
@@ -513,7 +515,6 @@ implements OnInit, OnDestroy {
       return;
     }
 
-
     ingredient.name =
       value;
 
@@ -622,6 +623,9 @@ implements OnInit, OnDestroy {
       return;
     }
 
+    const searchQuery = ingredient.name.trim();
+    const selectedRank = Math.max(1, this.ingredientSuggestions.indexOf(product) + 1);
+
 
     this.productService.persistExternalProduct(product).subscribe({
       next: savedProduct => {
@@ -636,6 +640,12 @@ implements OnInit, OnDestroy {
         this.closeIngredientAutocompleteImmediately();
         this.recalculateNutrition();
         this.refreshIngredientPrice(index);
+        this.productService.recordIngredientSelection(
+          searchQuery,
+          savedProduct.id,
+          selectedRank,
+          'recipe_edit'
+        ).subscribe();
       },
       error: () => { this.errorMessage = 'Das ausgewählte Produkt konnte nicht übernommen werden.'; },
     });
@@ -861,9 +871,12 @@ implements OnInit, OnDestroy {
     const factor = factors[unit];
     if (factor !== undefined) return Number(ingredient.quantity) * factor;
     if (unit !== 'stück' && unit !== 'stueck') return null;
-    const productName = (product?.canonical_name || product?.name || ingredient.name).trim().toLocaleLowerCase('de-DE');
-    const averageWeight = AVERAGE_UNIT_WEIGHT_GRAMS[productName];
-    return averageWeight === undefined ? null : Number(ingredient.quantity) * averageWeight;
+    const averageWeight = product?.grams_per_unit == null
+      ? null
+      : Number(product.grams_per_unit);
+    return averageWeight !== null && Number.isFinite(averageWeight) && averageWeight > 0
+      ? Number(ingredient.quantity) * averageWeight
+      : null;
   }
 
   private recalculateEstimatedPrice(): void {

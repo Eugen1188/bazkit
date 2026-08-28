@@ -15,7 +15,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
+from .catalog import (
+    average_unit_weight_grams,
+    canonical_recipe_name,
+    canonical_search_query,
+    recipe_ingredient_status,
+    suggested_unit_for_product,
+)
 from .ingredient_catalog import (
     definition_for_query,
     display_name_for_query,
@@ -26,9 +32,10 @@ from .ingredient_catalog import (
     usda_display_name,
     usda_query,
 )
-from .models import Product, ProductAlias
+from .models import IngredientSearchMetric, Product, ProductAlias
 from .pricing import estimate_open_price, estimate_product_price
 from .serializers import ProductSerializer
+from .shopping_taxonomy import infer_product_taxonomy
 
 logger = logging.getLogger(__name__)
 OFF_SEARCH_URL = "https://world.openfoodfacts.org/cgi/search.pl"
@@ -43,6 +50,10 @@ AMOUNT_SUFFIX = re.compile(
     r"(?:\s*(?:packung|flasche|dose|beutel|glas))?\s*\)?\s*$",
     re.I,
 )
+
+SEARCH_FEEDBACK_CONTEXTS = {
+    value for value, _label in IngredientSearchMetric.CONTEXT_CHOICES
+}
 
 
 def off_session():
@@ -91,6 +102,84 @@ def nutrition_is_complete(product):
     )
 
 
+class IngredientSearchFeedbackAPIView(APIView):
+    """Speichert nur aggregierte Suchqualität, niemals Nutzer- oder Rezeptdaten."""
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        query = clean_text(request.data.get("query"), 100)
+        normalized_query = normalize_alias(query)
+        context = clean_text(request.data.get("context"), 30)
+        event = clean_text(request.data.get("event"), 20)
+
+        if len(normalized_query) < 2:
+            return Response(
+                {"detail": "Der Suchbegriff ist zu kurz."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if context not in SEARCH_FEEDBACK_CONTEXTS:
+            return Response(
+                {"detail": "Unbekannter Suchkontext."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if event not in {"search", "selected"}:
+            return Response(
+                {"detail": "Unbekanntes Suchereignis."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            result_count = max(0, min(100, int(request.data.get("result_count", 0))))
+        except (TypeError, ValueError):
+            return Response(
+                {"detail": "Die Trefferanzahl ist ungültig."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        selected_product = None
+        selected_rank = None
+        if event == "selected":
+            selected_product = Product.objects.filter(
+                pk=request.data.get("product_id")
+            ).first()
+            if selected_product is None:
+                return Response(
+                    {"detail": "Das ausgewählte Produkt wurde nicht gefunden."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            try:
+                selected_rank = max(1, min(100, int(request.data.get("selected_rank", 1))))
+            except (TypeError, ValueError):
+                selected_rank = 1
+
+        with transaction.atomic():
+            metric, _created = IngredientSearchMetric.objects.select_for_update().get_or_create(
+                normalized_query=normalized_query,
+                context=context,
+                defaults={"display_query": query},
+            )
+            metric.display_query = query
+            if event == "search":
+                metric.search_count += 1
+                metric.last_result_count = result_count
+                if result_count == 0:
+                    metric.zero_result_count += 1
+                    if metric.review_status == "resolved":
+                        metric.review_status = "open"
+            else:
+                metric.selection_count += 1
+                metric.last_selected_product = selected_product
+                metric.last_selected_rank = selected_rank
+                counts = dict(metric.selection_counts or {})
+                product_key = str(selected_product.pk)
+                counts[product_key] = int(counts.get(product_key, 0)) + 1
+                metric.selection_counts = counts
+            metric.save()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 def usda_nutrient_values(item):
     values = {}
     energy_kj = None
@@ -132,17 +221,30 @@ def usda_payload(item, original_query=""):
         "usda",
         fdc_id,
     )
+    source_category = clean_text(item.get("foodCategory") or item.get("dataType"), 150)
+    canonical_name = canonical_recipe_name(name, "usda", fdc_id)
+    shopping_category, is_common_pantry = infer_product_taxonomy(
+        name,
+        canonical_name,
+        source_category,
+        "usda",
+        fdc_id,
+    )
+    grams_per_unit = average_unit_weight_grams(canonical_name)
     result = {
         "id": None,
         "name": name,
-        "canonical_name": canonical_recipe_name(name, "usda", fdc_id),
+        "canonical_name": canonical_name,
         "is_recipe_ingredient": is_recipe_ingredient,
         "recipe_exclusion_reason": exclusion_reason,
-        "category": clean_text(item.get("foodCategory") or item.get("dataType"), 150),
+        "category": source_category,
+        "shopping_category": shopping_category,
+        "is_common_pantry": is_common_pantry,
         "brand": "USDA FoodData Central",
         "source": "usda",
         "external_id": fdc_id,
-        "default_unit": "g",
+        "default_unit": suggested_unit_for_product(name, canonical_name, shopping_category),
+        "grams_per_unit": str(grams_per_unit) if grams_per_unit is not None else None,
         "calories_per_100g": None,
         "protein_per_100g": None,
         "carbohydrates_per_100g": None,
@@ -194,17 +296,29 @@ def off_payload(item):
         "open_food_facts",
         code,
     )
+    source_category = clean_text(item.get("categories"), 150)
+    shopping_category, is_common_pantry = infer_product_taxonomy(
+        name,
+        canonical_name,
+        source_category,
+        "open_food_facts",
+        code,
+    )
+    grams_per_unit = average_unit_weight_grams(canonical_name)
     result = {
         "id": None,
         "name": name,
         "canonical_name": canonical_name,
         "is_recipe_ingredient": is_recipe_ingredient,
         "recipe_exclusion_reason": exclusion_reason,
-        "category": clean_text(item.get("categories"), 150),
+        "category": source_category,
+        "shopping_category": shopping_category,
+        "is_common_pantry": is_common_pantry,
         "brand": clean_text(item.get("brands"), 150),
         "source": "open_food_facts",
         "external_id": code,
-        "default_unit": "g",
+        "default_unit": suggested_unit_for_product(name, canonical_name, shopping_category),
+        "grams_per_unit": str(grams_per_unit) if grams_per_unit is not None else None,
         "calories_per_100g": decimal_or_none(nutriments.get("energy-kcal_100g")),
         "protein_per_100g": decimal_or_none(nutriments.get("proteins_100g")),
         "carbohydrates_per_100g": decimal_or_none(nutriments.get("carbohydrates_100g")),
@@ -544,7 +658,11 @@ class SaveExternalProductAPIView(APIView):
                 {"detail": "Für diese Zutat sind keine vollständigen, geprüften Nährwerte verfügbar."},
                 status=status.HTTP_422_UNPROCESSABLE_ENTITY,
             )
-        defaults = {key: value for key, value in product_data.items() if key not in {"id", "origin", "source", "external_id"}}
+        defaults = {
+            key: value
+            for key, value in product_data.items()
+            if key not in {"id", "origin", "source", "external_id", "grams_per_unit"}
+        }
         defaults.pop("nutrition_complete", None)
         with transaction.atomic():
             product, created = Product.objects.get_or_create(source=source, external_id=external_id, defaults=defaults)

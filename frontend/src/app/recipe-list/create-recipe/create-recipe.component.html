@@ -564,6 +564,7 @@
             <option
               *ngFor="let unit of units"
               [value]="unit"
+              [disabled]="unit === 'Stück' && !!selectedProducts[i] && !selectedProducts[i]?.grams_per_unit"
             >
               {{ unit }}
             </option>
@@ -619,6 +620,9 @@
             </small>
             <small *ngIf="!ingredientPriceLoading[i] && !ingredients[i].price_source">
               Keine Marktdaten – nicht in der Kostenschätzung berücksichtigt
+            </small>
+            <small *ngIf="ingredients[i].unit === 'Stück' && product.grams_per_unit">
+              1 Stück ≈ {{ product.grams_per_unit }} g · wird automatisch in die Nährwerte eingerechnet
             </small>
             <small>je 100 g · {{ product.origin === 'bls' ? 'BLS' : product.origin === 'open_food_facts' ? 'Open Food Facts' : product.origin === 'usda' ? 'USDA FoodData Central' : 'Bazkit' }}</small>
           </ng-container>

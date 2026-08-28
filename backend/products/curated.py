@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+from .catalog import suggested_unit_for_product
 from .curated_ingredient_data import CURATED_USDA_PRODUCTS
 from .models import Product
 from .shopping_taxonomy import infer_product_taxonomy
@@ -48,6 +49,12 @@ def ensure_curated_ingredients():
         )
         defaults["shopping_category"] = shopping_category
         defaults["is_common_pantry"] = is_common_pantry
+        defaults["default_unit"] = suggested_unit_for_product(
+            defaults["name"],
+            defaults["canonical_name"],
+            shopping_category,
+            defaults["default_unit"],
+        )
         Product.objects.update_or_create(
             source="usda",
             external_id=external_id,
@@ -77,7 +84,12 @@ def ensure_curated_ingredients():
                 "shopping_category": shopping_category,
                 "is_common_pantry": is_common_pantry,
                 "brand": "USDA FoodData Central",
-                "default_unit": item["default_unit"],
+                "default_unit": suggested_unit_for_product(
+                    name,
+                    name,
+                    shopping_category,
+                    item["default_unit"],
+                ),
                 "is_recipe_ingredient": True,
                 "recipe_exclusion_reason": "",
                 "calories_per_100g": Decimal(item["calories_per_100g"]),

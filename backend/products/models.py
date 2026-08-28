@@ -203,6 +203,64 @@ class ProductAlias(models.Model):
         super().save(*args, **kwargs)
 
 
+class IngredientSearchMetric(models.Model):
+    CONTEXT_CHOICES = [
+        ("recipe_create", "Rezept erstellen"),
+        ("recipe_edit", "Rezept bearbeiten"),
+        ("shopping_list", "Einkaufsliste"),
+        ("saved_list", "Gespeicherte Liste"),
+    ]
+    REVIEW_STATUS_CHOICES = [
+        ("open", "Offen"),
+        ("resolved", "Gelöst"),
+        ("ignored", "Ignoriert"),
+    ]
+
+    normalized_query = models.CharField(max_length=100)
+    display_query = models.CharField(max_length=100)
+    context = models.CharField(max_length=30, choices=CONTEXT_CHOICES)
+    search_count = models.PositiveIntegerField(default=0)
+    zero_result_count = models.PositiveIntegerField(default=0)
+    selection_count = models.PositiveIntegerField(default=0)
+    last_result_count = models.PositiveSmallIntegerField(default=0)
+    last_selected_rank = models.PositiveSmallIntegerField(null=True, blank=True)
+    last_selected_product = models.ForeignKey(
+        Product,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="ingredient_search_metrics",
+    )
+    selection_counts = models.JSONField(default=dict, blank=True)
+    review_status = models.CharField(
+        max_length=20,
+        choices=REVIEW_STATUS_CHOICES,
+        default="open",
+        db_index=True,
+    )
+    review_note = models.CharField(max_length=250, blank=True)
+    first_seen_at = models.DateTimeField(auto_now_add=True)
+    last_seen_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["normalized_query", "context"],
+                name="unique_ingredient_search_metric",
+            )
+        ]
+        indexes = [
+            models.Index(
+                fields=["review_status", "-zero_result_count"],
+                name="ingredient_search_gap_idx",
+            ),
+        ]
+        ordering = ["-zero_result_count", "-search_count", "normalized_query"]
+
+    def __str__(self):
+        return f"{self.display_query} ({self.context})"
+
+
 class IngredientPriceReference(models.Model):
     BASIS_CHOICES = [
         ("kg", "Kilogramm"),
