@@ -1,6 +1,7 @@
 import logging
 import re
 from decimal import Decimal, InvalidOperation
+from difflib import SequenceMatcher
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -17,14 +18,15 @@ from rest_framework.views import APIView
 from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
 from .ingredient_catalog import (
     definition_for_query,
+    display_name_for_query,
     expanded_search_terms,
     normalize_alias,
-    preferred_bls_codes,
+    preferred_product_keys,
     replace_product_aliases,
     usda_display_name,
     usda_query,
 )
-from .models import Product
+from .models import Product, ProductAlias
 from .pricing import estimate_open_price, estimate_product_price
 from .serializers import ProductSerializer
 
@@ -222,6 +224,7 @@ class ProductSearchAPIView(APIView):
         recipe_only = request.query_params.get("recipe_only") in {"1", "true", "yes"}
         if len(query) < 2:
             return Response([])
+        query_definition = definition_for_query(query) if recipe_only else None
         ranking_query = canonical_search_query(query) if recipe_only else query
         search_terms = expanded_search_terms(query) if recipe_only else {query}
         search_terms.add(ranking_query)
@@ -245,10 +248,48 @@ class ProductSearchAPIView(APIView):
                 fat_per_100g__isnull=False,
                 fiber_per_100g__isnull=False,
             )
-        products = products.prefetch_related("aliases").distinct()[:400 if recipe_only else 40]
+        products = list(
+            products.prefetch_related("aliases").distinct()[:400 if recipe_only else 40]
+        )
 
         normalized_query = normalize_alias(ranking_query)
-        preferred_codes = preferred_bls_codes(query) if recipe_only else ()
+        preferred_keys = preferred_product_keys(query) if recipe_only else ()
+
+        if recipe_only and not products and len(normalized_query) >= 5:
+            alias_candidates = ProductAlias.objects.select_related("product").filter(
+                normalized_alias__startswith=normalized_query[:2],
+                product__source__in=("bls", "open_food_facts", "usda"),
+                product__is_recipe_ingredient=True,
+                product__calories_per_100g__isnull=False,
+                product__protein_per_100g__isnull=False,
+                product__carbohydrates_per_100g__isnull=False,
+                product__fat_per_100g__isnull=False,
+                product__fiber_per_100g__isnull=False,
+            )[:2000]
+            fuzzy_products = {}
+            for alias in alias_candidates:
+                score = SequenceMatcher(
+                    None,
+                    normalized_query,
+                    alias.normalized_alias,
+                ).ratio()
+                if score < 0.76:
+                    continue
+                current = fuzzy_products.get(alias.product_id)
+                if current is None or score > current[0]:
+                    fuzzy_products[alias.product_id] = (score, alias.product)
+            fuzzy_ids = [
+                product_id
+                for product_id, _ in sorted(
+                    fuzzy_products.items(),
+                    key=lambda item: item[1][0],
+                    reverse=True,
+                )[:100]
+            ]
+            if fuzzy_ids:
+                products = list(
+                    Product.objects.filter(id__in=fuzzy_ids).prefetch_related("aliases")
+                )
 
         def relevance(product):
             names = {
@@ -261,10 +302,11 @@ class ProductSearchAPIView(APIView):
             contains = any(normalized_query in name for name in names)
             source_rank = {"bls": 0, "usda": 1, "open_food_facts": 2}.get(product.source, 3)
             generic_rank = 0 if not product.brand or product.source in {"bls", "usda"} else 1
+            product_key = (product.source, str(product.external_id or ""))
             preferred_rank = (
-                preferred_codes.index(product.external_id)
-                if product.source == "bls" and product.external_id in preferred_codes
-                else len(preferred_codes) + 1
+                preferred_keys.index(product_key)
+                if product_key in preferred_keys
+                else len(preferred_keys) + 1
             )
             return (
                 0 if exact else 1 if prefix else 2 if contains else 3,
@@ -287,10 +329,31 @@ class ProductSearchAPIView(APIView):
                 item["external_id"],
             )[0]:
                 continue
-            display_name = clean_name(item["canonical_name"] if recipe_only else item["name"])
+            canonical_name = clean_name(
+                item["canonical_name"] if recipe_only else item["name"]
+            )
+            if (
+                query_definition
+                and preferred_keys
+                and item["source"] == "open_food_facts"
+                and normalize_alias(canonical_name)
+                != normalize_alias(query_definition.canonical_name)
+            ):
+                continue
+            display_name = canonical_name
+            if (
+                query_definition
+                and normalize_alias(canonical_name)
+                == normalize_alias(query_definition.canonical_name)
+            ):
+                display_name = clean_name(display_name_for_query(query))
             if not display_name:
                 continue
-            key = display_name.casefold() if recipe_only else f'{item["source"]}:{item["external_id"]}'
+            key = (
+                normalize_alias(canonical_name)
+                if recipe_only
+                else f'{item["source"]}:{item["external_id"]}'
+            )
             if key in seen:
                 continue
             seen.add(key)
@@ -352,7 +415,22 @@ class ExternalProductSearchAPIView(APIView):
         recipe_only = request.query_params.get("recipe_only") in {"1", "true", "yes"}
         if len(query) < 4:
             return Response([])
-        cache_key = f"external-food-search:v2:{query.casefold()}:{int(recipe_only)}"
+        if recipe_only:
+            preferred_filter = Q()
+            preferred_keys = preferred_product_keys(query)
+            for source, external_id in preferred_keys:
+                preferred_filter |= Q(source=source, external_id=external_id)
+            if preferred_keys and Product.objects.filter(
+                preferred_filter,
+                is_recipe_ingredient=True,
+                calories_per_100g__isnull=False,
+                protein_per_100g__isnull=False,
+                carbohydrates_per_100g__isnull=False,
+                fat_per_100g__isnull=False,
+                fiber_per_100g__isnull=False,
+            ).exists():
+                return Response([])
+        cache_key = f"external-food-search:v3:{query.casefold()}:{int(recipe_only)}"
         cached = cache.get(cache_key)
         if cached is not None:
             return Response(cached)
@@ -389,7 +467,11 @@ class ExternalProductSearchAPIView(APIView):
                 continue
             seen.add(product["external_id"])
             if recipe_only:
-                product["name"] = product["canonical_name"]
+                product["name"] = (
+                    display_name_for_query(query)
+                    if query_definition
+                    else product["canonical_name"]
+                )
             results.append(product)
         if recipe_only:
             try:

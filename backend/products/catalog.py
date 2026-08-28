@@ -1,7 +1,11 @@
 import re
 from decimal import Decimal, InvalidOperation
 
-from .ingredient_catalog import canonical_query, curated_canonical_name
+from .ingredient_catalog import (
+    canonical_query,
+    curated_canonical_name,
+    definition_for_product,
+)
 
 
 AMOUNT_SUFFIX = re.compile(
@@ -66,7 +70,7 @@ PREPARED_FOOD = re.compile(
     r"chili\s+(?:con|sin)\s+carne|"
     r"tellergericht|fertiggericht|menü|mahlzeit|risotto|paella|fischstäbchen|"
     r"cordon\s+bleu|döner|gyros|hot\s+dog|hamburger|ravioli|tortellini|"
-    r"schupfnudeln|frikadelle|speiseeis|eiscreme)\b",
+    r"schupfnudeln|frikadelle|(?:speise)?eis|eiscreme|glace|nougat)\b",
     re.I,
 )
 PREPARED_VARIANT = re.compile(
@@ -133,6 +137,8 @@ def recipe_ingredient_status(name, category="", source="", external_id=""):
     searchable = f"{cleaned_name} {category or ''}"
     if not cleaned_name:
         return False, "Produktname fehlt"
+    if definition_for_product(source, external_id):
+        return True, ""
     if PREPARED_FOOD.search(searchable):
         return False, "Fertiggericht oder zusammengesetzte Speise"
     if PREPARED_VARIANT.search(cleaned_name) and not ALLOWED_INGREDIENT.search(cleaned_name):

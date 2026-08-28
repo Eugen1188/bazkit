@@ -1,5 +1,8 @@
 import re
 from dataclasses import dataclass
+from difflib import SequenceMatcher
+
+from .ingredient_catalog_data import EXTENDED_INGREDIENT_DEFINITIONS
 
 
 @dataclass(frozen=True)
@@ -8,18 +11,19 @@ class IngredientDefinition:
     aliases: tuple[str, ...]
     usda_query: str
     preferred_bls_codes: tuple[str, ...] = ()
+    preferred_usda_ids: tuple[str, ...] = ()
 
 
 # Die Liste bildet die Sprache ab, die Nutzer beim Kochen tatsächlich verwenden.
 # Sie ersetzt keine Nährwertquelle: Sie führt lediglich Schreibweisen und
 # Einkaufsbegriffe auf einen eindeutigen, generischen Zutatenbegriff zurück.
-INGREDIENT_DEFINITIONS = (
+CORE_INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Dosentomaten", ("dosentomaten", "tomaten aus der dose", "tomaten in der dose", "gehackte tomaten", "stückige tomaten", "tomaten stückig", "tomaten gehackt", "tomaten konserve", "konservierte tomaten", "pizzatomaten"), "tomatoes canned red ripe", ("G560900", "G568900")),
     IngredientDefinition("Passierte Tomaten", ("passierte tomaten", "tomaten passiert", "tomatenpassata", "passata", "tomatenpüree"), "tomato puree canned", ("R161200",)),
     IngredientDefinition("Tomatenmark", ("tomatenmark", "tomaten paste", "tomatenpaste"), "tomato paste canned", ("R160000",)),
     IngredientDefinition("Tomatensaft", ("tomatensaft", "tomaten saft", "gemüsesaft aus tomate"), "tomato juice canned", ("G560600",)),
     IngredientDefinition("Tomate", ("tomate", "tomaten", "strauchtomate", "strauchtomaten", "fleischtomate", "fleischtomaten", "cherrytomate", "cherrytomaten", "kirschtomate", "kirschtomaten", "rispentomate", "rispentomaten"), "tomatoes red ripe raw", ("G561100",)),
-    IngredientDefinition("Chilischote", ("chilischote", "chilischoten", "chili", "chilis", "chilli", "chillis", "chilischotten", "peperoni", "peperonischote", "rote chili"), "peppers hot chili red raw"),
+    IngredientDefinition("Chilischote", ("chilischote", "chilischoten", "chili", "chilis", "chilli", "chillis", "chilischotten", "peperoni", "peperonischote", "rote chili"), "peppers hot chili red raw", (), ("170497",)),
     IngredientDefinition("Paprika rot", ("rote paprika", "paprika rot", "rote paprikaschote", "roter paprika"), "peppers sweet red raw", ("G543100",)),
     IngredientDefinition("Paprika gelb", ("gelbe paprika", "paprika gelb", "gelbe paprikaschote", "gelber paprika"), "peppers sweet yellow raw", ("G542100",)),
     IngredientDefinition("Paprika grün", ("grüne paprika", "paprika grün", "grüne paprikaschote", "gruene paprika", "grüner paprika"), "peppers sweet green raw", ("G541100",)),
@@ -84,7 +88,7 @@ INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Olivenöl", ("olivenöl", "olivenoel", "natives olivenöl", "extra natives olivenöl"), "oil olive salad or cooking", ("Q120000",)),
     IngredientDefinition("Rapsöl", ("rapsöl", "rapsoel", "canolaöl", "canola oil"), "oil canola", ("Q180000",)),
     IngredientDefinition("Sonnenblumenöl", ("sonnenblumenöl", "sonnenblumenoel"), "oil sunflower linoleic", ("Q320000",)),
-    IngredientDefinition("Gemüsebrühe", ("gemüsebrühe", "gemüsebruehe", "gemüsefond", "brühwürfel gemüse", "brühe gemüse"), "vegetable broth ready to serve"),
+    IngredientDefinition("Gemüsebrühe", ("gemüsebrühe", "gemüsebruehe", "gemüsefond", "gemüse fond", "brühwürfel gemüse", "brühe gemüse", "vegetable stock", "vegetable broth"), "vegetable broth ready to serve", ("X416243",)),
     IngredientDefinition("Apfel", ("apfel", "äpfel", "aepfel", "tafelapfel"), "apples with skin raw", ("F110100",)),
     IngredientDefinition("Banane", ("banane", "bananen"), "bananas raw", ("F503100",)),
     IngredientDefinition("Zitrone", ("zitrone", "zitronen", "bio zitrone"), "lemons raw without peel", ("F601100",)),
@@ -116,7 +120,12 @@ INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Bulgur", ("bulgur", "weizenbulgur", "bulgurweizen"), "bulgur dry", ("C119100",)),
     IngredientDefinition("Petersilie", ("petersilie", "petersilienblatt", "blattpetersilie", "krause petersilie", "glatte petersilie"), "parsley fresh", ("G250100",)),
     IngredientDefinition("Schnittlauch", ("schnittlauch", "schnittlauchhalme"), "chives raw", ("G081100",)),
-    IngredientDefinition("Oregano", ("oregano", "wilder majoran", "dost", "getrockneter oregano", "oregano getrocknet"), "spices oregano dried"),
+    IngredientDefinition("Oregano", ("oregano", "wilder majoran", "dost", "getrockneter oregano", "oregano getrocknet"), "spices oregano dried", (), ("171328",)),
+)
+
+INGREDIENT_DEFINITIONS = CORE_INGREDIENT_DEFINITIONS + tuple(
+    IngredientDefinition(*definition)
+    for definition in EXTENDED_INGREDIENT_DEFINITIONS
 )
 
 
@@ -147,6 +156,30 @@ for definition in INGREDIENT_DEFINITIONS:
         # Oberbegriff wie "Sellerie" darf daher "Staudensellerie" nicht
         # wieder überschreiben.
         PREFERRED_BLS_INDEX.setdefault(code, definition)
+PREFERRED_USDA_INDEX = {}
+for definition in INGREDIENT_DEFINITIONS:
+    for external_id in definition.preferred_usda_ids:
+        PREFERRED_USDA_INDEX.setdefault(external_id, definition)
+
+
+def _fuzzy_definition(normalized):
+    if len(normalized) < 5:
+        return None
+    scores = {}
+    for alias, definition in ALIAS_INDEX.items():
+        score = SequenceMatcher(None, normalized, alias).ratio()
+        if len(alias) > len(normalized):
+            score = max(
+                score,
+                SequenceMatcher(None, normalized, alias[:len(normalized)]).ratio() * 0.96,
+            )
+        scores[definition] = max(scores.get(definition, 0), score)
+    ranked = sorted(scores.items(), key=lambda item: item[1], reverse=True)
+    if not ranked or ranked[0][1] < 0.74:
+        return None
+    if len(ranked) > 1 and ranked[0][1] - ranked[1][1] < 0.08:
+        return None
+    return ranked[0][0]
 
 
 def definition_for_query(value):
@@ -161,7 +194,9 @@ def definition_for_query(value):
         for alias, definition in ALIAS_INDEX.items()
         if alias.startswith(normalized)
     }
-    return next(iter(prefix_matches)) if len(prefix_matches) == 1 else None
+    if len(prefix_matches) == 1:
+        return next(iter(prefix_matches))
+    return _fuzzy_definition(normalized)
 
 
 def definition_for_canonical(value):
@@ -171,6 +206,10 @@ def definition_for_canonical(value):
 def definition_for_product(source, external_id, canonical_name=""):
     if source == "bls":
         matched = PREFERRED_BLS_INDEX.get(str(external_id or "").upper())
+        if matched:
+            return matched
+    if source == "usda":
+        matched = PREFERRED_USDA_INDEX.get(str(external_id or ""))
         if matched:
             return matched
     return definition_for_canonical(canonical_name)
@@ -184,6 +223,31 @@ def curated_canonical_name(source, external_id):
 def preferred_bls_codes(value):
     definition = definition_for_query(value)
     return definition.preferred_bls_codes if definition else ()
+
+
+def preferred_product_keys(value):
+    definition = definition_for_query(value)
+    if not definition:
+        return ()
+    return (
+        *(("bls", code) for code in definition.preferred_bls_codes),
+        *(("usda", external_id) for external_id in definition.preferred_usda_ids),
+    )
+
+
+def display_name_for_query(value):
+    definition = definition_for_query(value)
+    if not definition:
+        return str(value or "").strip()
+    if definition.canonical_name == "Chilischote":
+        return definition.canonical_name
+    normalized = normalize_alias(value)
+    if normalized == normalize_alias(definition.canonical_name):
+        return definition.canonical_name
+    for alias in definition.aliases:
+        if normalize_alias(alias) == normalized:
+            return alias[:1].upper() + alias[1:]
+    return definition.canonical_name
 
 
 def expanded_search_terms(value):

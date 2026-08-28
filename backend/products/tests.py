@@ -1,15 +1,21 @@
 from decimal import Decimal
+from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
-from .ingredient_catalog import canonical_query, replace_product_aliases
+from .ingredient_catalog import (
+    canonical_query,
+    definition_for_query,
+    display_name_for_query,
+    replace_product_aliases,
+)
 from .models import IngredientPriceReference, Product
 from .nutrition_quality import apply_safe_zero_defaults, nutrition_is_complete
 from .pricing import estimate_product_price
-from .views import ProductSearchAPIView, usda_payload
+from .views import ExternalProductSearchAPIView, ProductSearchAPIView, usda_payload
 
 
 COMPLETE_NUTRITION = {
@@ -140,6 +146,138 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual([item["name"] for item in response.data], ["Staudensellerie"])
         self.assertTrue(response.data[0]["nutrition_complete"])
+
+        alias_request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Bleichsellerie", "recipe_only": "1"},
+        )
+        force_authenticate(alias_request, user=self.user)
+        alias_response = ProductSearchAPIView.as_view()(alias_request)
+
+        self.assertEqual(alias_response.status_code, 200)
+        self.assertEqual(alias_response.data[0]["name"], "Bleichsellerie")
+        self.assertEqual(alias_response.data[0]["canonical_name"], "Staudensellerie")
+        self.assertEqual(alias_response.data[0]["id"], response.data[0]["id"])
+
+    def test_walnut_typo_and_prefix_find_generic_walnut_not_composite_products(self):
+        walnut = Product.objects.create(
+            name="Walnuss",
+            canonical_name="Walnuss",
+            source="bls",
+            external_id="H120100",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("721.00"),
+            protein_per_100g=Decimal("16.07"),
+            carbohydrates_per_100g=Decimal("3.00"),
+            fat_per_100g=Decimal("70.60"),
+            fiber_per_100g=Decimal("4.60"),
+        )
+        Product.objects.create(
+            name="Walnuss Glace",
+            canonical_name="Walnuss Glace",
+            source="open_food_facts",
+            external_id="off-walnut-glace",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(walnut)
+
+        for query in ("Wallnuss", "Walln"):
+            request = APIRequestFactory().get(
+                "/products/search/",
+                {"q": query, "recipe_only": "1"},
+            )
+            force_authenticate(request, user=self.user)
+            response = ProductSearchAPIView.as_view()(request)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual([item["name"] for item in response.data], ["Walnuss"])
+            self.assertEqual(response.data[0]["external_id"], "H120100")
+            self.assertTrue(response.data[0]["nutrition_complete"])
+
+    def test_unknown_complete_bls_ingredient_is_found_despite_small_typo(self):
+        parsnip = Product.objects.create(
+            name="Pastinake roh",
+            canonical_name="Pastinake",
+            source="bls",
+            external_id="G640100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(parsnip)
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Pastinakke", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["name"], "Pastinake")
+        self.assertEqual(response.data[0]["external_id"], "G640100")
+
+    def test_known_local_ingredient_skips_external_product_search(self):
+        walnut = Product.objects.create(
+            name="Walnuss",
+            canonical_name="Walnuss",
+            source="bls",
+            external_id="H120100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(walnut)
+        request = APIRequestFactory().get(
+            "/products/external-search/",
+            {"q": "Wallnuss", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+
+        with patch("products.views.off_session") as session:
+            response = ExternalProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, [])
+        session.assert_not_called()
+
+    def test_rinderfond_and_rinderbruehe_share_one_nutrition_product(self):
+        stock = Product.objects.create(
+            name="Rinderbrühe",
+            canonical_name="Rinderbrühe",
+            source="bls",
+            external_id="U985200",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("8.00"),
+            protein_per_100g=Decimal("1.48"),
+            carbohydrates_per_100g=Decimal("0.00"),
+            fat_per_100g=Decimal("0.22"),
+            fiber_per_100g=Decimal("0.00"),
+        )
+        replace_product_aliases(stock)
+
+        ids = []
+        for query, expected_name in (
+            ("Rinderbrühe", "Rinderbrühe"),
+            ("Rinderfond", "Rinderfond"),
+        ):
+            request = APIRequestFactory().get(
+                "/products/search/",
+                {"q": query, "recipe_only": "1"},
+            )
+            force_authenticate(request, user=self.user)
+            response = ProductSearchAPIView.as_view()(request)
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.data[0]["name"], expected_name)
+            self.assertEqual(response.data[0]["canonical_name"], "Rinderbrühe")
+            ids.append(response.data[0]["id"])
+        self.assertEqual(ids[0], ids[1])
+
+    def test_extended_static_usda_ingredients_have_complete_nutrition(self):
+        cumin = Product.objects.get(source="usda", external_id="170923")
+        self.assertEqual(cumin.canonical_name, "Kreuzkümmel")
+        self.assertTrue(cumin.has_complete_nutrition)
+        self.assertEqual(cumin.protein_per_100g, Decimal("17.81"))
+        self.assertEqual(definition_for_query("Cumin").canonical_name, "Kreuzkümmel")
+        self.assertEqual(display_name_for_query("Cumin"), "Cumin")
 
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(

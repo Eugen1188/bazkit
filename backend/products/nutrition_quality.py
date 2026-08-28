@@ -32,6 +32,7 @@ ALCOHOLIC_DRINK = re.compile(
     re.I,
 )
 TEA_DRINK = re.compile(r"tee \(getränk\)|kaffee \(getränk\)", re.I)
+VINEGAR = re.compile(r"(?:essig|vinegar)$", re.I)
 
 
 def nutrition_is_complete(values):
@@ -83,5 +84,7 @@ def apply_safe_zero_defaults(name, source, external_id, values):
     # werden bewusst nicht erfunden.
     if group == "R" and result.get("fat_per_100g") is None:
         result["fat_per_100g"] = zero
+    if VINEGAR.search(product_name) and result.get("fiber_per_100g") is None:
+        result["fiber_per_100g"] = zero
 
     return result

@@ -3,6 +3,7 @@ from collections import Counter
 from django.core.management.base import BaseCommand
 
 from products.catalog import canonical_recipe_name, recipe_ingredient_status
+from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
 from products.models import Product
 from products.nutrition_quality import (
@@ -19,6 +20,8 @@ class Command(BaseCommand):
         parser.add_argument("--dry-run", action="store_true")
 
     def handle(self, *args, **options):
+        if not options["dry_run"]:
+            ensure_curated_ingredients()
         products = Product.objects.filter(source__in=("bls", "open_food_facts", "usda"))
         pending = []
         missing_nutrition = 0

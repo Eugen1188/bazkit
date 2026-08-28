@@ -490,6 +490,17 @@
                   </strong>
 
                   <small
+                    class="ingredient-suggestion-alias"
+                    *ngIf="
+                      product.canonical_name &&
+                      product.canonical_name !== product.name
+                    "
+                  >
+                    Gleicher Nährwertdatensatz wie
+                    {{ product.canonical_name }}
+                  </small>
+
+                  <small
                     *ngIf="product.default_unit"
                   >
                     Standard:
@@ -524,8 +535,8 @@
                   ingredientSuggestions.length === 0
                 "
               >
-                Kein passendes Produkt gefunden.
-                Bitte versuche einen allgemeineren Suchbegriff.
+                Keine geprüfte Zutat mit vollständigen Nährwerten gefunden.
+                Bitte prüfe die Schreibweise oder versuche ein Synonym.
               </div>
 
             </div>
