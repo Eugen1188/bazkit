@@ -5,6 +5,7 @@ from .models import Product
 
 class ProductSerializer(serializers.ModelSerializer):
     origin = serializers.SerializerMethodField()
+    nutrition_complete = serializers.BooleanField(source="has_complete_nutrition", read_only=True)
 
     class Meta:
         model = Product
@@ -13,7 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "category", "brand", "source", "external_id",
             "default_unit", "calories_per_100g", "protein_per_100g",
             "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
-            "origin",
+            "nutrition_complete", "origin",
         ]
         read_only_fields = fields
 

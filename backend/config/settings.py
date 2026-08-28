@@ -344,3 +344,12 @@ OPENAI_RECIPE_MODEL = os.getenv(
     "OPENAI_RECIPE_MODEL",
     "gpt-5-mini"
 )
+
+
+# USDA FoodData Central dient ausschließlich als Nährwert-Fallback für
+# freigegebene Kochzutaten. Für Produktion sollte ein eigener data.gov-Key
+# gesetzt werden; DEMO_KEY ist nur für Entwicklung und wenige Anfragen gedacht.
+USDA_FDC_API_KEY = os.getenv(
+    "USDA_FDC_API_KEY",
+    "DEMO_KEY",
+)

@@ -9,6 +9,7 @@ from django.core.management.base import BaseCommand, CommandError
 from products.models import Product
 from products.catalog import canonical_recipe_name, recipe_ingredient_status
 from products.curated import ensure_curated_ingredients
+from products.ingredient_catalog import rebuild_product_aliases
 
 
 CELL_REFERENCE = re.compile(r"([A-Z]+)\d+")
@@ -142,6 +143,7 @@ class Command(BaseCommand):
                 ],
             )
             ensure_curated_ingredients()
+            rebuild_product_aliases(Product.objects.filter(source__in=("bls", "usda")))
             self.stdout.write(self.style.SUCCESS(f"{len(products)} BLS-Produkte importiert/aktualisiert."))
         finally:
             rows.close()

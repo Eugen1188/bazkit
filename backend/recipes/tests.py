@@ -24,6 +24,9 @@ class RecipeSerializerTests(TestCase):
             is_recipe_ingredient=True,
             calories_per_100g=Decimal("20"),
             protein_per_100g=Decimal("1"),
+            carbohydrates_per_100g=Decimal("3.5"),
+            fat_per_100g=Decimal("0.2"),
+            fiber_per_100g=Decimal("1.1"),
         )
         IngredientPriceReference.objects.create(
             canonical_name="Tomate",
@@ -85,6 +88,26 @@ class RecipeSerializerTests(TestCase):
         self.assertFalse(serializer.is_valid())
         self.assertIn("product", serializer.errors["ingredients"][0])
 
+    def test_ingredient_without_complete_nutrition_is_rejected(self):
+        incomplete = Product.objects.create(
+            name="Mangold roh",
+            canonical_name="Mangold",
+            source="bls",
+            external_id="G480100",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("19"),
+        )
+        serializer = RecipeSerializer(data={
+            "name": "Unvollständige Nährwerte",
+            "description": "",
+            "servings": 2,
+            "category": "dinner",
+            "instructions": "1. Kochen",
+            "ingredients": [{"product": incomplete.id, "quantity": "100", "unit": "g"}],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("Nährwerte", str(serializer.errors["ingredients"][0]["product"][0]))
+
     def test_stale_prepared_meal_flag_cannot_bypass_runtime_filter(self):
         prepared = Product.objects.create(
             name="Chili sin carne",
@@ -112,6 +135,10 @@ class RecipeSerializerTests(TestCase):
             external_id="F110100",
             is_recipe_ingredient=True,
             calories_per_100g=Decimal("89"),
+            protein_per_100g=Decimal("1.1"),
+            carbohydrates_per_100g=Decimal("22.8"),
+            fat_per_100g=Decimal("0.3"),
+            fiber_per_100g=Decimal("2.6"),
         )
         IngredientPriceReference.objects.create(
             canonical_name="Banane",

@@ -1,6 +1,8 @@
 import re
 from decimal import Decimal, InvalidOperation
 
+from .ingredient_catalog import canonical_query
+
 
 AMOUNT_SUFFIX = re.compile(
     r"(?:\s*[,\-–|/]?\s*|\s*\(\s*)"
@@ -12,6 +14,10 @@ AMOUNT_SUFFIX = re.compile(
 
 CANONICAL_RULES = (
     (re.compile(r"^(?:chili|chilli)(?:schote|schoten|pepper|peppers)?\b", re.I), "Chilischote"),
+    (re.compile(r"^(?=.*tomat)(?=.*(?:konserve|dose|gehackt|stückig))", re.I), "Dosentomaten"),
+    (re.compile(r"^(?:passierte?\s+tomaten?|tomaten?\s+passiert|passata)\b", re.I), "Passierte Tomaten"),
+    (re.compile(r"^tomaten?(?:mark|paste)|^tomatenmark\b", re.I), "Tomatenmark"),
+    (re.compile(r"^tomatensaft\b", re.I), "Tomatensaft"),
     (re.compile(r"^(?:h-)?milch\b|^vollmilch\b", re.I), "Milch"),
     (re.compile(r"^buttermilch\b", re.I), "Buttermilch"),
     (re.compile(r"^kokos(?:nuss)?milch\b", re.I), "Kokosmilch"),
@@ -80,6 +86,9 @@ def clean_product_name(value):
 
 def canonical_search_query(value):
     query = re.sub(r"\s+", " ", str(value or "")).strip()
+    mapped = canonical_query(query)
+    if mapped != query:
+        return mapped
     compact = re.sub(r"[\s\-_]", "", query.casefold())
     if re.fullmatch(
         r"(?:chili|chilli)(?:s|schot+t?e?n?)?|peperoni(?:schot+t?e?n?)?",

@@ -158,6 +158,13 @@ class IngredientsSerializer(serializers.ModelSerializer):
                     "Bitte wähle eine Zutat aus den Vorschlägen."
                 )
             })
+        if not product.has_complete_nutrition:
+            raise serializers.ValidationError({
+                "product": (
+                    "Für diese Zutat sind die Nährwerte noch nicht vollständig. "
+                    "Bitte wähle einen anderen, vollständig geprüften Treffer."
+                )
+            })
         attrs["name"] = clean_product_name(product.canonical_name or product.name)
         apply_automatic_price(attrs)
         return attrs

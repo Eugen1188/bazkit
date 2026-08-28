@@ -137,6 +137,57 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def has_complete_nutrition(self):
+        return all(
+            getattr(self, field) is not None
+            for field in (
+                "calories_per_100g",
+                "protein_per_100g",
+                "carbohydrates_per_100g",
+                "fat_per_100g",
+                "fiber_per_100g",
+            )
+        )
+
+
+class ProductAlias(models.Model):
+    SOURCE_CHOICES = [
+        ("derived", "Automatisch abgeleitet"),
+        ("curated", "Redaktionell gepflegt"),
+        ("imported", "Importiert"),
+    ]
+
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name="aliases",
+    )
+    alias = models.CharField(max_length=150)
+    normalized_alias = models.CharField(max_length=150, db_index=True)
+    source = models.CharField(max_length=20, choices=SOURCE_CHOICES, default="derived")
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["product", "normalized_alias"],
+                name="unique_product_normalized_alias",
+            )
+        ]
+        indexes = [
+            models.Index(fields=["normalized_alias", "product"], name="prod_alias_lookup_idx"),
+        ]
+        ordering = ["alias"]
+
+    def __str__(self):
+        return f"{self.alias} → {self.product}"
+
+    def save(self, *args, **kwargs):
+        from .ingredient_catalog import normalize_alias
+
+        self.normalized_alias = normalize_alias(self.alias)
+        super().save(*args, **kwargs)
+
 
 class IngredientPriceReference(models.Model):
     BASIS_CHOICES = [

@@ -19,6 +19,7 @@ export interface ProductSuggestion {
   carbohydrates_per_100g: string | null;
   fat_per_100g: string | null;
   fiber_per_100g: string | null;
+  nutrition_complete?: boolean;
   origin: ProductOrigin;
 }
 
@@ -71,9 +72,17 @@ export class ProductService {
     return forkJoin([local$, external$]).pipe(map(([local, external]) => {
       const seen = new Set<string>();
       return [...local, ...external].filter(product => {
-        const key = product.id !== null
-          ? `id:${product.id}`
-          : `${product.source}:${product.external_id}`;
+        if (recipeOnly && product.nutrition_complete === false) return false;
+        const ingredientName = (product.canonical_name || product.name)
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .trim()
+          .toLocaleLowerCase('de-DE');
+        const key = recipeOnly
+          ? `ingredient:${ingredientName}`
+          : product.id !== null
+            ? `id:${product.id}`
+            : `${product.source}:${product.external_id}`;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
@@ -116,7 +125,7 @@ export class ProductService {
   saveExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {
     if (product.id !== null) return of(product);
     return this.http.post<ProductSuggestion>(`${this.apiUrl}save-external/`, {
-      source: 'open_food_facts',
+      source: product.source,
       external_id: product.external_id,
     });
   }

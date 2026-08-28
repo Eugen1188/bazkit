@@ -5,9 +5,19 @@ from django.test import TestCase
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
+from .ingredient_catalog import canonical_query, replace_product_aliases
 from .models import IngredientPriceReference, Product
 from .pricing import estimate_product_price
-from .views import ProductSearchAPIView
+from .views import ProductSearchAPIView, nutrition_is_complete, usda_payload
+
+
+COMPLETE_NUTRITION = {
+    "calories_per_100g": Decimal("20.00"),
+    "protein_per_100g": Decimal("1.00"),
+    "carbohydrates_per_100g": Decimal("3.00"),
+    "fat_per_100g": Decimal("0.20"),
+    "fiber_per_100g": Decimal("1.00"),
+}
 
 
 class RecipeCatalogTests(TestCase):
@@ -41,6 +51,7 @@ class RecipeCatalogTests(TestCase):
             source="bls",
             external_id="X4A8000",
             is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
         )
         request = APIRequestFactory().get(
             "/products/search/",
@@ -67,6 +78,7 @@ class RecipeCatalogTests(TestCase):
             source="bls",
             external_id="M113200",
             is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
         )
         Product.objects.create(
             name="Buttermilch",
@@ -88,6 +100,74 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]["name"], "Milch")
         self.assertNotIn("Kürbissuppe mit Kokosmilch", [item["name"] for item in response.data])
+
+    def test_dosentomaten_alias_finds_one_complete_generic_ingredient(self):
+        first = Product.objects.create(
+            name="Tomaten, Konserve",
+            canonical_name=canonical_recipe_name("Tomaten, Konserve"),
+            source="bls",
+            external_id="G520200",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        duplicate = Product.objects.create(
+            name="Tomaten gehackt",
+            canonical_name=canonical_recipe_name("Tomaten gehackt"),
+            source="open_food_facts",
+            external_id="123456789",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(first)
+        replace_product_aliases(duplicate)
+
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Dosentomaten", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(canonical_query("Dosentomaten"), "Dosentomaten")
+        self.assertEqual([item["name"] for item in response.data], ["Dosentomaten"])
+        self.assertTrue(response.data[0]["nutrition_complete"])
+
+    def test_incomplete_products_are_never_returned_for_recipes(self):
+        product = Product.objects.create(
+            name="Mangold roh",
+            canonical_name="Mangold",
+            source="bls",
+            external_id="G480100",
+            is_recipe_ingredient=True,
+            calories_per_100g=Decimal("19.00"),
+        )
+        replace_product_aliases(product)
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Mangold", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, [])
+
+    def test_usda_payload_requires_and_maps_all_nutrients(self):
+        product = usda_payload({
+            "fdcId": 170457,
+            "description": "Tomatoes, red, ripe, canned",
+            "dataType": "SR Legacy",
+            "foodNutrients": [
+                {"nutrientId": 1008, "nutrientName": "Energy", "unitName": "KCAL", "value": 18},
+                {"nutrientId": 1003, "nutrientName": "Protein", "unitName": "G", "value": 0.95},
+                {"nutrientId": 1005, "nutrientName": "Carbohydrate, by difference", "unitName": "G", "value": 4.01},
+                {"nutrientId": 1004, "nutrientName": "Total lipid (fat)", "unitName": "G", "value": 0.11},
+                {"nutrientId": 1079, "nutrientName": "Fiber, total dietary", "unitName": "G", "value": 1.2},
+            ],
+        }, "Dosentomaten")
+        self.assertEqual(product["name"], "Dosentomaten")
+        self.assertTrue(nutrition_is_complete(product))
+        self.assertEqual(product["source"], "usda")
 
     def test_reference_price_is_scaled_automatically(self):
         product = Product.objects.create(
