@@ -57,6 +57,7 @@ DAIRY_EGGS = re.compile(
 )
 SHELF_STABLE = re.compile(
     r"konserve|\bdose\b|getrocknet|eingelegt|essiggurke|gewürzgurke|pulver|mark\b|passierte|passata|"
+    r"whey|proteinpulver|protein powder|eiweißpulver|eiweisspulver|"
     r"nudel|pasta|spaghetti|makkaroni|reis|mehl|stärke|zucker|salz|gewürz|"
     r"pfeffer|paprika.*pulver|öl|essig|sauce|soße|brühe|fond|bouillon|"
     r"müsli|hafer|couscous|bulgur|quinoa|hirse|buchweizen|amaranth|"

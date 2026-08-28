@@ -309,6 +309,10 @@ class RecipeCatalogTests(TestCase):
             infer_product_taxonomy("Tomaten Konserve", "Dosentomaten"),
             ("pantry", False),
         )
+        self.assertEqual(
+            infer_product_taxonomy("whey gold standard", "Whey Protein"),
+            ("pantry", False),
+        )
 
     def test_walnut_typo_and_prefix_find_generic_walnut_not_composite_products(self):
         walnut = Product.objects.create(
