@@ -1,7 +1,7 @@
 import re
 from decimal import Decimal, InvalidOperation
 
-from .ingredient_catalog import canonical_query
+from .ingredient_catalog import canonical_query, curated_canonical_name
 
 
 AMOUNT_SUFFIX = re.compile(
@@ -14,16 +14,22 @@ AMOUNT_SUFFIX = re.compile(
 
 CANONICAL_RULES = (
     (re.compile(r"^(?:chili|chilli)(?:schote|schoten|pepper|peppers)?\b", re.I), "Chilischote"),
-    (re.compile(r"^(?=.*tomat)(?=.*(?:konserve|dose|gehackt|stückig))", re.I), "Dosentomaten"),
+    (re.compile(r"^tomaten?\b(?=.*(?:konserve|dose|gehackt|stückig))", re.I), "Dosentomaten"),
     (re.compile(r"^(?:passierte?\s+tomaten?|tomaten?\s+passiert|passata)\b", re.I), "Passierte Tomaten"),
     (re.compile(r"^tomaten?(?:mark|paste)|^tomatenmark\b", re.I), "Tomatenmark"),
     (re.compile(r"^tomatensaft\b", re.I), "Tomatensaft"),
+    (re.compile(r"^(?:h-)?milch\b(?=.*(?:1[,.]5|fettarm))", re.I), "Fettarme Milch"),
     (re.compile(r"^(?:h-)?milch\b|^vollmilch\b", re.I), "Milch"),
     (re.compile(r"^buttermilch\b", re.I), "Buttermilch"),
     (re.compile(r"^kokos(?:nuss)?milch\b", re.I), "Kokosmilch"),
     (re.compile(r"^(?:hähnchen|huhn|hühner)brust", re.I), "Hähnchenbrust"),
     (re.compile(r"^putenbrust", re.I), "Putenbrust"),
     (re.compile(r"^(?:cherry)?tomaten?\b", re.I), "Tomate"),
+    (re.compile(r"^(?:gemüse)?paprika\s+rot\b", re.I), "Paprika rot"),
+    (re.compile(r"^(?:gemüse)?paprika\s+gelb\b", re.I), "Paprika gelb"),
+    (re.compile(r"^(?:gemüse)?paprika\s+grün\b", re.I), "Paprika grün"),
+    (re.compile(r"^(?:bleich|stangen|stauden)sellerie\b", re.I), "Staudensellerie"),
+    (re.compile(r"^knollensellerie\b", re.I), "Knollensellerie"),
     (re.compile(r"^(?:zwiebeln?)\b", re.I), "Zwiebel"),
     (re.compile(r"^knoblauch\b", re.I), "Knoblauch"),
     (re.compile(r"^kartoffeln?\b", re.I), "Kartoffel"),
@@ -34,13 +40,16 @@ CANONICAL_RULES = (
     (re.compile(r"^erdbeeren?\b", re.I), "Erdbeere"),
     (re.compile(r"^himbeeren?\b", re.I), "Himbeere"),
     (re.compile(r"^(?:blaubeeren?|heidelbeeren?)\b", re.I), "Blaubeere"),
-    (re.compile(r"^eier?\b|^hühnerei\b", re.I), "Ei"),
+    (re.compile(r"^hühnerei\s+eigelb\b|^eigelb\b", re.I), "Eigelb"),
+    (re.compile(r"^hühnerei\s+eiklar\b|^eiklar\b|^eiwei(?:ß|ss)\b", re.I), "Eiklar"),
+    (re.compile(r"^(?:ei|eier|hühnerei)(?:\s+roh)?$", re.I), "Ei"),
     (re.compile(r"^olivenöl\b", re.I), "Olivenöl"),
     (re.compile(r"^rapsöl\b", re.I), "Rapsöl"),
     (re.compile(r"^sonnenblumenöl\b", re.I), "Sonnenblumenöl"),
     (re.compile(r"^(?:speise|tafel)?salz\b", re.I), "Salz"),
-    (re.compile(r"^weizenmehl\b", re.I), "Weizenmehl"),
-    (re.compile(r"^dinkelmehl\b", re.I), "Dinkelmehl"),
+    (re.compile(r"^weizenmehl$", re.I), "Weizenmehl Type 405"),
+    (re.compile(r"^dinkelmehl$", re.I), "Dinkelmehl Type 630"),
+    (re.compile(r"^roggenmehl$", re.I), "Roggenmehl Type 1150"),
     (re.compile(r"^zucker\b", re.I), "Zucker"),
     (re.compile(r"^butter\b", re.I), "Butter"),
 )
@@ -56,7 +65,8 @@ PREPARED_FOOD = re.compile(
     r"bami\s+goreng|nasi\s+goreng|gulasch|ragout|frikassee|roulade|currygericht|"
     r"chili\s+(?:con|sin)\s+carne|"
     r"tellergericht|fertiggericht|menü|mahlzeit|risotto|paella|fischstäbchen|"
-    r"cordon\s+bleu|döner|gyros|hot\s+dog|hamburger)\b",
+    r"cordon\s+bleu|döner|gyros|hot\s+dog|hamburger|ravioli|tortellini|"
+    r"schupfnudeln|frikadelle|speiseeis|eiscreme)\b",
     re.I,
 )
 PREPARED_VARIANT = re.compile(
@@ -69,7 +79,8 @@ NON_INGREDIENT = re.compile(
     r"\b(?:nahrungsergänzung|vitaminpräparat|mineralstoffpräparat|säuglingsnahrung|"
     r"sondennahrung|limonade|cola|energydrink|energy-drink|erfrischungsgetränk|"
     r"eistee|cocktail|torte|kuchen|muffin|keks|plätzchen|praline|schokoriegel|"
-    r"müsliriegel|chips|cracker|gummibonbon|bonbon|dessert|pudding)\b",
+    r"müsliriegel|chips|cracker|gummibonbon|bonbon|dessert|pudding|"
+    r"milchmischgetränk|trinkjoghurt|frühstückscerealien)\b",
     re.I,
 )
 OFF_MEAL_CATEGORY = re.compile(
@@ -98,8 +109,11 @@ def canonical_search_query(value):
     return query
 
 
-def canonical_recipe_name(value):
+def canonical_recipe_name(value, source="", external_id=""):
     name = clean_product_name(value)
+    curated = curated_canonical_name(source, external_id)
+    if curated:
+        return curated
     for pattern, replacement in CANONICAL_RULES:
         if pattern.search(name):
             return replacement

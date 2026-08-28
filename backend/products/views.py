@@ -16,8 +16,10 @@ from rest_framework.views import APIView
 
 from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
 from .ingredient_catalog import (
+    definition_for_query,
     expanded_search_terms,
     normalize_alias,
+    preferred_bls_codes,
     replace_product_aliases,
     usda_display_name,
     usda_query,
@@ -131,7 +133,7 @@ def usda_payload(item, original_query=""):
     result = {
         "id": None,
         "name": name,
-        "canonical_name": canonical_recipe_name(name),
+        "canonical_name": canonical_recipe_name(name, "usda", fdc_id),
         "is_recipe_ingredient": is_recipe_ingredient,
         "recipe_exclusion_reason": exclusion_reason,
         "category": clean_text(item.get("foodCategory") or item.get("dataType"), 150),
@@ -183,7 +185,7 @@ def off_payload(item):
     if not code or not name:
         return None
     nutriments = item.get("nutriments") or {}
-    canonical_name = canonical_recipe_name(name)
+    canonical_name = canonical_recipe_name(name, "open_food_facts", code)
     is_recipe_ingredient, exclusion_reason = recipe_ingredient_status(
         name,
         item.get("categories"),
@@ -246,6 +248,7 @@ class ProductSearchAPIView(APIView):
         products = products.prefetch_related("aliases").distinct()[:400 if recipe_only else 40]
 
         normalized_query = normalize_alias(ranking_query)
+        preferred_codes = preferred_bls_codes(query) if recipe_only else ()
 
         def relevance(product):
             names = {
@@ -258,8 +261,14 @@ class ProductSearchAPIView(APIView):
             contains = any(normalized_query in name for name in names)
             source_rank = {"bls": 0, "usda": 1, "open_food_facts": 2}.get(product.source, 3)
             generic_rank = 0 if not product.brand or product.source in {"bls", "usda"} else 1
+            preferred_rank = (
+                preferred_codes.index(product.external_id)
+                if product.source == "bls" and product.external_id in preferred_codes
+                else len(preferred_codes) + 1
+            )
             return (
                 0 if exact else 1 if prefix else 2 if contains else 3,
+                preferred_rank,
                 source_rank,
                 generic_rank,
                 len(product.canonical_name or product.name),
@@ -358,6 +367,7 @@ class ExternalProductSearchAPIView(APIView):
         except (requests.RequestException, ValueError) as error:
             logger.warning("Open Food Facts search failed: %s", error)
         ranking_query = canonical_search_query(query)
+        query_definition = definition_for_query(query) if recipe_only else None
         words = query.casefold().split()
         results, seen = [], set()
         for item in items:
@@ -367,6 +377,10 @@ class ExternalProductSearchAPIView(APIView):
             if recipe_only and (
                 not product["is_recipe_ingredient"]
                 or not product["nutrition_complete"]
+            ):
+                continue
+            if query_definition and normalize_alias(product["canonical_name"]) != normalize_alias(
+                query_definition.canonical_name
             ):
                 continue
             searchable = f'{product["name"]} {product["brand"]}'.casefold()

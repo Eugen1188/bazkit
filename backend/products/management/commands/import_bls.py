@@ -10,6 +10,7 @@ from products.models import Product
 from products.catalog import canonical_recipe_name, recipe_ingredient_status
 from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
+from products.nutrition_quality import apply_safe_zero_defaults
 
 
 CELL_REFERENCE = re.compile(r"([A-Z]+)\d+")
@@ -117,16 +118,24 @@ class Command(BaseCommand):
                     source="bls",
                     external_id=external_id,
                 )
+                nutrients = apply_safe_zero_defaults(
+                    name,
+                    "bls",
+                    external_id,
+                    {
+                        "calories_per_100g": decimal_or_none(row.get(columns["calories_per_100g"])),
+                        "protein_per_100g": decimal_or_none(row.get(columns["protein_per_100g"])),
+                        "carbohydrates_per_100g": decimal_or_none(row.get(columns["carbohydrates_per_100g"])),
+                        "fat_per_100g": decimal_or_none(row.get(columns["fat_per_100g"])),
+                        "fiber_per_100g": decimal_or_none(row.get(columns["fiber_per_100g"])),
+                    },
+                )
                 products.append(Product(
                     source="bls", external_id=external_id, name=name[:150], default_unit="g",
-                    canonical_name=canonical_recipe_name(name),
+                    canonical_name=canonical_recipe_name(name, "bls", external_id),
                     is_recipe_ingredient=is_recipe_ingredient,
                     recipe_exclusion_reason=exclusion_reason,
-                    calories_per_100g=decimal_or_none(row.get(columns["calories_per_100g"])),
-                    protein_per_100g=decimal_or_none(row.get(columns["protein_per_100g"])),
-                    carbohydrates_per_100g=decimal_or_none(row.get(columns["carbohydrates_per_100g"])),
-                    fat_per_100g=decimal_or_none(row.get(columns["fat_per_100g"])),
-                    fiber_per_100g=decimal_or_none(row.get(columns["fiber_per_100g"])),
+                    **nutrients,
                 ))
             if options["dry_run"]:
                 self.stdout.write(self.style.WARNING(f"Testlauf: {len(products)} BLS-Produkte erkannt; nichts gespeichert."))

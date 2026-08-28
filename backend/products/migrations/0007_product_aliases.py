@@ -12,7 +12,11 @@ def populate_aliases(apps, schema_editor):
     pending_aliases = []
 
     for product in Product.objects.all().iterator(chunk_size=500):
-        canonical_name = canonical_recipe_name(product.name)
+        canonical_name = canonical_recipe_name(
+            product.name,
+            product.source,
+            product.external_id,
+        )
         if product.canonical_name != canonical_name:
             product.canonical_name = canonical_name
             pending_products.append(product)
@@ -20,6 +24,8 @@ def populate_aliases(apps, schema_editor):
         for alias, normalized, source in aliases_for_product(
             product.name,
             canonical_name,
+            product.source,
+            product.external_id,
         ):
             pending_aliases.append(ProductAlias(
                 product_id=product.id,

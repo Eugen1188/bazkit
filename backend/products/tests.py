@@ -7,8 +7,9 @@ from rest_framework.test import APIRequestFactory, force_authenticate
 from .catalog import canonical_recipe_name, canonical_search_query, recipe_ingredient_status
 from .ingredient_catalog import canonical_query, replace_product_aliases
 from .models import IngredientPriceReference, Product
+from .nutrition_quality import apply_safe_zero_defaults, nutrition_is_complete
 from .pricing import estimate_product_price
-from .views import ProductSearchAPIView, nutrition_is_complete, usda_payload
+from .views import ProductSearchAPIView, usda_payload
 
 
 COMPLETE_NUTRITION = {
@@ -29,8 +30,16 @@ class RecipeCatalogTests(TestCase):
         )
 
     def test_catalog_classification_and_canonical_name(self):
-        self.assertEqual(canonical_recipe_name("H-Milch fettarm, 1,5 % Fett"), "Milch")
+        self.assertEqual(canonical_recipe_name("H-Milch fettarm, 1,5 % Fett"), "Fettarme Milch")
         self.assertEqual(canonical_recipe_name("Chilischoten, frisch"), "Chilischote")
+        self.assertEqual(
+            canonical_recipe_name("Bleichsellerie roh", "bls", "G220100"),
+            "Staudensellerie",
+        )
+        self.assertEqual(
+            canonical_recipe_name("Knollensellerie roh", "bls", "G660100"),
+            "Knollensellerie",
+        )
         self.assertEqual(canonical_search_query("Chilischotten"), "Chilischote")
         self.assertEqual(canonical_search_query("Peperoni"), "Chilischote")
         self.assertEqual(recipe_ingredient_status("Kürbissuppe mit Kokosmilch")[0], False)
@@ -74,7 +83,7 @@ class RecipeCatalogTests(TestCase):
     def test_recipe_search_prioritizes_canonical_milk_and_hides_meals(self):
         Product.objects.create(
             name="H-Milch fettarm, 1,5 % Fett",
-            canonical_name="Milch",
+            canonical_name="Fettarme Milch",
             source="bls",
             external_id="M113200",
             is_recipe_ingredient=True,
@@ -98,8 +107,74 @@ class RecipeCatalogTests(TestCase):
         force_authenticate(request, user=self.user)
         response = ProductSearchAPIView.as_view()(request)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data[0]["name"], "Milch")
+        self.assertEqual(response.data[0]["name"], "Fettarme Milch")
         self.assertNotIn("Kürbissuppe mit Kokosmilch", [item["name"] for item in response.data])
+
+    def test_staudensellerie_alias_selects_exact_complete_bls_ingredient(self):
+        stalk = Product.objects.create(
+            name="Bleichsellerie roh",
+            canonical_name=canonical_recipe_name("Bleichsellerie roh", "bls", "G220100"),
+            source="bls",
+            external_id="G220100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        root = Product.objects.create(
+            name="Knollensellerie roh",
+            canonical_name=canonical_recipe_name("Knollensellerie roh", "bls", "G660100"),
+            source="bls",
+            external_id="G660100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(stalk)
+        replace_product_aliases(root)
+
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Staudensellerie", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual([item["name"] for item in response.data], ["Staudensellerie"])
+        self.assertTrue(response.data[0]["nutrition_complete"])
+
+    def test_safe_zero_defaults_complete_only_structural_zeroes(self):
+        salmon = apply_safe_zero_defaults(
+            "Lachs roh",
+            "bls",
+            "T410100",
+            {
+                "calories_per_100g": Decimal("200"),
+                "protein_per_100g": Decimal("20"),
+                "carbohydrates_per_100g": Decimal("0"),
+                "fat_per_100g": Decimal("13"),
+                "fiber_per_100g": None,
+            },
+        )
+        self.assertEqual(salmon["fiber_per_100g"], Decimal("0"))
+        self.assertTrue(nutrition_is_complete(salmon))
+
+        acerola = apply_safe_zero_defaults(
+            "Acerola roh",
+            "bls",
+            "F501100",
+            {
+                "calories_per_100g": Decimal("32"),
+                "protein_per_100g": Decimal("0.4"),
+                "carbohydrates_per_100g": Decimal("7.7"),
+                "fat_per_100g": Decimal("0.3"),
+                "fiber_per_100g": None,
+            },
+        )
+        self.assertIsNone(acerola["fiber_per_100g"])
+
+    def test_curated_oregano_is_available_without_live_usda_request(self):
+        oregano = Product.objects.get(source="usda", external_id="171328")
+        self.assertEqual(oregano.canonical_name, "Oregano")
+        self.assertTrue(oregano.has_complete_nutrition)
 
     def test_dosentomaten_alias_finds_one_complete_generic_ingredient(self):
         first = Product.objects.create(
