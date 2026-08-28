@@ -13,10 +13,19 @@ interface IngredientSearch { index: number; query: string; }
   selector: 'app-create-recipe',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './create-recipe.component.html',
-  styleUrl: './create-recipe.component.scss',
+  templateUrl: '../recipe-wizard/recipe-wizard.component.html',
+  styleUrl: '../recipe-wizard/recipe-wizard.component.scss',
 })
 export class CreateRecipeComponent implements OnDestroy {
+  readonly isEditMode = false;
+  readonly wizardSteps = [
+    { number: 1, label: 'Rezept', hint: 'Grunddaten' },
+    { number: 2, label: 'Zutaten', hint: 'Produkte & Mengen' },
+    { number: 3, label: 'Zubereitung', hint: 'Schritt für Schritt' },
+    { number: 4, label: 'Überprüfen', hint: 'Alles auf einen Blick' },
+  ];
+  currentStep = 1;
+  isLoading = false;
   recipeName = '';
   description = '';
   servings = 2;
@@ -162,6 +171,7 @@ export class CreateRecipeComponent implements OnDestroy {
       error: () => { this.ingredientPriceLoading[index] = false; },
     });
   }
+  onIngredientAmountChange(index: number): void { this.refreshIngredientPrice(index); }
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
   hasStepContent(index: number): boolean { return !!this.preparationSteps[index]?.text.trim(); }
@@ -171,6 +181,13 @@ export class CreateRecipeComponent implements OnDestroy {
 
   saveRecipe(): void {
     this.errorMessage = '';
+    for (const step of [1, 2, 3]) {
+      if (!this.validateWizardStep(step)) {
+        this.currentStep = step;
+        this.scrollWizardToTop();
+        return;
+      }
+    }
     const ingredients = this.ingredients.filter(item => item.name.trim());
     const steps = this.preparationSteps.map(step => step.text.trim()).filter(Boolean);
     if (!this.recipeName.trim()) return this.fail('Bitte gib einen Rezeptnamen ein.');
@@ -198,8 +215,50 @@ export class CreateRecipeComponent implements OnDestroy {
   }
 
   cancel(): void { void this.router.navigate(['/main/recipe-list']); }
+  nextStep(): void {
+    if (!this.validateWizardStep(this.currentStep)) return;
+    this.currentStep = Math.min(4, this.currentStep + 1);
+    this.errorMessage = '';
+    this.closeAutocomplete();
+    this.scrollWizardToTop();
+  }
+  previousStep(): void {
+    this.currentStep = Math.max(1, this.currentStep - 1);
+    this.errorMessage = '';
+    this.closeAutocomplete();
+    this.scrollWizardToTop();
+  }
+  goToStep(targetStep: number): void {
+    if (targetStep < 1 || targetStep > 4 || targetStep === this.currentStep) return;
+    if (targetStep > this.currentStep) {
+      for (let step = this.currentStep; step < targetStep; step += 1) {
+        if (!this.validateWizardStep(step)) {
+          this.currentStep = step;
+          this.scrollWizardToTop();
+          return;
+        }
+      }
+    }
+    this.currentStep = targetStep;
+    this.errorMessage = '';
+    this.closeAutocomplete();
+    this.scrollWizardToTop();
+  }
+  isStepComplete(step: number): boolean {
+    if (step === 1) return !!this.recipeName.trim() && this.servings >= 1;
+    if (step === 2) {
+      const ingredients = this.ingredients.filter(item => item.name.trim());
+      return ingredients.length > 0 && ingredients.every(item =>
+        item.product != null && item.quantity != null && Number(item.quantity) > 0
+      );
+    }
+    if (step === 3) return this.stepCount > 0;
+    return this.isStepComplete(1) && this.isStepComplete(2) && this.isStepComplete(3);
+  }
   get ingredientCount(): number { return this.ingredients.filter(item => item.name.trim()).length; }
   get stepCount(): number { return this.preparationSteps.filter(item => item.text.trim()).length; }
+  get filledIngredients(): RecipeIngredient[] { return this.ingredients.filter(item => item.name.trim()); }
+  get filledPreparationSteps(): PreparationStep[] { return this.preparationSteps.filter(item => item.text.trim()); }
   get categoryLabel(): string { return this.categories.find(item => item.value === this.category)?.label ?? 'Sonstiges'; }
   get estimatedPricePerServing(): number | null {
     return this.estimatedPrice !== null && this.servings > 0 ? this.estimatedPrice / this.servings : null;
@@ -242,6 +301,9 @@ export class CreateRecipeComponent implements OnDestroy {
     });
     return hasValue && this.servings > 0 ? Math.round(total / this.servings * 100) / 100 : null;
   }
+  nutritionForDisplay(field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
+    return this.nutritionPerServing(field);
+  }
   canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index], this.selectedProducts[index]) !== null; }
   hasSelectedNutrition(): boolean { return this.selectedProducts.some(product => product && ['calories', 'protein', 'carbohydrates', 'fat', 'fiber'].some(field => this.nutritionValue(product, field as any) !== null)); }
   private ingredientGrams(ingredient: RecipeIngredient | undefined, product: ProductSuggestion | null): number | null {
@@ -279,6 +341,27 @@ export class CreateRecipeComponent implements OnDestroy {
       : null;
   }
   private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; }
+  private validateWizardStep(step: number): boolean {
+    this.errorMessage = '';
+    if (step === 1) {
+      if (!this.recipeName.trim()) { this.fail('Gib deinem Rezept bitte einen Namen.'); return false; }
+      if (!this.servings || this.servings < 1) { this.fail('Bitte gib mindestens eine Portion an.'); return false; }
+    }
+    if (step === 2) {
+      const ingredients = this.ingredients.filter(item => item.name.trim());
+      if (!ingredients.length) { this.fail('Füge bitte mindestens eine Zutat hinzu.'); return false; }
+      const unselected = ingredients.find(item => item.product == null);
+      if (unselected) { this.fail(`Wähle „${unselected.name.trim()}“ bitte aus den Produktvorschlägen aus.`); return false; }
+      if (ingredients.some(item => item.quantity == null || Number(item.quantity) <= 0)) {
+        this.fail('Bitte gib für jede Zutat eine Menge größer als null an.'); return false;
+      }
+    }
+    if (step === 3 && !this.stepCount) { this.fail('Füge bitte mindestens einen Zubereitungsschritt hinzu.'); return false; }
+    return true;
+  }
+  private scrollWizardToTop(): void {
+    window.setTimeout(() => document.querySelector('.recipe-wizard-page')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
   private fail(message: string): void { this.errorMessage = message; }
   private apiError(error: any): string { return error?.error?.ingredients?.[0] || error?.error?.detail || 'Das Rezept konnte nicht gespeichert werden.'; }
 }

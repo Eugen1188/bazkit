@@ -64,13 +64,22 @@ interface IngredientSearch {
   ],
 
   templateUrl:
-    './edit-recipe.component.html',
+    '../recipe-wizard/recipe-wizard.component.html',
 
   styleUrl:
-    './edit-recipe.component.scss'
+    '../recipe-wizard/recipe-wizard.component.scss'
 })
 export class EditRecipeComponent
 implements OnInit, OnDestroy {
+
+  readonly isEditMode = true;
+  readonly wizardSteps = [
+    { number: 1, label: 'Rezept', hint: 'Grunddaten' },
+    { number: 2, label: 'Zutaten', hint: 'Produkte & Mengen' },
+    { number: 3, label: 'Zubereitung', hint: 'Schritt für Schritt' },
+    { number: 4, label: 'Überprüfen', hint: 'Alles auf einen Blick' },
+  ];
+  currentStep = 1;
 
   recipeId!: number;
   communityPostId: number | null = null;
@@ -1006,6 +1015,14 @@ implements OnInit, OnDestroy {
     this.errorMessage =
       '';
 
+    for (const step of [1, 2, 3]) {
+      if (!this.validateWizardStep(step)) {
+        this.currentStep = step;
+        this.scrollWizardToTop();
+        return;
+      }
+    }
+
 
     if (
       !this.recipeName.trim()
@@ -1239,6 +1256,93 @@ implements OnInit, OnDestroy {
     }
   }
 
+  nextStep(): void {
+    if (!this.validateWizardStep(this.currentStep)) return;
+    this.currentStep = Math.min(4, this.currentStep + 1);
+    this.errorMessage = '';
+    this.closeIngredientAutocompleteImmediately();
+    this.scrollWizardToTop();
+  }
+
+  previousStep(): void {
+    this.currentStep = Math.max(1, this.currentStep - 1);
+    this.errorMessage = '';
+    this.closeIngredientAutocompleteImmediately();
+    this.scrollWizardToTop();
+  }
+
+  goToStep(targetStep: number): void {
+    if (targetStep < 1 || targetStep > 4 || targetStep === this.currentStep) return;
+    if (targetStep > this.currentStep) {
+      for (let step = this.currentStep; step < targetStep; step += 1) {
+        if (!this.validateWizardStep(step)) {
+          this.currentStep = step;
+          this.scrollWizardToTop();
+          return;
+        }
+      }
+    }
+    this.currentStep = targetStep;
+    this.errorMessage = '';
+    this.closeIngredientAutocompleteImmediately();
+    this.scrollWizardToTop();
+  }
+
+  isStepComplete(step: number): boolean {
+    if (step === 1) return !!this.recipeName.trim() && this.servings >= 1;
+    if (step === 2) {
+      const ingredients = this.ingredients.filter(item => item.name.trim());
+      return ingredients.length > 0 && ingredients.every(item =>
+        item.product != null && item.quantity != null && Number(item.quantity) > 0
+      );
+    }
+    if (step === 3) return this.stepCount > 0;
+    return this.isStepComplete(1) && this.isStepComplete(2) && this.isStepComplete(3);
+  }
+
+  nutritionForDisplay(field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
+    return this[field];
+  }
+
+  private validateWizardStep(step: number): boolean {
+    this.errorMessage = '';
+    if (step === 1) {
+      if (!this.recipeName.trim()) {
+        this.errorMessage = 'Gib deinem Rezept bitte einen Namen.';
+        return false;
+      }
+      if (!this.servings || this.servings < 1) {
+        this.errorMessage = 'Bitte gib mindestens eine Portion an.';
+        return false;
+      }
+    }
+    if (step === 2) {
+      const ingredients = this.ingredients.filter(item => item.name.trim());
+      if (!ingredients.length) {
+        this.errorMessage = 'Füge bitte mindestens eine Zutat hinzu.';
+        return false;
+      }
+      const unselected = ingredients.find(item => item.product == null);
+      if (unselected) {
+        this.errorMessage = `Wähle „${unselected.name.trim()}“ bitte aus den Produktvorschlägen aus.`;
+        return false;
+      }
+      if (ingredients.some(item => item.quantity == null || Number(item.quantity) <= 0)) {
+        this.errorMessage = 'Bitte gib für jede Zutat eine Menge größer als null an.';
+        return false;
+      }
+    }
+    if (step === 3 && !this.stepCount) {
+      this.errorMessage = 'Füge bitte mindestens einen Zubereitungsschritt hinzu.';
+      return false;
+    }
+    return true;
+  }
+
+  private scrollWizardToTop(): void {
+    window.setTimeout(() => document.querySelector('.recipe-wizard-page')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+
 
   get ingredientCount():
     number {
@@ -1261,6 +1365,26 @@ implements OnInit, OnDestroy {
           step.text.trim()
       )
       .length;
+  }
+
+
+  get filledIngredients() {
+
+    return this.ingredients
+      .filter(
+        ingredient =>
+          ingredient.name.trim()
+      );
+  }
+
+
+  get filledPreparationSteps() {
+
+    return this.preparationSteps
+      .filter(
+        step =>
+          step.text.trim()
+      );
   }
 
 

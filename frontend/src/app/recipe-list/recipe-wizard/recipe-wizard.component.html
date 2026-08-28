@@ -1,0 +1,353 @@
+<div class="recipe-wizard-page">
+  <ng-template #loadingTemplate>
+    <div class="wizard-loading" role="status">
+      <span class="loading-spinner" aria-hidden="true"></span>
+      <strong>Rezept wird vorbereitet</strong>
+      <small>Einen kleinen Moment bitte.</small>
+    </div>
+  </ng-template>
+
+  <ng-container *ngIf="!isLoading; else loadingTemplate">
+    <header class="wizard-page-header">
+      <div class="wizard-heading">
+        <span class="wizard-eyebrow">{{ isEditMode ? 'REZEPT BEARBEITEN' : 'NEUES REZEPT' }}</span>
+        <h1>
+          <ng-container [ngSwitch]="currentStep">
+            <span *ngSwitchCase="1">{{ isEditMode ? 'Rezeptinformationen anpassen' : 'Erzähl uns von deinem Rezept' }}</span>
+            <span *ngSwitchCase="2">Zutaten zusammenstellen</span>
+            <span *ngSwitchCase="3">Zubereitung beschreiben</span>
+            <span *ngSwitchDefault>Rezept überprüfen</span>
+          </ng-container>
+        </h1>
+        <p>
+          <ng-container [ngSwitch]="currentStep">
+            <span *ngSwitchCase="1">Beginne mit den wichtigsten Eckdaten. Du kannst später jederzeit zurückgehen.</span>
+            <span *ngSwitchCase="2">Wähle geprüfte Zutaten aus. Nährwerte werden automatisch berechnet.</span>
+            <span *ngSwitchCase="3">Führe Schritt für Schritt durch die Zubereitung.</span>
+            <span *ngSwitchDefault>Prüfe alle Angaben in Ruhe, bevor du speicherst.</span>
+          </ng-container>
+        </p>
+      </div>
+
+      <button class="wizard-close" type="button" aria-label="Assistent schließen" (click)="cancel()">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </header>
+
+    <main class="wizard-shell" [class.is-review]="currentStep === 4">
+      <nav class="wizard-stepper" aria-label="Fortschritt der Rezepteingabe">
+        <button
+          *ngFor="let step of wizardSteps; let last = last"
+          class="wizard-step"
+          type="button"
+          [class.is-active]="currentStep === step.number"
+          [class.is-complete]="isStepComplete(step.number) && currentStep !== step.number"
+          [class.is-future]="step.number > currentStep"
+          [attr.aria-current]="currentStep === step.number ? 'step' : null"
+          (click)="goToStep(step.number)"
+        >
+          <span class="step-marker">
+            <svg *ngIf="isStepComplete(step.number) && currentStep !== step.number" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4 4L19 7"></path></svg>
+            <span *ngIf="!isStepComplete(step.number) || currentStep === step.number">{{ step.number }}</span>
+          </span>
+          <span class="step-copy">
+            <strong>{{ step.label }}</strong>
+            <small>{{ step.hint }}</small>
+          </span>
+          <span class="step-connector" *ngIf="!last" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <div class="wizard-message" *ngIf="errorMessage" role="alert">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 17h.01"></path></svg>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <section class="wizard-stage" *ngIf="currentStep === 1">
+        <div class="stage-heading">
+          <span class="stage-number">01</span>
+          <div>
+            <h2>Rezeptinformationen</h2>
+            <p>Ein guter Name und ein paar Eckdaten reichen für den Anfang.</p>
+          </div>
+        </div>
+
+        <div class="wizard-card general-card">
+          <div class="field field-wide">
+            <label for="recipeName">Rezeptname <span>Pflichtfeld</span></label>
+            <input id="recipeName" type="text" maxlength="100" [(ngModel)]="recipeName" placeholder="z. B. Cremige Hähnchen-Pasta" autocomplete="off" />
+            <small>{{ recipeName.length }}/100 Zeichen</small>
+          </div>
+
+          <div class="field field-wide">
+            <label for="description">Beschreibung <span>Optional</span></label>
+            <textarea id="description" rows="4" maxlength="500" [(ngModel)]="description" placeholder="Was macht dieses Rezept besonders?"></textarea>
+            <small>{{ description.length }}/500 Zeichen</small>
+          </div>
+
+          <div class="general-grid">
+            <div class="field">
+              <label for="category">Kategorie</label>
+              <select id="category" [(ngModel)]="category">
+                <option *ngFor="let option of categories" [value]="option.value">{{ option.label }}</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="servings">Portionen</label>
+              <div class="input-icon-wrap">
+                <input id="servings" type="number" min="1" max="100" [(ngModel)]="servings" />
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 19v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M16 11a3 3 0 0 0 0-6M17 13a4 4 0 0 1 4 4v2"></path></svg>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="preparationTime">Zubereitungszeit</label>
+              <div class="input-suffix-wrap">
+                <input id="preparationTime" type="number" min="1" [(ngModel)]="preparationTime" placeholder="30" />
+                <span>Min.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="friendly-tip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M8.5 14.5A7 7 0 1 1 15.5 14.5c-.9.7-1.5 1.6-1.5 2.5h-4c0-.9-.6-1.8-1.5-2.5Z"></path></svg>
+            <span>Du musst noch nicht alles perfekt formulieren. Alle Angaben lassen sich später ändern.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wizard-stage" *ngIf="currentStep === 2">
+        <div class="stage-heading stage-heading-with-count">
+          <span class="stage-number">02</span>
+          <div>
+            <h2>Zutaten hinzufügen</h2>
+            <p>Suche eine Zutat, wähle einen Treffer und ergänze Menge und Einheit.</p>
+          </div>
+          <span class="count-pill">{{ ingredientCount }} {{ ingredientCount === 1 ? 'Zutat' : 'Zutaten' }}</span>
+        </div>
+
+        <div class="ingredients-layout">
+          <div class="wizard-card ingredient-editor-card">
+            <div class="ingredient-list">
+              <div class="ingredient-item" *ngFor="let ingredient of ingredients; let i = index" [class.is-selected]="!!selectedProducts[i]">
+                <div class="ingredient-order">
+                  <span>{{ i + 1 }}</span>
+                  <div class="order-buttons">
+                    <button type="button" [disabled]="i === 0" aria-label="Zutat nach oben" (click)="moveIngredientUp(i)"><svg viewBox="0 0 24 24"><path d="m7 14 5-5 5 5"></path></svg></button>
+                    <button type="button" [disabled]="i === ingredients.length - 1" aria-label="Zutat nach unten" (click)="moveIngredientDown(i)"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg></button>
+                  </div>
+                </div>
+
+                <div class="ingredient-fields">
+                  <div class="field product-field">
+                    <label [for]="'ingredientName' + i">Zutat</label>
+                    <div class="search-input-wrap" [class.has-product]="!!selectedProducts[i]">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+                      <input
+                        [id]="'ingredientName' + i"
+                        type="text"
+                        autocomplete="off"
+                        [ngModel]="ingredient.name"
+                        (ngModelChange)="onIngredientNameChange(i, $event)"
+                        (focus)="openIngredientSuggestions(i)"
+                        (blur)="closeIngredientSuggestions()"
+                        placeholder="z. B. Knoblauchzehe"
+                      />
+                      <span class="product-check" *ngIf="selectedProducts[i]" aria-label="Geprüfte Zutat">
+                        <svg viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7"></path></svg>
+                      </span>
+                    </div>
+
+                    <div class="ingredient-autocomplete" *ngIf="isIngredientSuggestionsOpen && activeIngredientIndex === i">
+                      <div class="autocomplete-status" *ngIf="isIngredientSearching">
+                        <span class="mini-spinner"></span> Zutaten werden gesucht…
+                      </div>
+                      <button
+                        *ngFor="let product of ingredientSuggestions; let suggestionIndex = index"
+                        class="suggestion-option"
+                        type="button"
+                        (mousedown)="$event.preventDefault()"
+                        (click)="selectIngredientSuggestion(i, product)"
+                      >
+                        <span class="suggestion-avatar">{{ product.name.charAt(0) | uppercase }}</span>
+                        <span class="suggestion-copy">
+                          <strong>{{ product.name }}</strong>
+                          <small>
+                            {{ product.calories_per_100g ?? '–' }} kcal · {{ product.protein_per_100g ?? '–' }} g Protein
+                          </small>
+                        </span>
+                        <span class="suggestion-source">{{ product.origin === 'bls' ? 'BLS' : product.origin === 'usda' ? 'USDA' : product.origin === 'open_food_facts' ? 'OFF' : 'Bazkit' }}</span>
+                      </button>
+                      <div class="autocomplete-empty" *ngIf="!isIngredientSearching && ingredientSuggestions.length === 0">
+                        Keine passende Kochzutat mit vollständigen Nährwerten gefunden.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field amount-field">
+                    <label [for]="'ingredientAmount' + i">Menge</label>
+                    <input [id]="'ingredientAmount' + i" type="number" min="0.01" step="0.01" [(ngModel)]="ingredient.quantity" (ngModelChange)="onIngredientAmountChange(i)" />
+                  </div>
+
+                  <div class="field unit-field">
+                    <label [for]="'ingredientUnit' + i">Einheit</label>
+                    <select [id]="'ingredientUnit' + i" [(ngModel)]="ingredient.unit" (ngModelChange)="onIngredientAmountChange(i)">
+                      <option *ngFor="let unit of units" [value]="unit" [disabled]="unit === 'Stück' && !!selectedProducts[i] && !selectedProducts[i]?.grams_per_unit">{{ unit }}</option>
+                    </select>
+                  </div>
+
+                  <button class="remove-button" type="button" aria-label="Zutat entfernen" *ngIf="hasIngredientContent(i)" (click)="removeIngredient(i)">
+                    <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path></svg>
+                  </button>
+                </div>
+
+                <div class="ingredient-facts" *ngIf="selectedProducts[i] as product">
+                  <div>
+                    <strong>{{ ingredient.name }}</strong>
+                    <span>{{ nutritionValue(product, 'calories') ?? '–' }} kcal</span>
+                    <span>{{ nutritionValue(product, 'protein') ?? '–' }} g Protein</span>
+                    <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g KH</span>
+                    <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
+                  </div>
+                  <small *ngIf="ingredient.unit === 'Stück' && product.grams_per_unit">1 Stück ≈ {{ product.grams_per_unit }} g</small>
+                  <small *ngIf="ingredientPriceLoading[i]">Preis wird geprüft…</small>
+                  <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price !== null">ca. {{ ingredient.estimated_price | number:'1.2-2' }} € für diese Menge</small>
+                  <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price === null">Nährwerte vorhanden · keine belastbaren Preisdaten</small>
+                </div>
+              </div>
+            </div>
+
+            <button class="add-outline-button" type="button" [disabled]="!canAddIngredient()" (click)="addIngredient()">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+              Weitere Zutat hinzufügen
+            </button>
+          </div>
+
+          <aside class="nutrition-summary">
+            <div class="summary-heading">
+              <span class="summary-icon"><svg viewBox="0 0 24 24"><path d="M5 3v7a3 3 0 0 0 3 3V3M8 13v8M16 3v18M16 3c3 2 4 5 2 8h-2"></path></svg></span>
+              <div><strong>Nährwerte pro Portion</strong><small>Automatisch berechnet</small></div>
+            </div>
+            <div class="nutrition-stat-grid">
+              <div><strong>{{ nutritionForDisplay('calories') ?? '–' }}</strong><span>kcal</span></div>
+              <div><strong>{{ nutritionForDisplay('protein') ?? '–' }}</strong><span>Protein</span></div>
+              <div><strong>{{ nutritionForDisplay('carbohydrates') ?? '–' }}</strong><span>Kohlenhydrate</span></div>
+              <div><strong>{{ nutritionForDisplay('fat') ?? '–' }}</strong><span>Fett</span></div>
+              <div><strong>{{ nutritionForDisplay('fiber') ?? '–' }}</strong><span>Ballaststoffe</span></div>
+            </div>
+            <div class="price-summary" *ngIf="estimatedPrice !== null && hasSufficientPriceCoverage">
+              <span>Geschätzter Gesamtpreis</span><strong>{{ estimatedPrice | number:'1.2-2' }} €</strong>
+              <small>{{ estimatedPricePerServing | number:'1.2-2' }} € pro Portion</small>
+            </div>
+            <p>Die Werte passen sich sofort an, wenn du Menge oder Einheit änderst.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="wizard-stage" *ngIf="currentStep === 3">
+        <div class="stage-heading stage-heading-with-count">
+          <span class="stage-number">03</span>
+          <div><h2>Zubereitung</h2><p>Kurze, klare Schritte machen dein Rezept besonders angenehm nachzukochen.</p></div>
+          <span class="count-pill">{{ stepCount }} {{ stepCount === 1 ? 'Schritt' : 'Schritte' }}</span>
+        </div>
+
+        <div class="wizard-card preparation-card">
+          <div class="preparation-list">
+            <div class="preparation-item" *ngFor="let step of preparationSteps; let i = index">
+              <div class="step-badge">{{ i + 1 }}</div>
+              <textarea rows="2" maxlength="500" [(ngModel)]="step.text" [placeholder]="'Schritt ' + (i + 1) + ' beschreiben…'"></textarea>
+              <div class="step-actions">
+                <button type="button" [disabled]="i === 0" aria-label="Schritt nach oben" (click)="moveStepUp(i)"><svg viewBox="0 0 24 24"><path d="m7 14 5-5 5 5"></path></svg></button>
+                <button type="button" [disabled]="i === preparationSteps.length - 1" aria-label="Schritt nach unten" (click)="moveStepDown(i)"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg></button>
+                <button class="danger" type="button" *ngIf="hasStepContent(i)" aria-label="Schritt entfernen" (click)="removePreparationStep(i)"><svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <button class="add-outline-button" type="button" [disabled]="!canAddPreparationStep()" (click)="addPreparationStep()">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>
+            Weiteren Schritt hinzufügen
+          </button>
+        </div>
+
+        <div class="wizard-card notes-card">
+          <div class="notes-heading"><h3>Persönliche Notizen</h3><span>Optional</span></div>
+          <textarea rows="3" maxlength="1000" [(ngModel)]="notes" placeholder="Tipps, Varianten oder Hinweise für das nächste Mal…"></textarea>
+        </div>
+      </section>
+
+      <section class="wizard-stage review-stage" *ngIf="currentStep === 4">
+        <div class="stage-heading">
+          <span class="stage-number">04</span>
+          <div><h2>Dein Rezept ist bereit</h2><p>Sieh alles noch einmal durch. Über „Bearbeiten“ springst du direkt zum passenden Schritt.</p></div>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card review-main-card">
+            <div class="review-hero">
+              <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34"></circle><circle cx="60" cy="60" r="22"></circle><path d="M24 30v26M31 30v26M24 44h7M27.5 56v35M92 30v61M92 30c12 10 13 26 2 36h-2"></path></svg>
+            </div>
+            <div class="review-content">
+              <span class="category-badge">{{ categoryLabel }}</span>
+              <h2>{{ recipeName || 'Dein neues Rezept' }}</h2>
+              <p>{{ description || 'Noch keine Beschreibung vorhanden.' }}</p>
+              <div class="review-meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{ preparationTime || '–' }} Min.</span>
+                <span><svg viewBox="0 0 24 24"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 19v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M16 11a3 3 0 0 0 0-6M17 13a4 4 0 0 1 4 4v2"></path></svg>{{ servings }} Portionen</span>
+                <span><svg viewBox="0 0 24 24"><path d="M5 3v7a3 3 0 0 0 3 3V3M8 13v8M16 3v18M16 3c3 2 4 5 2 8h-2"></path></svg>{{ ingredientCount }} Zutaten</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="review-card review-nutrition-card">
+            <div class="review-section-heading"><div><span>AUTOMATISCH BERECHNET</span><h3>Nährwerte pro Portion</h3></div><button type="button" (click)="goToStep(2)">Bearbeiten</button></div>
+            <div class="review-nutrition-grid">
+              <div><strong>{{ nutritionForDisplay('calories') ?? '–' }}</strong><span>kcal</span></div>
+              <div><strong>{{ nutritionForDisplay('protein') ?? '–' }} g</strong><span>Protein</span></div>
+              <div><strong>{{ nutritionForDisplay('carbohydrates') ?? '–' }} g</strong><span>Kohlenhydrate</span></div>
+              <div><strong>{{ nutritionForDisplay('fat') ?? '–' }} g</strong><span>Fett</span></div>
+              <div><strong>{{ nutritionForDisplay('fiber') ?? '–' }} g</strong><span>Ballaststoffe</span></div>
+            </div>
+          </aside>
+
+          <article class="review-card review-list-card">
+            <div class="review-section-heading"><div><span>{{ ingredientCount }} EINTRÄGE</span><h3>Zutaten</h3></div><button type="button" (click)="goToStep(2)">Bearbeiten</button></div>
+            <div class="review-ingredient" *ngFor="let ingredient of filledIngredients">
+              <span class="review-initial">{{ ingredient.name.charAt(0) | uppercase }}</span>
+              <strong>{{ ingredient.name }}</strong>
+              <span>{{ ingredient.quantity | number:'1.0-2' }} {{ ingredient.unit }}</span>
+            </div>
+          </article>
+
+          <article class="review-card review-list-card">
+            <div class="review-section-heading"><div><span>{{ stepCount }} EINTRÄGE</span><h3>Zubereitung</h3></div><button type="button" (click)="goToStep(3)">Bearbeiten</button></div>
+            <div class="review-step" *ngFor="let step of filledPreparationSteps; let i = index">
+              <span>{{ i + 1 }}</span><p>{{ step.text }}</p>
+            </div>
+            <div class="review-note" *ngIf="notes.trim()"><strong>Notiz</strong><p>{{ notes }}</p></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="wizard-footer">
+        <div>
+          <button class="button-quiet" type="button" *ngIf="currentStep === 1" (click)="cancel()">Abbrechen</button>
+          <button class="button-secondary" type="button" *ngIf="currentStep > 1" (click)="previousStep()">
+            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg> Zurück
+          </button>
+        </div>
+
+        <div class="footer-progress"><strong>Schritt {{ currentStep }} von 4</strong><span><i [style.width.%]="currentStep * 25"></i></span></div>
+
+        <button class="button-primary" type="button" *ngIf="currentStep < 4" (click)="nextStep()">
+          Weiter <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+        <button class="button-primary save-final" type="button" *ngIf="currentStep === 4" [disabled]="isSaving" (click)="saveRecipe()">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7"></path></svg>
+          {{ isSaving ? 'Wird gespeichert…' : isEditMode ? 'Änderungen speichern' : 'Rezept speichern' }}
+        </button>
+      </footer>
+    </main>
+  </ng-container>
+</div>
