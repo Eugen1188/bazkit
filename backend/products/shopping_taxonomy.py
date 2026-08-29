@@ -59,7 +59,7 @@ SHELF_STABLE = re.compile(
     r"konserve|\bdose\b|getrocknet|eingelegt|essiggurke|gewürzgurke|pulver|mark\b|passierte|passata|"
     r"whey|proteinpulver|protein powder|eiweißpulver|eiweisspulver|"
     r"nudel|pasta|spaghetti|makkaroni|reis|mehl|stärke|zucker|salz|gewürz|"
-    r"pfeffer|paprika.*pulver|öl|essig|sauce|soße|brühe|fond|bouillon|"
+    r"pfeffer|paprika.*pulver|sternanis|star\s+anise|aniseeds?|spices?|öl|essig|sauce|soße|brühe|fond|bouillon|"
     r"müsli|hafer|couscous|bulgur|quinoa|hirse|buchweizen|amaranth|"
     r"nuss|mandel|cashew|pistaz|samen|saaten|kerne|algen|tahini|miso|sojasauce|"
     r"backzutat|backpulver|natron|hefe|gelatine|kakao|sirup|honig|hülsenfr",
@@ -89,7 +89,7 @@ HOUSEHOLD = re.compile(
 # ausschlaggebend.
 COMMON_PANTRY = re.compile(
     r"^(?:speise)?salz$|pfeffer|paprikapulver|kreuzkümmel|kurkuma|zimt|"
-    r"muskat|kardamom|safran|gewürznelke|senfkörner|fenchelsamen|"
+    r"muskat|kardamom|safran|gewürznelke|senfkörner|fenchelsamen|sternanis|star\s+anise|"
     r"oregano$|majoran$|(?:thymian|rosmarin|basilikum)\s+getrocknet$|"
     r"lorbeer|öl$|essig$|zucker$|mehl|stärke|backpulver|natron|"
     r"brühe$|fond$|bouillon|reis$|nudeln$|pasta$|couscous$|bulgur$|"
