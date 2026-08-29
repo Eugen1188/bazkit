@@ -9,9 +9,11 @@ from .catalog import (
     AVERAGE_UNIT_WEIGHT_GRAMS,
     canonical_recipe_name,
     canonical_search_query,
+    curated_unit_conversion,
     ingredient_quantity_grams,
     recipe_ingredient_status,
     suggested_unit_for_product,
+    sync_curated_unit_conversion,
 )
 from .ingredient_catalog import (
     INGREDIENT_DEFINITIONS,
@@ -80,7 +82,33 @@ class RecipeCatalogTests(TestCase):
         )
         self.assertEqual(
             suggested_unit_for_product("Knoblauch", "Knoblauch", "produce"),
-            "Stück",
+            "Zehe",
+        )
+
+    def test_curated_piece_conversions_cover_logical_catalog_items(self):
+        expected = {
+            "Apfel": ("Stück", Decimal("180")),
+            "Kartoffel": ("Stück", Decimal("150")),
+            "Kürbis": ("Stück", Decimal("1000")),
+            "Ei": ("Stück", Decimal("60")),
+            "Knoblauch": ("Zehe", Decimal("3")),
+        }
+        for name, (unit, grams) in expected.items():
+            conversion = curated_unit_conversion(name)
+            self.assertIsNotNone(conversion)
+            self.assertEqual(conversion["unit"], unit)
+            self.assertEqual(conversion["grams_per_unit"], grams)
+
+    def test_synced_pumpkin_piece_conversion_drives_nutrition_quantity(self):
+        pumpkin = Product.objects.create(
+            name="Kürbis", canonical_name="Kürbis", source="bls", external_id="pumpkin"
+        )
+        conversion = sync_curated_unit_conversion(pumpkin)
+        self.assertEqual(conversion.unit, "Stück")
+        self.assertEqual(conversion.grams_per_unit, Decimal("1000"))
+        self.assertEqual(
+            ingredient_quantity_grams("Kürbis", 1, "Stück", product=pumpkin),
+            Decimal("1000"),
         )
 
     def test_legacy_name_parser_separates_package_without_losing_name(self):

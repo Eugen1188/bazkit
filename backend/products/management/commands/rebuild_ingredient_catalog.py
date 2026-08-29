@@ -6,6 +6,7 @@ from products.catalog import (
     canonical_recipe_name,
     recipe_ingredient_status,
     suggested_unit_for_product,
+    sync_curated_unit_conversion,
 )
 from products.curated import ensure_curated_ingredients
 from products.ingredient_catalog import rebuild_product_aliases
@@ -124,6 +125,10 @@ class Command(BaseCommand):
                 ],
                 batch_size=500,
             )
+        conversions_synced = 0
+        for product in products.iterator(chunk_size=500):
+            if sync_curated_unit_conversion(product) is not None:
+                conversions_synced += 1
         rebuild_product_aliases(products)
         # Bereits gespeicherte Rezepte erhalten nach korrigierten BLS-Werten
         # sofort neue Summen. Nutzer müssen sie dafür nicht erst bearbeiten.
@@ -139,5 +144,6 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(
             "Zutatenkatalog und Synonyme wurden neu aufgebaut. Unvollständige "
             "Produkte bleiben gespeichert, werden aber in Rezepten nicht angeboten. "
+            f"Küchenumrechnungen für {conversions_synced} Produkte synchronisiert. "
             f"Nährwerte für {recipes_recalculated} gespeicherte Rezepte wurden neu berechnet."
         ))

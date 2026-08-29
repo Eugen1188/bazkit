@@ -280,12 +280,56 @@ AVERAGE_UNIT_WEIGHT_GRAMS = {
     "Kabeljau": Decimal("150"),
 }
 
+CURATED_CONVERSION_SOURCE = "Bazkit kuratierte Portionsreferenz v1"
+
 
 def average_unit_weight_grams(name):
     canonical_name = canonical_query(name)
     if canonical_name == str(name or "").strip():
         canonical_name = canonical_recipe_name(name)
     return AVERAGE_UNIT_WEIGHT_GRAMS.get(canonical_name)
+
+
+def curated_unit_conversion(name):
+    """Liefert nur redaktionell gepflegte Küchenumrechnungen."""
+    grams = average_unit_weight_grams(name)
+    if grams is None:
+        return None
+    canonical_name = canonical_query(name)
+    if canonical_name == str(name or "").strip():
+        canonical_name = canonical_recipe_name(name)
+    unit = "Zehe" if canonical_name == "Knoblauch" else "Stück"
+    return {
+        "unit": unit,
+        "grams_per_unit": grams,
+        "source": CURATED_CONVERSION_SOURCE,
+        "confidence": "reference",
+    }
+
+
+def sync_curated_unit_conversion(product):
+    from .models import ProductUnitConversion
+
+    conversion = curated_unit_conversion(product.canonical_name or product.name)
+    if conversion is None:
+        ProductUnitConversion.objects.filter(
+            product=product, source=CURATED_CONVERSION_SOURCE
+        ).delete()
+        return None
+    ProductUnitConversion.objects.filter(
+        product=product, source=CURATED_CONVERSION_SOURCE
+    ).exclude(unit=conversion["unit"]).delete()
+    value, _created = ProductUnitConversion.objects.update_or_create(
+        product=product,
+        unit=conversion["unit"],
+        defaults={
+            "grams_per_unit": conversion["grams_per_unit"],
+            "source": conversion["source"],
+            "confidence": conversion["confidence"],
+            "is_active": True,
+        },
+    )
+    return value
 
 
 def suggested_unit_for_product(
@@ -296,8 +340,9 @@ def suggested_unit_for_product(
 ):
     if shopping_category == "drinks":
         return "ml"
-    if average_unit_weight_grams(canonical_name or name) is not None:
-        return "Stück"
+    conversion = curated_unit_conversion(canonical_name or name)
+    if conversion is not None:
+        return conversion["unit"]
     return str(fallback_unit or "g")
 
 

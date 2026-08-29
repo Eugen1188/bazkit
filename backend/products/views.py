@@ -21,6 +21,7 @@ from .catalog import (
     canonical_search_query,
     recipe_ingredient_status,
     suggested_unit_for_product,
+    sync_curated_unit_conversion,
 )
 from .ingredient_catalog import (
     definition_for_query,
@@ -684,5 +685,6 @@ class SaveExternalProductAPIView(APIView):
         defaults.pop("nutrition_complete", None)
         with transaction.atomic():
             product, created = Product.objects.get_or_create(source=source, external_id=external_id, defaults=defaults)
+            sync_curated_unit_conversion(product)
             replace_product_aliases(product)
         return Response(ProductSerializer(product).data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
