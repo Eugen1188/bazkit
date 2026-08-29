@@ -229,7 +229,7 @@
                   <div class="field unit-field">
                     <label [for]="'ingredientUnit' + i">Einheit</label>
                     <select [id]="'ingredientUnit' + i" [(ngModel)]="ingredient.unit" (ngModelChange)="onIngredientAmountChange(i)">
-                      <option *ngFor="let unit of units" [value]="unit" [disabled]="unit === 'Stück' && !!selectedProducts[i] && !selectedProducts[i]?.grams_per_unit">{{ unit }}</option>
+                      <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
                     </select>
                   </div>
 
@@ -247,6 +247,7 @@
                     <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
                   </div>
                   <small *ngIf="ingredient.unit === 'Stück' && product.grams_per_unit">1 Stück ≈ {{ product.grams_per_unit }} g</small>
+                  <small *ngIf="!canCalculateIngredient(i)">Einheit erlaubt · ohne belastbare Umrechnung nicht in den Nährwerten berücksichtigt</small>
                   <small *ngIf="ingredientPriceLoading[i]">Preis wird geprüft…</small>
                   <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price !== null">ca. {{ ingredient.estimated_price | number:'1.2-2' }} € für diese Menge</small>
                   <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price === null">Nährwerte vorhanden · keine belastbaren Preisdaten</small>

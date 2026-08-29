@@ -931,6 +931,11 @@ implements OnInit, OnDestroy {
     }
   }
 
+  canCalculateIngredient(index: number): boolean {
+    const ingredient = this.ingredients[index];
+    return !!ingredient && this.ingredientGrams(ingredient, this.selectedProducts[index]) !== null;
+  }
+
   private ingredientGrams(ingredient: RecipeIngredient, product: ProductSuggestion | null): number | null {
     if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
