@@ -54,7 +54,7 @@ export class CreateRecipeComponent implements OnDestroy {
   selectingIngredientIndex: number | null = null;
   ingredientPriceLoading: boolean[] = [false];
 
-  readonly units = ['Stück', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund', 'Prise'];
+  readonly units = ['Stück', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Prise', 'Zehe', 'Scheibe', 'Tasse', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund'];
   readonly categories = [
     { value: 'breakfast', label: 'Frühstück' }, { value: 'lunch', label: 'Mittagessen' },
     { value: 'dinner', label: 'Abendessen' }, { value: 'snack', label: 'Snack' },
@@ -224,8 +224,6 @@ export class CreateRecipeComponent implements OnDestroy {
     if (!this.recipeName.trim()) return this.fail('Bitte gib einen Rezeptnamen ein.');
     if (this.servings < 1) return this.fail('Bitte gib mindestens eine Portion an.');
     if (!ingredients.length) return this.fail('Bitte füge mindestens eine Zutat hinzu.');
-    const unselected = ingredients.find(item => item.product == null);
-    if (unselected) return this.fail(`Bitte wähle „${unselected.name.trim()}“ aus den Produktvorschlägen aus.`);
     if (!steps.length) return this.fail('Bitte füge mindestens einen Zubereitungsschritt hinzu.');
     const payload: RecipePayload = {
       name: this.recipeName.trim(), description: this.description.trim(), servings: this.servings,
@@ -294,7 +292,7 @@ export class CreateRecipeComponent implements OnDestroy {
     if (step === 2) {
       const ingredients = this.ingredients.filter(item => item.name.trim());
       return ingredients.length > 0 && ingredients.every(item =>
-        item.product != null && item.quantity != null && Number(item.quantity) > 0
+        item.quantity != null && Number(item.quantity) > 0
       );
     }
     if (step === 3) return this.stepCount > 0;
@@ -354,13 +352,13 @@ export class CreateRecipeComponent implements OnDestroy {
   private ingredientGrams(ingredient: RecipeIngredient | undefined, product: ProductSuggestion | null): number | null {
     if (!ingredient || ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000, el: 15, esslöffel: 15, tl: 5, teelöffel: 5, prise: 0.35 };
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000 };
     const factor = factors[unit];
     if (factor !== undefined) return Number(ingredient.quantity) * factor;
-    if (unit !== 'stück' && unit !== 'stueck') return null;
-    const averageWeight = product?.grams_per_unit == null
-      ? null
-      : Number(product.grams_per_unit);
+    const conversion = product?.unit_conversions?.find(item =>
+      item.unit.trim().toLocaleLowerCase('de-DE') === unit
+    );
+    const averageWeight = conversion?.grams_per_unit == null ? null : Number(conversion.grams_per_unit);
     return averageWeight !== null && Number.isFinite(averageWeight) && averageWeight > 0
       ? Number(ingredient.quantity) * averageWeight
       : null;

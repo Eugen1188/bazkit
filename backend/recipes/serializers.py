@@ -37,6 +37,7 @@ def calculate_recipe_nutrition(recipe, ingredients):
             ingredient.product.canonical_name or ingredient.product.name,
             ingredient.quantity,
             ingredient.unit,
+            product=ingredient.product,
         )
         if grams is None:
             continue
@@ -125,7 +126,10 @@ def apply_automatic_price(attrs):
 
 
 class IngredientsSerializer(serializers.ModelSerializer):
-    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), allow_null=False, required=True)
+    name = serializers.CharField(required=False, allow_blank=True)
+    product = serializers.PrimaryKeyRelatedField(
+        queryset=Product.objects.all(), allow_null=True, required=False
+    )
     product_detail = ProductSerializer(source="product", read_only=True)
 
     class Meta:
@@ -137,7 +141,7 @@ class IngredientsSerializer(serializers.ModelSerializer):
             "package_quantity", "package_unit",
         ]
         read_only_fields = [
-            "id", "name", "estimated_price", "price_source", "price_currency",
+            "id", "estimated_price", "price_source", "price_currency",
             "price_date", "price_store", "price_sample_count", "price_min",
             "price_max", "package_price", "package_quantity", "package_unit",
         ]
@@ -145,7 +149,11 @@ class IngredientsSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         product = attrs.get("product")
         if product is None:
-            raise serializers.ValidationError({"product": "Bitte ein Produkt aus den Vorschlägen auswählen."})
+            name = clean_product_name(attrs.get("name"))
+            if not name:
+                raise serializers.ValidationError({"name": "Bitte eine Zutat angeben."})
+            attrs["name"] = name
+            return attrs
         is_recipe_ingredient, exclusion_reason = recipe_ingredient_status(
             product.name,
             product.category,

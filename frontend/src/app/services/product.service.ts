@@ -18,6 +18,9 @@ export interface ProductSuggestion {
   external_id: string | null;
   default_unit: string;
   grams_per_unit?: string | null;
+  package_quantity?: string | null;
+  package_unit?: string;
+  unit_conversions?: ProductUnitConversion[];
   calories_per_100g: string | null;
   protein_per_100g: string | null;
   carbohydrates_per_100g: string | null;
@@ -25,6 +28,13 @@ export interface ProductSuggestion {
   fiber_per_100g: string | null;
   nutrition_complete?: boolean;
   origin: ProductOrigin;
+}
+
+export interface ProductUnitConversion {
+  unit: string;
+  grams_per_unit: string;
+  source: string;
+  confidence: 'verified' | 'reference';
 }
 
 export interface PriceSnapshot {

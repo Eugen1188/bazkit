@@ -115,7 +115,10 @@ implements OnInit, OnDestroy {
     'Glas',
     'Becher',
     'Bund',
-    'Prise'
+    'Prise',
+    'Zehe',
+    'Scheibe',
+    'Tasse'
   ];
 
 

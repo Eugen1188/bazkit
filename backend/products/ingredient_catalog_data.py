@@ -115,7 +115,7 @@ EXTENDED_INGREDIENT_DEFINITIONS = (
     ("Lorbeerblatt", ("lorbeer", "lorbeerblatt", "lorbeerblätter", "lorbeerblaetter", "bay leaf"), "bay leaf", (), ("170917",)),
     ("Muskatnuss", ("muskat", "muskatnuss", "muskatnuß", "nutmeg"), "nutmeg ground", (), ("171326",)),
     ("Gewürznelke", ("nelke", "nelken", "gewürznelke", "gewuerznelke", "clove", "cloves"), "cloves ground", (), ("171321",)),
-    ("Zimt", ("zimt", "zimtpulver", "cinnamon"), "cinnamon ground", (), ("171320",)),
+    ("Zimt", ("zimt", "zimtpulver", "zimtstange", "zimtstangen", "ceylon-zimt", "cinnamon"), "cinnamon ground", (), ("171320",)),
     ("Vanilleextrakt", ("vanilleextrakt", "vanille extrakt", "vanilla extract"), "vanilla extract", (), ("173471",)),
     ("Fischsauce", ("fischsauce", "fish sauce", "nam pla", "nuoc mam"), "fish sauce ready to serve", (), ("174531",)),
     ("Kardamom", ("kardamom", "cardamom"), "cardamom", (), ("170919",)),

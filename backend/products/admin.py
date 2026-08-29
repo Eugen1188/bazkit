@@ -1,10 +1,18 @@
 from django.contrib import admin
 
-from .models import IngredientPriceReference, IngredientSearchMetric, Product, ProductAlias
+from .models import (
+    IngredientPriceReference, IngredientSearchMetric, Product, ProductAlias,
+    ProductUnitConversion,
+)
 
 
 class ProductAliasInline(admin.TabularInline):
     model = ProductAlias
+    extra = 0
+
+
+class ProductUnitConversionInline(admin.TabularInline):
+    model = ProductUnitConversion
     extra = 0
 
 
@@ -16,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
     list_filter = ("source", "is_recipe_ingredient")
     search_fields = ("name", "canonical_name", "aliases__alias")
-    inlines = (ProductAliasInline,)
+    inlines = (ProductAliasInline, ProductUnitConversionInline)
 
 
 @admin.register(ProductAlias)
@@ -24,6 +32,13 @@ class ProductAliasAdmin(admin.ModelAdmin):
     list_display = ("alias", "product", "source")
     list_filter = ("source",)
     search_fields = ("alias", "normalized_alias", "product__name")
+
+
+@admin.register(ProductUnitConversion)
+class ProductUnitConversionAdmin(admin.ModelAdmin):
+    list_display = ("product", "unit", "grams_per_unit", "confidence", "source", "is_active")
+    list_filter = ("confidence", "unit", "is_active")
+    search_fields = ("product__name", "unit", "source")
 
 
 @admin.register(IngredientSearchMetric)

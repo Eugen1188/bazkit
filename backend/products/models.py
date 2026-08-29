@@ -80,6 +80,11 @@ class Product(models.Model):
         blank=True
     )
 
+    package_quantity = models.DecimalField(
+        max_digits=10, decimal_places=3, null=True, blank=True
+    )
+    package_unit = models.CharField(max_length=20, blank=True)
+
     calories_per_100g = models.DecimalField(
         max_digits=8,
         decimal_places=2,
@@ -201,6 +206,41 @@ class ProductAlias(models.Model):
 
         self.normalized_alias = normalize_alias(self.alias)
         super().save(*args, **kwargs)
+
+
+class ProductUnitConversion(models.Model):
+    """Belastbare, produktspezifische Umrechnung einer Küchenmenge in Gramm."""
+
+    CONFIDENCE_CHOICES = [
+        ("verified", "Verifiziert"),
+        ("reference", "Referenzwert"),
+        ("estimated", "Schätzwert"),
+    ]
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="unit_conversions"
+    )
+    unit = models.CharField(max_length=30)
+    grams_per_unit = models.DecimalField(max_digits=10, decimal_places=3)
+    source = models.CharField(max_length=200)
+    confidence = models.CharField(
+        max_length=20, choices=CONFIDENCE_CHOICES, default="reference"
+    )
+    is_active = models.BooleanField(default=True, db_index=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["product", "unit"], name="unique_product_unit_conversion"
+            ),
+            models.CheckConstraint(
+                condition=models.Q(grams_per_unit__gt=0),
+                name="positive_product_unit_conversion",
+            ),
+        ]
+        ordering = ["unit"]
+
+    def __str__(self):
+        return f"{self.product}: 1 {self.unit} = {self.grams_per_unit} g"
 
 
 class IngredientSearchMetric(models.Model):

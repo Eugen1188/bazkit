@@ -193,7 +193,10 @@ implements OnInit, OnDestroy {
     'Glas',
     'Becher',
     'Bund',
-    'Prise'
+    'Prise',
+    'Zehe',
+    'Scheibe',
+    'Tasse'
   ];
 
 
@@ -931,13 +934,13 @@ implements OnInit, OnDestroy {
   private ingredientGrams(ingredient: RecipeIngredient, product: ProductSuggestion | null): number | null {
     if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000, el: 15, esslöffel: 15, tl: 5, teelöffel: 5, prise: 0.35 };
+    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000 };
     const factor = factors[unit];
     if (factor !== undefined) return Number(ingredient.quantity) * factor;
-    if (unit !== 'stück' && unit !== 'stueck') return null;
-    const averageWeight = product?.grams_per_unit == null
-      ? null
-      : Number(product.grams_per_unit);
+    const conversion = product?.unit_conversions?.find(item =>
+      item.unit.trim().toLocaleLowerCase('de-DE') === unit
+    );
+    const averageWeight = conversion?.grams_per_unit == null ? null : Number(conversion.grams_per_unit);
     return averageWeight !== null && Number.isFinite(averageWeight) && averageWeight > 0
       ? Number(ingredient.quantity) * averageWeight
       : null;
@@ -1150,13 +1153,6 @@ implements OnInit, OnDestroy {
       return;
     }
 
-    const unselectedIngredient = ingredients.find(ingredient => ingredient.product === null);
-    if (unselectedIngredient) {
-      this.errorMessage = `Bitte wähle „${unselectedIngredient.name}“ aus den Produktvorschlägen aus.`;
-      return;
-    }
-
-
     const validSteps =
       this.preparationSteps
         .map(
@@ -1363,7 +1359,7 @@ implements OnInit, OnDestroy {
     if (step === 2) {
       const ingredients = this.ingredients.filter(item => item.name.trim());
       return ingredients.length > 0 && ingredients.every(item =>
-        item.product != null && item.quantity != null && Number(item.quantity) > 0
+        item.quantity != null && Number(item.quantity) > 0
       );
     }
     if (step === 3) return this.stepCount > 0;

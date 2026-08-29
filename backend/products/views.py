@@ -89,6 +89,21 @@ def decimal_or_none(value):
         return None
 
 
+def package_data(item):
+    quantity = decimal_or_none(item.get("product_quantity"))
+    unit = clean_text(item.get("product_quantity_unit"), 20).casefold()
+    if quantity is not None and unit:
+        return quantity, unit
+    match = re.search(
+        r"(?P<amount>\d+(?:[.,]\d+)?)\s*(?P<unit>mg|g|kg|ml|cl|dl|l)\b",
+        clean_text(item.get("quantity"), 80),
+        re.I,
+    )
+    if not match:
+        return None, ""
+    return decimal_or_none(match.group("amount").replace(",", ".")), match.group("unit").casefold()
+
+
 def nutrition_is_complete(product):
     return all(
         product.get(field) is not None
@@ -305,6 +320,7 @@ def off_payload(item):
         code,
     )
     grams_per_unit = average_unit_weight_grams(canonical_name)
+    package_quantity, package_unit = package_data(item)
     result = {
         "id": None,
         "name": name,
@@ -318,6 +334,8 @@ def off_payload(item):
         "source": "open_food_facts",
         "external_id": code,
         "default_unit": suggested_unit_for_product(name, canonical_name, shopping_category),
+        "package_quantity": package_quantity,
+        "package_unit": package_unit,
         "grams_per_unit": str(grams_per_unit) if grams_per_unit is not None else None,
         "calories_per_100g": decimal_or_none(nutriments.get("energy-kcal_100g")),
         "protein_per_100g": decimal_or_none(nutriments.get("proteins_100g")),
@@ -552,7 +570,7 @@ class ExternalProductSearchAPIView(APIView):
         try:
             response = off_session().get(OFF_SEARCH_URL, params={
                 "search_terms": query, "search_simple": 1, "action": "process", "json": 1,
-                "page_size": 30, "fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments",
+                "page_size": 30, "fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments,quantity,product_quantity,product_quantity_unit",
             }, headers=OFF_HEADERS, timeout=8)
             response.raise_for_status()
             items = response.json().get("products", [])
@@ -630,7 +648,7 @@ class SaveExternalProductAPIView(APIView):
             return Response(ProductSerializer(existing).data)
         try:
             if source == "open_food_facts":
-                response = requests.get(OFF_PRODUCT_URL.format(code=external_id), params={"fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments"}, headers=OFF_HEADERS, timeout=8)
+                response = requests.get(OFF_PRODUCT_URL.format(code=external_id), params={"fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments,quantity,product_quantity,product_quantity_unit"}, headers=OFF_HEADERS, timeout=8)
                 response.raise_for_status()
                 body = response.json()
                 product_data = off_payload(body.get("product") or {}) if body.get("status") == 1 else None

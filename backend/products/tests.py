@@ -21,7 +21,8 @@ from .ingredient_catalog import (
     normalize_alias,
     replace_product_aliases,
 )
-from .models import IngredientPriceReference, IngredientSearchMetric, Product
+from .models import IngredientPriceReference, IngredientSearchMetric, Product, ProductUnitConversion
+from .legacy_normalization import parse_legacy_product_name
 from .nutrition_quality import apply_safe_zero_defaults, nutrition_is_complete
 from .pricing import estimate_product_price
 from .serializers import ProductSerializer
@@ -67,19 +68,27 @@ class RecipeCatalogTests(TestCase):
                     f"{alias} ist mehreren Zutaten zugeordnet.",
                 )
 
-    def test_piece_units_use_central_weights_and_parmesan_stays_in_grams(self):
-        self.assertEqual(
-            ingredient_quantity_grams("Knoblauchzehe", 2, "Stück"),
-            Decimal("6"),
+    def test_piece_units_require_product_specific_sourced_conversion(self):
+        product = Product.objects.create(name="Knoblauch", source="bls", external_id="garlic")
+        self.assertIsNone(ingredient_quantity_grams("Knoblauch", 2, "Zehe", product=product))
+        ProductUnitConversion.objects.create(
+            product=product, unit="Zehe", grams_per_unit=Decimal("3"),
+            source="MRI/BLS Begleitdaten", confidence="reference",
         )
         self.assertEqual(
-            ingredient_quantity_grams("Ei", 3, "Stück"),
-            Decimal("180"),
+            ingredient_quantity_grams("Knoblauch", 2, "Zehe", product=product), Decimal("6")
         )
         self.assertEqual(
             suggested_unit_for_product("Knoblauch", "Knoblauch", "produce"),
             "Stück",
         )
+
+    def test_legacy_name_parser_separates_package_without_losing_name(self):
+        parsed = parse_legacy_product_name("Passierte Tomaten 2 x 500 g")
+        self.assertEqual(parsed.normalized_name, "Passierte Tomaten")
+        self.assertEqual(parsed.package_count, 2)
+        self.assertEqual(parsed.package_quantity, Decimal("500"))
+        self.assertEqual(parsed.package_unit, "g")
         self.assertEqual(
             suggested_unit_for_product("Parmesan gerieben", "Parmesan", "dairy"),
             "g",
@@ -88,12 +97,12 @@ class RecipeCatalogTests(TestCase):
             suggested_unit_for_product("Fischsauce", "Fischsauce", "pantry", "ml"),
             "ml",
         )
-        garlic = Product(
+        garlic = Product.objects.create(
             name="Knoblauch roh",
             canonical_name="Knoblauch",
             default_unit="Stück",
         )
-        self.assertEqual(ProductSerializer(garlic).data["grams_per_unit"], "3")
+        self.assertIsNone(ProductSerializer(garlic).data["grams_per_unit"])
         self.assertTrue(all(weight > 0 for weight in AVERAGE_UNIT_WEIGHT_GRAMS.values()))
 
     def test_search_feedback_is_aggregated_without_user_data(self):

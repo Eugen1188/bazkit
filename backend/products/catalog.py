@@ -301,7 +301,7 @@ def suggested_unit_for_product(
     return str(fallback_unit or "g")
 
 
-def ingredient_quantity_grams(name, quantity, unit):
+def ingredient_quantity_grams(name, quantity, unit, product=None):
     try:
         amount = Decimal(str(quantity))
     except (InvalidOperation, TypeError, ValueError):
@@ -316,16 +316,20 @@ def ingredient_quantity_grams(name, quantity, unit):
         "ml": Decimal("1"),
         "l": Decimal("1000"),
         "liter": Decimal("1000"),
-        "el": Decimal("15"),
-        "esslöffel": Decimal("15"),
-        "tl": Decimal("5"),
-        "teelöffel": Decimal("5"),
-        "prise": Decimal("0.35"),
     }.get(normalized_unit)
     if factor is not None:
         return amount * factor
 
-    if normalized_unit in {"stück", "stueck"}:
+    if product is not None:
+        conversion = product.unit_conversions.filter(
+            unit__iexact=str(unit or "").strip(), is_active=True
+        ).exclude(confidence="estimated").first()
+        if conversion is not None:
+            return amount * conversion.grams_per_unit
+    elif normalized_unit in {"stück", "stueck"}:
+        # Preisprognosen dürfen weiterhin als Schätzung arbeiten. Die
+        # Nährwertberechnung übergibt dagegen immer das konkrete Produkt und
+        # verlangt damit eine gespeicherte, belegte Umrechnung.
         average_weight = average_unit_weight_grams(name)
         return amount * average_weight if average_weight is not None else None
     return None

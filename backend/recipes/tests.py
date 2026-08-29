@@ -9,7 +9,7 @@ from django.test import TestCase
 from PIL import Image
 from rest_framework.test import APIClient
 
-from products.models import IngredientPriceReference, Product
+from products.models import IngredientPriceReference, Product, ProductUnitConversion
 from .models import Ingredients, Recipe
 from .serializers import RecipeSerializer, calculate_recipe_price
 from .storage import prepare_recipe_image
@@ -74,6 +74,21 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(ingredient.price_source, "open_prices_category")
         self.assertEqual(recipe.estimated_price, Decimal("0.60"))
         self.assertEqual(recipe.calories, Decimal("20.00"))
+
+    def test_free_text_ingredient_is_kept_without_creating_product(self):
+        serializer = RecipeSerializer(data={
+            "name": "Familienrezept", "servings": 2, "category": "dinner",
+            "instructions": "1. Vermengen", "ingredients": [{
+                "product": None, "name": "Omas Gewürzmischung",
+                "quantity": "1", "unit": "Prise",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+        recipe = serializer.save()
+        ingredient = recipe.ingredients.get()
+        self.assertIsNone(ingredient.product)
+        self.assertEqual(ingredient.name, "Omas Gewürzmischung")
+        self.assertIsNone(recipe.calories)
 
     def test_non_ingredient_product_is_rejected(self):
         prepared = Product.objects.create(
@@ -145,6 +160,10 @@ class RecipeSerializerTests(TestCase):
             carbohydrates_per_100g=Decimal("22.8"),
             fat_per_100g=Decimal("0.3"),
             fiber_per_100g=Decimal("2.6"),
+        )
+        ProductUnitConversion.objects.create(
+            product=banana, unit="Stück", grams_per_unit=Decimal("120"),
+            source="Geprüfte Portionsreferenz", confidence="reference",
         )
         IngredientPriceReference.objects.create(
             canonical_name="Banane",

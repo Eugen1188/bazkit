@@ -560,7 +560,6 @@
               <option
                 *ngFor="let unit of units"
                 [value]="unit"
-                [disabled]="unit === 'Stück' && !!selectedProducts[i] && !selectedProducts[i]?.grams_per_unit"
               >
                 {{ unit }}
               </option>
