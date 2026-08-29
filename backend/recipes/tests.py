@@ -1,12 +1,18 @@
 from decimal import Decimal
+from io import BytesIO
 from types import SimpleNamespace
+from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
+from PIL import Image
+from rest_framework.test import APIClient
 
 from products.models import IngredientPriceReference, Product
 from .models import Ingredients, Recipe
 from .serializers import RecipeSerializer, calculate_recipe_price
+from .storage import prepare_recipe_image
 
 
 class RecipeSerializerTests(TestCase):
@@ -214,3 +220,67 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(data["price_coverage_percent"], 75)
         self.assertFalse(data["price_is_complete"])
         self.assertTrue(data["price_is_sufficient"])
+
+    def test_recipe_image_is_optimized_as_webp(self):
+        source = BytesIO()
+        Image.new("RGB", (2400, 1200), color=(87, 126, 99)).save(source, format="JPEG")
+        upload = SimpleUploadedFile(
+            "gericht.jpg",
+            source.getvalue(),
+            content_type="image/jpeg",
+        )
+
+        optimized = prepare_recipe_image(upload)
+
+        with Image.open(BytesIO(optimized)) as image:
+            self.assertEqual(image.format, "WEBP")
+            self.assertLessEqual(max(image.size), 1920)
+
+    @patch("recipes.serializers.get_recipe_image_url", return_value="https://example.test/image.webp")
+    @patch("recipes.views.upload_recipe_image", return_value="recipes/1/test.webp")
+    def test_authenticated_owner_can_upload_recipe_image(self, upload_mock, _url_mock):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Bildrezept",
+            servings=2,
+            category="dinner",
+            instructions="1. Kochen",
+        )
+        client = APIClient()
+        client.force_authenticate(self.user)
+        upload = SimpleUploadedFile(
+            "gericht.jpg",
+            b"mock-image-content",
+            content_type="image/jpeg",
+        )
+
+        response = client.post(f"/recipes/{recipe.id}/image/", {"image": upload}, format="multipart")
+
+        self.assertEqual(response.status_code, 200)
+        recipe.refresh_from_db()
+        self.assertEqual(recipe.image_key, "recipes/1/test.webp")
+        self.assertEqual(response.data["image_url"], "https://example.test/image.webp")
+        upload_mock.assert_called_once()
+
+    @patch("recipes.views.upload_recipe_image", return_value="recipes/2/forbidden.webp")
+    def test_other_user_cannot_upload_recipe_image(self, upload_mock):
+        other_user = get_user_model().objects.create_user(
+            username="other-user",
+            email="other@example.com",
+            password="test-password",
+        )
+        recipe = Recipe.objects.create(
+            user=other_user,
+            name="Fremdes Rezept",
+            servings=2,
+            category="dinner",
+            instructions="1. Kochen",
+        )
+        client = APIClient()
+        client.force_authenticate(self.user)
+        upload = SimpleUploadedFile("gericht.jpg", b"content", content_type="image/jpeg")
+
+        response = client.post(f"/recipes/{recipe.id}/image/", {"image": upload}, format="multipart")
+
+        self.assertEqual(response.status_code, 404)
+        upload_mock.assert_not_called()

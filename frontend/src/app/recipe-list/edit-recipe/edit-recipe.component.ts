@@ -23,6 +23,7 @@ import {
   debounceTime,
   distinctUntilChanged,
   map,
+  of,
   switchMap
 } from 'rxjs';
 
@@ -138,6 +139,12 @@ implements OnInit, OnDestroy {
 
   errorMessage =
     '';
+
+  imageUrl: string | null = null;
+  imagePreviewUrl: string | null = null;
+  selectedImageFile: File | null = null;
+  isImageDragging = false;
+  imageRemoved = false;
 
 
   ingredients:
@@ -339,6 +346,51 @@ implements OnInit, OnDestroy {
 
     this.ingredientSearchSubscription
       .unsubscribe();
+
+    this.revokeImagePreview();
+  }
+
+
+  get displayImageUrl(): string | null {
+    return this.imagePreviewUrl || (this.imageRemoved ? null : this.imageUrl);
+  }
+
+
+  onImageInputChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (file) this.selectImageFile(file);
+    input.value = '';
+  }
+
+
+  onImageDragOver(event: DragEvent): void {
+    event.preventDefault();
+    this.isImageDragging = true;
+  }
+
+
+  onImageDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    this.isImageDragging = false;
+  }
+
+
+  onImageDrop(event: DragEvent): void {
+    event.preventDefault();
+    this.isImageDragging = false;
+    const file = event.dataTransfer?.files?.[0];
+    if (file) this.selectImageFile(file);
+  }
+
+
+  removeRecipeImage(): void {
+    if (this.selectedImageFile) {
+      this.selectedImageFile = null;
+      this.revokeImagePreview();
+      return;
+    }
+    this.imageRemoved = true;
   }
 
 
@@ -373,6 +425,9 @@ implements OnInit, OnDestroy {
 
           this.notes =
             recipe.notes;
+
+          this.imageUrl = recipe.image_url;
+          this.imageRemoved = false;
 
 
           this.calories =
@@ -1188,6 +1243,19 @@ implements OnInit, OnDestroy {
         this.recipeId,
         payload
       )
+      .pipe(
+        switchMap(recipe => {
+          if (this.selectedImageFile) {
+            return this.recipeService.uploadRecipeImage(recipe.id, this.selectedImageFile);
+          }
+          if (this.imageRemoved && this.imageUrl) {
+            return this.recipeService.deleteRecipeImage(recipe.id).pipe(
+              map(() => ({ ...recipe, image_url: null }))
+            );
+          }
+          return of(recipe);
+        })
+      )
       .subscribe({
 
         next: () => {
@@ -1215,7 +1283,9 @@ implements OnInit, OnDestroy {
 
 
           this.errorMessage =
-            'Rezept konnte nicht gespeichert werden.';
+            error?.error?.image
+            || error?.error?.detail
+            || 'Rezept konnte nicht gespeichert werden.';
 
           this.isSaving =
             false;
@@ -1341,6 +1411,27 @@ implements OnInit, OnDestroy {
 
   private scrollWizardToTop(): void {
     window.setTimeout(() => document.querySelector('.recipe-wizard-page')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+
+  private selectImageFile(file: File): void {
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+      this.errorMessage = 'Bitte wähle ein JPG-, PNG- oder WebP-Bild aus.';
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      this.errorMessage = 'Das Rezeptbild darf höchstens 10 MB groß sein.';
+      return;
+    }
+    this.revokeImagePreview();
+    this.selectedImageFile = file;
+    this.imagePreviewUrl = URL.createObjectURL(file);
+    this.imageRemoved = false;
+    this.errorMessage = '';
+  }
+
+  private revokeImagePreview(): void {
+    if (this.imagePreviewUrl) URL.revokeObjectURL(this.imagePreviewUrl);
+    this.imagePreviewUrl = null;
   }
 
 

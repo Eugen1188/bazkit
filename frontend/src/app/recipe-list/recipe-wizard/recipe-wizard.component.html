@@ -72,6 +72,7 @@
           </div>
         </div>
 
+        <div class="general-layout">
         <div class="wizard-card general-card">
           <div class="field field-wide">
             <label for="recipeName">Rezeptname <span>Pflichtfeld</span></label>
@@ -114,6 +115,41 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M8.5 14.5A7 7 0 1 1 15.5 14.5c-.9.7-1.5 1.6-1.5 2.5h-4c0-.9-.6-1.8-1.5-2.5Z"></path></svg>
             <span>Du musst noch nicht alles perfekt formulieren. Alle Angaben lassen sich später ändern.</span>
           </div>
+        </div>
+
+        <aside class="wizard-card image-upload-card">
+          <div class="image-card-heading">
+            <div>
+              <span>OPTIONAL</span>
+              <h3>Rezeptbild</h3>
+            </div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-2h4l2 2h4v12H4Z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+          </div>
+
+          <label
+            class="image-dropzone"
+            [class.has-image]="!!displayImageUrl"
+            [class.is-dragging]="isImageDragging"
+            (dragover)="onImageDragOver($event)"
+            (dragleave)="onImageDragLeave($event)"
+            (drop)="onImageDrop($event)"
+          >
+            <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onImageInputChange($event)" />
+            <img *ngIf="displayImageUrl" [src]="displayImageUrl" [alt]="recipeName ? 'Vorschau für ' + recipeName : 'Vorschau des Rezeptbildes'" />
+            <span class="image-empty-state" *ngIf="!displayImageUrl">
+              <span class="upload-icon"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 15v4h14v-4"></path></svg></span>
+              <strong>Bild auswählen</strong>
+              <small>oder hier ablegen</small>
+            </span>
+            <span class="image-change-hint" *ngIf="displayImageUrl">Bild ändern</span>
+          </label>
+
+          <div class="image-card-footer">
+            <span>JPG, PNG oder WebP · max. 10 MB</span>
+            <button type="button" *ngIf="displayImageUrl" (click)="removeRecipeImage()">Entfernen</button>
+          </div>
+          <p>Das Bild wird automatisch zugeschnitten, optimiert und sicher gespeichert.</p>
+        </aside>
         </div>
       </section>
 
@@ -286,7 +322,8 @@
         <div class="review-grid">
           <article class="review-card review-main-card">
             <div class="review-hero">
-              <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34"></circle><circle cx="60" cy="60" r="22"></circle><path d="M24 30v26M31 30v26M24 44h7M27.5 56v35M92 30v61M92 30c12 10 13 26 2 36h-2"></path></svg>
+              <img *ngIf="displayImageUrl" [src]="displayImageUrl" [alt]="recipeName" />
+              <svg *ngIf="!displayImageUrl" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34"></circle><circle cx="60" cy="60" r="22"></circle><path d="M24 30v26M31 30v26M24 44h7M27.5 56v35M92 30v61M92 30c12 10 13 26 2 36h-2"></path></svg>
             </div>
             <div class="review-content">
               <span class="category-badge">{{ categoryLabel }}</span>

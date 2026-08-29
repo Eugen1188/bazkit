@@ -26,6 +26,8 @@ export interface CommunityIngredient {
 export interface CommunityRecipe {
   id: number;
 
+  image_url: string | null;
+
   name: string;
 
   description: string;

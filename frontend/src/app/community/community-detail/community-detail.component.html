@@ -63,12 +63,19 @@
         "
       >
 
+        <img
+          class="hero-image-photo"
+          *ngIf="post.post_type === 'recipe' && post.recipe?.image_url"
+          [src]="post.recipe?.image_url"
+          [alt]="post.recipe?.name || post.display_title"
+        />
+
         <!-- RECIPE -->
 
         <div
           class="hero-symbol"
           *ngIf="
-            post.post_type === 'recipe'
+            post.post_type === 'recipe' && !post.recipe?.image_url
           "
         >
           <svg

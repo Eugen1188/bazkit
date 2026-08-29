@@ -3,7 +3,8 @@ from django.urls import path
 from .views import (
     RecipeListCreateAPIView,
     RecipeDetailAPIView,
-    GenerateRecipeAPIView
+    GenerateRecipeAPIView,
+    RecipeImageAPIView,
 )
 
 
@@ -25,6 +26,12 @@ urlpatterns = [
         "<int:pk>/",
         RecipeDetailAPIView.as_view(),
         name="recipe-detail"
-    )
+    ),
+
+    path(
+        "<int:pk>/image/",
+        RecipeImageAPIView.as_view(),
+        name="recipe-image",
+    ),
 
 ]

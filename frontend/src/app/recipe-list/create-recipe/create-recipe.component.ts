@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, map, of, switchMap, tap } from 'rxjs';
 import { PriceEstimate, ProductService, ProductSuggestion } from '../../services/product.service';
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
 
@@ -40,6 +40,10 @@ export class CreateRecipeComponent implements OnDestroy {
   estimatedPrice: number | null = null;
   isSaving = false;
   errorMessage = '';
+  imageUrl: string | null = null;
+  imagePreviewUrl: string | null = null;
+  selectedImageFile: File | null = null;
+  isImageDragging = false;
   ingredients: RecipeIngredient[] = [this.emptyIngredient()];
   selectedProducts: Array<ProductSuggestion | null> = [null];
   preparationSteps: PreparationStep[] = [{ text: '' }];
@@ -59,6 +63,7 @@ export class CreateRecipeComponent implements OnDestroy {
 
   private readonly search$ = new Subject<IngredientSearch>();
   private readonly searchSubscription: Subscription;
+  private pendingRecipeId: number | null = null;
 
   constructor(
     private readonly router: Router,
@@ -94,7 +99,33 @@ export class CreateRecipeComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy(): void { this.searchSubscription.unsubscribe(); }
+  ngOnDestroy(): void {
+    this.searchSubscription.unsubscribe();
+    this.revokeImagePreview();
+  }
+
+  get displayImageUrl(): string | null { return this.imagePreviewUrl || this.imageUrl; }
+
+  onImageInputChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (file) this.selectImageFile(file);
+    input.value = '';
+  }
+
+  onImageDragOver(event: DragEvent): void { event.preventDefault(); this.isImageDragging = true; }
+  onImageDragLeave(event: DragEvent): void { event.preventDefault(); this.isImageDragging = false; }
+  onImageDrop(event: DragEvent): void {
+    event.preventDefault();
+    this.isImageDragging = false;
+    const file = event.dataTransfer?.files?.[0];
+    if (file) this.selectImageFile(file);
+  }
+  removeRecipeImage(): void {
+    this.selectedImageFile = null;
+    this.revokeImagePreview();
+    this.imageUrl = null;
+  }
 
   onIngredientNameChange(index: number, value: string): void {
     const ingredient = this.ingredients[index];
@@ -208,8 +239,22 @@ export class CreateRecipeComponent implements OnDestroy {
       })),
     };
     this.isSaving = true;
-    this.recipeService.createRecipe(payload).subscribe({
-      next: () => { this.isSaving = false; void this.router.navigate(['/main/recipe-list']); },
+    const recipeRequest = this.pendingRecipeId
+      ? this.recipeService.updateRecipe(this.pendingRecipeId, payload)
+      : this.recipeService.createRecipe(payload).pipe(
+          tap(recipe => { this.pendingRecipeId = recipe.id; }),
+        );
+    recipeRequest.pipe(
+      switchMap(recipe => this.selectedImageFile
+        ? this.recipeService.uploadRecipeImage(recipe.id, this.selectedImageFile)
+        : of(recipe)
+      ),
+    ).subscribe({
+      next: recipe => {
+        this.isSaving = false;
+        this.revokeImagePreview();
+        void this.router.navigate(['/main/recipe-list', recipe.id]);
+      },
       error: error => { this.isSaving = false; this.errorMessage = this.apiError(error); },
     });
   }
@@ -362,6 +407,24 @@ export class CreateRecipeComponent implements OnDestroy {
   private scrollWizardToTop(): void {
     window.setTimeout(() => document.querySelector('.recipe-wizard-page')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
+  private selectImageFile(file: File): void {
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+      this.fail('Bitte wähle ein JPG-, PNG- oder WebP-Bild aus.');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      this.fail('Das Rezeptbild darf höchstens 10 MB groß sein.');
+      return;
+    }
+    this.revokeImagePreview();
+    this.selectedImageFile = file;
+    this.imagePreviewUrl = URL.createObjectURL(file);
+    this.errorMessage = '';
+  }
+  private revokeImagePreview(): void {
+    if (this.imagePreviewUrl) URL.revokeObjectURL(this.imagePreviewUrl);
+    this.imagePreviewUrl = null;
+  }
   private fail(message: string): void { this.errorMessage = message; }
-  private apiError(error: any): string { return error?.error?.ingredients?.[0] || error?.error?.detail || 'Das Rezept konnte nicht gespeichert werden.'; }
+  private apiError(error: any): string { return error?.error?.image || error?.error?.ingredients?.[0] || error?.error?.detail || 'Das Rezept konnte nicht gespeichert werden.'; }
 }

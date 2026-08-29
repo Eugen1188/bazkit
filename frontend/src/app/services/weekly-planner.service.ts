@@ -11,6 +11,7 @@ export type PlannerMealType = 'breakfast' | 'lunch' | 'dinner';
 export interface PlannerRecipeSummary {
   id: number;
   name: string;
+  image_url: string | null;
   category: string;
   servings: number;
   calories: RecipeNumberValue;

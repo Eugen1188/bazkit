@@ -352,3 +352,15 @@ USDA_FDC_API_KEY = os.getenv(
     "USDA_FDC_API_KEY",
     "",
 )
+
+
+# ==========================================
+# CLOUDFLARE R2 / REZEPTBILDER
+# ==========================================
+
+R2_ACCESS_KEY_ID = os.getenv("R2_ACCESS_KEY_ID", "")
+R2_SECRET_ACCESS_KEY = os.getenv("R2_SECRET_ACCESS_KEY", "")
+R2_BUCKET_NAME = os.getenv("R2_BUCKET_NAME", "")
+R2_ENDPOINT_URL = os.getenv("R2_ENDPOINT_URL", "")
+R2_PRESIGNED_URL_TTL = int(os.getenv("R2_PRESIGNED_URL_TTL", "3600"))
+RECIPE_IMAGE_MAX_BYTES = int(os.getenv("RECIPE_IMAGE_MAX_BYTES", str(10 * 1024 * 1024)))

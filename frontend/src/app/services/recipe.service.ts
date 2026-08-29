@@ -16,6 +16,7 @@ export type RecipeNumberValue = number | string | null;
 
 export interface Recipe {
   id: number;
+  image_url: string | null;
   name: string;
   description: string;
   servings: number;
@@ -106,6 +107,16 @@ export class RecipeService {
 
   updateRecipe(id: number, payload: RecipePayload): Observable<Recipe> {
     return this.http.put<Recipe>(`${this.apiUrl}${id}/`, payload);
+  }
+
+  uploadRecipeImage(id: number, image: File): Observable<Recipe> {
+    const formData = new FormData();
+    formData.append('image', image, image.name);
+    return this.http.post<Recipe>(`${this.apiUrl}${id}/image/`, formData);
+  }
+
+  deleteRecipeImage(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${id}/image/`);
   }
 
   deleteRecipe(id: number): Observable<void> {

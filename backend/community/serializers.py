@@ -12,6 +12,7 @@ from recipes.models import (
     Ingredients,
     Recipe,
 )
+from recipes.storage import get_recipe_image_url
 
 from .models import (
     CommunityComment,
@@ -64,6 +65,8 @@ class CommunityRecipeSerializer(
     serializers.ModelSerializer
 ):
 
+    image_url = serializers.SerializerMethodField()
+
     ingredients = (
         CommunityIngredientSerializer(
             many=True,
@@ -84,6 +87,7 @@ class CommunityRecipeSerializer(
             "category",
             "instructions",
             "notes",
+            "image_url",
             "calories",
             "protein",
             "carbohydrates",
@@ -93,6 +97,9 @@ class CommunityRecipeSerializer(
             "ingredients",
             "created_at",
         ]
+
+    def get_image_url(self, obj):
+        return get_recipe_image_url(obj.image_key)
 
 
 class CommunitySavedListItemSerializer(

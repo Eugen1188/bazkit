@@ -9,6 +9,7 @@ from products.models import Product
 from products.pricing import estimate_product_price
 from products.serializers import ProductSerializer
 from .models import Ingredients, Recipe
+from .storage import get_recipe_image_url
 
 
 AMOUNT_SUFFIX = re.compile(
@@ -172,6 +173,7 @@ class IngredientsSerializer(serializers.ModelSerializer):
 
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = IngredientsSerializer(many=True, required=True)
+    image_url = serializers.SerializerMethodField()
     estimated_price_per_serving = serializers.SerializerMethodField()
     price_ingredient_count = serializers.SerializerMethodField()
     price_missing_ingredient_count = serializers.SerializerMethodField()
@@ -183,17 +185,20 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             "id", "name", "description", "servings", "preparation_time", "category",
-            "instructions", "notes", "calories", "protein", "carbohydrates", "fat", "fiber",
+            "instructions", "notes", "image_url", "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "price_ingredient_count",
             "price_missing_ingredient_count", "price_coverage_percent", "price_is_complete",
             "price_is_sufficient", "created_at", "updated_at", "ingredients",
         ]
         read_only_fields = [
-            "id", "calories", "protein", "carbohydrates", "fat", "fiber",
+            "id", "image_url", "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "created_at", "updated_at",
             "price_ingredient_count", "price_missing_ingredient_count", "price_coverage_percent",
             "price_is_complete", "price_is_sufficient",
         ]
+
+    def get_image_url(self, obj):
+        return get_recipe_image_url(obj.image_key)
 
     def get_price_coverage(self, obj):
         return recipe_price_coverage(obj.ingredients.all())

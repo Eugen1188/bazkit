@@ -1,5 +1,6 @@
 from lists.models import SavedList, SavedListItem
 from recipes.models import Ingredients, Recipe
+from recipes.storage import delete_recipe_image_if_unused
 
 
 RECIPE_FIELDS = (
@@ -10,6 +11,7 @@ RECIPE_FIELDS = (
     "category",
     "instructions",
     "notes",
+    "image_key",
     "calories",
     "protein",
     "carbohydrates",
@@ -90,6 +92,7 @@ def clone_saved_list(source, user, *, community_snapshot=False):
 
 def delete_post_snapshot(post):
     recipe = post.recipe if post.recipe_id and post.recipe.is_community_snapshot else None
+    recipe_image_key = recipe.image_key if recipe is not None else ""
     saved_list = (
         post.saved_list
         if post.saved_list_id and post.saved_list.is_community_snapshot
@@ -98,5 +101,6 @@ def delete_post_snapshot(post):
     post.delete()
     if recipe is not None:
         recipe.delete()
+        delete_recipe_image_if_unused(recipe_image_key)
     if saved_list is not None:
         saved_list.delete()

@@ -542,7 +542,7 @@ export class WeeklyPlannerComponent implements OnInit {
       entryId: entry.id,
       recipeId: recipe.id,
       name: recipe.name,
-      image: this.categoryImage(recipe.category),
+      image: recipe.image_url || this.categoryImage(recipe.category),
       calories: this.numberValue(recipe.calories),
       protein: this.numberValue(recipe.protein),
       carbohydrates: this.numberValue(recipe.carbohydrates),

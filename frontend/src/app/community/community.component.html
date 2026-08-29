@@ -286,8 +286,8 @@
 
           <img
             *ngIf="post.post_type === 'recipe'"
-            src="/assets/images/community/community-recipes.webp"
-            alt=""
+            [src]="post.recipe?.image_url || '/assets/images/community/community-recipes.webp'"
+            [alt]="post.recipe?.name || ''"
           />
 
 

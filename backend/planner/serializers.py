@@ -1,11 +1,13 @@
 from rest_framework import serializers
 
 from recipes.models import Recipe
+from recipes.storage import get_recipe_image_url
 
 from .models import WeeklyPlanEntry
 
 
 class PlannerRecipeSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
     ingredient_count = serializers.IntegerField(
         source="ingredients.count",
         read_only=True,
@@ -16,6 +18,7 @@ class PlannerRecipeSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "name",
+            "image_url",
             "category",
             "servings",
             "calories",
@@ -26,6 +29,9 @@ class PlannerRecipeSerializer(serializers.ModelSerializer):
             "estimated_price",
             "ingredient_count",
         ]
+
+    def get_image_url(self, obj):
+        return get_recipe_image_url(obj.image_key)
 
 
 class WeeklyPlanEntrySerializer(serializers.ModelSerializer):

@@ -49,6 +49,12 @@ class Recipe(models.Model):
         blank=True
     )
 
+    image_key = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Objektschlüssel des optimierten Rezeptbildes in Cloudflare R2",
+    )
+
     # ==========================================
     # NÄHRWERTE PRO PORTION
     # ==========================================
