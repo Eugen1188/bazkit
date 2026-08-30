@@ -769,9 +769,23 @@ def ingredient_quantity_grams(name, quantity, unit, product=None):
         return amount * volume_factor * density
 
     if product is not None:
-        conversion = product.unit_conversions.filter(
-            unit__iexact=str(unit or "").strip(), is_active=True
-        ).exclude(confidence="estimated").first()
+        prefetched = getattr(product, "_prefetched_objects_cache", {}).get(
+            "unit_conversions"
+        )
+        if prefetched is not None:
+            conversion = next(
+                (
+                    item for item in prefetched
+                    if item.unit.casefold() == normalized_unit
+                    and item.is_active
+                    and item.confidence != "estimated"
+                ),
+                None,
+            )
+        else:
+            conversion = product.unit_conversions.filter(
+                unit__iexact=str(unit or "").strip(), is_active=True
+            ).exclude(confidence="estimated").first()
         if conversion is not None:
             return amount * conversion.grams_per_unit
     else:

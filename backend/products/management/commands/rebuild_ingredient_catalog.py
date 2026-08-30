@@ -1,16 +1,19 @@
 from collections import Counter
+from decimal import Decimal, InvalidOperation
 
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from products.catalog import (
+    CURATED_CONVERSION_SOURCE,
     canonical_recipe_name,
+    curated_unit_conversions,
     recipe_ingredient_status,
     suggested_unit_for_product,
-    sync_curated_unit_conversion,
 )
 from products.curated import ensure_curated_ingredients
-from products.ingredient_catalog import rebuild_product_aliases
-from products.models import Product
+from products.ingredient_catalog import definition_for_product, rebuild_product_aliases
+from products.models import Product, ProductUnitConversion
 from products.nutrition_quality import (
     NUTRIENT_FIELDS,
     apply_safe_zero_defaults,
@@ -34,12 +37,18 @@ class Command(BaseCommand):
         eligible = 0
         canonical_counts = Counter()
         safely_completed = 0
+        managed_conversions = {}
 
         for product in products.iterator(chunk_size=500):
             canonical_name = canonical_recipe_name(
                 product.name,
                 product.source,
                 product.external_id,
+            )
+            definition = definition_for_product(
+                product.source,
+                product.external_id,
+                canonical_name,
             )
             is_ingredient, reason = recipe_ingredient_status(
                 product.name,
@@ -55,10 +64,9 @@ class Command(BaseCommand):
                 product.external_id,
             )
             default_unit = suggested_unit_for_product(
-                product.name,
-                canonical_name,
-                shopping_category,
-                product.default_unit,
+                product.name, canonical_name, shopping_category, product.default_unit,
+            ) if definition is not None else (
+                product.default_unit or ("ml" if shopping_category == "drinks" else "g")
             )
             original_nutrients = {
                 field: getattr(product, field)
@@ -102,6 +110,51 @@ class Command(BaseCommand):
                     setattr(product, field, nutrients[field])
                 pending.append(product)
 
+            conversions = (
+                curated_unit_conversions(definition.canonical_name)
+                if definition is not None else []
+            )
+            package_factor = {
+                "mg": Decimal("0.001"), "g": Decimal("1"),
+                "kg": Decimal("1000"), "ml": Decimal("1"),
+                "cl": Decimal("10"), "dl": Decimal("100"),
+                "l": Decimal("1000"),
+            }.get(str(product.package_unit or "").casefold())
+            try:
+                package_amount = (
+                    Decimal(str(product.package_quantity))
+                    if product.package_quantity is not None else None
+                )
+            except (InvalidOperation, TypeError, ValueError):
+                package_amount = None
+            if package_amount and package_amount > 0 and package_factor is not None:
+                package_label = next(
+                    (
+                        label for label in ("Dose", "Glas", "Becher")
+                        if label.casefold() in str(product.name or "").casefold()
+                    ),
+                    "Packung",
+                )
+                conversions = [
+                    conversion for conversion in conversions
+                    if conversion["unit"] != package_label
+                ]
+                conversions.append({
+                    "unit": package_label,
+                    "grams_per_unit": package_amount * package_factor,
+                    "source": "Open Food Facts Packungsangabe",
+                    "confidence": "verified",
+                })
+            for conversion in conversions:
+                managed_conversions[(product.id, conversion["unit"])] = ProductUnitConversion(
+                    product_id=product.id,
+                    unit=conversion["unit"],
+                    grams_per_unit=conversion["grams_per_unit"],
+                    source=conversion["source"],
+                    confidence=conversion["confidence"],
+                    is_active=True,
+                )
+
         duplicate_groups = sum(1 for count in canonical_counts.values() if count > 1)
         self.stdout.write(
             f"Geprüft: {products.count()} Produkte · "
@@ -125,18 +178,42 @@ class Command(BaseCommand):
                 ],
                 batch_size=500,
             )
-        conversions_synced = 0
-        for product in products.iterator(chunk_size=500):
-            if sync_curated_unit_conversion(product) is not None:
-                conversions_synced += 1
+        self.stdout.write("Produktdaten aktualisiert. Küchenumrechnungen werden synchronisiert …")
+        self.stdout.flush()
+        conversion_rows = list(managed_conversions.values())
+        with transaction.atomic():
+            ProductUnitConversion.objects.filter(
+                product__source__in=("bls", "open_food_facts", "usda"),
+                source__in=(CURATED_CONVERSION_SOURCE, "Open Food Facts Packungsangabe"),
+            ).delete()
+            if conversion_rows:
+                ProductUnitConversion.objects.bulk_create(
+                    conversion_rows,
+                    batch_size=1000,
+                    update_conflicts=True,
+                    update_fields=[
+                        "grams_per_unit", "source", "confidence", "is_active",
+                    ],
+                    unique_fields=["product", "unit"],
+                )
+        conversions_synced = len({row.product_id for row in conversion_rows})
+        self.stdout.write(
+            f"Küchenumrechnungen für {conversions_synced} Produkte synchronisiert. "
+            "Suchbegriffe werden neu aufgebaut …"
+        )
+        self.stdout.flush()
         rebuild_product_aliases(products)
+        self.stdout.write("Suchbegriffe aktualisiert. Rezeptnährwerte werden neu berechnet …")
+        self.stdout.flush()
         # Bereits gespeicherte Rezepte erhalten nach korrigierten BLS-Werten
         # sofort neue Summen. Nutzer müssen sie dafür nicht erst bearbeiten.
         from recipes.models import Recipe
         from recipes.serializers import calculate_recipe_nutrition
 
         recipes_recalculated = 0
-        for recipe in Recipe.objects.prefetch_related("ingredients__product").iterator(
+        for recipe in Recipe.objects.prefetch_related(
+            "ingredients__product__unit_conversions",
+        ).iterator(
             chunk_size=200,
         ):
             calculate_recipe_nutrition(recipe, recipe.ingredients.all())

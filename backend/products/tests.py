@@ -1,7 +1,9 @@
 from decimal import Decimal
+from io import StringIO
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
+from django.core.management import call_command
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory, force_authenticate
 
@@ -115,6 +117,44 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(
             ingredient_quantity_grams("Kürbis", 1, "Stück", product=pumpkin),
             Decimal("1000"),
+        )
+
+    def test_catalog_rebuild_bulk_syncs_curated_and_package_conversions(self):
+        pumpkin, _created = Product.objects.update_or_create(
+            source="bls",
+            external_id="G581100",
+            defaults={
+                "name": "Kürbis roh",
+                "canonical_name": "Kürbis",
+                "is_recipe_ingredient": True,
+                **COMPLETE_NUTRITION,
+            },
+        )
+        package = Product.objects.create(
+            name="Testprodukt Dose",
+            canonical_name="Testprodukt",
+            source="open_food_facts",
+            external_id="test-package",
+            package_quantity=Decimal("500"),
+            package_unit="g",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+
+        for _run in range(2):
+            call_command("rebuild_ingredient_catalog", stdout=StringIO())
+
+        self.assertEqual(
+            ProductUnitConversion.objects.get(product=pumpkin, unit="Stück").grams_per_unit,
+            Decimal("1000"),
+        )
+        self.assertEqual(
+            ProductUnitConversion.objects.get(product=package, unit="Dose").grams_per_unit,
+            Decimal("500"),
+        )
+        self.assertEqual(
+            ProductUnitConversion.objects.filter(product=package, unit="Dose").count(),
+            1,
         )
 
     def test_canned_tomatoes_offer_only_calculable_package_units(self):
