@@ -936,6 +936,12 @@ implements OnInit, OnDestroy {
     return !!ingredient && this.ingredientGrams(ingredient, this.selectedProducts[index]) !== null;
   }
 
+  availableUnitsFor(index: number): string[] {
+    const productUnits = this.selectedProducts[index]?.available_units;
+    if (!productUnits?.length) return this.selectedProducts[index] ? ['g', 'kg'] : this.units;
+    return productUnits.filter(unit => this.units.includes(unit));
+  }
+
   private ingredientGrams(ingredient: RecipeIngredient, product: ProductSuggestion | null): number | null {
     if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');

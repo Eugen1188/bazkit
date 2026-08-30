@@ -103,12 +103,25 @@ class RecipeCatalogTests(TestCase):
         pumpkin = Product.objects.create(
             name="Kürbis", canonical_name="Kürbis", source="bls", external_id="pumpkin"
         )
-        conversion = sync_curated_unit_conversion(pumpkin)
-        self.assertEqual(conversion.unit, "Stück")
-        self.assertEqual(conversion.grams_per_unit, Decimal("1000"))
+        conversions = sync_curated_unit_conversion(pumpkin)
+        self.assertEqual(conversions[0].unit, "Stück")
+        self.assertEqual(conversions[0].grams_per_unit, Decimal("1000"))
         self.assertEqual(
             ingredient_quantity_grams("Kürbis", 1, "Stück", product=pumpkin),
             Decimal("1000"),
+        )
+
+    def test_canned_tomatoes_offer_only_calculable_package_units(self):
+        tomatoes = Product.objects.create(
+            name="Tomaten Konserve", canonical_name="Dosentomaten",
+            source="bls", external_id="canned-tomatoes", default_unit="g",
+        )
+        sync_curated_unit_conversion(tomatoes)
+        data = ProductSerializer(tomatoes).data
+        self.assertEqual(data["available_units"], ["g", "kg", "Dose"])
+        self.assertEqual(
+            ingredient_quantity_grams("Dosentomaten", 1, "Dose", product=tomatoes),
+            Decimal("400"),
         )
 
     def test_legacy_name_parser_separates_package_without_losing_name(self):

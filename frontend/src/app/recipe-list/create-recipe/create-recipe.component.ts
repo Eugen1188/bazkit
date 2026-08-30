@@ -348,6 +348,11 @@ export class CreateRecipeComponent implements OnDestroy {
     return this.nutritionPerServing(field);
   }
   canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index], this.selectedProducts[index]) !== null; }
+  availableUnitsFor(index: number): string[] {
+    const productUnits = this.selectedProducts[index]?.available_units;
+    if (!productUnits?.length) return this.selectedProducts[index] ? ['g', 'kg'] : this.units;
+    return productUnits.filter(unit => this.units.includes(unit));
+  }
   hasSelectedNutrition(): boolean { return this.selectedProducts.some(product => product && ['calories', 'protein', 'carbohydrates', 'fat', 'fiber'].some(field => this.nutritionValue(product, field as any) !== null)); }
   private ingredientGrams(ingredient: RecipeIngredient | undefined, product: ProductSuggestion | null): number | null {
     if (!ingredient || ingredient.quantity === null || ingredient.quantity === undefined) return null;

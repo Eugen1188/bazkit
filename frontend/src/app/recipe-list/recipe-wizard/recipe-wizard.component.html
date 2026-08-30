@@ -229,7 +229,7 @@
                   <div class="field unit-field">
                     <label [for]="'ingredientUnit' + i">Einheit</label>
                     <select [id]="'ingredientUnit' + i" [(ngModel)]="ingredient.unit" (ngModelChange)="onIngredientAmountChange(i)">
-                      <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+                      <option *ngFor="let unit of availableUnitsFor(i)" [value]="unit">{{ unit }}</option>
                     </select>
                   </div>
 

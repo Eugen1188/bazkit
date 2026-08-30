@@ -9,6 +9,7 @@ class ProductSerializer(serializers.ModelSerializer):
     nutrition_complete = serializers.BooleanField(source="has_complete_nutrition", read_only=True)
     grams_per_unit = serializers.SerializerMethodField()
     unit_conversions = serializers.SerializerMethodField()
+    available_units = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
@@ -17,7 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "category", "shopping_category", "is_common_pantry",
             "brand", "source", "external_id",
             "default_unit", "package_quantity", "package_unit", "grams_per_unit",
-            "unit_conversions", "calories_per_100g", "protein_per_100g",
+            "unit_conversions", "available_units", "calories_per_100g", "protein_per_100g",
             "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
             "nutrition_complete", "origin",
         ]
@@ -47,3 +48,18 @@ class ProductSerializer(serializers.ModelSerializer):
                 confidence="estimated"
             )
         ]
+
+    def get_available_units(self, obj):
+        units = ["g", "kg"]
+        if (
+            obj.default_unit in {"ml", "l", "Liter"}
+            or obj.package_unit.casefold() in {"ml", "l"}
+            or obj.shopping_category == "drinks"
+        ):
+            units.extend(["ml", "Liter"])
+        for conversion in obj.unit_conversions.filter(is_active=True).exclude(
+            confidence="estimated"
+        ):
+            if conversion.unit not in units:
+                units.append(conversion.unit)
+        return units

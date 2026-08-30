@@ -10,6 +10,7 @@ from PIL import Image
 from rest_framework.test import APIClient
 
 from products.models import IngredientPriceReference, Product, ProductUnitConversion
+from products.catalog import sync_curated_unit_conversion
 from .models import Ingredients, Recipe
 from .serializers import RecipeSerializer, calculate_recipe_price
 from .storage import prepare_recipe_image
@@ -89,6 +90,26 @@ class RecipeSerializerTests(TestCase):
         self.assertIsNone(ingredient.product)
         self.assertEqual(ingredient.name, "Omas Gewürzmischung")
         self.assertIsNone(recipe.calories)
+
+    def test_canned_tomato_nutrition_uses_full_can_weight(self):
+        tomatoes = Product.objects.create(
+            name="Tomaten Konserve", canonical_name="Dosentomaten",
+            source="bls", external_id="dose-test", is_recipe_ingredient=True,
+            calories_per_100g=Decimal("19"), protein_per_100g=Decimal("1.15"),
+            carbohydrates_per_100g=Decimal("2.54"), fat_per_100g=Decimal("0.2"),
+            fiber_per_100g=Decimal("1.0"),
+        )
+        sync_curated_unit_conversion(tomatoes)
+        serializer = RecipeSerializer(data={
+            "name": "Dosentest", "servings": 1, "category": "dinner",
+            "instructions": "1. Kochen", "ingredients": [{
+                "product": tomatoes.id, "name": "Dosentomaten",
+                "quantity": "1", "unit": "Dose",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+        recipe = serializer.save()
+        self.assertEqual(recipe.calories, Decimal("76.00"))
 
     def test_non_ingredient_product_is_rejected(self):
         prepared = Product.objects.create(

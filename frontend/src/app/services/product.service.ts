@@ -21,6 +21,7 @@ export interface ProductSuggestion {
   package_quantity?: string | null;
   package_unit?: string;
   unit_conversions?: ProductUnitConversion[];
+  available_units?: string[];
   calories_per_100g: string | null;
   protein_per_100g: string | null;
   carbohydrates_per_100g: string | null;

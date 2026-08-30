@@ -282,6 +282,21 @@ AVERAGE_UNIT_WEIGHT_GRAMS = {
 
 CURATED_CONVERSION_SOURCE = "Bazkit kuratierte Portionsreferenz v1"
 
+CURATED_PACKAGE_CONVERSIONS = {
+    "Dosentomaten": (("Dose", Decimal("400")),),
+    "Passierte Tomaten": (("Packung", Decimal("500")),),
+    "Kokosmilch": (("Dose", Decimal("400")),),
+    "Kichererbse": (("Dose", Decimal("400")),),
+    "Kidneybohne": (("Dose", Decimal("400")),),
+    "Mais": (("Dose", Decimal("300")),),
+    "Thunfisch": (("Dose", Decimal("150")),),
+    "Sahne": (("Becher", Decimal("200")),),
+    "Joghurt": (("Becher", Decimal("150")),),
+    "Quark": (("Packung", Decimal("250")),),
+    "Feta": (("Packung", Decimal("200")),),
+    "Butter": (("Packung", Decimal("250")),),
+}
+
 
 def average_unit_weight_grams(name):
     canonical_name = canonical_query(name)
@@ -290,46 +305,80 @@ def average_unit_weight_grams(name):
     return AVERAGE_UNIT_WEIGHT_GRAMS.get(canonical_name)
 
 
-def curated_unit_conversion(name):
-    """Liefert nur redaktionell gepflegte Küchenumrechnungen."""
-    grams = average_unit_weight_grams(name)
-    if grams is None:
-        return None
+def curated_unit_conversions(name):
+    """Liefert redaktionell gepflegte Stück- und Packungsumrechnungen."""
     canonical_name = canonical_query(name)
     if canonical_name == str(name or "").strip():
         canonical_name = canonical_recipe_name(name)
-    unit = "Zehe" if canonical_name == "Knoblauch" else "Stück"
-    return {
-        "unit": unit,
-        "grams_per_unit": grams,
-        "source": CURATED_CONVERSION_SOURCE,
-        "confidence": "reference",
-    }
+    conversions = []
+    grams = average_unit_weight_grams(name)
+    if grams is not None:
+        conversions.append({
+            "unit": "Zehe" if canonical_name == "Knoblauch" else "Stück",
+            "grams_per_unit": grams,
+            "source": CURATED_CONVERSION_SOURCE,
+            "confidence": "reference",
+        })
+    for unit, package_grams in CURATED_PACKAGE_CONVERSIONS.get(canonical_name, ()):
+        conversions.append({
+            "unit": unit,
+            "grams_per_unit": package_grams,
+            "source": CURATED_CONVERSION_SOURCE,
+            "confidence": "reference",
+        })
+    return conversions
+
+
+def curated_unit_conversion(name):
+    conversions = curated_unit_conversions(name)
+    return conversions[0] if conversions else None
 
 
 def sync_curated_unit_conversion(product):
     from .models import ProductUnitConversion
 
-    conversion = curated_unit_conversion(product.canonical_name or product.name)
-    if conversion is None:
+    conversions = curated_unit_conversions(product.canonical_name or product.name)
+    if product.package_quantity and product.package_unit:
+        package_factor = {
+            "g": Decimal("1"), "kg": Decimal("1000"),
+            "ml": Decimal("1"), "l": Decimal("1000"),
+        }.get(product.package_unit.casefold())
+        if package_factor is not None:
+            package_label = next(
+                (label for label in ("Dose", "Glas", "Becher") if label.casefold() in product.name.casefold()),
+                "Packung",
+            )
+            conversions.append({
+                "unit": package_label,
+                "grams_per_unit": product.package_quantity * package_factor,
+                "source": "Open Food Facts Packungsangabe",
+                "confidence": "verified",
+            })
+    if not conversions:
         ProductUnitConversion.objects.filter(
-            product=product, source=CURATED_CONVERSION_SOURCE
+            product=product,
+            source__in=(CURATED_CONVERSION_SOURCE, "Open Food Facts Packungsangabe"),
         ).delete()
         return None
+    desired_units = {conversion["unit"] for conversion in conversions}
     ProductUnitConversion.objects.filter(
-        product=product, source=CURATED_CONVERSION_SOURCE
-    ).exclude(unit=conversion["unit"]).delete()
-    value, _created = ProductUnitConversion.objects.update_or_create(
         product=product,
-        unit=conversion["unit"],
-        defaults={
-            "grams_per_unit": conversion["grams_per_unit"],
-            "source": conversion["source"],
-            "confidence": conversion["confidence"],
-            "is_active": True,
-        },
-    )
-    return value
+        source__in=(CURATED_CONVERSION_SOURCE, "Open Food Facts Packungsangabe"),
+    ).exclude(unit__in=desired_units).delete()
+    values = []
+    for conversion in conversions:
+        value, _created = ProductUnitConversion.objects.update_or_create(
+            product=product,
+            unit=conversion["unit"],
+            defaults={
+                "grams_per_unit": conversion["grams_per_unit"],
+                "source": conversion["source"],
+                "confidence": conversion["confidence"],
+                "is_active": True,
+            },
+        )
+        values.append(value)
+    return values
 
 
 def suggested_unit_for_product(
