@@ -320,7 +320,7 @@ LOGICAL_UNIT_OVERRIDES = {
     "Weißkohl": "Kopf",
     "Getrocknete Äpfel": "Scheibe",
     "Frischhefe": "Würfel",
-    "Lorbeerblatt": "Blatt",
+    "Lorbeerblatt": "Stück",
     "Mozzarella": "Kugel",
     "Nori": "Blatt",
     "Zimt": "Stange",
@@ -515,8 +515,7 @@ def liquid_density_grams_per_ml(name):
     return LIQUID_DENSITY_GRAMS_PER_ML.get(canonical_unit_name(name))
 
 
-def has_curated_unit_profile(name):
-    unit_name = canonical_unit_name(name)
+def _is_known_unit_name(unit_name):
     return (
         definition_for_query(unit_name) is not None
         or unit_name in AVERAGE_UNIT_WEIGHT_GRAMS
@@ -524,6 +523,29 @@ def has_curated_unit_profile(name):
         or unit_name in CURATED_KITCHEN_CONVERSIONS
         or unit_name in LIQUID_DENSITY_GRAMS_PER_ML
     )
+
+
+def resolved_product_unit_name(
+    name,
+    canonical_name="",
+    source="",
+    external_id="",
+):
+    definition = definition_for_product(source, external_id, canonical_name)
+    if definition is not None:
+        return definition.canonical_name
+    for candidate in (name, canonical_name):
+        if not str(candidate or "").strip():
+            continue
+        unit_name = canonical_unit_name(candidate)
+        if _is_known_unit_name(unit_name):
+            return unit_name
+    return canonical_unit_name(canonical_name or name)
+
+
+def has_curated_unit_profile(name):
+    unit_name = canonical_unit_name(name)
+    return _is_known_unit_name(unit_name)
 
 
 def curated_unit_conversions(name):
@@ -574,9 +596,17 @@ def product_unit_conversions(
     canonical_name="",
     package_quantity=None,
     package_unit="",
+    source="",
+    external_id="",
 ):
     """Liefert alle belastbaren Umrechnungen auch für noch ungespeicherte Treffer."""
-    conversions = curated_unit_conversions(canonical_name or name)
+    unit_name = resolved_product_unit_name(
+        name,
+        canonical_name,
+        source,
+        external_id,
+    )
+    conversions = curated_unit_conversions(unit_name)
     package_factor = {
         "mg": Decimal("0.001"), "g": Decimal("1"), "kg": Decimal("1000"),
         "ml": Decimal("1"), "cl": Decimal("10"), "dl": Decimal("100"),
@@ -645,6 +675,8 @@ def sync_curated_unit_conversion(product):
         product.canonical_name,
         product.package_quantity,
         product.package_unit,
+        product.source,
+        product.external_id,
     )
     if not conversions:
         ProductUnitConversion.objects.filter(
@@ -679,7 +711,7 @@ def suggested_unit_for_product(
     shopping_category="",
     fallback_unit="g",
 ):
-    unit_name = canonical_unit_name(canonical_name or name)
+    unit_name = resolved_product_unit_name(name, canonical_name)
     if (
         unit_name in LIQUID_DENSITY_GRAMS_PER_ML
         or (not has_curated_unit_profile(unit_name) and shopping_category == "drinks")
@@ -724,7 +756,12 @@ def ingredient_quantity_grams(name, quantity, unit, product=None):
     }.get(normalized_unit)
     if volume_factor is not None:
         density_name = (
-            product.canonical_name or product.name
+            resolved_product_unit_name(
+                product.name,
+                product.canonical_name,
+                product.source,
+                product.external_id,
+            )
             if product is not None
             else name
         )

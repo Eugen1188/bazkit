@@ -185,6 +185,30 @@ class RecipeCatalogTests(TestCase):
             Decimal("15"),
         )
 
+    def test_bay_leaf_uses_piece_even_with_decorated_internal_name(self):
+        bay_leaf = Product.objects.create(
+            name="Lorbeerblatt",
+            canonical_name="Lorbeerblatt getrocknet",
+            source="bls",
+            external_id="bay-leaf-decorated",
+            default_unit="g",
+        )
+        sync_curated_unit_conversion(bay_leaf)
+        data = ProductSerializer(bay_leaf).data
+        self.assertEqual(data["available_units"], ["g", "Stück"])
+        self.assertEqual(data["default_unit"], "g")
+        self.assertEqual(data["unit_conversions"][0]["unit"], "Stück")
+        self.assertEqual(
+            suggested_unit_for_product(
+                "Lorbeerblatt", "Lorbeerblatt getrocknet", "pantry", "g"
+            ),
+            "Stück",
+        )
+        self.assertEqual(
+            ingredient_quantity_grams("Lorbeerblatt", 2, "Stück", product=bay_leaf),
+            Decimal("0.4"),
+        )
+
     def test_every_catalog_unit_is_either_intrinsic_or_nutrition_convertible(self):
         intrinsic_units = {"g", "kg", "ml", "Liter"}
         for definition in INGREDIENT_DEFINITIONS:

@@ -4,6 +4,7 @@ from .catalog import (
     liquid_density_grams_per_ml,
     logical_available_units,
     product_unit_conversions,
+    resolved_product_unit_name,
 )
 from .models import Product
 
@@ -46,7 +47,7 @@ class ProductSerializer(serializers.ModelSerializer):
         return str(value) if value is not None else None
 
     def get_grams_per_ml(self, obj):
-        value = liquid_density_grams_per_ml(obj.canonical_name or obj.name)
+        value = liquid_density_grams_per_ml(self._unit_name(obj))
         return str(value) if value is not None else None
 
     def get_unit_conversions(self, obj):
@@ -65,7 +66,7 @@ class ProductSerializer(serializers.ModelSerializer):
             obj.package_unit,
             obj.shopping_category,
             conversions,
-            obj.canonical_name or obj.name,
+            self._unit_name(obj),
         )
 
     @staticmethod
@@ -75,4 +76,15 @@ class ProductSerializer(serializers.ModelSerializer):
             obj.canonical_name,
             obj.package_quantity,
             obj.package_unit,
+            obj.source,
+            obj.external_id,
+        )
+
+    @staticmethod
+    def _unit_name(obj):
+        return resolved_product_unit_name(
+            obj.name,
+            obj.canonical_name,
+            obj.source,
+            obj.external_id,
         )

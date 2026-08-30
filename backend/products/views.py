@@ -22,6 +22,7 @@ from .catalog import (
     liquid_density_grams_per_ml,
     logical_available_units,
     product_unit_conversions,
+    resolved_product_unit_name,
     recipe_ingredient_status,
     suggested_unit_for_product,
     sync_curated_unit_conversion,
@@ -122,11 +123,19 @@ def nutrition_is_complete(product):
 
 
 def add_unit_metadata(product):
+    unit_name = resolved_product_unit_name(
+        product["name"],
+        product.get("canonical_name", ""),
+        product.get("source", ""),
+        product.get("external_id", ""),
+    )
     conversions = product_unit_conversions(
         product["name"],
         product.get("canonical_name", ""),
         product.get("package_quantity"),
         product.get("package_unit", ""),
+        product.get("source", ""),
+        product.get("external_id", ""),
     )
     product["unit_conversions"] = [
         {
@@ -135,16 +144,14 @@ def add_unit_metadata(product):
         }
         for conversion in conversions
     ]
-    density = liquid_density_grams_per_ml(
-        product.get("canonical_name") or product["name"]
-    )
+    density = liquid_density_grams_per_ml(unit_name)
     product["grams_per_ml"] = str(density) if density is not None else None
     product["available_units"] = logical_available_units(
         product.get("default_unit", ""),
         product.get("package_unit", ""),
         product.get("shopping_category", ""),
         conversions,
-        product.get("canonical_name") or product["name"],
+        unit_name,
     )
     return product
 
