@@ -283,7 +283,7 @@
     <section class="nutrition-summary-card">
       <div class="nutrition-heading">
         <div>
-          <h2>Nährwerte & Preis</h2>
+          <h2>Nährwerte</h2>
           <p>Automatisch berechnete Werte pro Portion.</p>
         </div>
         <span class="automatic-badge">Automatisch</span>
@@ -297,19 +297,6 @@
         <div class="nutrition-value"><span>Ballaststoffe</span><strong>{{ recipe.fiber !== null ? (recipe.fiber | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
       </div>
 
-      <div class="detail-price-row">
-        <div>
-          <strong>Geschätzte Kosten (Beta)</strong>
-          <span>{{ recipe.price_ingredient_count }} von {{ recipe.price_ingredient_count + recipe.price_missing_ingredient_count }} Zutaten mit Preisdaten</span>
-        </div>
-        <div class="detail-price-values" *ngIf="recipe.price_is_sufficient && recipe.estimated_price !== null; else priceCoverageMissing">
-          <span><small>Gesamtpreis</small><strong>{{ recipe.estimated_price | number:'1.2-2' }} €</strong></span>
-          <span><small>Pro Portion</small><strong>{{ recipe.estimated_price_per_serving | number:'1.2-2' }} €</strong></span>
-        </div>
-        <ng-template #priceCoverageMissing>
-          <span class="coverage-chip"><small>Preisdaten-Abdeckung</small><strong>{{ recipe.price_coverage_percent }} %</strong></span>
-        </ng-template>
-      </div>
     </section>
 
 

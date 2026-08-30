@@ -24,8 +24,7 @@ import {
 
 import {
   ProductService,
-  ProductSuggestion,
-  PriceEstimate
+  ProductSuggestion
 } from '../../services/product.service';
 
 import {
@@ -76,9 +75,6 @@ implements OnInit, OnDestroy {
 
   note =
     '';
-  estimatedPrice: number | null = null;
-  priceEstimate: PriceEstimate | null = null;
-  isPriceLoading = false;
 
 
   suggestions:
@@ -104,6 +100,7 @@ implements OnInit, OnDestroy {
 
   units = [
     'Stück',
+    'Stange',
     'g',
     'kg',
     'ml',
@@ -120,6 +117,16 @@ implements OnInit, OnDestroy {
     'Scheibe',
     'Tasse'
   ];
+
+  get availableUnits(): string[] {
+    const productUnits = this.selectedProduct?.available_units;
+
+    if (!productUnits?.length) {
+      return this.selectedProduct ? ['g', 'kg'] : this.units;
+    }
+
+    return productUnits.filter(currentUnit => this.units.includes(currentUnit));
+  }
 
 
   private searchSubject =
@@ -236,8 +243,6 @@ implements OnInit, OnDestroy {
 
     this.selectedProduct =
       null;
-    this.estimatedPrice = null;
-    this.priceEstimate = null;
 
 
     const query =
@@ -282,13 +287,16 @@ implements OnInit, OnDestroy {
 
     if (
       product.default_unit &&
-      this.units.includes(
+      this.availableUnits.includes(
         product.default_unit
       )
     ) {
 
       this.unit =
         product.default_unit;
+    } else {
+      this.unit =
+        this.availableUnits[0] ?? 'g';
     }
 
 
@@ -298,23 +306,7 @@ implements OnInit, OnDestroy {
     this.isSuggestionsOpen =
       false;
 
-    this.refreshPrice();
   }
-
-  refreshPrice(): void {
-    if (!this.selectedProduct || this.quantity === null || this.quantity <= 0) return;
-    this.isPriceLoading = true;
-    this.productService.estimatePrice(this.selectedProduct, this.quantity, this.unit, 'purchase').subscribe({
-      next: estimate => {
-        this.isPriceLoading = false;
-        this.priceEstimate = estimate;
-        this.estimatedPrice = estimate.available ? Number(estimate.estimated_price) : null;
-      },
-      error: () => { this.isPriceLoading = false; this.priceEstimate = null; },
-    });
-  }
-
-  onManualPriceChange(): void { this.priceEstimate = null; }
 
 
   openSuggestions(): void {
@@ -386,19 +378,7 @@ implements OnInit, OnDestroy {
           this.unit,
 
         note:
-          this.note.trim(),
-
-        estimated_price: this.estimatedPrice,
-        price_source: this.priceEstimate?.price_source ?? (this.estimatedPrice === null ? '' : 'manual'),
-        price_currency: this.priceEstimate?.price_currency ?? 'EUR',
-        price_date: this.priceEstimate?.price_date ?? null,
-        price_store: this.priceEstimate?.price_store ?? '',
-        price_sample_count: this.priceEstimate?.price_sample_count ?? 0,
-        price_min: this.priceEstimate?.price_min ?? null,
-        price_max: this.priceEstimate?.price_max ?? null,
-        package_price: this.priceEstimate?.package_price ?? null,
-        package_quantity: this.priceEstimate?.package_quantity ?? null,
-        package_unit: this.priceEstimate?.package_unit ?? ''
+          this.note.trim()
       })
       .subscribe({
 

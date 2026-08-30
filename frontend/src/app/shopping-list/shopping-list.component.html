@@ -104,8 +104,6 @@
 
           erledigt
 
-          <ng-container *ngIf="estimatedTotal > 0"> · ca. {{ estimatedTotal | number:'1.2-2' }} €</ng-container>
-
         </p>
 
       </div>
@@ -437,9 +435,6 @@
               {{ item.unit }}
             </span>
 
-            <span class="price-chip" *ngIf="item.estimated_price !== null && item.estimated_price !== undefined">
-              ca. {{ item.estimated_price | number:'1.2-2' }} €
-            </span>
 
           </div>
 

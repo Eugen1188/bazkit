@@ -30,14 +30,12 @@ import {
 
 import {
   ProductService,
-  ProductSuggestion,
-  PriceEstimate,
-  PriceSnapshot
+  ProductSuggestion
 } from '../../services/product.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 
 
-interface Product extends PriceSnapshot {
+interface Product {
   id?: number;
   product?: number | null;
   name: string;
@@ -82,9 +80,6 @@ implements OnInit, OnDestroy {
 
   productUnit =
     'Stück';
-  productPrice: number | null = null;
-  priceEstimate: PriceEstimate | null = null;
-  isPriceLoading = false;
 
 
   products:
@@ -130,6 +125,7 @@ implements OnInit, OnDestroy {
 
   units = [
     'Stück',
+    'Stange',
     'g',
     'kg',
     'ml',
@@ -141,8 +137,21 @@ implements OnInit, OnDestroy {
     'Glas',
     'Becher',
     'Bund',
-    'Prise'
+    'Prise',
+    'Zehe',
+    'Scheibe',
+    'Tasse'
   ];
+
+  get availableUnits(): string[] {
+    const productUnits = this.selectedProduct?.available_units;
+
+    if (!productUnits?.length) {
+      return this.selectedProduct ? ['g', 'kg'] : this.units;
+    }
+
+    return productUnits.filter(unit => this.units.includes(unit));
+  }
 
 
   constructor(
@@ -384,8 +393,6 @@ implements OnInit, OnDestroy {
 
     this.selectedProduct =
       null;
-    this.productPrice = null;
-    this.priceEstimate = null;
 
 
     const query =
@@ -438,13 +445,16 @@ implements OnInit, OnDestroy {
 
     if (
       product.default_unit &&
-      this.units.includes(
+      this.availableUnits.includes(
         product.default_unit
       )
     ) {
 
       this.productUnit =
         product.default_unit;
+    } else {
+      this.productUnit =
+        this.availableUnits[0] ?? 'g';
     }
 
 
@@ -460,24 +470,7 @@ implements OnInit, OnDestroy {
     this.externalSearchError =
       '';
 
-    this.refreshProductPrice();
   }
-
-  refreshProductPrice(): void {
-    if (!this.selectedProduct || this.productQuantity === null || this.productQuantity <= 0) return;
-    this.isPriceLoading = true;
-    this.productService.estimatePrice(this.selectedProduct, this.productQuantity, this.productUnit, 'purchase')
-      .subscribe({
-        next: estimate => {
-          this.isPriceLoading = false;
-          this.priceEstimate = estimate;
-          this.productPrice = estimate.available ? Number(estimate.estimated_price) : null;
-        },
-        error: () => { this.isPriceLoading = false; this.priceEstimate = null; },
-      });
-  }
-
-  onManualPriceChange(): void { this.priceEstimate = null; }
 
 
   searchExternal(): void {
@@ -633,7 +626,6 @@ implements OnInit, OnDestroy {
         this.productUnit,
 
       note: ''
-      , ...this.priceSnapshot()
     });
 
 
@@ -820,9 +812,6 @@ implements OnInit, OnDestroy {
 
     this.productUnit =
       'Stück';
-    this.productPrice = null;
-    this.priceEstimate = null;
-    this.isPriceLoading = false;
 
     this.productSuggestions =
       [];
@@ -846,13 +835,4 @@ implements OnInit, OnDestroy {
       null;
   }
 
-  get estimatedTotal(): number {
-    return this.products.reduce((sum, product) => sum + Number(product.estimated_price ?? 0), 0);
-  }
-
-  private priceSnapshot(): PriceSnapshot {
-    const estimate = this.priceEstimate;
-    if (!estimate) return { estimated_price: this.productPrice, price_source: this.productPrice === null ? '' : 'manual', price_currency: 'EUR' };
-    return { ...estimate, estimated_price: this.productPrice };
-  }
 }

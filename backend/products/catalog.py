@@ -282,6 +282,14 @@ AVERAGE_UNIT_WEIGHT_GRAMS = {
 
 CURATED_CONVERSION_SOURCE = "Bazkit kuratierte Portionsreferenz v1"
 
+LOGICAL_UNIT_OVERRIDES = {
+    "Knoblauch": "Zehe",
+    "Staudensellerie": "Stange",
+    "Spargel": "Stange",
+    "Lauch": "Stange",
+    "Frühlingszwiebel": "Stange",
+}
+
 CURATED_PACKAGE_CONVERSIONS = {
     "Dosentomaten": (("Dose", Decimal("400")),),
     "Passierte Tomaten": (("Packung", Decimal("500")),),
@@ -314,7 +322,7 @@ def curated_unit_conversions(name):
     grams = average_unit_weight_grams(name)
     if grams is not None:
         conversions.append({
-            "unit": "Zehe" if canonical_name == "Knoblauch" else "Stück",
+            "unit": LOGICAL_UNIT_OVERRIDES.get(canonical_name, "Stück"),
             "grams_per_unit": grams,
             "source": CURATED_CONVERSION_SOURCE,
             "confidence": "reference",
@@ -334,26 +342,67 @@ def curated_unit_conversion(name):
     return conversions[0] if conversions else None
 
 
+def product_unit_conversions(
+    name,
+    canonical_name="",
+    package_quantity=None,
+    package_unit="",
+):
+    """Liefert alle belastbaren Umrechnungen auch für noch ungespeicherte Treffer."""
+    conversions = curated_unit_conversions(canonical_name or name)
+    package_factor = {
+        "mg": Decimal("0.001"), "g": Decimal("1"), "kg": Decimal("1000"),
+        "ml": Decimal("1"), "cl": Decimal("10"), "dl": Decimal("100"),
+        "l": Decimal("1000"),
+    }.get(str(package_unit or "").casefold())
+    try:
+        package_amount = Decimal(str(package_quantity)) if package_quantity is not None else None
+    except (InvalidOperation, TypeError, ValueError):
+        package_amount = None
+    if package_amount and package_amount > 0 and package_factor is not None:
+        package_label = next(
+            (label for label in ("Dose", "Glas", "Becher") if label.casefold() in str(name or "").casefold()),
+            "Packung",
+        )
+        conversions = [conversion for conversion in conversions if conversion["unit"] != package_label]
+        conversions.append({
+            "unit": package_label,
+            "grams_per_unit": package_amount * package_factor,
+            "source": "Open Food Facts Packungsangabe",
+            "confidence": "verified",
+        })
+    return conversions
+
+
+def logical_available_units(
+    default_unit="",
+    package_unit="",
+    shopping_category="",
+    conversions=(),
+):
+    units = ["g", "kg"]
+    if (
+        str(default_unit or "").casefold() in {"ml", "l", "liter"}
+        or str(package_unit or "").casefold() in {"ml", "l"}
+        or shopping_category == "drinks"
+    ):
+        units.extend(["ml", "Liter"])
+    for conversion in conversions:
+        unit = conversion["unit"] if isinstance(conversion, dict) else conversion.unit
+        if unit not in units:
+            units.append(unit)
+    return units
+
+
 def sync_curated_unit_conversion(product):
     from .models import ProductUnitConversion
 
-    conversions = curated_unit_conversions(product.canonical_name or product.name)
-    if product.package_quantity and product.package_unit:
-        package_factor = {
-            "g": Decimal("1"), "kg": Decimal("1000"),
-            "ml": Decimal("1"), "l": Decimal("1000"),
-        }.get(product.package_unit.casefold())
-        if package_factor is not None:
-            package_label = next(
-                (label for label in ("Dose", "Glas", "Becher") if label.casefold() in product.name.casefold()),
-                "Packung",
-            )
-            conversions.append({
-                "unit": package_label,
-                "grams_per_unit": product.package_quantity * package_factor,
-                "source": "Open Food Facts Packungsangabe",
-                "confidence": "verified",
-            })
+    conversions = product_unit_conversions(
+        product.name,
+        product.canonical_name,
+        product.package_quantity,
+        product.package_unit,
+    )
     if not conversions:
         ProductUnitConversion.objects.filter(
             product=product,

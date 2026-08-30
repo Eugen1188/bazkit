@@ -19,6 +19,8 @@ from .catalog import (
     average_unit_weight_grams,
     canonical_recipe_name,
     canonical_search_query,
+    logical_available_units,
+    product_unit_conversions,
     recipe_ingredient_status,
     suggested_unit_for_product,
     sync_curated_unit_conversion,
@@ -116,6 +118,29 @@ def nutrition_is_complete(product):
             "fiber_per_100g",
         )
     )
+
+
+def add_unit_metadata(product):
+    conversions = product_unit_conversions(
+        product["name"],
+        product.get("canonical_name", ""),
+        product.get("package_quantity"),
+        product.get("package_unit", ""),
+    )
+    product["unit_conversions"] = [
+        {
+            **conversion,
+            "grams_per_unit": str(conversion["grams_per_unit"]),
+        }
+        for conversion in conversions
+    ]
+    product["available_units"] = logical_available_units(
+        product.get("default_unit", ""),
+        product.get("package_unit", ""),
+        product.get("shopping_category", ""),
+        conversions,
+    )
+    return product
 
 
 class IngredientSearchFeedbackAPIView(APIView):
@@ -269,6 +294,7 @@ def usda_payload(item, original_query=""):
         "origin": "usda",
     }
     result.update(usda_nutrient_values(item))
+    add_unit_metadata(result)
     result["nutrition_complete"] = nutrition_is_complete(result)
     return result
 
@@ -345,6 +371,7 @@ def off_payload(item):
         "fiber_per_100g": decimal_or_none(nutriments.get("fiber_100g")),
         "origin": "open_food_facts",
     }
+    add_unit_metadata(result)
     result["nutrition_complete"] = nutrition_is_complete(result)
     return result
 
@@ -680,7 +707,10 @@ class SaveExternalProductAPIView(APIView):
         defaults = {
             key: value
             for key, value in product_data.items()
-            if key not in {"id", "origin", "source", "external_id", "grams_per_unit"}
+            if key not in {
+                "id", "origin", "source", "external_id", "grams_per_unit",
+                "unit_conversions", "available_units",
+            }
         }
         defaults.pop("nutrition_complete", None)
         with transaction.atomic():

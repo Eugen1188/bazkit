@@ -92,6 +92,8 @@ class RecipeCatalogTests(TestCase):
             "Kürbis": ("Stück", Decimal("1000")),
             "Ei": ("Stück", Decimal("60")),
             "Knoblauch": ("Zehe", Decimal("3")),
+            "Staudensellerie": ("Stange", Decimal("40")),
+            "Spargel": ("Stange", Decimal("20")),
         }
         for name, (unit, grams) in expected.items():
             conversion = curated_unit_conversion(name)
@@ -122,6 +124,19 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(
             ingredient_quantity_grams("Dosentomaten", 1, "Dose", product=tomatoes),
             Decimal("400"),
+        )
+
+    def test_stem_vegetables_offer_stem_instead_of_unrelated_kitchen_units(self):
+        celery = Product.objects.create(
+            name="Staudensellerie roh", canonical_name="Staudensellerie",
+            source="bls", external_id="celery", default_unit="Stange",
+        )
+        sync_curated_unit_conversion(celery)
+        data = ProductSerializer(celery).data
+        self.assertEqual(data["available_units"], ["g", "kg", "Stange"])
+        self.assertEqual(
+            ingredient_quantity_grams("Staudensellerie", 2, "Stange", product=celery),
+            Decimal("80"),
         )
 
     def test_legacy_name_parser_separates_package_without_losing_name(self):
@@ -644,6 +659,8 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(product["name"], "Dosentomaten")
         self.assertTrue(nutrition_is_complete(product))
         self.assertEqual(product["source"], "usda")
+        self.assertEqual(product["available_units"], ["g", "kg", "Dose"])
+        self.assertEqual(product["unit_conversions"][0]["grams_per_unit"], "400")
 
     def test_reference_price_is_scaled_automatically(self):
         product = Product.objects.create(

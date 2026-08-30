@@ -358,7 +358,6 @@
                 min="0.01"
                 step="0.01"
                 [(ngModel)]="productQuantity"
-                (change)="refreshProductPrice()"
                 (keyup.enter)="addProduct()"
               />
 
@@ -374,11 +373,10 @@
               <select
                 id="productUnit"
                 [(ngModel)]="productUnit"
-                (change)="refreshProductPrice()"
               >
 
                 <option
-                  *ngFor="let unit of units"
+                  *ngFor="let unit of availableUnits"
                   [value]="unit"
                 >
                   {{ unit }}
@@ -388,12 +386,6 @@
 
             </div>
 
-            <div class="field price-field">
-              <label for="productPrice">Geschätzter Preis</label>
-              <input id="productPrice" type="number" min="0" step="0.01"
-                [(ngModel)]="productPrice" (ngModelChange)="onManualPriceChange()" placeholder="0,00" />
-              <small>{{ isPriceLoading ? 'Preis wird ermittelt…' : (priceEstimate?.message || 'Optional manuell eintragen') }}</small>
-            </div>
 
 
             <button
@@ -446,9 +438,6 @@
               {{ products.length }}
             </span>
 
-            <span class="product-price" *ngIf="estimatedTotal > 0">
-              Gesamt ca. {{ estimatedTotal | number:'1.2-2' }} €
-            </span>
 
           </div>
 
@@ -504,9 +493,6 @@
                 {{ product.unit }}
               </span>
 
-              <span class="product-price" *ngIf="product.estimated_price !== null && product.estimated_price !== undefined">
-                {{ product.estimated_price | number:'1.2-2' }} €
-              </span>
 
             </div>
 

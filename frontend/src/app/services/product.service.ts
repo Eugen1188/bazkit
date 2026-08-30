@@ -52,12 +52,6 @@ export interface PriceSnapshot {
   package_unit?: string;
 }
 
-export interface PriceEstimate extends PriceSnapshot {
-  available: boolean;
-  confidence: 'low' | 'medium' | 'high' | null;
-  message: string;
-}
-
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private readonly apiUrl = this.getApiUrl();
@@ -139,23 +133,6 @@ export class ProductService {
       product_id: productId,
       selected_rank: selectedRank,
     }).pipe(catchError(() => of(void 0)));
-  }
-
-  estimatePrice(
-    product: ProductSuggestion,
-    quantity: number | null,
-    unit: string,
-    mode: 'consumption' | 'purchase' = 'purchase',
-  ): Observable<PriceEstimate> {
-    let params = new HttpParams()
-      .set('quantity', String(quantity ?? 1))
-      .set('unit', unit || '')
-      .set('mode', mode)
-      .set('product_name', product.name);
-    params = product.id !== null
-      ? params.set('product_id', String(product.id))
-      : params.set('source', product.source ?? '').set('external_id', product.external_id ?? '');
-    return this.http.get<PriceEstimate>(`${this.apiUrl}price-estimate/`, { params });
   }
 
   searchExternalProducts(query: string): Observable<ProductSuggestion[]> {

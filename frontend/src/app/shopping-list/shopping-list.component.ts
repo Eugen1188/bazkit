@@ -564,10 +564,6 @@ export class ShoppingListComponent
     );
   }
 
-  get estimatedTotal(): number {
-    return Math.round(this.items.reduce((sum, item) => sum + Number(item.estimated_price ?? 0), 0) * 100) / 100;
-  }
-
   setFilter(filter: ShoppingFilter): void {
     this.activeFilter = filter;
   }

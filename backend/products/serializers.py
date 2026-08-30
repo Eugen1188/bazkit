@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .catalog import average_unit_weight_grams
+from .catalog import average_unit_weight_grams, logical_available_units
 from .models import Product
 
 
@@ -50,16 +50,12 @@ class ProductSerializer(serializers.ModelSerializer):
         ]
 
     def get_available_units(self, obj):
-        units = ["g", "kg"]
-        if (
-            obj.default_unit in {"ml", "l", "Liter"}
-            or obj.package_unit.casefold() in {"ml", "l"}
-            or obj.shopping_category == "drinks"
-        ):
-            units.extend(["ml", "Liter"])
-        for conversion in obj.unit_conversions.filter(is_active=True).exclude(
+        conversions = obj.unit_conversions.filter(is_active=True).exclude(
             confidence="estimated"
-        ):
-            if conversion.unit not in units:
-                units.append(conversion.unit)
-        return units
+        )
+        return logical_available_units(
+            obj.default_unit,
+            obj.package_unit,
+            obj.shopping_category,
+            conversions,
+        )

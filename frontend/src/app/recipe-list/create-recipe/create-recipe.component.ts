@@ -3,7 +3,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, Subscription, debounceTime, distinctUntilChanged, map, of, switchMap, tap } from 'rxjs';
-import { PriceEstimate, ProductService, ProductSuggestion } from '../../services/product.service';
+import { ProductService, ProductSuggestion } from '../../services/product.service';
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
 
 interface PreparationStep { text: string; }
@@ -37,7 +37,6 @@ export class CreateRecipeComponent implements OnDestroy {
   carbohydrates: number | null = null;
   fat: number | null = null;
   fiber: number | null = null;
-  estimatedPrice: number | null = null;
   isSaving = false;
   errorMessage = '';
   imageUrl: string | null = null;
@@ -52,9 +51,8 @@ export class CreateRecipeComponent implements OnDestroy {
   isIngredientSearching = false;
   isIngredientSuggestionsOpen = false;
   selectingIngredientIndex: number | null = null;
-  ingredientPriceLoading: boolean[] = [false];
 
-  readonly units = ['Stück', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Prise', 'Zehe', 'Scheibe', 'Tasse', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund'];
+  readonly units = ['Stück', 'Stange', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Prise', 'Zehe', 'Scheibe', 'Tasse', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund'];
   readonly categories = [
     { value: 'breakfast', label: 'Frühstück' }, { value: 'lunch', label: 'Mittagessen' },
     { value: 'dinner', label: 'Abendessen' }, { value: 'snack', label: 'Snack' },
@@ -167,7 +165,6 @@ export class CreateRecipeComponent implements OnDestroy {
         if (product.default_unit && this.units.includes(product.default_unit)) ingredient.unit = product.default_unit;
         this.selectingIngredientIndex = null;
         this.closeAutocomplete();
-        this.refreshIngredientPrice(index);
         this.productService.recordIngredientSelection(
           searchQuery,
           product.id,
@@ -182,27 +179,13 @@ export class CreateRecipeComponent implements OnDestroy {
     });
   }
 
-  addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); this.ingredientPriceLoading.push(false); } }
+  addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   canAddIngredient(): boolean { return !this.ingredients.length || !!this.ingredients.at(-1)?.name.trim(); }
   hasIngredientContent(index: number): boolean { return !!this.ingredients[index]?.name.trim(); }
-  removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); this.ingredientPriceLoading.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); this.ingredientPriceLoading.push(false); } this.recalculateEstimatedPrice(); }
+  removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   moveIngredientUp(index: number): void { if (index > 0) { [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]]; } }
   moveIngredientDown(index: number): void { if (index < this.ingredients.length - 1) { [this.ingredients[index + 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index + 1]]; [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]]; } }
-  refreshIngredientPrice(index: number): void {
-    const product = this.selectedProducts[index];
-    const ingredient = this.ingredients[index];
-    if (!product || !ingredient || ingredient.quantity === null || ingredient.quantity <= 0) return;
-    this.ingredientPriceLoading[index] = true;
-    this.productService.estimatePrice(product, ingredient.quantity, ingredient.unit, 'consumption').subscribe({
-      next: estimate => {
-        this.ingredientPriceLoading[index] = false;
-        this.applyPriceEstimate(ingredient, estimate);
-        this.recalculateEstimatedPrice();
-      },
-      error: () => { this.ingredientPriceLoading[index] = false; },
-    });
-  }
-  onIngredientAmountChange(index: number): void { this.refreshIngredientPrice(index); }
+  onIngredientAmountChange(_index: number): void {}
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
   hasStepContent(index: number): boolean { return !!this.preparationSteps[index]?.text.trim(); }
@@ -303,30 +286,6 @@ export class CreateRecipeComponent implements OnDestroy {
   get filledIngredients(): RecipeIngredient[] { return this.ingredients.filter(item => item.name.trim()); }
   get filledPreparationSteps(): PreparationStep[] { return this.preparationSteps.filter(item => item.text.trim()); }
   get categoryLabel(): string { return this.categories.find(item => item.value === this.category)?.label ?? 'Sonstiges'; }
-  get estimatedPricePerServing(): number | null {
-    return this.estimatedPrice !== null && this.servings > 0 ? this.estimatedPrice / this.servings : null;
-  }
-  get totalPriceIngredientCount(): number {
-    return this.ingredients.filter((ingredient, index) =>
-      !!this.selectedProducts[index] && ingredient.product != null && ingredient.name.trim().length > 0
-    ).length;
-  }
-  get priceIngredientCount(): number {
-    return this.ingredients.filter((ingredient, index) =>
-      !!this.selectedProducts[index] && ingredient.estimated_price !== null && ingredient.estimated_price !== undefined
-    ).length;
-  }
-  get priceCoveragePercent(): number {
-    return this.totalPriceIngredientCount > 0
-      ? Math.round(this.priceIngredientCount / this.totalPriceIngredientCount * 100)
-      : 0;
-  }
-  get hasSufficientPriceCoverage(): boolean {
-    return this.totalPriceIngredientCount > 0 && this.priceCoveragePercent >= 70;
-  }
-  get priceIsComplete(): boolean {
-    return this.totalPriceIngredientCount > 0 && this.priceIngredientCount === this.totalPriceIngredientCount;
-  }
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
     if (!product) return null;
     const value = product[`${field}_per_100g` as keyof ProductSuggestion];
@@ -368,26 +327,7 @@ export class CreateRecipeComponent implements OnDestroy {
       ? Number(ingredient.quantity) * averageWeight
       : null;
   }
-  private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück', estimated_price: null, price_source: '', price_currency: 'EUR', price_sample_count: 0 }; }
-  private applyPriceEstimate(ingredient: RecipeIngredient, estimate: PriceEstimate): void {
-    ingredient.estimated_price = estimate.available ? Number(estimate.estimated_price) : null;
-    ingredient.price_source = estimate.price_source ?? '';
-    ingredient.price_currency = estimate.price_currency ?? 'EUR';
-    ingredient.price_date = estimate.price_date ?? null;
-    ingredient.price_store = estimate.price_store ?? '';
-    ingredient.price_sample_count = estimate.price_sample_count ?? 0;
-    ingredient.price_min = estimate.price_min ?? null;
-    ingredient.price_max = estimate.price_max ?? null;
-    ingredient.package_price = estimate.package_price ?? null;
-    ingredient.package_quantity = estimate.package_quantity ?? null;
-    ingredient.package_unit = estimate.package_unit ?? '';
-  }
-  private recalculateEstimatedPrice(): void {
-    const prices = this.ingredients.map(item => item.estimated_price).filter((value): value is number => value !== null && value !== undefined);
-    this.estimatedPrice = prices.length && this.hasSufficientPriceCoverage
-      ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100
-      : null;
-  }
+  private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück' }; }
   private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; }
   private validateWizardStep(step: number): boolean {
     this.errorMessage = '';

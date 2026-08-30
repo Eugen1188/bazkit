@@ -36,7 +36,6 @@ import {
 } from '../../services/recipe.service';
 
 import {
-  PriceEstimate,
   ProductService,
   ProductSuggestion
 } from '../../services/product.service';
@@ -126,11 +125,6 @@ implements OnInit, OnDestroy {
     number | null =
       null;
 
-  estimatedPrice:
-    number | null =
-      null;
-
-
   isSaving =
     false;
 
@@ -151,7 +145,6 @@ implements OnInit, OnDestroy {
     RecipeIngredient[] = [];
 
   selectedProducts: Array<ProductSuggestion | null> = [];
-  ingredientPriceLoading: boolean[] = [];
 
 
   preparationSteps:
@@ -182,6 +175,7 @@ implements OnInit, OnDestroy {
 
   units = [
     'Stück',
+    'Stange',
     'g',
     'kg',
     'ml',
@@ -458,12 +452,6 @@ implements OnInit, OnDestroy {
               recipe.fiber
             );
 
-          this.estimatedPrice =
-            this.toNumberOrNull(
-              recipe.estimated_price
-            );
-
-
           this.ingredients =
             recipe.ingredients.length
               ? recipe.ingredients
@@ -483,9 +471,7 @@ implements OnInit, OnDestroy {
           this.selectedProducts = this.ingredients.map(
             ingredient => ingredient.product_detail ?? null
           );
-          this.ingredientPriceLoading = this.ingredients.map(() => false);
           this.recalculateNutrition();
-          this.recalculateEstimatedPrice();
 
 
           this.preparationSteps =
@@ -706,7 +692,6 @@ implements OnInit, OnDestroy {
         }
         this.closeIngredientAutocompleteImmediately();
         this.recalculateNutrition();
-        this.refreshIngredientPrice(index);
         this.productService.recordIngredientSelection(
           searchQuery,
           savedProduct.id,
@@ -753,7 +738,6 @@ implements OnInit, OnDestroy {
       unit: 'Stück'
     });
     this.selectedProducts.push(null);
-    this.ingredientPriceLoading.push(false);
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -791,7 +775,6 @@ implements OnInit, OnDestroy {
       1
     );
     this.selectedProducts.splice(index, 1);
-    this.ingredientPriceLoading.splice(index, 1);
 
 
     if (
@@ -805,7 +788,6 @@ implements OnInit, OnDestroy {
         unit: 'Stück'
       });
       this.selectedProducts.push(null);
-      this.ingredientPriceLoading.push(false);
     }
 
 
@@ -832,7 +814,6 @@ implements OnInit, OnDestroy {
       this.ingredients[index - 1]
     ];
     [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]];
-    [this.ingredientPriceLoading[index - 1], this.ingredientPriceLoading[index]] = [this.ingredientPriceLoading[index], this.ingredientPriceLoading[index - 1]];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -859,7 +840,6 @@ implements OnInit, OnDestroy {
       this.ingredients[index + 1]
     ];
     [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]];
-    [this.ingredientPriceLoading[index + 1], this.ingredientPriceLoading[index]] = [this.ingredientPriceLoading[index], this.ingredientPriceLoading[index + 1]];
 
 
     this.closeIngredientAutocompleteImmediately();
@@ -878,32 +858,6 @@ implements OnInit, OnDestroy {
 
   onIngredientAmountChange(index: number): void {
     this.recalculateNutrition();
-    this.refreshIngredientPrice(index);
-  }
-
-  refreshIngredientPrice(index: number): void {
-    const product = this.selectedProducts[index];
-    const ingredient = this.ingredients[index];
-    if (!product || !ingredient || ingredient.quantity === null || ingredient.quantity <= 0) return;
-    this.ingredientPriceLoading[index] = true;
-    this.productService.estimatePrice(product, ingredient.quantity, ingredient.unit, 'consumption').subscribe({
-      next: (estimate: PriceEstimate) => {
-        this.ingredientPriceLoading[index] = false;
-        ingredient.estimated_price = estimate.available ? Number(estimate.estimated_price) : null;
-        ingredient.price_source = estimate.price_source ?? '';
-        ingredient.price_currency = estimate.price_currency ?? 'EUR';
-        ingredient.price_date = estimate.price_date ?? null;
-        ingredient.price_store = estimate.price_store ?? '';
-        ingredient.price_sample_count = estimate.price_sample_count ?? 0;
-        ingredient.price_min = estimate.price_min ?? null;
-        ingredient.price_max = estimate.price_max ?? null;
-        ingredient.package_price = estimate.package_price ?? null;
-        ingredient.package_quantity = estimate.package_quantity ?? null;
-        ingredient.package_unit = estimate.package_unit ?? '';
-        this.recalculateEstimatedPrice();
-      },
-      error: () => { this.ingredientPriceLoading[index] = false; },
-    });
   }
 
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
@@ -956,14 +910,6 @@ implements OnInit, OnDestroy {
       ? Number(ingredient.quantity) * averageWeight
       : null;
   }
-
-  private recalculateEstimatedPrice(): void {
-    const prices = this.ingredients.map(item => item.estimated_price).filter((value): value is number => value !== null && value !== undefined);
-    this.estimatedPrice = prices.length && this.hasSufficientPriceCoverage
-      ? Math.round(prices.reduce((sum, value) => sum + Number(value), 0) * 100) / 100
-      : null;
-  }
-
 
   addPreparationStep():
     void {
@@ -1122,7 +1068,7 @@ implements OnInit, OnDestroy {
     ) {
 
       this.errorMessage =
-        'Nährwerte und Preis dürfen nicht negativ sein.';
+        'Nährwerte dürfen nicht negativ sein.';
 
       return;
     }
@@ -1310,8 +1256,7 @@ implements OnInit, OnDestroy {
       this.protein,
       this.carbohydrates,
       this.fat,
-      this.fiber,
-      this.estimatedPrice
+      this.fiber
     ];
 
 
@@ -1498,77 +1443,6 @@ implements OnInit, OnDestroy {
       ??
       'Sonstiges'
     );
-  }
-
-
-  get estimatedPricePerServing():
-    number | null {
-
-    if (
-      this.estimatedPrice === null
-      ||
-      !this.servings
-      ||
-      this.servings <= 0
-    ) {
-      return null;
-    }
-
-
-    return (
-      this.estimatedPrice
-      /
-      this.servings
-    );
-  }
-
-
-  get totalPriceIngredientCount():
-    number {
-
-    return this.ingredients.filter(
-      (ingredient, index) =>
-        !!this.selectedProducts[index]
-        && ingredient.product != null
-        && ingredient.name.trim().length > 0
-    ).length;
-  }
-
-
-  get priceIngredientCount():
-    number {
-
-    return this.ingredients.filter(
-      (ingredient, index) =>
-        !!this.selectedProducts[index]
-        && ingredient.estimated_price !== null
-        && ingredient.estimated_price !== undefined
-    ).length;
-  }
-
-
-  get priceCoveragePercent():
-    number {
-
-    return this.totalPriceIngredientCount > 0
-      ? Math.round(this.priceIngredientCount / this.totalPriceIngredientCount * 100)
-      : 0;
-  }
-
-
-  get hasSufficientPriceCoverage():
-    boolean {
-
-    return this.totalPriceIngredientCount > 0
-      && this.priceCoveragePercent >= 70;
-  }
-
-
-  get priceIsComplete():
-    boolean {
-
-    return this.totalPriceIngredientCount > 0
-      && this.priceIngredientCount === this.totalPriceIngredientCount;
   }
 
 

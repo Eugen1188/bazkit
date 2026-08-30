@@ -248,9 +248,6 @@
                   </div>
                   <small *ngIf="ingredient.unit === 'Stück' && product.grams_per_unit">1 Stück ≈ {{ product.grams_per_unit }} g</small>
                   <small *ngIf="!canCalculateIngredient(i)">Einheit erlaubt · ohne belastbare Umrechnung nicht in den Nährwerten berücksichtigt</small>
-                  <small *ngIf="ingredientPriceLoading[i]">Preis wird geprüft…</small>
-                  <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price !== null">ca. {{ ingredient.estimated_price | number:'1.2-2' }} € für diese Menge</small>
-                  <small *ngIf="!ingredientPriceLoading[i] && ingredient.estimated_price === null">Nährwerte vorhanden · keine belastbaren Preisdaten</small>
                 </div>
               </div>
             </div>
@@ -272,10 +269,6 @@
               <div><strong>{{ nutritionForDisplay('carbohydrates') ?? '–' }}</strong><span>Kohlenhydrate</span></div>
               <div><strong>{{ nutritionForDisplay('fat') ?? '–' }}</strong><span>Fett</span></div>
               <div><strong>{{ nutritionForDisplay('fiber') ?? '–' }}</strong><span>Ballaststoffe</span></div>
-            </div>
-            <div class="price-summary" *ngIf="estimatedPrice !== null && hasSufficientPriceCoverage">
-              <span>Geschätzter Gesamtpreis</span><strong>{{ estimatedPrice | number:'1.2-2' }} €</strong>
-              <small>{{ estimatedPricePerServing | number:'1.2-2' }} € pro Portion</small>
             </div>
             <p>Die Werte passen sich sofort an, wenn du Menge oder Einheit änderst.</p>
           </aside>
