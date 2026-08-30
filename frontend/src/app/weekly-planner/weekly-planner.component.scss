@@ -2621,6 +2621,193 @@
   color: #fff;
 }
 
+.ai-planner-dialog {
+  width: min(720px, 100%);
+}
+
+.ai-catalog-status {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #d5e3d8;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #f3f8f4;
+}
+
+.ai-catalog-status > span {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ai-catalog-status strong,
+.ai-catalog-status small {
+  display: block;
+}
+
+.ai-catalog-status strong {
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.ai-catalog-status small {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: 10px;
+}
+
+.ai-planner-form {
+  min-height: 0;
+  padding-right: 3px;
+  overflow-y: auto;
+}
+
+.ai-meal-selection {
+  margin: 0 0 17px;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ai-meal-selection legend {
+  width: 100%;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.ai-meal-selection label {
+  min-height: 45px;
+  padding: 0 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.ai-meal-selection label.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+  color: var(--color-primary);
+}
+
+.ai-meal-selection input,
+.ai-overwrite-option input {
+  accent-color: var(--color-primary);
+}
+
+.ai-target-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.ai-target-grid > label > span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-text-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ai-target-grid > label > span small {
+  color: var(--color-text-muted);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.dialog-input-suffix {
+  min-height: 45px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.dialog-input-suffix:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft-bg);
+}
+
+.dialog-input-suffix input {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 0 12px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: 12px;
+}
+
+.dialog-input-suffix > span {
+  padding: 0 12px;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.ai-overwrite-option {
+  margin-top: 17px;
+  padding: 12px 13px;
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.ai-overwrite-option.selected {
+  border-color: #dfbba7;
+  background: #fff8f3;
+}
+
+.ai-overwrite-option strong,
+.ai-overwrite-option small {
+  display: block;
+}
+
+.ai-overwrite-option strong {
+  color: var(--color-text-primary);
+  font-size: 11px;
+}
+
+.ai-overwrite-option small,
+.ai-plan-note {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.ai-plan-note {
+  max-width: 265px;
+}
+
 .pantry-dialog {
   width: min(610px, 100%);
 }
@@ -2802,6 +2989,16 @@
 
   .planner-dialog-header h2 {
     font-size: 21px;
+  }
+
+  .ai-meal-selection,
+  .ai-target-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-plan-note {
+    width: 100%;
+    max-width: none;
   }
 
   .planner-dialog-settings {

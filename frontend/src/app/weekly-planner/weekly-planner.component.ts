@@ -65,6 +65,15 @@ export class WeeklyPlannerComponent implements OnInit {
   isSaving = false;
   isGenerating = false;
   isCreatingShoppingList = false;
+  aiPlannerDialogOpen = false;
+  planBreakfast = true;
+  planLunch = true;
+  planDinner = true;
+  aiDailyCalorieTarget: number | null = null;
+  aiDailyProteinTarget: number | null = null;
+  aiMaxRecipeRepeats = 2;
+  aiServings = 2;
+  aiOverwrite = false;
   pantryDialogOpen = false;
   includedPantryProductIds = new Set<number>();
   feedbackMessage = '';
@@ -91,6 +100,10 @@ export class WeeklyPlannerComponent implements OnInit {
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
+    if (this.aiPlannerDialogOpen) {
+      this.closeAiPlannerDialog();
+      return;
+    }
     if (this.pantryDialogOpen) {
       this.closePantryDialog();
       return;
@@ -165,6 +178,18 @@ export class WeeklyPlannerComponent implements OnInit {
 
   get weeklyIngredientCount(): number {
     return this.allMeals().reduce((total, meal) => total + meal.ingredientCount, 0);
+  }
+
+  get nutritionReadyRecipeCount(): number {
+    return this.recipes.filter(recipe => this.hasCompleteNutrition(recipe)).length;
+  }
+
+  get selectedAiMealTypes(): MealType[] {
+    return [
+      ...(this.planBreakfast ? ['breakfast' as MealType] : []),
+      ...(this.planLunch ? ['lunch' as MealType] : []),
+      ...(this.planDinner ? ['dinner' as MealType] : [])
+    ];
   }
 
   get weeklyProductCount(): number {
@@ -334,17 +359,45 @@ export class WeeklyPlannerComponent implements OnInit {
     this.loadEntries();
   }
 
+  openAiPlannerDialog(): void {
+    if (!this.nutritionReadyRecipeCount) {
+      this.showFeedback(
+        'Für die KI-Planung brauchst du mindestens ein Rezept mit vollständig berechneten Nährwerten.',
+        'error'
+      );
+      return;
+    }
+    this.clearFeedback();
+    this.aiPlannerDialogOpen = true;
+  }
+
+  closeAiPlannerDialog(): void {
+    if (this.isGenerating) {
+      return;
+    }
+    this.aiPlannerDialogOpen = false;
+  }
+
   generateWeek(): void {
-    if (!this.recipes.length) {
-      this.showFeedback('Erstelle zuerst mindestens ein Rezept.', 'error');
+    const mealTypes = this.selectedAiMealTypes;
+    if (!mealTypes.length) {
+      this.showFeedback('Wähle mindestens eine Mahlzeit für die Planung aus.', 'error');
       return;
     }
     this.isGenerating = true;
     this.clearFeedback();
-    this.plannerService.generateWeek(this.weekStartKey, this.weekEndKey)
+    this.plannerService.generateWeek(this.weekStartKey, this.weekEndKey, {
+      meal_types: mealTypes,
+      daily_calorie_target: this.positiveNumberOrNull(this.aiDailyCalorieTarget),
+      daily_protein_target: this.positiveNumberOrNull(this.aiDailyProteinTarget),
+      max_recipe_repeats: Math.min(Math.max(Math.round(Number(this.aiMaxRecipeRepeats) || 2), 1), 7),
+      servings: Math.min(Math.max(Math.round(Number(this.aiServings) || 2), 1), 30),
+      overwrite: this.aiOverwrite
+    })
       .pipe(finalize(() => { this.isGenerating = false; }))
       .subscribe({
         next: response => {
+          this.aiPlannerDialogOpen = false;
           this.applyEntries(response.entries);
           this.showFeedback(response.message, 'success');
         },
@@ -446,6 +499,16 @@ export class WeeklyPlannerComponent implements OnInit {
     return `${Math.round(calories)} kcal · ${this.roundNumber(protein)} g Protein`;
   }
 
+  hasCompleteNutrition(recipe: Recipe): boolean {
+    return [
+      recipe.calories,
+      recipe.protein,
+      recipe.carbohydrates,
+      recipe.fat,
+      recipe.fiber
+    ].every(value => value !== null && value !== undefined && value !== '');
+  }
+
   private loadInitialData(): void {
     this.isLoading = true;
     this.clearFeedback();
@@ -465,6 +528,13 @@ export class WeeklyPlannerComponent implements OnInit {
           'error'
         )
       });
+  }
+
+  private positiveNumberOrNull(value: number | null): number | null {
+    const parsed = Number(value);
+    return value !== null && Number.isFinite(parsed) && parsed > 0
+      ? Math.round(parsed)
+      : null;
   }
 
   private loadEntries(): void {

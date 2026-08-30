@@ -32,7 +32,7 @@
           class="ai-button"
           type="button"
           [disabled]="isLoading || isGenerating"
-          (click)="generateWeek()"
+          (click)="openAiPlannerDialog()"
         >
 
           <svg
@@ -867,6 +867,145 @@
 
     </section>
 
+  </div>
+
+
+  <div
+    class="planner-dialog-backdrop"
+    *ngIf="aiPlannerDialogOpen"
+    (click)="closeAiPlannerDialog()"
+  >
+    <section
+      class="planner-dialog ai-planner-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="ai-planner-dialog-title"
+      (click)="$event.stopPropagation()"
+    >
+      <header class="planner-dialog-header">
+        <div>
+          <span>KI-Wochenplanung · {{ weekLabel }}</span>
+          <h2 id="ai-planner-dialog-title">Wie möchtest du deine Woche planen?</h2>
+          <p>
+            Die KI wählt ausschließlich deine gespeicherten Rezepte mit vollständig
+            berechneten Nährwerten. Vorhandene Mahlzeiten bleiben standardmäßig erhalten.
+          </p>
+        </div>
+
+        <button
+          class="dialog-close"
+          type="button"
+          aria-label="Dialog schließen"
+          [disabled]="isGenerating"
+          (click)="closeAiPlannerDialog()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+      </header>
+
+      <div class="ai-catalog-status">
+        <span aria-hidden="true">✓</span>
+        <div>
+          <strong>{{ nutritionReadyRecipeCount }} berechenbare Rezepte verfügbar</strong>
+          <small>Rezepte mit fehlenden Nährwerten werden nicht eingeplant.</small>
+        </div>
+      </div>
+
+      <div class="ai-planner-form">
+        <fieldset class="ai-meal-selection">
+          <legend>Welche Mahlzeiten soll die KI planen?</legend>
+          <label [class.selected]="planBreakfast">
+            <input type="checkbox" [(ngModel)]="planBreakfast" />
+            <span>Frühstück</span>
+          </label>
+          <label [class.selected]="planLunch">
+            <input type="checkbox" [(ngModel)]="planLunch" />
+            <span>Mittagessen</span>
+          </label>
+          <label [class.selected]="planDinner">
+            <input type="checkbox" [(ngModel)]="planDinner" />
+            <span>Abendessen</span>
+          </label>
+        </fieldset>
+
+        <div class="ai-target-grid">
+          <label>
+            <span>Kalorienziel pro Tag <small>optional</small></span>
+            <div class="dialog-input-suffix">
+              <input
+                type="number"
+                min="500"
+                max="6000"
+                placeholder="z. B. 2000"
+                [(ngModel)]="aiDailyCalorieTarget"
+              />
+              <span>kcal</span>
+            </div>
+          </label>
+
+          <label>
+            <span>Proteinziel pro Tag <small>optional</small></span>
+            <div class="dialog-input-suffix">
+              <input
+                type="number"
+                min="10"
+                max="400"
+                placeholder="z. B. 100"
+                [(ngModel)]="aiDailyProteinTarget"
+              />
+              <span>g</span>
+            </div>
+          </label>
+
+          <label>
+            <span>Ein Rezept höchstens</span>
+            <div class="dialog-input-suffix">
+              <input type="number" min="1" max="7" [(ngModel)]="aiMaxRecipeRepeats" />
+              <span>×</span>
+            </div>
+          </label>
+
+          <label>
+            <span>Portionen für den Einkauf</span>
+            <div class="dialog-input-suffix">
+              <input type="number" min="1" max="30" [(ngModel)]="aiServings" />
+              <span>Port.</span>
+            </div>
+          </label>
+        </div>
+
+        <label class="ai-overwrite-option" [class.selected]="aiOverwrite">
+          <input type="checkbox" [(ngModel)]="aiOverwrite" />
+          <span>
+            <strong>Bereits geplante Mahlzeiten ersetzen</strong>
+            <small>Nur die oben ausgewählten Mahlzeiten dieser Woche werden ersetzt.</small>
+          </span>
+        </label>
+      </div>
+
+      <footer class="planner-dialog-actions">
+        <span class="ai-plan-note">
+          Zielwerte gelten pro Person. Die Einkaufsliste nutzt die gewählten Portionen.
+        </span>
+        <span class="dialog-action-spacer"></span>
+        <button
+          class="dialog-cancel-button"
+          type="button"
+          [disabled]="isGenerating"
+          (click)="closeAiPlannerDialog()"
+        >
+          Abbrechen
+        </button>
+        <button
+          class="dialog-save-button"
+          type="button"
+          [disabled]="isGenerating || !selectedAiMealTypes.length"
+          (click)="generateWeek()"
+        >
+          {{ isGenerating ? 'Woche wird geplant…' : 'Woche jetzt planen' }}
+        </button>
+      </footer>
+    </section>
   </div>
 
 

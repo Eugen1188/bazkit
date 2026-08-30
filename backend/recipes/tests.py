@@ -1,3 +1,4 @@
+import json
 from decimal import Decimal
 from io import BytesIO
 from types import SimpleNamespace
@@ -5,7 +6,7 @@ from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from PIL import Image
 from rest_framework.test import APIClient
 
@@ -14,6 +15,7 @@ from products.catalog import sync_curated_unit_conversion
 from .models import Ingredients, Recipe
 from .serializers import RecipeSerializer, calculate_recipe_price
 from .storage import prepare_recipe_image
+from .ai_service import generate_recipe_with_ai
 
 
 class RecipeSerializerTests(TestCase):
@@ -90,6 +92,39 @@ class RecipeSerializerTests(TestCase):
         self.assertIsNone(ingredient.product)
         self.assertEqual(ingredient.name, "Omas Gewürzmischung")
         self.assertIsNone(recipe.calories)
+
+    @override_settings(OPENAI_API_KEY="test-key", OPENAI_RECIPE_MODEL="test-model")
+    @patch("recipes.ai_service.OpenAI")
+    def test_ai_recipe_uses_verified_product_and_returns_nutrition(self, openai_mock):
+        openai_mock.return_value.responses.create.return_value.output_text = json.dumps({
+            "name": "Tomatensalat",
+            "description": "Ein schneller Salat.",
+            "servings": 2,
+            "preparation_time": 10,
+            "category": "lunch",
+            "ingredients": [{
+                "product_id": self.product.id,
+                "quantity": 200,
+                "unit": "g",
+            }],
+            "steps": ["Tomaten schneiden und servieren."],
+            "notes": "Frisch genießen.",
+        })
+
+        result = generate_recipe_with_ai({
+            "idea": "Tomatensalat",
+            "available_ingredients": "Tomate",
+            "avoid_ingredients": "",
+            "diet": "vegan",
+            "servings": 2,
+            "max_time": 15,
+            "category": "lunch",
+        })
+
+        self.assertTrue(result["nutrition_complete"])
+        self.assertEqual(result["ingredients"][0]["product"], self.product.id)
+        self.assertEqual(result["ingredients"][0]["name"], "Tomate")
+        self.assertEqual(result["nutrition"]["calories"], 20.0)
 
     def test_image_position_is_saved_and_defaults_to_center(self):
         serializer = RecipeSerializer(data={

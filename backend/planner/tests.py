@@ -42,6 +42,9 @@ class WeeklyPlannerAPITests(APITestCase):
             instructions="Kochen",
             calories=Decimal("500"),
             protein=Decimal("20"),
+            carbohydrates=Decimal("65"),
+            fat=Decimal("18"),
+            fiber=Decimal("9"),
         )
         Ingredients.objects.create(
             recipe=self.recipe,
@@ -107,6 +110,34 @@ class WeeklyPlannerAPITests(APITestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data["changed_count"], 21)
         self.assertEqual(WeeklyPlanEntry.objects.count(), 21)
+
+    def test_planner_respects_selected_meals_and_shopping_servings(self):
+        response = self.client.post("/planner/generate/", {
+            "start": "2026-08-24",
+            "end": "2026-08-30",
+            "meal_types": ["dinner"],
+            "servings": 4,
+            "max_recipe_repeats": 1,
+        }, format="json")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["changed_count"], 7)
+        self.assertEqual(WeeklyPlanEntry.objects.count(), 7)
+        self.assertFalse(
+            WeeklyPlanEntry.objects.exclude(meal_type="dinner").exists()
+        )
+        self.assertFalse(
+            WeeklyPlanEntry.objects.exclude(servings=4).exists()
+        )
+
+    def test_planner_rejects_recipes_without_complete_nutrition(self):
+        self.recipe.fiber = None
+        self.recipe.save(update_fields=["fiber"])
+        response = self.client.post("/planner/generate/", {
+            "start": "2026-08-24",
+            "end": "2026-08-30",
+        }, format="json")
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Nährwert", response.data["detail"])
 
     def test_weekly_shopping_list_aggregates_and_scales_ingredients(self):
         for day_value in (date(2026, 8, 24), date(2026, 8, 25)):

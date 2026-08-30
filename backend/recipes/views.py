@@ -170,12 +170,8 @@ class GenerateRecipeAPIView(
 
             return Response(
                 {
-                    "detail":
-                        "Das Rezept konnte "
-                        "nicht generiert werden.",
-
-                    "error":
-                        str(error)
+                    "detail": str(error),
+                    "code": "recipe_generation_failed",
                 },
                 status=status.HTTP_502_BAD_GATEWAY
             )

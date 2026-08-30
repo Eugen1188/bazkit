@@ -62,6 +62,15 @@ export interface GeneratedRecipe {
   ingredients: RecipeIngredient[];
   steps: string[];
   notes: string;
+  nutrition: {
+    calories: number;
+    protein: number;
+    carbohydrates: number;
+    fat: number;
+    fiber: number;
+  };
+  nutrition_complete: boolean;
+  nutrition_source: string;
 }
 
 export interface RecipePayload {

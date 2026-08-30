@@ -774,6 +774,23 @@ def ingredient_quantity_grams(name, quantity, unit, product=None):
         ).exclude(confidence="estimated").first()
         if conversion is not None:
             return amount * conversion.grams_per_unit
+        conversion = next(
+            (
+                item for item in curated_unit_conversions(
+                    resolved_product_unit_name(
+                        product.name,
+                        product.canonical_name,
+                        product.source,
+                        product.external_id,
+                    )
+                )
+                if item["unit"].casefold() == normalized_unit
+                and item["confidence"] != "estimated"
+            ),
+            None,
+        )
+        if conversion is not None:
+            return amount * conversion["grams_per_unit"]
     else:
         conversion = next(
             (

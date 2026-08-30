@@ -203,8 +203,10 @@ export class GenerateRecipeComponent {
             error
           );
 
-          this.errorMessage =
-            'Das Rezept konnte nicht generiert werden.';
+          this.errorMessage = this.apiError(
+            error,
+            'Das Rezept konnte nicht generiert werden.'
+          );
 
           this.isGenerating =
             false;
@@ -320,8 +322,10 @@ export class GenerateRecipeComponent {
             error
           );
 
-          this.errorMessage =
-            'Das Rezept konnte nicht gespeichert werden.';
+          this.errorMessage = this.apiError(
+            error,
+            'Das Rezept konnte nicht gespeichert werden.'
+          );
 
           this.isSaving =
             false;
@@ -364,5 +368,11 @@ export class GenerateRecipeComponent {
       )?.label
       ?? 'Keine Einschränkung'
     );
+  }
+
+
+  private apiError(error: unknown, fallback: string): string {
+    const response = error as { error?: { detail?: string } };
+    return response?.error?.detail || fallback;
   }
 }

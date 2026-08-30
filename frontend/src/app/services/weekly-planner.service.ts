@@ -50,6 +50,15 @@ export interface GeneratedWeekResponse {
   message: string;
 }
 
+export interface WeeklyPlanGenerationOptions {
+  meal_types: PlannerMealType[];
+  daily_calorie_target: number | null;
+  daily_protein_target: number | null;
+  max_recipe_repeats: number;
+  servings: number;
+  overwrite: boolean;
+}
+
 export interface WeeklyShoppingListResponse {
   shopping_list: ShoppingList;
   meal_count: number;
@@ -90,11 +99,15 @@ export class WeeklyPlannerService {
     return this.http.delete<void>(`${this.apiUrl}entries/${entryId}/`);
   }
 
-  generateWeek(start: string, end: string): Observable<GeneratedWeekResponse> {
+  generateWeek(
+    start: string,
+    end: string,
+    options: WeeklyPlanGenerationOptions
+  ): Observable<GeneratedWeekResponse> {
     return this.http.post<GeneratedWeekResponse>(`${this.apiUrl}generate/`, {
       start,
       end,
-      overwrite: false
+      ...options
     });
   }
 

@@ -910,6 +910,84 @@ select:focus {
 
 
 /* =========================
+   NUTRITION PREVIEW
+========================= */
+
+.nutrition-preview {
+  margin-top: 18px;
+  padding: 17px;
+  border: 1px solid #d7e4da;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f4f8f5, #fbfcf8);
+}
+
+.nutrition-preview-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.nutrition-preview-header > div > span {
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nutrition-preview-header h3 {
+  margin: 3px 0 0;
+  font-size: 17px;
+}
+
+.nutrition-verified {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #e4efe6;
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.nutrition-grid > div {
+  min-width: 0;
+  padding: 10px 8px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.nutrition-grid strong,
+.nutrition-grid small {
+  display: block;
+}
+
+.nutrition-grid strong {
+  font-size: 14px;
+}
+
+.nutrition-grid small {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: 9px;
+}
+
+.nutrition-preview > p {
+  margin: 12px 0 0;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* =========================
    RESULT SECTIONS
 ========================= */
 
@@ -1024,6 +1102,13 @@ select:focus {
   font-size: 13px;
 
   font-weight: 600;
+}
+
+
+.ingredient-verified {
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 
@@ -1305,6 +1390,15 @@ select:focus {
 
 
   .recipe-meta {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .nutrition-grid {
     grid-template-columns:
       repeat(
         2,

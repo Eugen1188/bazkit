@@ -1,4 +1,3 @@
-from collections import defaultdict
 from datetime import date, timedelta
 from decimal import Decimal
 
@@ -14,9 +13,9 @@ from lists.serializers import ShoppingListSerializer
 from products.pricing import scaled_price
 from recipes.models import Recipe
 
-from .ai_service import plan_recipe_slots_with_ai
+from .ai_service import plan_recipe_slots_automatically, plan_recipe_slots_with_ai
 from .models import WeeklyPlanEntry
-from .serializers import WeeklyPlanEntrySerializer
+from .serializers import WeeklyPlanEntrySerializer, WeeklyPlanGenerateSerializer
 
 
 PRICE_SNAPSHOT_FIELDS = (
@@ -154,6 +153,9 @@ class WeeklyPlanGenerateAPIView(APIView):
 
     @transaction.atomic
     def post(self, request):
+        options = WeeklyPlanGenerateSerializer(data=request.data)
+        options.is_valid(raise_exception=True)
+        preferences = options.validated_data
         try:
             start, end = request_range(request)
         except ValueError as error:
@@ -167,18 +169,32 @@ class WeeklyPlanGenerateAPIView(APIView):
 
         recipes = list(
             Recipe.objects
-            .filter(user=request.user, is_community_snapshot=False)
+            .filter(
+                user=request.user,
+                is_community_snapshot=False,
+                calories__isnull=False,
+                protein__isnull=False,
+                carbohydrates__isnull=False,
+                fat__isnull=False,
+                fiber__isnull=False,
+            )
             .prefetch_related("ingredients")
             .order_by("category", "name", "id")
             [:120]
         )
         if not recipes:
             return Response(
-                {"detail": "Erstelle zuerst mindestens ein Rezept, damit deine Woche geplant werden kann."},
+                {
+                    "detail": (
+                        "Für die KI-Planung brauchst du mindestens ein eigenes Rezept "
+                        "mit vollständig berechneten Nährwerten."
+                    )
+                },
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        overwrite = bool(request.data.get("overwrite", False))
+        overwrite = preferences["overwrite"]
+        meal_types = preferences["meal_types"]
         occupied_slots = {
             (entry.date, entry.meal_type)
             for entry in WeeklyPlanEntry.objects.filter(
@@ -186,39 +202,29 @@ class WeeklyPlanGenerateAPIView(APIView):
                 date__range=(start, end),
             )
         }
-        category_priority = {
-            "breakfast": ("breakfast", "snack", "dessert", "other"),
-            "lunch": ("lunch", "dinner", "other", "snack"),
-            "dinner": ("dinner", "lunch", "other"),
-        }
-        pools = {}
-        for meal_type, priorities in category_priority.items():
-            pool = [recipe for category in priorities for recipe in recipes if recipe.category == category]
-            pools[meal_type] = pool or recipes
-
-        counters = defaultdict(int)
         slots_to_plan = []
         day = start
         while day <= end:
-            for meal_type in MEAL_TYPES:
+            for meal_type in meal_types:
                 if (day, meal_type) not in occupied_slots or overwrite:
                     slots_to_plan.append((day, meal_type))
             day += timedelta(days=1)
 
-        ai_assignments = plan_recipe_slots_with_ai(recipes, slots_to_plan)
+        ai_assignments = plan_recipe_slots_with_ai(recipes, slots_to_plan, preferences)
+        assignments = ai_assignments or plan_recipe_slots_automatically(
+            recipes,
+            slots_to_plan,
+            preferences,
+        )
         recipes_by_id = {recipe.id: recipe for recipe in recipes}
         changed = 0
         day = start
         while day <= end:
-            for meal_type in MEAL_TYPES:
+            for meal_type in meal_types:
                 has_entries = (day, meal_type) in occupied_slots
                 if has_entries and not overwrite:
                     continue
-                pool = pools[meal_type]
-                recipe = recipes_by_id.get(
-                    ai_assignments.get((day.isoformat(), meal_type))
-                ) or pool[counters[meal_type] % len(pool)]
-                counters[meal_type] += 1
+                recipe = recipes_by_id[assignments[(day.isoformat(), meal_type)]]
                 if overwrite:
                     WeeklyPlanEntry.objects.filter(
                         user=request.user,
@@ -230,7 +236,7 @@ class WeeklyPlanGenerateAPIView(APIView):
                     date=day,
                     meal_type=meal_type,
                     recipe=recipe,
-                    servings=max(recipe.servings, 1),
+                    servings=preferences["servings"],
                 )
                 changed += 1
             day += timedelta(days=1)
@@ -241,7 +247,7 @@ class WeeklyPlanGenerateAPIView(APIView):
             "changed_count": changed,
             "planning_method": "ai" if ai_assignments else "automatic",
             "message": (
-                "Deine Woche wurde abwechslungsreich geplant."
+                "Deine Woche wurde mit vollständig berechenbaren Rezepten geplant."
                 if changed
                 else "Alle Mahlzeiten dieser Woche sind bereits geplant."
             ),

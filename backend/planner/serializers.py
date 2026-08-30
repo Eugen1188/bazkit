@@ -6,6 +6,46 @@ from recipes.storage import get_recipe_image_url
 from .models import WeeklyPlanEntry
 
 
+PLANNER_MEAL_TYPES = ("breakfast", "lunch", "dinner")
+
+
+class WeeklyPlanGenerateSerializer(serializers.Serializer):
+    start = serializers.DateField(required=False)
+    end = serializers.DateField(required=False)
+    meal_types = serializers.ListField(
+        child=serializers.ChoiceField(choices=PLANNER_MEAL_TYPES),
+        allow_empty=False,
+        default=list(PLANNER_MEAL_TYPES),
+    )
+    daily_calorie_target = serializers.IntegerField(
+        required=False,
+        allow_null=True,
+        min_value=500,
+        max_value=6000,
+    )
+    daily_protein_target = serializers.IntegerField(
+        required=False,
+        allow_null=True,
+        min_value=10,
+        max_value=400,
+    )
+    max_recipe_repeats = serializers.IntegerField(
+        min_value=1,
+        max_value=7,
+        default=2,
+    )
+    servings = serializers.IntegerField(
+        min_value=1,
+        max_value=30,
+        default=2,
+    )
+    overwrite = serializers.BooleanField(default=False)
+
+    def validate_meal_types(self, value):
+        # Keep the order stable while avoiding duplicate slots.
+        return list(dict.fromkeys(value))
+
+
 class PlannerRecipeSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
     ingredient_count = serializers.IntegerField(

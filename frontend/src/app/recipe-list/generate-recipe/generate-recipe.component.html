@@ -38,7 +38,8 @@
 
         <p>
           Beschreibe dein Wunschrezept oder gib an,
-          welche Zutaten du bereits zu Hause hast.
+          welche Zutaten du bereits zu Hause hast. Die Nährwerte
+          werden vor dem Speichern vollständig berechnet.
         </p>
 
       </div>
@@ -277,7 +278,8 @@
         </span>
 
         <p>
-          Das Rezept wird zunächst nur als Vorschau erzeugt.
+          Die KI verwendet ausschließlich geprüfte Zutaten und sicher
+          umrechenbare Mengen. Das Rezept wird zunächst nur als Vorschau erzeugt.
           Erst mit „Rezept speichern“ landet es in deinen Rezepten.
         </p>
 
@@ -309,7 +311,7 @@
       <p>
         Beschreibe links, was du gerne kochen möchtest,
         und die KI erstellt daraus ein vollständiges Rezept
-        mit Zutaten und Zubereitung.
+        mit Zutaten, Zubereitung und Nährwerten pro Portion.
       </p>
 
 
@@ -537,6 +539,50 @@
         </div>
 
 
+        <!-- NUTRITION -->
+
+        <section class="nutrition-preview" *ngIf="generatedRecipe.nutrition_complete">
+
+          <div class="nutrition-preview-header">
+            <div>
+              <span>Nährwerte</span>
+              <h3>Pro Portion</h3>
+            </div>
+
+            <span class="nutrition-verified">✓ vollständig berechnet</span>
+          </div>
+
+          <div class="nutrition-grid">
+            <div>
+              <strong>{{ generatedRecipe.nutrition.calories | number:'1.0-0':'de-DE' }}</strong>
+              <small>kcal</small>
+            </div>
+            <div>
+              <strong>{{ generatedRecipe.nutrition.protein | number:'1.0-1':'de-DE' }}</strong>
+              <small>g Protein</small>
+            </div>
+            <div>
+              <strong>{{ generatedRecipe.nutrition.carbohydrates | number:'1.0-1':'de-DE' }}</strong>
+              <small>g Kohlenhydrate</small>
+            </div>
+            <div>
+              <strong>{{ generatedRecipe.nutrition.fat | number:'1.0-1':'de-DE' }}</strong>
+              <small>g Fett</small>
+            </div>
+            <div>
+              <strong>{{ generatedRecipe.nutrition.fiber | number:'1.0-1':'de-DE' }}</strong>
+              <small>g Ballaststoffe</small>
+            </div>
+          </div>
+
+          <p>
+            Berechnet aus den ausgewählten Produkten, Mengen und belastbaren
+            Küchenumrechnungen. Beim Speichern werden die Werte erneut geprüft.
+          </p>
+
+        </section>
+
+
         <!-- INGREDIENTS -->
 
         <section class="result-section">
@@ -570,6 +616,10 @@
               <strong>
                 {{ ingredient.name }}
               </strong>
+
+              <span class="ingredient-verified" title="Geprüfte Zutat mit vollständigen Nährwerten">
+                ✓
+              </span>
 
             </div>
 
