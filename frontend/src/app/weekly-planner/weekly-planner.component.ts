@@ -493,7 +493,7 @@ export class WeeklyPlannerComponent implements OnInit {
   recipeNutrition(recipe: Recipe): string {
     const calories = this.numberValue(recipe.calories);
     const protein = this.numberValue(recipe.protein);
-    if (!calories && !protein) {
+    if (!this.hasCompleteNutrition(recipe)) {
       return 'Noch keine Nährwerte berechnet';
     }
     return `${Math.round(calories)} kcal · ${this.roundNumber(protein)} g Protein`;
