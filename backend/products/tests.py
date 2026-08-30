@@ -10,7 +10,9 @@ from .catalog import (
     canonical_recipe_name,
     canonical_search_query,
     curated_unit_conversion,
+    curated_unit_conversions,
     ingredient_quantity_grams,
+    logical_available_units,
     recipe_ingredient_status,
     suggested_unit_for_product,
     sync_curated_unit_conversion,
@@ -94,6 +96,8 @@ class RecipeCatalogTests(TestCase):
             "Knoblauch": ("Zehe", Decimal("3")),
             "Staudensellerie": ("Stange", Decimal("40")),
             "Spargel": ("Stange", Decimal("20")),
+            "Zimt": ("Stange", Decimal("3")),
+            "Sternanis": ("Stück", Decimal("1.5")),
         }
         for name, (unit, grams) in expected.items():
             conversion = curated_unit_conversion(name)
@@ -138,6 +142,67 @@ class RecipeCatalogTests(TestCase):
             ingredient_quantity_grams("Staudensellerie", 2, "Stange", product=celery),
             Decimal("80"),
         )
+
+    def test_broth_offers_volume_units_and_calculates_nutrition(self):
+        broth = Product.objects.create(
+            name="Rinderbrühe", canonical_name="Rinderbrühe",
+            source="bls", external_id="beef-broth", default_unit="g",
+        )
+        data = ProductSerializer(broth).data
+        self.assertEqual(data["available_units"], ["ml", "Liter"])
+        self.assertEqual(data["grams_per_ml"], "1")
+        self.assertEqual(
+            suggested_unit_for_product("Rinderbrühe", "Rinderbrühe", "pantry", "g"),
+            "ml",
+        )
+        self.assertEqual(
+            ingredient_quantity_grams("Rinderbrühe", 400, "ml", product=broth),
+            Decimal("400"),
+        )
+
+    def test_salt_offers_only_gram_and_supported_spoon_units(self):
+        salt = Product.objects.create(
+            name="Salz", canonical_name="Salz",
+            source="bls", external_id="salt", default_unit="Stück",
+        )
+        sync_curated_unit_conversion(salt)
+        data = ProductSerializer(salt).data
+        self.assertEqual(data["available_units"], ["g", "TL", "EL", "Prise"])
+        self.assertEqual(
+            logical_available_units(
+                default_unit="ml",
+                conversions=curated_unit_conversions("Salz"),
+                canonical_name="Salz",
+            ),
+            ["g", "TL", "EL", "Prise"],
+        )
+        self.assertEqual(
+            suggested_unit_for_product("Salz", "Salz", "pantry", "Stück"),
+            "g",
+        )
+        self.assertEqual(
+            ingredient_quantity_grams("Salz", 3, "TL", product=salt),
+            Decimal("15"),
+        )
+
+    def test_every_catalog_unit_is_either_intrinsic_or_nutrition_convertible(self):
+        intrinsic_units = {"g", "kg", "ml", "Liter"}
+        for definition in INGREDIENT_DEFINITIONS:
+            conversions = curated_unit_conversions(definition.canonical_name)
+            available_units = logical_available_units(
+                conversions=conversions,
+                canonical_name=definition.canonical_name,
+            )
+            self.assertTrue(available_units, definition.canonical_name)
+            conversion_units = {conversion["unit"] for conversion in conversions}
+            self.assertTrue(
+                set(available_units) - intrinsic_units <= conversion_units,
+                definition.canonical_name,
+            )
+            self.assertTrue(
+                all(conversion["grams_per_unit"] > 0 for conversion in conversions),
+                definition.canonical_name,
+            )
 
     def test_legacy_name_parser_separates_package_without_losing_name(self):
         parsed = parse_legacy_product_name("Passierte Tomaten 2 x 500 g")

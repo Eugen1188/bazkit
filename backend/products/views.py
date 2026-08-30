@@ -19,6 +19,7 @@ from .catalog import (
     average_unit_weight_grams,
     canonical_recipe_name,
     canonical_search_query,
+    liquid_density_grams_per_ml,
     logical_available_units,
     product_unit_conversions,
     recipe_ingredient_status,
@@ -134,11 +135,16 @@ def add_unit_metadata(product):
         }
         for conversion in conversions
     ]
+    density = liquid_density_grams_per_ml(
+        product.get("canonical_name") or product["name"]
+    )
+    product["grams_per_ml"] = str(density) if density is not None else None
     product["available_units"] = logical_available_units(
         product.get("default_unit", ""),
         product.get("package_unit", ""),
         product.get("shopping_category", ""),
         conversions,
+        product.get("canonical_name") or product["name"],
     )
     return product
 
@@ -708,7 +714,7 @@ class SaveExternalProductAPIView(APIView):
             key: value
             for key, value in product_data.items()
             if key not in {
-                "id", "origin", "source", "external_id", "grams_per_unit",
+                "id", "origin", "source", "external_id", "grams_per_unit", "grams_per_ml",
                 "unit_conversions", "available_units",
             }
         }

@@ -176,6 +176,10 @@ implements OnInit, OnDestroy {
   units = [
     'Stück',
     'Stange',
+    'Kopf',
+    'Blatt',
+    'Kugel',
+    'Würfel',
     'g',
     'kg',
     'ml',
@@ -471,6 +475,9 @@ implements OnInit, OnDestroy {
           this.selectedProducts = this.ingredients.map(
             ingredient => ingredient.product_detail ?? null
           );
+          this.ingredients.forEach((ingredient, index) => {
+            this.normalizeIngredientUnit(ingredient, this.selectedProducts[index]);
+          });
           this.recalculateNutrition();
 
 
@@ -687,9 +694,10 @@ implements OnInit, OnDestroy {
         ingredient.product_detail = savedProduct;
         ingredient.name = savedProduct.name;
         this.selectedProducts[index] = savedProduct;
-        if (savedProduct.default_unit && this.units.includes(savedProduct.default_unit)) {
-          ingredient.unit = savedProduct.default_unit;
-        }
+        const productUnits = (savedProduct.available_units ?? []).filter(unit => this.units.includes(unit));
+        ingredient.unit = savedProduct.default_unit && productUnits.includes(savedProduct.default_unit)
+          ? savedProduct.default_unit
+          : productUnits[0] ?? 'g';
         this.closeIngredientAutocompleteImmediately();
         this.recalculateNutrition();
         this.productService.recordIngredientSelection(
@@ -890,18 +898,59 @@ implements OnInit, OnDestroy {
     return !!ingredient && this.ingredientGrams(ingredient, this.selectedProducts[index]) !== null;
   }
 
+  unitGramsFor(index: number): number | null {
+    const unit = this.ingredients[index]?.unit.trim().toLocaleLowerCase('de-DE');
+    const conversion = this.selectedProducts[index]?.unit_conversions?.find(item =>
+      item.unit.trim().toLocaleLowerCase('de-DE') === unit
+    );
+    const grams = conversion?.grams_per_unit == null ? null : Number(conversion.grams_per_unit);
+    return grams !== null && Number.isFinite(grams) && grams > 0 ? grams : null;
+  }
+
   availableUnitsFor(index: number): string[] {
     const productUnits = this.selectedProducts[index]?.available_units;
     if (!productUnits?.length) return this.selectedProducts[index] ? ['g', 'kg'] : this.units;
     return productUnits.filter(unit => this.units.includes(unit));
   }
 
+  private normalizeIngredientUnit(
+    ingredient: RecipeIngredient,
+    product: ProductSuggestion | null,
+  ): void {
+    if (!product) return;
+    const availableUnits = (product.available_units ?? []).filter(unit => this.units.includes(unit));
+    if (!availableUnits.length || availableUnits.includes(ingredient.unit)) return;
+    const targetUnit = product.default_unit && availableUnits.includes(product.default_unit)
+      ? product.default_unit
+      : availableUnits[0];
+    const density = Number(product.grams_per_ml ?? 1);
+    const safeDensity = Number.isFinite(density) && density > 0 ? density : 1;
+    const quantity = Number(ingredient.quantity);
+    if (Number.isFinite(quantity)) {
+      if (ingredient.unit === 'g' && targetUnit === 'ml') ingredient.quantity = this.roundQuantity(quantity / safeDensity);
+      if (ingredient.unit === 'kg' && targetUnit === 'Liter') ingredient.quantity = this.roundQuantity(quantity / safeDensity);
+      if (ingredient.unit === 'ml' && targetUnit === 'g') ingredient.quantity = this.roundQuantity(quantity * safeDensity);
+      if (ingredient.unit === 'Liter' && targetUnit === 'kg') ingredient.quantity = this.roundQuantity(quantity * safeDensity);
+    }
+    ingredient.unit = targetUnit;
+  }
+
+  private roundQuantity(value: number): number {
+    return Math.round(value * 1000) / 1000;
+  }
+
   private ingredientGrams(ingredient: RecipeIngredient, product: ProductSuggestion | null): number | null {
     if (ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, l: 1000, liter: 1000 };
-    const factor = factors[unit];
-    if (factor !== undefined) return Number(ingredient.quantity) * factor;
+    const weightFactors: Record<string, number> = { g: 1, kg: 1000 };
+    const weightFactor = weightFactors[unit];
+    if (weightFactor !== undefined) return Number(ingredient.quantity) * weightFactor;
+    const volumeFactors: Record<string, number> = { ml: 1, l: 1000, liter: 1000 };
+    const volumeFactor = volumeFactors[unit];
+    if (volumeFactor !== undefined) {
+      const density = Number(product?.grams_per_ml ?? 1);
+      return Number(ingredient.quantity) * volumeFactor * (Number.isFinite(density) && density > 0 ? density : 1);
+    }
     const conversion = product?.unit_conversions?.find(item =>
       item.unit.trim().toLocaleLowerCase('de-DE') === unit
     );

@@ -52,7 +52,7 @@ export class CreateRecipeComponent implements OnDestroy {
   isIngredientSuggestionsOpen = false;
   selectingIngredientIndex: number | null = null;
 
-  readonly units = ['Stück', 'Stange', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Prise', 'Zehe', 'Scheibe', 'Tasse', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund'];
+  readonly units = ['Stück', 'Stange', 'Kopf', 'Blatt', 'Kugel', 'Würfel', 'g', 'kg', 'ml', 'Liter', 'EL', 'TL', 'Prise', 'Zehe', 'Scheibe', 'Tasse', 'Packung', 'Dose', 'Glas', 'Becher', 'Bund'];
   readonly categories = [
     { value: 'breakfast', label: 'Frühstück' }, { value: 'lunch', label: 'Mittagessen' },
     { value: 'dinner', label: 'Abendessen' }, { value: 'snack', label: 'Snack' },
@@ -162,7 +162,10 @@ export class CreateRecipeComponent implements OnDestroy {
         ingredient.product = product.id;
         ingredient.name = product.name;
         this.selectedProducts[index] = product;
-        if (product.default_unit && this.units.includes(product.default_unit)) ingredient.unit = product.default_unit;
+        const productUnits = (product.available_units ?? []).filter(unit => this.units.includes(unit));
+        ingredient.unit = product.default_unit && productUnits.includes(product.default_unit)
+          ? product.default_unit
+          : productUnits[0] ?? 'g';
         this.selectingIngredientIndex = null;
         this.closeAutocomplete();
         this.productService.recordIngredientSelection(
@@ -307,6 +310,14 @@ export class CreateRecipeComponent implements OnDestroy {
     return this.nutritionPerServing(field);
   }
   canCalculateIngredient(index: number): boolean { return this.ingredientGrams(this.ingredients[index], this.selectedProducts[index]) !== null; }
+  unitGramsFor(index: number): number | null {
+    const unit = this.ingredients[index]?.unit.trim().toLocaleLowerCase('de-DE');
+    const conversion = this.selectedProducts[index]?.unit_conversions?.find(item =>
+      item.unit.trim().toLocaleLowerCase('de-DE') === unit
+    );
+    const grams = conversion?.grams_per_unit == null ? null : Number(conversion.grams_per_unit);
+    return grams !== null && Number.isFinite(grams) && grams > 0 ? grams : null;
+  }
   availableUnitsFor(index: number): string[] {
     const productUnits = this.selectedProducts[index]?.available_units;
     if (!productUnits?.length) return this.selectedProducts[index] ? ['g', 'kg'] : this.units;
@@ -316,9 +327,15 @@ export class CreateRecipeComponent implements OnDestroy {
   private ingredientGrams(ingredient: RecipeIngredient | undefined, product: ProductSuggestion | null): number | null {
     if (!ingredient || ingredient.quantity === null || ingredient.quantity === undefined) return null;
     const unit = ingredient.unit.trim().toLocaleLowerCase('de-DE');
-    const factors: Record<string, number> = { g: 1, kg: 1000, ml: 1, liter: 1000, l: 1000 };
-    const factor = factors[unit];
-    if (factor !== undefined) return Number(ingredient.quantity) * factor;
+    const weightFactors: Record<string, number> = { g: 1, kg: 1000 };
+    const weightFactor = weightFactors[unit];
+    if (weightFactor !== undefined) return Number(ingredient.quantity) * weightFactor;
+    const volumeFactors: Record<string, number> = { ml: 1, liter: 1000, l: 1000 };
+    const volumeFactor = volumeFactors[unit];
+    if (volumeFactor !== undefined) {
+      const density = Number(product?.grams_per_ml ?? 1);
+      return Number(ingredient.quantity) * volumeFactor * (Number.isFinite(density) && density > 0 ? density : 1);
+    }
     const conversion = product?.unit_conversions?.find(item =>
       item.unit.trim().toLocaleLowerCase('de-DE') === unit
     );

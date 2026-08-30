@@ -246,7 +246,7 @@
                     <span>{{ nutritionValue(product, 'carbohydrates') ?? '–' }} g KH</span>
                     <span>{{ nutritionValue(product, 'fat') ?? '–' }} g Fett</span>
                   </div>
-                  <small *ngIf="ingredient.unit === 'Stück' && product.grams_per_unit">1 Stück ≈ {{ product.grams_per_unit }} g</small>
+                  <small *ngIf="unitGramsFor(i) as grams">1 {{ ingredient.unit }} ≈ {{ grams | number:'1.0-2' }} g</small>
                   <small *ngIf="!canCalculateIngredient(i)">Einheit erlaubt · ohne belastbare Umrechnung nicht in den Nährwerten berücksichtigt</small>
                 </div>
               </div>

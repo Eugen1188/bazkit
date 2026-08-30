@@ -3,7 +3,11 @@ from collections import Counter, defaultdict
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import Q
 
-from products.catalog import recipe_ingredient_status
+from products.catalog import (
+    curated_unit_conversions,
+    logical_available_units,
+    recipe_ingredient_status,
+)
 from products.ingredient_catalog import INGREDIENT_DEFINITIONS, normalize_alias
 from products.models import Product, ProductAlias
 from products.nutrition_quality import NUTRIENT_FIELDS
@@ -49,6 +53,24 @@ class Command(BaseCommand):
             alias: names for alias, names in alias_owners.items() if len(names) > 1
         }
 
+        intrinsic_units = {"g", "kg", "ml", "Liter"}
+        unit_profile_errors = []
+        for definition in INGREDIENT_DEFINITIONS:
+            conversions = curated_unit_conversions(definition.canonical_name)
+            available_units = logical_available_units(
+                conversions=conversions,
+                canonical_name=definition.canonical_name,
+            )
+            conversion_units = {conversion["unit"] for conversion in conversions}
+            unsupported = set(available_units) - intrinsic_units - conversion_units
+            invalid = [
+                conversion["unit"]
+                for conversion in conversions
+                if conversion["grams_per_unit"] <= 0
+            ]
+            if not available_units or unsupported or invalid:
+                unit_profile_errors.append(definition.canonical_name)
+
         available_keys = set(searchable.values_list("source", "external_id"))
         unresolved_definitions = []
         definitions_without_source = []
@@ -84,6 +106,9 @@ class Command(BaseCommand):
         self.stdout.write(f"Nicht auflösbare redaktionelle Zutaten: {len(unresolved_definitions)}")
         self.stdout.write(f"Definitionen ohne geprüfte Nährwertquelle: {len(definitions_without_source)}")
         self.stdout.write(f"Mehrdeutige Synonyme: {len(alias_conflicts)}")
+        self.stdout.write(
+            f"Zutaten mit fehlerhaftem Einheitenprofil: {len(unit_profile_errors)}"
+        )
         self.stdout.write(f"Suchbare Zutaten ohne Einkaufskategorie: {uncategorized.count()}")
         self.stdout.write(f"Veraltete Fertiggericht-Freigaben: {len(stale_prepared_products)}")
         self.stdout.write(
@@ -130,6 +155,10 @@ class Command(BaseCommand):
                 for alias, names in sorted(alias_conflicts.items())
             ]
             strict_errors.append("Mehrdeutige Synonyme: " + "; ".join(formatted[:20]))
+        if unit_profile_errors:
+            strict_errors.append(
+                "Fehlerhafte Einheitenprofile: " + ", ".join(unit_profile_errors[:20])
+            )
         if uncategorized.exists():
             strict_errors.append(
                 "Suchbare Zutaten ohne Kategorie: "

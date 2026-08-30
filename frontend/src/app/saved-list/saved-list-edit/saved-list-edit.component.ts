@@ -126,6 +126,10 @@ implements OnInit, OnDestroy {
   units = [
     'Stück',
     'Stange',
+    'Kopf',
+    'Blatt',
+    'Kugel',
+    'Würfel',
     'g',
     'kg',
     'ml',

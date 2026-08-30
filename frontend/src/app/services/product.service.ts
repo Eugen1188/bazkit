@@ -18,6 +18,7 @@ export interface ProductSuggestion {
   external_id: string | null;
   default_unit: string;
   grams_per_unit?: string | null;
+  grams_per_ml?: string | null;
   package_quantity?: string | null;
   package_unit?: string;
   unit_conversions?: ProductUnitConversion[];

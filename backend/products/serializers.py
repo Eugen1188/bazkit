@@ -1,6 +1,10 @@
 from rest_framework import serializers
 
-from .catalog import average_unit_weight_grams, logical_available_units
+from .catalog import (
+    liquid_density_grams_per_ml,
+    logical_available_units,
+    product_unit_conversions,
+)
 from .models import Product
 
 
@@ -8,6 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
     origin = serializers.SerializerMethodField()
     nutrition_complete = serializers.BooleanField(source="has_complete_nutrition", read_only=True)
     grams_per_unit = serializers.SerializerMethodField()
+    grams_per_ml = serializers.SerializerMethodField()
     unit_conversions = serializers.SerializerMethodField()
     available_units = serializers.SerializerMethodField()
 
@@ -17,7 +22,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "id", "name", "canonical_name", "is_recipe_ingredient",
             "category", "shopping_category", "is_common_pantry",
             "brand", "source", "external_id",
-            "default_unit", "package_quantity", "package_unit", "grams_per_unit",
+            "default_unit", "package_quantity", "package_unit", "grams_per_unit", "grams_per_ml",
             "unit_conversions", "available_units", "calories_per_100g", "protein_per_100g",
             "carbohydrates_per_100g", "fat_per_100g", "fiber_per_100g",
             "nutrition_complete", "origin",
@@ -30,32 +35,44 @@ class ProductSerializer(serializers.ModelSerializer):
         return "local"
 
     def get_grams_per_unit(self, obj):
-        conversion = obj.unit_conversions.filter(
-            unit__iexact="Stück", is_active=True
-        ).exclude(confidence="estimated").first()
-        value = conversion.grams_per_unit if conversion else None
+        conversion = next(
+            (
+                item for item in self._logical_conversions(obj)
+                if item["unit"].casefold() == "stück"
+            ),
+            None,
+        )
+        value = conversion["grams_per_unit"] if conversion else None
+        return str(value) if value is not None else None
+
+    def get_grams_per_ml(self, obj):
+        value = liquid_density_grams_per_ml(obj.canonical_name or obj.name)
         return str(value) if value is not None else None
 
     def get_unit_conversions(self, obj):
         return [
             {
-                "unit": conversion.unit,
-                "grams_per_unit": str(conversion.grams_per_unit),
-                "source": conversion.source,
-                "confidence": conversion.confidence,
+                **conversion,
+                "grams_per_unit": str(conversion["grams_per_unit"]),
             }
-            for conversion in obj.unit_conversions.filter(is_active=True).exclude(
-                confidence="estimated"
-            )
+            for conversion in self._logical_conversions(obj)
         ]
 
     def get_available_units(self, obj):
-        conversions = obj.unit_conversions.filter(is_active=True).exclude(
-            confidence="estimated"
-        )
+        conversions = self._logical_conversions(obj)
         return logical_available_units(
             obj.default_unit,
             obj.package_unit,
             obj.shopping_category,
             conversions,
+            obj.canonical_name or obj.name,
+        )
+
+    @staticmethod
+    def _logical_conversions(obj):
+        return product_unit_conversions(
+            obj.name,
+            obj.canonical_name,
+            obj.package_quantity,
+            obj.package_unit,
         )

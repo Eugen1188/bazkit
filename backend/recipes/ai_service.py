@@ -196,7 +196,9 @@ Gewünschte Kategorie:
 Regeln:
 - Mengen müssen zu den Portionen passen.
 - Verwende metrische Einheiten.
-- Verwende bevorzugt g, kg, ml, Liter, Stück, EL, TL, Prise.
+- Verwende bevorzugt g, kg, ml, Liter, Stück, Stange, Kopf, Blatt,
+  Kugel, Würfel, Bund, Zehe, Scheibe, Tasse, EL, TL oder Prise.
+- Nutze Küchenmaße nur dann, wenn sie zur jeweiligen Zutat passen.
 - Schritte sollen konkret und verständlich sein.
 - Das Rezept soll realistisch kochbar sein.
 - Wenn vorhandene Zutaten angegeben wurden,
