@@ -138,6 +138,9 @@ implements OnInit, OnDestroy {
   imagePreviewUrl: string | null = null;
   selectedImageFile: File | null = null;
   isImageDragging = false;
+  isPositioningImage = false;
+  imagePositionX = 50;
+  imagePositionY = 50;
   imageRemoved = false;
 
 
@@ -171,6 +174,13 @@ implements OnInit, OnDestroy {
 
   private ingredientSearchSubscription:
     Subscription;
+
+  private imagePointerStartX = 0;
+  private imagePointerStartY = 0;
+  private imagePositionStartX = 50;
+  private imagePositionStartY = 50;
+  private savedImagePositionX = 50;
+  private savedImagePositionY = 50;
 
 
   units = [
@@ -356,6 +366,10 @@ implements OnInit, OnDestroy {
     return this.imagePreviewUrl || (this.imageRemoved ? null : this.imageUrl);
   }
 
+  get imageObjectPosition(): string {
+    return `${this.imagePositionX}% ${this.imagePositionY}%`;
+  }
+
 
   onImageInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -384,14 +398,55 @@ implements OnInit, OnDestroy {
     if (file) this.selectImageFile(file);
   }
 
+  startImagePositioning(event: PointerEvent): void {
+    if (!this.displayImageUrl || event.button !== 0) return;
+    const frame = event.currentTarget as HTMLElement;
+    this.isPositioningImage = true;
+    this.imagePointerStartX = event.clientX;
+    this.imagePointerStartY = event.clientY;
+    this.imagePositionStartX = this.imagePositionX;
+    this.imagePositionStartY = this.imagePositionY;
+    frame.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  }
+
+  moveImagePosition(event: PointerEvent): void {
+    if (!this.isPositioningImage) return;
+    const frame = event.currentTarget as HTMLElement;
+    const bounds = frame.getBoundingClientRect();
+    this.imagePositionX = this.clampImagePosition(
+      this.imagePositionStartX - ((event.clientX - this.imagePointerStartX) / bounds.width) * 100,
+    );
+    this.imagePositionY = this.clampImagePosition(
+      this.imagePositionStartY - ((event.clientY - this.imagePointerStartY) / bounds.height) * 100,
+    );
+    event.preventDefault();
+  }
+
+  stopImagePositioning(event: PointerEvent): void {
+    if (!this.isPositioningImage) return;
+    const frame = event.currentTarget as HTMLElement;
+    if (frame.hasPointerCapture(event.pointerId)) frame.releasePointerCapture(event.pointerId);
+    this.isPositioningImage = false;
+    event.preventDefault();
+  }
+
+  centerImagePosition(): void {
+    this.imagePositionX = 50;
+    this.imagePositionY = 50;
+  }
+
 
   removeRecipeImage(): void {
     if (this.selectedImageFile) {
       this.selectedImageFile = null;
       this.revokeImagePreview();
+      this.imagePositionX = this.savedImagePositionX;
+      this.imagePositionY = this.savedImagePositionY;
       return;
     }
     this.imageRemoved = true;
+    this.centerImagePosition();
   }
 
 
@@ -428,6 +483,10 @@ implements OnInit, OnDestroy {
             recipe.notes;
 
           this.imageUrl = recipe.image_url;
+          this.imagePositionX = recipe.image_position_x ?? 50;
+          this.imagePositionY = recipe.image_position_y ?? 50;
+          this.savedImagePositionX = this.imagePositionX;
+          this.savedImagePositionY = this.imagePositionY;
           this.imageRemoved = false;
 
 
@@ -1217,6 +1276,12 @@ implements OnInit, OnDestroy {
       notes:
         this.notes.trim(),
 
+      image_position_x:
+        this.imagePositionX,
+
+      image_position_y:
+        this.imagePositionY,
+
       calories:
         this.calories,
 
@@ -1426,6 +1491,7 @@ implements OnInit, OnDestroy {
     this.revokeImagePreview();
     this.selectedImageFile = file;
     this.imagePreviewUrl = URL.createObjectURL(file);
+    this.centerImagePosition();
     this.imageRemoved = false;
     this.errorMessage = '';
   }
@@ -1433,6 +1499,10 @@ implements OnInit, OnDestroy {
   private revokeImagePreview(): void {
     if (this.imagePreviewUrl) URL.revokeObjectURL(this.imagePreviewUrl);
     this.imagePreviewUrl = null;
+  }
+
+  private clampImagePosition(value: number): number {
+    return Math.round(Math.min(100, Math.max(0, value)));
   }
 
 

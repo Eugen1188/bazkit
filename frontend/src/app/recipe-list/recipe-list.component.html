@@ -376,7 +376,13 @@
 
         <div class="recipe-cover">
 
-          <img *ngIf="recipe.image_url" class="recipe-cover-image" [src]="recipe.image_url" [alt]="recipe.name" />
+          <img
+            *ngIf="recipe.image_url"
+            class="recipe-cover-image"
+            [src]="recipe.image_url"
+            [style.object-position]="(recipe.image_position_x ?? 50) + '% ' + (recipe.image_position_y ?? 50) + '%'"
+            [alt]="recipe.name"
+          />
 
           <div class="recipe-placeholder" *ngIf="!recipe.image_url">
             <app-ui-icon name="plate"></app-ui-icon>

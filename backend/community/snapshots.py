@@ -12,6 +12,8 @@ RECIPE_FIELDS = (
     "instructions",
     "notes",
     "image_key",
+    "image_position_x",
+    "image_position_y",
     "calories",
     "protein",
     "carbohydrates",

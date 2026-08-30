@@ -19,6 +19,8 @@ class PlannerRecipeSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "image_url",
+            "image_position_x",
+            "image_position_y",
             "category",
             "servings",
             "calories",

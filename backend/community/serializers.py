@@ -88,6 +88,8 @@ class CommunityRecipeSerializer(
             "instructions",
             "notes",
             "image_url",
+            "image_position_x",
+            "image_position_y",
             "calories",
             "protein",
             "carbohydrates",

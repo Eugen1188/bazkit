@@ -28,6 +28,10 @@ export interface CommunityRecipe {
 
   image_url: string | null;
 
+  image_position_x?: number;
+
+  image_position_y?: number;
+
   name: string;
 
   description: string;

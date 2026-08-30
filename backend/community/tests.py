@@ -38,6 +38,8 @@ class CommunitySnapshotTests(APITestCase):
             servings=2,
             category="dinner",
             instructions="Kochen",
+            image_position_x=22,
+            image_position_y=74,
             calories=Decimal("420"),
             protein=Decimal("12"),
         )
@@ -69,6 +71,10 @@ class CommunitySnapshotTests(APITestCase):
         self.assertTrue(post.recipe.is_community_snapshot)
         self.assertEqual(post.recipe.ingredients.count(), 1)
         self.assertEqual(post.recipe.calories, Decimal("420"))
+        self.assertEqual(post.recipe.image_position_x, 22)
+        self.assertEqual(post.recipe.image_position_y, 74)
+        self.assertEqual(response.data["recipe"]["image_position_x"], 22)
+        self.assertEqual(response.data["recipe"]["image_position_y"], 74)
 
         self.recipe.name = "Geändertes Original"
         self.recipe.save(update_fields=["name"])

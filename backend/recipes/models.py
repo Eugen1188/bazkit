@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from products.models import Product
@@ -53,6 +54,18 @@ class Recipe(models.Model):
         max_length=500,
         blank=True,
         help_text="Objektschlüssel des optimierten Rezeptbildes in Cloudflare R2",
+    )
+
+    image_position_x = models.PositiveSmallIntegerField(
+        default=50,
+        validators=[MinValueValidator(0), MaxValueValidator(100)],
+        help_text="Horizontale Position des Bildausschnitts in Prozent",
+    )
+
+    image_position_y = models.PositiveSmallIntegerField(
+        default=50,
+        validators=[MinValueValidator(0), MaxValueValidator(100)],
+        help_text="Vertikale Position des Bildausschnitts in Prozent",
     )
 
     # ==========================================

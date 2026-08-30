@@ -17,6 +17,8 @@ export type RecipeNumberValue = number | string | null;
 export interface Recipe {
   id: number;
   image_url: string | null;
+  image_position_x?: number;
+  image_position_y?: number;
   name: string;
   description: string;
   servings: number;
@@ -70,6 +72,8 @@ export interface RecipePayload {
   category: string;
   instructions: string;
   notes: string;
+  image_position_x: number;
+  image_position_y: number;
   calories?: number | null;
   protein?: number | null;
   carbohydrates?: number | null;

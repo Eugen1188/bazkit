@@ -272,6 +272,12 @@ export class GenerateRecipeComponent {
       notes:
         this.generatedRecipe.notes,
 
+      image_position_x:
+        50,
+
+      image_position_y:
+        50,
+
       ingredients:
         this.generatedRecipe.ingredients
     };

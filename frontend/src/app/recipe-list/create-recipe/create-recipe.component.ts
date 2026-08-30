@@ -43,6 +43,9 @@ export class CreateRecipeComponent implements OnDestroy {
   imagePreviewUrl: string | null = null;
   selectedImageFile: File | null = null;
   isImageDragging = false;
+  isPositioningImage = false;
+  imagePositionX = 50;
+  imagePositionY = 50;
   ingredients: RecipeIngredient[] = [this.emptyIngredient()];
   selectedProducts: Array<ProductSuggestion | null> = [null];
   preparationSteps: PreparationStep[] = [{ text: '' }];
@@ -62,6 +65,10 @@ export class CreateRecipeComponent implements OnDestroy {
   private readonly search$ = new Subject<IngredientSearch>();
   private readonly searchSubscription: Subscription;
   private pendingRecipeId: number | null = null;
+  private imagePointerStartX = 0;
+  private imagePointerStartY = 0;
+  private imagePositionStartX = 50;
+  private imagePositionStartY = 50;
 
   constructor(
     private readonly router: Router,
@@ -103,6 +110,7 @@ export class CreateRecipeComponent implements OnDestroy {
   }
 
   get displayImageUrl(): string | null { return this.imagePreviewUrl || this.imageUrl; }
+  get imageObjectPosition(): string { return `${this.imagePositionX}% ${this.imagePositionY}%`; }
 
   onImageInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -119,10 +127,50 @@ export class CreateRecipeComponent implements OnDestroy {
     const file = event.dataTransfer?.files?.[0];
     if (file) this.selectImageFile(file);
   }
+
+  startImagePositioning(event: PointerEvent): void {
+    if (!this.displayImageUrl || event.button !== 0) return;
+    const frame = event.currentTarget as HTMLElement;
+    this.isPositioningImage = true;
+    this.imagePointerStartX = event.clientX;
+    this.imagePointerStartY = event.clientY;
+    this.imagePositionStartX = this.imagePositionX;
+    this.imagePositionStartY = this.imagePositionY;
+    frame.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  }
+
+  moveImagePosition(event: PointerEvent): void {
+    if (!this.isPositioningImage) return;
+    const frame = event.currentTarget as HTMLElement;
+    const bounds = frame.getBoundingClientRect();
+    this.imagePositionX = this.clampImagePosition(
+      this.imagePositionStartX - ((event.clientX - this.imagePointerStartX) / bounds.width) * 100,
+    );
+    this.imagePositionY = this.clampImagePosition(
+      this.imagePositionStartY - ((event.clientY - this.imagePointerStartY) / bounds.height) * 100,
+    );
+    event.preventDefault();
+  }
+
+  stopImagePositioning(event: PointerEvent): void {
+    if (!this.isPositioningImage) return;
+    const frame = event.currentTarget as HTMLElement;
+    if (frame.hasPointerCapture(event.pointerId)) frame.releasePointerCapture(event.pointerId);
+    this.isPositioningImage = false;
+    event.preventDefault();
+  }
+
+  centerImagePosition(): void {
+    this.imagePositionX = 50;
+    this.imagePositionY = 50;
+  }
+
   removeRecipeImage(): void {
     this.selectedImageFile = null;
     this.revokeImagePreview();
     this.imageUrl = null;
+    this.centerImagePosition();
   }
 
   onIngredientNameChange(index: number, value: string): void {
@@ -215,6 +263,7 @@ export class CreateRecipeComponent implements OnDestroy {
       name: this.recipeName.trim(), description: this.description.trim(), servings: this.servings,
       preparation_time: this.preparationTime, category: this.category,
       instructions: steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), notes: this.notes.trim(),
+      image_position_x: this.imagePositionX, image_position_y: this.imagePositionY,
       ingredients: ingredients.map(item => ({
         product: item.product,
         name: item.name.trim(),
@@ -379,12 +428,14 @@ export class CreateRecipeComponent implements OnDestroy {
     this.revokeImagePreview();
     this.selectedImageFile = file;
     this.imagePreviewUrl = URL.createObjectURL(file);
+    this.centerImagePosition();
     this.errorMessage = '';
   }
   private revokeImagePreview(): void {
     if (this.imagePreviewUrl) URL.revokeObjectURL(this.imagePreviewUrl);
     this.imagePreviewUrl = null;
   }
+  private clampImagePosition(value: number): number { return Math.round(Math.min(100, Math.max(0, value))); }
   private fail(message: string): void { this.errorMessage = message; }
   private apiError(error: any): string { return error?.error?.image || error?.error?.ingredients?.[0] || error?.error?.detail || 'Das Rezept konnte nicht gespeichert werden.'; }
 }

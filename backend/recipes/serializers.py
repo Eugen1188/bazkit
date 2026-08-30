@@ -193,7 +193,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             "id", "name", "description", "servings", "preparation_time", "category",
-            "instructions", "notes", "image_url", "calories", "protein", "carbohydrates", "fat", "fiber",
+            "instructions", "notes", "image_url", "image_position_x", "image_position_y",
+            "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "price_ingredient_count",
             "price_missing_ingredient_count", "price_coverage_percent", "price_is_complete",
             "price_is_sufficient", "created_at", "updated_at", "ingredients",

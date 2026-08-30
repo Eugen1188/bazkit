@@ -81,13 +81,12 @@ svg {
   background: var(--color-surface, #fff);
   color: var(--color-text-primary, #10253b);
   cursor: pointer;
-  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+  transition: border-color .18s ease, background .18s ease;
 }
 
 .wizard-close:hover {
   border-color: var(--color-primary, #5d7f69);
   background: var(--color-primary-soft-bg, #edf4ef);
-  transform: rotate(3deg);
 }
 
 .wizard-close svg { width: 21px; height: 21px; }
@@ -97,7 +96,7 @@ svg {
   border: 1px solid var(--color-border, #d9dfdc);
   border-radius: 18px;
   background: var(--color-surface, #fff);
-  box-shadow: 0 18px 46px rgba(32, 52, 43, .075);
+  box-shadow: 0 8px 24px rgba(32, 52, 43, .045);
 }
 
 .wizard-stepper {
@@ -150,7 +149,7 @@ svg {
   box-shadow: 0 6px 16px rgba(72, 112, 86, 0.22);
 }
 
-.wizard-step.is-active .step-marker { transform: scale(1.08); }
+.wizard-step.is-active .step-marker { transform: scale(1.03); }
 .wizard-step.is-active { color: var(--color-text-primary, #10253b); }
 .wizard-step.is-future { cursor: pointer; }
 
@@ -194,12 +193,12 @@ svg {
 
 .wizard-stage {
   padding: 27px 30px 31px;
-  animation: wizard-stage-in .24s ease both;
+  animation: wizard-stage-in .18s ease both;
 }
 
 @keyframes wizard-stage-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .stage-heading {
@@ -373,7 +372,7 @@ textarea::placeholder { color: #a0a8a4; }
   border-radius: 12px;
   background: linear-gradient(145deg, #f1f6f1, #faf7ef);
   cursor: pointer;
-  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+  transition: border-color .18s ease, background .18s ease;
 }
 
 .image-dropzone:hover,
@@ -382,9 +381,10 @@ textarea::placeholder { color: #a0a8a4; }
   background: #edf4ef;
 }
 
-.image-dropzone.is-dragging { transform: scale(.99); }
+.image-dropzone.has-image { cursor: grab; touch-action: none; user-select: none; }
+.image-dropzone.is-positioning { cursor: grabbing; }
 .image-dropzone input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.image-dropzone img { width: 100%; height: 218px; object-fit: cover; }
+.image-dropzone img { width: 100%; height: 218px; display: block; object-fit: cover; pointer-events: none; }
 
 .image-empty-state { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #56675d; }
 .image-empty-state strong { font-size: 12px; }
@@ -397,13 +397,64 @@ textarea::placeholder { color: #a0a8a4; }
   right: 9px;
   bottom: 9px;
   padding: 6px 9px;
+  border: 0;
   border-radius: 8px;
   background: rgba(18, 39, 29, .78);
   color: #fff;
   font-size: 9px;
   font-weight: 750;
+  cursor: pointer;
   backdrop-filter: blur(5px);
 }
+
+.image-drag-hint {
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .86);
+  color: #405249;
+  font-size: 8px;
+  font-weight: 700;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.image-position-editor {
+  display: grid;
+  gap: 9px;
+  margin-top: 11px;
+  padding: 11px 12px;
+  border: 1px solid #dce5df;
+  border-radius: 11px;
+  background: #f8faf8;
+}
+
+.image-position-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.image-position-heading > div { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.image-position-heading strong { font-size: 10px; }
+.image-position-heading small { color: #718078; font-size: 8px; line-height: 1.35; }
+.image-position-heading button {
+  padding: 5px 8px;
+  border: 1px solid #cbd8cf;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--color-primary, #5d7f69);
+  font-size: 8px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.image-position-heading button:hover { background: var(--color-primary-soft-bg, #edf4ef); }
+.image-position-editor > label { display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 8px; }
+.image-position-editor > label > span { color: #68766e; font-size: 8px; font-weight: 650; }
+.image-position-editor input[type='range'] { width: 100%; min-height: 20px; padding: 0; accent-color: var(--color-primary, #5d7f69); cursor: pointer; }
 
 .image-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
 .image-card-footer span { color: #78827d; font-size: 8px; }
@@ -646,7 +697,7 @@ textarea::placeholder { color: #a0a8a4; }
 .notes-heading span { padding: 4px 8px; border-radius: 999px; background: #f2f4f3; color: #707b75; font-size: 9px; font-weight: 700; }
 
 .review-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 18px; }
-.review-card { overflow: hidden; border: 1px solid var(--color-border, #d9dfdc); border-radius: 16px; background: #fff; box-shadow: 0 10px 25px rgba(19, 43, 34, .045); }
+.review-card { overflow: hidden; border: 1px solid var(--color-border, #d9dfdc); border-radius: 16px; background: #fff; box-shadow: 0 5px 16px rgba(19, 43, 34, .035); }
 .review-main-card { grid-column: 1 / -1; display: grid; grid-template-columns: 250px 1fr; }
 .review-hero { min-height: 220px; display: grid; place-items: center; background: linear-gradient(145deg, #e6f0e9, #f3eee2); color: #7c9b85; }
 .review-hero svg { width: 104px; height: 104px; stroke-width: 2.2; }
@@ -713,11 +764,11 @@ textarea::placeholder { color: #a0a8a4; }
   font-size: 12px;
   font-weight: 750;
   cursor: pointer;
-  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+  transition: box-shadow .16s ease, background .16s ease;
 }
 
 .button-primary { border: 1px solid var(--color-primary, #5d7f69); background: var(--color-primary, #5d7f69); color: #fff; box-shadow: 0 8px 18px rgba(72, 112, 86, .2); }
-.button-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(72, 112, 86, .26); }
+.button-primary:hover:not(:disabled) { box-shadow: 0 9px 19px rgba(72, 112, 86, .22); }
 .button-primary:disabled { opacity: .55; cursor: wait; }
 .button-primary svg,
 .button-secondary svg { width: 18px; height: 18px; }

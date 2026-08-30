@@ -20,6 +20,7 @@ interface Meal {
   recipeId: number;
   name: string;
   image: string;
+  imagePosition: string;
   calories: number;
   protein: number;
   carbohydrates: number;
@@ -543,6 +544,9 @@ export class WeeklyPlannerComponent implements OnInit {
       recipeId: recipe.id,
       name: recipe.name,
       image: recipe.image_url || this.categoryImage(recipe.category),
+      imagePosition: recipe.image_url
+        ? `${recipe.image_position_x ?? 50}% ${recipe.image_position_y ?? 50}%`
+        : '50% 50%',
       calories: this.numberValue(recipe.calories),
       protein: this.numberValue(recipe.protein),
       carbohydrates: this.numberValue(recipe.carbohydrates),

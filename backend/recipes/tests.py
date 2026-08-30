@@ -91,6 +91,40 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(ingredient.name, "Omas Gewürzmischung")
         self.assertIsNone(recipe.calories)
 
+    def test_image_position_is_saved_and_defaults_to_center(self):
+        serializer = RecipeSerializer(data={
+            "name": "Bildausschnitt", "servings": 2, "category": "dinner",
+            "instructions": "1. Kochen", "image_position_x": 24,
+            "image_position_y": 78, "ingredients": [{
+                "product": self.product.id, "name": "Tomate",
+                "quantity": "100", "unit": "g",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+        recipe = serializer.save()
+        self.assertEqual(recipe.image_position_x, 24)
+        self.assertEqual(recipe.image_position_y, 78)
+
+        centered = Recipe.objects.create(
+            user=self.user, name="Mittig", servings=1,
+            category="other", instructions="1. Fertig",
+        )
+        self.assertEqual(centered.image_position_x, 50)
+        self.assertEqual(centered.image_position_y, 50)
+
+    def test_image_position_rejects_values_outside_frame(self):
+        serializer = RecipeSerializer(data={
+            "name": "Ungültiger Ausschnitt", "servings": 2, "category": "dinner",
+            "instructions": "1. Kochen", "image_position_x": 101,
+            "image_position_y": -1, "ingredients": [{
+                "product": self.product.id, "name": "Tomate",
+                "quantity": "100", "unit": "g",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("image_position_x", serializer.errors)
+        self.assertIn("image_position_y", serializer.errors)
+
     def test_canned_tomato_nutrition_uses_full_can_weight(self):
         tomatoes = Product.objects.create(
             name="Tomaten Konserve", canonical_name="Dosentomaten",

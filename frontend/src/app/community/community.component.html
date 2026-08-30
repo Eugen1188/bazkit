@@ -288,6 +288,7 @@
             *ngIf="post.post_type === 'recipe' && post.recipe?.image_url"
             class="community-recipe-image"
             [src]="post.recipe?.image_url"
+            [style.object-position]="(post.recipe?.image_position_x ?? 50) + '% ' + (post.recipe?.image_position_y ?? 50) + '%'"
             [alt]="post.recipe?.name || ''"
             loading="lazy"
           />

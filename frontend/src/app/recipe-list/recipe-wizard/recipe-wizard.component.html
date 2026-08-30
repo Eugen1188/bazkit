@@ -126,29 +126,70 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-2h4l2 2h4v12H4Z"></path><circle cx="12" cy="13" r="3"></circle></svg>
           </div>
 
-          <label
+          <div
             class="image-dropzone"
             [class.has-image]="!!displayImageUrl"
             [class.is-dragging]="isImageDragging"
+            [class.is-positioning]="isPositioningImage"
+            [attr.role]="!displayImageUrl ? 'button' : null"
+            [attr.tabindex]="!displayImageUrl ? 0 : null"
+            (click)="!displayImageUrl && recipeImageInput.click()"
+            (keydown.enter)="!displayImageUrl ? recipeImageInput.click() : null"
+            (keydown.space)="$event.preventDefault(); !displayImageUrl ? recipeImageInput.click() : null"
             (dragover)="onImageDragOver($event)"
             (dragleave)="onImageDragLeave($event)"
             (drop)="onImageDrop($event)"
+            (pointerdown)="startImagePositioning($event)"
+            (pointermove)="moveImagePosition($event)"
+            (pointerup)="stopImagePositioning($event)"
+            (pointercancel)="stopImagePositioning($event)"
           >
-            <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onImageInputChange($event)" />
-            <img *ngIf="displayImageUrl" [src]="displayImageUrl" [alt]="recipeName ? 'Vorschau für ' + recipeName : 'Vorschau des Rezeptbildes'" />
+            <input #recipeImageInput type="file" accept="image/jpeg,image/png,image/webp" (change)="onImageInputChange($event)" />
+            <img
+              *ngIf="displayImageUrl"
+              [src]="displayImageUrl"
+              [style.object-position]="imageObjectPosition"
+              [alt]="recipeName ? 'Vorschau für ' + recipeName : 'Vorschau des Rezeptbildes'"
+              draggable="false"
+            />
             <span class="image-empty-state" *ngIf="!displayImageUrl">
               <span class="upload-icon"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 15v4h14v-4"></path></svg></span>
               <strong>Bild auswählen</strong>
               <small>oder hier ablegen</small>
             </span>
-            <span class="image-change-hint" *ngIf="displayImageUrl">Bild ändern</span>
-          </label>
+            <button
+              type="button"
+              class="image-change-hint"
+              *ngIf="displayImageUrl"
+              (pointerdown)="$event.stopPropagation()"
+              (click)="$event.stopPropagation(); recipeImageInput.click()"
+            >Bild ändern</button>
+            <span class="image-drag-hint" *ngIf="displayImageUrl && !isPositioningImage">Zum Verschieben ziehen</span>
+          </div>
+
+          <div class="image-position-editor" *ngIf="displayImageUrl">
+            <div class="image-position-heading">
+              <div>
+                <strong>Bildausschnitt</strong>
+                <small>Ziehe das Bild oder passe die Regler an.</small>
+              </div>
+              <button type="button" (click)="centerImagePosition()">Zentrieren</button>
+            </div>
+            <label>
+              <span>Horizontal</span>
+              <input type="range" min="0" max="100" step="1" [(ngModel)]="imagePositionX" aria-label="Horizontaler Bildausschnitt" />
+            </label>
+            <label>
+              <span>Vertikal</span>
+              <input type="range" min="0" max="100" step="1" [(ngModel)]="imagePositionY" aria-label="Vertikaler Bildausschnitt" />
+            </label>
+          </div>
 
           <div class="image-card-footer">
             <span>JPG, PNG oder WebP · max. 10 MB</span>
             <button type="button" *ngIf="displayImageUrl" (click)="removeRecipeImage()">Entfernen</button>
           </div>
-          <p>Das Bild wird automatisch zugeschnitten, optimiert und sicher gespeichert.</p>
+          <p>Der gewählte Bildausschnitt wird am Rezept gespeichert.</p>
         </aside>
         </div>
       </section>
@@ -316,7 +357,7 @@
         <div class="review-grid">
           <article class="review-card review-main-card">
             <div class="review-hero">
-              <img *ngIf="displayImageUrl" [src]="displayImageUrl" [alt]="recipeName" />
+              <img *ngIf="displayImageUrl" [src]="displayImageUrl" [style.object-position]="imageObjectPosition" [alt]="recipeName" />
               <svg *ngIf="!displayImageUrl" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34"></circle><circle cx="60" cy="60" r="22"></circle><path d="M24 30v26M31 30v26M24 44h7M27.5 56v35M92 30v61M92 30c12 10 13 26 2 36h-2"></path></svg>
             </div>
             <div class="review-content">
