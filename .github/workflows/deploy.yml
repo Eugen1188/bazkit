@@ -7,21 +7,28 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
       - name: Deploy via SSH
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1
+        env:
+          BAZKIT_GITHUB_TOKEN: ${{ github.token }}
+          BAZKIT_DEPLOY_SHA: ${{ github.sha }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: BAZKIT_GITHUB_TOKEN,BAZKIT_DEPLOY_SHA
           command_timeout: 20m
           script: |
             set -e
             cd /opt/bazkit
-            git pull --ff-only origin main
+            bazkit_auth_header="$(printf 'x-access-token:%s' "$BAZKIT_GITHUB_TOKEN" | base64 | tr -d '\n')"
+            git -c http.extraHeader="Authorization: Basic $bazkit_auth_header" fetch --no-tags https://github.com/Eugen1188/bazkit.git main
+            unset bazkit_auth_header BAZKIT_GITHUB_TOKEN
+            git merge --ff-only FETCH_HEAD
+            test "$(git rev-parse HEAD)" = "$BAZKIT_DEPLOY_SHA"
             docker compose build backend frontend
             docker compose up -d db
             docker compose run --rm backend python manage.py migrate --noinput
