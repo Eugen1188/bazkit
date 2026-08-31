@@ -35,4 +35,13 @@ jobs:
             docker compose run --rm backend python manage.py rebuild_ingredient_catalog
             docker compose run --rm backend python manage.py audit_ingredient_catalog --strict
             docker compose up -d backend frontend
+            backend_ready=0
+            for attempt in $(seq 1 30); do
+              if curl --silent --show-error --output /dev/null --connect-timeout 2 http://127.0.0.1:8000/users/me/; then
+                backend_ready=1
+                break
+              fi
+              sleep 2
+            done
+            test "$backend_ready" = "1"
             docker compose exec -T backend python manage.py check
