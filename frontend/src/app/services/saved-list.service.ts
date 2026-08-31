@@ -1,85 +1,86 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay, tap } from 'rxjs';
 import { PriceSnapshot } from './product.service';
+
 
 export interface SavedListItem extends PriceSnapshot {
   id?: number;
-
   product?: number | null;
-
   product_name?: string;
-
   name: string;
-
   quantity: number;
-
   unit: string;
-
   note?: string;
 }
 
+
 export interface SavedList {
   id: number;
-
   title: string;
-
   created_at: string;
-
   item_count: number;
-
   estimated_total?: number | null;
-
   items?: SavedListItem[];
 }
 
+
 export interface CreateSavedListPayload {
   title: string;
-
   items: SavedListItem[];
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+
+@Injectable({ providedIn: 'root' })
 export class SavedListService {
-
-  private apiUrl =
-    'http://178.104.47.231:8000/lists/saved-lists/';
-
-
-  constructor(
-    private http: HttpClient
-  ) {}
+  private readonly apiUrl = 'http://178.104.47.231:8000/lists/saved-lists/';
+  private readonly cacheLifetimeMs = 60_000;
+  private cacheSession = '';
+  private cacheExpiresAt = 0;
+  private listRequest: Observable<SavedList[]> | null = null;
 
 
-  createSavedList(
-    payload: CreateSavedListPayload
-  ): Observable<SavedList> {
+  constructor(private readonly http: HttpClient) {}
 
-    return this.http.post<SavedList>(
-      this.apiUrl,
-      payload
+
+  private invalidateListCache(): void {
+    this.cacheExpiresAt = 0;
+    this.listRequest = null;
+  }
+
+
+  createSavedList(payload: CreateSavedListPayload): Observable<SavedList> {
+    return this.http.post<SavedList>(this.apiUrl, payload).pipe(
+      tap(() => this.invalidateListCache())
     );
   }
 
 
-  getSavedLists():
-    Observable<SavedList[]> {
+  getSavedLists(forceRefresh = false): Observable<SavedList[]> {
+    const session = localStorage.getItem('access_token') ?? '';
+    if (session !== this.cacheSession) {
+      this.cacheSession = session;
+      this.invalidateListCache();
+    }
 
-    return this.http.get<SavedList[]>(
-      this.apiUrl
+    if (
+      !forceRefresh &&
+      this.listRequest &&
+      Date.now() < this.cacheExpiresAt
+    ) {
+      return this.listRequest;
+    }
+
+    this.cacheExpiresAt = Date.now() + this.cacheLifetimeMs;
+    this.listRequest = this.http.get<SavedList[]>(this.apiUrl).pipe(
+      shareReplay({ bufferSize: 1, refCount: false })
     );
+    return this.listRequest;
   }
 
 
-  getSavedList(
-    id: number
-  ): Observable<SavedList> {
-
-    return this.http.get<SavedList>(
-      `${this.apiUrl}${id}/`
-    );
+  getSavedList(id: number): Observable<SavedList> {
+    return this.http.get<SavedList>(`${this.apiUrl}${id}/`);
   }
 
 
@@ -87,20 +88,15 @@ export class SavedListService {
     id: number,
     payload: CreateSavedListPayload
   ): Observable<SavedList> {
-
-    return this.http.put<SavedList>(
-      `${this.apiUrl}${id}/`,
-      payload
+    return this.http.put<SavedList>(`${this.apiUrl}${id}/`, payload).pipe(
+      tap(() => this.invalidateListCache())
     );
   }
 
 
-  deleteSavedList(
-    id: number
-  ): Observable<void> {
-
-    return this.http.delete<void>(
-      `${this.apiUrl}${id}/`
+  deleteSavedList(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${id}/`).pipe(
+      tap(() => this.invalidateListCache())
     );
   }
 
@@ -110,7 +106,6 @@ export class SavedListService {
     itemId: number,
     item: SavedListItem
   ): Observable<SavedListItem> {
-
     return this.http.put<SavedListItem>(
       `${this.apiUrl}${listId}/items/${itemId}/`,
       {
@@ -131,17 +126,13 @@ export class SavedListService {
         package_quantity: item.package_quantity ?? null,
         package_unit: item.package_unit ?? ''
       }
-    );
+    ).pipe(tap(() => this.invalidateListCache()));
   }
 
 
-  deleteSavedListItem(
-    listId: number,
-    itemId: number
-  ): Observable<void> {
-
+  deleteSavedListItem(listId: number, itemId: number): Observable<void> {
     return this.http.delete<void>(
       `${this.apiUrl}${listId}/items/${itemId}/`
-    );
+    ).pipe(tap(() => this.invalidateListCache()));
   }
 }

@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.db.models import Count
 
 from rest_framework import status
 
@@ -25,6 +26,7 @@ from .models import (
 
 from .serializers import (
     SavedListSerializer,
+    SavedListSummarySerializer,
     SavedListDetailSerializer,
     SavedListItemSerializer,
     ShoppingListSerializer,
@@ -61,15 +63,15 @@ class SavedListListCreateAPIView(
                 user=request.user,
                 is_community_snapshot=False,
             )
-            .prefetch_related(
-                "items"
+            .annotate(
+                item_count=Count("items")
             )
             .order_by(
                 "-created_at"
             )
         )
 
-        serializer = SavedListSerializer(
+        serializer = SavedListSummarySerializer(
             saved_lists,
             many=True
         )
@@ -355,20 +357,18 @@ class ShoppingListAPIView(
         request
     ):
         shopping_list = (
-            self.get_shopping_list(
-                request
-            )
-        )
-
-        shopping_list = (
             ShoppingList.objects
             .prefetch_related(
                 "items__product"
             )
-            .get(
-                id=shopping_list.id
+            .filter(
+                user=request.user
             )
+            .first()
         )
+
+        if shopping_list is None:
+            shopping_list = ShoppingList.objects.create(user=request.user)
 
         return Response(
             ShoppingListSerializer(

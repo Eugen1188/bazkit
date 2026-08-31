@@ -17,11 +17,19 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      DJANGO_DEBUG: "False"
     depends_on:
       - db
     command: >
       sh -c "python manage.py migrate --noinput &&
-             python manage.py runserver 0.0.0.0:8000"
+             exec gunicorn config.wsgi:application
+             --bind 0.0.0.0:8000
+             --workers $${GUNICORN_WORKERS:-3}
+             --threads $${GUNICORN_THREADS:-2}
+             --timeout 120
+             --access-logfile -
+             --error-logfile -"
     ports:
       - "8000:8000"
 
@@ -33,7 +41,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "8080:4200"
+      - "8080:80"
 
 volumes:
   postgres_data:

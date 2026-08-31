@@ -241,6 +241,14 @@ class SavedListSerializer(
         return instance
 
 
+class SavedListSummarySerializer(serializers.ModelSerializer):
+    item_count = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = SavedList
+        fields = ["id", "title", "created_at", "item_count"]
+
+
 class SavedListDetailSerializer(
     serializers.ModelSerializer
 ):
@@ -302,14 +310,19 @@ class ShoppingListItemSerializer(
             *PRICE_FIELDS,
         ]
 
+    def category(self, obj):
+        if not hasattr(obj, "_shopping_category"):
+            obj._shopping_category = shopping_category(obj)
+        return obj._shopping_category
+
     def get_shopping_category(self, obj):
-        return shopping_category(obj)[0]
+        return self.category(obj)[0]
 
     def get_shopping_category_label(self, obj):
-        return shopping_category(obj)[1]
+        return self.category(obj)[1]
 
     def get_shopping_category_order(self, obj):
-        return shopping_category(obj)[2]
+        return self.category(obj)[2]
 
     def get_is_common_pantry(self, obj):
         return bool(obj.product and obj.product.is_common_pantry)
@@ -396,9 +409,7 @@ class ShoppingListSerializer(
         return obj.items.count()
 
     def get_completed_count(self, obj):
-        return obj.items.filter(
-            is_checked=True
-        ).count()
+        return sum(1 for item in obj.items.all() if item.is_checked)
 
     def get_estimated_total(self, obj):
         return estimated_total(obj)

@@ -61,11 +61,6 @@ DEBUG = (
 )
 
 
-# Aktuell bewusst beibehalten,
-# da dein bestehendes Projekt so läuft.
-DEBUG = True
-
-
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
@@ -128,6 +123,8 @@ AUTH_USER_MODEL = (
 MIDDLEWARE = [
 
     "django.middleware.security.SecurityMiddleware",
+
+    "django.middleware.gzip.GZipMiddleware",
 
     "django.contrib.sessions.middleware.SessionMiddleware",
 
@@ -236,6 +233,16 @@ DATABASES = {
                 "POSTGRES_PORT",
                 "5432"
             ),
+
+        "CONN_MAX_AGE":
+            int(
+                os.getenv(
+                    "DB_CONN_MAX_AGE",
+                    "60"
+                )
+            ),
+
+        "CONN_HEALTH_CHECKS": True,
     }
 }
 

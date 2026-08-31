@@ -156,6 +156,34 @@ class CommunitySavedListSerializer(
         return obj.items.count()
 
 
+class CommunityRecipeListSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Recipe
+        fields = [
+            "id",
+            "name",
+            "image_url",
+            "image_position_x",
+            "image_position_y",
+        ]
+
+    def get_image_url(self, obj):
+        return get_recipe_image_url(obj.image_key)
+
+
+class CommunitySavedListListSerializer(serializers.ModelSerializer):
+    item_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = SavedList
+        fields = ["id", "title", "item_count"]
+
+    def get_item_count(self, obj):
+        return obj.items.count()
+
+
 class CommunityCommentSerializer(
     serializers.ModelSerializer
 ):
@@ -331,6 +359,9 @@ class CommunityPostSerializer(
         obj
     ):
 
+        if hasattr(obj, "annotated_comment_count"):
+            return obj.annotated_comment_count
+
         return obj.comments.count()
 
     def get_like_count(
@@ -338,12 +369,18 @@ class CommunityPostSerializer(
         obj
     ):
 
+        if hasattr(obj, "annotated_like_count"):
+            return obj.annotated_like_count
+
         return obj.likes.count()
 
     def get_liked_by_me(
         self,
         obj
     ):
+
+        if hasattr(obj, "annotated_liked_by_me"):
+            return obj.annotated_liked_by_me
 
         request = self.context.get(
             "request"
@@ -365,18 +402,21 @@ class CommunityPostSerializer(
         obj
     ):
 
-        result = (
-            obj.ratings
-            .aggregate(
-                average=Avg(
-                    "value"
+        if hasattr(obj, "annotated_rating_average"):
+            average = obj.annotated_rating_average
+        else:
+            result = (
+                obj.ratings
+                .aggregate(
+                    average=Avg(
+                        "value"
+                    )
                 )
             )
-        )
 
-        average = result.get(
-            "average"
-        )
+            average = result.get(
+                "average"
+            )
 
         if average is None:
             return None
@@ -391,12 +431,18 @@ class CommunityPostSerializer(
         obj
     ):
 
+        if hasattr(obj, "annotated_rating_count"):
+            return obj.annotated_rating_count
+
         return obj.ratings.count()
 
     def get_my_rating(
         self,
         obj
     ):
+
+        if hasattr(obj, "annotated_my_rating"):
+            return obj.annotated_my_rating
 
         request = self.context.get(
             "request"
@@ -429,6 +475,11 @@ class CommunityPostSerializer(
             and request.user.is_authenticated
             and obj.author_id == request.user.id
         )
+
+
+class CommunityPostListSerializer(CommunityPostSerializer):
+    recipe = CommunityRecipeListSerializer(read_only=True)
+    saved_list = CommunitySavedListListSerializer(read_only=True)
 
 
 class CommunityCreatePostSerializer(

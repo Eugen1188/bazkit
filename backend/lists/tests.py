@@ -3,13 +3,13 @@ from types import SimpleNamespace
 from django.contrib.auth import get_user_model
 from django.test import SimpleTestCase
 from django.test import TestCase
-from rest_framework.test import APIRequestFactory, force_authenticate
+from rest_framework.test import APIClient, APIRequestFactory, force_authenticate
 
 from products.models import Product
 from recipes.models import Ingredients, Recipe
 
 from .categories import shopping_category
-from .models import ShoppingListItem
+from .models import SavedList, SavedListItem, ShoppingListItem
 from .views import AddRecipeToShoppingListAPIView
 
 
@@ -100,3 +100,27 @@ class AddRecipePantryTests(TestCase):
             list(ShoppingListItem.objects.values_list("name", flat=True)),
             ["Kartoffel"],
         )
+
+
+class SavedListSummaryTests(TestCase):
+    def test_overview_omits_items_but_keeps_item_count(self):
+        user = get_user_model().objects.create_user(
+            username="saved-list-test",
+            email="saved-list@example.com",
+            password="test-password",
+        )
+        saved_list = SavedList.objects.create(user=user, title="Wochenende")
+        SavedListItem.objects.create(
+            saved_list=saved_list,
+            name="Milch",
+            quantity=1,
+            unit="Liter",
+        )
+        client = APIClient()
+        client.force_authenticate(user)
+
+        response = client.get("/lists/saved-lists/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["item_count"], 1)
+        self.assertNotIn("items", response.data[0])

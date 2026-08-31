@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, shareReplay, tap } from 'rxjs';
 import { PriceSnapshot, ProductSuggestion } from './product.service';
 
 export interface RecipeIngredient extends PriceSnapshot {
@@ -117,6 +117,10 @@ export interface RecipePayload {
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
   private readonly apiUrl = this.getApiUrl();
+  private readonly summaryCacheLifetimeMs = 60_000;
+  private summaryCacheSession = '';
+  private summaryCacheExpiresAt = 0;
+  private summaryRequest: Observable<RecipeSummary[]> | null = null;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -132,9 +136,34 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  getRecipeSummaries(): Observable<RecipeSummary[]> {
+  getRecipeSummaries(forceRefresh = false): Observable<RecipeSummary[]> {
+    const session = localStorage.getItem('access_token') ?? '';
+
+    if (session !== this.summaryCacheSession) {
+      this.summaryCacheSession = session;
+      this.summaryCacheExpiresAt = 0;
+      this.summaryRequest = null;
+    }
+
+    if (
+      !forceRefresh &&
+      this.summaryRequest &&
+      Date.now() < this.summaryCacheExpiresAt
+    ) {
+      return this.summaryRequest;
+    }
+
     const params = new HttpParams().set('summary', '1');
-    return this.http.get<RecipeSummary[]>(this.apiUrl, { params });
+    this.summaryCacheExpiresAt = Date.now() + this.summaryCacheLifetimeMs;
+    this.summaryRequest = this.http.get<RecipeSummary[]>(this.apiUrl, { params }).pipe(
+      shareReplay({ bufferSize: 1, refCount: false })
+    );
+    return this.summaryRequest;
+  }
+
+  private invalidateSummaryCache(): void {
+    this.summaryCacheExpiresAt = 0;
+    this.summaryRequest = null;
   }
 
   getRecipesByIds(ids: number[]): Observable<Recipe[]> {
@@ -149,25 +178,35 @@ export class RecipeService {
   }
 
   createRecipe(payload: RecipePayload): Observable<Recipe> {
-    return this.http.post<Recipe>(this.apiUrl, payload);
+    return this.http.post<Recipe>(this.apiUrl, payload).pipe(
+      tap(() => this.invalidateSummaryCache())
+    );
   }
 
   updateRecipe(id: number, payload: RecipePayload): Observable<Recipe> {
-    return this.http.put<Recipe>(`${this.apiUrl}${id}/`, payload);
+    return this.http.put<Recipe>(`${this.apiUrl}${id}/`, payload).pipe(
+      tap(() => this.invalidateSummaryCache())
+    );
   }
 
   uploadRecipeImage(id: number, image: File): Observable<Recipe> {
     const formData = new FormData();
     formData.append('image', image, image.name);
-    return this.http.post<Recipe>(`${this.apiUrl}${id}/image/`, formData);
+    return this.http.post<Recipe>(`${this.apiUrl}${id}/image/`, formData).pipe(
+      tap(() => this.invalidateSummaryCache())
+    );
   }
 
   deleteRecipeImage(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${id}/image/`);
+    return this.http.delete<void>(`${this.apiUrl}${id}/image/`).pipe(
+      tap(() => this.invalidateSummaryCache())
+    );
   }
 
   deleteRecipe(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${id}/`);
+    return this.http.delete<void>(`${this.apiUrl}${id}/`).pipe(
+      tap(() => this.invalidateSummaryCache())
+    );
   }
 
   generateRecipe(payload: GenerateRecipePayload): Observable<GeneratedRecipe> {

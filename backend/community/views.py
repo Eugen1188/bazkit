@@ -1,6 +1,7 @@
 from django.db import transaction
 
-from django.db.models import Q
+from django.db.models import Avg, Count, Exists, IntegerField, OuterRef, Q, Subquery, Value
+from django.db.models.functions import Coalesce
 
 from rest_framework import status
 
@@ -32,11 +33,63 @@ from .models import (
 from .serializers import (
     CommunityCommentSerializer,
     CommunityCreatePostSerializer,
+    CommunityPostListSerializer,
     CommunityPostSerializer,
     CommunityRatingSerializer,
     CommunityUpdatePostSerializer,
 )
 from .snapshots import clone_recipe, clone_saved_list, delete_post_snapshot
+
+
+def community_post_queryset(request, *, include_content=False):
+    def related_count(model):
+        counts = (
+            model.objects.filter(post_id=OuterRef("pk"))
+            .order_by()
+            .values("post_id")
+            .annotate(value=Count("id"))
+            .values("value")[:1]
+        )
+        return Coalesce(
+            Subquery(counts, output_field=IntegerField()),
+            Value(0),
+        )
+
+    ratings = CommunityRating.objects.filter(post_id=OuterRef("pk"))
+    rating_average = (
+        ratings.values("post_id")
+        .annotate(value=Avg("value"))
+        .values("value")[:1]
+    )
+
+    queryset = (
+        CommunityPost.objects
+        .select_related("author", "recipe", "saved_list")
+        .annotate(
+            annotated_comment_count=related_count(CommunityComment),
+            annotated_like_count=related_count(CommunityLike),
+            annotated_rating_count=related_count(CommunityRating),
+            annotated_rating_average=Subquery(rating_average),
+            annotated_liked_by_me=Exists(
+                CommunityLike.objects.filter(
+                    post_id=OuterRef("pk"),
+                    user=request.user,
+                )
+            ),
+            annotated_my_rating=Subquery(
+                ratings.filter(user=request.user).values("value")[:1]
+            ),
+        )
+    )
+
+    if include_content:
+        return queryset.prefetch_related(
+            "recipe__ingredients",
+            "saved_list__items",
+            "comments__author",
+        )
+
+    return queryset.prefetch_related("saved_list__items")
 
 
 class CommunityPostListCreateAPIView(
@@ -52,21 +105,7 @@ class CommunityPostListCreateAPIView(
         request
     ):
 
-        queryset = (
-            CommunityPost.objects
-            .select_related(
-                "author",
-                "recipe",
-                "saved_list"
-            )
-            .prefetch_related(
-                "recipe__ingredients",
-                "saved_list__items",
-                "comments",
-                "likes",
-                "ratings"
-            )
-        )
+        queryset = community_post_queryset(request)
 
         post_type = (
             request.query_params
@@ -121,7 +160,7 @@ class CommunityPostListCreateAPIView(
                 )
             )
 
-        serializer = CommunityPostSerializer(
+        serializer = CommunityPostListSerializer(
             queryset,
             many=True,
             context={
@@ -174,23 +213,12 @@ class CommunityPostDetailAPIView(
 
     def get_object(
         self,
+        request,
         pk
     ):
 
         return (
-            CommunityPost.objects
-            .select_related(
-                "author",
-                "recipe",
-                "saved_list"
-            )
-            .prefetch_related(
-                "recipe__ingredients",
-                "saved_list__items",
-                "comments__author",
-                "likes",
-                "ratings"
-            )
+            community_post_queryset(request, include_content=True)
             .filter(
                 id=pk
             )
@@ -204,6 +232,7 @@ class CommunityPostDetailAPIView(
     ):
 
         post = self.get_object(
+            request,
             pk
         )
 
@@ -228,7 +257,7 @@ class CommunityPostDetailAPIView(
         )
 
     def patch(self, request, pk):
-        post = self.get_object(pk)
+        post = self.get_object(request, pk)
         if not post or post.author_id != request.user.id:
             return Response(
                 {"detail": "Beitrag nicht gefunden oder keine Berechtigung."},
@@ -242,7 +271,7 @@ class CommunityPostDetailAPIView(
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        post = self.get_object(pk)
+        post = self.get_object(request, pk)
         return Response(
             CommunityPostSerializer(post, context={"request": request}).data
         )

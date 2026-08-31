@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay, tap } from 'rxjs';
 
 import { RecipeNumberValue } from './recipe.service';
 import { ShoppingList } from './shopping-list.service';
@@ -71,6 +71,12 @@ export interface WeeklyShoppingListResponse {
 @Injectable({ providedIn: 'root' })
 export class WeeklyPlannerService {
   private readonly apiUrl = this.getApiUrl();
+  private readonly cacheLifetimeMs = 60_000;
+  private cacheSession = '';
+  private readonly entryCache = new Map<
+    string,
+    { expiresAt: number; request: Observable<WeeklyPlanEntry[]> }
+  >();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -83,20 +89,44 @@ export class WeeklyPlannerService {
   }
 
   getEntries(start: string, end: string): Observable<WeeklyPlanEntry[]> {
+    const session = localStorage.getItem('access_token') ?? '';
+    if (session !== this.cacheSession) {
+      this.cacheSession = session;
+      this.entryCache.clear();
+    }
+
+    const cacheKey = `${start}:${end}`;
+    const cached = this.entryCache.get(cacheKey);
+    if (cached && Date.now() < cached.expiresAt) return cached.request;
+
     const params = new HttpParams().set('start', start).set('end', end);
-    return this.http.get<WeeklyPlanEntry[]>(`${this.apiUrl}entries/`, { params });
+    const request = this.http.get<WeeklyPlanEntry[]>(
+      `${this.apiUrl}entries/`,
+      { params }
+    ).pipe(shareReplay({ bufferSize: 1, refCount: false }));
+    this.entryCache.set(cacheKey, {
+      request,
+      expiresAt: Date.now() + this.cacheLifetimeMs
+    });
+    return request;
   }
 
   saveEntry(payload: WeeklyPlanEntryPayload): Observable<WeeklyPlanEntry> {
-    return this.http.post<WeeklyPlanEntry>(`${this.apiUrl}entries/`, payload);
+    return this.http.post<WeeklyPlanEntry>(`${this.apiUrl}entries/`, payload).pipe(
+      tap(() => this.entryCache.clear())
+    );
   }
 
   updateEntry(entryId: number, payload: WeeklyPlanEntryPayload): Observable<WeeklyPlanEntry> {
-    return this.http.patch<WeeklyPlanEntry>(`${this.apiUrl}entries/${entryId}/`, payload);
+    return this.http.patch<WeeklyPlanEntry>(`${this.apiUrl}entries/${entryId}/`, payload).pipe(
+      tap(() => this.entryCache.clear())
+    );
   }
 
   deleteEntry(entryId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}entries/${entryId}/`);
+    return this.http.delete<void>(`${this.apiUrl}entries/${entryId}/`).pipe(
+      tap(() => this.entryCache.clear())
+    );
   }
 
   generateWeek(
@@ -108,7 +138,7 @@ export class WeeklyPlannerService {
       start,
       end,
       ...options
-    });
+    }).pipe(tap(() => this.entryCache.clear()));
   }
 
   createShoppingList(

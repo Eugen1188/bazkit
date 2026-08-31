@@ -1,13 +1,15 @@
 from decimal import Decimal
 
 from django.contrib.auth import get_user_model
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from rest_framework.test import APIClient, APITestCase
 
 from lists.models import SavedList, SavedListItem
 from products.models import Product
 from recipes.models import Ingredients, Recipe
 
-from .models import CommunityPost
+from .models import CommunityComment, CommunityLike, CommunityPost, CommunityRating
 
 
 class CommunitySnapshotTests(APITestCase):
@@ -133,3 +135,29 @@ class CommunitySnapshotTests(APITestCase):
             "title": "Fremde Änderung",
         }, format="json")
         self.assertEqual(forbidden.status_code, 404)
+
+    def test_post_list_uses_compact_payload_and_batched_metrics(self):
+        created = self.client.post("/community/posts/", {
+            "post_type": "recipe",
+            "recipe_id": self.recipe.id,
+        }, format="json")
+        post = CommunityPost.objects.get(pk=created.data["id"])
+        CommunityComment.objects.create(
+            post=post,
+            author=self.other_user,
+            content="Sieht gut aus",
+        )
+        CommunityLike.objects.create(post=post, user=self.other_user)
+        CommunityRating.objects.create(post=post, user=self.other_user, value=4)
+
+        with CaptureQueriesContext(connection) as queries:
+            response = self.client.get("/community/posts/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertLessEqual(len(queries), 4)
+        listed_post = next(item for item in response.data if item["id"] == post.id)
+        self.assertEqual(listed_post["comment_count"], 1)
+        self.assertEqual(listed_post["like_count"], 1)
+        self.assertEqual(listed_post["rating_count"], 1)
+        self.assertEqual(listed_post["rating_average"], 4.0)
+        self.assertNotIn("ingredients", listed_post["recipe"])
