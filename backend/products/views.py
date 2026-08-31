@@ -30,7 +30,6 @@ from .catalog import (
 from .ingredient_catalog import (
     definition_for_query,
     display_name_for_query,
-    expanded_search_terms,
     normalize_alias,
     preferred_product_keys,
     replace_product_aliases,
@@ -399,19 +398,10 @@ class ProductSearchAPIView(APIView):
             return Response([])
         query_definition = definition_for_query(query) if recipe_only else None
         ranking_query = canonical_search_query(query) if recipe_only else query
-        search_terms = expanded_search_terms(query) if recipe_only else {query}
-        search_terms.add(ranking_query)
-        search_filter = Q()
-        for term in search_terms:
-            normalized_term = normalize_alias(term)
-            search_filter |= (
-                Q(name__icontains=term)
-                | Q(canonical_name__icontains=term)
-                | Q(aliases__normalized_alias__icontains=normalized_term)
-            )
+        preferred_keys = preferred_product_keys(query) if recipe_only else ()
         products = Product.objects.filter(
             source__in=("bls", "open_food_facts", "usda"),
-        ).filter(search_filter)
+        )
         if recipe_only:
             products = products.filter(
                 is_recipe_ingredient=True,
@@ -421,12 +411,48 @@ class ProductSearchAPIView(APIView):
                 fat_per_100g__isnull=False,
                 fiber_per_100g__isnull=False,
             )
+        catalog_products = products
+
+        if query_definition:
+            # Curated aliases such as "Tomaten", "Rinderfond" or "Wallnuss"
+            # already resolve to one canonical ingredient. Query indexed canonical/source
+            # fields directly instead of joining every alias and running dozens of
+            # unindexed contains comparisons across the complete product catalog.
+            direct_filter = Q(canonical_name=query_definition.canonical_name)
+            for source, external_id in preferred_keys:
+                direct_filter |= Q(source=source, external_id=external_id)
+            products = products.filter(direct_filter)
+            product_limit = 80
+        else:
+            normalized_query = normalize_alias(ranking_query)
+            search_filter = (
+                Q(name__icontains=query)
+                | Q(canonical_name__icontains=query)
+                | Q(aliases__normalized_alias__icontains=normalized_query)
+            )
+            products = products.filter(search_filter)
+            product_limit = 100 if recipe_only else 40
+
         products = list(
-            products.prefetch_related("aliases").distinct()[:400 if recipe_only else 40]
+            products.prefetch_related("aliases").distinct()[:product_limit]
         )
 
+        if query_definition and not products:
+            fallback_filter = Q()
+            for term in {query, query_definition.canonical_name}:
+                fallback_filter |= (
+                    Q(name__icontains=term)
+                    | Q(canonical_name__icontains=term)
+                    | Q(aliases__normalized_alias=normalize_alias(term))
+                )
+            products = list(
+                catalog_products
+                .filter(fallback_filter)
+                .prefetch_related("aliases")
+                .distinct()[:100]
+            )
+
         normalized_query = normalize_alias(ranking_query)
-        preferred_keys = preferred_product_keys(query) if recipe_only else ()
 
         if recipe_only and not products and len(normalized_query) >= 5:
             alias_candidates = ProductAlias.objects.select_related("product").filter(

@@ -179,6 +179,26 @@ class IngredientsSerializer(serializers.ModelSerializer):
         return attrs
 
 
+class RecipeSummarySerializer(serializers.ModelSerializer):
+    """Small read-only representation for recipe cards and planner pickers."""
+
+    image_url = serializers.SerializerMethodField()
+    ingredient_count = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Recipe
+        fields = [
+            "id", "name", "description", "servings", "preparation_time", "category",
+            "image_url", "image_position_x", "image_position_y",
+            "calories", "protein", "carbohydrates", "fat", "fiber",
+            "estimated_price", "ingredient_count", "created_at", "updated_at",
+        ]
+        read_only_fields = fields
+
+    def get_image_url(self, obj):
+        return get_recipe_image_url(obj.image_key)
+
+
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = IngredientsSerializer(many=True, required=True)
     image_url = serializers.SerializerMethodField()
@@ -210,7 +230,9 @@ class RecipeSerializer(serializers.ModelSerializer):
         return get_recipe_image_url(obj.image_key)
 
     def get_price_coverage(self, obj):
-        return recipe_price_coverage(obj.ingredients.all())
+        if not hasattr(obj, "_price_coverage_cache"):
+            obj._price_coverage_cache = recipe_price_coverage(obj.ingredients.all())
+        return obj._price_coverage_cache
 
     def get_price_ingredient_count(self, obj):
         return self.get_price_coverage(obj)["priced_ingredient_count"]

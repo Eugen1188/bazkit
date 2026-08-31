@@ -12,7 +12,7 @@ import {
 } from '@angular/router';
 
 import {
-  Recipe,
+  RecipeSummary,
   RecipeService
 } from '../services/recipe.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
@@ -37,7 +37,7 @@ import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 export class RecipeListComponent
 implements OnInit {
 
-  recipes: Recipe[] = [];
+  recipes: RecipeSummary[] = [];
 
   isLoading = true;
 
@@ -63,11 +63,11 @@ implements OnInit {
 
 
     this.recipeService
-      .getRecipes()
+      .getRecipeSummaries()
       .subscribe({
 
         next: (
-          recipes: Recipe[]
+          recipes: RecipeSummary[]
         ) => {
 
           this.recipes = recipes;
@@ -112,7 +112,7 @@ implements OnInit {
 
 
   openRecipe(
-    recipe: Recipe
+    recipe: RecipeSummary
   ): void {
 
     this.router.navigate([

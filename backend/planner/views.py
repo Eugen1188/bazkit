@@ -51,14 +51,16 @@ def request_range(request, default_days=7):
     return start, end
 
 
-def entries_for_range(user, start, end):
-    return (
+def entries_for_range(user, start, end, include_products=False):
+    queryset = (
         WeeklyPlanEntry.objects
         .filter(user=user, date__range=(start, end))
         .select_related("recipe")
-        .prefetch_related("recipe__ingredients__product")
         .order_by("date", "meal_type")
     )
+    if include_products:
+        return queryset.prefetch_related("recipe__ingredients__product")
+    return queryset.prefetch_related("recipe__ingredients")
 
 
 def serialize_entries(entries, request):
@@ -264,7 +266,12 @@ class WeeklyPlanShoppingListAPIView(APIView):
         except ValueError as error:
             return Response({"detail": str(error)}, status=status.HTTP_400_BAD_REQUEST)
 
-        entries = list(entries_for_range(request.user, start, end))
+        entries = list(entries_for_range(
+            request.user,
+            start,
+            end,
+            include_products=True,
+        ))
         if not entries:
             return Response(
                 {"detail": "Plane zuerst mindestens eine Mahlzeit für diese Woche."},

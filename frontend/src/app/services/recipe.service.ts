@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import { PriceSnapshot, ProductSuggestion } from './product.service';
 
 export interface RecipeIngredient extends PriceSnapshot {
@@ -41,6 +41,28 @@ export interface Recipe {
   created_at: string;
   updated_at: string;
   ingredients: RecipeIngredient[];
+}
+
+export interface RecipeSummary {
+  id: number;
+  image_url: string | null;
+  image_position_x?: number;
+  image_position_y?: number;
+  name: string;
+  description: string;
+  servings: number;
+  preparation_time: number | null;
+  category: string;
+  calories: RecipeNumberValue;
+  protein: RecipeNumberValue;
+  carbohydrates: RecipeNumberValue;
+  fat: RecipeNumberValue;
+  fiber: RecipeNumberValue;
+  estimated_price: RecipeNumberValue;
+  ingredient_count: number;
+  created_at: string;
+  updated_at: string;
+  ingredients?: RecipeIngredient[];
 }
 
 export interface GenerateRecipePayload {
@@ -108,6 +130,18 @@ export class RecipeService {
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.apiUrl);
+  }
+
+  getRecipeSummaries(): Observable<RecipeSummary[]> {
+    const params = new HttpParams().set('summary', '1');
+    return this.http.get<RecipeSummary[]>(this.apiUrl, { params });
+  }
+
+  getRecipesByIds(ids: number[]): Observable<Recipe[]> {
+    const uniqueIds = Array.from(new Set(ids.filter(id => Number.isInteger(id) && id > 0)));
+    if (!uniqueIds.length) return of([]);
+    const params = new HttpParams().set('ids', uniqueIds.join(','));
+    return this.http.get<Recipe[]>(this.apiUrl, { params });
   }
 
   getRecipe(id: number): Observable<Recipe> {

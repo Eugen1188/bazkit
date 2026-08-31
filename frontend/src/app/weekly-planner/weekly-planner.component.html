@@ -845,7 +845,7 @@
       <button
         class="shopping-button"
         type="button"
-        [disabled]="!totalMeals || isCreatingShoppingList"
+        [disabled]="!totalMeals || isCreatingShoppingList || isLoadingRecipeDetails"
         (click)="createShoppingList()"
       >
 
@@ -861,7 +861,13 @@
           <path d="M4 18h.01"></path>
         </svg>
 
-        {{ isCreatingShoppingList ? 'Einkauf wird erstellt…' : 'Zur Einkaufsliste hinzufügen' }}
+        {{
+          isCreatingShoppingList
+            ? 'Einkauf wird erstellt…'
+            : isLoadingRecipeDetails
+              ? 'Zutaten werden geladen…'
+              : 'Zur Einkaufsliste hinzufügen'
+        }}
 
       </button>
 

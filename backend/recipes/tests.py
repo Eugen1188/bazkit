@@ -93,6 +93,35 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(ingredient.name, "Omas Gewürzmischung")
         self.assertIsNone(recipe.calories)
 
+    def test_recipe_summary_endpoint_returns_card_data_without_nested_ingredients(self):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Schnelle Übersicht",
+            description="Leichtgewichtige Rezeptkarte",
+            servings=2,
+            preparation_time=15,
+            category="lunch",
+            instructions="1. Kochen",
+        )
+        Ingredients.objects.create(
+            recipe=recipe,
+            product=self.product,
+            name="Tomate",
+            quantity=Decimal("100"),
+            unit="g",
+        )
+        client = APIClient()
+        client.force_authenticate(self.user)
+
+        response = client.get("/recipes/", {"summary": "1"})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]["name"], "Schnelle Übersicht")
+        self.assertEqual(response.data[0]["ingredient_count"], 1)
+        self.assertNotIn("ingredients", response.data[0])
+        self.assertNotIn("instructions", response.data[0])
+
     @override_settings(OPENAI_API_KEY="test-key", OPENAI_RECIPE_MODEL="test-model")
     @patch("recipes.ai_service.OpenAI")
     def test_ai_recipe_uses_verified_product_and_returns_nutrition(self, openai_mock):

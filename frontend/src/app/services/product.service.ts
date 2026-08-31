@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { catchError, forkJoin, map, Observable, of } from 'rxjs';
+import {
+  catchError,
+  combineLatest,
+  distinctUntilChanged,
+  map,
+  Observable,
+  of,
+  startWith
+} from 'rxjs';
 
 export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
 export type IngredientSearchContext = 'recipe_create' | 'recipe_edit' | 'shopping_list' | 'saved_list';
@@ -79,25 +87,38 @@ export class ProductService {
           .pipe(catchError(() => of([] as ProductSuggestion[])))
       : of([] as ProductSuggestion[]);
 
-    return forkJoin([local$, external$]).pipe(map(([local, external]) => {
-      const seen = new Set<string>();
-      return [...local, ...external].filter(product => {
-        if (recipeOnly && product.nutrition_complete === false) return false;
-        const ingredientName = (product.canonical_name || product.name)
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .trim()
-          .toLocaleLowerCase('de-DE');
-        const key = recipeOnly
-          ? `ingredient:${ingredientName}`
-          : product.id !== null
-            ? `id:${product.id}`
-            : `${product.source}:${product.external_id}`;
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      }).slice(0, 20);
-    }));
+    return combineLatest([
+      local$,
+      external$.pipe(startWith([] as ProductSuggestion[]))
+    ]).pipe(
+      map(([local, external]) => {
+        const seen = new Set<string>();
+        return [...local, ...external].filter(product => {
+          if (recipeOnly && product.nutrition_complete === false) return false;
+          const ingredientName = (product.canonical_name || product.name)
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .trim()
+            .toLocaleLowerCase('de-DE');
+          const key = recipeOnly
+            ? `ingredient:${ingredientName}`
+            : product.id !== null
+              ? `id:${product.id}`
+              : `${product.source}:${product.external_id}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        }).slice(0, 20);
+      }),
+      distinctUntilChanged((left, right) => (
+        left.length === right.length
+        && left.every((product, index) => (
+          product.id === right[index]?.id
+          && product.source === right[index]?.source
+          && product.external_id === right[index]?.external_id
+        ))
+      ))
+    );
   }
 
   persistExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {

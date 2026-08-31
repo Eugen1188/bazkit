@@ -49,6 +49,35 @@
   </header>
 
 
+  <section class="ai-process-strip" aria-label="So erstellt bazkit dein Rezept">
+
+    <div>
+      <span class="process-number">1</span>
+      <p>
+        <strong>Wunsch beschreiben</strong>
+        <small>Idee, Vorräte und Ernährungsweise</small>
+      </p>
+    </div>
+
+    <div>
+      <span class="process-number">2</span>
+      <p>
+        <strong>Geprüfte Zutaten</strong>
+        <small>Passende Produkte und Kücheneinheiten</small>
+      </p>
+    </div>
+
+    <div>
+      <span class="process-number">3</span>
+      <p>
+        <strong>Nährwerte prüfen</strong>
+        <small>Berechnung pro Portion vor dem Speichern</small>
+      </p>
+    </div>
+
+  </section>
+
+
   <!-- ERROR -->
 
   <div
@@ -264,8 +293,8 @@
 
         {{
           isGenerating
-            ? 'Rezept wird erstellt...'
-            : 'Rezept generieren'
+            ? 'Zutaten und Nährwerte werden geprüft...'
+            : 'Rezept + Nährwerte generieren'
         }}
 
       </button>
@@ -355,6 +384,19 @@
 
         </div>
 
+
+        <div>
+
+          <span>
+            <app-ui-icon name="check"></app-ui-icon>
+          </span>
+
+          <strong>
+            5 Nährwerte pro Portion
+          </strong>
+
+        </div>
+
       </div>
 
     </section>
@@ -380,8 +422,8 @@
 
 
       <p>
-        Die KI stellt gerade Zutaten,
-        Mengen und Zubereitung für dich zusammen.
+        Die KI ordnet geprüfte Produkte zu, wählt passende Mengen
+        und berechnet danach die Nährwerte pro Portion.
       </p>
 
 

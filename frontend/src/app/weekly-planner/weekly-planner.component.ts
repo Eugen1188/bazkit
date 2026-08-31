@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, forkJoin } from 'rxjs';
 
-import { Recipe, RecipeIngredient, RecipeService } from '../services/recipe.service';
+import { RecipeIngredient, RecipeService, RecipeSummary } from '../services/recipe.service';
 import {
   PlannerMealType,
   WeeklyPlanEntry,
@@ -57,7 +57,7 @@ export class WeeklyPlannerComponent implements OnInit {
   ];
 
   days: PlannerDay[] = [];
-  recipes: Recipe[] = [];
+  recipes: RecipeSummary[] = [];
   selectedDayIndex = 0;
   weekStart = this.startOfWeek(new Date());
 
@@ -65,6 +65,7 @@ export class WeeklyPlannerComponent implements OnInit {
   isSaving = false;
   isGenerating = false;
   isCreatingShoppingList = false;
+  isLoadingRecipeDetails = false;
   aiPlannerDialogOpen = false;
   planBreakfast = true;
   planLunch = true;
@@ -141,11 +142,11 @@ export class WeeklyPlannerComponent implements OnInit {
     return this.mealTypes.find(item => item.key === this.dialogMealType)?.label ?? 'Mahlzeit';
   }
 
-  get selectedRecipe(): Recipe | null {
+  get selectedRecipe(): RecipeSummary | null {
     return this.recipes.find(recipe => recipe.id === this.selectedRecipeId) ?? null;
   }
 
-  get filteredRecipes(): Recipe[] {
+  get filteredRecipes(): RecipeSummary[] {
     const query = this.recipeSearch.trim().toLocaleLowerCase('de-DE');
     return this.recipes
       .filter(recipe => !query || `${recipe.name} ${recipe.description}`.toLocaleLowerCase('de-DE').includes(query))
@@ -217,7 +218,7 @@ export class WeeklyPlannerComponent implements OnInit {
       if (!plannedRecipeIds.has(recipe.id)) {
         continue;
       }
-      for (const ingredient of recipe.ingredients) {
+      for (const ingredient of recipe.ingredients ?? []) {
         const productId = this.pantryProductId(ingredient);
         if (
           productId !== null &&
@@ -265,7 +266,7 @@ export class WeeklyPlannerComponent implements OnInit {
     this.dialogEntry = null;
   }
 
-  chooseRecipe(recipe: Recipe): void {
+  chooseRecipe(recipe: RecipeSummary): void {
     this.selectedRecipeId = recipe.id;
     if (!this.dialogEntry) {
       this.selectedServings = Math.max(Number(recipe.servings) || 1, 1);
@@ -298,6 +299,7 @@ export class WeeklyPlannerComponent implements OnInit {
           const index = meals.findIndex(meal => meal.entryId === entry.id);
           if (index >= 0) meals[index] = updatedMeal;
           else meals.push(updatedMeal);
+          this.loadRecipeDetails([entry]);
           this.mealDialogOpen = false;
           this.showFeedback(`${this.dialogMealLabel} wurde gespeichert.`, 'success');
         },
@@ -414,6 +416,11 @@ export class WeeklyPlannerComponent implements OnInit {
       return;
     }
 
+    if (this.isLoadingRecipeDetails) {
+      this.showFeedback('Die Zutaten der geplanten Rezepte werden noch geladen.', 'error');
+      return;
+    }
+
     if (this.weeklyPantryIngredients.length) {
       this.includedPantryProductIds.clear();
       this.pantryDialogOpen = true;
@@ -490,7 +497,7 @@ export class WeeklyPlannerComponent implements OnInit {
     }[category] ?? 'Sonstiges';
   }
 
-  recipeNutrition(recipe: Recipe): string {
+  recipeNutrition(recipe: RecipeSummary): string {
     const calories = this.numberValue(recipe.calories);
     const protein = this.numberValue(recipe.protein);
     if (!this.hasCompleteNutrition(recipe)) {
@@ -499,7 +506,7 @@ export class WeeklyPlannerComponent implements OnInit {
     return `${Math.round(calories)} kcal · ${this.roundNumber(protein)} g Protein`;
   }
 
-  hasCompleteNutrition(recipe: Recipe): boolean {
+  hasCompleteNutrition(recipe: RecipeSummary): boolean {
     return [
       recipe.calories,
       recipe.protein,
@@ -513,7 +520,7 @@ export class WeeklyPlannerComponent implements OnInit {
     this.isLoading = true;
     this.clearFeedback();
     forkJoin({
-      recipes: this.recipeService.getRecipes(),
+      recipes: this.recipeService.getRecipeSummaries(),
       entries: this.plannerService.getEntries(this.weekStartKey, this.weekEndKey)
     })
       .pipe(finalize(() => { this.isLoading = false; }))
@@ -605,6 +612,32 @@ export class WeeklyPlannerComponent implements OnInit {
         day[entry.meal_type].push(this.entryToMeal(entry));
       }
     }
+    this.loadRecipeDetails(entries);
+  }
+
+  private loadRecipeDetails(entries: WeeklyPlanEntry[]): void {
+    const recipeIds = Array.from(new Set(entries.map(entry => entry.recipe)));
+    const missingIds = recipeIds.filter(recipeId => {
+      const recipe = this.recipes.find(item => item.id === recipeId);
+      return recipe !== undefined && recipe.ingredients === undefined;
+    });
+    if (!missingIds.length) {
+      return;
+    }
+
+    this.isLoadingRecipeDetails = true;
+    this.recipeService.getRecipesByIds(missingIds)
+      .pipe(finalize(() => { this.isLoadingRecipeDetails = false; }))
+      .subscribe({
+        next: details => {
+          const detailsById = new Map(details.map(recipe => [recipe.id, recipe]));
+          this.recipes = this.recipes.map(summary => {
+            const detail = detailsById.get(summary.id);
+            return detail ? { ...summary, ...detail } : summary;
+          });
+        },
+        error: error => console.error('Rezeptzutaten konnten nicht geladen werden:', error)
+      });
   }
 
   private entryToMeal(entry: WeeklyPlanEntry): Meal {

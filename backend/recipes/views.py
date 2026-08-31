@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework import generics
 from rest_framework import status
 
@@ -15,6 +16,7 @@ from .models import Recipe
 
 from .serializers import (
     RecipeSerializer,
+    RecipeSummarySerializer,
     GenerateRecipeSerializer
 )
 
@@ -39,22 +41,44 @@ class RecipeListCreateAPIView(
         IsAuthenticated
     ]
 
+    def summary_requested(self):
+        return (
+            self.request.method == "GET"
+            and self.request.query_params.get("summary") in {"1", "true", "yes"}
+        )
+
+    def get_serializer_class(self):
+        if self.summary_requested():
+            return RecipeSummarySerializer
+        return RecipeSerializer
 
     def get_queryset(self):
-
-        return (
+        queryset = (
             Recipe.objects
             .filter(
                 user=self.request.user,
                 is_community_snapshot=False,
             )
-            .prefetch_related(
-                "ingredients__product"
-            )
-            .order_by(
-                "-created_at"
-            )
         )
+
+        recipe_ids_param = self.request.query_params.get("ids")
+        recipe_ids = []
+        for value in (recipe_ids_param or "").split(","):
+            try:
+                recipe_id = int(value)
+            except (TypeError, ValueError):
+                continue
+            if recipe_id > 0:
+                recipe_ids.append(recipe_id)
+        if recipe_ids_param is not None:
+            queryset = queryset.filter(id__in=recipe_ids[:100])
+
+        if self.summary_requested():
+            queryset = queryset.annotate(ingredient_count=Count("ingredients"))
+        else:
+            queryset = queryset.prefetch_related("ingredients__product")
+
+        return queryset.order_by("-created_at")
 
 
 class RecipeDetailAPIView(
