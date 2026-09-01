@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {
   catchError,
-  combineLatest,
   distinctUntilChanged,
   map,
   Observable,
   of,
-  startWith
+  switchMap,
+  timer,
+  timeout
 } from 'rxjs';
 
 export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
@@ -80,35 +81,28 @@ export class ProductService {
     if (q.length < 2) return of([]);
     let params = new HttpParams().set('q', q);
     if (recipeOnly) params = params.set('recipe_only', '1');
-    const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params })
-      .pipe(catchError(() => of([] as ProductSuggestion[])));
-    const external$ = q.length >= 4
-      ? this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params })
-          .pipe(catchError(() => of([] as ProductSuggestion[])))
-      : of([] as ProductSuggestion[]);
+    const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params }).pipe(
+      timeout({ first: 3500 }),
+      map(products => ({ available: true, products })),
+      catchError(() => of({ available: false, products: [] as ProductSuggestion[] })),
+    );
 
-    return combineLatest([
-      local$,
-      external$.pipe(startWith([] as ProductSuggestion[]))
-    ]).pipe(
-      map(([local, external]) => {
-        const seen = new Set<string>();
-        return [...local, ...external].filter(product => {
-          if (recipeOnly && product.nutrition_complete === false) return false;
-          const ingredientName = (product.canonical_name || product.name)
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .trim()
-            .toLocaleLowerCase('de-DE');
-          const key = recipeOnly
-            ? `ingredient:${ingredientName}`
-            : product.id !== null
-              ? `id:${product.id}`
-              : `${product.source}:${product.external_id}`;
-          if (seen.has(key)) return false;
-          seen.add(key);
-          return true;
-        }).slice(0, 20);
+    return local$.pipe(
+      switchMap(local => {
+        const localProducts = this.mergeProductSuggestions(local.products, [], recipeOnly);
+        if (!local.available || localProducts.length > 0 || q.length < 4) {
+          return of(localProducts);
+        }
+
+        // Externe Quellen sind nur ein Fallback. Die kurze Ruhezeit verhindert,
+        // dass für Zwischenstände beim Tippen teure OFF-/USDA-Anfragen starten.
+        return timer(500).pipe(
+          switchMap(() => this.http.get<ProductSuggestion[]>(`${this.apiUrl}external-search/`, { params }).pipe(
+            timeout({ first: 4000 }),
+            catchError(() => of([] as ProductSuggestion[])),
+          )),
+          map(external => this.mergeProductSuggestions([], external, recipeOnly)),
+        );
       }),
       distinctUntilChanged((left, right) => (
         left.length === right.length
@@ -119,6 +113,30 @@ export class ProductService {
         ))
       ))
     );
+  }
+
+  private mergeProductSuggestions(
+    local: ProductSuggestion[],
+    external: ProductSuggestion[],
+    recipeOnly: boolean,
+  ): ProductSuggestion[] {
+    const seen = new Set<string>();
+    return [...local, ...external].filter(product => {
+      if (recipeOnly && product.nutrition_complete === false) return false;
+      const ingredientName = (product.canonical_name || product.name)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .toLocaleLowerCase('de-DE');
+      const key = recipeOnly
+        ? `ingredient:${ingredientName}`
+        : product.id !== null
+          ? `id:${product.id}`
+          : `${product.source}:${product.external_id}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, 20);
   }
 
   persistExternalProduct(product: ProductSuggestion): Observable<ProductSuggestion> {

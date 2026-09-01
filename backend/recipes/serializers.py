@@ -126,6 +126,7 @@ def apply_automatic_price(attrs):
 
 
 class IngredientsSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
     name = serializers.CharField(required=False, allow_blank=True)
     product = serializers.PrimaryKeyRelatedField(
         queryset=Product.objects.all(), allow_null=True, required=False
@@ -141,7 +142,7 @@ class IngredientsSerializer(serializers.ModelSerializer):
             "package_quantity", "package_unit",
         ]
         read_only_fields = [
-            "id", "estimated_price", "price_source", "price_currency",
+            "estimated_price", "price_source", "price_currency",
             "price_date", "price_store", "price_sample_count", "price_min",
             "price_max", "package_price", "package_quantity", "package_unit",
         ]
@@ -262,13 +263,48 @@ class RecipeSerializer(serializers.ModelSerializer):
         ingredients = attrs.get("ingredients")
         if ingredients is not None and not ingredients:
             raise serializers.ValidationError({"ingredients": "Mindestens eine Zutat ist erforderlich."})
+        if ingredients is not None:
+            preserved_legacy = {}
+            if self.instance is not None:
+                preserved_legacy = {
+                    ingredient.id: clean_product_name(ingredient.name).casefold()
+                    for ingredient in self.instance.ingredients.filter(product__isnull=True)
+                }
+            used_legacy_ids = set()
+            ingredient_errors = []
+            for ingredient in ingredients:
+                if ingredient.get("product") is not None:
+                    ingredient_errors.append({})
+                    continue
+                ingredient_id = ingredient.get("id")
+                normalized_name = clean_product_name(ingredient.get("name")).casefold()
+                is_unchanged_legacy = (
+                    ingredient_id in preserved_legacy
+                    and ingredient_id not in used_legacy_ids
+                    and preserved_legacy[ingredient_id] == normalized_name
+                )
+                if is_unchanged_legacy:
+                    used_legacy_ids.add(ingredient_id)
+                    ingredient_errors.append({})
+                    continue
+                ingredient_errors.append({
+                    "product": (
+                        "Bitte wähle diese Zutat aus den Produktvorschlägen aus. "
+                        "Nur so können die Nährwerte zuverlässig berechnet werden."
+                    )
+                })
+            if any(ingredient_errors):
+                raise serializers.ValidationError({"ingredients": ingredient_errors})
         return attrs
 
     @transaction.atomic
     def create(self, validated_data):
         ingredients = validated_data.pop("ingredients")
         recipe = Recipe.objects.create(user=self.context["request"].user, **validated_data)
-        created_ingredients = [Ingredients.objects.create(recipe=recipe, **item) for item in ingredients]
+        created_ingredients = []
+        for item in ingredients:
+            item.pop("id", None)
+            created_ingredients.append(Ingredients.objects.create(recipe=recipe, **item))
         calculate_recipe_nutrition(recipe, created_ingredients)
         calculate_recipe_price(recipe, created_ingredients)
         return recipe
@@ -281,7 +317,10 @@ class RecipeSerializer(serializers.ModelSerializer):
         instance.save()
         if ingredients is not None:
             instance.ingredients.all().delete()
-            created_ingredients = [Ingredients.objects.create(recipe=instance, **item) for item in ingredients]
+            created_ingredients = []
+            for item in ingredients:
+                item.pop("id", None)
+                created_ingredients.append(Ingredients.objects.create(recipe=instance, **item))
             calculate_recipe_nutrition(instance, created_ingredients)
             calculate_recipe_price(instance, created_ingredients)
         else:

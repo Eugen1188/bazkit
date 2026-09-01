@@ -181,6 +181,7 @@ implements OnInit, OnDestroy {
   private imagePositionStartY = 50;
   private savedImagePositionX = 50;
   private savedImagePositionY = 50;
+  private readonly preservedLegacyIngredientNames = new Map<number, string>();
 
 
   units = [
@@ -534,6 +535,15 @@ implements OnInit, OnDestroy {
           this.selectedProducts = this.ingredients.map(
             ingredient => ingredient.product_detail ?? null
           );
+          this.preservedLegacyIngredientNames.clear();
+          this.ingredients.forEach(ingredient => {
+            if (ingredient.id != null && ingredient.product == null) {
+              this.preservedLegacyIngredientNames.set(
+                ingredient.id,
+                this.normalizedIngredientName(ingredient.name),
+              );
+            }
+          });
           this.ingredients.forEach((ingredient, index) => {
             this.normalizeIngredientUnit(ingredient, this.selectedProducts[index]);
           });
@@ -821,15 +831,11 @@ implements OnInit, OnDestroy {
     }
 
 
-    const last =
-      this.ingredients[
-        this.ingredients.length - 1
-      ];
+    const lastIndex = this.ingredients.length - 1;
+    const last = this.ingredients[lastIndex];
 
 
-    return !!last
-      ?.name
-      .trim();
+    return !!last?.name.trim() && this.isVerifiedOrPreservedIngredient(last);
   }
 
 
@@ -1429,7 +1435,9 @@ implements OnInit, OnDestroy {
     if (step === 2) {
       const ingredients = this.ingredients.filter(item => item.name.trim());
       return ingredients.length > 0 && ingredients.every(item =>
-        item.quantity != null && Number(item.quantity) > 0
+        this.isVerifiedOrPreservedIngredient(item)
+        && item.quantity != null
+        && Number(item.quantity) > 0
       );
     }
     if (step === 3) return this.stepCount > 0;
@@ -1458,7 +1466,7 @@ implements OnInit, OnDestroy {
         this.errorMessage = 'Füge bitte mindestens eine Zutat hinzu.';
         return false;
       }
-      const unselected = ingredients.find(item => item.product == null);
+      const unselected = ingredients.find(item => !this.isVerifiedOrPreservedIngredient(item));
       if (unselected) {
         this.errorMessage = `Wähle „${unselected.name.trim()}“ bitte aus den Produktvorschlägen aus.`;
         return false;
@@ -1473,6 +1481,17 @@ implements OnInit, OnDestroy {
       return false;
     }
     return true;
+  }
+
+  private isVerifiedOrPreservedIngredient(ingredient: RecipeIngredient): boolean {
+    if (ingredient.product != null) return true;
+    if (ingredient.id == null) return false;
+    return this.preservedLegacyIngredientNames.get(ingredient.id)
+      === this.normalizedIngredientName(ingredient.name);
+  }
+
+  private normalizedIngredientName(value: string): string {
+    return value.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE');
   }
 
   private scrollWizardToTop(): void {

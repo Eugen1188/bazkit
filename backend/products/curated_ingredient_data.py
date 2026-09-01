@@ -43,6 +43,7 @@ CURATED_USDA_PRODUCTS = (
     product("171329", "Paprikapulver", "Gewürze", "282", "14.14", "53.99", "12.89", "34.9"),
     product("171323", "Fenchelsamen", "Gewürze", "345", "15.8", "52.29", "14.87", "39.8"),
     product("170929", "Senfkörner", "Gewürze", "508", "26.08", "28.09", "36.24", "12.2"),
+    product("172234", "Senf", "Würzmittel", "60", "3.74", "5.83", "3.34", "4.0", "TL"),
     product("171330", "Mohn", "Saaten", "525", "17.99", "28.13", "41.56", "19.5"),
     product("170554", "Chiasamen", "Saaten", "486", "16.54", "42.12", "30.74", "34.4"),
     product("170496", "Wakame", "Algen", "45", "3.03", "9.14", "0.64", "0.5"),

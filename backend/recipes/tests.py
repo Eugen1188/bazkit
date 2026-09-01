@@ -78,7 +78,7 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(recipe.estimated_price, Decimal("0.60"))
         self.assertEqual(recipe.calories, Decimal("20.00"))
 
-    def test_free_text_ingredient_is_kept_without_creating_product(self):
+    def test_new_recipe_rejects_unverified_free_text_ingredient(self):
         serializer = RecipeSerializer(data={
             "name": "Familienrezept", "servings": 2, "category": "dinner",
             "instructions": "1. Vermengen", "ingredients": [{
@@ -86,12 +86,76 @@ class RecipeSerializerTests(TestCase):
                 "quantity": "1", "unit": "Prise",
             }],
         }, context={"request": SimpleNamespace(user=self.user)})
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("Produktvorschlägen", str(serializer.errors["ingredients"]))
+
+    def test_unchanged_legacy_free_text_ingredient_survives_recipe_edit(self):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Altes Familienrezept",
+            servings=2,
+            category="dinner",
+            instructions="1. Vermengen",
+        )
+        legacy = Ingredients.objects.create(
+            recipe=recipe,
+            product=None,
+            name="Omas Gewürzmischung",
+            quantity=Decimal("1"),
+            unit="Prise",
+        )
+        serializer = RecipeSerializer(recipe, data={
+            "name": recipe.name,
+            "servings": 2,
+            "category": "dinner",
+            "instructions": recipe.instructions,
+            "ingredients": [{
+                "id": legacy.id,
+                "product": None,
+                "name": legacy.name,
+                "quantity": "2",
+                "unit": "Prise",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+
         self.assertTrue(serializer.is_valid(), serializer.errors)
-        recipe = serializer.save()
-        ingredient = recipe.ingredients.get()
+        updated = serializer.save()
+        ingredient = updated.ingredients.get()
         self.assertIsNone(ingredient.product)
         self.assertEqual(ingredient.name, "Omas Gewürzmischung")
-        self.assertIsNone(recipe.calories)
+        self.assertEqual(ingredient.quantity, Decimal("2"))
+
+    def test_changed_legacy_free_text_ingredient_requires_catalog_selection(self):
+        recipe = Recipe.objects.create(
+            user=self.user,
+            name="Altes Familienrezept",
+            servings=2,
+            category="dinner",
+            instructions="1. Vermengen",
+        )
+        legacy = Ingredients.objects.create(
+            recipe=recipe,
+            product=None,
+            name="Omas Gewürzmischung",
+            quantity=Decimal("1"),
+            unit="Prise",
+        )
+        serializer = RecipeSerializer(recipe, data={
+            "name": recipe.name,
+            "servings": 2,
+            "category": "dinner",
+            "instructions": recipe.instructions,
+            "ingredients": [{
+                "id": legacy.id,
+                "product": None,
+                "name": "Neue freie Zutat",
+                "quantity": "1",
+                "unit": "Prise",
+            }],
+        }, context={"request": SimpleNamespace(user=self.user)})
+
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("Produktvorschlägen", str(serializer.errors["ingredients"]))
 
     def test_recipe_summary_endpoint_returns_card_data_without_nested_ingredients(self):
         recipe = Recipe.objects.create(

@@ -637,6 +637,77 @@ class RecipeCatalogTests(TestCase):
         self.assertTrue(bamboo.has_complete_nutrition)
         self.assertEqual(bamboo.fiber_per_100g, Decimal("2.20"))
 
+        mustard = Product.objects.get(source="usda", external_id="172234")
+        self.assertEqual(mustard.canonical_name, "Senf")
+        self.assertTrue(mustard.has_complete_nutrition)
+        self.assertEqual(mustard.calories_per_100g, Decimal("60.00"))
+        self.assertEqual(definition_for_query("mittelscharfer Senf").canonical_name, "Senf")
+
+    def test_prepared_mustard_is_a_fast_local_recipe_search_result(self):
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Senf", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["name"], "Senf")
+        self.assertEqual(response.data[0]["external_id"], "172234")
+        self.assertEqual(response.data[0]["available_units"], ["g", "TL", "EL"])
+
+    def test_partial_magerquark_query_resolves_locally(self):
+        quark = Product.objects.create(
+            name="Speisequark mager",
+            canonical_name="Magerquark",
+            source="bls",
+            external_id="M713100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(quark)
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "magerq", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["name"], "Magerquark")
+        self.assertEqual(response.data[0]["external_id"], "M713100")
+
+    def test_generic_cabbage_query_returns_local_variants(self):
+        for name, external_id in (
+            ("Weißkohl", "G342100"),
+            ("Rotkohl", "G341100"),
+            ("Chinakohl", "G321100"),
+        ):
+            product = Product.objects.create(
+                name=name,
+                canonical_name=name,
+                source="bls",
+                external_id=external_id,
+                is_recipe_ingredient=True,
+                **COMPLETE_NUTRITION,
+            )
+            replace_product_aliases(product)
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Kohl", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            {item["name"] for item in response.data},
+            {"Weißkohl", "Rotkohl", "Chinakohl"},
+        )
+
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(
             "Lachs roh",

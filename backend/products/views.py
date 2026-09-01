@@ -47,6 +47,7 @@ OFF_PRODUCT_URL = "https://world.openfoodfacts.org/api/v2/product/{code}.json"
 OFF_HEADERS = {"User-Agent": "Bazkit/1.0 (product-search; contact: admin@bazkit.local)"}
 USDA_SEARCH_URL = "https://api.nal.usda.gov/fdc/v1/foods/search"
 USDA_PRODUCT_URL = "https://api.nal.usda.gov/fdc/v1/food/{fdc_id}"
+INTERACTIVE_HTTP_TIMEOUT = (1.5, 3)
 AMOUNT_SUFFIX = re.compile(
     r"(?:\s*[,\-–|/]?\s*|\s*\(\s*)"
     r"(?:\d+\s*[x×]\s*)?\d+(?:[.,]\d+)?\s*"
@@ -63,11 +64,11 @@ SEARCH_FEEDBACK_CONTEXTS = {
 def off_session():
     session = requests.Session()
     retries = Retry(
-        total=2,
-        connect=2,
-        read=2,
-        status=2,
-        backoff_factor=0.4,
+        total=1,
+        connect=1,
+        read=0,
+        status=1,
+        backoff_factor=0.2,
         status_forcelist=(429, 502, 503, 504),
         allowed_methods=("GET",),
     )
@@ -324,7 +325,7 @@ def search_usda_products(query):
             "pageSize": 12,
         },
         headers=OFF_HEADERS,
-        timeout=8,
+        timeout=INTERACTIVE_HTTP_TIMEOUT,
     )
     response.raise_for_status()
     results = []
@@ -428,7 +429,6 @@ class ProductSearchAPIView(APIView):
             search_filter = (
                 Q(name__icontains=query)
                 | Q(canonical_name__icontains=query)
-                | Q(aliases__normalized_alias__icontains=normalized_query)
             )
             products = products.filter(search_filter)
             product_limit = 100 if recipe_only else 40
@@ -436,6 +436,17 @@ class ProductSearchAPIView(APIView):
         products = list(
             products.prefetch_related("aliases").distinct()[:product_limit]
         )
+
+        # Namen wie "Kohl" treffen direkt mehrere Katalogprodukte. Die große
+        # Alias-Tabelle wird nur dann verbunden, wenn Name und kanonischer Name
+        # wirklich keinen Treffer liefern.
+        if not query_definition and not products:
+            products = list(
+                catalog_products
+                .filter(aliases__normalized_alias__icontains=normalized_query)
+                .prefetch_related("aliases")
+                .distinct()[:product_limit]
+            )
 
         if query_definition and not products:
             fallback_filter = Q()
@@ -638,7 +649,7 @@ class ExternalProductSearchAPIView(APIView):
             response = off_session().get(OFF_SEARCH_URL, params={
                 "search_terms": query, "search_simple": 1, "action": "process", "json": 1,
                 "page_size": 30, "fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments,quantity,product_quantity,product_quantity_unit",
-            }, headers=OFF_HEADERS, timeout=8)
+            }, headers=OFF_HEADERS, timeout=INTERACTIVE_HTTP_TIMEOUT)
             response.raise_for_status()
             items = response.json().get("products", [])
         except (requests.RequestException, ValueError) as error:
@@ -715,7 +726,7 @@ class SaveExternalProductAPIView(APIView):
             return Response(ProductSerializer(existing).data)
         try:
             if source == "open_food_facts":
-                response = requests.get(OFF_PRODUCT_URL.format(code=external_id), params={"fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments,quantity,product_quantity,product_quantity_unit"}, headers=OFF_HEADERS, timeout=8)
+                response = requests.get(OFF_PRODUCT_URL.format(code=external_id), params={"fields": "code,product_name_de,product_name,generic_name_de,generic_name,categories,brands,nutriments,quantity,product_quantity,product_quantity_unit"}, headers=OFF_HEADERS, timeout=INTERACTIVE_HTTP_TIMEOUT)
                 response.raise_for_status()
                 body = response.json()
                 product_data = off_payload(body.get("product") or {}) if body.get("status") == 1 else None
@@ -726,7 +737,7 @@ class SaveExternalProductAPIView(APIView):
                         USDA_PRODUCT_URL.format(fdc_id=external_id),
                         params={"api_key": settings.USDA_FDC_API_KEY},
                         headers=OFF_HEADERS,
-                        timeout=8,
+                        timeout=INTERACTIVE_HTTP_TIMEOUT,
                     )
                     response.raise_for_status()
                     product_data = usda_payload(response.json())

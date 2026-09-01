@@ -231,7 +231,11 @@ export class CreateRecipeComponent implements OnDestroy {
   }
 
   addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
-  canAddIngredient(): boolean { return !this.ingredients.length || !!this.ingredients.at(-1)?.name.trim(); }
+  canAddIngredient(): boolean {
+    if (!this.ingredients.length) return true;
+    const lastIndex = this.ingredients.length - 1;
+    return !!this.ingredients[lastIndex]?.name.trim() && this.ingredients[lastIndex]?.product != null;
+  }
   hasIngredientContent(index: number): boolean { return !!this.ingredients[index]?.name.trim(); }
   removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
   moveIngredientUp(index: number): void { if (index > 0) { [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]]; } }
@@ -327,7 +331,7 @@ export class CreateRecipeComponent implements OnDestroy {
     if (step === 2) {
       const ingredients = this.ingredients.filter(item => item.name.trim());
       return ingredients.length > 0 && ingredients.every(item =>
-        item.quantity != null && Number(item.quantity) > 0
+        item.product != null && item.quantity != null && Number(item.quantity) > 0
       );
     }
     if (step === 3) return this.stepCount > 0;

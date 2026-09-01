@@ -429,6 +429,7 @@ CURATED_KITCHEN_CONVERSIONS = {
     "Rosmarin getrocknet": (("TL", Decimal("1.2")), ("EL", Decimal("3.6")), ("Prise", Decimal("0.1"))),
     "Safran": (("Prise", Decimal("0.1")),),
     "Salz": (("TL", Decimal("5")), ("EL", Decimal("15")), ("Prise", Decimal("0.3"))),
+    "Senf": (("TL", Decimal("5")), ("EL", Decimal("15"))),
     "Schwarzer Pfeffer": (("TL", Decimal("2.3")), ("EL", Decimal("7")), ("Prise", Decimal("0.1"))),
     "Thymian getrocknet": (("TL", Decimal("1")), ("EL", Decimal("3")), ("Prise", Decimal("0.08"))),
     "Zimt": (("TL", Decimal("2.6")), ("EL", Decimal("7.8")), ("Prise", Decimal("0.2"))),
@@ -485,7 +486,7 @@ GRAM_ONLY_INGREDIENTS = {
     "Majoran", "Maisstärke", "Muskatnuss", "Natron", "Nori", "Oregano",
     "Paprikapulver", "Petersilie", "Rosmarin", "Rosmarin getrocknet",
     "Safran", "Salbei", "Salz", "Schnittlauch", "Schwarzer Pfeffer",
-    "Senfkörner", "Sternanis", "Thymian", "Thymian getrocknet",
+    "Senf", "Senfkörner", "Sternanis", "Thymian", "Thymian getrocknet",
     "Trockenhefe", "Vanilleextrakt", "Zimt",
 }
 

@@ -85,6 +85,7 @@ CORE_INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Roggenmehl Type 1150", ("roggenmehl", "roggen mehl", "roggenmehl 1150", "roggen mehl 1150"), "rye flour", ("C223300",)),
     IngredientDefinition("Zucker", ("zucker", "haushaltszucker", "kristallzucker", "raffinadezucker"), "sugars granulated", ("S111000",)),
     IngredientDefinition("Salz", ("salz", "speisesalz", "kochsalz", "tafelsalz", "jodsalz"), "salt table", ("R111000",)),
+    IngredientDefinition("Senf", ("senf", "tafelsenf", "mittelscharfer senf", "senf mittelscharf", "gelber senf", "yellow mustard"), "mustard prepared yellow", (), ("172234",)),
     IngredientDefinition("Olivenöl", ("olivenöl", "olivenoel", "natives olivenöl", "extra natives olivenöl"), "oil olive salad or cooking", ("Q120000",)),
     IngredientDefinition("Rapsöl", ("rapsöl", "rapsoel", "canolaöl", "canola oil"), "oil canola", ("Q180000",)),
     IngredientDefinition("Sonnenblumenöl", ("sonnenblumenöl", "sonnenblumenoel"), "oil sunflower linoleic", ("Q320000",)),
