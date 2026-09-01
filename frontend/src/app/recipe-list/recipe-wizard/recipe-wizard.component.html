@@ -256,8 +256,11 @@
                         </span>
                         <span class="suggestion-source">{{ product.origin === 'bls' ? 'BLS' : product.origin === 'usda' ? 'USDA' : product.origin === 'open_food_facts' ? 'OFF' : 'Bazkit' }}</span>
                       </button>
-                      <div class="autocomplete-empty" *ngIf="!isIngredientSearching && ingredientSuggestions.length === 0">
+                      <div class="autocomplete-empty" *ngIf="!isIngredientSearching && ingredientSuggestions.length === 0 && !isIngredientSearchUnavailable">
                         Keine passende Kochzutat mit vollständigen Nährwerten gefunden.
+                      </div>
+                      <div class="autocomplete-empty" *ngIf="!isIngredientSearching && ingredientSuggestions.length === 0 && isIngredientSearchUnavailable">
+                        Die Suche hat zu lange gedauert. Tippe bitte weiter oder versuche es erneut.
                       </div>
                     </div>
                   </div>

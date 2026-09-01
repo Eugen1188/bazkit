@@ -25,6 +25,7 @@ from .ingredient_catalog import (
     definition_for_query,
     display_name_for_query,
     normalize_alias,
+    related_definitions_for_query,
     replace_product_aliases,
 )
 from .models import IngredientPriceReference, IngredientSearchMetric, Product, ProductUnitConversion
@@ -683,7 +684,38 @@ class RecipeCatalogTests(TestCase):
         self.assertEqual(response.data[0]["name"], "Magerquark")
         self.assertEqual(response.data[0]["external_id"], "M713100")
 
+    def test_short_unique_prefix_resolves_without_catalog_scan(self):
+        aubergine = Product.objects.create(
+            name="Aubergine roh",
+            canonical_name="Aubergine",
+            source="bls",
+            external_id="G510100",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(aubergine)
+
+        self.assertEqual(definition_for_query("au").canonical_name, "Aubergine")
+        for query in ("au", "aub", "aube", "aubergine"):
+            request = APIRequestFactory().get(
+                "/products/search/",
+                {"q": query, "recipe_only": "1"},
+            )
+            force_authenticate(request, user=self.user)
+            response = ProductSearchAPIView.as_view()(request)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.data[0]["name"], "Aubergine")
+            self.assertEqual(response.data[0]["external_id"], "G510100")
+
     def test_generic_cabbage_query_returns_local_variants(self):
+        self.assertEqual(
+            {definition.canonical_name for definition in related_definitions_for_query("Kohl")},
+            {
+                "Blumenkohl", "Chinakohl", "Grünkohl", "Kohlrabi",
+                "Rosenkohl", "Rotkohl", "Steckrübe", "Weißkohl",
+            },
+        )
         for name, external_id in (
             ("Weißkohl", "G342100"),
             ("Rotkohl", "G341100"),

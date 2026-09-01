@@ -32,6 +32,7 @@ from .ingredient_catalog import (
     display_name_for_query,
     normalize_alias,
     preferred_product_keys,
+    related_definitions_for_query,
     replace_product_aliases,
     usda_display_name,
     usda_query,
@@ -398,6 +399,11 @@ class ProductSearchAPIView(APIView):
         if len(query) < 2:
             return Response([])
         query_definition = definition_for_query(query) if recipe_only else None
+        related_definitions = (
+            related_definitions_for_query(query)
+            if recipe_only and query_definition is None
+            else ()
+        )
         ranking_query = canonical_search_query(query) if recipe_only else query
         preferred_keys = preferred_product_keys(query) if recipe_only else ()
         products = Product.objects.filter(
@@ -424,12 +430,32 @@ class ProductSearchAPIView(APIView):
                 direct_filter |= Q(source=source, external_id=external_id)
             products = products.filter(direct_filter)
             product_limit = 80
+        elif related_definitions:
+            direct_filter = Q(
+                canonical_name__in=[
+                    definition.canonical_name
+                    for definition in related_definitions
+                ]
+            )
+            for definition in related_definitions:
+                for code in definition.preferred_bls_codes:
+                    direct_filter |= Q(source="bls", external_id=code)
+                for external_id in definition.preferred_usda_ids:
+                    direct_filter |= Q(source="usda", external_id=external_id)
+            products = products.filter(direct_filter)
+            product_limit = 100
         else:
             normalized_query = normalize_alias(ranking_query)
-            search_filter = (
-                Q(name__icontains=query)
-                | Q(canonical_name__icontains=query)
-            )
+            if len(normalized_query) < 4:
+                search_filter = (
+                    Q(name__istartswith=query)
+                    | Q(canonical_name__istartswith=query)
+                )
+            else:
+                search_filter = (
+                    Q(name__icontains=query)
+                    | Q(canonical_name__icontains=query)
+                )
             products = products.filter(search_filter)
             product_limit = 100 if recipe_only else 40
 
@@ -440,10 +466,15 @@ class ProductSearchAPIView(APIView):
         # Namen wie "Kohl" treffen direkt mehrere Katalogprodukte. Die große
         # Alias-Tabelle wird nur dann verbunden, wenn Name und kanonischer Name
         # wirklich keinen Treffer liefern.
-        if not query_definition and not products:
+        if not query_definition and not related_definitions and not products:
+            alias_lookup = (
+                {"aliases__normalized_alias__startswith": normalized_query}
+                if len(normalized_query) < 4
+                else {"aliases__normalized_alias__icontains": normalized_query}
+            )
             products = list(
                 catalog_products
-                .filter(aliases__normalized_alias__icontains=normalized_query)
+                .filter(**alias_lookup)
                 .prefetch_related("aliases")
                 .distinct()[:product_limit]
             )

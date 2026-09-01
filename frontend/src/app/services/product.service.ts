@@ -48,6 +48,11 @@ export interface ProductUnitConversion {
   confidence: 'verified' | 'reference';
 }
 
+export interface ProductSearchResult {
+  products: ProductSuggestion[];
+  unavailable: boolean;
+}
+
 export interface PriceSnapshot {
   estimated_price?: number | null;
   price_source?: string;
@@ -65,6 +70,7 @@ export interface PriceSnapshot {
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private readonly apiUrl = this.getApiUrl();
+  private readonly searchCache = new Map<string, ProductSuggestion[]>();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -77,8 +83,26 @@ export class ProductService {
   }
 
   searchProducts(query: string, recipeOnly = false): Observable<ProductSuggestion[]> {
+    return this.searchProductResults(query, recipeOnly).pipe(
+      map(result => result.products),
+      distinctUntilChanged((left, right) => (
+        left.length === right.length
+        && left.every((product, index) => (
+          product.id === right[index]?.id
+          && product.source === right[index]?.source
+          && product.external_id === right[index]?.external_id
+        ))
+      )),
+    );
+  }
+
+  searchProductResults(query: string, recipeOnly = false): Observable<ProductSearchResult> {
     const q = query.trim();
-    if (q.length < 2) return of([]);
+    if (q.length < 2) return of({ products: [], unavailable: false });
+    const cachedProducts = this.cachedSuggestions(q, recipeOnly);
+    if (cachedProducts.length > 0) {
+      return of({ products: cachedProducts, unavailable: false });
+    }
     let params = new HttpParams().set('q', q);
     if (recipeOnly) params = params.set('recipe_only', '1');
     const local$ = this.http.get<ProductSuggestion[]>(`${this.apiUrl}search/`, { params }).pipe(
@@ -90,8 +114,16 @@ export class ProductService {
     return local$.pipe(
       switchMap(local => {
         const localProducts = this.mergeProductSuggestions(local.products, [], recipeOnly);
-        if (!local.available || localProducts.length > 0 || q.length < 4) {
-          return of(localProducts);
+        if (!local.available) {
+          return of({ products: [], unavailable: true });
+        }
+        if (localProducts.length > 0) {
+          this.rememberSuggestions(q, recipeOnly, localProducts);
+          return of({ products: localProducts, unavailable: false });
+        }
+        const externalMinimumLength = recipeOnly ? 6 : 4;
+        if (q.length < externalMinimumLength) {
+          return of({ products: [], unavailable: false });
         }
 
         // Externe Quellen sind nur ein Fallback. Die kurze Ruhezeit verhindert,
@@ -101,18 +133,59 @@ export class ProductService {
             timeout({ first: 4000 }),
             catchError(() => of([] as ProductSuggestion[])),
           )),
-          map(external => this.mergeProductSuggestions([], external, recipeOnly)),
+          map(external => {
+            const products = this.mergeProductSuggestions([], external, recipeOnly);
+            if (products.length > 0) this.rememberSuggestions(q, recipeOnly, products);
+            return { products, unavailable: false };
+          }),
         );
       }),
-      distinctUntilChanged((left, right) => (
-        left.length === right.length
-        && left.every((product, index) => (
-          product.id === right[index]?.id
-          && product.source === right[index]?.source
-          && product.external_id === right[index]?.external_id
-        ))
-      ))
     );
+  }
+
+  private cachedSuggestions(query: string, recipeOnly: boolean): ProductSuggestion[] {
+    const normalizedQuery = this.normalizeSearchText(query);
+    const modePrefix = `${recipeOnly ? 'recipe' : 'all'}:`;
+    const exact = this.searchCache.get(`${modePrefix}${normalizedQuery}`);
+    if (exact?.length) return exact;
+
+    const matchingPrefixes = [...this.searchCache.entries()]
+      .filter(([key]) => key.startsWith(modePrefix))
+      .map(([key, products]) => ({
+        query: key.slice(modePrefix.length),
+        products,
+      }))
+      .filter(entry => normalizedQuery.startsWith(entry.query))
+      .sort((left, right) => right.query.length - left.query.length);
+    for (const entry of matchingPrefixes) {
+      const filtered = entry.products.filter(product => (
+        this.normalizeSearchText(product.name).includes(normalizedQuery)
+        || this.normalizeSearchText(product.canonical_name || '').includes(normalizedQuery)
+      ));
+      if (filtered.length > 0) return filtered;
+    }
+    return [];
+  }
+
+  private rememberSuggestions(
+    query: string,
+    recipeOnly: boolean,
+    products: ProductSuggestion[],
+  ): void {
+    const key = `${recipeOnly ? 'recipe' : 'all'}:${this.normalizeSearchText(query)}`;
+    this.searchCache.set(key, products);
+    if (this.searchCache.size > 100) {
+      const oldestKey = this.searchCache.keys().next().value;
+      if (oldestKey) this.searchCache.delete(oldestKey);
+    }
+  }
+
+  private normalizeSearchText(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .toLocaleLowerCase('de-DE');
   }
 
   private mergeProductSuggestions(

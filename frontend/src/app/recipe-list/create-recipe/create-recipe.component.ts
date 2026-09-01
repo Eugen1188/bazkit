@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, map, of, switchMap, tap } from 'rxjs';
+import { Subject, Subscription, debounceTime, map, of, switchMap, tap } from 'rxjs';
 import { ProductService, ProductSuggestion } from '../../services/product.service';
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
 
@@ -52,6 +52,7 @@ export class CreateRecipeComponent implements OnDestroy {
   ingredientSuggestions: ProductSuggestion[] = [];
   activeIngredientIndex: number | null = null;
   isIngredientSearching = false;
+  isIngredientSearchUnavailable = false;
   isIngredientSuggestionsOpen = false;
   selectingIngredientIndex: number | null = null;
 
@@ -76,25 +77,28 @@ export class CreateRecipeComponent implements OnDestroy {
     private readonly productService: ProductService,
   ) {
     this.searchSubscription = this.search$.pipe(
-      debounceTime(450),
-      distinctUntilChanged((a, b) => a.index === b.index && a.query === b.query),
+      debounceTime(250),
       switchMap(search => {
         this.activeIngredientIndex = search.index;
         this.isIngredientSearching = true;
-        return this.productService.searchProducts(search.query, true).pipe(
-          map(products => ({ search, products })),
+        this.isIngredientSearchUnavailable = false;
+        return this.productService.searchProductResults(search.query, true).pipe(
+          map(result => ({ search, ...result })),
         );
       }),
     ).subscribe({
-      next: ({ search, products }) => {
+      next: ({ search, products, unavailable }) => {
         this.ingredientSuggestions = products;
         this.isIngredientSearching = false;
+        this.isIngredientSearchUnavailable = unavailable;
         this.isIngredientSuggestionsOpen = this.activeIngredientIndex !== null;
-        this.productService.recordIngredientSearch(
-          search.query,
-          products.length,
-          'recipe_create',
-        ).subscribe();
+        if (!unavailable && products.length === 0 && search.query.trim().length >= 6) {
+          this.productService.recordIngredientSearch(
+            search.query,
+            products.length,
+            'recipe_create',
+          ).subscribe();
+        }
       },
       error: () => {
         this.ingredientSuggestions = [];
@@ -179,6 +183,7 @@ export class CreateRecipeComponent implements OnDestroy {
     ingredient.name = value;
     ingredient.product = null;
     this.selectedProducts[index] = null;
+    this.isIngredientSearchUnavailable = false;
     const query = value.trim();
     this.activeIngredientIndex = index;
     if (query.length < 2) { this.closeAutocomplete(); return; }
@@ -398,7 +403,7 @@ export class CreateRecipeComponent implements OnDestroy {
       : null;
   }
   private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück' }; }
-  private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; }
+  private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; this.isIngredientSearchUnavailable = false; }
   private validateWizardStep(step: number): boolean {
     this.errorMessage = '';
     if (step === 1) {

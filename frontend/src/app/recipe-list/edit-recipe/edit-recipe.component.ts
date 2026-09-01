@@ -21,7 +21,6 @@ import {
   Subject,
   Subscription,
   debounceTime,
-  distinctUntilChanged,
   map,
   of,
   switchMap
@@ -164,6 +163,9 @@ implements OnInit, OnDestroy {
   isIngredientSearching =
     false;
 
+  isIngredientSearchUnavailable =
+    false;
+
   isIngredientSuggestionsOpen =
     false;
 
@@ -259,18 +261,6 @@ implements OnInit, OnDestroy {
             250
           ),
 
-          distinctUntilChanged(
-            (
-              previous,
-              current
-            ) =>
-              previous.index ===
-                current.index
-              &&
-              previous.query ===
-                current.query
-          ),
-
           switchMap(
             search => {
 
@@ -280,13 +270,16 @@ implements OnInit, OnDestroy {
               this.isIngredientSearching =
                 true;
 
+              this.isIngredientSearchUnavailable =
+                false;
+
               return this.productService
-                .searchProducts(
+                .searchProductResults(
                   search.query,
                   true
                 )
                 .pipe(
-                  map(products => ({ search, products }))
+                  map(result => ({ search, ...result }))
                 );
             }
           )
@@ -304,17 +297,26 @@ implements OnInit, OnDestroy {
             this.isIngredientSearching =
               false;
 
+            this.isIngredientSearchUnavailable =
+              result.unavailable;
+
             this.isIngredientSuggestionsOpen =
               (
                 this.activeIngredientIndex !==
                 null
               );
 
-            this.productService.recordIngredientSearch(
-              result.search.query,
-              result.products.length,
-              'recipe_edit'
-            ).subscribe();
+            if (
+              !result.unavailable
+              && result.products.length === 0
+              && result.search.query.trim().length >= 6
+            ) {
+              this.productService.recordIngredientSearch(
+                result.search.query,
+                result.products.length,
+                'recipe_edit'
+              ).subscribe();
+            }
           },
 
 
@@ -650,6 +652,7 @@ implements OnInit, OnDestroy {
     ingredient.product = null;
     ingredient.product_detail = null;
     this.selectedProducts[index] = null;
+    this.isIngredientSearchUnavailable = false;
 
 
     const query =
@@ -791,6 +794,9 @@ implements OnInit, OnDestroy {
       null;
 
     this.isIngredientSearching =
+      false;
+
+    this.isIngredientSearchUnavailable =
       false;
 
     this.isIngredientSuggestionsOpen =

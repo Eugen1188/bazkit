@@ -188,7 +188,7 @@ def definition_for_query(value):
     exact = ALIAS_INDEX.get(normalized)
     if exact:
         return exact
-    if len(normalized) < 4:
+    if len(normalized) < 2:
         return None
     prefix_matches = {
         definition
@@ -197,7 +197,29 @@ def definition_for_query(value):
     }
     if len(prefix_matches) == 1:
         return next(iter(prefix_matches))
+    if len(normalized) < 4:
+        return None
     return _fuzzy_definition(normalized)
+
+
+def related_definitions_for_query(value):
+    """Resolve partial or generic cooking terms without scanning every product."""
+    normalized = normalize_alias(value)
+    if len(normalized) < 2:
+        return ()
+    matches = {
+        definition
+        for definition in INGREDIENT_DEFINITIONS
+        if any(
+            normalize_alias(term).startswith(normalized)
+            for term in (definition.canonical_name, *definition.aliases)
+        )
+        or (
+            len(normalized) >= 4
+            and normalized in normalize_alias(definition.canonical_name)
+        )
+    }
+    return tuple(sorted(matches, key=lambda item: item.canonical_name.casefold()))
 
 
 def definition_for_canonical(value):
