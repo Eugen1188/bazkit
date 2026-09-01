@@ -496,6 +496,10 @@ class RecipeCatalogTests(TestCase):
             ("pantry", True),
         )
         self.assertEqual(
+            infer_product_taxonomy("Senf", "Senf", "Würzmittel"),
+            ("pantry", True),
+        )
+        self.assertEqual(
             infer_product_taxonomy("Erbsen tiefgekühlt", "Erbse"),
             ("frozen", False),
         )
