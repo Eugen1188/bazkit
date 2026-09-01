@@ -150,6 +150,12 @@ CANONICAL_INDEX = {
     normalize_alias(definition.canonical_name): definition
     for definition in INGREDIENT_DEFINITIONS
 }
+
+CHOCOLATE_PERCENTAGE_RANGES = (
+    (45, 59, "Zartbitterschokolade 45–59 %"),
+    (60, 69, "Zartbitterschokolade 60–69 %"),
+    (70, 85, "Zartbitterschokolade 70–85 %"),
+)
 PREFERRED_BLS_INDEX = {}
 for definition in INGREDIENT_DEFINITIONS:
     for code in definition.preferred_bls_codes:
@@ -185,6 +191,19 @@ def _fuzzy_definition(normalized):
 
 def definition_for_query(value):
     normalized = normalize_alias(value)
+    if any(term in normalized for term in ("schokolade", "zartbitter", "bitterschokolade", "chocolate")):
+        percentages = [
+            int(match)
+            for match in re.findall(r"(?<!\d)(\d{2})(?!\d)", normalized)
+        ]
+        # Eine konkrete Prozentangabe wird auf die passende, offiziell
+        # belegte USDA-Klasse abgebildet. Werte außerhalb dieser Klassen
+        # werden bewusst nicht geschätzt.
+        if len(percentages) == 1:
+            percentage = percentages[0]
+            for lower, upper, canonical_name in CHOCOLATE_PERCENTAGE_RANGES:
+                if lower <= percentage <= upper:
+                    return CANONICAL_INDEX[normalize_alias(canonical_name)]
     exact = ALIAS_INDEX.get(normalized)
     if exact:
         return exact

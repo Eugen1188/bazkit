@@ -59,4 +59,9 @@ CURATED_USDA_PRODUCTS = (
     product("170174", "Kokoswasser", "Getränke", "19", "0.72", "3.71", "0.2", "1.1", "ml"),
     product("167771", "Apfelsaft", "Getränke", "46", "0.1", "11.3", "0.13", "0.2", "ml"),
     product("168558", "Gewürzgurke", "Konserve", "12", "0.5", "2.41", "0.3", "1"),
+    product("167587", "Vollmilchschokolade", "Schokolade", "535", "7.65", "59.4", "29.66", "3.4"),
+    product("167571", "Weiße Schokolade", "Schokolade", "539", "5.87", "59.24", "32.09", "0.2"),
+    product("170271", "Zartbitterschokolade 45–59 %", "Schokolade", "546", "4.88", "61.17", "31.28", "7"),
+    product("170272", "Zartbitterschokolade 60–69 %", "Schokolade", "579", "6.12", "52.42", "38.31", "8"),
+    product("170273", "Zartbitterschokolade 70–85 %", "Schokolade", "598", "7.79", "45.9", "42.63", "10.9"),
 )

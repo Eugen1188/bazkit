@@ -41,6 +41,11 @@ EXTENDED_INGREDIENT_DEFINITIONS = (
     ("Trockenhefe", ("trockenhefe", "trockenbackhefe", "backhefe getrocknet", "dry yeast"), "bakers yeast active dry", ("R458000",), ()),
     ("Frischhefe", ("frischhefe", "hefe frisch", "backhefe frisch", "hefewürfel", "hefewuerfel"), "bakers yeast compressed", ("R459000",), ()),
     ("Kakaopulver", ("kakaopulver", "backkakao", "kakao ungesüßt", "kakao ungesuesst", "cocoa powder"), "cocoa powder unsweetened", ("S713000",), ()),
+    ("Vollmilchschokolade", ("vollmilchschokolade", "milchschokolade", "milk chocolate"), "candies milk chocolate", (), ("167587",)),
+    ("Weiße Schokolade", ("weiße schokolade", "weisse schokolade", "white chocolate"), "candies white chocolate", (), ("167571",)),
+    ("Zartbitterschokolade 45–59 %", ("zartbitterschokolade 45 bis 59 prozent", "bitterschokolade 45 bis 59 prozent", "dunkle schokolade 45 bis 59 prozent", "dark chocolate 45 59 cacao"), "chocolate dark 45 59 percent cacao solids", (), ("170271",)),
+    ("Zartbitterschokolade 60–69 %", ("zartbitterschokolade 60 bis 69 prozent", "bitterschokolade 60 bis 69 prozent", "dunkle schokolade 60 bis 69 prozent", "dark chocolate 60 69 cacao"), "chocolate dark 60 69 percent cacao solids", (), ("170272",)),
+    ("Zartbitterschokolade 70–85 %", ("zartbitterschokolade 70 bis 85 prozent", "bitterschokolade 70 bis 85 prozent", "dunkle schokolade 70 bis 85 prozent", "dark chocolate 70 85 cacao"), "chocolate dark 70 85 percent cacao solids", (), ("170273",)),
     ("Ahornsirup", ("ahornsirup", "maple syrup"), "maple syrup", ("S151100",), ()),
 
     # Internationale Gemüse und Hülsenfrüchte

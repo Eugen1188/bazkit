@@ -75,6 +75,56 @@ class RecipeCatalogTests(TestCase):
                     f"{alias} ist mehreren Zutaten zugeordnet.",
                 )
 
+    def test_chocolate_percentages_resolve_to_verified_usda_ranges(self):
+        expected = {
+            "Zartbitterschokolade 50 %": "Zartbitterschokolade 45–59 %",
+            "Schokolade 65%": "Zartbitterschokolade 60–69 %",
+            "Zartbitter 72 Prozent": "Zartbitterschokolade 70–85 %",
+            "Bitterschokolade 85 %": "Zartbitterschokolade 70–85 %",
+        }
+        for query, canonical_name in expected.items():
+            definition = definition_for_query(query)
+            self.assertIsNotNone(definition)
+            self.assertEqual(definition.canonical_name, canonical_name)
+
+        self.assertIsNone(definition_for_query("Zartbitterschokolade 90 %"))
+
+    def test_generic_chocolate_search_returns_only_verified_variants(self):
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Schokolade", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        names = {item["name"] for item in response.data}
+        self.assertEqual(names, {
+            "Vollmilchschokolade",
+            "Weiße Schokolade",
+            "Zartbitterschokolade 45–59 %",
+            "Zartbitterschokolade 60–69 %",
+            "Zartbitterschokolade 70–85 %",
+        })
+        for item in response.data:
+            self.assertTrue(item["nutrition_complete"])
+            self.assertEqual(item["available_units"], ["g", "kg"])
+
+    def test_exact_chocolate_percentage_uses_matching_nutrition(self):
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Zartbitterschokolade 72 %", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]["name"], "Zartbitterschokolade 70–85 %")
+        self.assertEqual(response.data[0]["external_id"], "170273")
+        self.assertEqual(response.data[0]["calories_per_100g"], "598.00")
+        self.assertEqual(response.data[0]["fiber_per_100g"], "10.90")
+
     def test_piece_units_require_product_specific_sourced_conversion(self):
         product = Product.objects.create(name="Knoblauch", source="bls", external_id="garlic")
         self.assertIsNone(ingredient_quantity_grams("Knoblauch", 2, "Zehe", product=product))

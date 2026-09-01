@@ -62,7 +62,7 @@ SHELF_STABLE = re.compile(
     r"pfeffer|paprika.*pulver|senf|sternanis|star\s+anise|aniseeds?|spices?|öl|essig|sauce|soße|brühe|fond|bouillon|"
     r"müsli|hafer|couscous|bulgur|quinoa|hirse|buchweizen|amaranth|"
     r"nuss|mandel|cashew|pistaz|samen|saaten|kerne|algen|tahini|miso|sojasauce|"
-    r"backzutat|backpulver|natron|hefe|gelatine|kakao|sirup|honig|hülsenfr",
+    r"backzutat|backpulver|natron|hefe|gelatine|kakao|schokolade|zartbitter|bitterschokolade|sirup|honig|hülsenfr",
     re.I,
 )
 PRODUCE = re.compile(
