@@ -1217,7 +1217,16 @@ MODAL BACKDROP
 
   z-index: 3000;
 
-  padding: 24px;
+  padding:
+    max(
+      24px,
+      env(safe-area-inset-top)
+    )
+    24px
+    max(
+      24px,
+      env(safe-area-inset-bottom)
+    );
 
   box-sizing: border-box;
 
@@ -1226,6 +1235,10 @@ MODAL BACKDROP
   align-items: center;
 
   justify-content: center;
+
+  overflow: hidden;
+
+  overscroll-behavior: contain;
 
   background:
     rgba(
@@ -1251,16 +1264,17 @@ CREATE MODAL
       100%
     );
 
-  max-height:
-    calc(
-      100vh - 48px
-    );
+  max-height: 100%;
 
   padding: 27px;
 
   box-sizing: border-box;
 
-  overflow-y: auto;
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
 
   border:
     1px solid
@@ -1298,6 +1312,8 @@ MODAL HEADER
   justify-content: space-between;
 
   gap: 20px;
+
+  flex: 0 0 auto;
 }
 
 
@@ -1378,6 +1394,8 @@ CREATE TYPES
 ===================================== */
 
 .create-type-grid {
+  min-height: 0;
+
   display: grid;
 
   grid-template-columns:
@@ -1387,6 +1405,12 @@ CREATE TYPES
     );
 
   gap: 12px;
+
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -1495,9 +1519,22 @@ CREATE FORM
 ===================================== */
 
 .create-form {
+  min-height: 0;
+
   display: flex;
 
   flex-direction: column;
+
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.create-form > * {
+  flex-shrink: 0;
 }
 
 
@@ -1674,6 +1711,8 @@ PUBLISH
 
 .publish-button {
   height: 46px;
+
+  min-height: 46px;
 
   margin-top: 4px;
 
@@ -2059,7 +2098,48 @@ MOBILE
 
 
   .create-type-grid > button {
-    min-height: auto;
+    min-height: 96px;
+
+    padding: 15px;
+
+    display: grid;
+
+    grid-template-columns:
+      44px
+      minmax(0, 1fr);
+
+    grid-template-rows:
+      auto
+      auto;
+
+    column-gap: 13px;
+
+    row-gap: 4px;
+
+    align-items: center;
+  }
+
+
+  .create-type-icon {
+    grid-row:
+      1 / span 2;
+
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 0;
+  }
+
+
+  .create-type-grid strong {
+    align-self: end;
+
+    margin-bottom: 0;
+  }
+
+
+  .create-type-grid small {
+    align-self: start;
   }
 }
 
@@ -2123,7 +2203,16 @@ SMALL MOBILE
 
 
   .modal-backdrop {
-    padding: 10px;
+    padding:
+      max(
+        10px,
+        env(safe-area-inset-top)
+      )
+      10px
+      max(
+        10px,
+        env(safe-area-inset-bottom)
+      );
   }
 
 

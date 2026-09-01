@@ -657,18 +657,7 @@ input::placeholder {
   .modal {
     width: 100%;
 
-    max-height:
-      calc(
-        100dvh
-        - max(
-          24px,
-          env(safe-area-inset-top)
-        )
-        - max(
-          24px,
-          env(safe-area-inset-bottom)
-        )
-      );
+    max-height: 100%;
 
     border-radius: 18px;
   }
@@ -851,7 +840,7 @@ input::placeholder {
 
   .modal-backdrop {
     align-items:
-      flex-start;
+      center;
   }
 
 

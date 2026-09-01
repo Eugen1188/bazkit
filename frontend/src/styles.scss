@@ -47,3 +47,18 @@ app-root {
   height: 100%;
   overflow: hidden;
 }
+
+/*
+ * iOS beschneidet fixed Dialoge an der unteren Innenkante eines
+ * scrollbaren Containers. Während ein Dialog offen ist, wird der
+ * für die mobile Navigation reservierte Innenabstand deshalb entfernt.
+ * Diese Regel ist absichtlich global, damit sie auch Dialoge aus per
+ * Router geladenen Kindkomponenten zuverlässig erkennt.
+ */
+@media (max-width: 900px) {
+  .main-content:has(.modal-backdrop),
+  .main-content:has(.planner-dialog-backdrop),
+  .main-content:has(.edit-dialog-backdrop) {
+    padding-bottom: 0;
+  }
+}
