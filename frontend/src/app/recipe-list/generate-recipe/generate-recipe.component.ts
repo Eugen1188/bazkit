@@ -22,6 +22,10 @@ import {
 } from '../../services/recipe.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 
+import {
+  serializePreparationSteps
+} from '../preparation-steps';
+
 
 @Component({
   selector: 'app-generate-recipe',
@@ -240,15 +244,9 @@ export class GenerateRecipeComponent {
 
 
     const instructions =
-      this.generatedRecipe.steps
-        .map(
-          (
-            step: string,
-            index: number
-          ) =>
-            `${index + 1}. ${step}`
-        )
-        .join('\n');
+      serializePreparationSteps(
+        this.generatedRecipe.steps
+      );
 
 
     const payload:

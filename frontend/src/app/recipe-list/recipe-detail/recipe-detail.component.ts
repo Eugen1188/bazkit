@@ -17,6 +17,10 @@ import {
   RecipeService
 } from '../../services/recipe.service';
 
+import {
+  parsePreparationSteps
+} from '../preparation-steps';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -272,25 +276,8 @@ implements OnInit {
     }
 
 
-    return this.recipe
-      .instructions
-      .split('\n')
-      .map(
-        (
-          step: string
-        ) =>
-          step
-            .replace(
-              /^\d+\.\s*/,
-              ''
-            )
-            .trim()
-      )
-      .filter(
-        (
-          step: string
-        ) =>
-          step.length > 0
-      );
+    return parsePreparationSteps(
+      this.recipe.instructions
+    );
   }
 }

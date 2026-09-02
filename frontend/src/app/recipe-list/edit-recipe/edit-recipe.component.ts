@@ -39,6 +39,11 @@ import {
   ProductSuggestion
 } from '../../services/product.service';
 
+import {
+  parsePreparationSteps,
+  serializePreparationSteps
+} from '../preparation-steps';
+
 
 interface PreparationStep {
   text: string;
@@ -553,20 +558,11 @@ implements OnInit, OnDestroy {
 
 
           this.preparationSteps =
-            recipe.instructions
-              .split('\n')
+            parsePreparationSteps(
+              recipe.instructions
+            )
               .map(
-                step => ({
-                  text:
-                    step.replace(
-                      /^\d+\.\s*/,
-                      ''
-                    )
-                })
-              )
-              .filter(
-                step =>
-                  step.text.trim()
+                text => ({ text })
               );
 
 
@@ -1254,15 +1250,9 @@ implements OnInit, OnDestroy {
 
 
     const instructions =
-      validSteps
-        .map(
-          (
-            step,
-            index
-          ) =>
-            `${index + 1}. ${step}`
-        )
-        .join('\n');
+      serializePreparationSteps(
+        validSteps
+      );
 
 
     const payload:
