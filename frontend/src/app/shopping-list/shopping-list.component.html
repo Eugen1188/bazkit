@@ -345,7 +345,13 @@
 
     <div class="category-list" *ngIf="categoryGroups.length; else noFilteredItems">
 
-    <section class="shopping-card shopping-category-section" *ngFor="let group of categoryGroups">
+    <section
+      class="shopping-card shopping-category-section"
+      *ngFor="
+        let group of categoryGroups;
+        trackBy: trackCategoryGroup
+      "
+    >
 
       <div class="shopping-card-header">
 
@@ -370,7 +376,8 @@
       <div
         class="shopping-item"
         *ngFor="
-          let item of group.items
+          let item of group.items;
+          trackBy: trackShoppingItem
         "
         [class.completed]="
           item.is_checked

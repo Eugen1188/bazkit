@@ -41,6 +41,9 @@ export class MainComponent implements AfterViewInit, OnDestroy {
 
   hasOpenModal = false;
 
+  private readonly modalSelector =
+    '.modal-backdrop, .planner-dialog-backdrop, .edit-dialog-backdrop';
+
   private readonly prefetchTimer: number;
 
   private modalObserver?: MutationObserver;
@@ -64,7 +67,15 @@ export class MainComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.modalObserver = new MutationObserver(
-      () => this.updateModalState()
+      mutations => {
+        if (
+          this.mutationsAffectModalState(
+            mutations
+          )
+        ) {
+          this.updateModalState();
+        }
+      }
     );
 
     this.modalObserver.observe(
@@ -100,7 +111,7 @@ export class MainComponent implements AfterViewInit, OnDestroy {
 
   private updateModalState(): void {
     const nextState = this.hostElement.nativeElement.querySelector(
-      '.modal-backdrop, .planner-dialog-backdrop, .edit-dialog-backdrop'
+      this.modalSelector
     ) !== null;
 
     if (nextState === this.hasOpenModal) {
@@ -109,6 +120,36 @@ export class MainComponent implements AfterViewInit, OnDestroy {
 
     this.hasOpenModal = nextState;
     this.changeDetectorRef.detectChanges();
+  }
+
+
+  private mutationsAffectModalState(
+    mutations: MutationRecord[]
+  ): boolean {
+    return mutations.some(
+      mutation =>
+        [
+          ...Array.from(mutation.addedNodes),
+          ...Array.from(mutation.removedNodes)
+        ].some(
+          node =>
+            this.nodeContainsModal(node)
+        )
+    );
+  }
+
+
+  private nodeContainsModal(
+    node: Node
+  ): boolean {
+    if (!(node instanceof Element)) {
+      return false;
+    }
+
+    return (
+      node.matches(this.modalSelector) ||
+      node.querySelector(this.modalSelector) !== null
+    );
   }
 
 

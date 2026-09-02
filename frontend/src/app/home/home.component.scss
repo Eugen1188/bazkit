@@ -820,16 +820,22 @@
 .hero-basket {
   position: absolute;
 
-  z-index: 3;
+  z-index: 6;
 
-  right: -52px;
-  bottom: -105px;
+  right: -115px;
+  bottom: -150px;
 
-  width: 560px;
+  width: 780px;
 
-  max-height: 385px;
+  max-height: 530px;
 
   object-fit: contain;
+
+  mix-blend-mode: multiply;
+
+  filter:
+    contrast(1.08)
+    saturate(1.03);
 
   -webkit-mask-image:
     radial-gradient(
@@ -844,6 +850,112 @@
       #000 62%,
       transparent 100%
     );
+}
+
+
+.hero-leaf {
+  position: absolute;
+
+  z-index: 6;
+
+  width: 30px;
+  height: 15px;
+
+  border-radius:
+    100%
+    0
+    100%
+    0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a6d91d 0%,
+      #68b60e 52%,
+      #3f8d0a 100%
+    );
+
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.28),
+    0 3px 7px rgba(55, 110, 19, 0.12);
+
+  pointer-events: none;
+}
+
+
+.hero-leaf::after {
+  content: "";
+
+  position: absolute;
+
+  left: 5px;
+  right: 4px;
+  top: 7px;
+
+  height: 1px;
+
+  background:
+    rgba(50, 112, 16, 0.65);
+
+  transform:
+    rotate(-17deg);
+
+  transform-origin:
+    center;
+}
+
+
+.hero-leaf-one {
+  left: 20%;
+  bottom: 12px;
+
+  transform:
+    rotate(30deg);
+}
+
+
+.hero-leaf-two {
+  left: 27%;
+  bottom: -36px;
+
+  width: 35px;
+  height: 17px;
+
+  transform:
+    rotate(54deg);
+}
+
+
+.hero-leaf-three {
+  right: -6%;
+  bottom: 116px;
+
+  transform:
+    rotate(-42deg);
+}
+
+
+.hero-leaf-four {
+  right: 0;
+  bottom: 20px;
+
+  width: 34px;
+  height: 17px;
+
+  transform:
+    rotate(-26deg);
+}
+
+
+.hero-leaf-five {
+  right: -8%;
+  top: 48%;
+
+  width: 26px;
+  height: 13px;
+
+  transform:
+    rotate(-58deg);
 }
 
 
@@ -1812,9 +1924,11 @@
 
 
   .hero-basket {
-    width: 485px;
+    width: 620px;
 
-    right: -88px;
+    right: -125px;
+
+    bottom: -140px;
   }
 
 
@@ -2014,6 +2128,48 @@
     width: 355px;
 
     max-height: 235px;
+  }
+
+
+  .hero-leaf {
+    transform:
+      scale(0.72);
+  }
+
+
+  .hero-leaf-one {
+    left: 32%;
+    bottom: 4px;
+
+    transform:
+      rotate(30deg)
+      scale(0.72);
+  }
+
+
+  .hero-leaf-two,
+  .hero-leaf-five {
+    display: none;
+  }
+
+
+  .hero-leaf-three {
+    right: -3%;
+    bottom: 82px;
+
+    transform:
+      rotate(-42deg)
+      scale(0.72);
+  }
+
+
+  .hero-leaf-four {
+    right: 2%;
+    bottom: 5px;
+
+    transform:
+      rotate(-26deg)
+      scale(0.72);
   }
 
 

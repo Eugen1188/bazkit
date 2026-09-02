@@ -79,6 +79,13 @@ export class ShoppingListComponent
   items:
     ShoppingListItem[] = [];
 
+  completedCount = 0;
+
+  progress = 0;
+
+  categoryGroups:
+    ShoppingCategoryGroup[] = [];
+
 
   isLoading = true;
 
@@ -139,8 +146,9 @@ export class ShoppingListComponent
           shoppingList
         ) => {
 
-          this.items =
-            shoppingList.items ?? [];
+          this.replaceItems(
+            shoppingList.items ?? []
+          );
 
           this.isLoading =
             false;
@@ -245,8 +253,11 @@ export class ShoppingListComponent
     item: ShoppingListItem
   ): void {
 
-    this.items.push(
-      item
+    this.replaceItems(
+      [
+        ...this.items,
+        item
+      ]
     );
 
     this.closeAllModals();
@@ -274,8 +285,9 @@ export class ShoppingListComponent
           shoppingList
         ) => {
 
-          this.items =
-            shoppingList.items ?? [];
+          this.replaceItems(
+            shoppingList.items ?? []
+          );
 
           this.isSaving =
             false;
@@ -308,8 +320,9 @@ export class ShoppingListComponent
     shoppingList: ShoppingList
   ): void {
 
-    this.items =
-      shoppingList.items ?? [];
+    this.replaceItems(
+      shoppingList.items ?? []
+    );
 
     this.closeAllModals();
   }
@@ -436,8 +449,14 @@ export class ShoppingListComponent
             index !== -1
           ) {
 
-            this.items[index] =
-              updatedItem;
+            this.replaceItems(
+              this.items.map(
+                current =>
+                  current.id === updatedItem.id
+                    ? updatedItem
+                    : current
+              )
+            );
           }
         },
 
@@ -466,7 +485,12 @@ export class ShoppingListComponent
       .subscribe({
 
         next: () => {
-          this.items = this.items.filter(current => current.id !== item.id);
+          this.replaceItems(
+            this.items.filter(
+              current =>
+                current.id !== item.id
+            )
+          );
         },
 
 
@@ -516,7 +540,7 @@ export class ShoppingListComponent
 
         next: () => {
 
-          this.items = [];
+          this.replaceItems([]);
         },
 
 
@@ -534,41 +558,51 @@ export class ShoppingListComponent
   }
 
 
-  get completedCount():
-    number {
-
-    return this.items
-      .filter(
-        item =>
-          item.is_checked
-      )
-      .length;
-  }
-
-
-  get progress():
-    number {
-
-    if (
-      this.items.length === 0
-    ) {
-      return 0;
-    }
-
-
-    return Math.round(
-      (
-        this.completedCount /
-        this.items.length
-      ) * 100
-    );
-  }
-
   setFilter(filter: ShoppingFilter): void {
     this.activeFilter = filter;
+    this.refreshDerivedState();
   }
 
-  get categoryGroups(): ShoppingCategoryGroup[] {
+  trackCategoryGroup(
+    _index: number,
+    group: ShoppingCategoryGroup
+  ): string {
+    return group.key;
+  }
+
+
+  trackShoppingItem(
+    _index: number,
+    item: ShoppingListItem
+  ): number {
+    return item.id;
+  }
+
+
+  private replaceItems(
+    items: ShoppingListItem[]
+  ): void {
+    this.items = items;
+    this.refreshDerivedState();
+  }
+
+
+  private refreshDerivedState(): void {
+    this.completedCount = this.items.reduce(
+      (count, item) =>
+        count + Number(item.is_checked),
+      0
+    );
+
+    this.progress = this.items.length === 0
+      ? 0
+      : Math.round(
+        (
+          this.completedCount /
+          this.items.length
+        ) * 100
+      );
+
     const filteredItems = this.items.filter(item => {
       if (this.activeFilter === 'open') return !item.is_checked;
       if (this.activeFilter === 'completed') return item.is_checked;
@@ -586,7 +620,7 @@ export class ShoppingListComponent
       group.items.push(item);
       groups.set(key, group);
     }
-    return [...groups.values()]
+    this.categoryGroups = [...groups.values()]
       .sort((left, right) => left.order - right.order || left.label.localeCompare(right.label, 'de-DE'))
       .map(group => ({
         ...group,
