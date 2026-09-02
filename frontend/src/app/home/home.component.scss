@@ -56,6 +56,8 @@
 .hero {
   position: relative;
 
+  isolation: isolate;
+
   width: 100%;
 
   min-height: 535px;
@@ -456,8 +458,6 @@
 .hero-visual {
   position: relative;
 
-  z-index: 3;
-
   min-height: 425px;
 }
 
@@ -831,9 +831,10 @@
 
   object-fit: contain;
 
-  mix-blend-mode: multiply;
+  mix-blend-mode: darken;
 
   filter:
+    brightness(1.06)
     contrast(1.08)
     saturate(1.03);
 
