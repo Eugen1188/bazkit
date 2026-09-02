@@ -808,7 +808,7 @@
 
 
 /* =========================================
-   BASKET IMAGE
+   SHOPPING CART IMAGE
 ========================================= */
 
 .hero-basket {
@@ -816,24 +816,27 @@
 
   z-index: 3;
 
-  right: -15px;
-  bottom: -15px;
+  right: -52px;
+  bottom: -28px;
 
-  width: 390px;
+  width: 560px;
 
-  max-height: 300px;
+  max-height: 385px;
 
   object-fit: contain;
 
-  filter:
-    drop-shadow(
-      0 22px 24px
-      rgba(
-        31,
-        42,
-        55,
-        0.12
-      )
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 76% 76% at 52% 52%,
+      #000 62%,
+      transparent 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse 76% 76% at 52% 52%,
+      #000 62%,
+      transparent 100%
     );
 }
 
@@ -1817,7 +1820,9 @@
 
 
   .hero-basket {
-    width: 320px;
+    width: 475px;
+
+    right: -45px;
   }
 
 
@@ -2008,12 +2013,12 @@
 
 
   .hero-basket {
-    right: -12px;
-    bottom: -4px;
+    right: -30px;
+    bottom: -7px;
 
-    width: 245px;
+    width: 355px;
 
-    max-height: 205px;
+    max-height: 235px;
   }
 
 
@@ -2344,9 +2349,9 @@
 
 
   .hero-basket {
-    width: 218px;
+    width: 315px;
 
-    right: -11px;
+    right: -28px;
   }
 
 

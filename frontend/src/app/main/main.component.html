@@ -1,6 +1,11 @@
-<div class="main-layout">
+<div
+  class="main-layout"
+  [class.has-open-modal]="hasOpenModal"
+>
 
-  <app-sidebar>
+  <app-sidebar
+    [class.modal-open]="hasOpenModal"
+  >
   </app-sidebar>
 
 

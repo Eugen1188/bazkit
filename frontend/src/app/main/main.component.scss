@@ -170,6 +170,35 @@ app-sidebar {
     overflow-x: hidden;
     overflow-y: auto;
   }
+
+
+  .main-layout.has-open-modal .main-content {
+    padding-bottom: 0;
+  }
+
+
+  .main-layout.has-open-modal::after {
+    content: "";
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1100;
+
+    height:
+      calc(
+        112px +
+        env(safe-area-inset-bottom)
+      );
+
+    background:
+      var(--mobile-modal-scrim);
+
+    pointer-events: none;
+  }
 }
 
 

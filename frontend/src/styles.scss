@@ -26,6 +26,8 @@
 
   --color-shadow: rgba(0, 0, 0, 0.08);
 
+  --mobile-modal-scrim: #b1b5b8;
+
   --sidebar-width: 345px;
   --sidebar-radius: 14px;
   --sidebar-item-height: 62px;
@@ -48,17 +50,11 @@ app-root {
   overflow: hidden;
 }
 
-/*
- * iOS beschneidet fixed Dialoge an der unteren Innenkante eines
- * scrollbaren Containers. Während ein Dialog offen ist, wird der
- * für die mobile Navigation reservierte Innenabstand deshalb entfernt.
- * Diese Regel ist absichtlich global, damit sie auch Dialoge aus per
- * Router geladenen Kindkomponenten zuverlässig erkennt.
- */
 @media (max-width: 900px) {
-  .main-content:has(.modal-backdrop),
-  .main-content:has(.planner-dialog-backdrop),
-  .main-content:has(.edit-dialog-backdrop) {
-    padding-bottom: 0;
+  .main-layout.has-open-modal .modal-backdrop,
+  .main-layout.has-open-modal .planner-dialog-backdrop,
+  .main-layout.has-open-modal .edit-dialog-backdrop {
+    background:
+      var(--mobile-modal-scrim);
   }
 }

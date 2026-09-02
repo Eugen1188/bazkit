@@ -579,6 +579,11 @@ MOBILE
   }
 
 
+  :host(.modal-open) .mobile-bottom-nav {
+    z-index: 9000;
+  }
+
+
   .mobile-nav-item {
     position: relative;
 

@@ -1,5 +1,8 @@
 import {
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
+  ElementRef,
   OnDestroy
 } from '@angular/core';
 
@@ -34,9 +37,13 @@ import { WeeklyPlannerService } from '../services/weekly-planner.service';
   styleUrl:
     './main.component.scss'
 })
-export class MainComponent implements OnDestroy {
+export class MainComponent implements AfterViewInit, OnDestroy {
+
+  hasOpenModal = false;
 
   private readonly prefetchTimer: number;
+
+  private modalObserver?: MutationObserver;
 
 
   constructor(
@@ -44,7 +51,9 @@ export class MainComponent implements OnDestroy {
     private readonly recipeService: RecipeService,
     private readonly savedListService: SavedListService,
     private readonly weeklyPlannerService: WeeklyPlannerService,
-    private readonly communityService: CommunityService
+    private readonly communityService: CommunityService,
+    private readonly hostElement: ElementRef<HTMLElement>,
+    private readonly changeDetectorRef: ChangeDetectorRef
   ) {
     this.prefetchTimer = window.setTimeout(
       () => this.prefetchMainSections(),
@@ -53,8 +62,27 @@ export class MainComponent implements OnDestroy {
   }
 
 
+  ngAfterViewInit(): void {
+    this.modalObserver = new MutationObserver(
+      () => this.updateModalState()
+    );
+
+    this.modalObserver.observe(
+      this.hostElement.nativeElement,
+      {
+        childList: true,
+        subtree: true
+      }
+    );
+
+    this.updateModalState();
+  }
+
+
   ngOnDestroy(): void {
     window.clearTimeout(this.prefetchTimer);
+
+    this.modalObserver?.disconnect();
   }
 
 
@@ -67,6 +95,20 @@ export class MainComponent implements OnDestroy {
     const { start, end } = this.currentWeekRange();
     this.weeklyPlannerService.getEntries(start, end).subscribe(ignorePrefetchError);
     this.communityService.getPosts().subscribe(ignorePrefetchError);
+  }
+
+
+  private updateModalState(): void {
+    const nextState = this.hostElement.nativeElement.querySelector(
+      '.modal-backdrop, .planner-dialog-backdrop, .edit-dialog-backdrop'
+    ) !== null;
+
+    if (nextState === this.hasOpenModal) {
+      return;
+    }
+
+    this.hasOpenModal = nextState;
+    this.changeDetectorRef.detectChanges();
   }
 
 
