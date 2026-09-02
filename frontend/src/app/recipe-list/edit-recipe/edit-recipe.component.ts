@@ -820,6 +820,35 @@ implements OnInit, OnDestroy {
 
 
     this.closeIngredientAutocompleteImmediately();
+
+    this.focusIngredientInput(
+      this.ingredients.length - 1
+    );
+  }
+
+
+  private focusIngredientInput(
+    index: number
+  ): void {
+    window.requestAnimationFrame(() => {
+      const input = document.getElementById(
+        `ingredientName${index}`
+      );
+
+      if (!(input instanceof HTMLInputElement)) {
+        return;
+      }
+
+      input.focus({
+        preventScroll: true
+      });
+
+      input.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+      });
+    });
   }
 
 

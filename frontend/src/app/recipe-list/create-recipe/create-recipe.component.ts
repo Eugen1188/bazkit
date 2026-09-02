@@ -236,7 +236,33 @@ export class CreateRecipeComponent implements OnDestroy {
     });
   }
 
-  addIngredient(): void { if (this.canAddIngredient()) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }
+  addIngredient(): void {
+    if (!this.canAddIngredient()) return;
+
+    this.ingredients.push(this.emptyIngredient());
+    this.selectedProducts.push(null);
+    this.focusIngredientInput(
+      this.ingredients.length - 1
+    );
+  }
+
+  private focusIngredientInput(index: number): void {
+    window.requestAnimationFrame(() => {
+      const input = document.getElementById(
+        `ingredientName${index}`
+      );
+
+      if (!(input instanceof HTMLInputElement)) return;
+
+      input.focus({ preventScroll: true });
+      input.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+      });
+    });
+  }
+
   canAddIngredient(): boolean {
     if (!this.ingredients.length) return true;
     const lastIndex = this.ingredients.length - 1;
