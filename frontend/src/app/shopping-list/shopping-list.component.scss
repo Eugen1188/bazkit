@@ -360,8 +360,6 @@
   background:
     var(--color-primary-soft-bg);
 
-  transform:
-    translateY(-1px);
 }
 
 .list-menu-button.active {
@@ -941,11 +939,6 @@
     transform 0.15s ease;
 }
 
-.check-button:hover {
-  transform:
-    scale(1.05);
-}
-
 .check-button.checked {
   background:
     var(--color-primary);
@@ -1128,9 +1121,6 @@
 .delete-item:hover {
   background:
     #ffe7e7;
-
-  transform:
-    translateY(-1px);
 }
 
 .delete-item svg {

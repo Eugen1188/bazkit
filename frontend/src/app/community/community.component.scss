@@ -334,9 +334,6 @@ CATEGORY CARD
 
 
 .category-card:hover {
-  transform:
-    translateY(-3px);
-
   border-color:
     var(--color-primary-soft);
 
@@ -654,9 +651,6 @@ FEED CARD
 
 
 .feed-card:hover {
-  transform:
-    translateY(-1px);
-
   border-color:
     var(--color-primary-soft);
 
@@ -2290,8 +2284,7 @@ SMALL MOBILE
 }
 
 .create-type-grid > button:hover .create-type-icon {
-  transform: translateY(-2px);
-  box-shadow: 0 11px 22px rgba(74, 105, 87, 0.15);
+  box-shadow: 0 6px 14px rgba(74, 105, 87, 0.1);
 }
 
 .create-type-grid > button:focus-visible,

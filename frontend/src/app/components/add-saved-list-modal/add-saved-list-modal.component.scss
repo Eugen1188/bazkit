@@ -208,9 +208,6 @@
   border-color:
     var(--color-primary);
 
-  transform:
-    translateY(-1px);
-
   box-shadow:
     0 7px 20px
     rgba(0, 0, 0, 0.05);
@@ -349,13 +346,6 @@
 
   transition:
     transform 0.15s ease;
-}
-
-
-.saved-list-option:hover
-.arrow {
-  transform:
-    translateX(2px);
 }
 
 

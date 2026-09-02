@@ -198,8 +198,6 @@
   background:
     var(--color-primary-soft-bg);
 
-  transform:
-    translateY(-1px);
 }
 
 
@@ -722,9 +720,6 @@
 
 .product-action.edit:hover {
   background: #e5efe8;
-
-  transform:
-    translateY(-1px);
 }
 
 
@@ -740,9 +735,6 @@
 .product-action.delete:hover {
   background:
     #ffe5e5;
-
-  transform:
-    translateY(-1px);
 }
 
 

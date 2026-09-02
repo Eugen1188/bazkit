@@ -66,7 +66,7 @@
 
   box-sizing: border-box;
 
-  overflow: hidden;
+  overflow: visible;
 
   border:
     1px solid
@@ -90,6 +90,16 @@
   gap: 40px;
 
   background:
+    radial-gradient(
+      circle 235px at calc(100% + 70px) -65px,
+      rgba(255, 255, 255, 0.6) 0 99%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle 180px at 58% calc(100% + 70px),
+      rgba(255, 255, 255, 0.35) 0 99%,
+      transparent 100%
+    ),
     linear-gradient(
       135deg,
       #fbfcfb 0%,
@@ -102,7 +112,7 @@
 /* HERO BACKGROUND CIRCLES */
 
 .hero::before {
-  content: "";
+  display: none;
 
   position: absolute;
 
@@ -125,7 +135,7 @@
 
 
 .hero::after {
-  content: "";
+  display: none;
 
   position: absolute;
 
@@ -320,7 +330,7 @@
     var(--color-primary-hover);
 
   transform:
-    translateY(-2px);
+    translateY(-1px);
 
   box-shadow:
     0 14px 28px
@@ -378,8 +388,6 @@
 
   background: #fff;
 
-  transform:
-    translateY(-2px);
 }
 
 
@@ -438,8 +446,6 @@
 
   color: #fff;
 
-  transform:
-    translateX(2px);
 }
 
 
@@ -817,7 +823,7 @@
   z-index: 3;
 
   right: -52px;
-  bottom: -28px;
+  bottom: -105px;
 
   width: 560px;
 
@@ -954,9 +960,6 @@
       0.32
     );
 
-  transform:
-    translateY(-3px);
-
   box-shadow:
     0 15px 36px
     rgba(
@@ -976,8 +979,6 @@
 
   color: #fff;
 
-  transform:
-    translateX(2px);
 }
 
 
@@ -1242,9 +1243,6 @@
       0.28
     );
 
-  transform:
-    translateY(-4px);
-
   box-shadow:
     0 16px 40px
     rgba(
@@ -1276,12 +1274,6 @@
 
   transition:
     transform 0.35s ease;
-}
-
-
-.benefit-card:hover .benefit-image img {
-  transform:
-    scale(1.04);
 }
 
 
@@ -1746,7 +1738,7 @@
 
 .final-button:hover {
   transform:
-    translateY(-2px);
+    translateY(-1px);
 
   box-shadow:
     0 12px 26px
@@ -1820,14 +1812,17 @@
 
 
   .hero-basket {
-    width: 475px;
+    width: 485px;
 
-    right: -45px;
+    right: -88px;
   }
 
 
   .hero-list-card {
-    width: 235px;
+    top: 0;
+    left: -60px;
+
+    width: 218px;
   }
 
 
