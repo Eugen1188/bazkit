@@ -206,6 +206,16 @@ HERO
 }
 
 
+.hero.recipe.has-photo {
+  background:
+    linear-gradient(
+      135deg,
+      #edf3ef,
+      #f7f5ef
+    );
+}
+
+
 .hero.list {
   background:
     linear-gradient(
@@ -1526,10 +1536,19 @@ RESPONSIVE
 .hero-image-photo {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
+  padding: clamp(10px, 1.5vw, 18px);
+
+  box-sizing: border-box;
+
   display: block;
-  object-fit: cover;
+
+  border-radius: 11px;
+
+  object-fit: contain;
 }
 
 .author-actions {

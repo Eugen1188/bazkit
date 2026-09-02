@@ -348,7 +348,18 @@
     );
 }
 
-.hero-image.has-photo { background: #e8ede9; }
+.hero-image.has-photo {
+  padding: clamp(10px, 1.5vw, 18px);
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf3ef,
+      #f7f5ef
+    );
+}
 
 
 .hero-image > svg {
@@ -413,8 +424,12 @@
 .hero-image-main {
   width: 100%;
   height: 100%;
+
   display: block;
-  object-fit: cover;
+
+  border-radius: 11px;
+
+  object-fit: contain;
 }
 
 .meta-icon svg {

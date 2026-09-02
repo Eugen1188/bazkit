@@ -674,7 +674,11 @@ FEED CARD IMAGE
 .feed-card-image {
   width: 175px;
 
-  min-height: 138px;
+  height: 160px;
+
+  min-height: 160px;
+
+  align-self: center;
 
   overflow: hidden;
 
@@ -1810,6 +1814,10 @@ MEDIUM DESKTOP
 
   .feed-card-image {
     width: 150px;
+
+    height: 150px;
+
+    min-height: 150px;
   }
 }
 
@@ -1928,6 +1936,10 @@ TABLET
 
   .feed-card-image {
     width: 135px;
+
+    height: 145px;
+
+    min-height: 145px;
   }
 
 
