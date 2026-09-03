@@ -55,10 +55,6 @@
         [class.recipe]="
           post.post_type === 'recipe'
         "
-        [class.has-photo]="
-          post.post_type === 'recipe' &&
-          !!post.recipe?.image_url
-        "
         [class.list]="
           post.post_type === 'list'
         "
