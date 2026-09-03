@@ -68,6 +68,12 @@ class Recipe(models.Model):
         help_text="Vertikale Position des Bildausschnitts in Prozent",
     )
 
+    image_zoom = models.PositiveSmallIntegerField(
+        default=100,
+        validators=[MinValueValidator(100), MaxValueValidator(200)],
+        help_text="Zoom des Bildausschnitts in Prozent",
+    )
+
     # ==========================================
     # NÄHRWERTE PRO PORTION
     # ==========================================

@@ -90,6 +90,7 @@ class CommunityRecipeSerializer(
             "image_url",
             "image_position_x",
             "image_position_y",
+            "image_zoom",
             "calories",
             "protein",
             "carbohydrates",
@@ -167,6 +168,7 @@ class CommunityRecipeListSerializer(serializers.ModelSerializer):
             "image_url",
             "image_position_x",
             "image_position_y",
+            "image_zoom",
         ]
 
     def get_image_url(self, obj):

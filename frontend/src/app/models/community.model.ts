@@ -32,6 +32,8 @@ export interface CommunityRecipe {
 
   image_position_y?: number;
 
+  image_zoom?: number;
+
   name: string;
 
   description: string;

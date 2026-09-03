@@ -145,6 +145,7 @@ implements OnInit, OnDestroy {
   isPositioningImage = false;
   imagePositionX = 50;
   imagePositionY = 50;
+  imageZoom = 100;
   imageRemoved = false;
 
 
@@ -188,6 +189,7 @@ implements OnInit, OnDestroy {
   private imagePositionStartY = 50;
   private savedImagePositionX = 50;
   private savedImagePositionY = 50;
+  private savedImageZoom = 100;
   private readonly preservedLegacyIngredientNames = new Map<number, string>();
 
 
@@ -378,6 +380,10 @@ implements OnInit, OnDestroy {
     return `${this.imagePositionX}% ${this.imagePositionY}%`;
   }
 
+  get imageTransform(): string {
+    return `scale(${this.imageZoom / 100})`;
+  }
+
 
   onImageInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -444,6 +450,11 @@ implements OnInit, OnDestroy {
     this.imagePositionY = 50;
   }
 
+  resetImageAdjustment(): void {
+    this.centerImagePosition();
+    this.imageZoom = 100;
+  }
+
 
   removeRecipeImage(): void {
     if (this.selectedImageFile) {
@@ -451,10 +462,11 @@ implements OnInit, OnDestroy {
       this.revokeImagePreview();
       this.imagePositionX = this.savedImagePositionX;
       this.imagePositionY = this.savedImagePositionY;
+      this.imageZoom = this.savedImageZoom;
       return;
     }
     this.imageRemoved = true;
-    this.centerImagePosition();
+    this.resetImageAdjustment();
   }
 
 
@@ -493,8 +505,10 @@ implements OnInit, OnDestroy {
           this.imageUrl = recipe.image_url;
           this.imagePositionX = recipe.image_position_x ?? 50;
           this.imagePositionY = recipe.image_position_y ?? 50;
+          this.imageZoom = recipe.image_zoom ?? 100;
           this.savedImagePositionX = this.imagePositionX;
           this.savedImagePositionY = this.imagePositionY;
+          this.savedImageZoom = this.imageZoom;
           this.imageRemoved = false;
 
 
@@ -1313,6 +1327,9 @@ implements OnInit, OnDestroy {
       image_position_y:
         this.imagePositionY,
 
+      image_zoom:
+        this.imageZoom,
+
       calories:
         this.calories,
 
@@ -1535,7 +1552,7 @@ implements OnInit, OnDestroy {
     this.revokeImagePreview();
     this.selectedImageFile = file;
     this.imagePreviewUrl = URL.createObjectURL(file);
-    this.centerImagePosition();
+    this.resetImageAdjustment();
     this.imageRemoved = false;
     this.errorMessage = '';
   }

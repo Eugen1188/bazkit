@@ -190,7 +190,7 @@ class RecipeSummarySerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             "id", "name", "description", "servings", "preparation_time", "category",
-            "image_url", "image_position_x", "image_position_y",
+            "image_url", "image_position_x", "image_position_y", "image_zoom",
             "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "ingredient_count", "created_at", "updated_at",
         ]
@@ -214,7 +214,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = [
             "id", "name", "description", "servings", "preparation_time", "category",
-            "instructions", "notes", "image_url", "image_position_x", "image_position_y",
+            "instructions", "notes", "image_url", "image_position_x", "image_position_y", "image_zoom",
             "calories", "protein", "carbohydrates", "fat", "fiber",
             "estimated_price", "estimated_price_per_serving", "price_ingredient_count",
             "price_missing_ingredient_count", "price_coverage_percent", "price_is_complete",

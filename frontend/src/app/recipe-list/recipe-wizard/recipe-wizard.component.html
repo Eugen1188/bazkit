@@ -144,11 +144,12 @@
             (pointerup)="stopImagePositioning($event)"
             (pointercancel)="stopImagePositioning($event)"
           >
-            <input #recipeImageInput type="file" accept="image/jpeg,image/png,image/webp" (change)="onImageInputChange($event)" />
+            <input id="recipeImageInput" #recipeImageInput type="file" accept="image/jpeg,image/png,image/webp" (change)="onImageInputChange($event)" />
             <img
               *ngIf="displayImageUrl"
               [src]="displayImageUrl"
               [style.object-position]="imageObjectPosition"
+              [style.transform]="imageTransform"
               [alt]="recipeName ? 'Vorschau für ' + recipeName : 'Vorschau des Rezeptbildes'"
               draggable="false"
             />
@@ -157,23 +158,23 @@
               <strong>Bild auswählen</strong>
               <small>oder hier ablegen</small>
             </span>
-            <button
-              type="button"
+            <label
+              for="recipeImageInput"
               class="image-change-hint"
               *ngIf="displayImageUrl"
               (pointerdown)="$event.stopPropagation()"
-              (click)="$event.stopPropagation(); recipeImageInput.click()"
-            >Bild ändern</button>
-            <span class="image-drag-hint" *ngIf="displayImageUrl && !isPositioningImage">Zum Verschieben ziehen</span>
+              (click)="$event.stopPropagation()"
+            >Bild ändern</label>
+            <span class="image-drag-hint" *ngIf="displayImageUrl && !isPositioningImage">Ziehen zum Verschieben</span>
           </div>
 
           <div class="image-position-editor" *ngIf="displayImageUrl">
             <div class="image-position-heading">
               <div>
                 <strong>Bildausschnitt</strong>
-                <small>Ziehe das Bild oder passe die Regler an.</small>
+                <small>Verschiebe das Bild und passe den Zoom an.</small>
               </div>
-              <button type="button" (click)="centerImagePosition()">Zentrieren</button>
+              <button type="button" (click)="resetImageAdjustment()">Zurücksetzen</button>
             </div>
             <label>
               <span>Horizontal</span>
@@ -182,6 +183,11 @@
             <label>
               <span>Vertikal</span>
               <input type="range" min="0" max="100" step="1" [(ngModel)]="imagePositionY" aria-label="Vertikaler Bildausschnitt" />
+            </label>
+            <label class="image-zoom-control">
+              <span>Zoom</span>
+              <input type="range" min="100" max="200" step="1" [(ngModel)]="imageZoom" aria-label="Bildzoom" />
+              <output>{{ imageZoom }}%</output>
             </label>
           </div>
 
@@ -360,7 +366,7 @@
         <div class="review-grid">
           <article class="review-card review-main-card">
             <div class="review-hero">
-              <img *ngIf="displayImageUrl" [src]="displayImageUrl" [style.object-position]="imageObjectPosition" [alt]="recipeName" />
+              <img *ngIf="displayImageUrl" [src]="displayImageUrl" [style.object-position]="imageObjectPosition" [style.transform]="imageTransform" [alt]="recipeName" />
               <svg *ngIf="!displayImageUrl" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34"></circle><circle cx="60" cy="60" r="22"></circle><path d="M24 30v26M31 30v26M24 44h7M27.5 56v35M92 30v61M92 30c12 10 13 26 2 36h-2"></path></svg>
             </div>
             <div class="review-content">

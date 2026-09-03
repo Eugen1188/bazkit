@@ -76,6 +76,8 @@
           class="hero-image-photo hero-image-photo--foreground"
           *ngIf="post.post_type === 'recipe' && post.recipe?.image_url"
           [src]="post.recipe?.image_url"
+          [style.object-position]="(post.recipe?.image_position_x ?? 50) + '% ' + (post.recipe?.image_position_y ?? 50) + '%'"
+          [style.transform]="'scale(' + ((post.recipe?.image_zoom ?? 100) / 100) + ')'"
           [alt]="post.recipe?.name || post.display_title"
         />
 

@@ -219,11 +219,11 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(result["ingredients"][0]["name"], "Tomate")
         self.assertEqual(result["nutrition"]["calories"], 20.0)
 
-    def test_image_position_is_saved_and_defaults_to_center(self):
+    def test_image_crop_is_saved_and_defaults_to_center(self):
         serializer = RecipeSerializer(data={
             "name": "Bildausschnitt", "servings": 2, "category": "dinner",
             "instructions": "1. Kochen", "image_position_x": 24,
-            "image_position_y": 78, "ingredients": [{
+            "image_position_y": 78, "image_zoom": 145, "ingredients": [{
                 "product": self.product.id, "name": "Tomate",
                 "quantity": "100", "unit": "g",
             }],
@@ -232,6 +232,7 @@ class RecipeSerializerTests(TestCase):
         recipe = serializer.save()
         self.assertEqual(recipe.image_position_x, 24)
         self.assertEqual(recipe.image_position_y, 78)
+        self.assertEqual(recipe.image_zoom, 145)
 
         centered = Recipe.objects.create(
             user=self.user, name="Mittig", servings=1,
@@ -239,12 +240,13 @@ class RecipeSerializerTests(TestCase):
         )
         self.assertEqual(centered.image_position_x, 50)
         self.assertEqual(centered.image_position_y, 50)
+        self.assertEqual(centered.image_zoom, 100)
 
-    def test_image_position_rejects_values_outside_frame(self):
+    def test_image_crop_rejects_values_outside_frame(self):
         serializer = RecipeSerializer(data={
             "name": "Ungültiger Ausschnitt", "servings": 2, "category": "dinner",
             "instructions": "1. Kochen", "image_position_x": 101,
-            "image_position_y": -1, "ingredients": [{
+            "image_position_y": -1, "image_zoom": 201, "ingredients": [{
                 "product": self.product.id, "name": "Tomate",
                 "quantity": "100", "unit": "g",
             }],
@@ -252,6 +254,7 @@ class RecipeSerializerTests(TestCase):
         self.assertFalse(serializer.is_valid())
         self.assertIn("image_position_x", serializer.errors)
         self.assertIn("image_position_y", serializer.errors)
+        self.assertIn("image_zoom", serializer.errors)
 
     def test_canned_tomato_nutrition_uses_full_can_weight(self):
         tomatoes = Product.objects.create(

@@ -19,6 +19,7 @@ export interface Recipe {
   image_url: string | null;
   image_position_x?: number;
   image_position_y?: number;
+  image_zoom?: number;
   name: string;
   description: string;
   servings: number;
@@ -48,6 +49,7 @@ export interface RecipeSummary {
   image_url: string | null;
   image_position_x?: number;
   image_position_y?: number;
+  image_zoom?: number;
   name: string;
   description: string;
   servings: number;
@@ -105,6 +107,7 @@ export interface RecipePayload {
   notes: string;
   image_position_x: number;
   image_position_y: number;
+  image_zoom: number;
   calories?: number | null;
   protein?: number | null;
   carbohydrates?: number | null;

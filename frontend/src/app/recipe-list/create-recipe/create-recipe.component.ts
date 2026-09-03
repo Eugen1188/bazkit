@@ -47,6 +47,7 @@ export class CreateRecipeComponent implements OnDestroy {
   isPositioningImage = false;
   imagePositionX = 50;
   imagePositionY = 50;
+  imageZoom = 100;
   ingredients: RecipeIngredient[] = [this.emptyIngredient()];
   selectedProducts: Array<ProductSuggestion | null> = [null];
   preparationSteps: PreparationStep[] = [{ text: '' }];
@@ -116,6 +117,7 @@ export class CreateRecipeComponent implements OnDestroy {
 
   get displayImageUrl(): string | null { return this.imagePreviewUrl || this.imageUrl; }
   get imageObjectPosition(): string { return `${this.imagePositionX}% ${this.imagePositionY}%`; }
+  get imageTransform(): string { return `scale(${this.imageZoom / 100})`; }
 
   onImageInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -171,11 +173,16 @@ export class CreateRecipeComponent implements OnDestroy {
     this.imagePositionY = 50;
   }
 
+  resetImageAdjustment(): void {
+    this.centerImagePosition();
+    this.imageZoom = 100;
+  }
+
   removeRecipeImage(): void {
     this.selectedImageFile = null;
     this.revokeImagePreview();
     this.imageUrl = null;
-    this.centerImagePosition();
+    this.resetImageAdjustment();
   }
 
   onIngredientNameChange(index: number, value: string): void {
@@ -300,6 +307,7 @@ export class CreateRecipeComponent implements OnDestroy {
       preparation_time: this.preparationTime, category: this.category,
       instructions: serializePreparationSteps(steps), notes: this.notes.trim(),
       image_position_x: this.imagePositionX, image_position_y: this.imagePositionY,
+      image_zoom: this.imageZoom,
       ingredients: ingredients.map(item => ({
         product: item.product,
         name: item.name.trim(),
@@ -464,7 +472,7 @@ export class CreateRecipeComponent implements OnDestroy {
     this.revokeImagePreview();
     this.selectedImageFile = file;
     this.imagePreviewUrl = URL.createObjectURL(file);
-    this.centerImagePosition();
+    this.resetImageAdjustment();
     this.errorMessage = '';
   }
   private revokeImagePreview(): void {

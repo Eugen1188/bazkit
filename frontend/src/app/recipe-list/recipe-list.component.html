@@ -381,6 +381,7 @@
             class="recipe-cover-image"
             [src]="recipe.image_url"
             [style.object-position]="(recipe.image_position_x ?? 50) + '% ' + (recipe.image_position_y ?? 50) + '%'"
+            [style.transform]="'scale(' + ((recipe.image_zoom ?? 100) / 100) + ')'"
             [alt]="recipe.name"
           />
 

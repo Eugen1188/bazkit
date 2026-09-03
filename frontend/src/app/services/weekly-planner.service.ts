@@ -14,6 +14,7 @@ export interface PlannerRecipeSummary {
   image_url: string | null;
   image_position_x?: number;
   image_position_y?: number;
+  image_zoom?: number;
   category: string;
   servings: number;
   calories: RecipeNumberValue;

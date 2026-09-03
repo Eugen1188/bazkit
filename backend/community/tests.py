@@ -42,6 +42,7 @@ class CommunitySnapshotTests(APITestCase):
             instructions="Kochen",
             image_position_x=22,
             image_position_y=74,
+            image_zoom=138,
             calories=Decimal("420"),
             protein=Decimal("12"),
         )
@@ -75,8 +76,10 @@ class CommunitySnapshotTests(APITestCase):
         self.assertEqual(post.recipe.calories, Decimal("420"))
         self.assertEqual(post.recipe.image_position_x, 22)
         self.assertEqual(post.recipe.image_position_y, 74)
+        self.assertEqual(post.recipe.image_zoom, 138)
         self.assertEqual(response.data["recipe"]["image_position_x"], 22)
         self.assertEqual(response.data["recipe"]["image_position_y"], 74)
+        self.assertEqual(response.data["recipe"]["image_zoom"], 138)
 
         self.recipe.name = "Geändertes Original"
         self.recipe.save(update_fields=["name"])

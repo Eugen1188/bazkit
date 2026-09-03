@@ -278,6 +278,9 @@ export class GenerateRecipeComponent {
       image_position_y:
         50,
 
+      image_zoom:
+        100,
+
       ingredients:
         this.generatedRecipe.ingredients
     };

@@ -61,6 +61,7 @@ class PlannerRecipeSerializer(serializers.ModelSerializer):
             "image_url",
             "image_position_x",
             "image_position_y",
+            "image_zoom",
             "category",
             "servings",
             "calories",
