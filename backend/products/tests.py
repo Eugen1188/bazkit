@@ -794,6 +794,69 @@ class RecipeCatalogTests(TestCase):
             {"Weißkohl", "Rotkohl", "Chinakohl"},
         )
 
+    def test_pork_search_resolves_common_local_ingredients(self):
+        pork_names = {
+            definition.canonical_name
+            for definition in related_definitions_for_query("schwein")
+        }
+        self.assertTrue({
+            "Schweinehackfleisch",
+            "Bacon",
+            "Schweinefilet",
+            "Schweineschnitzel",
+            "Schweinekotelett",
+            "Schweinebauch",
+            "Kochschinken",
+        }.issubset(pork_names))
+        self.assertEqual(
+            definition_for_query("Bacon").canonical_name,
+            "Bacon",
+        )
+        self.assertEqual(
+            definition_for_query("Schwein Hackfleisch").canonical_name,
+            "Schweinehackfleisch",
+        )
+
+        for name, external_id in (
+            ("Schwein Hackfleisch, roh", "U020100"),
+            ("Schwein Frühstücksspeck, Rohpökelware, geräuchert", "W415000"),
+        ):
+            product = Product.objects.create(
+                name=name,
+                canonical_name=canonical_recipe_name(name, "bls", external_id),
+                source="bls",
+                external_id=external_id,
+                is_recipe_ingredient=True,
+                **COMPLETE_NUTRITION,
+            )
+            replace_product_aliases(product)
+
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "schwein", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue({"Schweinehackfleisch", "Bacon"}.issubset({
+            item["name"] for item in response.data
+        }))
+
+    def test_new_common_ingredient_aliases_use_verified_bls_sources(self):
+        expected = {
+            "Hähnchenkeule": ("Hähnchenschenkel", "V4A5100"),
+            "Garnelen": ("Garnele", "T753100"),
+            "Hüttenkäse": ("Hüttenkäse", "M711100"),
+            "Semmelbrösel": ("Paniermehl", "B821000"),
+            "Kokosmilch": ("Kokosmilch", "H154000"),
+        }
+        for query, (canonical_name, bls_code) in expected.items():
+            definition = definition_for_query(query)
+            self.assertIsNotNone(definition)
+            self.assertEqual(definition.canonical_name, canonical_name)
+            self.assertIn(bls_code, definition.preferred_bls_codes)
+
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(
             "Lachs roh",

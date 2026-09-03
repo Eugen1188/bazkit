@@ -24,7 +24,11 @@ PAGE
   overflow-y: auto;
 
   background:
-    var(--color-surface);
+    linear-gradient(
+      180deg,
+      #fbfdfc 0%,
+      var(--color-page-bg) 100%
+    );
 
   color:
     var(--color-text-primary);
@@ -2097,6 +2101,65 @@ MOBILE
   }
 
 
+  .create-modal {
+    padding: 0;
+
+    border-radius: 18px;
+  }
+
+
+  .modal-header {
+    margin: 0;
+
+    padding:
+      18px
+      18px
+      15px;
+
+    align-items: center;
+
+    border-bottom:
+      1px solid
+      var(--color-divider);
+
+    background:
+      var(--color-surface);
+  }
+
+
+  .modal-header h2 {
+    font-size: 22px;
+
+    line-height: 1.2;
+  }
+
+
+  .modal-header p {
+    font-size: 12px;
+
+    line-height: 1.4;
+  }
+
+
+  .modal-close {
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+  }
+
+
+  .create-type-grid,
+  .create-form {
+    padding:
+      16px
+      18px
+      18px;
+
+    scrollbar-gutter: stable;
+  }
+
+
   .create-type-grid {
     grid-template-columns:
       1fr;
@@ -2146,6 +2209,73 @@ MOBILE
 
   .create-type-grid small {
     align-self: start;
+  }
+
+
+  .selection-back-button {
+    min-height: 42px;
+
+    margin-bottom: 14px;
+
+    padding:
+      0
+      13px;
+
+    font-size: 12px;
+  }
+
+
+  .create-form h3 {
+    font-size: 20px;
+
+    line-height: 1.25;
+  }
+
+
+  .create-form > p {
+    margin-bottom: 16px;
+
+    line-height: 1.45;
+  }
+
+
+  .create-form label {
+    margin-bottom: 6px;
+
+    font-size: 13px;
+  }
+
+
+  .create-form input,
+  .create-form select,
+  .create-form textarea {
+    margin-bottom: 14px;
+
+    border-radius: 11px;
+
+    font-size: 16px;
+  }
+
+
+  .create-form input,
+  .create-form select {
+    height: 50px;
+  }
+
+
+  .create-form textarea {
+    min-height: 128px;
+
+    resize: none;
+  }
+
+
+  .publish-button {
+    min-height: 50px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
   }
 }
 
@@ -2223,11 +2353,97 @@ SMALL MOBILE
 
 
   .create-modal {
-    padding:
-      20px
-      16px;
+    padding: 0;
 
     border-radius: 15px;
+  }
+
+
+  .modal-header {
+    padding:
+      16px
+      15px
+      13px;
+  }
+
+
+  .modal-header h2 {
+    font-size: 21px;
+  }
+
+
+  .create-type-grid,
+  .create-form {
+    padding:
+      14px
+      15px
+      16px;
+  }
+}
+
+
+@media (
+  max-width: 650px
+) and (
+  max-height: 700px
+) {
+
+  .modal-header {
+    padding:
+      13px
+      15px
+      11px;
+  }
+
+
+  .modal-header h2 {
+    font-size: 19px;
+  }
+
+
+  .modal-header p {
+    display: none;
+  }
+
+
+  .modal-close {
+    width: 40px;
+    height: 40px;
+
+    flex-basis: 40px;
+  }
+
+
+  .create-type-grid,
+  .create-form {
+    padding:
+      12px
+      15px
+      14px;
+  }
+
+
+  .selection-back-button {
+    min-height: 38px;
+
+    margin-bottom: 11px;
+  }
+
+
+  .create-form > p {
+    margin-bottom: 12px;
+  }
+
+
+  .create-form input,
+  .create-form select,
+  .create-form textarea {
+    margin-bottom: 11px;
+  }
+
+
+  .create-form textarea {
+    min-height: 105px;
   }
 }
 

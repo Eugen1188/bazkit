@@ -539,6 +539,10 @@ class ProductSearchAPIView(APIView):
                 *(alias.normalized_alias for alias in product.aliases.all()),
             }
             exact = normalized_query in names
+            whole_word = any(
+                normalized_query in name.split()
+                for name in names
+            )
             prefix = any(name.startswith(normalized_query) for name in names)
             contains = any(normalized_query in name for name in names)
             source_rank = {"bls": 0, "usda": 1, "open_food_facts": 2}.get(product.source, 3)
@@ -550,7 +554,7 @@ class ProductSearchAPIView(APIView):
                 else len(preferred_keys) + 1
             )
             return (
-                0 if exact else 1 if prefix else 2 if contains else 3,
+                0 if exact else 1 if whole_word else 2 if prefix else 3 if contains else 4,
                 preferred_rank,
                 source_rank,
                 generic_rank,

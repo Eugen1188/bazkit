@@ -13,6 +13,32 @@ EXTENDED_INGREDIENT_DEFINITIONS = (
     ("Hühnerbrühe", ("hühnerbrühe", "huehnerbruehe", "hühnerfond", "huehnerfond", "geflügelfond", "gefluegelfond", "chicken stock", "chicken broth"), "chicken broth ready to serve", ("X411243",), ()),
     ("Fischbrühe", ("fischbrühe", "fischbruehe", "fischfond", "fish stock", "fish broth"), "fish broth", ("X4A1000",), ()),
 
+    # Gängige Fleisch- und Fischzutaten
+    ("Schweinehackfleisch", ("schweinehackfleisch", "schweinehack", "hackfleisch schwein", "schwein hackfleisch", "gehacktes schwein", "schweinegehacktes"), "ground pork raw", ("U020100",), ()),
+    ("Bacon", ("bacon", "frühstücksspeck", "fruehstuecksspeck", "schweinebacon", "schwein bacon", "schwein frühstücksspeck", "schwein fruehstuecksspeck"), "pork bacon cured smoked", ("W415000",), ()),
+    ("Schweinefilet", ("schweinefilet", "schweinelende", "schwein filet", "schwein lende", "filet vom schwein", "lende vom schwein"), "pork tenderloin raw", ("U611100",), ()),
+    ("Schweineschnitzel", ("schweineschnitzel", "schwein schnitzel", "schnitzel vom schwein", "schweineschnitzelfleisch"), "pork cutlet raw", ("U541100",), ()),
+    ("Schweinekotelett", ("schweinekotelett", "schweinekoteletts", "schwein kotelett", "kotelett vom schwein"), "pork chop raw", ("U622100",), ()),
+    ("Schweinebauch", ("schweinebauch", "schwein bauch", "bauchfleisch", "bauchfleisch vom schwein"), "pork belly raw", ("U642100",), ()),
+    ("Kochschinken", ("kochschinken", "gekochter schinken", "schwein kochschinken", "schweineschinken gekocht"), "pork ham cooked cured", ("W424000",), ()),
+    ("Hähnchenschenkel", ("hähnchenschenkel", "haehnchenschenkel", "hähnchenkeule", "haehnchenkeule", "hühnerschenkel", "huehnerschenkel", "huhn schenkel", "chicken thigh"), "chicken thigh with skin raw", ("V4A5100",), ()),
+    ("Rindergulasch", ("rindergulasch", "rind gulasch", "gulaschfleisch rind", "rindergulaschfleisch"), "beef chuck for goulash raw", ("U151100",), ()),
+    ("Rinderfilet", ("rinderfilet", "rinderlende", "rind filet", "rind lende", "beef tenderloin"), "beef tenderloin raw", ("U211100",), ()),
+    ("Lammfleisch", ("lammfleisch", "lamm fleisch", "lamm muskelfleisch", "lamm", "lamb meat"), "lamb lean meat raw", ("U807000",), ()),
+    ("Garnele", ("garnele", "garnelen", "shrimp", "shrimps", "prawn", "prawns", "krabbe", "krabben"), "shrimp raw", ("T753100",), ()),
+
+    # Häufige Grundzutaten und Milchprodukte
+    ("Gouda", ("gouda", "goudakäse", "goudakaese", "junger gouda", "mittelalter gouda"), "gouda cheese", ("M402600",), ()),
+    ("Cheddar", ("cheddar", "cheddarkäse", "cheddarkaese", "chester käse", "chester kaese"), "cheddar cheese", ("M303700",), ()),
+    ("Emmentaler", ("emmentaler", "emmentalerkäse", "emmentalerkaese", "emmental", "schweizer käse", "schweizer kaese"), "emmental cheese", ("M304600",), ()),
+    ("Frischkäse", ("frischkäse", "frischkaese", "frischkäse natur", "frischkaese natur", "cream cheese"), "cream cheese plain", ("M710700",), ()),
+    ("Hüttenkäse", ("hüttenkäse", "huettenkaese", "körniger frischkäse", "koerniger frischkaese", "cottage cheese"), "cottage cheese", ("M711100",), ()),
+    ("Honig", ("honig", "blütenhonig", "bluetenhonig", "waldhonig", "bienenhonig", "honey"), "honey", ("S120000",), ()),
+    ("Paniermehl", ("paniermehl", "semmelbrösel", "semmelbroesel", "semmelmehl", "brotbrösel", "brotbroesel", "breadcrumbs"), "breadcrumbs dry", ("B821000",), ()),
+    ("Kokosmilch", ("kokosmilch", "kokosnussmilch", "coconut milk"), "coconut milk", ("H154000",), ()),
+    ("Zitronensaft", ("zitronensaft", "zitronen saft", "saft einer zitrone", "lemon juice"), "lemon juice", ("F601600",), ()),
+    ("Weinessig", ("weinessig", "wein essig", "weißweinessig", "weissweinessig", "rotweinessig", "wine vinegar"), "wine vinegar", ("R121000",), ()),
+
     # Nüsse, Kerne und Mus
     ("Walnuss", ("walnuss", "walnüsse", "walnuesse", "baumnuss", "baumnüsse", "wallnut", "walnut", "walnuts"), "walnuts raw", ("H120100",), ()),
     ("Haselnuss", ("haselnuss", "haselnüsse", "haselnuesse", "hazelnut", "hazelnuts"), "hazelnuts raw", ("H130100",), ()),

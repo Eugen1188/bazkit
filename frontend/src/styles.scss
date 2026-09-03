@@ -27,6 +27,11 @@
   --color-shadow: rgba(0, 0, 0, 0.08);
 
   --mobile-modal-scrim: #b1b5b8;
+  --mobile-nav-clearance:
+    calc(
+      88px +
+      env(safe-area-inset-bottom)
+    );
 
   --sidebar-width: 345px;
   --sidebar-radius: 14px;
@@ -56,5 +61,38 @@ app-root {
   .main-layout.has-open-modal .edit-dialog-backdrop {
     background:
       var(--mobile-modal-scrim);
+
+    /*
+     * Der freie Bereich über der Navigation gehört zum Backdrop. So entsteht
+     * kein andersfarbiger Streifen und lange Dialoge bleiben vollständig
+     * erreichbar, ohne von der festen Navigation verdeckt zu werden.
+     */
+    padding-bottom:
+      var(--mobile-nav-clearance);
+
+    box-sizing: border-box;
+  }
+
+  .main-layout.has-open-modal .modal-backdrop,
+  .main-layout.has-open-modal .planner-dialog-backdrop,
+  .main-layout.has-open-modal .edit-dialog-backdrop {
+    overscroll-behavior: contain;
+  }
+
+  .main-layout.has-open-modal .modal-backdrop > *,
+  .main-layout.has-open-modal .planner-dialog-backdrop > *,
+  .main-layout.has-open-modal .edit-dialog-backdrop > * {
+    max-height: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --mobile-nav-clearance:
+      calc(
+        82px +
+        env(safe-area-inset-bottom)
+      );
   }
 }
