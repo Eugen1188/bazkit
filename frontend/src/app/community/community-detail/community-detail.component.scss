@@ -1526,10 +1526,35 @@ RESPONSIVE
 .hero-image-photo {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   display: block;
+
+}
+
+
+.hero-image-photo--backdrop {
+  inset: -24px;
+
+  width: calc(100% + 48px);
+  height: calc(100% + 48px);
+
   object-fit: cover;
+
+  filter: blur(20px);
+  transform: scale(1.06);
+
+  opacity: .72;
+}
+
+
+.hero-image-photo--foreground {
+  z-index: 1;
+
+  object-fit: contain;
+  object-position: center;
 }
 
 .author-actions {
