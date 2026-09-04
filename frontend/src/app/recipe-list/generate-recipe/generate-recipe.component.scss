@@ -424,7 +424,7 @@ textarea {
     12px
     13px;
 
-  resize: vertical;
+  resize: none;
 
   line-height: 1.5;
 }
@@ -547,8 +547,9 @@ select:focus {
 
 
 .generate-button:hover:not(:disabled) {
-  transform:
-    translateY(-1px);
+  box-shadow:
+    0 10px 24px
+    rgba(88, 118, 100, 0.18);
 }
 
 
@@ -1403,9 +1404,6 @@ select:focus {
 .save-button:hover:not(:disabled) {
   background:
     var(--color-primary-hover);
-
-  transform:
-    translateY(-1px);
 }
 
 

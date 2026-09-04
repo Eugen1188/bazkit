@@ -22,7 +22,7 @@
   overflow-x: hidden;
 
   background:
-    var(--color-surface);
+    var(--background-page);
 
   -webkit-overflow-scrolling:
     touch;
@@ -192,9 +192,6 @@
 
 
 .ai-button:hover {
-  transform:
-    translateY(-1px);
-
   background:
     #fffaf2;
 
@@ -1478,8 +1475,8 @@
 
 
 .shopping-button:hover {
-  transform:
-    translateY(-1px);
+  background:
+    var(--color-primary-hover);
 }
 
 

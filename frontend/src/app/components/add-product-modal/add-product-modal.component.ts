@@ -5,6 +5,7 @@ import {
 import {
   Component,
   EventEmitter,
+  HostListener,
   OnDestroy,
   OnInit,
   Output
@@ -52,6 +53,11 @@ import {
 })
 export class AddProductModalComponent
 implements OnInit, OnDestroy {
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeModal();
+  }
 
   @Output()
   close =

@@ -20,6 +20,8 @@
 
   <div
     class="loading-state"
+    role="status"
+    aria-live="polite"
     *ngIf="isLoading"
   >
     Beitrag wird geladen...
@@ -28,6 +30,7 @@
 
   <div
     class="error-state"
+    role="alert"
     *ngIf="
       !isLoading &&
       errorMessage

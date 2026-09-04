@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   OnInit,
   Output
 } from '@angular/core';
@@ -41,6 +42,11 @@ import {
 })
 export class AddRecipeIngredientsModalComponent
 implements OnInit {
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeModal();
+  }
 
   @Output()
   close =

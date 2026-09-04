@@ -4,6 +4,7 @@ import {
 
 import {
   Component,
+  HostListener,
   OnDestroy,
   OnInit
 } from '@angular/core';
@@ -57,6 +58,13 @@ import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 })
 export class CommunityComponent
 implements OnInit, OnDestroy {
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isCreateModalOpen) {
+      this.closeCreateModal();
+    }
+  }
 
   posts:
     CommunityPost[] = [];

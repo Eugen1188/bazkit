@@ -5,6 +5,9 @@
 
   <div
     class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="add-saved-list-modal-title"
     (click)="$event.stopPropagation()"
   >
 
@@ -12,7 +15,7 @@
 
       <div class="modal-heading">
 
-        <h2>
+        <h2 id="add-saved-list-modal-title">
           Gespeicherte Liste übernehmen
         </h2>
 
@@ -47,6 +50,8 @@
     <div
       class="loading-state"
       *ngIf="isLoading"
+      role="status"
+      aria-live="polite"
     >
 
       <div class="spinner"></div>
@@ -66,6 +71,7 @@
         !isLoading &&
         errorMessage
       "
+      role="alert"
     >
       {{ errorMessage }}
     </div>

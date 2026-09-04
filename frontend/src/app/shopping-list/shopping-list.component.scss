@@ -22,11 +22,7 @@
   overflow-x: hidden;
 
   background:
-    linear-gradient(
-      180deg,
-      #fbfdfc 0%,
-      var(--color-page-bg) 100%
-    );
+    var(--background-page);
 
   color:
     var(--color-text-primary);

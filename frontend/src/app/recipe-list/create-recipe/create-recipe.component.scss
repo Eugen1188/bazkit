@@ -200,9 +200,6 @@ BUTTONS
 .save-button:hover:not(:disabled) {
   background:
     var(--color-primary-hover);
-
-  transform:
-    translateY(-1px);
 }
 
 
@@ -464,7 +461,7 @@ textarea {
   padding:
     12px 13px;
 
-  resize: vertical;
+  resize: none;
 
   line-height: 1.5;
 }

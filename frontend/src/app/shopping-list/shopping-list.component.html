@@ -3,6 +3,8 @@
   <div
     class="loading-page"
     *ngIf="isLoading"
+    role="status"
+    aria-live="polite"
   >
     Einkaufsliste wird geladen...
   </div>
@@ -14,6 +16,7 @@
       !isLoading &&
       errorMessage
     "
+    role="alert"
   >
     {{ errorMessage }}
   </div>
@@ -22,6 +25,8 @@
   <div
     class="share-toast"
     *ngIf="shareMessage"
+    role="status"
+    aria-live="polite"
   >
     {{ shareMessage }}
   </div>
@@ -285,6 +290,11 @@
 
         <div
           class="progress-bar"
+          role="progressbar"
+          aria-label="Fortschritt der Einkaufsliste"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [attr.aria-valuenow]="progress"
           [style.width.%]="progress"
         >
         </div>
@@ -294,11 +304,16 @@
     </section>
 
 
-    <div class="filter-row">
+    <div
+      class="filter-row"
+      role="group"
+      aria-label="Produkte filtern"
+    >
 
       <button
         class="filter-button"
         [class.active]="activeFilter === 'all'"
+        [attr.aria-pressed]="activeFilter === 'all'"
         type="button"
         (click)="setFilter('all')"
       >
@@ -313,6 +328,7 @@
       <button
         class="filter-button"
         [class.active]="activeFilter === 'open'"
+        [attr.aria-pressed]="activeFilter === 'open'"
         type="button"
         (click)="setFilter('open')"
       >
@@ -330,6 +346,7 @@
       <button
         class="filter-button"
         [class.active]="activeFilter === 'completed'"
+        [attr.aria-pressed]="activeFilter === 'completed'"
         type="button"
         (click)="setFilter('completed')"
       >
@@ -387,6 +404,8 @@
         <button
           class="check-button"
           type="button"
+          [attr.aria-label]="(item.is_checked ? 'Als offen markieren: ' : 'Als erledigt markieren: ') + item.name"
+          [attr.aria-pressed]="item.is_checked"
           [class.checked]="
             item.is_checked
           "

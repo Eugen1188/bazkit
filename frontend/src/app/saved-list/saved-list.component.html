@@ -3,6 +3,8 @@
   <div
     class="loading-state"
     *ngIf="isLoading"
+    role="status"
+    aria-live="polite"
   >
     Listen werden geladen...
   </div>
@@ -14,6 +16,7 @@
       !isLoading &&
       errorMessage
     "
+    role="alert"
   >
     {{ errorMessage }}
   </div>
@@ -22,6 +25,8 @@
   <div
     class="share-toast"
     *ngIf="shareMessage"
+    role="status"
+    aria-live="polite"
   >
     {{ shareMessage }}
   </div>

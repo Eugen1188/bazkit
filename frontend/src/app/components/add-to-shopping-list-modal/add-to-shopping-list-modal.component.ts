@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   OnDestroy,
   OnInit,
   Output
@@ -24,6 +25,11 @@ import { UiIconComponent } from '../ui-icon/ui-icon.component';
 })
 export class AddToShoppingListModalComponent
 implements OnInit, OnDestroy {
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.close.emit();
+  }
 
   @Output()
   close =

@@ -2,6 +2,8 @@
 
   <div
     class="loading-state"
+    role="status"
+    aria-live="polite"
     *ngIf="isLoading"
   >
     Rezept wird geladen...
@@ -89,6 +91,7 @@
 
     <div
       class="error-message"
+      role="alert"
       *ngIf="errorMessage"
     >
       {{ errorMessage }}

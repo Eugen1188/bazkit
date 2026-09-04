@@ -2,6 +2,8 @@
 
   <div
     class="loading-state"
+    role="status"
+    aria-live="polite"
     *ngIf="isLoading"
   >
     Liste wird geladen...
@@ -92,6 +94,7 @@
 
     <div
       class="error-message"
+      role="alert"
       *ngIf="errorMessage"
     >
       {{ errorMessage }}
