@@ -483,6 +483,7 @@
               [class.active]="
                 post.liked_by_me
               "
+              [attr.aria-pressed]="post.liked_by_me"
               (click)="toggleLike()"
             >
 
@@ -516,6 +517,8 @@
 
             <div
               class="rating-block"
+              [class.has-rating]="post.my_rating !== null"
+              [attr.aria-busy]="isRating"
               *ngIf="
                 post.post_type !==
                   'thread'
@@ -524,33 +527,81 @@
 
               <div class="rating-header">
 
-                <span>
-                  Bewertung
-                </span>
+                <div class="rating-heading">
+
+                  <span>
+                    {{
+                      post.my_rating !== null
+                        ? 'Deine Bewertung'
+                        : 'Beitrag bewerten'
+                    }}
+                  </span>
+
+                  <small>
+                    Wie hilfreich findest du diesen Beitrag?
+                  </small>
+
+                </div>
 
 
-                <small
+                <div
+                  class="rating-summary"
                   *ngIf="
                     post.rating_average !== null
                   "
+                  [attr.aria-label]="
+                    'Durchschnittlich ' +
+                    post.rating_average +
+                    ' von 5 Sternen bei ' +
+                    post.rating_count +
+                    (post.rating_count === 1
+                      ? ' Bewertung'
+                      : ' Bewertungen')
+                  "
                 >
-                  {{ post.rating_average }}
-                  / 5
 
-                  ·
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.6-4.4 6.3-.9L12 2.8Z"
+                    ></path>
+                  </svg>
 
-                  {{ post.rating_count }}
-                  {{
-                    post.rating_count === 1
-                      ? 'Bewertung'
-                      : 'Bewertungen'
-                  }}
-                </small>
+                  <strong>
+                    {{ post.rating_average }}
+                  </strong>
+
+                  <span>
+                    {{ post.rating_count }}
+                    {{
+                      post.rating_count === 1
+                        ? 'Bewertung'
+                        : 'Bewertungen'
+                    }}
+                  </span>
+
+                </div>
+
+
+                <span
+                  class="rating-summary rating-summary-empty"
+                  *ngIf="post.rating_average === null"
+                >
+                  Noch unbewertet
+                </span>
 
               </div>
 
 
-              <div class="rating-stars">
+              <div
+                class="rating-stars"
+                role="group"
+                aria-label="Bewertung von 1 bis 5 Sternen"
+                [class.is-hovering]="hoveredRating !== null"
+                (mouseleave)="hoveredRating = null"
+              >
 
                 <button
                   class="star-button"
@@ -559,14 +610,25 @@
                     let star
                     of stars
                   "
+                  [disabled]="isRating"
                   [class.active]="
                     post.my_rating !== null &&
                     star <= post.my_rating
                   "
+                  [class.preview]="
+                    hoveredRating !== null &&
+                    star <= hoveredRating
+                  "
+                  [class.selected]="star === post.my_rating"
+                  [attr.aria-pressed]="star === post.my_rating"
+                  (mouseenter)="hoveredRating = star"
+                  (focus)="hoveredRating = star"
+                  (blur)="hoveredRating = null"
                   (click)="rate(star)"
                   [attr.aria-label]="
-                    star +
-                    ' Sterne vergeben'
+                    star === 1
+                      ? '1 Stern vergeben'
+                      : star + ' Sterne vergeben'
                   "
                 >
 
@@ -585,10 +647,21 @@
 
 
               <div
+                class="rating-feedback error"
+                *ngIf="ratingError"
+                role="alert"
+              >
+                {{ ratingError }}
+              </div>
+
+
+              <div
                 class="rating-feedback rated"
                 *ngIf="
+                  !ratingError &&
                   post.my_rating !== null
                 "
+                aria-live="polite"
               >
 
                 <span class="rating-check">
@@ -604,12 +677,13 @@
 
                 </span>
 
-
-                Deine Bewertung:
+                Danke! Du hast
 
                 <strong>
-                  {{ post.my_rating }} / 5
+                  {{ post.my_rating }} von 5 Sternen
                 </strong>
+
+                vergeben.
 
               </div>
 
@@ -617,10 +691,11 @@
               <div
                 class="rating-feedback"
                 *ngIf="
+                  !ratingError &&
                   post.my_rating === null
                 "
               >
-                Wähle 1 bis 5 Sterne.
+                Tippe auf einen Stern, um deine Bewertung abzugeben.
               </div>
 
             </div>

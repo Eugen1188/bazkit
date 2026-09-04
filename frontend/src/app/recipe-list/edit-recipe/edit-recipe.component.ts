@@ -845,22 +845,38 @@ implements OnInit, OnDestroy {
     index: number
   ): void {
     window.requestAnimationFrame(() => {
-      const input = document.getElementById(
-        `ingredientName${index}`
-      );
+      window.requestAnimationFrame(() => {
+        const input = document.getElementById(
+          `ingredientName${index}`
+        );
 
-      if (!(input instanceof HTMLInputElement)) {
-        return;
-      }
+        if (!(input instanceof HTMLInputElement)) {
+          return;
+        }
 
-      input.focus({
-        preventScroll: true
-      });
+        const ingredientRow =
+          input.closest('.ingredient-item') ??
+          input;
 
-      input.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
+        const revealInput = (): void => {
+          ingredientRow.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          });
+        };
+
+        input.focus({
+          preventScroll: true
+        });
+
+        revealInput();
+
+        window.setTimeout(() => {
+          if (document.activeElement === input) {
+            revealInput();
+          }
+        }, 280);
       });
     });
   }

@@ -72,6 +72,19 @@ implements OnInit {
   isCopying =
     false;
 
+
+  isRating =
+    false;
+
+
+  hoveredRating:
+    number | null =
+      null;
+
+
+  ratingError =
+    '';
+
   isEditing = false;
   isSavingPost = false;
   isDeletingPost = false;
@@ -292,10 +305,22 @@ implements OnInit {
       ||
       this.post.post_type ===
         'thread'
+      ||
+      this.isRating
     ) {
 
       return;
     }
+
+
+    this.isRating =
+      true;
+
+    this.hoveredRating =
+      null;
+
+    this.ratingError =
+      '';
 
 
     this.communityService
@@ -307,6 +332,9 @@ implements OnInit {
 
         next:
           response => {
+
+            this.isRating =
+              false;
 
             if (
               !this.post
@@ -334,6 +362,12 @@ implements OnInit {
               'Bewertung konnte nicht gespeichert werden:',
               error
             );
+
+            this.isRating =
+              false;
+
+            this.ratingError =
+              'Deine Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.';
           }
 
       });
@@ -480,6 +514,7 @@ implements OnInit {
       );
       return;
     }
+
     if (this.post.post_type === 'list' && this.post.saved_list) {
       void this.router.navigate(
         ['/main/saved-list', this.post.saved_list.id, 'edit'],

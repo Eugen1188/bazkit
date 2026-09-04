@@ -255,17 +255,33 @@ export class CreateRecipeComponent implements OnDestroy {
 
   private focusIngredientInput(index: number): void {
     window.requestAnimationFrame(() => {
-      const input = document.getElementById(
-        `ingredientName${index}`
-      );
+      window.requestAnimationFrame(() => {
+        const input = document.getElementById(
+          `ingredientName${index}`
+        );
 
-      if (!(input instanceof HTMLInputElement)) return;
+        if (!(input instanceof HTMLInputElement)) return;
 
-      input.focus({ preventScroll: true });
-      input.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
+        const ingredientRow =
+          input.closest('.ingredient-item') ??
+          input;
+
+        const revealInput = (): void => {
+          ingredientRow.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          });
+        };
+
+        input.focus({ preventScroll: true });
+        revealInput();
+
+        window.setTimeout(() => {
+          if (document.activeElement === input) {
+            revealInput();
+          }
+        }, 280);
       });
     });
   }

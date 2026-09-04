@@ -694,11 +694,14 @@ INTERACTIONS
   display:
     flex;
 
+  flex-wrap:
+    wrap;
+
   align-items:
-    flex-end;
+    center;
 
   gap:
-    25px;
+    18px;
 }
 
 
@@ -708,7 +711,7 @@ LIKE
 
 .detail-like-button {
   min-height:
-    43px;
+    48px;
 
   padding:
     0 13px;
@@ -718,7 +721,7 @@ LIKE
     var(--color-border);
 
   border-radius:
-    9px;
+    12px;
 
   display:
     inline-flex;
@@ -739,7 +742,7 @@ LIKE
     inherit;
 
   font-size:
-    11px;
+    13px;
 
   cursor:
     pointer;
@@ -810,53 +813,161 @@ RATING
 ===================================== */
 
 .rating-block {
+  flex:
+    1 1 360px;
+
   min-width:
-    270px;
+    320px;
+
+  max-width:
+    430px;
+
+  padding:
+    15px
+    16px
+    13px;
+
+  border:
+    1px solid
+    #e4dfd5;
+
+  border-radius:
+    16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf8 0%,
+      #fbfaf6 100%
+    );
+
+  box-shadow:
+    0 8px 22px
+    rgba(74, 62, 38, 0.055);
+}
+
+
+.rating-block.has-rating {
+  border-color:
+    #d8dfd9;
 }
 
 
 .rating-header {
   margin-bottom:
-    6px;
+    12px;
 
   display:
     flex;
 
+  flex-wrap:
+    wrap;
+
   align-items:
-    center;
+    flex-start;
 
   justify-content:
     space-between;
 
   gap:
-    15px;
+    18px;
 }
 
 
-.rating-header > span {
+.rating-heading {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.rating-heading > span {
   color:
-    var(--color-text-secondary);
+    var(--color-text-primary);
 
   font-size:
-    10px;
+    13px;
 
   font-weight:
-    700;
-
-  letter-spacing:
-    0.04em;
-
-  text-transform:
-    uppercase;
+    750;
 }
 
 
-.rating-header small {
+.rating-heading small {
   color:
     var(--color-text-muted);
 
   font-size:
-    9px;
+    11px;
+
+  line-height:
+    1.35;
+}
+
+
+.rating-summary {
+  min-height: 32px;
+
+  padding:
+    0
+    10px;
+
+  border:
+    1px solid
+    #eadfca;
+
+  border-radius:
+    999px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+
+  background:
+    rgba(255, 255, 255, 0.84);
+
+  color:
+    var(--color-text-muted);
+
+  font-size:
+    10px;
+}
+
+
+.rating-summary svg {
+  width: 15px;
+  height: 15px;
+
+  fill:
+    #d5a13a;
+
+  stroke:
+    #d5a13a;
+}
+
+
+.rating-summary strong {
+  color:
+    #9b6c16;
+
+  font-size:
+    13px;
+}
+
+
+.rating-summary-empty {
+  color:
+    var(--color-text-muted);
 }
 
 
@@ -868,24 +979,25 @@ RATING
     center;
 
   gap:
-    3px;
+    7px;
 }
 
 
 .star-button {
   width:
-    33px;
+    42px;
 
   height:
-    33px;
+    42px;
 
-  padding: 4px;
+  padding: 7px;
 
   border:
-    none;
+    1px solid
+    #e3ded4;
 
   border-radius:
-    7px;
+    11px;
 
   display:
     flex;
@@ -897,37 +1009,50 @@ RATING
     center;
 
   background:
-    transparent;
+    rgba(255, 255, 255, 0.78);
 
   color:
-    #bbbdbb;
+    #a9aeaa;
 
   cursor:
     pointer;
 
   transition:
     background 0.13s ease,
+    border-color 0.13s ease,
     color 0.13s ease,
-    transform 0.13s ease;
+    box-shadow 0.13s ease;
 }
 
 
 .star-button:hover {
+  border-color:
+    #e2bf77;
+
   background:
     #fff8e9;
 
   color:
     #c49232;
+}
 
+
+.star-button:focus-visible {
+  outline:
+    2px solid
+    #b78324;
+
+  outline-offset:
+    2px;
 }
 
 
 .star-button svg {
   width:
-    22px;
+    24px;
 
   height:
-    22px;
+    24px;
 
   fill:
     transparent;
@@ -943,27 +1068,59 @@ RATING
 }
 
 
-.star-button.active {
+.star-button.active,
+.star-button.preview {
+  border-color:
+    #e7c985;
+
   background:
-    #fff8e9;
+    #fff5dc;
 
   color:
     #c49232;
 }
 
 
-.star-button.active svg {
+.star-button.active svg,
+.star-button.preview svg {
   fill:
     currentColor;
 }
 
 
+.rating-stars.is-hovering
+.star-button.active:not(.preview) {
+  border-color:
+    #e3ded4;
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  color:
+    #a9aeaa;
+}
+
+
+.star-button.selected {
+  box-shadow:
+    0 0 0 3px
+    rgba(213, 161, 58, 0.16);
+}
+
+
+.star-button:disabled {
+  opacity: 0.62;
+
+  cursor: wait;
+}
+
+
 .rating-feedback {
   min-height:
-    20px;
+    22px;
 
   margin-top:
-    6px;
+    10px;
 
   display:
     flex;
@@ -978,13 +1135,22 @@ RATING
     var(--color-text-muted);
 
   font-size:
-    10px;
+    12px;
+
+  line-height:
+    1.4;
 }
 
 
 .rating-feedback.rated {
   color:
     var(--color-primary);
+}
+
+
+.rating-feedback.error {
+  color:
+    #b44740;
 }
 
 
@@ -1507,6 +1673,9 @@ RESPONSIVE
 
     min-width:
       0;
+
+    max-width:
+      none;
   }
 
 
@@ -1751,5 +1920,42 @@ RESPONSIVE
 @media (max-width: 620px) {
   .community-nutrition-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rating-block {
+    padding:
+      14px;
+
+    border-radius:
+      14px;
+  }
+
+  .rating-header {
+    flex-direction:
+      column;
+
+    gap: 9px;
+  }
+
+  .rating-summary {
+    align-self:
+      flex-start;
+  }
+
+  .rating-stars {
+    justify-content:
+      space-between;
+
+    gap: 5px;
+  }
+
+  .star-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .rating-feedback {
+    align-items:
+      flex-start;
   }
 }
