@@ -950,8 +950,6 @@
   display: grid;
 
   grid-template-columns:
-    24px
-    26px
     minmax(0, 1fr)
     auto
     40px;
@@ -971,32 +969,6 @@
 }
 
 
-.drag {
-  color:
-    var(--color-icon);
-
-  font-size: 18px;
-
-  line-height: 1;
-
-  cursor: grab;
-}
-
-
-.circle {
-  width: 21px;
-  height: 21px;
-
-  box-sizing: border-box;
-
-  border:
-    2px solid
-    var(--color-primary);
-
-  border-radius: 50%;
-}
-
-
 .product-details {
   min-width: 0;
 }
@@ -1005,11 +977,9 @@
 .product-name {
   display: block;
 
-  overflow: hidden;
+  overflow-wrap: anywhere;
 
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
+  word-break: break-word;
 
   font-size: 15px;
 
@@ -1336,8 +1306,6 @@
     min-height: 70px;
 
     grid-template-columns:
-      20px
-      24px
       minmax(0, 1fr)
       38px;
 
@@ -1419,8 +1387,6 @@
 
   .product-item {
     grid-template-columns:
-      18px
-      22px
       minmax(0, 1fr)
       34px;
 

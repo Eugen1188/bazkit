@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UserSettingsService } from '../services/user-settings.service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent {
   isLoading = false;
 
   private authService = inject(AuthService);
+  private userSettings = inject(UserSettingsService);
   private router = inject(Router);
 
   constructor() {
@@ -71,8 +73,6 @@ export class LoginComponent {
       .login(loginData)
       .subscribe({
         next: response => {
-          this.isLoading = false;
-
           localStorage.setItem(
             'access_token',
             response.access
@@ -90,9 +90,17 @@ export class LoginComponent {
             )
           );
 
-          this.router.navigate([
-            '/main/home'
-          ]);
+          this.userSettings.load().subscribe({
+            next: () => {
+              this.isLoading = false;
+              void this.router.navigate(['/main/home']);
+            },
+            error: () => {
+              // Die Anmeldung bleibt möglich; Standardwerte dienen als Fallback.
+              this.isLoading = false;
+              void this.router.navigate(['/main/home']);
+            },
+          });
         },
 
         error: error => {

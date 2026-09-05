@@ -1,4 +1,5 @@
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -6,8 +7,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 from .serializers import (
     UserLoginSerializer,
+    ChangePasswordSerializer,
+    UserProfileSerializer,
     UserRegisterSerializer,
+    UserSettingsSerializer,
 )
+from .models import UserSettings
 
 
 class RegisterUserView(APIView):
@@ -104,3 +109,62 @@ class LoginUserView(APIView):
             },
             status=status.HTTP_200_OK
         )
+
+
+class UserMeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(UserProfileSerializer(request.user).data)
+
+    def patch(self, request):
+        serializer = UserProfileSerializer(
+            request.user,
+            data=request.data,
+            partial=True,
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+    def delete(self, request):
+        request.user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class UserSettingsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get_settings(user):
+        settings, _created = UserSettings.objects.get_or_create(user=user)
+        return settings
+
+    def get(self, request):
+        settings = self.get_settings(request.user)
+        return Response(UserSettingsSerializer(settings).data)
+
+    def patch(self, request):
+        settings = self.get_settings(request.user)
+        serializer = UserSettingsSerializer(
+            settings,
+            data=request.data,
+            partial=True,
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+
+class ChangePasswordView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = ChangePasswordSerializer(
+            data=request.data,
+            context={"request": request},
+        )
+        serializer.is_valid(raise_exception=True)
+        request.user.set_password(serializer.validated_data["new_password"])
+        request.user.save(update_fields=["password"])
+        return Response({"message": "Passwort wurde geändert."})

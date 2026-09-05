@@ -920,3 +920,288 @@
     margin-top: 2px;
   }
 }
+
+/* Synchronisierte Einstellungsseite */
+
+.settings-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.settings-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sync-status {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid var(--color-divider);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 650;
+  box-shadow: 0 5px 16px var(--color-shadow);
+}
+
+.sync-status app-ui-icon { width: 16px; height: 16px; }
+
+.sync-status--error {
+  border-color: #e6b3af;
+  background: #fff5f4;
+  color: #b3443f;
+}
+
+.sync-spinner,
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-primary-soft-bg);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: settings-spin .7s linear infinite;
+}
+
+@keyframes settings-spin { to { transform: rotate(360deg); } }
+
+.settings-notice {
+  margin: -12px 0 24px;
+  padding: 12px 15px;
+  border: 1px solid var(--color-primary-soft);
+  border-radius: 11px;
+  background: var(--color-primary-soft-bg);
+  color: var(--color-primary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.settings-loading,
+.settings-error {
+  min-height: 230px;
+  padding: 28px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-surface);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.settings-loading .loading-spinner {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+  border-width: 3px;
+}
+
+.settings-loading strong,
+.settings-error strong { font-size: 17px; }
+
+.settings-loading small,
+.settings-error p {
+  max-width: 430px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.settings-error .primary-button { margin-top: 10px; }
+.card-heading > div { min-width: 0; }
+
+.card-heading > div p {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.settings-link > span:first-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.settings-link > span:first-child strong { font-size: 14px; font-weight: 650; }
+.settings-link > span:first-child small { font-size: 12px; line-height: 1.4; }
+
+.group-help {
+  margin: -7px 0 13px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.preference-chip app-ui-icon { width: 15px; height: 15px; }
+
+.settings-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  background: rgba(19, 27, 23, .48);
+  backdrop-filter: blur(4px);
+}
+
+.settings-dialog {
+  width: min(540px, 100%);
+  max-height: calc(100dvh - 48px);
+  padding: 25px;
+  border: 1px solid var(--color-divider);
+  border-radius: 18px;
+  overflow-y: auto;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-dialog);
+}
+
+.dialog-heading {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.dialog-heading span {
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.dialog-heading h2 { margin-top: 4px; font-size: 24px; line-height: 1.2; }
+
+.dialog-heading > button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.settings-dialog > label,
+.dialog-field-grid label {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.settings-dialog input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.settings-dialog input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-ring);
+}
+
+.dialog-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.password-hint {
+  display: block;
+  margin: -3px 0 14px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.dialog-error {
+  margin: 5px 0 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #fff1f0;
+  color: #ad3f3a;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.dialog-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dialog-actions button { min-height: 44px; }
+.dialog-actions button:disabled { opacity: .55; cursor: not-allowed; }
+
+.danger-copy {
+  margin-bottom: 19px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  background: #fff1f0;
+  color: #9f3f3b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.danger-button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #aa4742;
+  border-radius: 9px;
+  background: #aa4742;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .settings-header { flex-direction: column; gap: 14px; }
+  .sync-status { align-self: flex-start; }
+
+  .settings-dialog-backdrop {
+    padding: max(14px, env(safe-area-inset-top)) 14px
+      calc(var(--mobile-nav-clearance) + 10px);
+    align-items: flex-start;
+  }
+
+  .settings-dialog { max-height: 100%; padding: 20px; }
+  .dialog-field-grid { grid-template-columns: 1fr; gap: 0; }
+  .dialog-actions { flex-direction: column-reverse; }
+  .dialog-actions button { width: 100%; }
+}

@@ -344,6 +344,37 @@ class GenerateRecipeSerializer(serializers.Serializer):
         choices=["breakfast", "lunch", "dinner", "snack", "dessert", "other"],
         default="dinner",
     )
+    dietary_preferences = serializers.ListField(
+        child=serializers.ChoiceField(
+            choices=[
+                "vegetarian",
+                "vegan",
+                "gluten_free",
+                "lactose_free",
+                "low_carb",
+                "high_protein",
+            ]
+        ),
+        required=False,
+        default=list,
+        max_length=6,
+    )
+    favorite_cuisines = serializers.ListField(
+        child=serializers.ChoiceField(
+            choices=[
+                "italian",
+                "asian",
+                "german",
+                "mexican",
+                "greek",
+                "mediterranean",
+                "indian",
+            ]
+        ),
+        required=False,
+        default=list,
+        max_length=7,
+    )
 
     def validate(self, attrs):
         idea = attrs.get("idea", "").strip()

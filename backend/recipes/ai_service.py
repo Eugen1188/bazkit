@@ -365,6 +365,14 @@ def build_recipe_prompt(data, catalog_rows):
         "dinner"
     )
 
+    dietary_preferences = ", ".join(
+        data.get("dietary_preferences") or []
+    )
+
+    favorite_cuisines = ", ".join(
+        data.get("favorite_cuisines") or []
+    )
+
     ingredient_catalog = "\n".join(
         f'- ID {row["id"]}: {row["name"]} | erlaubte Einheiten: {", ".join(row["units"])}'
         for row in catalog_rows
@@ -384,6 +392,12 @@ Zu vermeidende Zutaten:
 
 Ernährungsweise:
 {diet}
+
+Weitere persönliche Ernährungspräferenzen:
+{dietary_preferences or "Keine"}
+
+Bevorzugte Küchenrichtungen:
+{favorite_cuisines or "Keine Präferenz"}
 
 Portionen:
 {servings}

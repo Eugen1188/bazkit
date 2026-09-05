@@ -72,6 +72,26 @@ app-root {
   background: var(--color-page-bg);
 }
 
+:root[data-theme='dark'] {
+  --color-page-bg: #18201d;
+  --color-surface: #222b27;
+  --color-surface-muted: #27312d;
+
+  --color-text-primary: #f2f5f3;
+  --color-text-secondary: #d7ddda;
+  --color-text-muted: #abb6b0;
+  --color-text-subtle: #9eaaa4;
+  --color-text-light: #aab4af;
+  --color-placeholder: #89958f;
+  --color-icon: #a7b2ac;
+
+  --color-border: #46514b;
+  --color-divider: #36413b;
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --background-page: linear-gradient(180deg, #202925 0%, #18201d 100%);
+  --mobile-modal-scrim: #111815;
+}
+
 button,
 input,
 select,

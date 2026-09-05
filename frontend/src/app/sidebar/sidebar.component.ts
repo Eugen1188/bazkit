@@ -50,8 +50,9 @@ export class SidebarComponent {
     inject(Router);
 
 
-  user =
-    this.authService.getCurrentUser();
+  get user() {
+    return this.authService.getCurrentUser();
+  }
 
 
   isMobileMoreOpen =

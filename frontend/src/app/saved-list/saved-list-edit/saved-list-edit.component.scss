@@ -1004,8 +1004,6 @@ select:focus {
 
 
 .product-details strong {
-  overflow: hidden;
-
   color:
     var(--color-text-primary);
 
@@ -1013,9 +1011,9 @@ select:focus {
 
   font-weight: 600;
 
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 
-  white-space: nowrap;
+  word-break: break-word;
 }
 
 

@@ -21,6 +21,7 @@ import {
   RecipeService
 } from '../../services/recipe.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
+import { UserSettingsService } from '../../services/user-settings.service';
 
 import {
   serializePreparationSteps
@@ -129,8 +130,15 @@ export class GenerateRecipeComponent {
       Router,
 
     private recipeService:
-      RecipeService
-  ) {}
+      RecipeService,
+
+    private userSettings:
+      UserSettingsService
+  ) {
+    const settings = this.userSettings.current;
+    this.servings = settings.recipe_default_portions;
+    this.diet = this.defaultDiet(settings.dietary_preferences);
+  }
 
 
   generateRecipe(): void {
@@ -170,7 +178,13 @@ export class GenerateRecipeComponent {
         this.maxTime,
 
       category:
-        this.category
+        this.category,
+
+      dietary_preferences:
+        this.userSettings.current.dietary_preferences,
+
+      favorite_cuisines:
+        this.userSettings.current.favorite_cuisines
     };
 
 
@@ -375,5 +389,11 @@ export class GenerateRecipeComponent {
   private apiError(error: unknown, fallback: string): string {
     const response = error as { error?: { detail?: string } };
     return response?.error?.detail || fallback;
+  }
+
+
+  private defaultDiet(preferences: string[]): string {
+    const supported = ['vegan', 'vegetarian', 'high_protein', 'low_carb'];
+    return supported.find(item => preferences.includes(item)) ?? 'none';
   }
 }

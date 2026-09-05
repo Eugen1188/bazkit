@@ -1,14 +1,50 @@
 <div class="settings-page">
   <header class="settings-header">
     <div>
+      <span class="settings-eyebrow">Persönlicher Bereich</span>
       <h1>Einstellungen</h1>
-      <p>Verwalte dein Konto, deine Präferenzen und dein Abonnement.</p>
+      <p>Deine Angaben werden sicher in deinem bazkit-Konto gespeichert.</p>
+    </div>
+
+    <div
+      class="sync-status"
+      [class.sync-status--error]="saveState === 'error'"
+      *ngIf="saveState !== 'idle'"
+      role="status"
+      aria-live="polite"
+    >
+      <span class="sync-spinner" *ngIf="saveState === 'saving'"></span>
+      <app-ui-icon name="check" *ngIf="saveState === 'saved'"></app-ui-icon>
+      <span *ngIf="saveState === 'error'" aria-hidden="true">!</span>
+      {{
+        saveState === 'saving'
+          ? 'Wird gespeichert…'
+          : saveState === 'saved'
+            ? 'Alles gespeichert'
+            : 'Speichern fehlgeschlagen'
+      }}
     </div>
   </header>
 
-  <div class="settings-grid">
+  <div class="settings-notice" *ngIf="pageMessage" role="status">
+    {{ pageMessage }}
+  </div>
 
-    <!-- Konto -->
+  <div class="settings-loading" *ngIf="isLoading" role="status">
+    <span class="loading-spinner"></span>
+    <strong>Einstellungen werden geladen</strong>
+    <small>Wir holen deine persönlichen Daten aus deinem Konto.</small>
+  </div>
+
+  <div class="settings-error" *ngIf="!isLoading && loadError" role="alert">
+    <strong>Einstellungen konnten nicht geladen werden</strong>
+    <p>{{ loadError }}</p>
+    <button class="primary-button" type="button" (click)="loadData()">
+      Erneut versuchen
+    </button>
+  </div>
+
+  <div class="settings-grid" *ngIf="!isLoading && !loadError && profile">
     <section class="settings-card account-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -17,23 +53,21 @@
             <path d="M4 21a8 8 0 0 1 16 0"></path>
           </svg>
         </span>
-
-        <h2>Konto</h2>
+        <div>
+          <h2>Konto</h2>
+          <p>Deine persönlichen Anmeldedaten</p>
+        </div>
       </div>
 
       <div class="account-profile">
-        <div class="account-avatar">
-          {{ userInitials }}
-        </div>
-
+        <div class="account-avatar" aria-hidden="true">{{ userInitials }}</div>
         <div class="account-info">
           <strong>{{ userName }}</strong>
-          <span>{{ userEmail }}</span>
-
+          <span>{{ profile.email }}</span>
           <button
             class="outline-button account-edit-button"
             type="button"
-            (click)="editProfile()"
+            (click)="openProfileDialog()"
           >
             Profil bearbeiten
           </button>
@@ -41,24 +75,16 @@
       </div>
 
       <div class="settings-links">
-        <button type="button" class="settings-link" (click)="changeName()">
-          <span>Name ändern</span>
-          <span class="link-arrow">›</span>
-        </button>
-
-        <button type="button" class="settings-link" (click)="changeEmail()">
-          <span>E-Mail ändern</span>
-          <span class="link-arrow">›</span>
-        </button>
-
-        <button type="button" class="settings-link" (click)="changePassword()">
-          <span>Passwort ändern</span>
-          <span class="link-arrow">›</span>
+        <button type="button" class="settings-link" (click)="openPasswordDialog()">
+          <span>
+            <strong>Passwort ändern</strong>
+            <small>Schütze dein Konto mit einem neuen Passwort.</small>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
         </button>
       </div>
     </section>
 
-    <!-- Einkauf -->
     <section class="settings-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -68,73 +94,59 @@
             <circle cx="18" cy="20" r="1"></circle>
           </svg>
         </span>
-
-        <h2>Einkauf</h2>
+        <div>
+          <h2>Einkauf</h2>
+          <p>Vorgaben für deine Einkaufsliste</p>
+        </div>
       </div>
 
       <div class="setting-row">
         <label for="defaultSorting">Standard-Sortierung</label>
-
         <select
           id="defaultSorting"
-          [(ngModel)]="shoppingSettings.defaultSorting"
+          [(ngModel)]="settings.shopping_default_sorting"
+          (ngModelChange)="settingsChanged()"
         >
-          <option value="alphabetical">Alphabetisch</option>
           <option value="category">Nach Kategorie</option>
-          <option value="manual">Manuell</option>
+          <option value="alphabetical">Alphabetisch</option>
           <option value="created">Zuletzt hinzugefügt</option>
         </select>
       </div>
 
       <div class="setting-row">
-        <label for="defaultUnit">Standard-Einheit</label>
-
+        <label for="defaultUnit">Standard-Einheit bei neuen Produkten</label>
         <select
           id="defaultUnit"
-          [(ngModel)]="shoppingSettings.defaultUnit"
+          [(ngModel)]="settings.shopping_default_unit"
+          (ngModelChange)="settingsChanged()"
         >
-          <option value="piece">Stück</option>
-          <option value="gram">Gramm</option>
-          <option value="kilogram">Kilogramm</option>
-          <option value="milliliter">Milliliter</option>
-          <option value="liter">Liter</option>
-          <option value="package">Packung</option>
+          <option value="Stück">Stück</option>
+          <option value="g">Gramm</option>
+          <option value="kg">Kilogramm</option>
+          <option value="ml">Milliliter</option>
+          <option value="Liter">Liter</option>
+          <option value="Packung">Packung</option>
         </select>
       </div>
 
       <div class="toggle-row">
         <div>
-          <strong>Kategorien automatisch erstellen</strong>
-          <span>Produkte automatisch passenden Kategorien zuordnen.</span>
+          <strong>Erledigte Produkte nach unten</strong>
+          <span>Abgehakte Produkte bleiben sichtbar, stehen aber am Ende.</span>
         </div>
-
         <label class="switch">
           <input
             type="checkbox"
-            [(ngModel)]="shoppingSettings.autoCategories"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Erledigte Produkte nach unten verschieben</strong>
-          <span>Abgehakte Produkte erscheinen am Ende der Liste.</span>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="shoppingSettings.moveCompletedToBottom"
+            [(ngModel)]="settings.shopping_move_completed_to_bottom"
+            (ngModelChange)="settingsChanged()"
+            aria-label="Erledigte Produkte nach unten verschieben"
           />
           <span class="switch-slider"></span>
         </label>
       </div>
     </section>
 
-    <!-- Rezepte -->
-    <section class="settings-card">
+    <section class="settings-card recipe-settings-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24">
@@ -144,229 +156,68 @@
             <path d="M17 3c2 1.5 3 3.5 3 6s-1 4.5-3 6"></path>
           </svg>
         </span>
-
-        <h2>Rezepte</h2>
+        <div>
+          <h2>Rezepte</h2>
+          <p>Vorgaben für neue und KI-erstellte Rezepte</p>
+        </div>
       </div>
 
-      <div class="setting-row">
+      <div class="setting-row compact-select">
         <label for="defaultPortions">Standard-Portionsgröße</label>
-
         <select
           id="defaultPortions"
-          [(ngModel)]="recipeSettings.defaultPortions"
+          [(ngModel)]="settings.recipe_default_portions"
+          (ngModelChange)="settingsChanged()"
         >
-          <option [ngValue]="1">1 Portion</option>
-          <option [ngValue]="2">2 Portionen</option>
-          <option [ngValue]="3">3 Portionen</option>
-          <option [ngValue]="4">4 Portionen</option>
-          <option [ngValue]="5">5 Portionen</option>
-          <option [ngValue]="6">6 Portionen</option>
+          <option *ngFor="let portions of [1, 2, 3, 4, 5, 6, 8, 10]" [ngValue]="portions">
+            {{ portions }} {{ portions === 1 ? 'Portion' : 'Portionen' }}
+          </option>
         </select>
       </div>
 
       <div class="preference-group">
         <h3>Ernährungspräferenzen</h3>
-
+        <p class="group-help">Werden bei neuen KI-Rezepten automatisch berücksichtigt.</p>
         <div class="chip-list">
           <button
-            *ngFor="let preference of dietaryPreferences"
+            *ngFor="let preference of dietaryOptions"
             type="button"
             class="preference-chip"
-            [class.preference-chip--active]="preference.selected"
-            (click)="toggleDietaryPreference(preference)"
+            [class.preference-chip--active]="isPreferenceSelected('dietary_preferences', preference.value)"
+            [attr.aria-pressed]="isPreferenceSelected('dietary_preferences', preference.value)"
+            (click)="togglePreference('dietary_preferences', preference.value)"
           >
             {{ preference.label }}
-
-            <span *ngIf="preference.selected" aria-hidden="true"><app-ui-icon name="check"></app-ui-icon></span>
+            <app-ui-icon
+              name="check"
+              *ngIf="isPreferenceSelected('dietary_preferences', preference.value)"
+            ></app-ui-icon>
           </button>
         </div>
       </div>
 
       <div class="preference-group">
         <h3>Lieblingsküchen</h3>
-
+        <p class="group-help">Hilft bazkit, passendere Rezeptvorschläge zu erstellen.</p>
         <div class="chip-list">
           <button
-            *ngFor="let cuisine of favoriteCuisines"
+            *ngFor="let cuisine of cuisineOptions"
             type="button"
             class="preference-chip"
-            [class.preference-chip--active]="cuisine.selected"
-            (click)="toggleCuisine(cuisine)"
+            [class.preference-chip--active]="isPreferenceSelected('favorite_cuisines', cuisine.value)"
+            [attr.aria-pressed]="isPreferenceSelected('favorite_cuisines', cuisine.value)"
+            (click)="togglePreference('favorite_cuisines', cuisine.value)"
           >
             {{ cuisine.label }}
-
-            <span *ngIf="cuisine.selected" aria-hidden="true"><app-ui-icon name="check"></app-ui-icon></span>
-          </button>
-
-          <button
-            type="button"
-            class="preference-chip preference-chip--add"
-            (click)="addCuisine()"
-            aria-label="Weitere Küche hinzufügen"
-          >
-            +
+            <app-ui-icon
+              name="check"
+              *ngIf="isPreferenceSelected('favorite_cuisines', cuisine.value)"
+            ></app-ui-icon>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- KI & Premium -->
-    <section class="settings-card">
-      <div class="card-heading">
-        <span class="heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="m12 3 .7 2.3A5 5 0 0 0 16 8.6l2.3.7-2.3.7a5 5 0 0 0-3.3 3.3L12 15.6l-.7-2.3A5 5 0 0 0 8 10l-2.3-.7L8 8.6a5 5 0 0 0 3.3-3.3L12 3Z"></path>
-            <path d="m19 15 .4 1.2a3 3 0 0 0 1.8 1.8l1.2.4-1.2.4a3 3 0 0 0-1.8 1.8L19 22l-.4-1.2a3 3 0 0 0-1.8-1.8l-1.2-.4 1.2-.4a3 3 0 0 0 1.8-1.8L19 15Z"></path>
-          </svg>
-        </span>
-
-        <h2>KI & Premium</h2>
-      </div>
-
-      <div class="usage-box">
-        <span>KI-Rezepte diesen Monat</span>
-
-        <strong>
-          {{ aiUsage.used }} / {{ aiUsage.limit }}
-        </strong>
-
-        <small>verbraucht</small>
-
-        <div class="progress-track">
-          <div
-            class="progress-value"
-            [style.width.%]="aiUsagePercentage"
-          ></div>
-        </div>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>KI darf vorhandene Rezepte verbessern</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="aiSettings.allowRecipeImprovement"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Nährwerte automatisch berechnen</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="aiSettings.calculateNutrition"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Einkaufsliste automatisch optimieren</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="aiSettings.optimizeShoppingList"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <button
-        type="button"
-        class="primary-button premium-details-button"
-        (click)="openPremium()"
-      >
-        <span aria-hidden="true">♛</span>
-        Premium ansehen
-      </button>
-    </section>
-
-    <!-- Benachrichtigungen -->
-    <section class="settings-card">
-      <div class="card-heading">
-        <span class="heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
-            <path d="M10 21h4"></path>
-          </svg>
-        </span>
-
-        <h2>Benachrichtigungen</h2>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Einkaufs-Erinnerungen</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="notificationSettings.shoppingReminders"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Listen wurden geteilt</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="notificationSettings.sharedLists"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Neue Funktionen</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="notificationSettings.newFeatures"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-row">
-        <div>
-          <strong>Newsletter</strong>
-        </div>
-
-        <label class="switch">
-          <input
-            type="checkbox"
-            [(ngModel)]="notificationSettings.newsletter"
-          />
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <p class="card-help-text">
-        Wir senden dir nur relevante Benachrichtigungen.
-      </p>
-    </section>
-
-    <!-- Darstellung -->
     <section class="settings-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -377,61 +228,120 @@
             <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h1a8 8 0 0 0 8-8Z"></path>
           </svg>
         </span>
-
-        <h2>Darstellung</h2>
+        <div>
+          <h2>Darstellung</h2>
+          <p>Gilt nach der Anmeldung auf allen deinen Geräten</p>
+        </div>
       </div>
 
       <div class="appearance-group">
         <h3>Design</h3>
-
-        <div class="segmented-control">
+        <div class="segmented-control" role="group" aria-label="Design auswählen">
           <button
             type="button"
-            [class.active]="appearance === 'light'"
+            [class.active]="settings.appearance === 'light'"
+            [attr.aria-pressed]="settings.appearance === 'light'"
             (click)="setAppearance('light')"
-          >
-            <span aria-hidden="true">☀</span>
-            Hell
-          </button>
-
+          ><span aria-hidden="true">☀</span> Hell</button>
           <button
             type="button"
-            [class.active]="appearance === 'dark'"
+            [class.active]="settings.appearance === 'dark'"
+            [attr.aria-pressed]="settings.appearance === 'dark'"
             (click)="setAppearance('dark')"
-          >
-            <span aria-hidden="true">☾</span>
-            Dunkel
-          </button>
-
+          ><span aria-hidden="true">☾</span> Dunkel</button>
           <button
             type="button"
-            [class.active]="appearance === 'system'"
+            [class.active]="settings.appearance === 'system'"
+            [attr.aria-pressed]="settings.appearance === 'system'"
             (click)="setAppearance('system')"
-          >
-            <span aria-hidden="true">▣</span>
-            System
-          </button>
+          ><span aria-hidden="true">▣</span> System</button>
         </div>
       </div>
 
       <div class="appearance-group">
         <h3>Akzentfarbe</h3>
-
-        <div class="color-options">
+        <div class="color-options" role="group" aria-label="Akzentfarbe auswählen">
           <button
             *ngFor="let color of accentColors"
             type="button"
             class="color-button"
-            [class.color-button--active]="selectedAccentColor === color.value"
+            [class.color-button--active]="settings.accent_color === color.value"
             [style.background]="color.hex"
             [attr.aria-label]="color.label"
+            [attr.aria-pressed]="settings.accent_color === color.value"
             (click)="selectAccentColor(color.value)"
           ></button>
         </div>
       </div>
     </section>
 
-    <!-- Datenschutz & Sicherheit -->
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+            <path d="M10 21h4"></path>
+          </svg>
+        </span>
+        <div>
+          <h2>Benachrichtigungen</h2>
+          <p>Welche Hinweise du von bazkit erhalten möchtest</p>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Einkaufs-Erinnerungen</strong>
+          <span>Hinweise zu offenen Produkten und geplanten Einkäufen.</span>
+        </div>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="settings.notification_shopping_reminders"
+            (ngModelChange)="settingsChanged()"
+            aria-label="Einkaufs-Erinnerungen"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Geteilte Listen</strong>
+          <span>Hinweise, wenn eine Liste mit dir geteilt wird.</span>
+        </div>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="settings.notification_shared_lists"
+            (ngModelChange)="settingsChanged()"
+            aria-label="Hinweise zu geteilten Listen"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Produkt- und Funktionsneuigkeiten</strong>
+          <span>Seltene Hinweise auf wichtige Verbesserungen.</span>
+        </div>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="settings.notification_product_updates"
+            (ngModelChange)="settingsChanged()"
+            aria-label="Produkt- und Funktionsneuigkeiten"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <p class="card-help-text">
+        Deine Auswahl wird gespeichert. Benachrichtigungen werden nur über unterstützte Kanäle gesendet.
+      </p>
+    </section>
+
     <section class="settings-card security-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -440,131 +350,120 @@
             <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
           </svg>
         </span>
-
-        <h2>Datenschutz & Sicherheit</h2>
+        <div>
+          <h2>Daten &amp; Sicherheit</h2>
+          <p>Volle Kontrolle über dein Konto</p>
+        </div>
       </div>
 
       <div class="settings-links">
-        <button type="button" class="settings-link" (click)="changePassword()">
-          <span>Passwort ändern</span>
-          <span class="link-arrow">›</span>
-        </button>
-
-        <button type="button" class="settings-link" (click)="openTwoFactorSettings()">
-          <span>Zwei-Faktor-Authentifizierung</span>
-
-          <span class="link-meta">
-            <small>{{ twoFactorEnabled ? 'Aktiv' : 'Aus' }}</small>
-            <span class="link-arrow">›</span>
+        <button type="button" class="settings-link" (click)="downloadProfileData()">
+          <span>
+            <strong>Profil und Einstellungen exportieren</strong>
+            <small>Als lesbare JSON-Datei herunterladen.</small>
           </span>
+          <span class="link-arrow" aria-hidden="true">↓</span>
         </button>
-
-        <button type="button" class="settings-link" (click)="openActiveDevices()">
-          <span>Angemeldete Geräte</span>
-          <span class="link-arrow">›</span>
-        </button>
-
-        <button type="button" class="settings-link" (click)="downloadUserData()">
-          <span>Daten herunterladen</span>
-          <span class="link-arrow">›</span>
-        </button>
-
         <button
           type="button"
           class="settings-link settings-link--danger"
-          (click)="deleteAccount()"
+          (click)="openDeleteDialog()"
         >
-          <span>Konto löschen</span>
-
+          <span>
+            <strong>Konto dauerhaft löschen</strong>
+            <small>Entfernt dein Konto und alle damit verknüpften Daten.</small>
+          </span>
           <span class="danger-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
-              <path d="M3 6h18"></path>
-              <path d="M8 6V4h8v2"></path>
-              <path d="M19 6l-1 15H6L5 6"></path>
-              <path d="M10 11v6M14 11v6"></path>
+              <path d="M3 6h18"></path><path d="M8 6V4h8v2"></path>
+              <path d="M19 6l-1 15H6L5 6"></path><path d="M10 11v6M14 11v6"></path>
             </svg>
           </span>
         </button>
       </div>
     </section>
-
-    <div class="right-column-stack">
-
-      <!-- Premium -->
-      <section class="settings-card premium-card">
-        <div class="card-heading">
-          <span class="heading-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="m3 7 4 4 5-7 5 7 4-4-2 12H5L3 7Z"></path>
-            </svg>
-          </span>
-
-          <h2>Premium</h2>
-        </div>
-
-        <div class="premium-plan">
-          <span>Aktueller Tarif</span>
-          <strong>{{ premiumPlanName }}</strong>
-
-          <ul>
-            <li>100 KI-Rezepte pro Monat</li>
-            <li>Einfache Einkaufslisten</li>
-            <li>Grundlegende Funktionen</li>
-          </ul>
-
-          <button
-            type="button"
-            class="primary-button"
-            (click)="openPremium()"
-          >
-            Premium testen
-          </button>
-        </div>
-      </section>
-
-      <!-- Über bazkit -->
-      <section class="settings-card about-card">
-        <div class="card-heading">
-          <span class="heading-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M12 11v5"></path>
-              <path d="M12 8h.01"></path>
-            </svg>
-          </span>
-
-          <h2>Über bazkit</h2>
-        </div>
-
-        <div class="settings-links">
-          <div class="settings-link settings-link--static">
-            <span>Version</span>
-            <small>{{ appVersion }}</small>
-          </div>
-
-          <button type="button" class="settings-link" (click)="openPrivacyPolicy()">
-            <span>Datenschutz</span>
-            <span class="link-arrow">›</span>
-          </button>
-
-          <button type="button" class="settings-link" (click)="openTerms()">
-            <span>AGB</span>
-            <span class="link-arrow">›</span>
-          </button>
-
-          <button type="button" class="settings-link" (click)="openImprint()">
-            <span>Impressum</span>
-            <span class="link-arrow">›</span>
-          </button>
-
-          <button type="button" class="settings-link" (click)="contactSupport()">
-            <span>Support kontaktieren</span>
-            <span class="link-arrow">›</span>
-          </button>
-        </div>
-      </section>
-
-    </div>
-
   </div>
+</div>
+
+<div
+  class="settings-dialog-backdrop"
+  *ngIf="activeDialog"
+  (mousedown)="closeDialog()"
+>
+  <form
+    class="settings-dialog"
+    *ngIf="activeDialog === 'profile'"
+    (mousedown)="$event.stopPropagation()"
+    (ngSubmit)="saveProfile()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="profile-dialog-title"
+  >
+    <div class="dialog-heading">
+      <div><span>Konto</span><h2 id="profile-dialog-title">Profil bearbeiten</h2></div>
+      <button type="button" (click)="closeDialog()" aria-label="Fenster schließen">×</button>
+    </div>
+    <div class="dialog-field-grid">
+      <label>Vorname<input name="firstName" [(ngModel)]="profileForm.first_name" autocomplete="given-name" required /></label>
+      <label>Nachname<input name="lastName" [(ngModel)]="profileForm.last_name" autocomplete="family-name" required /></label>
+    </div>
+    <label>E-Mail-Adresse<input name="email" type="email" [(ngModel)]="profileForm.email" autocomplete="email" required /></label>
+    <p class="dialog-error" *ngIf="dialogError" role="alert">{{ dialogError }}</p>
+    <div class="dialog-actions">
+      <button class="outline-button" type="button" (click)="closeDialog()">Abbrechen</button>
+      <button class="primary-button" type="submit" [disabled]="isDialogSaving">
+        {{ isDialogSaving ? 'Wird gespeichert…' : 'Änderungen speichern' }}
+      </button>
+    </div>
+  </form>
+
+  <form
+    class="settings-dialog"
+    *ngIf="activeDialog === 'password'"
+    (mousedown)="$event.stopPropagation()"
+    (ngSubmit)="submitPasswordChange()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="password-dialog-title"
+  >
+    <div class="dialog-heading">
+      <div><span>Sicherheit</span><h2 id="password-dialog-title">Passwort ändern</h2></div>
+      <button type="button" (click)="closeDialog()" aria-label="Fenster schließen">×</button>
+    </div>
+    <label>Aktuelles Passwort<input name="currentPassword" type="password" [(ngModel)]="passwordForm.current_password" autocomplete="current-password" required /></label>
+    <label>Neues Passwort<input name="newPassword" type="password" [(ngModel)]="passwordForm.new_password" autocomplete="new-password" minlength="8" required /></label>
+    <label>Neues Passwort wiederholen<input name="repeatPassword" type="password" [(ngModel)]="passwordForm.new_password2" autocomplete="new-password" minlength="8" required /></label>
+    <small class="password-hint">Mindestens 8 Zeichen, darunter ein Buchstabe und eine Zahl.</small>
+    <p class="dialog-error" *ngIf="dialogError" role="alert">{{ dialogError }}</p>
+    <div class="dialog-actions">
+      <button class="outline-button" type="button" (click)="closeDialog()">Abbrechen</button>
+      <button class="primary-button" type="submit" [disabled]="isDialogSaving">
+        {{ isDialogSaving ? 'Wird geändert…' : 'Passwort ändern' }}
+      </button>
+    </div>
+  </form>
+
+  <form
+    class="settings-dialog settings-dialog--danger"
+    *ngIf="activeDialog === 'delete'"
+    (mousedown)="$event.stopPropagation()"
+    (ngSubmit)="deleteAccount()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="delete-dialog-title"
+  >
+    <div class="dialog-heading">
+      <div><span>Achtung</span><h2 id="delete-dialog-title">Konto dauerhaft löschen?</h2></div>
+      <button type="button" (click)="closeDialog()" aria-label="Fenster schließen">×</button>
+    </div>
+    <p class="danger-copy">Diese Aktion kann nicht rückgängig gemacht werden. Deine Rezepte, Listen und Community-Beiträge werden ebenfalls gelöscht.</p>
+    <label>Gib zur Bestätigung <strong>LÖSCHEN</strong> ein<input name="deleteConfirmation" [(ngModel)]="deleteConfirmation" autocomplete="off" required /></label>
+    <p class="dialog-error" *ngIf="dialogError" role="alert">{{ dialogError }}</p>
+    <div class="dialog-actions">
+      <button class="outline-button" type="button" (click)="closeDialog()">Abbrechen</button>
+      <button class="danger-button" type="submit" [disabled]="deleteConfirmation !== 'LÖSCHEN' || isDialogSaving">
+        {{ isDialogSaving ? 'Wird gelöscht…' : 'Konto endgültig löschen' }}
+      </button>
+    </div>
+  </form>
 </div>

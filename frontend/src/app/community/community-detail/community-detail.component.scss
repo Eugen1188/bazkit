@@ -435,6 +435,12 @@ CONTENT
 
   line-height:
     1.7;
+
+  overflow-wrap:
+    anywhere;
+
+  word-break:
+    break-word;
 }
 
 
@@ -450,6 +456,12 @@ CONTENT
 
   line-height:
     1.65;
+
+  white-space:
+    pre-line;
+
+  overflow-wrap:
+    anywhere;
 }
 
 
@@ -1513,6 +1525,15 @@ COMMENTS
 }
 
 
+.comment-content {
+  min-width:
+    0;
+
+  flex:
+    1;
+}
+
+
 .comment-content strong {
   font-size:
     12px;
@@ -1531,6 +1552,15 @@ COMMENTS
 
   line-height:
     1.55;
+
+  white-space:
+    pre-wrap;
+
+  overflow-wrap:
+    anywhere;
+
+  word-break:
+    break-word;
 }
 
 

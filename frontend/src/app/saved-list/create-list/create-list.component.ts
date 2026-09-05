@@ -24,6 +24,7 @@ import {
   ProductSuggestion
 } from '../../services/product.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
+import { UserSettingsService } from '../../services/user-settings.service';
 
 
 interface Product {
@@ -150,8 +151,14 @@ implements OnDestroy {
       SavedListService,
 
     private productService:
-      ProductService
+      ProductService,
+
+    private userSettings:
+      UserSettingsService
   ) {
+
+    this.productUnit =
+      this.userSettings.current.shopping_default_unit;
 
     this.productSearchSubscription =
       this.productSearchSubject
@@ -610,7 +617,7 @@ implements OnDestroy {
       1;
 
     this.productUnit =
-      'Stück';
+      this.userSettings.current.shopping_default_unit;
 
     this.productSuggestions =
       [];

@@ -75,6 +75,8 @@ export interface GenerateRecipePayload {
   servings: number;
   max_time: number;
   category: string;
+  dietary_preferences: string[];
+  favorite_cuisines: string[];
 }
 
 export interface GeneratedRecipe {

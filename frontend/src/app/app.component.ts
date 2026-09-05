@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { SidebarComponent } from "./sidebar/sidebar.component";
-import { LoginComponent } from "./login/login.component";
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from "@angular/router";
+import { AuthService } from './services/auth.service';
+import { UserSettingsService } from './services/user-settings.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,21 @@ import { RouterModule } from "@angular/router";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'frontend';
+
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userSettings: UserSettingsService,
+  ) {}
+
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.userSettings.load().subscribe({
+        error: () => {
+          // Die lokal gespeicherte Darstellung bleibt als verlässlicher Fallback aktiv.
+        },
+      });
+    }
+  }
 }

@@ -41,6 +41,10 @@ import {
 import {
   AddRecipeIngredientsModalComponent
 } from '../components/add-recipe-ingredients-modal/add-recipe-ingredients-modal.component';
+import {
+  ShoppingSorting,
+  UserSettingsService
+} from '../services/user-settings.service';
 
 
 type ShoppingFilter = 'all' | 'open' | 'completed';
@@ -119,7 +123,10 @@ export class ShoppingListComponent
       ShoppingListService,
 
     private listShareService:
-      ListShareService
+      ListShareService,
+
+    private userSettings:
+      UserSettingsService
   ) { }
 
 
@@ -608,13 +615,26 @@ export class ShoppingListComponent
       if (this.activeFilter === 'completed') return item.is_checked;
       return true;
     });
+    const sorting =
+      this.userSettings.current.shopping_default_sorting;
+
+    const useCategoryGroups =
+      sorting === 'category';
+
     const groups = new Map<string, ShoppingCategoryGroup>();
     for (const item of filteredItems) {
-      const key = item.shopping_category || 'other';
+      const key = useCategoryGroups
+        ? item.shopping_category || 'other'
+        : 'all';
+
       const group = groups.get(key) ?? {
         key,
-        label: item.shopping_category_label || 'Sonstiges',
-        order: item.shopping_category_order ?? 90,
+        label: useCategoryGroups
+          ? item.shopping_category_label || 'Sonstiges'
+          : this.sortingLabel(sorting),
+        order: useCategoryGroups
+          ? item.shopping_category_order ?? 90
+          : 0,
         items: []
       };
       group.items.push(item);
@@ -624,9 +644,32 @@ export class ShoppingListComponent
       .sort((left, right) => left.order - right.order || left.label.localeCompare(right.label, 'de-DE'))
       .map(group => ({
         ...group,
-        items: [...group.items].sort((left, right) =>
-          Number(left.is_checked) - Number(right.is_checked) || left.name.localeCompare(right.name, 'de-DE')
-        )
+        items: this.sortItems(group.items, sorting)
       }));
+  }
+
+
+  private sortItems(
+    items: ShoppingListItem[],
+    sorting: ShoppingSorting
+  ): ShoppingListItem[] {
+    const moveCompleted =
+      this.userSettings.current.shopping_move_completed_to_bottom;
+
+    return [...items].sort((left, right) => {
+      const completionOrder = moveCompleted
+        ? Number(left.is_checked) - Number(right.is_checked)
+        : 0;
+
+      if (completionOrder !== 0) return completionOrder;
+      if (sorting === 'created') return right.id - left.id;
+      return left.name.localeCompare(right.name, 'de-DE');
+    });
+  }
+
+
+  private sortingLabel(sorting: ShoppingSorting): string {
+    if (sorting === 'created') return 'Zuletzt hinzugefügt';
+    return 'Alle Produkte';
   }
 }

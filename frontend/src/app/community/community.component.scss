@@ -829,6 +829,8 @@ FEED CONTENT
   text-overflow: ellipsis;
 
   white-space: nowrap;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -858,6 +860,15 @@ FEED CONTENT
 
   line-clamp:
     2;
+
+  white-space:
+    pre-line;
+
+  overflow-wrap:
+    anywhere;
+
+  word-break:
+    break-word;
 }
 
 

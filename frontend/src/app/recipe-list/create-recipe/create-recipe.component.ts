@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Subject, Subscription, debounceTime, map, of, switchMap, tap } from 'rxjs';
 import { ProductService, ProductSuggestion } from '../../services/product.service';
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 import { serializePreparationSteps } from '../preparation-steps';
 
 interface PreparationStep { text: string; }
@@ -77,7 +78,10 @@ export class CreateRecipeComponent implements OnDestroy {
     private readonly router: Router,
     private readonly recipeService: RecipeService,
     private readonly productService: ProductService,
+    private readonly userSettings: UserSettingsService,
   ) {
+    this.servings = this.userSettings.current.recipe_default_portions;
+
     this.searchSubscription = this.search$.pipe(
       debounceTime(250),
       switchMap(search => {

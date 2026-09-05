@@ -32,6 +32,7 @@ import {
   ShoppingListItem,
   ShoppingListService
 } from '../../services/shopping-list.service';
+import { UserSettingsService } from '../../services/user-settings.service';
 
 
 @Component({
@@ -156,8 +157,14 @@ implements OnInit, OnDestroy {
       ProductService,
 
     private shoppingListService:
-      ShoppingListService
+      ShoppingListService,
+
+    private userSettings:
+      UserSettingsService
   ) {
+
+    this.unit =
+      this.userSettings.current.shopping_default_unit;
 
     this.searchSubscription =
       this.searchSubject
