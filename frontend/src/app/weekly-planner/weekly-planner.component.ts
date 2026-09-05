@@ -365,7 +365,7 @@ export class WeeklyPlannerComponent implements OnInit {
   openAiPlannerDialog(): void {
     if (!this.nutritionReadyRecipeCount) {
       this.showFeedback(
-        'Für die KI-Planung brauchst du mindestens ein Rezept mit vollständig berechneten Nährwerten.',
+        'Für die automatische Planung brauchst du mindestens ein Rezept mit vollständig berechneten Nährwerten.',
         'error'
       );
       return;

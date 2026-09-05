@@ -39,11 +39,12 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
-            <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"></path>
-            <path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"></path>
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M8 3v4M16 3v4M3 10h18"></path>
+            <path d="m8 15 2 2 5-5"></path>
           </svg>
 
-          {{ isGenerating ? 'Woche wird geplant…' : 'Woche mit KI planen' }}
+          {{ isGenerating ? 'Woche wird geplant…' : 'Woche automatisch planen' }}
 
         </button>
 
@@ -894,10 +895,10 @@
     >
       <header class="planner-dialog-header">
         <div>
-          <span>KI-Wochenplanung · {{ weekLabel }}</span>
+          <span>Automatische Wochenplanung · {{ weekLabel }}</span>
           <h2 id="ai-planner-dialog-title">Wie möchtest du deine Woche planen?</h2>
           <p>
-            Die KI wählt ausschließlich deine gespeicherten Rezepte mit vollständig
+            bazkit wählt ausschließlich deine gespeicherten Rezepte mit vollständig
             berechneten Nährwerten. Vorhandene Mahlzeiten bleiben standardmäßig erhalten.
           </p>
         </div>
@@ -923,7 +924,7 @@
 
       <div class="ai-planner-form">
         <fieldset class="ai-meal-selection">
-          <legend>Welche Mahlzeiten soll die KI planen?</legend>
+          <legend>Welche Mahlzeiten sollen automatisch geplant werden?</legend>
           <label [class.selected]="planBreakfast">
             <input type="checkbox" [(ngModel)]="planBreakfast" />
             <span>Frühstück</span>

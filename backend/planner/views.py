@@ -188,7 +188,7 @@ class WeeklyPlanGenerateAPIView(APIView):
             return Response(
                 {
                     "detail": (
-                        "Für die KI-Planung brauchst du mindestens ein eigenes Rezept "
+                        "Für die automatische Planung brauchst du mindestens ein eigenes Rezept "
                         "mit vollständig berechneten Nährwerten."
                     )
                 },
