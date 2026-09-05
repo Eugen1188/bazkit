@@ -1177,8 +1177,8 @@
   background:
     linear-gradient(
       135deg,
-      #587664,
-      #678774
+      var(--color-primary-hover),
+      var(--color-primary)
     );
 
   color:

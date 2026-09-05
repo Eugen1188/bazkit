@@ -547,7 +547,7 @@
 
   overflow: hidden;
 
-  background: rgba(88, 118, 100, 0.16);
+  background: var(--color-primary-ring);
 }
 
 .progress-value {

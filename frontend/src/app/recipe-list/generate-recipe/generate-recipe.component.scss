@@ -232,7 +232,7 @@
   height: 8px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(88, 118, 100, .16);
+  background: var(--color-primary-ring);
 }
 
 .usage-meter i {
@@ -607,7 +607,7 @@ select:focus {
 .generate-button:hover:not(:disabled) {
   box-shadow:
     0 10px 24px
-    rgba(88, 118, 100, 0.18);
+    var(--color-primary-ring);
 }
 
 

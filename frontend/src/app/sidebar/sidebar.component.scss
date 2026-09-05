@@ -1249,7 +1249,7 @@ VERY SMALL MOBILE
   width: 32px;
   height: 32px;
   border-radius: 9px;
-  background: rgba(88, 118, 100, 0.08);
+  background: var(--color-primary-ring);
   color: var(--color-text-secondary);
   transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
 }
@@ -1260,14 +1260,14 @@ VERY SMALL MOBILE
 }
 
 .nav-item:hover .nav-icon {
-  background: rgba(88, 118, 100, 0.14);
+  background: var(--color-primary-soft-bg);
   color: var(--color-primary);
 }
 
 .nav-item.active .nav-icon {
   background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 5px 12px rgba(74, 105, 87, 0.2);
+  box-shadow: 0 5px 12px var(--color-primary-ring);
 }
 
 .premium-card strong {

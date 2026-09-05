@@ -119,7 +119,7 @@ a,
 }
 
 ::selection {
-  background: rgba(88, 118, 100, 0.2);
+  background: var(--color-primary-ring);
 }
 
 @media (max-width: 900px) {
