@@ -85,6 +85,48 @@
       </div>
     </section>
 
+    <section class="settings-card ai-quota-card" *ngIf="aiUsage as usage">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <app-ui-icon name="sparkles"></app-ui-icon>
+        </span>
+        <div>
+          <h2>KI-Kontingent</h2>
+          <p>Deine verfügbaren KI-Rezepte in diesem Monat</p>
+        </div>
+      </div>
+
+      <div class="quota-plan-row">
+        <span class="quota-plan">{{ usage.plan_label }}</span>
+        <span>{{ usage.used }} von {{ usage.limit }} verwendet</span>
+      </div>
+
+      <div class="quota-number">
+        <strong>{{ usage.remaining }}</strong>
+        <span>KI-Rezepte noch verfügbar</span>
+      </div>
+
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-label="Verbrauchtes KI-Kontingent"
+        aria-valuemin="0"
+        [attr.aria-valuemax]="usage.limit"
+        [attr.aria-valuenow]="usage.used"
+      >
+        <div class="progress-value" [style.width.%]="aiUsagePercentage"></div>
+      </div>
+
+      <p class="quota-reset">
+        Automatische Rücksetzung am {{ usage.resets_at | date:'dd.MM.yyyy' }}.
+        In der Startphase erhalten alle Konten das Premium-Kontingent.
+      </p>
+
+      <a class="primary-button quota-action" routerLink="/main/recipe-list/ai">
+        KI-Rezept erstellen
+      </a>
+    </section>
+
     <section class="settings-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -380,6 +422,33 @@
             </svg>
           </span>
         </button>
+      </div>
+    </section>
+
+    <section class="settings-card legal-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <app-ui-icon name="clipboard-list"></app-ui-icon>
+        </span>
+        <div>
+          <h2>Rechtliches</h2>
+          <p>Informationen zu Anbieter, Datenschutz und Nutzung</p>
+        </div>
+      </div>
+
+      <div class="settings-links">
+        <a class="settings-link" routerLink="/impressum">
+          <span><strong>Impressum</strong><small>Anbieter- und Kontaktangaben</small></span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="settings-link" routerLink="/datenschutz">
+          <span><strong>Datenschutz</strong><small>Wie bazkit deine Daten verarbeitet</small></span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="settings-link" routerLink="/agb">
+          <span><strong>Nutzungsbedingungen</strong><small>Regeln für Konto, KI und Community</small></span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
       </div>
     </section>
   </div>

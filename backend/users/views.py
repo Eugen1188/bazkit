@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -42,6 +44,8 @@ class RegisterUserView(APIView):
             first_name=data["first_name"],
             last_name=data["last_name"],
             password=data["password"],
+            terms_accepted_at=timezone.now(),
+            terms_version=settings.LEGAL_TERMS_VERSION,
         )
 
         return Response(

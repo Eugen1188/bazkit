@@ -83,3 +83,23 @@ class UserSettingsApiTests(APITestCase):
         self.assertEqual(response.status_code, 200)
         self.user.refresh_from_db()
         self.assertTrue(self.user.check_password("NeuPasswort123"))
+
+    def test_registration_requires_and_records_terms_acceptance(self):
+        payload = {
+            "first_name": "Neu",
+            "last_name": "Nutzer",
+            "email": "neu@example.com",
+            "password": "Passwort123",
+            "password2": "Passwort123",
+        }
+
+        response = self.client.post("/users/register/", payload, format="json")
+        self.assertEqual(response.status_code, 400)
+
+        payload["accept_terms"] = True
+        response = self.client.post("/users/register/", payload, format="json")
+        self.assertEqual(response.status_code, 201)
+
+        user = User.objects.get(email="neu@example.com")
+        self.assertIsNotNone(user.terms_accepted_at)
+        self.assertEqual(user.terms_version, "2026-09-05")

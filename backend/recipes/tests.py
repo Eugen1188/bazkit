@@ -1,4 +1,5 @@
 import json
+from datetime import timedelta
 from decimal import Decimal
 from io import BytesIO
 from types import SimpleNamespace
@@ -8,14 +9,17 @@ from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from PIL import Image
-from rest_framework.test import APIClient
+from django.utils import timezone
+from rest_framework.test import APIClient, APITestCase
 
 from products.models import IngredientPriceReference, Product, ProductUnitConversion
 from products.catalog import sync_curated_unit_conversion
 from .models import Ingredients, Recipe
 from .serializers import RecipeSerializer, calculate_recipe_price
 from .storage import prepare_recipe_image
-from .ai_service import generate_recipe_with_ai
+from users.models import AIRecipeUsage, UserSettings
+
+from .ai_service import RecipeGenerationError, generate_recipe_with_ai
 
 
 class RecipeSerializerTests(TestCase):
@@ -489,3 +493,97 @@ class RecipeSerializerTests(TestCase):
 
         self.assertEqual(response.status_code, 404)
         upload_mock.assert_not_called()
+
+
+@override_settings(
+    PREMIUM_ENFORCEMENT_ENABLED=False,
+    AI_RECIPE_FREE_MONTHLY_LIMIT=5,
+    AI_RECIPE_PREMIUM_MONTHLY_LIMIT=50,
+)
+class AIRecipeUsageApiTests(APITestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="ai-usage",
+            email="ai-usage@example.com",
+            password="test-password",
+        )
+        self.client.force_authenticate(self.user)
+        self.payload = {
+            "idea": "Tomatensalat",
+            "available_ingredients": "Tomate",
+            "avoid_ingredients": "",
+            "diet": "vegan",
+            "servings": 2,
+            "max_time": 20,
+            "category": "lunch",
+        }
+
+    def test_start_phase_gives_every_user_fifty_generations(self):
+        response = self.client.get("/recipes/ai-usage/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["plan"], "premium")
+        self.assertEqual(response.data["limit"], 50)
+        self.assertEqual(response.data["remaining"], 50)
+
+    @patch("recipes.views.generate_recipe_with_ai")
+    def test_successful_generation_uses_one_credit(self, generator):
+        generator.return_value = {"name": "Tomatensalat"}
+
+        response = self.client.post("/recipes/generate/", self.payload, format="json")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["ai_usage"]["used"], 1)
+        self.assertEqual(response.data["ai_usage"]["remaining"], 49)
+
+    @patch("recipes.views.generate_recipe_with_ai")
+    def test_failed_generation_refunds_credit(self, generator):
+        generator.side_effect = RecipeGenerationError("KI nicht erreichbar")
+
+        response = self.client.post("/recipes/generate/", self.payload, format="json")
+
+        self.assertEqual(response.status_code, 502)
+        usage = AIRecipeUsage.objects.get(user=self.user)
+        self.assertEqual(usage.generations_used, 0)
+
+    def test_generation_is_blocked_after_limit(self):
+        AIRecipeUsage.objects.create(
+            user=self.user,
+            period_start=timezone.localdate().replace(day=1),
+            generations_used=50,
+        )
+
+        response = self.client.post("/recipes/generate/", self.payload, format="json")
+
+        self.assertEqual(response.status_code, 429)
+        self.assertEqual(response.data["code"], "ai_recipe_quota_exceeded")
+        self.assertEqual(response.data["ai_usage"]["remaining"], 0)
+
+    def test_old_month_usage_is_reset_automatically(self):
+        this_month = timezone.localdate().replace(day=1)
+        previous_month = (this_month - timedelta(days=1)).replace(day=1)
+        AIRecipeUsage.objects.create(
+            user=self.user,
+            period_start=previous_month,
+            generations_used=49,
+        )
+
+        response = self.client.get("/recipes/ai-usage/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["used"], 0)
+        self.assertEqual(response.data["remaining"], 50)
+
+    @override_settings(PREMIUM_ENFORCEMENT_ENABLED=True)
+    def test_future_free_and_premium_limits_are_ready(self):
+        response = self.client.get("/recipes/ai-usage/")
+        self.assertEqual(response.data["plan"], "free")
+        self.assertEqual(response.data["limit"], 5)
+
+        user_settings = UserSettings.objects.get(user=self.user)
+        user_settings.premium_active = True
+        user_settings.save(update_fields=["premium_active", "updated_at"])
+
+        response = self.client.get("/recipes/ai-usage/")
+        self.assertEqual(response.data["plan"], "premium")
+        self.assertEqual(response.data["limit"], 50)

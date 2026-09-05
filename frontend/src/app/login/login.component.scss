@@ -26,6 +26,8 @@
 
   display: flex;
 
+  flex-direction: column;
+
   justify-content: center;
 
   align-items: center;
@@ -719,3 +721,19 @@ iPhone 12 / Safari etc.
   }
 
 }
+.auth-legal-links {
+  width: 100%;
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.auth-legal-links a {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.auth-legal-links a:hover { color: var(--color-primary); }

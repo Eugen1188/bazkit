@@ -78,6 +78,10 @@ import {
   WeeklyPlannerComponent
 } from './weekly-planner/weekly-planner.component';
 
+import {
+  LegalPageComponent
+} from './legal/legal-page.component';
+
 export const routes:
   Routes = [
 
@@ -89,6 +93,24 @@ export const routes:
     {
       path: 'register',
       component: RegisterComponent
+    },
+
+    {
+      path: 'impressum',
+      component: LegalPageComponent,
+      data: { legalPage: 'impressum' }
+    },
+
+    {
+      path: 'datenschutz',
+      component: LegalPageComponent,
+      data: { legalPage: 'datenschutz' }
+    },
+
+    {
+      path: 'agb',
+      component: LegalPageComponent,
+      data: { legalPage: 'agb' }
     },
 
     {

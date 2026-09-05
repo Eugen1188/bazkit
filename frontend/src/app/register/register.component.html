@@ -403,6 +403,23 @@
         </div>
 
 
+        <label class="terms-check">
+          <input
+            type="checkbox"
+            name="accept_terms"
+            [(ngModel)]="registerData.accept_terms"
+            required
+          />
+          <span>
+            Ich akzeptiere die
+            <a routerLink="/agb" target="_blank" rel="noopener">Nutzungsbedingungen</a>
+            und habe die
+            <a routerLink="/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>
+            zur Kenntnis genommen.
+          </span>
+        </label>
+
+
         <button
           type="submit"
           class="register-btn"
@@ -437,5 +454,11 @@
     </div>
 
   </div>
+
+  <footer class="auth-legal-links">
+    <a routerLink="/impressum">Impressum</a>
+    <a routerLink="/datenschutz">Datenschutz</a>
+    <a routerLink="/agb">Nutzungsbedingungen</a>
+  </footer>
 
 </div>

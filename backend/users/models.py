@@ -5,6 +5,8 @@ from django.contrib.auth.models import AbstractUser
 class User (AbstractUser):
     email = models.EmailField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    terms_accepted_at = models.DateTimeField(null=True, blank=True)
+    terms_version = models.CharField(max_length=20, blank=True)
 
     def __str__(self):
         return self.username
@@ -68,7 +70,22 @@ class UserSettings(models.Model):
     notification_shopping_reminders = models.BooleanField(default=True)
     notification_shared_lists = models.BooleanField(default=True)
     notification_product_updates = models.BooleanField(default=False)
+    premium_active = models.BooleanField(default=False)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Einstellungen von {self.user.email}"
+
+
+class AIRecipeUsage(models.Model):
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        related_name="ai_recipe_usage",
+    )
+    period_start = models.DateField()
+    generations_used = models.PositiveIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"KI-Nutzung von {self.user.email}: {self.generations_used}"

@@ -49,6 +49,23 @@
   </header>
 
 
+  <section class="ai-usage-strip" *ngIf="aiUsage as usage" aria-live="polite">
+    <div class="usage-symbol" aria-hidden="true">
+      <app-ui-icon name="sparkles"></app-ui-icon>
+    </div>
+    <div class="usage-copy">
+      <span>{{ usage.plan_label }}</span>
+      <strong>
+        {{ usage.remaining }} von {{ usage.limit }} KI-Rezepten verfügbar
+      </strong>
+      <small>Das Kontingent wird am {{ usage.resets_at | date:'dd.MM.yyyy' }} zurückgesetzt.</small>
+    </div>
+    <div class="usage-meter" aria-hidden="true">
+      <i [style.width.%]="aiUsagePercentage"></i>
+    </div>
+  </section>
+
+
   <section class="ai-process-strip" aria-label="So erstellt bazkit dein Rezept">
 
     <div>
@@ -273,7 +290,7 @@
       <button
         class="generate-button"
         type="button"
-        [disabled]="isGenerating"
+        [disabled]="isGenerating || isUsageLoading || !aiUsage || aiUsage.remaining === 0"
         (click)="generateRecipe()"
       >
 
@@ -295,7 +312,13 @@
         {{
           isGenerating
             ? 'Zutaten und Nährwerte werden geprüft...'
-            : 'Rezept + Nährwerte generieren'
+            : isUsageLoading
+              ? 'Kontingent wird geladen...'
+              : !aiUsage
+                ? 'Kontingent nicht verfügbar'
+                : aiUsage.remaining === 0
+                  ? 'Monatliches Kontingent aufgebraucht'
+                  : 'Rezept + Nährwerte generieren'
         }}
 
       </button>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { RegisterData } from '../models/user';
 import { AuthService } from '../services/auth.service';
@@ -13,7 +13,8 @@ import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
   imports: [
     CommonModule,
     FormsModule,
-    UiIconComponent
+    UiIconComponent,
+    RouterLink
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -30,7 +31,8 @@ export class RegisterComponent {
     last_name: '',
     email: '',
     password: '',
-    password2: ''
+    password2: '',
+    accept_terms: false,
   };
 
   showPassword = false;
@@ -117,7 +119,10 @@ export class RegisterComponent {
         this.registerData.password,
 
       password2:
-        this.registerData.password2
+        this.registerData.password2,
+
+      accept_terms:
+        this.registerData.accept_terms,
     };
 
     this.isLoading = true;
@@ -174,6 +179,13 @@ export class RegisterComponent {
                 ? response.password2[0]
                 : response.password2;
 
+            return;
+          }
+
+          if (response?.accept_terms) {
+            this.errorMessage = Array.isArray(response.accept_terms)
+              ? response.accept_terms[0]
+              : response.accept_terms;
             return;
           }
 

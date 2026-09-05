@@ -21,6 +21,7 @@ export interface UserSettings {
   notification_shopping_reminders: boolean;
   notification_shared_lists: boolean;
   notification_product_updates: boolean;
+  readonly premium_active?: boolean;
   updated_at?: string;
 }
 

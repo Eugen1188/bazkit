@@ -1,0 +1,297 @@
+<div class="legal-page">
+  <header class="legal-header">
+    <a class="legal-logo" routerLink="/" aria-label="Zur bazkit Startseite">
+      <span aria-hidden="true">b</span><strong>bazkit</strong>
+    </a>
+    <a class="back-link" [routerLink]="backTarget">{{ backLabel }}</a>
+  </header>
+
+  <main class="legal-shell">
+    <nav class="legal-tabs" aria-label="Rechtliche Informationen">
+      <a routerLink="/impressum" routerLinkActive="active">Impressum</a>
+      <a routerLink="/datenschutz" routerLinkActive="active">Datenschutz</a>
+      <a routerLink="/agb" routerLinkActive="active">Nutzungsbedingungen</a>
+    </nav>
+
+    <aside class="legal-warning" role="note">
+      <strong>Vor der öffentlichen Veröffentlichung vervollständigen</strong>
+      <p>
+        Betreibername, ladungsfähige Anschrift, Kontaktadresse, Hosting-Anbieter
+        und zuständige Datenschutzaufsicht fehlen noch. Die markierten Angaben
+        dürfen nicht als Platzhalter online bleiben. Lass die endgültigen Texte
+        vor dem Start rechtlich prüfen.
+      </p>
+    </aside>
+
+    <article class="legal-card" *ngIf="page === 'impressum'">
+      <span class="eyebrow">Rechtliche Informationen</span>
+      <h1>Impressum</h1>
+      <p class="updated">Stand: 5. September 2026</p>
+
+      <section>
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p class="placeholder">[Vollständiger Name oder Firmenname]</p>
+        <p class="placeholder">[Rechtsform, falls vorhanden]</p>
+        <p class="placeholder">[Straße und Hausnummer]</p>
+        <p class="placeholder">[Postleitzahl und Ort, Land]</p>
+      </section>
+      <section>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <span class="placeholder">[Kontakt-E-Mail-Adresse]</span></p>
+        <p>Telefon: <span class="placeholder">[Telefonnummer, sofern erforderlich]</span></p>
+      </section>
+      <section>
+        <h2>Vertretung und Register</h2>
+        <p>Vertretungsberechtigt: <span class="placeholder">[Name, falls zutreffend]</span></p>
+        <p>Register und Registernummer: <span class="placeholder">[falls vorhanden]</span></p>
+        <p>USt-IdNr. / Wirtschafts-IdNr.: <span class="placeholder">[falls vorhanden]</span></p>
+      </section>
+      <section>
+        <h2>Verantwortlich für redaktionelle Inhalte</h2>
+        <p class="placeholder">[Name und Anschrift gemäß § 18 Abs. 2 MStV, falls erforderlich]</p>
+      </section>
+      <section>
+        <h2>Kontaktstelle für Nutzer und Behörden</h2>
+        <p>
+          Meldungen zu mutmaßlich rechtswidrigen Community-Inhalten sowie
+          behördliche Anfragen können in deutscher oder englischer Sprache an
+          <span class="placeholder">[DSA-Kontakt-E-Mail]</span> gerichtet werden.
+          Eine Meldung sollte den konkreten Inhalt, dessen Fundstelle, eine
+          Begründung und die Kontaktdaten der meldenden Person enthalten.
+        </p>
+      </section>
+      <section>
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p class="placeholder">
+          [Erklärung ergänzen, ob Bereitschaft oder Verpflichtung zur Teilnahme
+          an einem Streitbeilegungsverfahren besteht.]
+        </p>
+      </section>
+    </article>
+
+    <article class="legal-card" *ngIf="page === 'datenschutz'">
+      <span class="eyebrow">Schutz deiner Daten</span>
+      <h1>Datenschutzerklärung</h1>
+      <p class="updated">Stand: 5. September 2026</p>
+
+      <section>
+        <h2>1. Verantwortlicher</h2>
+        <p class="placeholder">[Betreibername, vollständige Anschrift und Datenschutz-E-Mail]</p>
+        <p>Datenschutzbeauftragter: <span class="placeholder">[falls bestellt]</span></p>
+      </section>
+      <section>
+        <h2>2. Bereitstellung der Website und Sicherheit</h2>
+        <p>
+          Beim Aufruf können technisch notwendige Protokolldaten verarbeitet
+          werden, insbesondere IP-Adresse, Zeitpunkt, aufgerufene Adresse,
+          Browserinformationen und Fehlerdaten. Dies dient dem sicheren und
+          störungsfreien Betrieb. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+        <p>Hosting-Anbieter und Serverstandort: <span class="placeholder">[ergänzen]</span></p>
+        <p>Speicherdauer der Serverprotokolle: <span class="placeholder">[ergänzen]</span></p>
+      </section>
+      <section>
+        <h2>3. Nutzerkonto</h2>
+        <p>
+          Für Registrierung und Anmeldung verarbeitet bazkit Vor- und Nachname,
+          E-Mail-Adresse, ein nicht im Klartext gespeichertes Passwort sowie den
+          Zeitpunkt und die Version der akzeptierten Nutzungsbedingungen. Die
+          Verarbeitung ist zur Bereitstellung des Kontos erforderlich
+          (Art. 6 Abs. 1 lit. b DSGVO).
+        </p>
+      </section>
+      <section>
+        <h2>4. Rezepte, Listen und Einstellungen</h2>
+        <p>
+          Gespeichert werden deine Rezepte, Bilder, Zutaten, Einkaufslisten,
+          Wochenpläne, Ernährungspräferenzen und App-Einstellungen. Diese Daten
+          werden zur Erbringung der von dir gewählten Funktionen verarbeitet
+          (Art. 6 Abs. 1 lit. b DSGVO).
+        </p>
+      </section>
+      <section>
+        <h2>5. KI-Rezeptgenerierung</h2>
+        <p>
+          Wenn du die KI-Funktion aktiv startest, werden deine Rezeptidee,
+          Zutatenangaben, Ausschlüsse, ausgewählten Präferenzen und technische
+          Anweisungen an OpenAI übermittelt. Nutze in diesen Eingaben keine
+          personenbezogenen oder vertraulichen Angaben. Rechtsgrundlage ist die
+          Vertragserfüllung nach Art. 6 Abs. 1 lit. b DSGVO.
+        </p>
+        <p>
+          Empfänger: OpenAI. Konkrete Vertragseinheit, Verarbeitungsort,
+          Auftragsverarbeitungsvereinbarung und geeignete Garantien für mögliche
+          Drittlandübermittlungen: <span class="placeholder">[vor Start prüfen und ergänzen]</span>.
+        </p>
+      </section>
+      <section>
+        <h2>6. Rezeptbilder</h2>
+        <p>
+          Hochgeladene Rezeptbilder werden in einem objektbasierten Speicher
+          abgelegt und deinem Konto zugeordnet. Derzeit ist Cloudflare R2
+          technisch vorgesehen. Anbieter, Standort, Vertragsgrundlage und
+          Löschfristen: <span class="placeholder">[ergänzen]</span>.
+        </p>
+      </section>
+      <section>
+        <h2>7. Community</h2>
+        <p>
+          Veröffentlichte Beiträge, Rezepte, Listen, Kommentare, Bewertungen,
+          Likes und dein angezeigter Name sind für andere angemeldete Nutzer
+          sichtbar. Du entscheidest selbst, welche Inhalte du veröffentlichst.
+          Die Verarbeitung erfolgt zur Bereitstellung der Community-Funktionen
+          (Art. 6 Abs. 1 lit. b DSGVO) und zur Missbrauchsabwehr auf Grundlage
+          berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO).
+        </p>
+      </section>
+      <section>
+        <h2>8. Lokale Speicherung</h2>
+        <p>
+          bazkit speichert das Anmeldetoken und zwischengespeicherte Einstellungen
+          im lokalen Speicher deines Browsers. Diese Speicherung ist für die von
+          dir angeforderte Anmeldung und App-Funktion technisch erforderlich.
+          Analyse-, Werbe- oder Marketing-Tracker sind derzeit nicht eingebunden.
+        </p>
+      </section>
+      <section>
+        <h2>9. Speicherdauer und Kontolöschung</h2>
+        <p>
+          Kontodaten werden grundsätzlich bis zur Löschung des Kontos gespeichert.
+          Einzelne Inhalte können vorher gelöscht werden. Gesetzliche
+          Aufbewahrungspflichten und notwendige Sicherheitsnachweise können eine
+          längere Speicherung einzelner Angaben erfordern.
+        </p>
+      </section>
+      <section>
+        <h2>10. Deine Rechte</h2>
+        <p>
+          Du hast im gesetzlichen Umfang Rechte auf Auskunft, Berichtigung,
+          Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Eine
+          erteilte Einwilligung kann mit Wirkung für die Zukunft widerrufen werden.
+          Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren.
+        </p>
+        <p>Zuständige Aufsichtsbehörde: <span class="placeholder">[Bundesland und Behörde ergänzen]</span></p>
+      </section>
+      <section>
+        <h2>11. Automatisierte Entscheidungen</h2>
+        <p>
+          Es findet keine ausschließlich automatisierte Entscheidung mit
+          rechtlicher oder ähnlich erheblicher Wirkung im Sinne von Art. 22 DSGVO
+          statt. KI-Ausgaben sind Vorschläge und werden nicht automatisch veröffentlicht.
+        </p>
+      </section>
+    </article>
+
+    <article class="legal-card" *ngIf="page === 'agb'">
+      <span class="eyebrow">Regeln für die Nutzung</span>
+      <h1>Nutzungsbedingungen</h1>
+      <p class="updated">Version 2026-09-05 · Stand: 5. September 2026</p>
+
+      <section>
+        <h2>1. Anbieter und Geltungsbereich</h2>
+        <p>
+          Diese Bedingungen gelten für die Nutzung von bazkit durch registrierte
+          Nutzer. Anbieter ist <span class="placeholder">[vollständiger Betreiber laut Impressum]</span>.
+        </p>
+      </section>
+      <section>
+        <h2>2. Nutzerkonto</h2>
+        <p>
+          Für die Nutzung ist ein persönliches Konto mit zutreffenden Angaben
+          erforderlich. Zugangsdaten müssen vertraulich behandelt werden. Eine
+          Weitergabe des Kontos oder eine missbräuchliche automatisierte Nutzung
+          ist nicht gestattet.
+        </p>
+      </section>
+      <section>
+        <h2>3. Funktionen und KI-Kontingent</h2>
+        <p>
+          bazkit bietet Einkaufslisten, Rezepte, Wochenplanung und Community-
+          Funktionen. In der kostenlosen Premium-Startphase stehen jedem Konto
+          50 erfolgreiche KI-Rezeptgenerierungen pro Kalendermonat zur Verfügung.
+          Nach Einführung der regulären Premium-Funktion sind im Basistarif
+          5 und mit aktivem Premium 50 Generierungen pro Kalendermonat vorgesehen.
+          Technisch fehlgeschlagene Generierungen werden nicht angerechnet.
+        </p>
+        <p>
+          Es wird derzeit kein kostenpflichtiger Premiumvertrag angeboten.
+          Vor Einführung von Zahlungen müssen Preise, Laufzeit, Kündigung,
+          Widerrufsrecht und Zahlungsabwicklung ergänzt und gesondert bestätigt werden.
+        </p>
+      </section>
+      <section>
+        <h2>4. KI-Inhalte und Gesundheitsinformationen</h2>
+        <p>
+          KI-generierte Rezepte, Nährwerte, Mengen, Preise und Zubereitungshinweise
+          können Fehler enthalten. Sie ersetzen keine medizinische, ernährungs-
+          wissenschaftliche oder allergologische Beratung. Nutzer müssen Zutaten,
+          Allergene, Garzeiten und Lebensmittelsicherheit eigenverantwortlich prüfen.
+        </p>
+      </section>
+      <section>
+        <h2>5. Eigene und veröffentlichte Inhalte</h2>
+        <p>
+          Du behältst deine Rechte an eigenen Inhalten. Soweit du Inhalte in der
+          Community veröffentlichst, räumst du dem Anbieter die für Speicherung,
+          Anzeige, technische Bearbeitung und Bereitstellung innerhalb von bazkit
+          erforderlichen, nicht ausschließlichen Nutzungsrechte ein. Diese enden
+          grundsätzlich mit der Löschung, soweit keine gesetzlichen Pflichten entgegenstehen.
+        </p>
+      </section>
+      <section>
+        <h2>6. Community-Regeln</h2>
+        <p>
+          Verboten sind insbesondere rechtswidrige, beleidigende, diskriminierende,
+          bedrohende, jugendgefährdende oder irreführende Inhalte sowie die
+          Verletzung von Urheber-, Marken-, Persönlichkeits- oder Datenschutzrechten.
+          Werbung, Spam und technische Manipulationen sind ebenfalls unzulässig.
+        </p>
+        <p>
+          Mutmaßlich rechtswidrige Inhalte können über die im Impressum genannte
+          DSA-Kontaktstelle gemeldet werden. Meldungen werden sorgfältig geprüft;
+          Betroffene werden über Entscheidungen und vorhandene Rechtsbehelfe informiert.
+        </p>
+      </section>
+      <section>
+        <h2>7. Moderation und Sperrung</h2>
+        <p>
+          Bei Verstößen können Inhalte nach angemessener Prüfung eingeschränkt oder
+          entfernt und Konten vorübergehend oder dauerhaft gesperrt werden. Soweit
+          gesetzlich erforderlich, werden Entscheidungen begründet und es wird eine
+          elektronische Beschwerdemöglichkeit bereitgestellt.
+        </p>
+      </section>
+      <section>
+        <h2>8. Verfügbarkeit und Änderungen</h2>
+        <p>
+          Ein ununterbrochener oder fehlerfreier Betrieb kann nicht garantiert werden.
+          Funktionen dürfen aus Sicherheits-, Rechts- oder Weiterentwicklungsgründen
+          angepasst werden, soweit dies für Nutzer zumutbar ist. Wesentliche Änderungen
+          dieser Bedingungen werden rechtzeitig mitgeteilt.
+        </p>
+      </section>
+      <section>
+        <h2>9. Haftung</h2>
+        <p>
+          Es gelten die gesetzlichen Haftungsregeln. Haftungsbeschränkungen gelten
+          nicht bei Vorsatz, grober Fahrlässigkeit, Verletzung von Leben, Körper oder
+          Gesundheit sowie in Fällen zwingender gesetzlicher Haftung.
+        </p>
+      </section>
+      <section>
+        <h2>10. Beendigung</h2>
+        <p>
+          Nutzer können ihr Konto in den Einstellungen löschen. Der Anbieter kann
+          das Nutzungsverhältnis aus wichtigem Grund beenden, insbesondere bei
+          erheblichen oder wiederholten Verstößen gegen diese Bedingungen.
+        </p>
+      </section>
+    </article>
+
+    <footer class="legal-footer">
+      <a routerLink="/impressum">Impressum</a>
+      <a routerLink="/datenschutz">Datenschutz</a>
+      <a routerLink="/agb">Nutzungsbedingungen</a>
+    </footer>
+  </main>
+</div>

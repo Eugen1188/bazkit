@@ -29,6 +29,12 @@ from .storage import (
     delete_recipe_image_if_unused,
     upload_recipe_image,
 )
+from .usage import (
+    AIRecipeQuotaExceeded,
+    get_ai_recipe_usage,
+    refund_ai_recipe_generation,
+    reserve_ai_recipe_generation,
+)
 
 
 class RecipeListCreateAPIView(
@@ -179,10 +185,25 @@ class GenerateRecipeAPIView(
 
 
         try:
+            reserve_ai_recipe_generation(request.user)
+        except AIRecipeQuotaExceeded as error:
+            return Response(
+                {
+                    "detail": "Dein KI-Kontingent für diesen Monat ist aufgebraucht.",
+                    "code": "ai_recipe_quota_exceeded",
+                    "ai_usage": error.usage,
+                },
+                status=status.HTTP_429_TOO_MANY_REQUESTS,
+            )
+
+
+        try:
 
             recipe = generate_recipe_with_ai(
                 serializer.validated_data
             )
+
+            recipe["ai_usage"] = get_ai_recipe_usage(request.user)
 
             return Response(
                 recipe,
@@ -192,6 +213,8 @@ class GenerateRecipeAPIView(
 
         except RecipeGenerationError as error:
 
+            refund_ai_recipe_generation(request.user)
+
             return Response(
                 {
                     "detail": str(error),
@@ -199,3 +222,14 @@ class GenerateRecipeAPIView(
                 },
                 status=status.HTTP_502_BAD_GATEWAY
             )
+
+        except Exception:
+            refund_ai_recipe_generation(request.user)
+            raise
+
+
+class AIRecipeUsageAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(get_ai_recipe_usage(request.user))

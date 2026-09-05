@@ -4,11 +4,11 @@
     <span class="logo-text">bazkit</span>
   </a>
 
-  <button class="user-box" type="button">
+  <a class="user-box" routerLink="/main/settings" aria-label="Kontoeinstellungen öffnen">
     <span class="avatar">{{ userInitial }}</span>
     <span class="user-name">{{ userName }}</span>
     <span class="chevron"><app-ui-icon name="chevron-down"></app-ui-icon></span>
-  </button>
+  </a>
 
   <nav class="nav" aria-label="Hauptnavigation">
     <a class="nav-item" routerLink="/main/home" routerLinkActive="active">
@@ -42,15 +42,20 @@
   </nav>
 
   <div class="bottom">
-    <div class="premium-card">
-      <strong><app-ui-icon name="crown"></app-ui-icon> Premium</strong>
-      <p>Mehr Funktionen.<br>Mehr Möglichkeiten.</p>
-      <button type="button">Jetzt upgraden</button>
+    <div class="premium-card" *ngIf="aiUsage as usage">
+      <strong><app-ui-icon name="sparkles"></app-ui-icon> {{ usage.plan_label }}</strong>
+      <p><b>{{ usage.remaining }}</b> von {{ usage.limit }} KI-Rezepten noch verfügbar.</p>
+      <a routerLink="/main/recipe-list/ai">KI-Rezept erstellen</a>
     </div>
     <button class="logout" type="button" (click)="logout()">
       <span class="logout-icon"><app-ui-icon name="log-out"></app-ui-icon></span>
       Abmelden
     </button>
+    <div class="desktop-legal-links">
+      <a routerLink="/impressum">Impressum</a>
+      <a routerLink="/datenschutz">Datenschutz</a>
+      <a routerLink="/agb">Nutzung</a>
+    </div>
   </div>
 </aside>
 
@@ -110,14 +115,27 @@
       <div><strong>Einstellungen</strong><small>Konto und App verwalten</small></div>
     </a>
     <div class="mobile-menu-divider"></div>
-    <button class="mobile-premium-action" type="button">
-      <span><app-ui-icon name="crown"></app-ui-icon></span>
-      <div><strong>Premium</strong><small>Mehr Funktionen freischalten</small></div>
-    </button>
+    <a
+      class="mobile-premium-action"
+      routerLink="/main/recipe-list/ai"
+      *ngIf="aiUsage as usage"
+      (click)="isMobileMoreOpen = false"
+    >
+      <span><app-ui-icon name="sparkles"></app-ui-icon></span>
+      <div>
+        <strong>{{ usage.plan_label }}</strong>
+        <small>{{ usage.remaining }} von {{ usage.limit }} KI-Rezepten verfügbar</small>
+      </div>
+    </a>
     <div class="mobile-menu-divider"></div>
     <button class="mobile-logout" type="button" (click)="logout()">
       <app-ui-icon name="log-out"></app-ui-icon>
       Abmelden
     </button>
+    <div class="mobile-legal-links">
+      <a routerLink="/impressum" (click)="isMobileMoreOpen = false">Impressum</a>
+      <a routerLink="/datenschutz" (click)="isMobileMoreOpen = false">Datenschutz</a>
+      <a routerLink="/agb" (click)="isMobileMoreOpen = false">Nutzung</a>
+    </div>
   </div>
 </nav>

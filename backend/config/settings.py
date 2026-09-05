@@ -353,6 +353,22 @@ OPENAI_RECIPE_MODEL = os.getenv(
 )
 
 
+# Während der Startphase erhalten alle Konten das Premium-Kontingent. Sobald
+# das Bezahlmodell verfügbar ist, genügt PREMIUM_ENFORCEMENT_ENABLED=True; dann
+# erhalten nur freigeschaltete Konten 50 und alle anderen 5 Generierungen.
+PREMIUM_ENFORCEMENT_ENABLED = (
+    os.getenv("PREMIUM_ENFORCEMENT_ENABLED", "False").lower()
+    in {"1", "true", "yes", "on"}
+)
+AI_RECIPE_FREE_MONTHLY_LIMIT = int(
+    os.getenv("AI_RECIPE_FREE_MONTHLY_LIMIT", "5")
+)
+AI_RECIPE_PREMIUM_MONTHLY_LIMIT = int(
+    os.getenv("AI_RECIPE_PREMIUM_MONTHLY_LIMIT", "50")
+)
+LEGAL_TERMS_VERSION = os.getenv("LEGAL_TERMS_VERSION", "2026-09-05")
+
+
 # USDA FoodData Central ist ein optionaler Nährwert-Fallback. Ohne Key arbeitet
 # die Rezeptsuche ausschließlich mit dem lokalen BLS und geprüften OFF-Daten.
 USDA_FDC_API_KEY = os.getenv(

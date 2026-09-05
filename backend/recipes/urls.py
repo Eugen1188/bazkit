@@ -4,11 +4,18 @@ from .views import (
     RecipeListCreateAPIView,
     RecipeDetailAPIView,
     GenerateRecipeAPIView,
+    AIRecipeUsageAPIView,
     RecipeImageAPIView,
 )
 
 
 urlpatterns = [
+
+    path(
+        "ai-usage/",
+        AIRecipeUsageAPIView.as_view(),
+        name="recipe-ai-usage",
+    ),
 
     path(
         "",

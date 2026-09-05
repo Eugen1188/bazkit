@@ -22,6 +22,10 @@ import {
   AuthService
 } from '../services/auth.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
+import {
+  AIRecipeUsage,
+  AIUsageService,
+} from '../services/ai-usage.service';
 
 
 @Component({
@@ -49,6 +53,11 @@ export class SidebarComponent {
   private router =
     inject(Router);
 
+  private aiUsageService =
+    inject(AIUsageService);
+
+  aiUsage: AIRecipeUsage | null = null;
+
 
   get user() {
     return this.authService.getCurrentUser();
@@ -60,6 +69,11 @@ export class SidebarComponent {
 
 
   constructor() {
+
+    this.aiUsageService.load().subscribe({
+      next: usage => { this.aiUsage = usage; },
+      error: () => { this.aiUsage = null; },
+    });
 
     this.router.events
       .pipe(

@@ -3,7 +3,8 @@ import {
 } from '@angular/common';
 
 import {
-  Component
+  Component,
+  OnInit
 } from '@angular/core';
 
 import {
@@ -22,6 +23,10 @@ import {
 } from '../../services/recipe.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 import { UserSettingsService } from '../../services/user-settings.service';
+import {
+  AIRecipeUsage,
+  AIUsageService,
+} from '../../services/ai-usage.service';
 
 import {
   serializePreparationSteps
@@ -45,7 +50,7 @@ import {
   styleUrl:
     './generate-recipe.component.scss'
 })
-export class GenerateRecipeComponent {
+export class GenerateRecipeComponent implements OnInit {
 
   idea = '';
 
@@ -71,6 +76,10 @@ export class GenerateRecipeComponent {
   isSaving = false;
 
   errorMessage = '';
+
+  aiUsage: AIRecipeUsage | null = null;
+
+  isUsageLoading = true;
 
 
   categories = [
@@ -133,11 +142,34 @@ export class GenerateRecipeComponent {
       RecipeService,
 
     private userSettings:
-      UserSettingsService
+      UserSettingsService,
+
+    private aiUsageService:
+      AIUsageService
   ) {
     const settings = this.userSettings.current;
     this.servings = settings.recipe_default_portions;
     this.diet = this.defaultDiet(settings.dietary_preferences);
+  }
+
+
+  ngOnInit(): void {
+    this.aiUsageService.load().subscribe({
+      next: usage => {
+        this.aiUsage = usage;
+        this.isUsageLoading = false;
+      },
+      error: () => {
+        this.isUsageLoading = false;
+        this.errorMessage = 'Dein KI-Kontingent konnte nicht geladen werden.';
+      },
+    });
+  }
+
+
+  get aiUsagePercentage(): number {
+    if (!this.aiUsage?.limit) return 0;
+    return Math.min(100, Math.round((this.aiUsage.used / this.aiUsage.limit) * 100));
   }
 
 
@@ -204,6 +236,11 @@ export class GenerateRecipeComponent {
           recipe: GeneratedRecipe
         ) => {
 
+          if (recipe.ai_usage) {
+            this.aiUsage = recipe.ai_usage;
+            this.aiUsageService.setUsage(recipe.ai_usage);
+          }
+
           this.generatedRecipe =
             recipe;
 
@@ -215,6 +252,12 @@ export class GenerateRecipeComponent {
         error: (
           error: unknown
         ) => {
+
+          const response = error as { error?: { ai_usage?: AIRecipeUsage } };
+          if (response.error?.ai_usage) {
+            this.aiUsage = response.error.ai_usage;
+            this.aiUsageService.setUsage(response.error.ai_usage);
+          }
 
           console.error(
             'KI-Rezept konnte nicht generiert werden:',

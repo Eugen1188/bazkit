@@ -140,7 +140,8 @@ USER
 
   text-align: left;
 
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 
@@ -350,7 +351,7 @@ BOTTOM
 }
 
 
-.premium-card button {
+.premium-card > a {
   width: 100%;
 
   height: 42px;
@@ -358,6 +359,10 @@ BOTTOM
   border: none;
 
   border-radius: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   background:
     var(--color-primary);
@@ -371,6 +376,8 @@ BOTTOM
 
   font-weight: 600;
 
+  text-decoration: none;
+
   cursor: pointer;
 
   transition:
@@ -379,13 +386,13 @@ BOTTOM
 }
 
 
-.premium-card button:hover {
+.premium-card > a:hover {
   background:
     var(--color-primary-hover);
 }
 
 
-.premium-card button:active {
+.premium-card > a:active {
   transform:
     scale(0.985);
 }
@@ -1026,6 +1033,8 @@ MOBILE
   .mobile-premium-action {
     background:
       #f6f1e9;
+
+    text-decoration: none;
   }
 
 
@@ -1294,4 +1303,28 @@ VERY SMALL MOBILE
   width: 19px;
   height: 19px;
   color: #a96f27;
+}
+
+.desktop-legal-links,
+.mobile-legal-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+}
+
+.desktop-legal-links a,
+.mobile-legal-links a {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.desktop-legal-links a:hover,
+.mobile-legal-links a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  .desktop-legal-links { display: none; }
 }

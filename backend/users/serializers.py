@@ -66,6 +66,10 @@ class UserRegisterSerializer(serializers.Serializer):
         write_only=True
     )
 
+    accept_terms = serializers.BooleanField(
+        write_only=True
+    )
+
     def validate_email(self, value):
         email = value.strip().lower()
 
@@ -100,6 +104,13 @@ class UserRegisterSerializer(serializers.Serializer):
 
     def validate_password(self, value):
         return validate_password_strength(value)
+
+    def validate_accept_terms(self, value):
+        if value is not True:
+            raise serializers.ValidationError(
+                "Bitte akzeptiere die Nutzungsbedingungen."
+            )
+        return value
 
     def validate(self, attrs):
         if (
@@ -233,9 +244,10 @@ class UserSettingsSerializer(serializers.ModelSerializer):
             "notification_shopping_reminders",
             "notification_shared_lists",
             "notification_product_updates",
+            "premium_active",
             "updated_at",
         )
-        read_only_fields = ("updated_at",)
+        read_only_fields = ("premium_active", "updated_at")
 
     def validate_recipe_default_portions(self, value):
         if value < 1 or value > 20:

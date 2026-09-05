@@ -28,6 +28,8 @@
 
   display: flex;
 
+  flex-direction: column;
+
   justify-content: flex-start;
 
   align-items: center;
@@ -973,3 +975,45 @@ IPHONE 12 / KLEINERE MOBILE HÖHEN
   }
 
 }
+/* Rechtliche Zustimmung */
+.terms-check {
+  margin: 12px 2px 14px;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: start;
+  gap: 9px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.terms-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--color-primary);
+}
+
+.terms-check a {
+  color: var(--color-primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.auth-legal-links {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.auth-legal-links a {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.auth-legal-links a:hover { color: var(--color-primary); }

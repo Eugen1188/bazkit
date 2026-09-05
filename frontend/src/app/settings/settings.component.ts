@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   EMPTY,
   Subject,
@@ -11,6 +11,7 @@ import {
   debounceTime,
   finalize,
   forkJoin,
+  of,
 } from 'rxjs';
 import {
   AuthService,
@@ -25,6 +26,10 @@ import {
   UserSettingsService,
 } from '../services/user-settings.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
+import {
+  AIRecipeUsage,
+  AIUsageService,
+} from '../services/ai-usage.service';
 
 
 interface PreferenceOption {
@@ -47,7 +52,7 @@ type SaveState = 'idle' | 'saving' | 'saved' | 'error';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [CommonModule, FormsModule, UiIconComponent],
+  imports: [CommonModule, FormsModule, RouterLink, UiIconComponent],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
@@ -62,6 +67,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   pageMessage = '';
   saveState: SaveState = 'idle';
   activeDialog: SettingsDialog = null;
+  aiUsage: AIRecipeUsage | null = null;
 
   profileForm = {
     first_name: '',
@@ -110,6 +116,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   constructor(
     private readonly authService: AuthService,
     private readonly userSettings: UserSettingsService,
+    private readonly aiUsageService: AIUsageService,
     private readonly router: Router,
   ) {
     this.subscriptions.add(
@@ -171,6 +178,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
     return initials || this.profile?.email.charAt(0).toUpperCase() || '?';
   }
 
+  get aiUsagePercentage(): number {
+    if (!this.aiUsage?.limit) return 0;
+    return Math.min(100, Math.round((this.aiUsage.used / this.aiUsage.limit) * 100));
+  }
+
   loadData(): void {
     this.isLoading = true;
     this.loadError = '';
@@ -179,10 +191,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
       forkJoin({
         profile: this.authService.getMe(),
         settings: this.userSettings.load(),
+        aiUsage: this.aiUsageService.load().pipe(catchError(() => of(null))),
       }).subscribe({
-        next: ({ profile, settings }) => {
+        next: ({ profile, settings, aiUsage }) => {
           this.profile = profile;
           this.settings = this.cloneSettings(settings);
+          this.aiUsage = aiUsage;
           this.authService.storeCurrentUser(profile);
           this.isLoading = false;
         },

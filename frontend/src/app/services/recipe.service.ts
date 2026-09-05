@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of, shareReplay, tap } from 'rxjs';
 import { PriceSnapshot, ProductSuggestion } from './product.service';
+import { AIRecipeUsage } from './ai-usage.service';
 
 export interface RecipeIngredient extends PriceSnapshot {
   id?: number;
@@ -97,6 +98,7 @@ export interface GeneratedRecipe {
   };
   nutrition_complete: boolean;
   nutrition_source: string;
+  ai_usage?: AIRecipeUsage;
 }
 
 export interface RecipePayload {
