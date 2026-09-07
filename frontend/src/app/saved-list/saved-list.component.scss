@@ -54,6 +54,26 @@
 .error-state {
   color:
     #d9534f;
+
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.error-state button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid currentColor;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.error-state button:hover {
+  background: rgba(217, 83, 79, 0.07);
 }
 
 

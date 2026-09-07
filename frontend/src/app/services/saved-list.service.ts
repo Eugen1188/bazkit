@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay, tap } from 'rxjs';
+import {
+  finalize,
+  Observable,
+  of,
+  shareReplay,
+  tap,
+  timeout
+} from 'rxjs';
 import { PriceSnapshot } from './product.service';
 
 
@@ -37,15 +44,19 @@ export class SavedListService {
   private readonly cacheLifetimeMs = 60_000;
   private cacheSession = '';
   private cacheExpiresAt = 0;
-  private listRequest: Observable<SavedList[]> | null = null;
+  private cacheRevision = 0;
+  private cachedLists: SavedList[] | null = null;
+  private inFlightRequest: Observable<SavedList[]> | null = null;
 
 
   constructor(private readonly http: HttpClient) {}
 
 
   private invalidateListCache(): void {
+    this.cacheRevision += 1;
     this.cacheExpiresAt = 0;
-    this.listRequest = null;
+    this.cachedLists = null;
+    this.inFlightRequest = null;
   }
 
 
@@ -63,24 +74,51 @@ export class SavedListService {
       this.invalidateListCache();
     }
 
-    if (
-      !forceRefresh &&
-      this.listRequest &&
-      Date.now() < this.cacheExpiresAt
-    ) {
-      return this.listRequest;
+    if (forceRefresh) {
+      this.invalidateListCache();
     }
 
-    this.cacheExpiresAt = Date.now() + this.cacheLifetimeMs;
-    this.listRequest = this.http.get<SavedList[]>(this.apiUrl).pipe(
+    if (
+      !forceRefresh &&
+      this.cachedLists &&
+      Date.now() < this.cacheExpiresAt
+    ) {
+      return of(this.cachedLists);
+    }
+
+    if (!forceRefresh && this.inFlightRequest) {
+      return this.inFlightRequest;
+    }
+
+    const revision = this.cacheRevision;
+    const request = this.http.get<SavedList[]>(this.apiUrl).pipe(
+      timeout({ first: 15_000 }),
+      tap(lists => {
+        if (
+          revision === this.cacheRevision &&
+          session === (localStorage.getItem('access_token') ?? '')
+        ) {
+          this.cachedLists = lists;
+          this.cacheExpiresAt = Date.now() + this.cacheLifetimeMs;
+        }
+      }),
+      finalize(() => {
+        if (this.inFlightRequest === request) {
+          this.inFlightRequest = null;
+        }
+      }),
       shareReplay({ bufferSize: 1, refCount: false })
     );
-    return this.listRequest;
+
+    this.inFlightRequest = request;
+    return request;
   }
 
 
   getSavedList(id: number): Observable<SavedList> {
-    return this.http.get<SavedList>(`${this.apiUrl}${id}/`);
+    return this.http.get<SavedList>(`${this.apiUrl}${id}/`).pipe(
+      timeout({ first: 15_000 })
+    );
   }
 
 
