@@ -322,6 +322,11 @@ implements OnInit, OnDestroy {
           list
         ) => {
 
+          if (!list.can_edit) {
+            this.router.navigate(['/main/saved-list', this.listId]);
+            return;
+          }
+
           this.listName =
             list.title;
 

@@ -1,9 +1,19 @@
+import logging
+from datetime import timedelta
+
+from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
+from django.core.validators import validate_email
 from django.db import transaction
-from django.db.models import Count
+from django.db.models import Count, Q
+from django.utils import timezone
 
 from rest_framework import status
 
 from rest_framework.permissions import (
+    AllowAny,
     IsAuthenticated
 )
 
@@ -18,7 +28,9 @@ from products.pricing import scaled_price
 
 from .models import (
     SavedList,
+    SavedListInvitation,
     SavedListItem,
+    SavedListMembership,
     ShoppingList,
     ShoppingListItem
 )
@@ -29,9 +41,16 @@ from .serializers import (
     SavedListSummarySerializer,
     SavedListDetailSerializer,
     SavedListItemSerializer,
+    SavedListInvitationSerializer,
     ShoppingListSerializer,
     ShoppingListItemSerializer
 )
+from .serializers import access_role, display_name
+from users.storage import get_avatar_url
+
+
+logger = logging.getLogger(__name__)
+User = get_user_model()
 
 
 PRICE_SNAPSHOT_FIELDS = (
@@ -46,6 +65,38 @@ PRICE_SNAPSHOT_FIELDS = (
 # ==========================================
 
 
+def accessible_saved_lists(user):
+    return (
+        SavedList.objects
+        .filter(
+            Q(user=user) | Q(memberships__user=user),
+            is_community_snapshot=False,
+        )
+        .distinct()
+    )
+
+
+def can_edit_saved_list(saved_list, user):
+    return access_role(saved_list, user) in {"owner", "editor"}
+
+
+def touch_saved_list(saved_list_id):
+    SavedList.objects.filter(pk=saved_list_id).update(updated_at=timezone.now())
+
+
+def saved_list_queryset(user):
+    return (
+        accessible_saved_lists(user)
+        .select_related("user")
+        .prefetch_related(
+            "memberships__user",
+            "items__product",
+            "items__created_by",
+            "items__checked_by",
+        )
+    )
+
+
 class SavedListListCreateAPIView(
     APIView
 ):
@@ -58,22 +109,26 @@ class SavedListListCreateAPIView(
         request
     ):
         saved_lists = (
-            SavedList.objects
-            .filter(
-                user=request.user,
-                is_community_snapshot=False,
-            )
+            accessible_saved_lists(request.user)
+            .select_related("user")
+            .prefetch_related("memberships__user")
             .annotate(
-                item_count=Count("items")
+                item_count=Count("items", distinct=True),
+                checked_count=Count(
+                    "items",
+                    filter=Q(items__is_checked=True),
+                    distinct=True,
+                ),
             )
             .order_by(
-                "-created_at"
+                "-updated_at"
             )
         )
 
         serializer = SavedListSummarySerializer(
             saved_lists,
-            many=True
+            many=True,
+            context={"request": request},
         )
 
         return Response(
@@ -100,7 +155,8 @@ class SavedListListCreateAPIView(
 
         return Response(
             SavedListSerializer(
-                saved_list
+                saved_list,
+                context={"request": request},
             ).data,
             status=status.HTTP_201_CREATED
         )
@@ -119,17 +175,7 @@ class SavedListDetailAPIView(
         request,
         pk
     ):
-        return (
-            SavedList.objects
-            .filter(
-                id=pk,
-                user=request.user
-            )
-            .prefetch_related(
-                "items"
-            )
-            .first()
-        )
+        return saved_list_queryset(request.user).filter(id=pk).first()
 
 
     def get(
@@ -153,7 +199,8 @@ class SavedListDetailAPIView(
 
         serializer = (
             SavedListDetailSerializer(
-                saved_list
+                saved_list,
+                context={"request": request},
             )
         )
 
@@ -181,6 +228,12 @@ class SavedListDetailAPIView(
                 status=status.HTTP_404_NOT_FOUND
             )
 
+        if not can_edit_saved_list(saved_list, request.user):
+            return Response(
+                {"detail": "Du darfst diese Liste nur ansehen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
         serializer = SavedListSerializer(
             saved_list,
             data=request.data,
@@ -197,9 +250,12 @@ class SavedListDetailAPIView(
             serializer.save()
         )
 
+        updated_list = saved_list_queryset(request.user).get(pk=updated_list.pk)
+
         return Response(
             SavedListSerializer(
-                updated_list
+                updated_list,
+                context={"request": request},
             ).data,
             status=status.HTTP_200_OK
         )
@@ -224,6 +280,12 @@ class SavedListDetailAPIView(
                 status=status.HTTP_404_NOT_FOUND
             )
 
+        if saved_list.user_id != request.user.id:
+            return Response(
+                {"detail": "Nur der Eigentümer kann die Liste löschen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
         saved_list.delete()
 
         return Response(
@@ -245,13 +307,13 @@ class SavedListItemDetailAPIView(
         list_id,
         item_id
     ):
+        saved_list = saved_list_queryset(request.user).filter(id=list_id).first()
+        if not saved_list:
+            return None
         return (
             SavedListItem.objects
-            .filter(
-                id=item_id,
-                saved_list_id=list_id,
-                saved_list__user=request.user
-            )
+            .select_related("saved_list", "product", "created_by", "checked_by")
+            .filter(id=item_id, saved_list=saved_list)
             .first()
         )
 
@@ -277,6 +339,12 @@ class SavedListItemDetailAPIView(
                 status=status.HTTP_404_NOT_FOUND
             )
 
+        if not can_edit_saved_list(item.saved_list, request.user):
+            return Response(
+                {"detail": "Du darfst diese Liste nur ansehen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
         serializer = (
             SavedListItemSerializer(
                 item,
@@ -290,6 +358,8 @@ class SavedListItemDetailAPIView(
         )
 
         serializer.save()
+
+        touch_saved_list(list_id)
 
         return Response(
             serializer.data,
@@ -318,11 +388,424 @@ class SavedListItemDetailAPIView(
                 status=status.HTTP_404_NOT_FOUND
             )
 
+        if not can_edit_saved_list(item.saved_list, request.user):
+            return Response(
+                {"detail": "Du darfst diese Liste nur ansehen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
         item.delete()
+
+        touch_saved_list(list_id)
 
         return Response(
             status=status.HTTP_204_NO_CONTENT
         )
+
+
+class SavedListItemToggleAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @transaction.atomic
+    def patch(self, request, list_id, item_id):
+        saved_list = saved_list_queryset(request.user).filter(id=list_id).first()
+        if not saved_list:
+            return Response(
+                {"detail": "Liste nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        if not can_edit_saved_list(saved_list, request.user):
+            return Response(
+                {"detail": "Du darfst diese Liste nur ansehen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        item = (
+            SavedListItem.objects.select_for_update()
+            .select_related("product", "created_by", "checked_by")
+            .filter(id=item_id, saved_list=saved_list)
+            .first()
+        )
+        if not item:
+            return Response(
+                {"detail": "Produkt nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        requested_state = request.data.get("is_checked", not item.is_checked)
+        if not isinstance(requested_state, bool):
+            return Response(
+                {"is_checked": ["Der Wert muss wahr oder falsch sein."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        item.is_checked = requested_state
+        item.checked_by = request.user if requested_state else None
+        item.checked_at = timezone.now() if requested_state else None
+        item.save(update_fields=["is_checked", "checked_by", "checked_at", "updated_at"])
+        touch_saved_list(saved_list.id)
+        return Response(SavedListItemSerializer(item).data)
+
+
+def collaboration_member(
+    user,
+    role,
+    membership_id=None,
+    joined_at=None,
+    is_owner=False,
+    include_email=True,
+):
+    return {
+        "id": membership_id,
+        "user_id": user.id,
+        "display_name": display_name(user),
+        "email": user.email if include_email else "",
+        "avatar_url": get_avatar_url(user.avatar_key),
+        "role": role,
+        "is_owner": is_owner,
+        "joined_at": joined_at,
+    }
+
+
+class SavedListCollaborationAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get_list(self, request, list_id):
+        return saved_list_queryset(request.user).filter(id=list_id).first()
+
+    def get(self, request, list_id):
+        saved_list = self.get_list(request, list_id)
+        if not saved_list:
+            return Response(
+                {"detail": "Liste nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        members = [
+            collaboration_member(
+                saved_list.user,
+                "owner",
+                joined_at=saved_list.created_at,
+                is_owner=True,
+                include_email=saved_list.user_id == request.user.id,
+            )
+        ]
+        members.extend(
+            collaboration_member(
+                membership.user,
+                membership.role,
+                membership_id=membership.id,
+                joined_at=membership.joined_at,
+                include_email=saved_list.user_id == request.user.id,
+            )
+            for membership in saved_list.memberships.all()
+        )
+
+        invitations = []
+        if saved_list.user_id == request.user.id:
+            pending = saved_list.invitations.filter(
+                accepted_at__isnull=True,
+                revoked_at__isnull=True,
+                expires_at__gt=timezone.now(),
+            ).order_by("-created_at")
+            invitations = SavedListInvitationSerializer(
+                pending,
+                many=True,
+                context={"frontend_url": settings.FRONTEND_URL},
+            ).data
+
+        return Response({
+            "members": members,
+            "invitations": invitations,
+            "can_manage": saved_list.user_id == request.user.id,
+        })
+
+    def post(self, request, list_id):
+        saved_list = self.get_list(request, list_id)
+        if not saved_list:
+            return Response(
+                {"detail": "Liste nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        if saved_list.user_id != request.user.id:
+            return Response(
+                {"detail": "Nur der Eigentümer kann Personen einladen."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        recently_created = SavedListInvitation.objects.filter(
+            invited_by=request.user,
+            created_at__gte=timezone.now() - timedelta(minutes=10),
+        ).count()
+        if recently_created >= 10:
+            return Response(
+                {"detail": "Du hast gerade viele Einladungen erstellt. Bitte warte einige Minuten."},
+                status=status.HTTP_429_TOO_MANY_REQUESTS,
+            )
+
+        email = str(request.data.get("email", "")).strip().lower()
+        role = str(request.data.get("role", SavedListMembership.EDITOR)).strip()
+        if role not in {SavedListMembership.EDITOR, SavedListMembership.VIEWER}:
+            return Response(
+                {"role": ["Bitte wähle eine gültige Berechtigung."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if email:
+            try:
+                validate_email(email)
+            except ValidationError:
+                return Response(
+                    {"email": ["Bitte gib eine gültige E-Mail-Adresse ein."]},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            if email.casefold() == request.user.email.casefold():
+                return Response(
+                    {"email": ["Du bist bereits Eigentümer dieser Liste."]},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            invited_user = User.objects.filter(email__iexact=email).first()
+            if invited_user and saved_list.memberships.filter(user=invited_user).exists():
+                return Response(
+                    {"email": ["Diese Person arbeitet bereits an der Liste mit."]},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            saved_list.invitations.filter(
+                email__iexact=email,
+                accepted_at__isnull=True,
+                revoked_at__isnull=True,
+            ).update(revoked_at=timezone.now())
+
+        active_invitation_count = saved_list.invitations.filter(
+            accepted_at__isnull=True,
+            revoked_at__isnull=True,
+            expires_at__gt=timezone.now(),
+        ).count()
+        if saved_list.memberships.count() + active_invitation_count >= 25:
+            return Response(
+                {"detail": "Eine Liste kann mit höchstens 25 weiteren Personen geteilt werden."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        invitation = SavedListInvitation.objects.create(
+            saved_list=saved_list,
+            invited_by=request.user,
+            email=email,
+            role=role,
+        )
+        invite_url = f"{settings.FRONTEND_URL.rstrip('/')}/invite/{invitation.token}"
+        email_sent = False
+        if email:
+            try:
+                permission = "bearbeiten und Produkte abhaken" if role == "editor" else "ansehen"
+                send_mail(
+                    f"Einladung zur bazkit-Liste „{saved_list.title}“",
+                    (
+                        f"{display_name(request.user)} hat dich zur Einkaufsliste „{saved_list.title}“ eingeladen.\n\n"
+                        f"Du darfst die Liste {permission}.\n\n"
+                        f"Einladung annehmen: {invite_url}\n\n"
+                        "Der Link ist sieben Tage gültig."
+                    ),
+                    None,
+                    [email],
+                    fail_silently=False,
+                )
+                email_sent = True
+            except Exception:
+                logger.exception("Saved list invitation email could not be sent")
+
+        payload = SavedListInvitationSerializer(
+            invitation,
+            context={"frontend_url": settings.FRONTEND_URL},
+        ).data
+        payload["email_sent"] = email_sent
+        touch_saved_list(saved_list.id)
+        return Response(payload, status=status.HTTP_201_CREATED)
+
+
+class SavedListInvitationManageAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get_invitation(self, request, list_id, invitation_id):
+        return SavedListInvitation.objects.filter(
+            id=invitation_id,
+            saved_list_id=list_id,
+            saved_list__user=request.user,
+        ).first()
+
+    def patch(self, request, list_id, invitation_id):
+        invitation = self.get_invitation(request, list_id, invitation_id)
+        if not invitation:
+            return Response({"detail": "Einladung nicht gefunden."}, status=404)
+        if invitation.status != "pending":
+            return Response({"detail": "Diese Einladung ist nicht mehr aktiv."}, status=409)
+        role = str(request.data.get("role", ""))
+        if role not in {SavedListMembership.EDITOR, SavedListMembership.VIEWER}:
+            return Response({"role": ["Ungültige Berechtigung."]}, status=400)
+        invitation.role = role
+        invitation.save(update_fields=["role"])
+        return Response(SavedListInvitationSerializer(
+            invitation,
+            context={"frontend_url": settings.FRONTEND_URL},
+        ).data)
+
+    def delete(self, request, list_id, invitation_id):
+        invitation = self.get_invitation(request, list_id, invitation_id)
+        if not invitation:
+            return Response({"detail": "Einladung nicht gefunden."}, status=404)
+        invitation.revoked_at = timezone.now()
+        invitation.save(update_fields=["revoked_at"])
+        touch_saved_list(list_id)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class SavedListMemberAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get_membership(self, request, list_id, membership_id):
+        return SavedListMembership.objects.select_related("saved_list", "user").filter(
+            id=membership_id,
+            saved_list_id=list_id,
+            saved_list__user=request.user,
+        ).first()
+
+    def patch(self, request, list_id, membership_id):
+        membership = self.get_membership(request, list_id, membership_id)
+        if not membership:
+            return Response({"detail": "Mitglied nicht gefunden."}, status=404)
+        role = str(request.data.get("role", ""))
+        if role not in {SavedListMembership.EDITOR, SavedListMembership.VIEWER}:
+            return Response({"role": ["Ungültige Berechtigung."]}, status=400)
+        membership.role = role
+        membership.save(update_fields=["role"])
+        touch_saved_list(list_id)
+        return Response(collaboration_member(
+            membership.user,
+            membership.role,
+            membership_id=membership.id,
+            joined_at=membership.joined_at,
+        ))
+
+    def delete(self, request, list_id, membership_id):
+        membership = self.get_membership(request, list_id, membership_id)
+        if not membership:
+            return Response({"detail": "Mitglied nicht gefunden."}, status=404)
+        membership.delete()
+        touch_saved_list(list_id)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class SavedListLeaveAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, list_id):
+        membership = SavedListMembership.objects.filter(
+            saved_list_id=list_id,
+            user=request.user,
+        ).first()
+        if not membership:
+            return Response(
+                {"detail": "Du bist kein Mitglied dieser Liste."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        membership.delete()
+        touch_saved_list(list_id)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def masked_email(email):
+    if not email or "@" not in email:
+        return ""
+    local, domain = email.split("@", 1)
+    visible = local[:2]
+    return f"{visible}{'*' * max(2, len(local) - len(visible))}@{domain}"
+
+
+class SavedListInvitationAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def get_permissions(self):
+        return [IsAuthenticated()] if self.request.method == "POST" else [AllowAny()]
+
+    def get_invitation(self, token):
+        return (
+            SavedListInvitation.objects
+            .select_related("saved_list", "invited_by")
+            .filter(token=token)
+            .first()
+        )
+
+    def get(self, request, token):
+        invitation = self.get_invitation(token)
+        if not invitation:
+            return Response({"detail": "Einladung nicht gefunden.", "status": "invalid"}, status=404)
+        can_open = False
+        if getattr(request.user, "is_authenticated", False):
+            can_open = accessible_saved_lists(request.user).filter(
+                id=invitation.saved_list_id,
+            ).exists()
+        return Response({
+            "status": invitation.status,
+            "list_id": invitation.saved_list_id,
+            "list_title": invitation.saved_list.title,
+            "inviter_name": display_name(invitation.invited_by),
+            "role": invitation.role,
+            "expires_at": invitation.expires_at,
+            "email_required": bool(invitation.email),
+            "invited_email": masked_email(invitation.email),
+            "can_open": can_open,
+        })
+
+    @transaction.atomic
+    def post(self, request, token):
+        invitation = (
+            SavedListInvitation.objects.select_for_update()
+            .select_related("saved_list", "invited_by")
+            .filter(token=token)
+            .first()
+        )
+        if not invitation:
+            return Response({"detail": "Einladung nicht gefunden."}, status=404)
+        if invitation.status != "pending":
+            return Response(
+                {"detail": "Diese Einladung ist abgelaufen oder nicht mehr gültig."},
+                status=status.HTTP_409_CONFLICT,
+            )
+        if invitation.email and invitation.email.casefold() != request.user.email.casefold():
+            return Response(
+                {"detail": "Diese Einladung wurde an eine andere E-Mail-Adresse gesendet."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        if invitation.saved_list.user_id == request.user.id:
+            return Response(
+                {"detail": "Du bist bereits Eigentümer dieser Liste."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        existing_membership = SavedListMembership.objects.filter(
+            saved_list=invitation.saved_list,
+            user=request.user,
+        ).first()
+        if existing_membership is None and invitation.saved_list.memberships.count() >= 25:
+            return Response(
+                {"detail": "Diese Liste hat bereits die maximale Anzahl an Mitgliedern."},
+                status=status.HTTP_409_CONFLICT,
+            )
+
+        membership, created = SavedListMembership.objects.get_or_create(
+            saved_list=invitation.saved_list,
+            user=request.user,
+            defaults={"role": invitation.role},
+        )
+        if not created and membership.role != invitation.role:
+            membership.role = invitation.role
+            membership.save(update_fields=["role"])
+        invitation.accepted_at = timezone.now()
+        invitation.save(update_fields=["accepted_at"])
+        touch_saved_list(invitation.saved_list_id)
+        return Response({
+            "message": "Du arbeitest jetzt an dieser Liste mit.",
+            "list_id": invitation.saved_list_id,
+            "role": membership.role,
+        })
 
 
 # ==========================================
@@ -542,11 +1025,8 @@ class AddSavedListToShoppingListAPIView(
         saved_list_id
     ):
         saved_list = (
-            SavedList.objects
-            .filter(
-                id=saved_list_id,
-                user=request.user
-            )
+            accessible_saved_lists(request.user)
+            .filter(id=saved_list_id)
             .prefetch_related(
                 "items"
             )

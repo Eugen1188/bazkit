@@ -4,6 +4,12 @@ from .views import (
     SavedListListCreateAPIView,
     SavedListDetailAPIView,
     SavedListItemDetailAPIView,
+    SavedListItemToggleAPIView,
+    SavedListCollaborationAPIView,
+    SavedListInvitationManageAPIView,
+    SavedListMemberAPIView,
+    SavedListLeaveAPIView,
+    SavedListInvitationAPIView,
     ShoppingListAPIView,
     ShoppingListItemCreateAPIView,
     ShoppingListItemDetailAPIView,
@@ -34,6 +40,42 @@ urlpatterns = [
         "saved-lists/<int:list_id>/items/<int:item_id>/",
         SavedListItemDetailAPIView.as_view(),
         name="saved-list-item-detail"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/items/<int:item_id>/toggle/",
+        SavedListItemToggleAPIView.as_view(),
+        name="saved-list-item-toggle"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/collaboration/",
+        SavedListCollaborationAPIView.as_view(),
+        name="saved-list-collaboration"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/invitations/<int:invitation_id>/",
+        SavedListInvitationManageAPIView.as_view(),
+        name="saved-list-invitation-manage"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/members/<int:membership_id>/",
+        SavedListMemberAPIView.as_view(),
+        name="saved-list-member"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/leave/",
+        SavedListLeaveAPIView.as_view(),
+        name="saved-list-leave"
+    ),
+
+    path(
+        "saved-list-invitations/<uuid:token>/",
+        SavedListInvitationAPIView.as_view(),
+        name="saved-list-invitation"
     ),
 
 

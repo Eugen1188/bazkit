@@ -1,504 +1,240 @@
 <div class="saved-list-detail-page">
-
-  <!-- LOADING -->
-
-  <div
-    class="loading-state"
-    role="status"
-    aria-live="polite"
-    *ngIf="isLoading"
-  >
-    Liste wird geladen...
+  <div class="loading-state" role="status" aria-live="polite" *ngIf="isLoading">
+    Liste wird geladen…
   </div>
 
-
-  <!-- ERROR -->
-
-  <div
-    class="error-state"
-    role="alert"
-    *ngIf="
-      !isLoading &&
-      errorMessage
-    "
-  >
-    {{ errorMessage }}
+  <div class="error-state" role="alert" *ngIf="!isLoading && errorMessage">
+    <span>{{ errorMessage }}</span>
+    <button type="button" (click)="loadSavedList()">Erneut versuchen</button>
   </div>
 
-
-  <!-- SHARE MESSAGE -->
-
-  <div
-    class="share-toast"
-    *ngIf="shareMessage"
-  >
+  <div class="share-toast" *ngIf="shareMessage" role="status" aria-live="polite">
     {{ shareMessage }}
   </div>
 
-
-  <!-- CONTENT -->
-
-  <ng-container
-    *ngIf="
-      !isLoading &&
-      savedList
-    "
-  >
-
-    <!-- HEADER -->
-
+  <ng-container *ngIf="!isLoading && savedList">
     <header class="detail-header">
-
       <div class="header-copy">
-
-        <h1>
-          {{ savedList.title }}
-        </h1>
-
-
-        <p>
-          Erstellt am
-
-          {{
-            formatDate(
-              savedList.created_at
-            )
-          }}
-        </p>
-
+        <div class="eyebrow" *ngIf="!savedList.is_owner">
+          Mit dir geteilt von {{ savedList.owner_name }}
+        </div>
+        <h1>{{ savedList.title }}</h1>
+        <div class="header-meta">
+          <span>{{ checkedCount }} von {{ itemCount }} erledigt</span>
+          <span class="meta-separator">•</span>
+          <button type="button" class="members-link" (click)="openCollaboration()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="9" cy="8" r="3"></circle>
+              <path d="M3.5 19c.5-3.2 2.3-5 5.5-5s5 1.8 5.5 5"></path>
+              <path d="M15 6.5a2.5 2.5 0 0 1 0 5M16 14c2.5.3 3.8 2 4.2 4.5"></path>
+            </svg>
+            {{ savedList.member_count }} {{ savedList.member_count === 1 ? 'Person' : 'Personen' }}
+          </button>
+          <span class="sync-indicator" [class.active]="isRefreshing">
+            <i></i>{{ isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell' }}
+          </span>
+        </div>
       </div>
-
 
       <div class="header-actions">
-
-        <span class="header-count">
-
-          {{ itemCount }}
-
-          {{
-            itemCount === 1
-              ? 'Artikel'
-              : 'Artikel'
-          }}
-
-        </span>
-
-
-
-        <!-- THREE DOT MENU -->
-
-        <div
-          class="list-menu-wrapper"
-          (click)="$event.stopPropagation()"
-        >
-
-          <button
-            class="list-menu-button"
-            type="button"
-            aria-label="Weitere Aktionen"
-            [class.active]="isMenuOpen"
-            (click)="toggleMenu($event)"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-
-              <circle
-                cx="12"
-                cy="5"
-                r="1.8"
-              >
-              </circle>
-
-              <circle
-                cx="12"
-                cy="12"
-                r="1.8"
-              >
-              </circle>
-
-              <circle
-                cx="12"
-                cy="19"
-                r="1.8"
-              >
-              </circle>
-
-            </svg>
-
-          </button>
-
-
-          <div
-            class="list-menu"
-            *ngIf="isMenuOpen"
-          >
-
-            <!-- EDIT -->
-
-            <button
-              class="list-menu-item"
-              type="button"
-              (click)="editList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <path
-                  d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-                >
-                </path>
-
-                <path
-                  d="M13.5 8.5l3 3"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste bearbeiten
-              </span>
-
-            </button>
-
-
-            <!-- SHARE -->
-
-            <button
-              class="list-menu-item"
-              type="button"
-              (click)="shareList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <circle
-                  cx="18"
-                  cy="5"
-                  r="3"
-                >
-                </circle>
-
-                <circle
-                  cx="6"
-                  cy="12"
-                  r="3"
-                >
-                </circle>
-
-                <circle
-                  cx="18"
-                  cy="19"
-                  r="3"
-                >
-                </circle>
-
-                <path
-                  d="M8.7 10.7l6.6-4"
-                >
-                </path>
-
-                <path
-                  d="M8.7 13.3l6.6 4"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste teilen
-              </span>
-
-            </button>
-
-
-            <div
-              class="list-menu-divider"
-            >
-            </div>
-
-
-            <!-- DELETE -->
-
-            <button
-              class="
-                list-menu-item
-                danger
-              "
-              type="button"
-              (click)="deleteList()"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <path
-                  d="M4 7h16"
-                >
-                </path>
-
-                <path
-                  d="M9 7V4h6v3"
-                >
-                </path>
-
-                <path
-                  d="M7 7l1 13h8l1-13"
-                >
-                </path>
-
-                <path
-                  d="M10 11v5"
-                >
-                </path>
-
-                <path
-                  d="M14 11v5"
-                >
-                </path>
-
-              </svg>
-
-
-              <span>
-                Liste löschen
-              </span>
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </header>
-
-
-    <!-- PRODUCTS CARD -->
-
-    <section class="products-card">
-
-      <div class="products-card-header">
-
-        <h2>
-          Produkte
-        </h2>
-
-
-        <span class="products-count">
-          {{ itemCount }}
-        </span>
-
-      </div>
-
-
-      <!-- EMPTY -->
-
-      <div
-        class="products-empty"
-        *ngIf="
-          itemCount === 0
-        "
-      >
-
-        <strong>
-          Diese Liste ist leer
-        </strong>
-
-        <p>
-          Bearbeite die Liste,
-          um Produkte hinzuzufügen.
-        </p>
-
-        <button
-          type="button"
-          (click)="editList()"
-        >
-          Produkte hinzufügen
+        <button class="collaboration-button" type="button" (click)="openCollaboration()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="8" cy="8" r="3"></circle>
+            <path d="M2.5 19c.4-3.3 2.3-5 5.5-5 2 0 3.5.7 4.4 2"></path>
+            <path d="M17 10v8M13 14h8"></path>
+          </svg>
+          {{ savedList.is_owner ? 'Gemeinsam nutzen' : 'Mitglieder' }}
         </button>
 
-      </div>
+        <span class="header-count">{{ itemCount }} Artikel</span>
 
+        <div class="list-menu-wrapper" (click)="$event.stopPropagation()">
+          <button class="list-menu-button" type="button" aria-label="Weitere Aktionen"
+            [class.active]="isMenuOpen" (click)="toggleMenu($event)">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="5" r="1.8"></circle>
+              <circle cx="12" cy="12" r="1.8"></circle>
+              <circle cx="12" cy="19" r="1.8"></circle>
+            </svg>
+          </button>
 
-      <!-- ITEMS -->
-
-      <div
-        class="product-row"
-        *ngFor="
-          let item of savedList.items
-        "
-      >
-
-        <!-- AVATAR -->
-
-        <div class="product-avatar">
-
-          {{
-            getItemName(
-              item
-            )
-              .charAt(0)
-              .toUpperCase()
-          }}
-
-        </div>
-
-
-        <!-- PRODUCT -->
-
-        <div class="product-content">
-
-          <strong class="product-name">
-
-            {{
-              getItemName(
-                item
-              )
-            }}
-
-          </strong>
-
-
-          <div class="product-meta">
-
-            <span
-              class="meta-chip"
-              *ngIf="
-                item.quantity !== null &&
-                item.quantity !== undefined
-              "
-            >
-              {{ item.quantity }}
-            </span>
-
-
-            <span
-              class="meta-chip"
-              *ngIf="item.unit"
-            >
-              {{ item.unit }}
-            </span>
-
-
+          <div class="list-menu" *ngIf="isMenuOpen">
+            <button class="list-menu-item" type="button" *ngIf="savedList.can_edit" (click)="editList()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"></path><path d="M13.5 8.5l3 3"></path></svg>
+              <span>Liste bearbeiten</span>
+            </button>
+            <button class="list-menu-item" type="button" (click)="shareList()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.7 10.7l6.6-4M8.7 13.3l6.6 4"></path></svg>
+              <span>Kopie teilen</span>
+            </button>
+            <button class="list-menu-item" type="button" (click)="openCollaboration()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 19c.5-3.3 2.5-5 6-5s5.5 1.7 6 5M17 8v6M14 11h6"></path></svg>
+              <span>{{ savedList.is_owner ? 'Personen einladen' : 'Mitglieder ansehen' }}</span>
+            </button>
+            <div class="list-menu-divider"></div>
+            <button class="list-menu-item danger" type="button" *ngIf="savedList.is_owner" (click)="deleteList()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path></svg>
+              <span>Liste löschen</span>
+            </button>
+            <button class="list-menu-item danger" type="button" *ngIf="!savedList.is_owner" (click)="leaveList()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5M13 8l4 4-4 4M8 12h9"></path></svg>
+              <span>Liste verlassen</span>
+            </button>
           </div>
-
         </div>
-
-
-        <!-- NOTE -->
-
-        <div class="product-note">
-
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M5 4h14v13H9l-4 4V4Z"
-            >
-            </path>
-          </svg>
-
-
-          <span
-            *ngIf="item.note"
-          >
-            {{ item.note }}
-          </span>
-
-
-          <span
-            class="empty-note"
-            *ngIf="!item.note"
-          >
-            Keine Notiz
-          </span>
-
-        </div>
-
-
-        <!-- ITEM ACTIONS -->
-
-        <div class="product-actions">
-
-          <button
-            class="product-action edit"
-            type="button"
-            aria-label="Produkt bearbeiten"
-            (click)="editItem(item)"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-
-              <path
-                d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-              >
-              </path>
-
-              <path
-                d="M13.5 8.5l3 3"
-              >
-              </path>
-
-            </svg>
-
-          </button>
-
-
-          <button
-            class="product-action delete"
-            type="button"
-            aria-label="Produkt löschen"
-            (click)="deleteItem(item)"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-
-              <path
-                d="M4 7h16"
-              >
-              </path>
-
-              <path
-                d="M9 7V4h6v3"
-              >
-              </path>
-
-              <path
-                d="M7 7l1 13h8l1-13"
-              >
-              </path>
-
-            </svg>
-
-          </button>
-
-        </div>
-
       </div>
+    </header>
 
+    <section class="progress-card" *ngIf="itemCount > 0">
+      <div>
+        <strong>Einkaufsfortschritt</strong>
+        <span>{{ checkedCount === itemCount ? 'Alles erledigt – großartig!' : checkedCount + ' von ' + itemCount + ' Produkten abgehakt' }}</span>
+      </div>
+      <strong>{{ (checkedCount / itemCount) * 100 | number:'1.0-0' }}%</strong>
+      <div class="progress-track"><span [style.width.%]="(checkedCount / itemCount) * 100"></span></div>
     </section>
 
-  </ng-container>
+    <div class="viewer-note" *ngIf="!savedList.can_edit">
+      Du kannst diese Liste ansehen. Zum Abhaken oder Bearbeiten benötigst du die Berechtigung „Kann bearbeiten“.
+    </div>
 
+    <section class="products-card">
+      <div class="products-card-header">
+        <div>
+          <h2>Produkte</h2>
+          <span class="products-subtitle">Änderungen werden für alle Beteiligten übernommen.</span>
+        </div>
+        <span class="products-count">{{ itemCount }}</span>
+      </div>
+
+      <div class="products-empty" *ngIf="itemCount === 0">
+        <strong>Diese Liste ist leer</strong>
+        <p *ngIf="savedList.can_edit">Füge die ersten Produkte hinzu und lade anschließend andere Personen ein.</p>
+        <p *ngIf="!savedList.can_edit">Der Eigentümer hat noch keine Produkte hinzugefügt.</p>
+        <button type="button" *ngIf="savedList.can_edit" (click)="editList()">Produkte hinzufügen</button>
+      </div>
+
+      <div class="product-row" [class.checked]="item.is_checked"
+        *ngFor="let item of savedList.items">
+        <button class="product-check" type="button" role="checkbox"
+          [attr.aria-checked]="item.is_checked" [attr.aria-label]="getItemName(item) + (item.is_checked ? ' als offen markieren' : ' abhaken')"
+          [disabled]="!savedList.can_edit || (item.id && updatingItemIds.has(item.id))"
+          (click)="toggleItem(item)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.2L19 7"></path></svg>
+        </button>
+
+        <div class="product-content">
+          <strong class="product-name">{{ getItemName(item) }}</strong>
+          <div class="product-meta">
+            <span class="meta-chip" *ngIf="item.quantity !== null && item.quantity !== undefined">{{ item.quantity }}</span>
+            <span class="meta-chip" *ngIf="item.unit">{{ item.unit }}</span>
+            <span class="activity-chip" *ngIf="item.is_checked && item.checked_by_name">
+              Abgehakt von {{ item.checked_by_name }}
+            </span>
+            <span class="activity-chip" *ngIf="!item.is_checked && item.created_by_name">
+              Hinzugefügt von {{ item.created_by_name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="product-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v13H9l-4 4V4Z"></path></svg>
+          <span *ngIf="item.note">{{ item.note }}</span>
+          <span class="empty-note" *ngIf="!item.note">Keine Notiz</span>
+        </div>
+
+        <div class="product-actions" *ngIf="savedList.can_edit">
+          <button class="product-action edit" type="button" aria-label="Produkt bearbeiten" (click)="editItem(item)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3ZM13.5 8.5l3 3"></path></svg>
+          </button>
+          <button class="product-action delete" type="button" aria-label="Produkt löschen" (click)="deleteItem(item)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+</div>
+
+<div class="dialog-backdrop" *ngIf="isCollaborationOpen" (click)="isCollaborationOpen = false">
+  <section class="collaboration-dialog" role="dialog" aria-modal="true" aria-labelledby="collaboration-title" (click)="$event.stopPropagation()">
+    <header class="dialog-header">
+      <div>
+        <span class="dialog-eyebrow">Gemeinsame Einkaufsliste</span>
+        <h2 id="collaboration-title">{{ savedList?.is_owner ? 'Personen einladen' : 'Mitglieder' }}</h2>
+        <p>{{ savedList?.is_owner ? 'Alle sehen Änderungen und abgehakte Produkte automatisch.' : 'Diese Personen haben Zugriff auf die Liste.' }}</p>
+      </div>
+      <button type="button" class="dialog-close" aria-label="Fenster schließen" (click)="isCollaborationOpen = false">×</button>
+    </header>
+
+    <div class="dialog-body">
+      <div class="dialog-loading" *ngIf="isCollaborationLoading">Freigaben werden geladen…</div>
+      <div class="dialog-error" *ngIf="collaborationError" role="alert">{{ collaborationError }}</div>
+
+      <section class="invite-card" *ngIf="savedList?.is_owner && !isCollaborationLoading">
+        <label for="invite-email">Per E-Mail einladen</label>
+        <div class="invite-fields">
+          <input id="invite-email" name="invite_email" type="email" [(ngModel)]="inviteEmail"
+            placeholder="name@beispiel.de" autocomplete="email" (keyup.enter)="createInvitation()" />
+          <select name="invite_role" [(ngModel)]="inviteRole" aria-label="Berechtigung">
+            <option value="editor">Kann bearbeiten</option>
+            <option value="viewer">Kann ansehen</option>
+          </select>
+          <button type="button" class="primary-action" [disabled]="isInviting" (click)="createInvitation()">
+            {{ isInviting ? 'Wird erstellt…' : 'Einladen' }}
+          </button>
+        </div>
+        <div class="link-action-row">
+          <span>Oder sende selbst einen sieben Tage gültigen Link.</span>
+          <button type="button" [disabled]="isInviting" (click)="createInvitation(true)">Einladungslink erstellen</button>
+        </div>
+        <div class="generated-link" *ngIf="lastInviteUrl">
+          <input type="text" [value]="lastInviteUrl" readonly aria-label="Erstellter Einladungslink" />
+          <button type="button" (click)="copyInviteLink()">Kopieren</button>
+        </div>
+      </section>
+
+      <section class="people-section" *ngIf="collaboration">
+        <div class="section-heading">
+          <h3>Mitglieder</h3>
+          <span>{{ collaboration.members.length }}</span>
+        </div>
+        <div class="person-row" *ngFor="let member of collaboration.members">
+          <div class="person-avatar">
+            <img *ngIf="member.avatar_url" [src]="member.avatar_url" alt="" />
+            <span *ngIf="!member.avatar_url">{{ memberInitial(member) }}</span>
+          </div>
+          <div class="person-copy">
+            <strong>{{ member.display_name }} <small *ngIf="member.is_owner">Eigentümer</small></strong>
+            <span *ngIf="member.email">{{ member.email }}</span>
+          </div>
+          <span class="role-label" *ngIf="!savedList?.is_owner || member.is_owner">{{ roleLabel(member.role) }}</span>
+          <ng-container *ngIf="savedList?.is_owner && !member.is_owner">
+            <select class="role-select" [ngModel]="member.role" (ngModelChange)="updateMemberRole(member, $event)" aria-label="Berechtigung ändern">
+              <option value="editor">Kann bearbeiten</option>
+              <option value="viewer">Kann ansehen</option>
+            </select>
+            <button type="button" class="remove-action" aria-label="Mitglied entfernen" (click)="removeMember(member)">×</button>
+          </ng-container>
+        </div>
+      </section>
+
+      <section class="people-section" *ngIf="savedList?.is_owner && collaboration?.invitations?.length">
+        <div class="section-heading"><h3>Offene Einladungen</h3><span>{{ collaboration!.invitations.length }}</span></div>
+        <div class="person-row invitation-row" *ngFor="let invitation of collaboration!.invitations">
+          <div class="person-avatar pending">✉</div>
+          <div class="person-copy">
+            <strong>{{ invitation.email || 'Einladungslink' }}</strong>
+            <span>Gültig bis {{ formatDate(invitation.expires_at) }}</span>
+          </div>
+          <select class="role-select" [ngModel]="invitation.role" (ngModelChange)="updateInvitationRole(invitation, $event)" aria-label="Berechtigung ändern">
+            <option value="editor">Kann bearbeiten</option>
+            <option value="viewer">Kann ansehen</option>
+          </select>
+          <button type="button" class="copy-action" (click)="copyInviteLink(invitation.invite_url)">Link</button>
+          <button type="button" class="remove-action" aria-label="Einladung zurückziehen" (click)="revokeInvitation(invitation)">×</button>
+        </div>
+      </section>
+    </div>
+  </section>
 </div>

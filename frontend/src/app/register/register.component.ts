@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { RegisterData } from '../models/user';
 import { AuthService } from '../services/auth.service';
@@ -25,6 +25,13 @@ export class RegisterComponent {
 
   private router =
     inject(Router);
+
+  private route =
+    inject(ActivatedRoute);
+
+  readonly returnUrl = this.safeReturnUrl(
+    this.route.snapshot.queryParamMap.get('returnUrl')
+  );
 
   registerData: RegisterData = {
     first_name: '',
@@ -86,6 +93,10 @@ export class RegisterComponent {
   onRegister(): void {
     this.errorMessage = '';
 
+    if (this.returnUrl !== '/main/home') {
+      sessionStorage.setItem('bazkit_post_auth_return_url', this.returnUrl);
+    }
+
     if (!this.isPasswordValid()) {
       this.errorMessage =
         'Bitte erfülle alle Passwort-Anforderungen.';
@@ -136,6 +147,9 @@ export class RegisterComponent {
           this.router.navigate(
             ['/'],
             {
+              queryParams: {
+                returnUrl: this.returnUrl
+              },
               state: {
                 registrationSuccess:
                   true,
@@ -216,7 +230,7 @@ export class RegisterComponent {
   }
 
   goBack(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], { queryParams: { returnUrl: this.returnUrl } });
   }
 
   goToLogin(
@@ -224,6 +238,12 @@ export class RegisterComponent {
   ): void {
     event.preventDefault();
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], { queryParams: { returnUrl: this.returnUrl } });
+  }
+
+  private safeReturnUrl(value: string | null): string {
+    return value?.startsWith('/') && !value.startsWith('//')
+      ? value
+      : '/main/home';
   }
 }

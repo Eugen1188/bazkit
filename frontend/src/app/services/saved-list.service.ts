@@ -19,6 +19,58 @@ export interface SavedListItem extends PriceSnapshot {
   quantity: number;
   unit: string;
   note?: string;
+  is_checked?: boolean;
+  created_by_name?: string;
+  checked_by_name?: string;
+  checked_at?: string | null;
+  updated_at?: string;
+}
+
+
+export type SavedListRole = 'owner' | 'editor' | 'viewer';
+
+
+export interface SavedListMember {
+  id: number | null;
+  user_id: number;
+  display_name: string;
+  email: string;
+  avatar_url?: string | null;
+  role: SavedListRole;
+  is_owner: boolean;
+  joined_at?: string;
+}
+
+
+export interface SavedListInvitation {
+  id: number;
+  email: string;
+  role: Exclude<SavedListRole, 'owner'>;
+  created_at: string;
+  expires_at: string;
+  status: 'pending' | 'accepted' | 'expired' | 'revoked';
+  invite_url: string;
+  email_sent?: boolean;
+}
+
+
+export interface SavedListCollaboration {
+  members: SavedListMember[];
+  invitations: SavedListInvitation[];
+  can_manage: boolean;
+}
+
+
+export interface SavedListInvitePreview {
+  status: 'pending' | 'accepted' | 'expired' | 'revoked' | 'invalid';
+  list_id: number;
+  list_title: string;
+  inviter_name: string;
+  role: Exclude<SavedListRole, 'owner'>;
+  expires_at: string;
+  email_required: boolean;
+  invited_email: string;
+  can_open: boolean;
 }
 
 
@@ -26,7 +78,14 @@ export interface SavedList {
   id: number;
   title: string;
   created_at: string;
+  updated_at: string;
   item_count: number;
+  checked_count: number;
+  member_count: number;
+  access_role: SavedListRole;
+  can_edit: boolean;
+  is_owner: boolean;
+  owner_name: string;
   estimated_total?: number | null;
   items?: SavedListItem[];
 }
@@ -40,7 +99,8 @@ export interface CreateSavedListPayload {
 
 @Injectable({ providedIn: 'root' })
 export class SavedListService {
-  private readonly apiUrl = 'http://178.104.47.231:8000/lists/saved-lists/';
+  private readonly apiRoot = this.getApiRoot();
+  private readonly apiUrl = `${this.apiRoot}/lists/saved-lists/`;
   private readonly cacheLifetimeMs = 60_000;
   private cacheSession = '';
   private cacheExpiresAt = 0;
@@ -172,5 +232,105 @@ export class SavedListService {
     return this.http.delete<void>(
       `${this.apiUrl}${listId}/items/${itemId}/`
     ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  toggleSavedListItem(
+    listId: number,
+    itemId: number,
+    isChecked: boolean
+  ): Observable<SavedListItem> {
+    return this.http.patch<SavedListItem>(
+      `${this.apiUrl}${listId}/items/${itemId}/toggle/`,
+      { is_checked: isChecked }
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  getCollaboration(listId: number): Observable<SavedListCollaboration> {
+    return this.http.get<SavedListCollaboration>(
+      `${this.apiUrl}${listId}/collaboration/`
+    );
+  }
+
+
+  inviteToList(
+    listId: number,
+    email: string,
+    role: Exclude<SavedListRole, 'owner'>
+  ): Observable<SavedListInvitation> {
+    return this.http.post<SavedListInvitation>(
+      `${this.apiUrl}${listId}/collaboration/`,
+      { email: email.trim().toLowerCase(), role }
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  updateInvitationRole(
+    listId: number,
+    invitationId: number,
+    role: Exclude<SavedListRole, 'owner'>
+  ): Observable<SavedListInvitation> {
+    return this.http.patch<SavedListInvitation>(
+      `${this.apiUrl}${listId}/invitations/${invitationId}/`,
+      { role }
+    );
+  }
+
+
+  revokeInvitation(listId: number, invitationId: number): Observable<void> {
+    return this.http.delete<void>(
+      `${this.apiUrl}${listId}/invitations/${invitationId}/`
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  updateMemberRole(
+    listId: number,
+    membershipId: number,
+    role: Exclude<SavedListRole, 'owner'>
+  ): Observable<SavedListMember> {
+    return this.http.patch<SavedListMember>(
+      `${this.apiUrl}${listId}/members/${membershipId}/`,
+      { role }
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  removeMember(listId: number, membershipId: number): Observable<void> {
+    return this.http.delete<void>(
+      `${this.apiUrl}${listId}/members/${membershipId}/`
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  leaveList(listId: number): Observable<void> {
+    return this.http.post<void>(
+      `${this.apiUrl}${listId}/leave/`,
+      {}
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  getInvitation(token: string): Observable<SavedListInvitePreview> {
+    return this.http.get<SavedListInvitePreview>(
+      `${this.apiRoot}/lists/saved-list-invitations/${encodeURIComponent(token)}/`
+    );
+  }
+
+
+  acceptInvitation(token: string): Observable<{ message: string; list_id: number; role: string }> {
+    return this.http.post<{ message: string; list_id: number; role: string }>(
+      `${this.apiRoot}/lists/saved-list-invitations/${encodeURIComponent(token)}/`,
+      {}
+    ).pipe(tap(() => this.invalidateListCache()));
+  }
+
+
+  private getApiRoot(): string {
+    return window.location.hostname === 'localhost'
+      || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:8000'
+      : 'http://178.104.47.231:8000';
   }
 }

@@ -60,6 +60,43 @@
   text-align: center;
 }
 
+/* Gemeinsame Listen */
+
+.list-section {
+  width: min(100%, 1040px);
+  margin: 0 auto 28px;
+}
+
+.list-section-heading {
+  margin: 0 2px 11px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.list-section-heading h2 { margin: 0 0 3px; color: var(--color-text-primary); font-size: 17px; }
+.list-section-heading p { margin: 0; color: var(--color-text-muted); font-size: 12px; }
+.list-section-heading > span { min-width: 30px; height: 30px; padding: 0 9px; border-radius: 99px; display: inline-flex; align-items: center; justify-content: center; background: var(--color-primary-soft-bg); color: var(--color-primary); font-size: 12px; font-weight: 700; }
+.shared-section { margin-top: 34px; }
+
+.list-title-row { min-width: 0; display: flex; align-items: center; gap: 9px; }
+.list-title-row h2 { min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.shared-badge { flex: 0 0 auto; padding: 4px 7px; border-radius: 99px; display: inline-flex; align-items: center; gap: 4px; background: var(--color-primary-soft-bg); color: var(--color-primary); font-size: 11px; font-weight: 700; }
+.list-info .shared-badge { color: var(--color-primary); font-size: 11px; }
+.shared-badge svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.mini-progress { max-width: 320px; margin-top: 10px; display: flex; align-items: center; gap: 9px; }
+.mini-progress i { width: 92px; height: 5px; overflow: hidden; border-radius: 99px; display: block; background: var(--color-primary-soft-bg); }
+.mini-progress b { height: 100%; display: block; border-radius: inherit; background: var(--color-primary); }
+.mini-progress small { color: var(--color-text-muted); font-size: 11px; }
+
+@media (max-width: 620px) {
+  .list-section-heading { align-items: center; }
+  .list-section-heading p { display: none; }
+  .mini-progress { max-width: 210px; }
+}
+
 .error-state button {
   min-height: 40px;
   padding: 0 16px;

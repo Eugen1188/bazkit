@@ -86,6 +86,10 @@ import {
   VerifyEmailComponent
 } from './verify-email/verify-email.component';
 
+import {
+  SavedListInviteComponent
+} from './saved-list/saved-list-invite/saved-list-invite.component';
+
 export const routes:
   Routes = [
 
@@ -102,6 +106,11 @@ export const routes:
     {
       path: 'verify-email',
       component: VerifyEmailComponent
+    },
+
+    {
+      path: 'invite/:token',
+      component: SavedListInviteComponent
     },
 
     {

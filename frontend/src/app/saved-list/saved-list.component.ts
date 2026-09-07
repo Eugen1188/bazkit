@@ -54,6 +54,14 @@ implements OnInit {
   openedMenuId:
     number | null = null;
 
+  get ownLists(): SavedList[] {
+    return this.savedLists.filter(list => list.is_owner);
+  }
+
+  get sharedLists(): SavedList[] {
+    return this.savedLists.filter(list => !list.is_owner);
+  }
+
 
   constructor(
     private savedListService:
@@ -150,6 +158,8 @@ implements OnInit {
     list: SavedList
   ): void {
 
+    if (!list.can_edit) return;
+
     event.preventDefault();
 
     event.stopPropagation();
@@ -163,6 +173,32 @@ implements OnInit {
       list.id,
       'edit'
     ]);
+  }
+
+
+  openCollaboration(event: MouseEvent, list: SavedList): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.openedMenuId = null;
+    this.router.navigate(
+      ['/main/saved-list', list.id],
+      { queryParams: { collaborate: 1 } }
+    );
+  }
+
+
+  leaveList(event: MouseEvent, list: SavedList): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.openedMenuId = null;
+    if (!confirm(`Möchtest du die gemeinsame Liste „${list.title}“ verlassen?`)) return;
+    this.savedListService.leaveList(list.id).subscribe({
+      next: () => this.savedLists = this.savedLists.filter(item => item.id !== list.id),
+      error: error => {
+        console.error('Liste konnte nicht verlassen werden:', error);
+        this.showShareMessage('Die Liste konnte nicht verlassen werden.');
+      }
+    });
   }
 
 
@@ -284,6 +320,8 @@ implements OnInit {
     event: MouseEvent,
     list: SavedList
   ): void {
+
+    if (!list.is_owner) return;
 
     event.preventDefault();
 

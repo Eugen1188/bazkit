@@ -1,6 +1,14 @@
+from datetime import timedelta
+from uuid import uuid4
+
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 from products.models import Product
+
+
+def saved_list_invitation_expiry():
+    return timezone.now() + timedelta(days=7)
 
 
 class PriceSnapshotMixin(models.Model):
@@ -33,6 +41,10 @@ class SavedList(models.Model):
 
     created_at = models.DateTimeField(
         auto_now_add=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
     )
 
     is_community_snapshot = models.BooleanField(
@@ -80,8 +92,118 @@ class SavedListItem(PriceSnapshotMixin):
         blank=True
     )
 
+    is_checked = models.BooleanField(
+        default=False
+    )
+
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="created_saved_list_items",
+    )
+
+    checked_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="checked_saved_list_items",
+    )
+
+    checked_at = models.DateTimeField(
+        null=True,
+        blank=True,
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
     def __str__(self):
         return self.name
+
+
+class SavedListMembership(models.Model):
+    EDITOR = "editor"
+    VIEWER = "viewer"
+    ROLE_CHOICES = [
+        (EDITOR, "Kann bearbeiten"),
+        (VIEWER, "Kann ansehen"),
+    ]
+
+    saved_list = models.ForeignKey(
+        SavedList,
+        on_delete=models.CASCADE,
+        related_name="memberships",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="shared_saved_lists",
+    )
+    role = models.CharField(
+        max_length=10,
+        choices=ROLE_CHOICES,
+        default=EDITOR,
+    )
+    joined_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=("saved_list", "user"),
+                name="unique_saved_list_member",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.user} in {self.saved_list} ({self.role})"
+
+
+class SavedListInvitation(models.Model):
+    ROLE_CHOICES = SavedListMembership.ROLE_CHOICES
+
+    saved_list = models.ForeignKey(
+        SavedList,
+        on_delete=models.CASCADE,
+        related_name="invitations",
+    )
+    invited_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="sent_saved_list_invitations",
+    )
+    email = models.EmailField(blank=True)
+    role = models.CharField(
+        max_length=10,
+        choices=ROLE_CHOICES,
+        default=SavedListMembership.EDITOR,
+    )
+    token = models.UUIDField(
+        default=uuid4,
+        unique=True,
+        editable=False,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(default=saved_list_invitation_expiry)
+    accepted_at = models.DateTimeField(null=True, blank=True)
+    revoked_at = models.DateTimeField(null=True, blank=True)
+
+    @property
+    def status(self):
+        if self.revoked_at:
+            return "revoked"
+        if self.accepted_at:
+            return "accepted"
+        if self.expires_at <= timezone.now():
+            return "expired"
+        return "pending"
+
+    def __str__(self):
+        recipient = self.email or "Einladungslink"
+        return f"{recipient}: {self.saved_list}"
 
 
 class ShoppingList(models.Model):

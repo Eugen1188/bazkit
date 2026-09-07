@@ -1,0 +1,42 @@
+<main class="invite-page">
+  <a class="brand" routerLink="/"><span>b</span> bazkit</a>
+
+  <section class="invite-card">
+    <div class="loading" *ngIf="isLoading">Einladung wird geladen…</div>
+
+    <ng-container *ngIf="!isLoading && preview">
+      <div class="invite-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><path d="M2.5 19c.4-3.3 2.3-5 5.5-5 2 0 3.5.7 4.4 2M17 10v8M13 14h8"></path></svg>
+      </div>
+      <span class="eyebrow">Einladung zu einer Einkaufsliste</span>
+      <h1>{{ preview.inviter_name }} möchte mit dir einkaufen</h1>
+      <div class="list-preview">
+        <span>Gemeinsame Liste</span>
+        <strong>{{ preview.list_title }}</strong>
+        <p>{{ roleLabel() }}</p>
+      </div>
+
+      <div class="status-message" *ngIf="preview.status !== 'pending'">
+        {{ preview.status === 'accepted' ? 'Diese Einladung wurde bereits verwendet.' : 'Diese Einladung ist nicht mehr gültig.' }}
+      </div>
+      <button class="accept-button" type="button" *ngIf="preview.can_open" (click)="openList()">
+        Gemeinsame Liste öffnen
+      </button>
+
+      <ng-container *ngIf="preview.status === 'pending'">
+        <p class="account-hint" *ngIf="preview.email_required">
+          Melde dich mit dem Konto für <strong>{{ preview.invited_email }}</strong> an.
+        </p>
+        <button class="accept-button" type="button" [disabled]="isAccepting" (click)="accept()">
+          {{ isAccepting ? 'Einladung wird angenommen…' : (isLoggedIn ? 'Einladung annehmen' : 'Anmelden und annehmen') }}
+        </button>
+        <p class="register-hint" *ngIf="!isLoggedIn">
+          Noch kein bazkit-Konto?
+          <a routerLink="/register" [queryParams]="{ returnUrl: returnUrl }">Kostenlos registrieren</a>
+        </p>
+      </ng-container>
+    </ng-container>
+
+    <div class="error-message" *ngIf="!isLoading && errorMessage" role="alert">{{ errorMessage }}</div>
+  </section>
+</main>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserSettingsService } from '../services/user-settings.service';
 
@@ -32,6 +32,12 @@ export class LoginComponent {
   private authService = inject(AuthService);
   private userSettings = inject(UserSettingsService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
+  readonly returnUrl = this.safeReturnUrl(
+    this.route.snapshot.queryParamMap.get('returnUrl')
+      || sessionStorage.getItem('bazkit_post_auth_return_url')
+  );
 
   constructor() {
     const navigation =
@@ -99,12 +105,14 @@ export class LoginComponent {
           this.userSettings.load().subscribe({
             next: () => {
               this.isLoading = false;
-              void this.router.navigate(['/main/home']);
+              sessionStorage.removeItem('bazkit_post_auth_return_url');
+              void this.router.navigateByUrl(this.returnUrl);
             },
             error: () => {
               // Die Anmeldung bleibt möglich; Standardwerte dienen als Fallback.
               this.isLoading = false;
-              void this.router.navigate(['/main/home']);
+              sessionStorage.removeItem('bazkit_post_auth_return_url');
+              void this.router.navigateByUrl(this.returnUrl);
             },
           });
         },
@@ -162,5 +170,11 @@ export class LoginComponent {
         this.errorMessage = 'Die Bestätigungs-E-Mail konnte momentan nicht versendet werden.';
       },
     });
+  }
+
+  private safeReturnUrl(value: string | null): string {
+    return value?.startsWith('/') && !value.startsWith('//')
+      ? value
+      : '/main/home';
   }
 }

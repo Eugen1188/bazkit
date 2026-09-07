@@ -242,7 +242,7 @@
       <p class="register-text">
         Noch kein Konto?
 
-        <a routerLink="/register">
+        <a routerLink="/register" [queryParams]="{ returnUrl: returnUrl }">
           Registrieren
         </a>
       </p>
