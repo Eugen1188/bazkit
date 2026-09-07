@@ -737,3 +737,21 @@ iPhone 12 / Safari etc.
 }
 
 .auth-legal-links a:hover { color: var(--color-primary); }
+.resend-verification-button {
+  width: 100%;
+  min-height: 42px;
+  margin: -8px 0 18px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  background: var(--color-primary-soft-bg);
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resend-verification-button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}

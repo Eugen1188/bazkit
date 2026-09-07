@@ -11,10 +11,12 @@ class CustomUserAdmin(UserAdmin):
         "id",
         "username",
         "email",
+        "email_verified_at",
         "is_staff",
         "is_superuser",
         "created_at",
     )
+    readonly_fields = ("email_verified_at", "email_verification_sent_at")
 
 
 @admin.register(UserSettings)

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { finalize, Observable, of, shareReplay, tap } from 'rxjs';
+import { finalize, Observable, of, shareReplay, tap, timeout } from 'rxjs';
 import { PriceSnapshot } from './product.service';
 
 
@@ -117,6 +117,7 @@ export class ShoppingListService {
     }
 
     const request = this.http.get<ShoppingList>(this.apiUrl).pipe(
+      timeout({ first: 15_000 }),
       tap(list => this.remember(list, session)),
       finalize(() => {
         if (this.inFlightRequest === request) {

@@ -138,7 +138,9 @@ export class RegisterComponent {
             {
               state: {
                 registrationSuccess:
-                  true
+                  true,
+                registrationEmail:
+                  payload.email
               }
             }
           );
@@ -154,6 +156,13 @@ export class RegisterComponent {
 
           const response =
             error.error;
+
+          if (response?.detail) {
+            this.errorMessage = Array.isArray(response.detail)
+              ? response.detail[0]
+              : response.detail;
+            return;
+          }
 
           if (response?.email) {
             this.errorMessage =

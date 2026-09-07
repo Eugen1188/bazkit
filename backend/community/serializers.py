@@ -13,6 +13,7 @@ from recipes.models import (
     Recipe,
 )
 from recipes.storage import get_recipe_image_url
+from users.storage import get_avatar_url
 
 from .models import (
     CommunityComment,
@@ -32,6 +33,7 @@ class CommunityAuthorSerializer(
     )
 
     name = serializers.SerializerMethodField()
+    avatar_url = serializers.SerializerMethodField()
 
     def get_name(
         self,
@@ -43,6 +45,9 @@ class CommunityAuthorSerializer(
             or
             obj.username
         )
+
+    def get_avatar_url(self, obj):
+        return get_avatar_url(obj.avatar_key)
 
 
 class CommunityIngredientSerializer(

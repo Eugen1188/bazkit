@@ -128,6 +128,14 @@
 
   font-size: 20px;
   font-weight: 700;
+
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .account-info {
@@ -938,6 +946,14 @@
   font-weight: 700;
 }
 
+.pending-email {
+  max-width: 100%;
+  color: var(--color-primary);
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 .quota-number {
   margin: 19px 0 12px;
   display: flex;
@@ -1185,6 +1201,78 @@
   gap: 14px;
 }
 
+.avatar-editor {
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px solid var(--color-divider);
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--color-surface-muted);
+}
+
+.avatar-preview {
+  width: 74px;
+  height: 74px;
+  min-width: 74px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.avatar-preview img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatar-editor-actions { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.avatar-editor-actions > strong { font-size: 14px; }
+.avatar-editor-actions > small { color: var(--color-text-muted); font-size: 11px; line-height: 1.4; }
+.avatar-editor-actions > div { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.avatar-select-button {
+  min-height: 36px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar-remove-button {
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: #ad3f3a;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.email-change-hint {
+  display: block;
+  margin: -8px 0 15px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 .password-hint {
   display: block;
   margin: -3px 0 14px;
@@ -1250,4 +1338,5 @@
   .dialog-field-grid { grid-template-columns: 1fr; gap: 0; }
   .dialog-actions { flex-direction: column-reverse; }
   .dialog-actions button { width: 100%; }
+  .avatar-editor { align-items: flex-start; }
 }

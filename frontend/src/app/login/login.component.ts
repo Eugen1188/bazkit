@@ -26,6 +26,8 @@ export class LoginComponent {
   successMessage = '';
 
   isLoading = false;
+  isResending = false;
+  showResendVerification = false;
 
   private authService = inject(AuthService);
   private userSettings = inject(UserSettingsService);
@@ -39,12 +41,15 @@ export class LoginComponent {
       navigation?.extras.state as
         | {
             registrationSuccess?: boolean;
+            registrationEmail?: string;
           }
         | undefined;
 
     if (state?.registrationSuccess) {
+      this.email = state.registrationEmail ?? '';
+      this.showResendVerification = true;
       this.successMessage =
-        'Registrierung erfolgreich! Du kannst dich jetzt anmelden.';
+        'Wir haben dir einen Bestätigungslink geschickt. Öffne ihn, bevor du dich anmeldest.';
     }
   }
 
@@ -56,6 +61,7 @@ export class LoginComponent {
   onLogin(): void {
     this.errorMessage = '';
     this.successMessage = '';
+    this.showResendVerification = false;
 
     const loginData = {
       email:
@@ -121,6 +127,15 @@ export class LoginComponent {
             error.status === 400 ||
             error.status === 401
           ) {
+            const response = error.error;
+            const code = Array.isArray(response?.code)
+              ? response.code[0]
+              : response?.code;
+            if (code === 'email_not_verified') {
+              this.errorMessage = 'Bitte bestätige zuerst deine E-Mail-Adresse.';
+              this.showResendVerification = true;
+              return;
+            }
             this.errorMessage =
               'E-Mail oder Passwort ist falsch.';
             return;
@@ -130,5 +145,22 @@ export class LoginComponent {
             'Anmeldung fehlgeschlagen. Bitte versuche es erneut.';
         },
       });
+  }
+
+  resendVerification(): void {
+    if (!this.email.trim() || this.isResending) return;
+    this.isResending = true;
+    this.errorMessage = '';
+    this.successMessage = '';
+    this.authService.resendVerification(this.email).subscribe({
+      next: response => {
+        this.isResending = false;
+        this.successMessage = response.message;
+      },
+      error: () => {
+        this.isResending = false;
+        this.errorMessage = 'Die Bestätigungs-E-Mail konnte momentan nicht versendet werden.';
+      },
+    });
   }
 }

@@ -82,6 +82,10 @@ import {
   LegalPageComponent
 } from './legal/legal-page.component';
 
+import {
+  VerifyEmailComponent
+} from './verify-email/verify-email.component';
+
 export const routes:
   Routes = [
 
@@ -93,6 +97,11 @@ export const routes:
     {
       path: 'register',
       component: RegisterComponent
+    },
+
+    {
+      path: 'verify-email',
+      component: VerifyEmailComponent
     },
 
     {

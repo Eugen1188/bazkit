@@ -1,10 +1,12 @@
 import re
 
 from django.contrib.auth import authenticate
+from django.db.models import Q
 from rest_framework import serializers
 
 from .models import User
 from .models import UserSettings
+from .storage import get_avatar_url
 
 
 DIETARY_PREFERENCES = {
@@ -74,7 +76,9 @@ class UserRegisterSerializer(serializers.Serializer):
         email = value.strip().lower()
 
         if User.objects.filter(
-            email__iexact=email
+            Q(email__iexact=email)
+            | Q(username__iexact=email)
+            | Q(pending_email__iexact=email)
         ).exists():
             raise serializers.ValidationError(
                 "Diese E-Mail wird bereits verwendet."
@@ -151,6 +155,17 @@ class UserLoginSerializer(serializers.Serializer):
                 "E-Mail oder Passwort ist falsch."
             )
 
+        if not user.check_password(password):
+            raise serializers.ValidationError(
+                "E-Mail oder Passwort ist falsch."
+            )
+
+        if not user.is_active:
+            raise serializers.ValidationError({
+                "detail": "Bitte bestätige zuerst deine E-Mail-Adresse.",
+                "code": "email_not_verified",
+            })
+
         user = authenticate(
             username=user.username,
             password=password
@@ -167,6 +182,9 @@ class UserLoginSerializer(serializers.Serializer):
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    avatar_url = serializers.SerializerMethodField()
+    email_verified = serializers.SerializerMethodField()
+
     class Meta:
         model = User
         fields = (
@@ -174,9 +192,24 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "email",
+            "pending_email",
+            "email_verified",
+            "avatar_url",
             "date_joined",
         )
-        read_only_fields = ("id", "date_joined")
+        read_only_fields = (
+            "id",
+            "pending_email",
+            "email_verified",
+            "avatar_url",
+            "date_joined",
+        )
+
+    def get_avatar_url(self, obj):
+        return get_avatar_url(obj.avatar_key)
+
+    def get_email_verified(self, obj):
+        return bool(obj.email_verified_at)
 
     def validate_first_name(self, value):
         value = value.strip()
@@ -192,9 +225,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     def validate_email(self, value):
         email = value.strip().lower()
-        existing = User.objects.filter(email__iexact=email).exclude(
-            pk=self.instance.pk
-        )
+        existing = User.objects.filter(
+            Q(email__iexact=email)
+            | Q(username__iexact=email)
+            | Q(pending_email__iexact=email)
+        ).exclude(pk=self.instance.pk)
         if existing.exists():
             raise serializers.ValidationError(
                 "Diese E-Mail-Adresse wird bereits verwendet."
@@ -202,9 +237,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return email
 
     def update(self, instance, validated_data):
-        email = validated_data.get("email")
-        if email:
-            validated_data["username"] = email
+        # Eine neue E-Mail-Adresse wird in der View zunächst als pending_email
+        # gespeichert und erst nach Klick auf den Bestätigungslink übernommen.
+        validated_data.pop("email", None)
         return super().update(instance, validated_data)
 
 

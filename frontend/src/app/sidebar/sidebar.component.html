@@ -5,7 +5,10 @@
   </a>
 
   <a class="user-box" routerLink="/main/settings" aria-label="Kontoeinstellungen öffnen">
-    <span class="avatar">{{ userInitial }}</span>
+    <span class="avatar">
+      <img *ngIf="user?.avatar_url; else desktopInitial" [src]="user?.avatar_url" alt="" />
+      <ng-template #desktopInitial>{{ userInitial }}</ng-template>
+    </span>
     <span class="user-name">{{ userName }}</span>
     <span class="chevron"><app-ui-icon name="chevron-down"></app-ui-icon></span>
   </a>
@@ -86,13 +89,19 @@
     [class.active]="isMobileMoreOpen"
     (click)="toggleMobileMore($event)"
   >
-    <span class="mobile-avatar">{{ userInitial }}</span>
+    <span class="mobile-avatar">
+      <img *ngIf="user?.avatar_url; else mobileInitial" [src]="user?.avatar_url" alt="" />
+      <ng-template #mobileInitial>{{ userInitial }}</ng-template>
+    </span>
     <span>Profil</span>
   </button>
 
   <div class="mobile-more-menu" *ngIf="isMobileMoreOpen" (click)="$event.stopPropagation()">
     <div class="mobile-user">
-      <div class="mobile-user-avatar">{{ userInitial }}</div>
+      <div class="mobile-user-avatar">
+        <img *ngIf="user?.avatar_url; else menuInitial" [src]="user?.avatar_url" alt="" />
+        <ng-template #menuInitial>{{ userInitial }}</ng-template>
+      </div>
       <div><strong>{{ userName }}</strong><span>Mein Konto</span></div>
     </div>
     <div class="mobile-menu-divider"></div>

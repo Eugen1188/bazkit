@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {
+  finalize,
+  Observable,
+  shareReplay
+} from 'rxjs';
 
 
 export interface UserProfile {
@@ -8,6 +12,11 @@ export interface UserProfile {
   first_name: string;
   last_name: string;
   email: string;
+  pending_email?: string;
+  email_verified?: boolean;
+  avatar_url?: string | null;
+  email_change_pending?: boolean;
+  message?: string;
   date_joined?: string;
 }
 
@@ -18,12 +27,19 @@ export interface ChangePasswordPayload {
   new_password2: string;
 }
 
+interface TokenRefreshResponse {
+  access: string;
+  refresh?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   private apiUrl = this.getApiUrl();
+
+  private refreshRequest: Observable<TokenRefreshResponse> | null = null;
 
   constructor(
     private http: HttpClient
@@ -53,6 +69,30 @@ export class AuthService {
     return this.http.patch<UserProfile>(`${this.apiUrl}/users/me/`, data);
   }
 
+  uploadAvatar(file: File): Observable<UserProfile> {
+    const formData = new FormData();
+    formData.append('avatar', file);
+    return this.http.put<UserProfile>(`${this.apiUrl}/users/me/avatar/`, formData);
+  }
+
+  deleteAvatar(): Observable<UserProfile> {
+    return this.http.delete<UserProfile>(`${this.apiUrl}/users/me/avatar/`);
+  }
+
+  verifyEmail(token: string): Observable<{ message: string; email: string }> {
+    return this.http.post<{ message: string; email: string }>(
+      `${this.apiUrl}/users/verify-email/`,
+      { token }
+    );
+  }
+
+  resendVerification(email: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
+      `${this.apiUrl}/users/resend-verification/`,
+      { email: email.trim().toLowerCase() }
+    );
+  }
+
   changePassword(data: ChangePasswordPayload): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(
       `${this.apiUrl}/users/me/change-password/`,
@@ -64,16 +104,30 @@ export class AuthService {
     return this.http.delete<void>(`${this.apiUrl}/users/me/`);
   }
 
-  refreshToken(): Observable<any> {
+  refreshToken(): Observable<TokenRefreshResponse> {
+    if (this.refreshRequest) {
+      return this.refreshRequest;
+    }
+
     const refresh =
       localStorage.getItem('refresh_token');
 
-    return this.http.post(
+    const request = this.http.post<TokenRefreshResponse>(
       `${this.apiUrl}/api/token/refresh/`,
       {
         refresh
       }
+    ).pipe(
+      finalize(() => {
+        if (this.refreshRequest === request) {
+          this.refreshRequest = null;
+        }
+      }),
+      shareReplay({ bufferSize: 1, refCount: false })
     );
+
+    this.refreshRequest = request;
+    return request;
   }
 
   isLoggedIn(): boolean {

@@ -18,7 +18,14 @@
     "
     role="alert"
   >
-    {{ errorMessage }}
+    <span>{{ errorMessage }}</span>
+
+    <button
+      type="button"
+      (click)="loadShoppingList()"
+    >
+      Erneut versuchen
+    </button>
   </div>
 
 

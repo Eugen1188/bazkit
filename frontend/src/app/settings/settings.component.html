@@ -60,10 +60,16 @@
       </div>
 
       <div class="account-profile">
-        <div class="account-avatar" aria-hidden="true">{{ userInitials }}</div>
+        <div class="account-avatar" aria-hidden="true">
+          <img *ngIf="profile.avatar_url; else accountInitials" [src]="profile.avatar_url" alt="" />
+          <ng-template #accountInitials>{{ userInitials }}</ng-template>
+        </div>
         <div class="account-info">
           <strong>{{ userName }}</strong>
           <span>{{ profile.email }}</span>
+          <small class="pending-email" *ngIf="profile.pending_email">
+            Bestätigung für {{ profile.pending_email }} ausstehend
+          </small>
           <button
             class="outline-button account-edit-button"
             type="button"
@@ -472,11 +478,43 @@
       <div><span>Konto</span><h2 id="profile-dialog-title">Profil bearbeiten</h2></div>
       <button type="button" (click)="closeDialog()" aria-label="Fenster schließen">×</button>
     </div>
+    <div class="avatar-editor">
+      <div class="avatar-preview" aria-hidden="true">
+        <img *ngIf="displayedAvatarUrl; else dialogInitials" [src]="displayedAvatarUrl" alt="" />
+        <ng-template #dialogInitials>{{ userInitials }}</ng-template>
+      </div>
+      <div class="avatar-editor-actions">
+        <strong>Profilbild</strong>
+        <small>JPG, PNG oder WebP · maximal 10 MB</small>
+        <div>
+          <label class="outline-button avatar-select-button">
+            Bild auswählen
+            <input
+              class="visually-hidden"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              (change)="selectAvatar($event)"
+            />
+          </label>
+          <button
+            class="avatar-remove-button"
+            type="button"
+            *ngIf="displayedAvatarUrl"
+            (click)="removeAvatar()"
+          >
+            Entfernen
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="dialog-field-grid">
       <label>Vorname<input name="firstName" [(ngModel)]="profileForm.first_name" autocomplete="given-name" required /></label>
       <label>Nachname<input name="lastName" [(ngModel)]="profileForm.last_name" autocomplete="family-name" required /></label>
     </div>
     <label>E-Mail-Adresse<input name="email" type="email" [(ngModel)]="profileForm.email" autocomplete="email" required /></label>
+    <small class="email-change-hint">
+      Eine neue Adresse wird erst übernommen, nachdem du den Link in der Bestätigungs-E-Mail geöffnet hast.
+    </small>
     <p class="dialog-error" *ngIf="dialogError" role="alert">{{ dialogError }}</p>
     <div class="dialog-actions">
       <button class="outline-button" type="button" (click)="closeDialog()">Abbrechen</button>

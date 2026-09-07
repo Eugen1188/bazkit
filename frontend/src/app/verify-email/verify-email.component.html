@@ -1,0 +1,40 @@
+<main class="verification-page">
+  <a class="verification-logo" routerLink="/" aria-label="Zur bazkit Anmeldung">
+    <span aria-hidden="true">b</span><strong>bazkit</strong>
+  </a>
+
+  <section class="verification-card" aria-live="polite">
+    <div class="status-icon" [class.success]="state === 'success'" [class.error]="state === 'error'">
+      <span class="spinner" *ngIf="state === 'loading'"></span>
+      <span *ngIf="state === 'success'" aria-hidden="true">✓</span>
+      <span *ngIf="state === 'error'" aria-hidden="true">!</span>
+    </div>
+
+    <p class="eyebrow">E-Mail-Bestätigung</p>
+    <h1>
+      {{ state === 'loading' ? 'Einen Moment bitte' : state === 'success' ? 'Bestätigung erfolgreich' : 'Link nicht verwendbar' }}
+    </h1>
+    <p class="verification-message">{{ message }}</p>
+
+    <a class="primary-action" routerLink="/" *ngIf="state === 'success'">Jetzt anmelden</a>
+
+    <form class="resend-form" *ngIf="state === 'error'" (ngSubmit)="resend()">
+      <label for="resendEmail">Neuen Link anfordern</label>
+      <input
+        id="resendEmail"
+        name="resendEmail"
+        type="email"
+        [(ngModel)]="resendEmail"
+        autocomplete="email"
+        placeholder="deine@email.de"
+        required
+      />
+      <button type="submit" [disabled]="isResending || !resendEmail.trim()">
+        {{ isResending ? 'Wird versendet…' : 'Bestätigungslink senden' }}
+      </button>
+      <p class="resend-message" *ngIf="resendMessage">{{ resendMessage }}</p>
+    </form>
+
+    <a class="secondary-link" routerLink="/">Zurück zur Anmeldung</a>
+  </section>
+</main>

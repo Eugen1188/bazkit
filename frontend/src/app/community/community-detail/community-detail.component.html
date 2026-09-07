@@ -255,11 +255,10 @@
           <div class="author-line">
 
             <span class="avatar">
-              {{
-                post.author.name
-                  .charAt(0)
-                  .toUpperCase()
-              }}
+              <img *ngIf="post.author.avatar_url; else postAuthorInitial" [src]="post.author.avatar_url" alt="" />
+              <ng-template #postAuthorInitial>
+                {{ post.author.name.charAt(0).toUpperCase() }}
+              </ng-template>
             </span>
 
 
@@ -833,11 +832,10 @@
       >
 
         <span class="comment-avatar">
-          {{
-            comment.author.name
-              .charAt(0)
-              .toUpperCase()
-          }}
+          <img *ngIf="comment.author.avatar_url; else commentAuthorInitial" [src]="comment.author.avatar_url" alt="" />
+          <ng-template #commentAuthorInitial>
+            {{ comment.author.name.charAt(0).toUpperCase() }}
+          </ng-template>
         </span>
 
 

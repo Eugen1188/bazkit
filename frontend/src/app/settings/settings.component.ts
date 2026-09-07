@@ -82,6 +82,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
   };
 
   deleteConfirmation = '';
+  avatarFile: File | null = null;
+  avatarPreviewUrl = '';
+  removeAvatarRequested = false;
 
   readonly dietaryOptions: PreferenceOption[] = [
     { value: 'vegetarian', label: 'Vegetarisch' },
@@ -156,6 +159,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+    this.clearAvatarPreview();
     if (this.savedStateTimer !== null) window.clearTimeout(this.savedStateTimer);
   }
 
@@ -176,6 +180,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
       .map(value => value?.charAt(0).toUpperCase())
       .join('');
     return initials || this.profile?.email.charAt(0).toUpperCase() || '?';
+  }
+
+  get displayedAvatarUrl(): string {
+    if (this.avatarPreviewUrl) return this.avatarPreviewUrl;
+    if (this.removeAvatarRequested) return '';
+    return this.profile?.avatar_url ?? '';
   }
 
   get aiUsagePercentage(): number {
@@ -248,6 +258,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   openProfileDialog(): void {
     if (!this.profile) return;
+    this.clearAvatarSelection();
     this.profileForm = {
       first_name: this.profile.first_name,
       last_name: this.profile.last_name,
@@ -272,7 +283,39 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   closeDialog(): void {
     if (this.isDialogSaving) return;
+    this.clearAvatarSelection();
     this.activeDialog = null;
+    this.dialogError = '';
+  }
+
+  selectAvatar(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+    if (!file) return;
+
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+      this.dialogError = 'Bitte wähle ein JPG-, PNG- oder WebP-Bild aus.';
+      input.value = '';
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      this.dialogError = 'Das Profilbild darf höchstens 10 MB groß sein.';
+      input.value = '';
+      return;
+    }
+
+    this.clearAvatarPreview();
+    this.avatarFile = file;
+    this.removeAvatarRequested = false;
+    this.avatarPreviewUrl = URL.createObjectURL(file);
+    this.dialogError = '';
+  }
+
+  removeAvatar(): void {
+    this.clearAvatarPreview();
+    this.avatarFile = null;
+    this.removeAvatarRequested = true;
     this.dialogError = '';
   }
 
@@ -289,22 +332,39 @@ export class SettingsComponent implements OnInit, OnDestroy {
       return;
     }
 
+    const emailChanged = data.email !== this.profile?.email.toLowerCase();
+    const avatarChanged = Boolean(this.avatarFile) || this.removeAvatarRequested;
+
     this.isDialogSaving = true;
     this.dialogError = '';
-    this.authService.updateProfile(data).subscribe({
+    this.authService.updateProfile(data).pipe(
+      concatMap(profile => {
+        if (this.avatarFile) {
+          return this.authService.uploadAvatar(this.avatarFile);
+        }
+        if (this.removeAvatarRequested && profile.avatar_url) {
+          return this.authService.deleteAvatar();
+        }
+        return of(profile);
+      }),
+      finalize(() => { this.isDialogSaving = false; })
+    ).subscribe({
       next: profile => {
         this.profile = profile;
         this.authService.storeCurrentUser(profile);
-        this.isDialogSaving = false;
+        this.clearAvatarSelection();
         this.activeDialog = null;
-        this.pageMessage = 'Dein Profil wurde aktualisiert.';
+        this.pageMessage = emailChanged
+          ? `Bestätige die neue Adresse über den Link an ${data.email}. Bis dahin bleibt ${profile.email} deine Anmeldeadresse.`
+          : avatarChanged
+            ? 'Dein Profilbild und deine Angaben wurden aktualisiert.'
+            : 'Dein Profil wurde aktualisiert.';
       },
       error: error => {
         this.dialogError = this.apiError(
           error,
           'Das Profil konnte nicht gespeichert werden.'
         );
-        this.isDialogSaving = false;
       },
     });
   }
@@ -375,6 +435,17 @@ export class SettingsComponent implements OnInit, OnDestroy {
   private openDialog(dialog: Exclude<SettingsDialog, null>): void {
     this.dialogError = '';
     this.activeDialog = dialog;
+  }
+
+  private clearAvatarPreview(): void {
+    if (this.avatarPreviewUrl) URL.revokeObjectURL(this.avatarPreviewUrl);
+    this.avatarPreviewUrl = '';
+  }
+
+  private clearAvatarSelection(): void {
+    this.clearAvatarPreview();
+    this.avatarFile = null;
+    this.removeAvatarRequested = false;
   }
 
   private cloneSettings(settings: UserSettings): UserSettings {

@@ -52,6 +52,16 @@
         {{ errorMessage }}
       </div>
 
+      <button
+        class="resend-verification-button"
+        type="button"
+        *ngIf="showResendVerification"
+        [disabled]="isResending || !email.trim()"
+        (click)="resendVerification()"
+      >
+        {{ isResending ? 'E-Mail wird versendet…' : 'Bestätigungslink erneut senden' }}
+      </button>
+
 
       <form
         (ngSubmit)="onLogin()"

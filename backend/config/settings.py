@@ -369,6 +369,46 @@ AI_RECIPE_PREMIUM_MONTHLY_LIMIT = int(
 LEGAL_TERMS_VERSION = os.getenv("LEGAL_TERMS_VERSION", "2026-09-05")
 
 
+# ==========================================
+# E-MAIL / KONTOBESTÄTIGUNG
+# ==========================================
+
+FRONTEND_URL = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:4200" if DEBUG else "http://178.104.47.231:8080",
+)
+
+EMAIL_BACKEND = os.getenv(
+    "EMAIL_BACKEND",
+    (
+        "django.core.mail.backends.console.EmailBackend"
+        if DEBUG
+        else "django.core.mail.backends.smtp.EmailBackend"
+    ),
+)
+EMAIL_HOST = os.getenv("EMAIL_HOST", "")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", "587"))
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True").lower() in {
+    "1", "true", "yes", "on",
+}
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "False").lower() in {
+    "1", "true", "yes", "on",
+}
+EMAIL_TIMEOUT = int(os.getenv("EMAIL_TIMEOUT", "10"))
+DEFAULT_FROM_EMAIL = os.getenv(
+    "DEFAULT_FROM_EMAIL",
+    "bazkit <kontakt@ferchow-eugen.de>",
+)
+EMAIL_VERIFICATION_TIMEOUT_HOURS = int(
+    os.getenv("EMAIL_VERIFICATION_TIMEOUT_HOURS", "24")
+)
+EMAIL_VERIFICATION_RESEND_SECONDS = int(
+    os.getenv("EMAIL_VERIFICATION_RESEND_SECONDS", "60")
+)
+
+
 # USDA FoodData Central ist ein optionaler Nährwert-Fallback. Ohne Key arbeitet
 # die Rezeptsuche ausschließlich mit dem lokalen BLS und geprüften OFF-Daten.
 USDA_FDC_API_KEY = os.getenv(
@@ -378,7 +418,7 @@ USDA_FDC_API_KEY = os.getenv(
 
 
 # ==========================================
-# CLOUDFLARE R2 / REZEPTBILDER
+# CLOUDFLARE R2 / BILDER
 # ==========================================
 
 R2_ACCESS_KEY_ID = os.getenv("R2_ACCESS_KEY_ID", "")

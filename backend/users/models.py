@@ -4,6 +4,11 @@ from django.contrib.auth.models import AbstractUser
 
 class User (AbstractUser):
     email = models.EmailField(unique=True)
+    pending_email = models.EmailField(blank=True)
+    email_verified_at = models.DateTimeField(null=True, blank=True)
+    email_verification_token = models.UUIDField(null=True, blank=True, unique=True)
+    email_verification_sent_at = models.DateTimeField(null=True, blank=True)
+    avatar_key = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     terms_accepted_at = models.DateTimeField(null=True, blank=True)
     terms_version = models.CharField(max_length=20, blank=True)

@@ -384,11 +384,10 @@
           <div class="feed-author">
 
             <span class="author-avatar">
-              {{
-                post.author.name
-                  .charAt(0)
-                  .toUpperCase()
-              }}
+              <img *ngIf="post.author.avatar_url; else authorInitial" [src]="post.author.avatar_url" alt="" />
+              <ng-template #authorInitial>
+                {{ post.author.name.charAt(0).toUpperCase() }}
+              </ng-template>
             </span>
 
 
