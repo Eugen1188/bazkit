@@ -561,6 +561,17 @@ select:focus {
 }
 
 
+.product-note-field {
+  grid-column: 1 / -1;
+}
+
+
+.product-note-field label span {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+
 .add-product-button {
   grid-column:
     1 / -1;
@@ -782,6 +793,27 @@ select:focus {
     var(--color-text-muted);
 
   font-size: 12px;
+}
+
+
+.product-note-inline {
+  width: min(100%, 420px);
+  height: 34px;
+  margin-top: 4px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+
+.product-note-inline:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-ring);
 }
 
 

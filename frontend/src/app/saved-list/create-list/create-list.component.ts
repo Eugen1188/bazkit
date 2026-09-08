@@ -51,6 +51,8 @@ export class CreateListComponent {
   productUnit =
     'Stück';
 
+  productNote = '';
+
   products:
     Product[] = [];
 
@@ -127,7 +129,10 @@ export class CreateListComponent {
         this.productQuantity,
 
       unit:
-        this.productUnit
+        this.productUnit,
+
+      note:
+        this.productNote.trim()
     });
 
 
@@ -279,6 +284,9 @@ export class CreateListComponent {
 
     this.productUnit =
       this.userSettings.current.shopping_default_unit;
+
+    this.productNote =
+      '';
 
   }
 

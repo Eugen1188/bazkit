@@ -101,6 +101,14 @@ export class ShoppingListComponent
 
   activeFilter: ShoppingFilter = 'all';
 
+  editingNoteItemId: number | null = null;
+
+  noteDraft = '';
+
+  isSavingNote = false;
+
+  noteError = '';
+
 
   isAddOptionsOpen =
     false;
@@ -482,9 +490,125 @@ export class ShoppingListComponent
   }
 
 
+  startNoteEdit(
+    item: ShoppingListItem
+  ): void {
+
+    if (this.isSavingNote) {
+      return;
+    }
+
+    this.editingNoteItemId =
+      item.id;
+
+    this.noteDraft =
+      item.note ?? '';
+
+    this.noteError =
+      '';
+
+    window.setTimeout(() => {
+      document
+        .getElementById(`shopping-note-${item.id}`)
+        ?.focus();
+    });
+  }
+
+
+  cancelNoteEdit(): void {
+
+    if (this.isSavingNote) {
+      return;
+    }
+
+    this.editingNoteItemId =
+      null;
+
+    this.noteDraft =
+      '';
+
+    this.noteError =
+      '';
+  }
+
+
+  saveNote(
+    item: ShoppingListItem
+  ): void {
+
+    if (
+      this.editingNoteItemId !== item.id ||
+      this.isSavingNote
+    ) {
+      return;
+    }
+
+    const note =
+      this.noteDraft.trim();
+
+    this.isSavingNote =
+      true;
+
+    this.noteError =
+      '';
+
+    this.shoppingListService
+      .updateItem(
+        item.id,
+        { note }
+      )
+      .subscribe({
+
+        next: (
+          updatedItem
+        ) => {
+
+          this.replaceItems(
+            this.items.map(current =>
+              current.id === updatedItem.id
+                ? updatedItem
+                : current
+            )
+          );
+
+          this.isSavingNote =
+            false;
+
+          this.editingNoteItemId =
+            null;
+
+          this.noteDraft =
+            '';
+        },
+
+        error: (
+          error
+        ) => {
+
+          console.error(
+            'Notiz konnte nicht gespeichert werden:',
+            error
+          );
+
+          this.isSavingNote =
+            false;
+
+          this.noteError =
+            'Die Notiz konnte nicht gespeichert werden.';
+        }
+
+      });
+  }
+
+
   removeItem(
     item: ShoppingListItem
   ): void {
+
+    if (this.editingNoteItemId === item.id) {
+      this.cancelNoteEdit();
+    }
+
     this.shoppingListService
       .deleteItem(
         item.id

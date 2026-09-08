@@ -68,6 +68,8 @@ implements OnInit {
   productUnit =
     'Stück';
 
+  productNote = '';
+
 
   products:
     Product[] = [];
@@ -290,7 +292,8 @@ implements OnInit {
       unit:
         this.productUnit,
 
-      note: ''
+      note:
+        this.productNote.trim()
     });
 
 
@@ -477,6 +480,9 @@ implements OnInit {
 
     this.productUnit =
       this.userSettings.current.shopping_default_unit;
+
+    this.productNote =
+      '';
 
   }
 

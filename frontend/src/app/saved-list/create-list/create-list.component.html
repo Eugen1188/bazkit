@@ -249,6 +249,24 @@
         </div>
 
 
+        <div class="form-field product-note-field">
+
+          <label for="productNote">
+            Notiz <span>(optional)</span>
+          </label>
+
+          <input
+            id="productNote"
+            type="text"
+            maxlength="255"
+            [(ngModel)]="productNote"
+            (keyup.enter)="addProduct()"
+            placeholder="z. B. Bio, fettarm oder nur wenn im Angebot"
+          />
+
+        </div>
+
+
 
         <button
           class="add-product-button"
@@ -345,6 +363,15 @@
             {{ product.quantity }}
             {{ product.unit }}
           </span>
+
+          <input
+            class="product-note-inline"
+            type="text"
+            maxlength="255"
+            [(ngModel)]="product.note"
+            [attr.aria-label]="'Notiz für ' + product.name"
+            placeholder="Notiz hinzufügen..."
+          />
 
 
         </div>

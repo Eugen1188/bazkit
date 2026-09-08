@@ -474,30 +474,80 @@
         </div>
 
 
-        <div class="item-note">
+        <div class="item-note-cell">
 
-          <svg
-            viewBox="0 0 24 24"
+          <button
+            class="item-note"
+            type="button"
+            *ngIf="editingNoteItemId !== item.id"
+            [attr.aria-label]="(item.note ? 'Notiz bearbeiten: ' : 'Notiz hinzufügen: ') + item.name"
+            (click)="startNoteEdit(item)"
           >
-            <path
-              d="M5 4h14v13H9l-4 4V4Z"
-            ></path>
-          </svg>
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 4h14v13H9l-4 4V4Z"></path>
+            </svg>
+
+            <span *ngIf="item.note">
+              {{ item.note }}
+            </span>
+
+            <span class="empty-note" *ngIf="!item.note">
+              Notiz hinzufügen
+            </span>
+
+          </button>
 
 
-          <span
-            *ngIf="item.note"
+          <div
+            class="note-editor"
+            *ngIf="editingNoteItemId === item.id"
           >
-            {{ item.note }}
-          </span>
 
+            <label [for]="'shopping-note-' + item.id">
+              Notiz für {{ item.name }}
+            </label>
 
-          <span
-            class="empty-note"
-            *ngIf="!item.note"
-          >
-            Keine Notiz
-          </span>
+            <div class="note-editor-row">
+
+              <input
+                [id]="'shopping-note-' + item.id"
+                type="text"
+                maxlength="255"
+                [(ngModel)]="noteDraft"
+                [disabled]="isSavingNote"
+                placeholder="Notiz eingeben..."
+                (keyup.enter)="saveNote(item)"
+                (keydown.escape)="cancelNoteEdit()"
+              />
+
+              <button
+                class="save-note-button"
+                type="button"
+                aria-label="Notiz speichern"
+                [disabled]="isSavingNote"
+                (click)="saveNote(item)"
+              >
+                ✓
+              </button>
+
+              <button
+                class="cancel-note-button"
+                type="button"
+                aria-label="Bearbeitung abbrechen"
+                [disabled]="isSavingNote"
+                (click)="cancelNoteEdit()"
+              >
+                ×
+              </button>
+
+            </div>
+
+            <small class="note-error" *ngIf="noteError">
+              {{ noteError }}
+            </small>
+
+          </div>
 
         </div>
 

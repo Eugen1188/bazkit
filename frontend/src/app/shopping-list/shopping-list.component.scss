@@ -1052,8 +1052,23 @@
    NOTE
 ========================= */
 
-.item-note {
+.item-note-cell {
   min-width: 0;
+}
+
+
+.item-note {
+  width: 100%;
+
+  min-width: 0;
+
+  min-height: 40px;
+
+  padding: 7px 9px;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
 
   display: flex;
 
@@ -1061,10 +1076,28 @@
 
   gap: 10px;
 
+  background: transparent;
+
   color:
     var(--color-text-muted);
 
+  font-family: inherit;
+
   font-size: 14px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.item-note:hover {
+  border-color: var(--color-primary-ring);
+  background: var(--color-primary-soft-bg);
 }
 
 .item-note svg {
@@ -1095,6 +1128,88 @@
 
 .empty-note {
   opacity: 0.65;
+}
+
+
+.note-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+.note-editor label {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+.note-editor-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px 36px;
+  gap: 6px;
+}
+
+
+.note-editor input {
+  width: 100%;
+  min-width: 0;
+  height: 38px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 13px;
+}
+
+
+.note-editor input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-ring);
+}
+
+
+.save-note-button,
+.cancel-note-button {
+  width: 36px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+
+.save-note-button {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+
+.cancel-note-button {
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+}
+
+
+.save-note-button:disabled,
+.cancel-note-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+
+.note-error {
+  color: #cf514b;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 
@@ -1206,7 +1321,7 @@
     height: 48px;
   }
 
-  .item-note {
+  .item-note-cell {
     grid-column:
       3 / 4;
 
@@ -1293,7 +1408,7 @@
       14px;
   }
 
-  .item-note {
+  .item-note-cell {
     grid-column:
       3 / 5;
   }
