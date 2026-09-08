@@ -1,28 +1,13 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  OnDestroy
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import {
-  Subject,
-  Subscription,
-  debounceTime,
-  distinctUntilChanged,
-  switchMap
-} from 'rxjs';
 
 import {
   CreateSavedListPayload,
   SavedListService
 } from '../../services/saved-list.service';
 
-import {
-  ProductService,
-  ProductSuggestion
-} from '../../services/product.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 import { UserSettingsService } from '../../services/user-settings.service';
 
@@ -54,8 +39,7 @@ interface Product {
   styleUrl:
     './create-list.component.scss'
 })
-export class CreateListComponent
-implements OnDestroy {
+export class CreateListComponent {
 
   listName = '';
 
@@ -76,27 +60,6 @@ implements OnDestroy {
 
   errorMessage =
     '';
-
-
-  productSuggestions:
-    ProductSuggestion[] = [];
-
-  isSearchingProducts =
-    false;
-
-  isSuggestionsOpen =
-    false;
-
-  selectedProduct:
-    ProductSuggestion | null =
-      null;
-
-
-  private productSearchSubject =
-    new Subject<string>();
-
-  private productSearchSubscription:
-    Subscription;
 
 
   units = [
@@ -123,17 +86,6 @@ implements OnDestroy {
     'Tasse'
   ];
 
-  get availableUnits(): string[] {
-    const productUnits = this.selectedProduct?.available_units;
-
-    if (!productUnits?.length) {
-      return this.selectedProduct ? ['g', 'kg'] : this.units;
-    }
-
-    return productUnits.filter(unit => this.units.includes(unit));
-  }
-
-
   constructor(
     private router:
       Router,
@@ -141,190 +93,12 @@ implements OnDestroy {
     private savedListService:
       SavedListService,
 
-    private productService:
-      ProductService,
-
     private userSettings:
       UserSettingsService
   ) {
 
     this.productUnit =
       this.userSettings.current.shopping_default_unit;
-
-    this.productSearchSubscription =
-      this.productSearchSubject
-        .pipe(
-
-          debounceTime(
-            300
-          ),
-
-          distinctUntilChanged(),
-
-          switchMap(
-            query => {
-
-              this.isSearchingProducts =
-                true;
-
-              return this.productService
-                .searchProducts(
-                  query,
-                  false,
-                  false
-                );
-            }
-          )
-
-        )
-        .subscribe({
-
-          next: (
-            products
-          ) => {
-
-            this.productSuggestions =
-              products;
-
-            this.isSearchingProducts =
-              false;
-
-            this.isSuggestionsOpen =
-              this.productName
-                .trim()
-                .length >= 2;
-          },
-
-
-          error: (
-            error
-          ) => {
-
-            console.error(
-              'Lokale Produktsuche fehlgeschlagen:',
-              error
-            );
-
-            this.productSuggestions =
-              [];
-
-            this.isSearchingProducts =
-              false;
-
-            this.isSuggestionsOpen =
-              false;
-          }
-
-        });
-  }
-
-
-  ngOnDestroy(): void {
-
-    this.productSearchSubscription
-      .unsubscribe();
-  }
-
-
-  onProductNameChange(
-    value: string
-  ): void {
-
-    this.productName =
-      value;
-
-    this.selectedProduct =
-      null;
-
-    const query =
-      value.trim();
-
-    this.productSuggestions =
-      [];
-
-    if (
-      query.length < 2
-    ) {
-
-      this.isSuggestionsOpen =
-        false;
-
-      return;
-    }
-
-    this.isSuggestionsOpen =
-      true;
-
-    this.productSearchSubject
-      .next(
-        query
-      );
-  }
-
-
-  selectProductSuggestion(
-    product:
-      ProductSuggestion
-  ): void {
-
-    this.selectedProduct =
-      product;
-
-    this.productName =
-      product.name;
-
-    if (
-      product.default_unit &&
-      this.availableUnits.includes(
-        product.default_unit
-      )
-    ) {
-
-      this.productUnit =
-        product.default_unit;
-    } else {
-      this.productUnit =
-        this.availableUnits[0] ?? 'g';
-    }
-
-    this.productSuggestions =
-      [];
-
-    this.isSuggestionsOpen =
-      false;
-
-  }
-
-
-  handleProductEnter(): void {
-    this.addProduct();
-  }
-
-
-  openSuggestions(): void {
-
-    if (
-      this.productName
-        .trim()
-        .length >= 2
-    ) {
-
-      this.isSuggestionsOpen =
-        true;
-    }
-  }
-
-
-  closeSuggestions(): void {
-
-    window.setTimeout(
-      () => {
-
-        this.isSuggestionsOpen =
-          false;
-      },
-      200
-    );
   }
 
 
@@ -345,8 +119,7 @@ implements OnDestroy {
 
 
     this.products.push({
-      product:
-        this.selectedProduct?.id ?? null,
+      product: null,
 
       name,
 
@@ -507,17 +280,6 @@ implements OnDestroy {
     this.productUnit =
       this.userSettings.current.shopping_default_unit;
 
-    this.productSuggestions =
-      [];
-
-    this.isSuggestionsOpen =
-      false;
-
-    this.isSearchingProducts =
-      false;
-
-    this.selectedProduct =
-      null;
   }
 
 }

@@ -46,67 +46,19 @@
           Produktname
         </label>
 
-        <div class="suggestion-wrapper">
-          <input
-            id="productName"
-            type="text"
-            maxlength="100"
-            autocomplete="off"
-            [ngModel]="productName"
-            (ngModelChange)="onProductNameChange($event)"
-            placeholder="z. B. Milch, Tomaten, Brot..."
-            (focus)="openSuggestions()"
-            (blur)="closeSuggestions()"
-            (keyup.enter)="saveProduct()"
-          />
-
-          <div
-            class="suggestions"
-            *ngIf="isSuggestionsOpen"
-          >
-            <div
-              class="suggestion-loading"
-              *ngIf="isSearching"
-            >
-              Produkte werden gesucht...
-            </div>
-
-            <button
-              class="suggestion-item"
-              type="button"
-              *ngFor="let product of suggestions"
-              (mousedown)="selectProduct(product)"
-            >
-              <span class="suggestion-name">
-                {{ product.name }}
-              </span>
-
-              <span
-                class="suggestion-unit"
-              >
-                Passender Vorschlag
-                <ng-container *ngIf="product.default_unit">
-                  · {{ product.default_unit }}
-                </ng-container>
-              </span>
-            </button>
-
-            <div
-              class="suggestion-empty"
-              *ngIf="
-                !isSearching &&
-                suggestions.length === 0
-              "
-            >
-              Kein passender Vorschlag. Du kannst „{{ productName }}“
-              trotzdem hinzufügen.
-            </div>
-          </div>
-        </div>
+        <input
+          id="productName"
+          type="text"
+          maxlength="100"
+          autocomplete="off"
+          [(ngModel)]="productName"
+          placeholder="z. B. Milch, Tomaten, Brot..."
+          (keyup.enter)="saveProduct()"
+        />
 
         <small class="product-help">
-          Vorschlag auswählen oder einen eigenen Namen eingeben.
-          Mit Enter wird deine Eingabe direkt hinzugefügt.
+          Gib den Namen so ein, wie er auf deiner Einkaufsliste
+          erscheinen soll.
         </small>
       </div>
 
@@ -137,7 +89,7 @@
             [(ngModel)]="unit"
           >
             <option
-              *ngFor="let currentUnit of availableUnits"
+              *ngFor="let currentUnit of units"
               [value]="currentUnit"
             >
               {{ currentUnit }}

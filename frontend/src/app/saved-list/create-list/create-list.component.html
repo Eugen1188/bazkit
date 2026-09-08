@@ -187,113 +187,18 @@
           </label>
 
 
-          <div class="autocomplete">
-
-            <input
-              id="productName"
-              type="text"
-              autocomplete="off"
-              [ngModel]="productName"
-              (ngModelChange)="
-                onProductNameChange(
-                  $event
-                )
-              "
-              (focus)="openSuggestions()"
-              (blur)="closeSuggestions()"
-              (keyup.enter)="handleProductEnter()"
-              placeholder="Produkt eingeben..."
-            />
-
-
-            <!-- AUTOCOMPLETE -->
-
-            <div
-              class="suggestions-dropdown"
-              *ngIf="isSuggestionsOpen"
-            >
-
-              <div
-                class="suggestions-loading"
-                *ngIf="isSearchingProducts"
-              >
-                Passende Vorschläge werden gesucht...
-              </div>
-
-
-              <button
-                class="suggestion-item"
-                type="button"
-                *ngFor="
-                  let product
-                  of productSuggestions
-                "
-                (mousedown)="
-                  selectProductSuggestion(
-                    product
-                  )
-                "
-              >
-
-                <span
-                  class="suggestion-avatar"
-                >
-                  {{
-                    product.name
-                      .charAt(0)
-                      .toUpperCase()
-                  }}
-                </span>
-
-
-                <span
-                  class="suggestion-content"
-                >
-
-                  <strong>
-                    {{ product.name }}
-                  </strong>
-
-
-                  <small>
-                    Passender Vorschlag
-                    <ng-container *ngIf="product.default_unit">
-                      · Standard: {{ product.default_unit }}
-                    </ng-container>
-                  </small>
-
-                </span>
-
-              </button>
-
-
-              <div
-                class="no-suggestions"
-                *ngIf="
-                  !isSearchingProducts &&
-                  productSuggestions.length === 0
-                "
-              >
-
-                <strong>
-                  „{{ productName }}“
-                </strong>
-
-
-                <span>
-                  Kein passender Vorschlag. Drücke Enter, um deine
-                  Eingabe trotzdem hinzuzufügen.
-                </span>
-
-              </div>
-
-            </div>
-
-          </div>
+          <input
+            id="productName"
+            type="text"
+            maxlength="100"
+            autocomplete="off"
+            [(ngModel)]="productName"
+            (keyup.enter)="addProduct()"
+            placeholder="z. B. Milch, Tomaten, Brot..."
+          />
 
           <small class="product-input-help">
-            Vorschlag auswählen oder einen eigenen Namen eingeben.
-            Enter fügt deine Eingabe direkt hinzu.
+            Gib den Namen so ein, wie er in deiner Liste erscheinen soll.
           </small>
 
         </div>
@@ -333,7 +238,7 @@
           >
 
             <option
-              *ngFor="let unit of availableUnits"
+              *ngFor="let unit of units"
               [value]="unit"
             >
               {{ unit }}

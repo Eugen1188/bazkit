@@ -16,19 +16,6 @@ import {
 } from '@angular/forms';
 
 import {
-  Subject,
-  Subscription,
-  debounceTime,
-  distinctUntilChanged,
-  switchMap
-} from 'rxjs';
-
-import {
-  ProductService,
-  ProductSuggestion
-} from '../../services/product.service';
-
-import {
   ShoppingListItem,
   ShoppingListService
 } from '../../services/shopping-list.service';
@@ -84,20 +71,6 @@ implements OnInit, OnDestroy {
     '';
 
 
-  suggestions:
-    ProductSuggestion[] = [];
-
-  selectedProduct:
-    ProductSuggestion | null =
-      null;
-
-
-  isSearching =
-    false;
-
-  isSuggestionsOpen =
-    false;
-
   isSaving =
     false;
 
@@ -129,33 +102,11 @@ implements OnInit, OnDestroy {
     'Tasse'
   ];
 
-  get availableUnits(): string[] {
-    const productUnits = this.selectedProduct?.available_units;
-
-    if (!productUnits?.length) {
-      return this.selectedProduct ? ['g', 'kg'] : this.units;
-    }
-
-    return productUnits.filter(currentUnit => this.units.includes(currentUnit));
-  }
-
-
-  private searchSubject =
-    new Subject<string>();
-
-
-  private searchSubscription:
-    Subscription;
-
-
   private previousBodyOverflow =
     '';
 
 
   constructor(
-    private productService:
-      ProductService,
-
     private shoppingListService:
       ShoppingListService,
 
@@ -165,70 +116,6 @@ implements OnInit, OnDestroy {
 
     this.unit =
       this.userSettings.current.shopping_default_unit;
-
-    this.searchSubscription =
-      this.searchSubject
-        .pipe(
-          debounceTime(
-            250
-          ),
-
-          distinctUntilChanged(),
-
-          switchMap(
-            query => {
-
-              this.isSearching =
-                true;
-
-              return this.productService
-                .searchProducts(
-                  query,
-                  false,
-                  false
-                );
-            }
-          )
-        )
-        .subscribe({
-
-          next: (
-            products
-          ) => {
-
-            this.suggestions =
-              products;
-
-            this.isSearching =
-              false;
-
-            this.isSuggestionsOpen =
-              this.productName
-                .trim()
-                .length >= 2;
-          },
-
-
-          error: (
-            error
-          ) => {
-
-            console.error(
-              'Produktsuche fehlgeschlagen:',
-              error
-            );
-
-            this.suggestions =
-              [];
-
-            this.isSearching =
-              false;
-
-            this.isSuggestionsOpen =
-              false;
-          }
-
-        });
   }
 
 
@@ -243,115 +130,8 @@ implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-
-    this.searchSubscription
-      .unsubscribe();
-
-
     document.body.style.overflow =
       this.previousBodyOverflow;
-  }
-
-
-  onProductNameChange(
-    value: string
-  ): void {
-
-    this.productName =
-      value;
-
-    this.selectedProduct =
-      null;
-
-
-    const query =
-      value.trim();
-
-
-    if (
-      query.length < 2
-    ) {
-
-      this.suggestions =
-        [];
-
-      this.isSuggestionsOpen =
-        false;
-
-      return;
-    }
-
-
-    this.isSuggestionsOpen =
-      true;
-
-
-    this.searchSubject.next(
-      query
-    );
-  }
-
-
-  selectProduct(
-    product:
-      ProductSuggestion
-  ): void {
-
-    this.selectedProduct =
-      product;
-
-    this.productName =
-      product.name;
-
-
-    if (
-      product.default_unit &&
-      this.availableUnits.includes(
-        product.default_unit
-      )
-    ) {
-
-      this.unit =
-        product.default_unit;
-    } else {
-      this.unit =
-        this.availableUnits[0] ?? 'g';
-    }
-
-
-    this.suggestions =
-      [];
-
-    this.isSuggestionsOpen =
-      false;
-
-  }
-
-
-  openSuggestions(): void {
-
-    if (
-      this.productName
-        .trim()
-        .length >= 2
-    ) {
-
-      this.isSuggestionsOpen =
-        true;
-    }
-  }
-
-
-  closeSuggestions(): void {
-
-    window.setTimeout(
-      () => {
-
-        this.isSuggestionsOpen =
-          false;
-      },
-      180
-    );
   }
 
 
@@ -385,8 +165,7 @@ implements OnInit, OnDestroy {
 
     this.shoppingListService
       .addItem({
-        product:
-          this.selectedProduct?.id ?? null,
+        product: null,
 
         name,
 
