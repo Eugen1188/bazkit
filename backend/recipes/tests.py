@@ -69,6 +69,7 @@ class RecipeSerializerTests(TestCase):
                 "name": "Fantasiename",
                 "quantity": "200",
                 "unit": "g",
+                "note": "in kleine Würfel schneiden",
                 "estimated_price": "88.00",
                 "price_source": "manual",
             }],
@@ -77,6 +78,7 @@ class RecipeSerializerTests(TestCase):
         recipe = serializer.save()
         ingredient = recipe.ingredients.get()
         self.assertEqual(ingredient.name, "Tomate")
+        self.assertEqual(ingredient.note, "in kleine Würfel schneiden")
         self.assertEqual(ingredient.estimated_price, Decimal("0.60"))
         self.assertEqual(ingredient.price_source, "open_prices_category")
         self.assertEqual(recipe.estimated_price, Decimal("0.60"))

@@ -136,7 +136,7 @@ class IngredientsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredients
         fields = [
-            "id", "product", "product_detail", "name", "quantity", "unit", "estimated_price",
+            "id", "product", "product_detail", "name", "quantity", "unit", "note", "estimated_price",
             "price_source", "price_currency", "price_date", "price_store",
             "price_sample_count", "price_min", "price_max", "package_price",
             "package_quantity", "package_unit",

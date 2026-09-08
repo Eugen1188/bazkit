@@ -387,8 +387,9 @@
               "
             >
 
-              <span>
-                {{ ingredient.name }}
+              <span class="ingredient-copy">
+                <span>{{ ingredient.name }}</span>
+                <small *ngIf="ingredient.note?.trim()">{{ ingredient.note }}</small>
               </span>
 
               <strong>

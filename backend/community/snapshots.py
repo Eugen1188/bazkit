@@ -28,6 +28,7 @@ INGREDIENT_FIELDS = (
     "name",
     "quantity",
     "unit",
+    "note",
     "estimated_price",
     "price_source",
     "price_currency",

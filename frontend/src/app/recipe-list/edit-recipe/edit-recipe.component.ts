@@ -549,7 +549,8 @@ implements OnInit, OnDestroy {
                   {
                     name: '',
                     quantity: 1,
-                    unit: 'Stück'
+                    unit: 'Stück',
+                    note: ''
                   }
                 ];
 
@@ -828,7 +829,8 @@ implements OnInit, OnDestroy {
       product: null,
       name: '',
       quantity: 1,
-      unit: 'Stück'
+      unit: 'Stück',
+      note: ''
     });
     this.selectedProducts.push(null);
 
@@ -919,7 +921,8 @@ implements OnInit, OnDestroy {
         product: null,
         name: '',
         quantity: 1,
-        unit: 'Stück'
+        unit: 'Stück',
+        note: ''
       });
       this.selectedProducts.push(null);
     }
@@ -1270,7 +1273,10 @@ implements OnInit, OnDestroy {
               ingredient.quantity,
 
             unit:
-              ingredient.unit
+              ingredient.unit,
+
+            note:
+              ingredient.note?.trim() ?? ''
           })
         );
 

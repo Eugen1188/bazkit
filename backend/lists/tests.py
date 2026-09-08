@@ -80,6 +80,7 @@ class AddRecipePantryTests(TestCase):
             name="Kartoffel",
             quantity="500",
             unit="g",
+            note="vorwiegend festkochend",
         )
         Ingredients.objects.create(
             recipe=self.recipe,
@@ -106,6 +107,10 @@ class AddRecipePantryTests(TestCase):
         self.assertEqual(
             list(ShoppingListItem.objects.values_list("name", flat=True)),
             ["Kartoffel"],
+        )
+        self.assertEqual(
+            ShoppingListItem.objects.get(name="Kartoffel").note,
+            "vorwiegend festkochend",
         )
 
 

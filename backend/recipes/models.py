@@ -178,6 +178,11 @@ class Ingredients(models.Model):
         blank=True
     )
 
+    note = models.CharField(
+        max_length=255,
+        blank=True
+    )
+
     estimated_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     price_source = models.CharField(max_length=30, blank=True)
     price_currency = models.CharField(max_length=3, default="EUR")

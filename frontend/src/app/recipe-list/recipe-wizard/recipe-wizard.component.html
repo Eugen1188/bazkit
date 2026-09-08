@@ -288,6 +288,20 @@
                   </button>
                 </div>
 
+                <div class="ingredient-note-field">
+                  <label [for]="'ingredientNote' + i">
+                    Notiz zur Zutat
+                    <span>Optional</span>
+                  </label>
+                  <input
+                    [id]="'ingredientNote' + i"
+                    type="text"
+                    maxlength="255"
+                    [(ngModel)]="ingredient.note"
+                    placeholder="z. B. fein gehackt oder ohne Schale"
+                  />
+                </div>
+
                 <div class="ingredient-facts" *ngIf="selectedProducts[i] as product">
                   <div>
                     <strong>{{ ingredient.name }}</strong>
@@ -396,7 +410,10 @@
             <div class="review-section-heading"><div><span>{{ ingredientCount }} EINTRÄGE</span><h3>Zutaten</h3></div><button type="button" (click)="goToStep(2)">Bearbeiten</button></div>
             <div class="review-ingredient" *ngFor="let ingredient of filledIngredients">
               <span class="review-initial">{{ ingredient.name.charAt(0) | uppercase }}</span>
-              <strong>{{ ingredient.name }}</strong>
+              <div class="review-ingredient-copy">
+                <strong>{{ ingredient.name }}</strong>
+                <small *ngIf="ingredient.note?.trim()">{{ ingredient.note }}</small>
+              </div>
               <span>{{ ingredient.quantity | number:'1.0-2' }} {{ ingredient.unit }}</span>
             </div>
           </article>

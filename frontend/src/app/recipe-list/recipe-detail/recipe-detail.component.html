@@ -346,9 +346,17 @@
           </div>
 
 
-          <strong>
-            {{ ingredient.name }}
-          </strong>
+          <div class="ingredient-copy">
+
+            <strong>
+              {{ ingredient.name }}
+            </strong>
+
+            <small *ngIf="ingredient.note?.trim()">
+              {{ ingredient.note }}
+            </small>
+
+          </div>
 
 
           <span class="ingredient-amount">

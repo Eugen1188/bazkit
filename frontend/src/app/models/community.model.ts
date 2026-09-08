@@ -22,6 +22,8 @@ export interface CommunityIngredient {
     number | null;
 
   unit: string;
+
+  note?: string;
 }
 
 

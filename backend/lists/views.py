@@ -1224,7 +1224,7 @@ class AddRecipeToShoppingListAPIView(
                     unit=
                         ingredient.unit,
 
-                    note='',
+                    note=ingredient.note,
 
                     is_checked=False,
 

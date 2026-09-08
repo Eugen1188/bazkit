@@ -52,6 +52,7 @@ class CommunitySnapshotTests(APITestCase):
             name="Kartoffel",
             quantity=Decimal("500"),
             unit="g",
+            note="geschält",
         )
         self.saved_list = SavedList.objects.create(user=self.user, title="Wocheneinkauf")
         SavedListItem.objects.create(
@@ -73,6 +74,7 @@ class CommunitySnapshotTests(APITestCase):
         self.assertNotEqual(post.recipe_id, self.recipe.id)
         self.assertTrue(post.recipe.is_community_snapshot)
         self.assertEqual(post.recipe.ingredients.count(), 1)
+        self.assertEqual(post.recipe.ingredients.get().note, "geschält")
         self.assertEqual(post.recipe.calories, Decimal("420"))
         self.assertEqual(post.recipe.image_position_x, 22)
         self.assertEqual(post.recipe.image_position_y, 74)
@@ -80,6 +82,7 @@ class CommunitySnapshotTests(APITestCase):
         self.assertEqual(response.data["recipe"]["image_position_x"], 22)
         self.assertEqual(response.data["recipe"]["image_position_y"], 74)
         self.assertEqual(response.data["recipe"]["image_zoom"], 138)
+        self.assertEqual(response.data["recipe"]["ingredients"][0]["note"], "geschält")
 
         self.recipe.name = "Geändertes Original"
         self.recipe.save(update_fields=["name"])

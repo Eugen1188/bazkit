@@ -333,6 +333,7 @@ export class CreateRecipeComponent implements OnDestroy {
         name: item.name.trim(),
         quantity: item.quantity,
         unit: item.unit,
+        note: item.note?.trim() ?? '',
       })),
     };
     this.isSaving = true;
@@ -457,7 +458,7 @@ export class CreateRecipeComponent implements OnDestroy {
       ? Number(ingredient.quantity) * averageWeight
       : null;
   }
-  private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück' }; }
+  private emptyIngredient(): RecipeIngredient { return { product: null, name: '', quantity: 1, unit: 'Stück', note: '' }; }
   private closeAutocomplete(): void { this.ingredientSuggestions = []; this.activeIngredientIndex = null; this.isIngredientSuggestionsOpen = false; this.isIngredientSearching = false; this.isIngredientSearchUnavailable = false; }
   private validateWizardStep(step: number): boolean {
     this.errorMessage = '';

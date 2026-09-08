@@ -629,7 +629,18 @@
 }
 
 
-.ingredient-item strong {
+.ingredient-copy {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.ingredient-copy strong {
   min-width: 0;
 
   font-size: 14px;
@@ -725,6 +736,17 @@
   line-height: 1.6;
 
   white-space: pre-line;
+
+  overflow-wrap: anywhere;
+}
+
+
+.ingredient-copy small {
+  color: var(--color-text-muted);
+
+  font-size: 12px;
+
+  line-height: 1.4;
 
   overflow-wrap: anywhere;
 }

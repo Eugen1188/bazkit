@@ -11,6 +11,7 @@ export interface RecipeIngredient extends PriceSnapshot {
   name: string;
   quantity: number | null;
   unit: string;
+  note?: string;
 }
 
 export type RecipeNumberValue = number | string | null;

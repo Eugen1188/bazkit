@@ -564,6 +564,30 @@ textarea::placeholder { color: var(--color-placeholder, #a0a8a4); }
 .remove-button:hover,
 .step-actions .danger:hover { background: #ffe9e7; }
 
+.ingredient-note-field {
+  margin-top: 11px;
+}
+
+.ingredient-note-field label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  color: var(--color-text-primary, #10253b);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ingredient-note-field label span {
+  color: var(--color-text-muted, #7b8580);
+  font-size: 9px;
+  font-weight: 550;
+}
+
+.ingredient-note-field input {
+  width: 100%;
+}
+
 .ingredient-autocomplete {
   position: absolute;
   z-index: 60;
@@ -735,7 +759,9 @@ textarea::placeholder { color: var(--color-placeholder, #a0a8a4); }
 .review-ingredient { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 48px; border-top: 1px solid var(--color-divider, #e6eae8); }
 .review-ingredient:first-of-type { border-top: 0; }
 .review-initial { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px; background: var(--color-primary-soft-bg, #edf4ef); color: var(--color-primary, #5d7f69); font-size: 11px; font-weight: 800; }
-.review-ingredient strong { min-width: 0; overflow: hidden; font-size: 11px; white-space: nowrap; text-overflow: ellipsis; }
+.review-ingredient-copy { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.review-ingredient-copy strong { min-width: 0; overflow: hidden; font-size: 11px; white-space: nowrap; text-overflow: ellipsis; }
+.review-ingredient-copy small { overflow-wrap: anywhere; color: var(--color-text-muted, #718078); font-size: 9px; line-height: 1.35; }
 .review-ingredient > span:last-child { color: var(--color-text-muted, #66736c); font-size: 10px; }
 .review-step { display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--color-divider, #e6eae8); }
 .review-step:first-of-type { border-top: 0; }

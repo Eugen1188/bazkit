@@ -63,6 +63,7 @@ class CommunityIngredientSerializer(
             "name",
             "quantity",
             "unit",
+            "note",
         ]
 
 

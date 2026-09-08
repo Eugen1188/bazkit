@@ -340,6 +340,10 @@ export class GenerateRecipeComponent implements OnInit {
 
       ingredients:
         this.generatedRecipe.ingredients
+          .map(ingredient => ({
+            ...ingredient,
+            note: ingredient.note?.trim() ?? ''
+          }))
     };
 
 
