@@ -316,6 +316,7 @@ class WeeklyPlanShoppingListAPIView(APIView):
                         "product": ingredient.product,
                         "name": name,
                         "unit": unit,
+                        "notes": [],
                         "quantity": Decimal("0") if ingredient.quantity is not None else None,
                         "fallback_price": Decimal("0"),
                         "has_fallback_price": False,
@@ -325,6 +326,9 @@ class WeeklyPlanShoppingListAPIView(APIView):
                         },
                     }
                 item = grouped[key]
+                ingredient_note = str(ingredient.note or "").strip()
+                if ingredient_note and ingredient_note not in item["notes"]:
+                    item["notes"].append(ingredient_note)
                 if ingredient.quantity is not None:
                     if item["quantity"] is None:
                         item["quantity"] = Decimal("0")
@@ -340,6 +344,7 @@ class WeeklyPlanShoppingListAPIView(APIView):
 
         shopping_list, _ = ShoppingList.objects.get_or_create(user=request.user)
         new_items = []
+        weekly_plan_note = f"Wochenplan {start.strftime('%d.%m.')}–{end.strftime('%d.%m.%Y')}"
         for item in grouped.values():
             snapshot = item["snapshot"]
             estimated_price = None
@@ -355,6 +360,16 @@ class WeeklyPlanShoppingListAPIView(APIView):
             elif item["has_fallback_price"]:
                 estimated_price = item["fallback_price"]
 
+            ingredient_note = ", ".join(item["notes"])
+            if ingredient_note:
+                available_length = 255 - len(weekly_plan_note) - 2
+                ingredient_note = ingredient_note[:available_length].rstrip(" ,")
+            combined_note = (
+                f"{ingredient_note}, {weekly_plan_note}"
+                if ingredient_note
+                else weekly_plan_note
+            )
+
             new_items.append(ShoppingListItem(
                 shopping_list=shopping_list,
                 product=item["product"],
@@ -365,7 +380,7 @@ class WeeklyPlanShoppingListAPIView(APIView):
                     else None
                 ),
                 unit=item["unit"][:30],
-                note=f"Wochenplan {start.strftime('%d.%m.')}–{end.strftime('%d.%m.%Y')}",
+                note=combined_note,
                 is_checked=False,
                 estimated_price=(
                     estimated_price.quantize(Decimal("0.01"))

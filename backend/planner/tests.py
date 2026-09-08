@@ -52,6 +52,7 @@ class WeeklyPlannerAPITests(APITestCase):
             name="Kartoffel",
             quantity=Decimal("400"),
             unit="g",
+            note="vorwiegend festkochend",
             estimated_price=Decimal("0.80"),
             package_price=Decimal("2.00"),
             package_quantity=Decimal("1000"),
@@ -157,3 +158,7 @@ class WeeklyPlannerAPITests(APITestCase):
         item = ShoppingListItem.objects.get()
         self.assertEqual(item.quantity, Decimal("400.00"))
         self.assertEqual(item.estimated_price, Decimal("2.00"))
+        self.assertEqual(
+            item.note,
+            "vorwiegend festkochend, Wochenplan 24.08.–30.08.2026",
+        )

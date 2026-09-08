@@ -101,6 +101,12 @@ export class ShoppingListService {
   }
 
 
+  syncFromServer(list: ShoppingList): void {
+    const session = this.ensureSession();
+    this.remember(list, session);
+  }
+
+
   getShoppingList(forceRefresh = false): Observable<ShoppingList> {
     const session = this.ensureSession();
 

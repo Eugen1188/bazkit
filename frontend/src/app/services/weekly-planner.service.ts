@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, shareReplay, tap } from 'rxjs';
 
 import { RecipeNumberValue } from './recipe.service';
-import { ShoppingList } from './shopping-list.service';
+import { ShoppingList, ShoppingListService } from './shopping-list.service';
 
 
 export type PlannerMealType = 'breakfast' | 'lunch' | 'dinner';
@@ -79,7 +79,10 @@ export class WeeklyPlannerService {
     { expiresAt: number; request: Observable<WeeklyPlanEntry[]> }
   >();
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private readonly shoppingListService: ShoppingListService
+  ) {}
 
   private getApiUrl(): string {
     const hostname = window.location.hostname;
@@ -153,6 +156,8 @@ export class WeeklyPlannerService {
       ...(includedPantryProductIds === undefined
         ? {}
         : { included_pantry_product_ids: includedPantryProductIds })
-    });
+    }).pipe(
+      tap(response => this.shoppingListService.syncFromServer(response.shopping_list))
+    );
   }
 }
