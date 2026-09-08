@@ -183,7 +183,9 @@ implements OnInit, OnDestroy {
 
               return this.productService
                 .searchProducts(
-                  query
+                  query,
+                  false,
+                  false
                 );
             }
           )

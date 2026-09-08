@@ -208,17 +208,9 @@
 
                   <div
                     class="suggestions-loading"
-                    *ngIf="
-                      isSearchingProducts ||
-                      isSearchingExternal
-                    "
+                    *ngIf="isSearchingProducts"
                   >
-
-                    {{
-                      isSearchingExternal
-                        ? 'Externe Produktdatenbank wird durchsucht...'
-                        : 'Produkte werden gesucht...'
-                    }}
+                    Passende Vorschläge werden gesucht...
 
                   </div>
 
@@ -258,15 +250,7 @@
 
 
                       <small>
-                        {{
-                          product.origin === 'bls'
-                            ? 'BLS'
-                            : product.origin === 'open_food_facts'
-                              ? 'Open Food Facts'
-                              : product.origin === 'usda'
-                                ? 'USDA FoodData Central'
-                                : 'Bazkit'
-                        }}
+                        Passender Vorschlag
                         <ng-container *ngIf="product.default_unit">
                           · Standard: {{ product.default_unit }}
                         </ng-container>
@@ -281,7 +265,6 @@
                     class="no-suggestions"
                     *ngIf="
                       !isSearchingProducts &&
-                      !isSearchingExternal &&
                       productSuggestions.length === 0
                     "
                   >
@@ -291,60 +274,21 @@
                     </strong>
 
 
-                    <span
-                      *ngIf="
-                        !externalSearchDone &&
-                        productName.trim().length >= 4
-                      "
-                    >
-                      Kein lokaler Treffer gefunden.
+                    <span>
+                      Kein passender Vorschlag. Drücke Enter, um deine
+                      Eingabe trotzdem hinzuzufügen.
                     </span>
-
-
-                    <span
-                      *ngIf="
-                        externalSearchDone &&
-                        !externalSearchError
-                      "
-                    >
-                      Auch extern wurde kein passendes
-                      Produkt gefunden.
-                    </span>
-
-
-                    <span
-                      class="external-error"
-                      *ngIf="externalSearchError"
-                    >
-                      {{ externalSearchError }}
-                    </span>
-
-
-                    <button
-                      class="external-search-button"
-                      type="button"
-                      *ngIf="
-                        !externalSearchDone &&
-                        productName.trim().length >= 4
-                      "
-                      (mousedown)="
-                        searchExternal()
-                      "
-                    >
-                      Extern suchen
-                    </button>
-
-
-                    <small>
-                      Eigene Produktnamen sind erlaubt und werden
-                      ausschließlich in dieser Liste gespeichert.
-                    </small>
 
                   </div>
 
                 </div>
 
               </div>
+
+              <small class="product-input-help">
+                Vorschlag auswählen oder einen eigenen Namen eingeben.
+                Enter fügt deine Eingabe direkt hinzu.
+              </small>
 
             </div>
 

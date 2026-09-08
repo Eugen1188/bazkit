@@ -82,8 +82,12 @@ export class ProductService {
     return 'http://178.104.47.231:8000/products/';
   }
 
-  searchProducts(query: string, recipeOnly = false): Observable<ProductSuggestion[]> {
-    return this.searchProductResults(query, recipeOnly).pipe(
+  searchProducts(
+    query: string,
+    recipeOnly = false,
+    includeExternal = true
+  ): Observable<ProductSuggestion[]> {
+    return this.searchProductResults(query, recipeOnly, includeExternal).pipe(
       map(result => result.products),
       distinctUntilChanged((left, right) => (
         left.length === right.length
@@ -96,10 +100,14 @@ export class ProductService {
     );
   }
 
-  searchProductResults(query: string, recipeOnly = false): Observable<ProductSearchResult> {
+  searchProductResults(
+    query: string,
+    recipeOnly = false,
+    includeExternal = true
+  ): Observable<ProductSearchResult> {
     const q = query.trim();
     if (q.length < 2) return of({ products: [], unavailable: false });
-    const cachedProducts = this.cachedSuggestions(q, recipeOnly);
+    const cachedProducts = this.cachedSuggestions(q, recipeOnly, includeExternal);
     if (cachedProducts.length > 0) {
       return of({ products: cachedProducts, unavailable: false });
     }
@@ -118,8 +126,11 @@ export class ProductService {
           return of({ products: [], unavailable: true });
         }
         if (localProducts.length > 0) {
-          this.rememberSuggestions(q, recipeOnly, localProducts);
+          this.rememberSuggestions(q, recipeOnly, includeExternal, localProducts);
           return of({ products: localProducts, unavailable: false });
+        }
+        if (!includeExternal) {
+          return of({ products: [], unavailable: false });
         }
         const externalMinimumLength = recipeOnly ? 6 : 4;
         if (q.length < externalMinimumLength) {
@@ -135,7 +146,9 @@ export class ProductService {
           )),
           map(external => {
             const products = this.mergeProductSuggestions([], external, recipeOnly);
-            if (products.length > 0) this.rememberSuggestions(q, recipeOnly, products);
+            if (products.length > 0) {
+              this.rememberSuggestions(q, recipeOnly, includeExternal, products);
+            }
             return { products, unavailable: false };
           }),
         );
@@ -143,9 +156,13 @@ export class ProductService {
     );
   }
 
-  private cachedSuggestions(query: string, recipeOnly: boolean): ProductSuggestion[] {
+  private cachedSuggestions(
+    query: string,
+    recipeOnly: boolean,
+    includeExternal: boolean
+  ): ProductSuggestion[] {
     const normalizedQuery = this.normalizeSearchText(query);
-    const modePrefix = `${recipeOnly ? 'recipe' : 'all'}:`;
+    const modePrefix = `${recipeOnly ? 'recipe' : 'all'}:${includeExternal ? 'external' : 'local'}:`;
     const exact = this.searchCache.get(`${modePrefix}${normalizedQuery}`);
     if (exact?.length) return exact;
 
@@ -170,9 +187,10 @@ export class ProductService {
   private rememberSuggestions(
     query: string,
     recipeOnly: boolean,
+    includeExternal: boolean,
     products: ProductSuggestion[],
   ): void {
-    const key = `${recipeOnly ? 'recipe' : 'all'}:${this.normalizeSearchText(query)}`;
+    const key = `${recipeOnly ? 'recipe' : 'all'}:${includeExternal ? 'external' : 'local'}:${this.normalizeSearchText(query)}`;
     this.searchCache.set(key, products);
     if (this.searchCache.size > 100) {
       const oldestKey = this.searchCache.keys().next().value;

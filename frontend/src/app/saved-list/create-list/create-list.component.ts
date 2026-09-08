@@ -84,17 +84,8 @@ implements OnDestroy {
   isSearchingProducts =
     false;
 
-  isSearchingExternal =
-    false;
-
   isSuggestionsOpen =
     false;
-
-  externalSearchDone =
-    false;
-
-  externalSearchError =
-    '';
 
   selectedProduct:
     ProductSuggestion | null =
@@ -176,15 +167,11 @@ implements OnDestroy {
               this.isSearchingProducts =
                 true;
 
-              this.externalSearchDone =
-                false;
-
-              this.externalSearchError =
-                '';
-
               return this.productService
                 .searchProducts(
-                  query
+                  query,
+                  false,
+                  false
                 );
             }
           )
@@ -224,8 +211,8 @@ implements OnDestroy {
             this.isSearchingProducts =
               false;
 
-            this.externalSearchError =
-              'Die Produktsuche ist momentan nicht verfügbar.';
+            this.isSuggestionsOpen =
+              false;
           }
 
         });
@@ -254,12 +241,6 @@ implements OnDestroy {
 
     this.productSuggestions =
       [];
-
-    this.externalSearchDone =
-      false;
-
-    this.externalSearchError =
-      '';
 
     if (
       query.length < 2
@@ -312,103 +293,10 @@ implements OnDestroy {
     this.isSuggestionsOpen =
       false;
 
-    this.externalSearchDone =
-      false;
-
-    this.externalSearchError =
-      '';
-
-  }
-
-
-  searchExternal(): void {
-
-    const query =
-      this.productName
-        .trim();
-
-    if (
-      query.length < 4 ||
-      this.isSearchingExternal
-    ) {
-      return;
-    }
-
-    this.isSearchingExternal =
-      true;
-
-    this.externalSearchDone =
-      false;
-
-    this.externalSearchError =
-      '';
-
-    this.productService
-      .searchExternalProducts(
-        query
-      )
-      .subscribe({
-
-        next: (
-          products
-        ) => {
-
-          this.productSuggestions =
-            products;
-
-          this.isSearchingExternal =
-            false;
-
-          this.externalSearchDone =
-            true;
-
-          this.isSuggestionsOpen =
-            true;
-        },
-
-
-        error: (
-          error
-        ) => {
-
-          console.error(
-            'Externe Produktsuche fehlgeschlagen:',
-            error
-          );
-
-          this.productSuggestions =
-            [];
-
-          this.isSearchingExternal =
-            false;
-
-          this.externalSearchDone =
-            true;
-
-          this.externalSearchError =
-            'Die externe Suche ist momentan nicht verfügbar.';
-
-          this.isSuggestionsOpen =
-            true;
-        }
-
-      });
   }
 
 
   handleProductEnter(): void {
-
-    if (
-      this.productSuggestions.length > 0
-    ) {
-
-      this.selectProductSuggestion(
-        this.productSuggestions[0]
-      );
-
-      return;
-    }
-
     this.addProduct();
   }
 
@@ -627,15 +515,6 @@ implements OnDestroy {
 
     this.isSearchingProducts =
       false;
-
-    this.isSearchingExternal =
-      false;
-
-    this.externalSearchDone =
-      false;
-
-    this.externalSearchError =
-      '';
 
     this.selectedProduct =
       null;

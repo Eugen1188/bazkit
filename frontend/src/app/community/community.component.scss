@@ -1467,7 +1467,7 @@ CREATE TYPES
     var(--color-primary-soft);
 
   background:
-    #fbfdfc;
+    var(--color-surface-muted);
 }
 
 
@@ -2524,6 +2524,23 @@ SMALL MOBILE
 
 .create-type-grid > button:hover .create-type-icon {
   box-shadow: 0 6px 14px var(--color-primary-ring);
+}
+
+:host-context([data-theme='dark']) .create-type-icon {
+  border-color:
+    color-mix(in srgb, var(--color-primary) 42%, var(--color-border));
+
+  background:
+    color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
+
+  box-shadow: none;
+}
+
+:host-context([data-theme='dark']) .create-type-grid > button:hover .create-type-icon {
+  background:
+    color-mix(in srgb, var(--color-primary) 22%, var(--color-surface));
+
+  box-shadow: none;
 }
 
 .create-type-grid > button:focus-visible,

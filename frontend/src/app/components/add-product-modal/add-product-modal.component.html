@@ -84,15 +84,7 @@
               <span
                 class="suggestion-unit"
               >
-                {{
-                  product.origin === 'bls'
-                    ? 'BLS'
-                    : product.origin === 'open_food_facts'
-                      ? 'Open Food Facts'
-                      : product.origin === 'usda'
-                        ? 'USDA FoodData Central'
-                        : 'Bazkit'
-                }}
+                Passender Vorschlag
                 <ng-container *ngIf="product.default_unit">
                   · {{ product.default_unit }}
                 </ng-container>
@@ -106,14 +98,15 @@
                 suggestions.length === 0
               "
             >
-              Keine passenden Produkte gefunden.
+              Kein passender Vorschlag. Du kannst „{{ productName }}“
+              trotzdem hinzufügen.
             </div>
           </div>
         </div>
 
         <small class="product-help">
-          Kein passender Treffer? Eigene Produktnamen sind erlaubt und
-          werden nur in dieser Einkaufsliste gespeichert.
+          Vorschlag auswählen oder einen eigenen Namen eingeben.
+          Mit Enter wird deine Eingabe direkt hinzugefügt.
         </small>
       </div>
 
