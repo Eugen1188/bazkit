@@ -163,7 +163,58 @@ class CommunitySnapshotTests(APITestCase):
         self.assertLessEqual(len(queries), 4)
         listed_post = next(item for item in response.data if item["id"] == post.id)
         self.assertEqual(listed_post["comment_count"], 1)
-        self.assertEqual(listed_post["like_count"], 1)
+        self.assertEqual(listed_post["like_count"], 0)
         self.assertEqual(listed_post["rating_count"], 1)
         self.assertEqual(listed_post["rating_average"], 4.0)
         self.assertNotIn("ingredients", listed_post["recipe"])
+
+    def test_recipe_rating_is_explicit_and_can_include_a_review(self):
+        created = self.client.post("/community/posts/", {
+            "post_type": "recipe",
+            "recipe_id": self.recipe.id,
+        }, format="json")
+        post_id = created.data["id"]
+
+        self.client.force_authenticate(self.other_user)
+        rated = self.client.post(f"/community/posts/{post_id}/rating/", {
+            "value": 5,
+            "comment": "Einfach erklärt und sehr lecker.",
+        }, format="json")
+
+        self.assertEqual(rated.status_code, 200)
+        self.assertEqual(rated.data["rating"], 5)
+        self.assertEqual(rated.data["rating_comment"], "Einfach erklärt und sehr lecker.")
+        self.assertEqual(rated.data["review"]["author"]["name"], "reader")
+
+        detail = self.client.get(f"/community/posts/{post_id}/")
+        self.assertEqual(detail.status_code, 200)
+        self.assertEqual(detail.data["my_rating"], 5)
+        self.assertEqual(
+            detail.data["my_rating_comment"],
+            "Einfach erklärt und sehr lecker.",
+        )
+        self.assertEqual(len(detail.data["rating_reviews"]), 1)
+        self.assertEqual(detail.data["rating_reviews"][0]["value"], 5)
+
+    def test_recipes_cannot_be_liked_and_lists_cannot_be_rated(self):
+        recipe_created = self.client.post("/community/posts/", {
+            "post_type": "recipe",
+            "recipe_id": self.recipe.id,
+        }, format="json")
+        recipe_like = self.client.post(
+            f'/community/posts/{recipe_created.data["id"]}/like/',
+            {},
+            format="json",
+        )
+        self.assertEqual(recipe_like.status_code, 400)
+
+        list_created = self.client.post("/community/posts/", {
+            "post_type": "list",
+            "saved_list_id": self.saved_list.id,
+        }, format="json")
+        list_rating = self.client.post(
+            f'/community/posts/{list_created.data["id"]}/rating/',
+            {"value": 4, "comment": "Unzulässig"},
+            format="json",
+        )
+        self.assertEqual(list_rating.status_code, 400)

@@ -857,6 +857,37 @@ class RecipeCatalogTests(TestCase):
             self.assertEqual(definition.canonical_name, canonical_name)
             self.assertIn(bls_code, definition.preferred_bls_codes)
 
+    def test_common_soy_sauce_variants_use_the_verified_local_product(self):
+        soy_sauce = Product.objects.create(
+            name="Sojasoße",
+            canonical_name="Sojasauce",
+            source="bls",
+            external_id="R143000",
+            default_unit="ml",
+            is_recipe_ingredient=True,
+            **COMPLETE_NUTRITION,
+        )
+        replace_product_aliases(soy_sauce)
+
+        for query, expected_name in (
+            ("Helle Sojasoße", "Helle Sojasoße"),
+            ("Sojasauce hell", "Sojasauce hell"),
+            ("Light soy sauce", "Light soy sauce"),
+            ("Tamari", "Tamari"),
+        ):
+            request = APIRequestFactory().get(
+                "/products/search/",
+                {"q": query, "recipe_only": "1"},
+            )
+            force_authenticate(request, user=self.user)
+            response = ProductSearchAPIView.as_view()(request)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.data[0]["name"], expected_name)
+            self.assertEqual(response.data[0]["canonical_name"], "Sojasauce")
+            self.assertEqual(response.data[0]["external_id"], "R143000")
+            self.assertTrue(response.data[0]["nutrition_complete"])
+
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(
             "Lachs roh",

@@ -77,12 +77,20 @@ implements OnInit {
     false;
 
 
-  hoveredRating:
+  selectedRating:
     number | null =
       null;
 
 
+  ratingComment =
+    '';
+
+
   ratingError =
+    '';
+
+
+  ratingSuccess =
     '';
 
   isEditing = false;
@@ -181,6 +189,12 @@ implements OnInit {
             this.post =
               post;
 
+            this.selectedRating =
+              post.my_rating;
+
+            this.ratingComment =
+              post.my_rating_comment || '';
+
             this.isLoading =
               false;
           },
@@ -251,6 +265,7 @@ implements OnInit {
 
     if (
       !this.post
+      || this.post.post_type === 'recipe'
     ) {
 
       return;
@@ -295,81 +310,89 @@ implements OnInit {
   }
 
 
-  rate(
-    value:
-      number
-  ): void {
+  selectRating(value: number): void {
+    this.selectedRating = value;
+    this.ratingError = '';
+    this.ratingSuccess = '';
+  }
 
+
+  get ratingHasChanges(): boolean {
+    if (!this.post || this.selectedRating === null) {
+      return false;
+    }
+    return (
+      this.selectedRating !== this.post.my_rating
+      || this.ratingComment.trim() !== (this.post.my_rating_comment || '')
+    );
+  }
+
+
+  get selectedRatingLabel(): string {
+    const labels = [
+      '',
+      'Nicht überzeugt',
+      'Ausbaufähig',
+      'Gut',
+      'Sehr gut',
+      'Ausgezeichnet',
+    ];
+    return this.selectedRating === null
+      ? 'Noch keine Auswahl'
+      : labels[this.selectedRating];
+  }
+
+
+  submitRating(): void {
     if (
       !this.post
-      ||
-      this.post.post_type ===
-        'thread'
-      ||
-      this.isRating
+      || this.post.post_type !== 'recipe'
+      || this.selectedRating === null
+      || this.isRating
     ) {
-
       return;
     }
 
-
-    this.isRating =
-      true;
-
-    this.hoveredRating =
-      null;
-
-    this.ratingError =
-      '';
-
+    this.isRating = true;
+    this.ratingError = '';
+    this.ratingSuccess = '';
 
     this.communityService
       .ratePost(
         this.post.id,
-        value
+        this.selectedRating,
+        this.ratingComment.trim()
       )
       .subscribe({
-
-        next:
-          response => {
-
-            this.isRating =
-              false;
-
-            if (
-              !this.post
-            ) {
-
-              return;
-            }
-
-
-            this.post.my_rating =
-              response.rating;
-
-            this.post.rating_average =
-              response.rating_average;
-
-            this.post.rating_count =
-              response.rating_count;
-          },
-
-
-        error:
-          error => {
-
-            console.error(
-              'Bewertung konnte nicht gespeichert werden:',
-              error
-            );
-
-            this.isRating =
-              false;
-
-            this.ratingError =
-              'Deine Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.';
+        next: response => {
+          this.isRating = false;
+          if (!this.post) {
+            return;
           }
 
+          this.post.my_rating = response.rating;
+          this.post.rating_average = response.rating_average;
+          this.post.rating_count = response.rating_count;
+          this.post.my_rating_comment = response.rating_comment;
+
+          const reviews = this.post.rating_reviews || [];
+          this.post.rating_reviews = response.review.comment
+            ? [
+                response.review,
+                ...reviews.filter(review => review.id !== response.review.id),
+              ]
+            : reviews.filter(review => review.id !== response.review.id);
+
+          this.selectedRating = response.rating;
+          this.ratingComment = response.rating_comment;
+          this.ratingSuccess = 'Deine Bewertung wurde gespeichert.';
+        },
+        error: error => {
+          console.error('Bewertung konnte nicht gespeichert werden:', error);
+          this.isRating = false;
+          this.ratingError =
+            'Deine Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.';
+        }
       });
   }
 

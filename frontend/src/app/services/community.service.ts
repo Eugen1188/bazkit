@@ -174,10 +174,14 @@ export class CommunityService {
   }
 
 
-  ratePost(postId: number, value: number): Observable<CommunityRatingResponse> {
+  ratePost(
+    postId: number,
+    value: number,
+    comment: string
+  ): Observable<CommunityRatingResponse> {
     return this.http.post<CommunityRatingResponse>(
       `${this.apiUrl}posts/${postId}/rating/`,
-      { value }
+      { value, comment }
     ).pipe(tap(() => this.invalidatePostCache()));
   }
 

@@ -222,6 +222,22 @@ class CommunityCommentSerializer(
         ]
 
 
+class CommunityRatingReviewSerializer(serializers.ModelSerializer):
+    author = CommunityAuthorSerializer(read_only=True, source="user")
+
+    class Meta:
+        model = CommunityRating
+        fields = [
+            "id",
+            "author",
+            "value",
+            "comment",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = fields
+
+
 class CommunityPostSerializer(
     serializers.ModelSerializer
 ):
@@ -377,6 +393,9 @@ class CommunityPostSerializer(
         obj
     ):
 
+        if obj.post_type == CommunityPost.POST_TYPE_RECIPE:
+            return 0
+
         if hasattr(obj, "annotated_like_count"):
             return obj.annotated_like_count
 
@@ -386,6 +405,9 @@ class CommunityPostSerializer(
         self,
         obj
     ):
+
+        if obj.post_type == CommunityPost.POST_TYPE_RECIPE:
+            return False
 
         if hasattr(obj, "annotated_liked_by_me"):
             return obj.annotated_liked_by_me
@@ -409,6 +431,9 @@ class CommunityPostSerializer(
         self,
         obj
     ):
+
+        if obj.post_type != CommunityPost.POST_TYPE_RECIPE:
+            return None
 
         if hasattr(obj, "annotated_rating_average"):
             average = obj.annotated_rating_average
@@ -439,6 +464,9 @@ class CommunityPostSerializer(
         obj
     ):
 
+        if obj.post_type != CommunityPost.POST_TYPE_RECIPE:
+            return 0
+
         if hasattr(obj, "annotated_rating_count"):
             return obj.annotated_rating_count
 
@@ -448,6 +476,9 @@ class CommunityPostSerializer(
         self,
         obj
     ):
+
+        if obj.post_type != CommunityPost.POST_TYPE_RECIPE:
+            return None
 
         if hasattr(obj, "annotated_my_rating"):
             return obj.annotated_my_rating
@@ -488,6 +519,42 @@ class CommunityPostSerializer(
 class CommunityPostListSerializer(CommunityPostSerializer):
     recipe = CommunityRecipeListSerializer(read_only=True)
     saved_list = CommunitySavedListListSerializer(read_only=True)
+
+
+class CommunityPostDetailSerializer(CommunityPostSerializer):
+    rating_reviews = serializers.SerializerMethodField()
+    my_rating_comment = serializers.SerializerMethodField()
+
+    class Meta(CommunityPostSerializer.Meta):
+        fields = [
+            *CommunityPostSerializer.Meta.fields,
+            "rating_reviews",
+            "my_rating_comment",
+        ]
+
+    def _ratings(self, obj):
+        prefetched = getattr(obj, "prefetched_ratings", None)
+        if prefetched is not None:
+            return prefetched
+        return list(obj.ratings.select_related("user").order_by("-updated_at"))
+
+    def get_rating_reviews(self, obj):
+        if obj.post_type != CommunityPost.POST_TYPE_RECIPE:
+            return []
+        ratings = [rating for rating in self._ratings(obj) if rating.comment.strip()]
+        return CommunityRatingReviewSerializer(ratings, many=True).data
+
+    def get_my_rating_comment(self, obj):
+        if obj.post_type != CommunityPost.POST_TYPE_RECIPE:
+            return ""
+        request = self.context.get("request")
+        if not request or not request.user.is_authenticated:
+            return ""
+        rating = next(
+            (rating for rating in self._ratings(obj) if rating.user_id == request.user.id),
+            None,
+        )
+        return rating.comment if rating else ""
 
 
 class CommunityCreatePostSerializer(
@@ -805,4 +872,12 @@ class CommunityRatingSerializer(
     value = serializers.IntegerField(
         min_value=1,
         max_value=5
+    )
+
+    comment = serializers.CharField(
+        allow_blank=True,
+        default="",
+        max_length=1000,
+        required=False,
+        trim_whitespace=True,
     )

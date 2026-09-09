@@ -83,7 +83,7 @@ CORE_INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Weizenmehl Type 405", ("weizenmehl", "mehl", "weißmehl", "weissmehl", "mehl type 405", "mehl 405", "weizen mehl 405"), "wheat flour white all-purpose unenriched", ("C214100",)),
     IngredientDefinition("Dinkelmehl Type 630", ("dinkelmehl", "dinkel mehl", "dinkelmehl 630", "dinkel mehl 630"), "spelt flour", ("C234000",)),
     IngredientDefinition("Roggenmehl Type 1150", ("roggenmehl", "roggen mehl", "roggenmehl 1150", "roggen mehl 1150"), "rye flour", ("C223300",)),
-    IngredientDefinition("Zucker", ("zucker", "haushaltszucker", "kristallzucker", "raffinadezucker"), "sugars granulated", ("S111000",)),
+    IngredientDefinition("Zucker", ("zucker", "haushaltszucker", "kristallzucker", "raffinadezucker", "weißer zucker", "weisser zucker", "puderzucker", "brauner zucker", "rohrzucker"), "sugars granulated", ("S111000",)),
     IngredientDefinition("Salz", ("salz", "speisesalz", "kochsalz", "tafelsalz", "jodsalz"), "salt table", ("R111000",)),
     IngredientDefinition("Senf", ("senf", "tafelsenf", "mittelscharfer senf", "senf mittelscharf", "gelber senf", "yellow mustard"), "mustard prepared yellow", (), ("172234",)),
     IngredientDefinition("Olivenöl", ("olivenöl", "olivenoel", "natives olivenöl", "extra natives olivenöl"), "oil olive salad or cooking", ("Q120000",)),

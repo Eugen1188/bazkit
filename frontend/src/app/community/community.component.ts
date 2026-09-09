@@ -356,6 +356,10 @@ implements OnInit, OnDestroy {
 
     event.stopPropagation();
 
+    if (post.post_type === 'recipe') {
+      return;
+    }
+
 
     this.communityService
       .toggleLike(

@@ -1,6 +1,6 @@
 from django.db import transaction
 
-from django.db.models import Avg, Count, Exists, IntegerField, OuterRef, Q, Subquery, Value
+from django.db.models import Avg, Count, Exists, IntegerField, OuterRef, Prefetch, Q, Subquery, Value
 from django.db.models.functions import Coalesce
 
 from rest_framework import status
@@ -33,8 +33,10 @@ from .models import (
 from .serializers import (
     CommunityCommentSerializer,
     CommunityCreatePostSerializer,
+    CommunityPostDetailSerializer,
     CommunityPostListSerializer,
     CommunityPostSerializer,
+    CommunityRatingReviewSerializer,
     CommunityRatingSerializer,
     CommunityUpdatePostSerializer,
 )
@@ -87,6 +89,11 @@ def community_post_queryset(request, *, include_content=False):
             "recipe__ingredients",
             "saved_list__items",
             "comments__author",
+            Prefetch(
+                "ratings",
+                queryset=CommunityRating.objects.select_related("user").order_by("-updated_at"),
+                to_attr="prefetched_ratings",
+            ),
         )
 
     return queryset.prefetch_related("saved_list__items")
@@ -193,7 +200,7 @@ class CommunityPostListCreateAPIView(
         post = serializer.save()
 
         return Response(
-            CommunityPostSerializer(
+            CommunityPostDetailSerializer(
                 post,
                 context={
                     "request": request
@@ -248,7 +255,7 @@ class CommunityPostDetailAPIView(
             )
 
         return Response(
-            CommunityPostSerializer(
+            CommunityPostDetailSerializer(
                 post,
                 context={
                     "request": request
@@ -273,7 +280,7 @@ class CommunityPostDetailAPIView(
         serializer.save()
         post = self.get_object(request, pk)
         return Response(
-            CommunityPostSerializer(post, context={"request": request}).data
+            CommunityPostDetailSerializer(post, context={"request": request}).data
         )
 
     @transaction.atomic
@@ -485,6 +492,16 @@ class CommunityLikeAPIView(
                     status.HTTP_404_NOT_FOUND
             )
 
+        if post.post_type == CommunityPost.POST_TYPE_RECIPE:
+            return Response(
+                {
+                    "detail":
+                        "Rezepte können nicht geliked werden. "
+                        "Nutze stattdessen die Bewertung."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         like = (
             CommunityLike.objects
             .filter(
@@ -553,17 +570,12 @@ class CommunityRatingAPIView(
                     status.HTTP_404_NOT_FOUND
             )
 
-        if (
-            post.post_type
-            ==
-            CommunityPost.POST_TYPE_THREAD
-        ):
+        if post.post_type != CommunityPost.POST_TYPE_RECIPE:
 
             return Response(
                 {
                     "detail":
-                        "Diskussionen können "
-                        "nicht bewertet werden."
+                        "Nur Rezepte können bewertet werden."
                 },
                 status=
                     status.HTTP_400_BAD_REQUEST
@@ -589,7 +601,8 @@ class CommunityRatingAPIView(
                         serializer
                         .validated_data[
                             "value"
-                        ]
+                        ],
+                    "comment": serializer.validated_data["comment"],
                 }
             )
         )
@@ -616,7 +629,11 @@ class CommunityRatingAPIView(
                 "rating_count":
                     serializer.data[
                         "rating_count"
-                    ]
+                    ],
+
+                "rating_comment": rating.comment,
+
+                "review": CommunityRatingReviewSerializer(rating).data,
             }
         )
 

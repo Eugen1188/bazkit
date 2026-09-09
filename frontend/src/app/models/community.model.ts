@@ -139,7 +139,26 @@ export interface CommunityPost {
   my_rating:
     number | null;
 
+  my_rating_comment?: string;
+
+  rating_reviews?: CommunityRatingReview[];
+
   is_author: boolean;
+
+  created_at: string;
+
+  updated_at: string;
+}
+
+
+export interface CommunityRatingReview {
+  id: number;
+
+  author: CommunityAuthor;
+
+  value: number;
+
+  comment: string;
 
   created_at: string;
 
@@ -218,6 +237,10 @@ export interface CommunityRatingResponse {
   rating_average: number;
 
   rating_count: number;
+
+  rating_comment: string;
+
+  review: CommunityRatingReview;
 }
 
 

@@ -251,6 +251,12 @@ class CommunityRating(models.Model):
         ]
     )
 
+    comment = models.TextField(
+        blank=True,
+        default="",
+        max_length=1000,
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True
     )
