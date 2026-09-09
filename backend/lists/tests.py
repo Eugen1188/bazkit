@@ -217,6 +217,8 @@ class SavedListCollaborationTests(TestCase):
         )
         self.assertEqual(accepted.status_code, 200)
         self.assertEqual(toggled.status_code, 200)
+        self.assertTrue(toggled.data["is_checked"])
+        self.assertEqual(toggled.data["checked_by_name"], "Emil")
         self.item.refresh_from_db()
         self.assertTrue(self.item.is_checked)
         self.assertEqual(self.item.checked_by, self.editor)

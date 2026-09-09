@@ -422,7 +422,6 @@ class SavedListItemToggleAPIView(APIView):
 
         item = (
             SavedListItem.objects.select_for_update()
-            .select_related("product", "created_by", "checked_by")
             .filter(id=item_id, saved_list=saved_list)
             .first()
         )

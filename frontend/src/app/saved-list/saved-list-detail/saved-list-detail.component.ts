@@ -358,10 +358,14 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     const response = error as {
       error?: { detail?: string; email?: string[]; role?: string[] } | string
     };
-    if (typeof response.error === 'string') return response.error;
-    return response.error?.detail
-      || response.error?.email?.[0]
-      || response.error?.role?.[0]
+    if (typeof response.error === 'string') {
+      const message = response.error.trim();
+      if (message && !/^<!doctype html|^<html/i.test(message)) return message;
+    }
+    const details = typeof response.error === 'object' ? response.error : undefined;
+    return details?.detail
+      || details?.email?.[0]
+      || details?.role?.[0]
       || fallback;
   }
 }
