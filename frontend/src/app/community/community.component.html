@@ -447,7 +447,10 @@
             <ng-container *ngIf="post.rating_average !== null; else unratedRecipe">
               <strong>{{ post.rating_average }}</strong>
               <span>von 5</span>
-              <small>({{ post.rating_count }})</small>
+              <small>
+                {{ post.rating_count }}
+                {{ post.rating_count === 1 ? 'Bewertung' : 'Bewertungen' }}
+              </small>
             </ng-container>
 
             <ng-template #unratedRecipe>Noch unbewertet</ng-template>

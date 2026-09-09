@@ -520,7 +520,10 @@
               class="rating-block"
               [class.has-rating]="post.my_rating !== null"
               [attr.aria-busy]="isRating"
-              *ngIf="post.post_type === 'recipe'"
+              *ngIf="
+                post.post_type === 'recipe' &&
+                (post.my_rating === null || isEditingRating)
+              "
             >
 
               <div class="rating-header">
@@ -528,55 +531,14 @@
                 <div class="rating-heading">
 
                   <span>
-                    Rezept bewerten
+                    {{ post.my_rating === null ? 'Deine Bewertung' : 'Bewertung ändern' }}
                   </span>
 
                   <small>
-                    Wie hat dir dieses Rezept gefallen?
+                    Wähle aus, wie gut dir das Rezept gefallen hat.
                   </small>
 
                 </div>
-
-
-                <div
-                  class="rating-summary"
-                  *ngIf="
-                    post.rating_average !== null
-                  "
-                  [attr.aria-label]="
-                    'Durchschnittlich ' +
-                    post.rating_average +
-                    ' von 5 Sternen bei ' +
-                    post.rating_count +
-                    (post.rating_count === 1
-                      ? ' Bewertung'
-                      : ' Bewertungen')
-                  "
-                >
-
-                  <strong>
-                    {{ post.rating_average }}
-                  </strong>
-
-                  <span>
-                    von 5 ·
-                    {{ post.rating_count }}
-                    {{
-                      post.rating_count === 1
-                        ? 'Bewertung'
-                        : 'Bewertungen'
-                    }}
-                  </span>
-
-                </div>
-
-
-                <span
-                  class="rating-summary rating-summary-empty"
-                  *ngIf="post.rating_average === null"
-                >
-                  Noch unbewertet
-                </span>
 
               </div>
 
@@ -605,9 +567,9 @@
                   "
                 >
 
-                  <strong>{{ star }}</strong>
+                  <span class="rating-option-dot">{{ star }}</span>
 
-                  <small>{{ star === 1 ? 'Stern' : 'Sterne' }}</small>
+                  <strong>{{ ratingOptionLabel(star) }}</strong>
 
                 </button>
 
@@ -615,7 +577,12 @@
 
 
               <div class="rating-selection-label" aria-live="polite">
-                {{ selectedRatingLabel }}
+                <ng-container *ngIf="selectedRating !== null">
+                  Ausgewählt: <strong>{{ selectedRatingLabel }}</strong>
+                </ng-container>
+                <ng-container *ngIf="selectedRating === null">
+                  Bitte wähle eine Bewertung aus.
+                </ng-container>
               </div>
 
 
@@ -649,34 +616,68 @@
               </div>
 
 
-              <div
-                class="rating-feedback rated"
-                *ngIf="ratingSuccess"
-                aria-live="polite"
-              >
-                {{ ratingSuccess }}
+              <div class="rating-form-actions">
+                <button
+                  class="rating-cancel-button"
+                  type="button"
+                  *ngIf="post.my_rating !== null"
+                  [disabled]="isRating"
+                  (click)="cancelRatingEdit()"
+                >
+                  Abbrechen
+                </button>
+
+                <button
+                  class="rating-submit-button"
+                  type="button"
+                  [disabled]="
+                    selectedRating === null ||
+                    isRating ||
+                    !ratingHasChanges
+                  "
+                  (click)="submitRating()"
+                >
+                  {{
+                    isRating
+                      ? 'Wird gespeichert...'
+                      : post.my_rating === null
+                        ? 'Bewertung abschicken'
+                        : 'Änderung speichern'
+                  }}
+                </button>
               </div>
 
+            </div>
 
-              <button
-                class="rating-submit-button"
-                type="button"
-                [disabled]="
-                  selectedRating === null ||
-                  isRating ||
-                  !ratingHasChanges
-                "
-                (click)="submitRating()"
-              >
-                {{
-                  isRating
-                    ? 'Wird gespeichert...'
-                    : post.my_rating === null
-                      ? 'Bewertung abgeben'
-                      : 'Bewertung aktualisieren'
-                }}
+
+            <div
+              class="rating-complete"
+              *ngIf="
+                post.post_type === 'recipe' &&
+                post.my_rating !== null &&
+                !isEditingRating
+              "
+              aria-live="polite"
+            >
+              <span class="rating-complete-check" aria-hidden="true">✓</span>
+
+              <div class="rating-complete-copy">
+                <strong>
+                  {{ ratingJustSubmitted ? 'Bewertung abgeschickt' : 'Du hast dieses Rezept bewertet' }}
+                </strong>
+                <span>
+                  {{ ratingJustSubmitted ? ratingSuccess : 'Deine Bewertung ist gespeichert.' }}
+                </span>
+              </div>
+
+              <span class="rating-complete-score">
+                <strong>{{ post.my_rating }}</strong>
+                von 5
+              </span>
+
+              <button type="button" (click)="editRating()">
+                Bewertung ändern
               </button>
-
             </div>
 
           </div>
@@ -748,9 +749,17 @@
           <p>Erfahrungen aus der Community</p>
         </div>
 
-        <span>
-          {{ post.rating_count }}
-          {{ post.rating_count === 1 ? 'Bewertung' : 'Bewertungen' }}
+        <div class="rating-overall" *ngIf="post.rating_average !== null">
+          <strong>{{ post.rating_average }}</strong>
+          <span>von 5</span>
+          <small>
+            {{ post.rating_count }}
+            {{ post.rating_count === 1 ? 'Bewertung' : 'Bewertungen' }}
+          </small>
+        </div>
+
+        <span class="rating-overall-empty" *ngIf="post.rating_average === null">
+          Noch unbewertet
         </span>
       </div>
 

@@ -2586,10 +2586,16 @@ SMALL MOBILE
 
 .feed-rating {
   gap: 4px;
-  background: var(--color-primary-soft-bg);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .feed-rating small {
+  margin-left: 4px;
+  padding-left: 8px;
+  border-left: 1px solid var(--color-divider);
   color: var(--color-text-muted);
 }
 

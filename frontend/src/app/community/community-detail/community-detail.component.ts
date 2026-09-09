@@ -93,6 +93,14 @@ implements OnInit {
   ratingSuccess =
     '';
 
+
+  isEditingRating =
+    false;
+
+
+  ratingJustSubmitted =
+    false;
+
   isEditing = false;
   isSavingPost = false;
   isDeletingPost = false;
@@ -194,6 +202,12 @@ implements OnInit {
 
             this.ratingComment =
               post.my_rating_comment || '';
+
+            this.isEditingRating =
+              false;
+
+            this.ratingJustSubmitted =
+              false;
 
             this.isLoading =
               false;
@@ -329,17 +343,46 @@ implements OnInit {
 
 
   get selectedRatingLabel(): string {
-    const labels = [
-      '',
-      'Nicht überzeugt',
-      'Ausbaufähig',
-      'Gut',
-      'Sehr gut',
-      'Ausgezeichnet',
-    ];
     return this.selectedRating === null
       ? 'Noch keine Auswahl'
-      : labels[this.selectedRating];
+      : this.ratingOptionLabel(this.selectedRating);
+  }
+
+
+  ratingOptionLabel(value: number): string {
+    const labels = [
+      '',
+      'Nicht meins',
+      'Eher nicht',
+      'Gut',
+      'Sehr gut',
+      'Großartig',
+    ];
+    return labels[value];
+  }
+
+
+  editRating(): void {
+    if (!this.post || this.post.my_rating === null) {
+      return;
+    }
+    this.selectedRating = this.post.my_rating;
+    this.ratingComment = this.post.my_rating_comment || '';
+    this.ratingError = '';
+    this.ratingSuccess = '';
+    this.ratingJustSubmitted = false;
+    this.isEditingRating = true;
+  }
+
+
+  cancelRatingEdit(): void {
+    if (!this.post || this.post.my_rating === null) {
+      return;
+    }
+    this.selectedRating = this.post.my_rating;
+    this.ratingComment = this.post.my_rating_comment || '';
+    this.ratingError = '';
+    this.isEditingRating = false;
   }
 
 
@@ -385,7 +428,9 @@ implements OnInit {
 
           this.selectedRating = response.rating;
           this.ratingComment = response.rating_comment;
-          this.ratingSuccess = 'Deine Bewertung wurde gespeichert.';
+          this.ratingSuccess = 'Danke! Deine Bewertung wurde abgeschickt.';
+          this.ratingJustSubmitted = true;
+          this.isEditingRating = false;
         },
         error: error => {
           console.error('Bewertung konnte nicht gespeichert werden:', error);
