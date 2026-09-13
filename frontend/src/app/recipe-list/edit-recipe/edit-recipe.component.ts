@@ -997,6 +997,20 @@ implements OnInit, OnDestroy {
     this.recalculateNutrition();
   }
 
+  selectQuantityValue(event: Event): void {
+    (event.currentTarget as HTMLInputElement).select();
+  }
+
+  adjustIngredientQuantity(index: number, change: 1 | -1, event?: Event): void {
+    event?.preventDefault();
+    const ingredient = this.ingredients[index];
+    if (!ingredient) return;
+    const currentValue = Number(ingredient.quantity);
+    const nextValue = (Number.isFinite(currentValue) ? currentValue : 0) + change;
+    ingredient.quantity = Math.max(0.01, Math.round(nextValue * 100) / 100);
+    this.onIngredientAmountChange(index);
+  }
+
   nutritionValue(product: ProductSuggestion | null, field: 'calories' | 'protein' | 'carbohydrates' | 'fat' | 'fiber'): number | null {
     if (!product) return null;
     const raw = product[`${field}_per_100g` as keyof ProductSuggestion];

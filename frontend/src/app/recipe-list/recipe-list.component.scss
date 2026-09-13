@@ -638,7 +638,21 @@
 
 
 .recipe-placeholder {
-  font-size: 58px;
+  color: var(--color-primary);
+}
+
+.recipe-placeholder svg {
+  width: 78px;
+  height: 78px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.recipe-placeholder .recipe-sheet {
+  fill: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface));
 }
 
 .recipe-cover-image {

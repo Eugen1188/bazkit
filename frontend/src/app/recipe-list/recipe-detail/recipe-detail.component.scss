@@ -354,14 +354,18 @@
 
 
 .hero-image > svg {
-  width: 88px;
-  height: 88px;
+  width: 112px;
+  height: 112px;
   fill: none;
-  stroke: #7e6ea5;
-  stroke-width: 2.2;
+  stroke: var(--color-primary);
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+  filter: drop-shadow(0 12px 16px var(--color-shadow));
 }
+
+.hero-image .recipe-sheet { fill: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface)); }
+.hero-image .recipe-leaf { color: var(--color-primary-soft, #8ba395); }
 
 
 /* =========================

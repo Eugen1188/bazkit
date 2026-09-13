@@ -300,6 +300,16 @@ export class CreateRecipeComponent implements OnDestroy {
   moveIngredientUp(index: number): void { if (index > 0) { [this.ingredients[index - 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index - 1]]; [this.selectedProducts[index - 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index - 1]]; } }
   moveIngredientDown(index: number): void { if (index < this.ingredients.length - 1) { [this.ingredients[index + 1], this.ingredients[index]] = [this.ingredients[index], this.ingredients[index + 1]]; [this.selectedProducts[index + 1], this.selectedProducts[index]] = [this.selectedProducts[index], this.selectedProducts[index + 1]]; } }
   onIngredientAmountChange(_index: number): void {}
+  selectQuantityValue(event: Event): void { (event.currentTarget as HTMLInputElement).select(); }
+  adjustIngredientQuantity(index: number, change: 1 | -1, event?: Event): void {
+    event?.preventDefault();
+    const ingredient = this.ingredients[index];
+    if (!ingredient) return;
+    const currentValue = Number(ingredient.quantity);
+    const nextValue = (Number.isFinite(currentValue) ? currentValue : 0) + change;
+    ingredient.quantity = Math.max(0.01, Math.round(nextValue * 100) / 100);
+    this.onIngredientAmountChange(index);
+  }
   addPreparationStep(): void { if (this.canAddPreparationStep()) this.preparationSteps.push({ text: '' }); }
   canAddPreparationStep(): boolean { return !this.preparationSteps.length || !!this.preparationSteps.at(-1)?.text.trim(); }
   hasStepContent(index: number): boolean { return !!this.preparationSteps[index]?.text.trim(); }

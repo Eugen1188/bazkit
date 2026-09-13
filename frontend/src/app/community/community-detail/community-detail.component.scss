@@ -200,8 +200,8 @@ HERO
   background:
     linear-gradient(
       135deg,
-      #efe4d6,
-      #dfccb5
+      color-mix(in srgb, var(--color-primary) 7%, var(--color-surface-muted)),
+      color-mix(in srgb, #c89558 14%, var(--color-surface))
     );
 }
 
@@ -297,6 +297,40 @@ HERO
 .hero-symbol circle {
   fill:
     none;
+}
+
+.recipe-empty-state {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-primary);
+}
+
+.recipe-empty-state svg {
+  width: 112px;
+  height: 112px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 12px 16px var(--color-shadow));
+}
+
+.recipe-empty-state .recipe-sheet {
+  fill: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface));
+}
+
+.recipe-empty-state .recipe-leaf { color: var(--color-primary-soft, #8ba395); }
+
+.recipe-empty-state span {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
 }
 
 
