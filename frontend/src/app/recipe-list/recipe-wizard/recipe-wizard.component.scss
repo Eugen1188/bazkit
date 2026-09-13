@@ -474,7 +474,11 @@ textarea::placeholder { color: var(--color-placeholder, #a0a8a4); }
   gap: 20px;
 }
 
-.ingredient-editor-card { padding: 18px; }
+.ingredient-editor-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
 .ingredient-list { display: flex; flex-direction: column; gap: 12px; }
 
 .ingredient-item {
@@ -719,13 +723,14 @@ textarea::placeholder { color: var(--color-placeholder, #a0a8a4); }
 .ingredient-facts small { color: var(--color-text-muted, #65736b); font-size: 9px; }
 
 .add-outline-button {
+  order: -1;
   width: 100%;
   min-height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-bottom: 14px;
   border: 1px dashed #afbeb4;
   border-radius: 11px;
   background: var(--color-surface, #fff);
