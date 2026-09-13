@@ -264,6 +264,23 @@ implements OnInit {
   }
 
 
+  selectQuantityValue(event: Event): void {
+    (event.currentTarget as HTMLInputElement).select();
+  }
+
+
+  adjustProductQuantity(change: 1 | -1, event?: Event): void {
+    event?.preventDefault();
+
+    const currentValue = Number(this.productQuantity);
+    const nextValue =
+      (Number.isFinite(currentValue) ? currentValue : 0) + change;
+
+    this.productQuantity =
+      Math.max(0.01, Math.round(nextValue * 100) / 100);
+  }
+
+
   addProduct(): void {
 
     const name =

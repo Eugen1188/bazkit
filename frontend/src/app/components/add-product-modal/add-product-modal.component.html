@@ -68,15 +68,46 @@
             Menge
           </label>
 
-          <input
-            id="quantity"
-            type="number"
-            inputmode="decimal"
-            min="0.01"
-            step="0.01"
-            [(ngModel)]="quantity"
-            (keyup.enter)="saveProduct()"
-          />
+          <div class="quantity-control">
+            <input
+              id="quantity"
+              type="number"
+              inputmode="decimal"
+              min="0.01"
+              step="any"
+              [(ngModel)]="quantity"
+              (click)="selectQuantityValue($event)"
+              (keydown.arrowup)="adjustProductQuantity(1, $event)"
+              (keydown.arrowdown)="adjustProductQuantity(-1, $event)"
+              (keyup.enter)="saveProduct()"
+            />
+
+            <div class="quantity-stepper">
+              <button
+                type="button"
+                tabindex="-1"
+                aria-label="Menge um 1 erhöhen"
+                (mousedown)="$event.preventDefault()"
+                (click)="adjustProductQuantity(1)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m7 14 5-5 5 5"></path>
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                tabindex="-1"
+                aria-label="Menge um 1 verringern"
+                (mousedown)="$event.preventDefault()"
+                (click)="adjustProductQuantity(-1)"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m7 10 5 5 5-5"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="field">

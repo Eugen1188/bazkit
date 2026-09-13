@@ -135,6 +135,23 @@ implements OnInit, OnDestroy {
   }
 
 
+  selectQuantityValue(event: Event): void {
+    (event.currentTarget as HTMLInputElement).select();
+  }
+
+
+  adjustProductQuantity(change: 1 | -1, event?: Event): void {
+    event?.preventDefault();
+
+    const currentValue = Number(this.quantity);
+    const nextValue =
+      (Number.isFinite(currentValue) ? currentValue : 0) + change;
+
+    this.quantity =
+      Math.max(0.01, Math.round(nextValue * 100) / 100);
+  }
+
+
   saveProduct(): void {
 
     const name =
