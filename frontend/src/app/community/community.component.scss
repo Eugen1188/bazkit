@@ -690,26 +690,10 @@ FEED CARD IMAGE
   width: 100%;
   min-height: 138px;
   height: 100%;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 25% 18%, var(--color-primary-ring), transparent 38%),
-    linear-gradient(145deg, var(--color-surface-muted), color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)));
-  color: var(--color-primary, #5d7f69);
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
-
-.community-recipe-placeholder svg {
-  width: 66px;
-  height: 66px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.community-recipe-placeholder .recipe-sheet { fill: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface)); }
-.community-recipe-placeholder .recipe-leaf { color: var(--color-primary-soft, #8ba395); }
 
 
 .feed-card-image img {
