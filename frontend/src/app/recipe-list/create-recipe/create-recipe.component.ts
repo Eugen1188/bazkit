@@ -250,11 +250,9 @@ export class CreateRecipeComponent implements OnDestroy {
   addIngredient(): void {
     if (!this.canAddIngredient()) return;
 
-    this.ingredients.push(this.emptyIngredient());
-    this.selectedProducts.push(null);
-    this.focusIngredientInput(
-      this.ingredients.length - 1
-    );
+    this.ingredients.unshift(this.emptyIngredient());
+    this.selectedProducts.unshift(null);
+    this.focusIngredientInput(0);
   }
 
   private focusIngredientInput(index: number): void {
@@ -292,8 +290,7 @@ export class CreateRecipeComponent implements OnDestroy {
 
   canAddIngredient(): boolean {
     if (!this.ingredients.length) return true;
-    const lastIndex = this.ingredients.length - 1;
-    return !!this.ingredients[lastIndex]?.name.trim() && this.ingredients[lastIndex]?.product != null;
+    return !!this.ingredients[0]?.name.trim() && this.ingredients[0]?.product != null;
   }
   hasIngredientContent(index: number): boolean { return !!this.ingredients[index]?.name.trim(); }
   removeIngredient(index: number): void { this.ingredients.splice(index, 1); this.selectedProducts.splice(index, 1); if (!this.ingredients.length) { this.ingredients.push(this.emptyIngredient()); this.selectedProducts.push(null); } }

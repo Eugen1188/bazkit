@@ -825,21 +825,19 @@ implements OnInit, OnDestroy {
     }
 
 
-    this.ingredients.push({
+    this.ingredients.unshift({
       product: null,
       name: '',
       quantity: 1,
       unit: 'Stück',
       note: ''
     });
-    this.selectedProducts.push(null);
+    this.selectedProducts.unshift(null);
 
 
     this.closeIngredientAutocompleteImmediately();
 
-    this.focusIngredientInput(
-      this.ingredients.length - 1
-    );
+    this.focusIngredientInput(0);
   }
 
 
@@ -894,11 +892,10 @@ implements OnInit, OnDestroy {
     }
 
 
-    const lastIndex = this.ingredients.length - 1;
-    const last = this.ingredients[lastIndex];
+    const first = this.ingredients[0];
 
 
-    return !!last?.name.trim() && this.isVerifiedOrPreservedIngredient(last);
+    return !!first?.name.trim() && this.isVerifiedOrPreservedIngredient(first);
   }
 
 
