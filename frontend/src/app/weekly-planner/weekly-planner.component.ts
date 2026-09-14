@@ -647,7 +647,7 @@ export class WeeklyPlannerComponent implements OnInit {
       entryId: entry.id,
       recipeId: recipe.id,
       name: recipe.name,
-      image: recipe.image_url || this.categoryImage(recipe.category),
+      image: recipe.image_url || 'assets/images/recipe-placeholder.jpg',
       imagePosition: recipe.image_url
         ? `${recipe.image_position_x ?? 50}% ${recipe.image_position_y ?? 50}%`
         : '50% 50%',
@@ -659,16 +659,6 @@ export class WeeklyPlannerComponent implements OnInit {
       servings: entry.servings,
       ingredientCount: recipe.ingredient_count ?? 0
     };
-  }
-
-  private categoryImage(category: string): string {
-    if (category === 'breakfast') {
-      return 'assets/images/home/home-ai-food.webp';
-    }
-    if (category === 'lunch') {
-      return 'assets/images/home/home-food.webp';
-    }
-    return 'assets/images/home/home-recipes.webp';
   }
 
   private dayMeals(day: PlannerDay): Meal[] {
