@@ -1184,6 +1184,38 @@ STATES
   font-size: 13px;
 }
 
+.feed-load-more {
+  min-height: 44px;
+  margin: 18px auto 0;
+  padding: 0 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: block;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.feed-load-more:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+}
+
+.feed-load-more:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.feed-load-more-error {
+  margin: 12px 0 0;
+  color: #c34f4a;
+  font-size: 12px;
+  text-align: center;
+}
+
 
 /* =====================================
 MODAL BACKDROP

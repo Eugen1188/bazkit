@@ -106,6 +106,7 @@ export class SavedListService {
   private cacheExpiresAt = 0;
   private cacheRevision = 0;
   private cachedLists: SavedList[] | null = null;
+  private readonly cachedDetails = new Map<number, SavedList>();
   private inFlightRequest: Observable<SavedList[]> | null = null;
 
 
@@ -119,6 +120,14 @@ export class SavedListService {
     this.inFlightRequest = null;
   }
 
+  private ensureSession(): void {
+    const session = localStorage.getItem('access_token') ?? '';
+    if (session === this.cacheSession) return;
+    this.cacheSession = session;
+    this.invalidateListCache();
+    this.cachedDetails.clear();
+  }
+
 
   createSavedList(payload: CreateSavedListPayload): Observable<SavedList> {
     return this.http.post<SavedList>(this.apiUrl, payload).pipe(
@@ -129,10 +138,7 @@ export class SavedListService {
 
   getSavedLists(forceRefresh = false): Observable<SavedList[]> {
     const session = localStorage.getItem('access_token') ?? '';
-    if (session !== this.cacheSession) {
-      this.cacheSession = session;
-      this.invalidateListCache();
-    }
+    this.ensureSession();
 
     if (forceRefresh) {
       this.invalidateListCache();
@@ -176,9 +182,16 @@ export class SavedListService {
 
 
   getSavedList(id: number): Observable<SavedList> {
+    this.ensureSession();
     return this.http.get<SavedList>(`${this.apiUrl}${id}/`).pipe(
-      timeout({ first: 15_000 })
+      timeout({ first: 15_000 }),
+      tap(list => this.cachedDetails.set(id, list))
     );
+  }
+
+  getCachedSavedList(id: number): SavedList | null {
+    this.ensureSession();
+    return this.cachedDetails.get(id) ?? null;
   }
 
 

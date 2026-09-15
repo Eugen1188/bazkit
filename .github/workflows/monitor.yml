@@ -1,0 +1,28 @@
+name: Monitor Bazkit
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check backend and database health
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+        run: |
+          test -n "$SERVER_HOST"
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --retry 3 \
+            --retry-all-errors \
+            --connect-timeout 5 \
+            --max-time 15 \
+            "http://${SERVER_HOST}:8000/health/"

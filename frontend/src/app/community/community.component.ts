@@ -83,6 +83,16 @@ implements OnInit, OnDestroy {
   isLoading =
     false;
 
+  isLoadingMore = false;
+
+  hasMorePosts = false;
+
+  loadMoreError = '';
+
+  private readonly pageSize = 20;
+
+  private loadSequence = 0;
+
   errorMessage =
     '';
 
@@ -247,53 +257,72 @@ implements OnInit, OnDestroy {
   }
 
 
-  loadPosts():
+  loadPosts(append = false):
     void {
 
-    this.isLoading =
-      true;
+    const sequence = ++this.loadSequence;
+    const offset = append ? this.posts.length : 0;
+    this.isLoading = !append;
+    this.isLoadingMore = append;
 
     this.errorMessage =
       '';
+    this.loadMoreError = '';
 
 
     this.communityService
       .getPosts(
         this.activeFilter,
-        this.searchQuery
+        this.searchQuery,
+        offset,
+        this.pageSize + 1
       )
       .subscribe({
 
         next:
           posts => {
 
-            this.posts =
-              posts;
+            if (sequence !== this.loadSequence) return;
+
+            this.hasMorePosts = posts.length > this.pageSize;
+            const page = posts.slice(0, this.pageSize);
+            this.posts = append ? [...this.posts, ...page] : page;
 
             this.isLoading =
               false;
+            this.isLoadingMore = false;
           },
 
 
         error:
           error => {
 
+            if (sequence !== this.loadSequence) return;
+
             console.error(
               'Community konnte nicht geladen werden:',
               error
             );
 
-            this.posts =
-              [];
+            if (!append) this.posts = [];
 
             this.isLoading =
               false;
+            this.isLoadingMore = false;
 
-            this.errorMessage =
-              'Die Community konnte nicht geladen werden.';
+            if (append) {
+              this.loadMoreError = 'Weitere Beiträge konnten nicht geladen werden.';
+            } else {
+              this.errorMessage = 'Die Community konnte nicht geladen werden.';
+            }
           }
 
       });
+  }
+
+  loadMorePosts(): void {
+    if (this.isLoading || this.isLoadingMore || !this.hasMorePosts) return;
+    this.loadPosts(true);
   }
 
 

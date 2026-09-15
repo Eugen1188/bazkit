@@ -17,7 +17,7 @@ describe('WeeklyPlannerComponent', () => {
         provideRouter([]),
         {
           provide: RecipeService,
-          useValue: { getRecipes: () => of([]) }
+          useValue: { getRecipeSummaries: () => of([]) }
         },
         {
           provide: WeeklyPlannerService,

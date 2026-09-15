@@ -48,6 +48,9 @@ class IngredientSearchMetricAdmin(admin.ModelAdmin):
         "selection_count", "last_selected_product", "review_status", "last_seen_at",
     )
     list_filter = ("context", "review_status")
+    list_editable = ("review_status",)
+    list_per_page = 50
+    actions = ("mark_open", "mark_resolved", "mark_ignored")
     search_fields = ("display_query", "normalized_query", "last_selected_product__name")
     readonly_fields = (
         "normalized_query", "display_query", "context", "search_count",
@@ -55,6 +58,18 @@ class IngredientSearchMetricAdmin(admin.ModelAdmin):
         "last_selected_rank", "last_selected_product", "selection_counts",
         "first_seen_at", "last_seen_at",
     )
+
+    @admin.action(description="Ausgewählte Suchbegriffe als offen markieren")
+    def mark_open(self, request, queryset):
+        queryset.update(review_status="open")
+
+    @admin.action(description="Ausgewählte Suchbegriffe als gelöst markieren")
+    def mark_resolved(self, request, queryset):
+        queryset.update(review_status="resolved")
+
+    @admin.action(description="Ausgewählte Suchbegriffe ignorieren")
+    def mark_ignored(self, request, queryset):
+        queryset.update(review_status="ignored")
 
 
 admin.site.register(IngredientPriceReference)

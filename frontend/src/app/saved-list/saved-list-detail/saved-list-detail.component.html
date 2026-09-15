@@ -30,8 +30,8 @@
             </svg>
             {{ savedList.member_count }} {{ savedList.member_count === 1 ? 'Person' : 'Personen' }}
           </button>
-          <span class="sync-indicator" [class.active]="isRefreshing">
-            <i></i>{{ isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell' }}
+          <span class="sync-indicator" [class.active]="isRefreshing" [class.offline]="isOffline">
+            <i></i>{{ isOffline ? 'Offline – letzter Stand' : (isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell') }}
           </span>
         </div>
       </div>
@@ -118,7 +118,7 @@
         *ngFor="let item of savedList.items">
         <button class="product-check" type="button" role="checkbox"
           [attr.aria-checked]="item.is_checked" [attr.aria-label]="getItemName(item) + (item.is_checked ? ' als offen markieren' : ' abhaken')"
-          [disabled]="!savedList.can_edit || (item.id && updatingItemIds.has(item.id))"
+          [disabled]="isOffline || !savedList.can_edit || (item.id && updatingItemIds.has(item.id))"
           (click)="toggleItem(item)">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.2L19 7"></path></svg>
         </button>

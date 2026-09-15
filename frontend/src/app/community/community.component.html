@@ -491,6 +491,20 @@
 
       </div>
 
+      <button
+        class="feed-load-more"
+        type="button"
+        *ngIf="posts.length > 0 && hasMorePosts"
+        [disabled]="isLoadingMore"
+        (click)="loadMorePosts()"
+      >
+        {{ isLoadingMore ? 'Weitere Beiträge werden geladen…' : 'Weitere Beiträge anzeigen' }}
+      </button>
+
+      <p class="feed-load-more-error" *ngIf="loadMoreError" role="alert">
+        {{ loadMoreError }}
+      </p>
+
     </div>
 
   </section>

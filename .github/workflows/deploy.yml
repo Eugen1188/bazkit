@@ -5,7 +5,53 @@ on:
     branches:
       - main
 jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - name: Install backend dependencies
+        working-directory: backend
+        run: pip install -r requirements.txt
+      - name: Run backend tests
+        working-directory: backend
+        run: python manage.py test --settings=config.test_settings
+
+  frontend-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Run frontend tests
+        working-directory: frontend
+        run: npm run test:ci
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
   deploy:
+    needs:
+      - backend-tests
+      - frontend-tests
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -31,13 +77,14 @@ jobs:
             test "$(git rev-parse HEAD)" = "$BAZKIT_DEPLOY_SHA"
             docker compose build backend frontend
             docker compose up -d db
+            docker compose run --rm -e BACKUP_ONCE=true backup
             docker compose run --rm backend python manage.py migrate --noinput
             docker compose run --rm backend python manage.py rebuild_ingredient_catalog
             docker compose run --rm backend python manage.py audit_ingredient_catalog --strict
-            docker compose up -d backend frontend
+            docker compose up -d backend frontend backup
             backend_ready=0
             for attempt in $(seq 1 30); do
-              if curl --silent --show-error --output /dev/null --connect-timeout 2 http://127.0.0.1:8000/users/me/; then
+              if curl --fail --silent --show-error --output /dev/null --connect-timeout 2 http://127.0.0.1:8000/health/; then
                 backend_ready=1
                 break
               fi

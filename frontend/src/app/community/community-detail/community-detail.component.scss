@@ -1837,6 +1837,18 @@ RESPONSIVE
   color: #d1524d;
 }
 
+.report-action {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.report-action:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft-bg);
+  color: var(--color-primary);
+}
+
 .community-nutrition-grid {
   margin: 16px 0 22px;
   display: grid;
@@ -1958,6 +1970,20 @@ RESPONSIVE
 
 .edit-dialog textarea {
   resize: none;
+}
+
+.report-help {
+  margin: -6px 0 18px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.report-dialog label small {
+  align-self: flex-end;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 400;
 }
 
 .edit-dialog footer {

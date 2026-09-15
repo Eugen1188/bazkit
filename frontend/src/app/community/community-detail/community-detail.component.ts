@@ -104,6 +104,10 @@ implements OnInit {
   isEditing = false;
   isSavingPost = false;
   isDeletingPost = false;
+  isReportDialogOpen = false;
+  isReporting = false;
+  reportReason = 'spam';
+  reportDetails = '';
   editTitle = '';
   editContent = '';
   editThreadCategory = 'other';
@@ -632,6 +636,42 @@ implements OnInit {
         console.error('Beitrag konnte nicht gelöscht werden:', error);
         this.isDeletingPost = false;
         this.errorMessage = 'Der Beitrag konnte nicht gelöscht werden.';
+      }
+    });
+  }
+
+  openReportDialog(): void {
+    if (!this.post || this.post.is_author) return;
+    this.reportReason = 'spam';
+    this.reportDetails = '';
+    this.isReportDialogOpen = true;
+    this.errorMessage = '';
+  }
+
+  closeReportDialog(): void {
+    if (this.isReporting) return;
+    this.isReportDialogOpen = false;
+  }
+
+  submitReport(): void {
+    if (!this.post || this.post.is_author || this.isReporting) return;
+    if (this.reportReason === 'other' && !this.reportDetails.trim()) return;
+
+    this.isReporting = true;
+    this.communityService.reportPost(
+      this.post.id,
+      this.reportReason,
+      this.reportDetails.trim()
+    ).subscribe({
+      next: response => {
+        this.isReporting = false;
+        this.isReportDialogOpen = false;
+        this.message = response.detail;
+      },
+      error: error => {
+        console.error('Beitrag konnte nicht gemeldet werden:', error);
+        this.isReporting = false;
+        this.errorMessage = 'Die Meldung konnte nicht gesendet werden.';
       }
     });
   }

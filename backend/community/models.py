@@ -280,3 +280,53 @@ class CommunityRating(models.Model):
         return (
             f"{self.value}/5"
         )
+
+
+class CommunityReport(models.Model):
+    REASON_CHOICES = [
+        ("spam", "Spam oder Werbung"),
+        ("abuse", "Beleidigung oder Belästigung"),
+        ("dangerous", "Gefährlicher oder irreführender Inhalt"),
+        ("copyright", "Urheberrechtsverletzung"),
+        ("other", "Anderer Grund"),
+    ]
+    STATUS_CHOICES = [
+        ("open", "Offen"),
+        ("reviewing", "In Prüfung"),
+        ("resolved", "Erledigt"),
+        ("dismissed", "Abgewiesen"),
+    ]
+
+    post = models.ForeignKey(
+        CommunityPost,
+        on_delete=models.CASCADE,
+        related_name="reports",
+    )
+    reporter = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="community_reports",
+    )
+    reason = models.CharField(max_length=20, choices=REASON_CHOICES)
+    details = models.TextField(blank=True, max_length=1000)
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="open",
+        db_index=True,
+    )
+    moderator_note = models.TextField(blank=True, max_length=2000)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["post", "reporter"],
+                name="unique_community_report",
+            )
+        ]
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"Meldung zu Beitrag #{self.post_id}"

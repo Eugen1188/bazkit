@@ -57,13 +57,15 @@ export class CommunityService {
 
   getPosts(
     type: 'all' | CommunityPostType = 'all',
-    search = ''
+    search = '',
+    offset = 0,
+    limit = 21
   ): Observable<CommunityPost[]> {
     this.ensureSession();
     const requestSession = this.cacheSession;
 
     const normalizedSearch = search.trim();
-    const cacheKey = `${type}:${normalizedSearch.toLocaleLowerCase('de')}`;
+    const cacheKey = `${type}:${normalizedSearch.toLocaleLowerCase('de')}:${offset}:${limit}`;
     const cached = this.postCache.get(cacheKey);
 
     if (cached && Date.now() < cached.expiresAt) {
@@ -76,6 +78,7 @@ export class CommunityService {
     let params = new HttpParams();
     if (type !== 'all') params = params.set('type', type);
     if (normalizedSearch) params = params.set('search', normalizedSearch);
+    params = params.set('offset', offset).set('limit', limit);
 
     let request!: Observable<CommunityPost[]>;
     request = this.http.get<CommunityPost[]>(
@@ -183,6 +186,18 @@ export class CommunityService {
       `${this.apiUrl}posts/${postId}/rating/`,
       { value, comment }
     ).pipe(tap(() => this.invalidatePostCache()));
+  }
+
+
+  reportPost(
+    postId: number,
+    reason: string,
+    details: string
+  ): Observable<{ detail: string; report_id: number }> {
+    return this.http.post<{ detail: string; report_id: number }>(
+      `${this.apiUrl}posts/${postId}/report/`,
+      { reason, details }
+    );
   }
 
 

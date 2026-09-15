@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { appTestProviders } from '../../test-providers';
 import { EditRecipeComponent } from './edit-recipe.component';
 
 describe('EditRecipeComponent', () => {
@@ -8,7 +9,8 @@ describe('EditRecipeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditRecipeComponent]
+      imports: [EditRecipeComponent],
+      providers: appTestProviders()
     })
     .compileComponents();
 

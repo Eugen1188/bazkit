@@ -29,6 +29,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
 
   isLoading = true;
   isRefreshing = false;
+  isOffline = !navigator.onLine;
   isMenuOpen = false;
   isCollaborationOpen = false;
   isCollaborationLoading = false;
@@ -61,7 +62,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
 
     this.loadSavedList();
     this.pollingSubscription = timer(3000, 3000).subscribe(() => {
-      if (!document.hidden && !this.isRefreshing && !this.isInviting) {
+      if (navigator.onLine && !document.hidden && !this.isRefreshing && !this.isInviting) {
         this.refreshSavedList();
       }
     });
@@ -72,11 +73,14 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   }
 
   loadSavedList(): void {
-    this.isLoading = true;
+    const cached = this.savedListService.getCachedSavedList(this.listId);
+    if (cached) this.savedList = cached;
+    this.isLoading = !cached;
     this.errorMessage = '';
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
         this.savedList = list;
+        this.isOffline = false;
         this.isLoading = false;
         if (this.route.snapshot.queryParamMap.get('collaborate') === '1') {
           this.openCollaboration();
@@ -84,7 +88,8 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
       },
       error: error => {
         console.error('Liste konnte nicht geladen werden:', error);
-        this.errorMessage = 'Die Liste konnte nicht geladen werden.';
+        this.isOffline = true;
+        if (!this.savedList) this.errorMessage = 'Die Liste konnte nicht geladen werden.';
         this.isLoading = false;
       }
     });
@@ -95,6 +100,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
         this.savedList = list;
+        this.isOffline = false;
         this.isRefreshing = false;
       },
       error: error => {
@@ -102,6 +108,8 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
         if (error?.status === 403 || error?.status === 404) {
           this.showMessage('Du hast keinen Zugriff mehr auf diese Liste.');
           void this.router.navigate(['/main/saved-list']);
+        } else {
+          this.isOffline = true;
         }
       }
     });
@@ -133,7 +141,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   }
 
   toggleItem(item: SavedListItem): void {
-    if (!this.savedList?.can_edit || !item.id || this.updatingItemIds.has(item.id)) return;
+    if (this.isOffline || !this.savedList?.can_edit || !item.id || this.updatingItemIds.has(item.id)) return;
     const previous = Boolean(item.is_checked);
     item.is_checked = !previous;
     this.updatingItemIds.add(item.id);
@@ -149,6 +157,17 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
         this.showMessage(this.apiError(error, 'Das Produkt konnte nicht aktualisiert werden.'));
       }
     });
+  }
+
+  @HostListener('window:online')
+  handleOnline(): void {
+    this.isOffline = false;
+    if (this.listId) this.refreshSavedList();
+  }
+
+  @HostListener('window:offline')
+  handleOffline(): void {
+    this.isOffline = true;
   }
 
   async shareList(): Promise<void> {

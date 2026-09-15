@@ -28,6 +28,7 @@ from .models import (
     CommunityLike,
     CommunityPost,
     CommunityRating,
+    CommunityReport,
 )
 
 from .serializers import (
@@ -166,6 +167,19 @@ class CommunityPostListCreateAPIView(
                         search
                 )
             )
+
+        try:
+            offset = max(0, int(request.query_params.get("offset", 0)))
+        except (TypeError, ValueError):
+            offset = 0
+
+        raw_limit = request.query_params.get("limit")
+        if raw_limit is not None:
+            try:
+                limit = max(1, min(100, int(raw_limit)))
+            except (TypeError, ValueError):
+                limit = 20
+            queryset = queryset[offset:offset + limit]
 
         serializer = CommunityPostListSerializer(
             queryset,
@@ -316,6 +330,55 @@ class CommunityPostDetailAPIView(
         return Response(
             status=
                 status.HTTP_204_NO_CONTENT
+        )
+
+
+class CommunityReportAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, post_id):
+        post = CommunityPost.objects.filter(id=post_id).first()
+        if not post:
+            return Response(
+                {"detail": "Beitrag nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        if post.author_id == request.user.id:
+            return Response(
+                {"detail": "Eigene Beiträge können nicht gemeldet werden."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        reason = str(request.data.get("reason", "")).strip()
+        valid_reasons = {value for value, _label in CommunityReport.REASON_CHOICES}
+        if reason not in valid_reasons:
+            return Response(
+                {"reason": ["Bitte wähle einen gültigen Meldegrund aus."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        details = str(request.data.get("details", "")).strip()
+        if len(details) > 1000:
+            return Response(
+                {"details": ["Die Beschreibung darf höchstens 1000 Zeichen lang sein."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        report, created = CommunityReport.objects.update_or_create(
+            post=post,
+            reporter=request.user,
+            defaults={
+                "reason": reason,
+                "details": details,
+                "status": "open",
+            },
+        )
+        return Response(
+            {
+                "detail": "Danke. Der Beitrag wurde zur Prüfung gemeldet.",
+                "report_id": report.id,
+            },
+            status=status.HTTP_201_CREATED if created else status.HTTP_200_OK,
         )
 
 

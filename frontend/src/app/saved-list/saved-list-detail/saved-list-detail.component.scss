@@ -1086,6 +1086,15 @@
 
 .sync-indicator.active i { animation: sync-pulse 0.9s ease-in-out infinite alternate; }
 
+.sync-indicator.offline {
+  color: #b36a2e;
+}
+
+.sync-indicator.offline i {
+  background: #b36a2e;
+  opacity: 0.9;
+}
+
 @keyframes sync-pulse { to { opacity: 0.2; transform: scale(0.8); } }
 
 .collaboration-button {

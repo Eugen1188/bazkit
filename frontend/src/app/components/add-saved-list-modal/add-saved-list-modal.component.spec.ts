@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { appTestProviders } from '../../test-providers';
 import { AddSavedListModalComponent } from './add-saved-list-modal.component';
 
 describe('AddSavedListModalComponent', () => {
@@ -8,7 +9,8 @@ describe('AddSavedListModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddSavedListModalComponent]
+      imports: [AddSavedListModalComponent],
+      providers: appTestProviders()
     })
     .compileComponents();
 

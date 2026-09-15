@@ -8,6 +8,7 @@ from .views import (
     CommunityPostDetailAPIView,
     CommunityPostListCreateAPIView,
     CommunityRatingAPIView,
+    CommunityReportAPIView,
     CommunityShareOptionsAPIView,
 )
 
@@ -48,6 +49,12 @@ urlpatterns = [
         "posts/<int:post_id>/rating/",
         CommunityRatingAPIView.as_view(),
         name="community-rating"
+    ),
+
+    path(
+        "posts/<int:post_id>/report/",
+        CommunityReportAPIView.as_view(),
+        name="community-report"
     ),
 
     path(

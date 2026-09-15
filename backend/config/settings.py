@@ -409,6 +409,39 @@ EMAIL_VERIFICATION_RESEND_SECONDS = int(
 )
 
 
+# ==========================================
+# LOGGING
+# ==========================================
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {
+            "format": "{asctime} {levelname} {name} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "console",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+    },
+    "loggers": {
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
+}
+
+
 # USDA FoodData Central ist ein optionaler Nährwert-Fallback. Ohne Key arbeitet
 # die Rezeptsuche ausschließlich mit dem lokalen BLS und geprüften OFF-Daten.
 USDA_FDC_API_KEY = os.getenv(

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { appTestProviders } from '../../test-providers';
 import { AddRecipeIngredientsModalComponent } from './add-recipe-ingredients-modal.component';
 
 describe('AddRecipeIngredientsModalComponent', () => {
@@ -8,7 +9,8 @@ describe('AddRecipeIngredientsModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddRecipeIngredientsModalComponent]
+      imports: [AddRecipeIngredientsModalComponent],
+      providers: appTestProviders()
     })
     .compileComponents();
 

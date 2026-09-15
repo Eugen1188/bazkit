@@ -9,7 +9,13 @@ from lists.models import SavedList, SavedListItem
 from products.models import Product
 from recipes.models import Ingredients, Recipe
 
-from .models import CommunityComment, CommunityLike, CommunityPost, CommunityRating
+from .models import (
+    CommunityComment,
+    CommunityLike,
+    CommunityPost,
+    CommunityRating,
+    CommunityReport,
+)
 
 
 class CommunitySnapshotTests(APITestCase):
@@ -168,6 +174,29 @@ class CommunitySnapshotTests(APITestCase):
         self.assertEqual(listed_post["rating_average"], 4.0)
         self.assertNotIn("ingredients", listed_post["recipe"])
 
+    def test_post_list_supports_bounded_pagination(self):
+        for index in range(5):
+            CommunityPost.objects.create(
+                author=self.user,
+                post_type="thread",
+                title=f"Beitrag {index}",
+                content="Inhalt",
+                thread_category="other",
+            )
+
+        first_page = self.client.get("/community/posts/?limit=3&offset=0")
+        second_page = self.client.get("/community/posts/?limit=3&offset=3")
+
+        self.assertEqual(first_page.status_code, 200)
+        self.assertEqual(second_page.status_code, 200)
+        self.assertEqual(len(first_page.data), 3)
+        self.assertEqual(len(second_page.data), 2)
+        self.assertTrue(
+            set(item["id"] for item in first_page.data).isdisjoint(
+                item["id"] for item in second_page.data
+            )
+        )
+
     def test_recipe_rating_is_explicit_and_can_include_a_review(self):
         created = self.client.post("/community/posts/", {
             "post_type": "recipe",
@@ -218,3 +247,45 @@ class CommunitySnapshotTests(APITestCase):
             format="json",
         )
         self.assertEqual(list_rating.status_code, 400)
+
+    def test_user_can_report_foreign_post_and_update_the_same_report(self):
+        created = self.client.post("/community/posts/", {
+            "post_type": "thread",
+            "title": "Problematischer Beitrag",
+            "content": "Inhalt",
+            "thread_category": "other",
+        }, format="json")
+        post_id = created.data["id"]
+
+        self.client.force_authenticate(self.other_user)
+        reported = self.client.post(f"/community/posts/{post_id}/report/", {
+            "reason": "spam",
+            "details": "Wiederholte Werbung",
+        }, format="json")
+        self.assertEqual(reported.status_code, 201)
+        self.assertEqual(CommunityReport.objects.count(), 1)
+
+        updated = self.client.post(f"/community/posts/{post_id}/report/", {
+            "reason": "other",
+            "details": "Ergänzte Beschreibung",
+        }, format="json")
+        self.assertEqual(updated.status_code, 200)
+        self.assertEqual(CommunityReport.objects.count(), 1)
+        report = CommunityReport.objects.get()
+        self.assertEqual(report.reason, "other")
+        self.assertEqual(report.details, "Ergänzte Beschreibung")
+
+    def test_user_cannot_report_own_post(self):
+        created = self.client.post("/community/posts/", {
+            "post_type": "thread",
+            "title": "Eigener Beitrag",
+            "content": "Inhalt",
+            "thread_category": "other",
+        }, format="json")
+        response = self.client.post(
+            f'/community/posts/{created.data["id"]}/report/',
+            {"reason": "spam"},
+            format="json",
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(CommunityReport.objects.exists())

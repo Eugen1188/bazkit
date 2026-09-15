@@ -212,6 +212,13 @@
             </button>
           </div>
 
+          <div class="author-actions" *ngIf="!post.is_author">
+            <button type="button" class="report-action" (click)="openReportDialog()">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 1h11l-2 4 2 4H5"></path></svg>
+              Beitrag melden
+            </button>
+          </div>
+
 
           <h1>
             {{ post.display_title }}
@@ -873,6 +880,35 @@
       <label><span>Kategorie</span><select [(ngModel)]="editThreadCategory"><option value="cooking">Kochen</option><option value="shopping">Einkaufen</option><option value="nutrition">Ernährung</option><option value="saving">Sparen</option><option value="products">Lebensmittel & Produkte</option><option value="appliances">Küchengeräte</option><option value="other">Sonstiges</option></select></label>
       <label><span>Beitrag</span><textarea rows="7" maxlength="5000" [(ngModel)]="editContent"></textarea></label>
       <footer><button type="button" class="cancel-edit" [disabled]="isSavingPost" (click)="cancelEdit()">Abbrechen</button><button type="button" class="save-edit" [disabled]="isSavingPost || !editTitle.trim() || !editContent.trim()" (click)="savePost()">{{ isSavingPost ? 'Wird gespeichert…' : 'Änderungen speichern' }}</button></footer>
+    </section>
+  </div>
+
+  <div class="edit-dialog-backdrop" *ngIf="isReportDialogOpen" (click)="closeReportDialog()">
+    <section class="edit-dialog report-dialog" role="dialog" aria-modal="true" aria-labelledby="report-post-title" (click)="$event.stopPropagation()">
+      <header>
+        <div><span>Community-Sicherheit</span><h2 id="report-post-title">Beitrag melden</h2></div>
+        <button type="button" aria-label="Dialog schließen" [disabled]="isReporting" (click)="closeReportDialog()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      </header>
+      <p class="report-help">Die Meldung wird vertraulich geprüft. Der Verfasser sieht nicht, wer den Beitrag gemeldet hat.</p>
+      <label>
+        <span>Grund</span>
+        <select [(ngModel)]="reportReason">
+          <option value="spam">Spam oder Werbung</option>
+          <option value="abuse">Beleidigung oder Belästigung</option>
+          <option value="dangerous">Gefährlicher oder irreführender Inhalt</option>
+          <option value="copyright">Urheberrechtsverletzung</option>
+          <option value="other">Anderer Grund</option>
+        </select>
+      </label>
+      <label>
+        <span>Beschreibung {{ reportReason === 'other' ? '(erforderlich)' : '(optional)' }}</span>
+        <textarea rows="5" maxlength="1000" [(ngModel)]="reportDetails" placeholder="Was sollen wir bei der Prüfung beachten?"></textarea>
+        <small>{{ reportDetails.length }} / 1000</small>
+      </label>
+      <footer>
+        <button type="button" class="cancel-edit" [disabled]="isReporting" (click)="closeReportDialog()">Abbrechen</button>
+        <button type="button" class="save-edit" [disabled]="isReporting || (reportReason === 'other' && !reportDetails.trim())" (click)="submitReport()">{{ isReporting ? 'Wird gesendet…' : 'Meldung senden' }}</button>
+      </footer>
     </section>
   </div>
 
