@@ -1,12 +1,14 @@
 <div class="saved-list-page">
-  <div class="loading-state" *ngIf="isLoading" role="status" aria-live="polite">
-    Listen werden geladen…
-  </div>
+  <app-ui-state *ngIf="isLoading" kind="loading" message="Listen werden geladen…"></app-ui-state>
 
-  <div class="error-state" *ngIf="!isLoading && errorMessage" role="alert">
-    <span>{{ errorMessage }}</span>
-    <button type="button" (click)="loadSavedLists()">Erneut versuchen</button>
-  </div>
+  <app-ui-state
+    *ngIf="!isLoading && errorMessage"
+    kind="error"
+    title="Listen konnten nicht geladen werden"
+    [message]="errorMessage"
+    actionLabel="Erneut versuchen"
+    (action)="loadSavedLists()"
+  ></app-ui-state>
 
   <div class="share-toast" *ngIf="shareMessage" role="status" aria-live="polite">
     {{ shareMessage }}

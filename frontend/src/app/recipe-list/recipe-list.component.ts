@@ -16,6 +16,7 @@ import {
   RecipeService
 } from '../services/recipe.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
+import { UiStateComponent } from '../components/ui-state/ui-state.component';
 
 
 @Component({
@@ -25,7 +26,8 @@ import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 
   imports: [
     CommonModule,
-    UiIconComponent
+    UiIconComponent,
+    UiStateComponent
   ],
 
   templateUrl:

@@ -250,28 +250,26 @@
 
     <!-- LOADING -->
 
-    <div
-      class="feed-state"
+    <app-ui-state
       *ngIf="isLoading"
-      role="status"
-      aria-live="polite"
-    >
-      Community wird geladen...
-    </div>
+      kind="loading"
+      message="Community wird geladen…"
+    ></app-ui-state>
 
 
     <!-- ERROR -->
 
-    <div
-      class="feed-state error"
+    <app-ui-state
       *ngIf="
         !isLoading &&
         errorMessage
       "
-      role="alert"
-    >
-      {{ errorMessage }}
-    </div>
+      kind="error"
+      title="Community konnte nicht geladen werden"
+      [message]="errorMessage"
+      actionLabel="Erneut versuchen"
+      (action)="loadPosts()"
+    ></app-ui-state>
 
 
     <!-- POSTS -->

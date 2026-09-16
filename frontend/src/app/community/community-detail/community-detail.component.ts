@@ -24,6 +24,7 @@ import {
 import {
   CommunityService
 } from '../../services/community.service';
+import { UiStateComponent } from '../../components/ui-state/ui-state.component';
 
 
 @Component({
@@ -35,7 +36,8 @@ import {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiStateComponent
   ],
 
   templateUrl:

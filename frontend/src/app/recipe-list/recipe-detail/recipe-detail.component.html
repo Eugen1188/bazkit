@@ -2,52 +2,24 @@
 
   <!-- LOADING -->
 
-  <div
-    class="loading-state"
-    role="status"
-    aria-live="polite"
+  <app-ui-state
     *ngIf="isLoading"
-  >
-
-    <div class="loader">
-    </div>
-
-    <span>
-      Rezept wird geladen...
-    </span>
-
-  </div>
+    kind="loading"
+    message="Rezept wird geladen…"
+  ></app-ui-state>
 
 
   <!-- ERROR -->
 
-  <div
-    class="error-state"
-    role="alert"
+  <app-ui-state
     *ngIf="
       !isLoading &&
       errorMessage
     "
-  >
-
-    <div class="error-icon">
-      !
-    </div>
-
-
-    <div>
-
-      <strong>
-        Fehler
-      </strong>
-
-      <p>
-        {{ errorMessage }}
-      </p>
-
-    </div>
-
-  </div>
+    kind="error"
+    title="Rezept konnte nicht geladen werden"
+    [message]="errorMessage"
+  ></app-ui-state>
 
 
   <!-- RECIPE -->
@@ -304,31 +276,6 @@
         <div class="nutrition-value"><span>Fett</span><strong>{{ recipe.fat !== null ? (recipe.fat | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
         <div class="nutrition-value"><span>Ballaststoffe</span><strong>{{ recipe.fiber !== null ? (recipe.fiber | number:'1.0-2') : '–' }} g</strong><small>pro Portion</small></div>
       </div>
-
-      <div class="detail-price-row" *ngIf="recipe.price_is_sufficient && recipe.estimated_price !== null">
-        <div>
-          <strong>Geschätzte Kosten</strong>
-          <span>
-            Automatische Schätzung für {{ recipe.price_ingredient_count }} von
-            {{ recipe.ingredients.length }} Zutaten.
-          </span>
-        </div>
-
-        <div class="detail-price-values">
-          <span>
-            Gesamt
-            <strong>{{ recipe.estimated_price | currency:'EUR':'symbol':'1.2-2':'de-DE' }}</strong>
-          </span>
-          <span>
-            Pro Portion
-            <strong>{{ recipe.estimated_price_per_serving | currency:'EUR':'symbol':'1.2-2':'de-DE' }}</strong>
-          </span>
-        </div>
-      </div>
-
-      <p class="price-coverage-hint" *ngIf="!recipe.price_is_sufficient && recipe.ingredients.length">
-        Eine Kostenschätzung erscheint, sobald für genügend Zutaten verlässliche Preisdaten vorliegen.
-      </p>
 
     </section>
 

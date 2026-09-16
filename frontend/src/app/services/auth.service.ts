@@ -5,6 +5,7 @@ import {
   Observable,
   shareReplay
 } from 'rxjs';
+import { API_ROOT } from '../config/api.config';
 
 
 export interface UserProfile {
@@ -37,7 +38,7 @@ interface TokenRefreshResponse {
 })
 export class AuthService {
 
-  private apiUrl = this.getApiUrl();
+  private readonly apiUrl = API_ROOT;
 
   private refreshRequest: Observable<TokenRefreshResponse> | null = null;
 
@@ -177,10 +178,4 @@ export class AuthService {
     );
   }
 
-  private getApiUrl(): string {
-    return window.location.hostname === 'localhost'
-      || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000'
-      : 'http://178.104.47.231:8000';
-  }
 }

@@ -1095,6 +1095,15 @@
   opacity: 0.9;
 }
 
+.sync-indicator.pending:not(.offline) {
+  color: #b36a2e;
+}
+
+.activity-chip.pending {
+  color: #9a5a25;
+  background: rgba(198, 120, 53, 0.14);
+}
+
 @keyframes sync-pulse { to { opacity: 0.2; transform: scale(0.8); } }
 
 .collaboration-button {

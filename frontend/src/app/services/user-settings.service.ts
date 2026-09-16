@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { apiEndpoint } from '../config/api.config';
 
 
 export type ShoppingSorting = 'category' | 'alphabetical' | 'created';
@@ -53,7 +54,7 @@ interface AccentPalette {
 
 @Injectable({ providedIn: 'root' })
 export class UserSettingsService {
-  private readonly apiUrl = `${this.getApiBaseUrl()}/users/me/settings/`;
+  private readonly apiUrl = apiEndpoint('users/me/settings/');
   private readonly cacheKey = 'bazkit_user_settings';
   private readonly systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   private readonly settingsSubject = new BehaviorSubject<UserSettings>(
@@ -181,10 +182,4 @@ export class UserSettingsService {
     root.style.setProperty('--color-focus', palette.focus);
   }
 
-  private getApiBaseUrl(): string {
-    return window.location.hostname === 'localhost'
-      || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000'
-      : 'http://178.104.47.231:8000';
-  }
 }

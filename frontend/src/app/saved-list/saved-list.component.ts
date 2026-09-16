@@ -21,6 +21,7 @@ import {
 import {
   ListShareService
 } from '../services/list-share.service';
+import { UiStateComponent } from '../components/ui-state/ui-state.component';
 
 
 @Component({
@@ -30,7 +31,8 @@ import {
 
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    UiStateComponent
   ],
 
   templateUrl:

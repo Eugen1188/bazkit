@@ -4,6 +4,7 @@ import { Observable, shareReplay, tap } from 'rxjs';
 
 import { RecipeNumberValue } from './recipe.service';
 import { ShoppingList, ShoppingListService } from './shopping-list.service';
+import { apiEndpoint } from '../config/api.config';
 
 
 export type PlannerMealType = 'breakfast' | 'lunch' | 'dinner';
@@ -71,7 +72,7 @@ export interface WeeklyShoppingListResponse {
 
 @Injectable({ providedIn: 'root' })
 export class WeeklyPlannerService {
-  private readonly apiUrl = this.getApiUrl();
+  private readonly apiUrl = apiEndpoint('planner/');
   private readonly cacheLifetimeMs = 60_000;
   private cacheSession = '';
   private readonly entryCache = new Map<
@@ -83,14 +84,6 @@ export class WeeklyPlannerService {
     private readonly http: HttpClient,
     private readonly shoppingListService: ShoppingListService
   ) {}
-
-  private getApiUrl(): string {
-    const hostname = window.location.hostname;
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      return 'http://localhost:8000/planner/';
-    }
-    return 'http://178.104.47.231:8000/planner/';
-  }
 
   getEntries(start: string, end: string): Observable<WeeklyPlanEntry[]> {
     const session = localStorage.getItem('access_token') ?? '';

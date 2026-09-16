@@ -75,7 +75,7 @@ jobs:
             unset bazkit_auth_header BAZKIT_GITHUB_TOKEN
             git merge --ff-only FETCH_HEAD
             test "$(git rev-parse HEAD)" = "$BAZKIT_DEPLOY_SHA"
-            docker compose build backend frontend
+            docker compose build backend frontend backup
             docker compose up -d db
             docker compose run --rm -e BACKUP_ONCE=true backup
             docker compose run --rm backend python manage.py migrate --noinput

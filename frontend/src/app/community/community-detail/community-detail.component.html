@@ -18,26 +18,22 @@
   </button>
 
 
-  <div
-    class="loading-state"
-    role="status"
-    aria-live="polite"
+  <app-ui-state
     *ngIf="isLoading"
-  >
-    Beitrag wird geladen...
-  </div>
+    kind="loading"
+    message="Beitrag wird geladen…"
+  ></app-ui-state>
 
 
-  <div
-    class="error-state"
-    role="alert"
+  <app-ui-state
     *ngIf="
       !isLoading &&
       errorMessage
     "
-  >
-    {{ errorMessage }}
-  </div>
+    kind="error"
+    title="Beitrag konnte nicht geladen werden"
+    [message]="errorMessage"
+  ></app-ui-state>
 
 
   <ng-container

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { finalize, Observable, of, shareReplay, tap, timeout } from 'rxjs';
 import { PriceSnapshot } from './product.service';
+import { apiEndpoint } from '../config/api.config';
 
 
 export interface ShoppingListItem extends PriceSnapshot {
@@ -46,7 +47,7 @@ export interface CreateShoppingListItemPayload extends PriceSnapshot {
 export class ShoppingListService {
   private static readonly cacheLifetimeMs = 60_000;
 
-  private readonly apiUrl = 'http://178.104.47.231:8000/lists/shopping-list/';
+  private readonly apiUrl = apiEndpoint('lists/shopping-list/');
   private cachedList: ShoppingList | null = null;
   private cacheExpiresAt = 0;
   private cacheSession = '';

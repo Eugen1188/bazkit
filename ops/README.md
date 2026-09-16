@@ -4,7 +4,9 @@
 
 The `backup` Compose service creates a verified PostgreSQL custom-format dump
 when it starts and then once every 24 hours. Backups are kept in the local
-`backups/` directory for 14 days by default.
+`backups/` directory for 14 days by default. When off-site backups and the R2
+backup bucket are configured, every verified dump is also uploaded under the
+`database-backups/` prefix and checked by file size after the upload.
 
 Create an additional backup manually before a risky operation:
 
@@ -22,9 +24,11 @@ Restoring a backup replaces database data and therefore remains an explicit
 operator task. Stop the backend first, keep a second copy of the selected dump,
 and validate the dump with `pg_restore --list` before restoring it.
 
-Local backups protect against application and migration mistakes, but not a
-complete server loss. Add encrypted off-site storage before opening Bazkit to a
-larger group of users.
+Use a separate private R2 bucket for database backups and set its name as
+`R2_BACKUP_BUCKET_NAME`. Never use the public media bucket for database dumps.
+After a successful manual test, set `OFFSITE_BACKUP_ENABLED=True` and
+`OFFSITE_BACKUP_REQUIRED=True`, so a missing upload configuration also stops a
+deployment before migrations.
 
 ## Availability monitoring
 

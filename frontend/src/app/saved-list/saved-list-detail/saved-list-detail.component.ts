@@ -14,12 +14,13 @@ import {
   SavedListService
 } from '../../services/saved-list.service';
 import { ListShareService } from '../../services/list-share.service';
+import { UiStateComponent } from '../../components/ui-state/ui-state.component';
 
 
 @Component({
   selector: 'app-saved-list-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UiStateComponent],
   templateUrl: './saved-list-detail.component.html',
   styleUrl: './saved-list-detail.component.scss'
 })
@@ -30,6 +31,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   isLoading = true;
   isRefreshing = false;
   isOffline = !navigator.onLine;
+  isSyncingOfflineChanges = false;
   isMenuOpen = false;
   isCollaborationOpen = false;
   isCollaborationLoading = false;
@@ -41,6 +43,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   inviteRole: Exclude<SavedListRole, 'owner'> = 'editor';
   lastInviteUrl = '';
   updatingItemIds = new Set<number>();
+  pendingToggleItemIds = new Set<number>();
 
   private listId = 0;
   private pollingSubscription?: Subscription;
@@ -74,14 +77,16 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
 
   loadSavedList(): void {
     const cached = this.savedListService.getCachedSavedList(this.listId);
-    if (cached) this.savedList = cached;
+    if (cached) this.savedList = this.savedListService.applyPendingToggles(cached);
+    this.refreshPendingToggleIds();
     this.isLoading = !cached;
     this.errorMessage = '';
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
-        this.savedList = list;
+        this.savedList = this.savedListService.applyPendingToggles(list);
         this.isOffline = false;
         this.isLoading = false;
+        if (this.pendingToggleItemIds.size) this.syncPendingToggles();
         if (this.route.snapshot.queryParamMap.get('collaborate') === '1') {
           this.openCollaboration();
         }
@@ -99,7 +104,8 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     this.isRefreshing = true;
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
-        this.savedList = list;
+        this.savedList = this.savedListService.applyPendingToggles(list);
+        this.refreshPendingToggleIds();
         this.isOffline = false;
         this.isRefreshing = false;
       },
@@ -141,9 +147,22 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   }
 
   toggleItem(item: SavedListItem): void {
-    if (this.isOffline || !this.savedList?.can_edit || !item.id || this.updatingItemIds.has(item.id)) return;
+    if (!this.savedList?.can_edit || !item.id || this.updatingItemIds.has(item.id)) return;
     const previous = Boolean(item.is_checked);
     item.is_checked = !previous;
+
+    if (this.isOffline || !navigator.onLine) {
+      this.savedListService.queueSavedListToggle(
+        this.savedList.id,
+        item.id,
+        item.is_checked
+      );
+      this.pendingToggleItemIds.add(item.id);
+      this.isOffline = true;
+      this.showMessage('Offline gespeichert. Die Änderung wird später synchronisiert.');
+      return;
+    }
+
     this.updatingItemIds.add(item.id);
     this.savedListService.toggleSavedListItem(this.savedList.id, item.id, !previous).subscribe({
       next: updated => {
@@ -152,8 +171,19 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
         this.refreshSavedList();
       },
       error: error => {
-        item.is_checked = previous;
         this.updatingItemIds.delete(item.id!);
+        if (!navigator.onLine || error?.status === 0 || error?.name === 'TimeoutError') {
+          this.savedListService.queueSavedListToggle(
+            this.savedList!.id,
+            item.id!,
+            Boolean(item.is_checked)
+          );
+          this.pendingToggleItemIds.add(item.id!);
+          this.isOffline = true;
+          this.showMessage('Verbindung unterbrochen. Die Änderung wird später synchronisiert.');
+          return;
+        }
+        item.is_checked = previous;
         this.showMessage(this.apiError(error, 'Das Produkt konnte nicht aktualisiert werden.'));
       }
     });
@@ -162,12 +192,69 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   @HostListener('window:online')
   handleOnline(): void {
     this.isOffline = false;
-    if (this.listId) this.refreshSavedList();
+    if (!this.listId) return;
+    this.refreshPendingToggleIds();
+    if (this.pendingToggleItemIds.size) {
+      this.syncPendingToggles();
+    } else {
+      this.refreshSavedList();
+    }
   }
 
   @HostListener('window:offline')
   handleOffline(): void {
     this.isOffline = true;
+  }
+
+  private refreshPendingToggleIds(): void {
+    this.pendingToggleItemIds = new Set(
+      this.savedListService.getPendingToggles(this.listId).map(item => item.itemId)
+    );
+  }
+
+  private syncPendingToggles(): void {
+    if (this.isSyncingOfflineChanges || !navigator.onLine || !this.savedList?.can_edit) return;
+    const pending = this.savedListService.getPendingToggles(this.listId);
+    if (!pending.length) return;
+
+    this.isSyncingOfflineChanges = true;
+    const syncNext = (index: number): void => {
+      if (index >= pending.length) {
+        this.isSyncingOfflineChanges = false;
+        this.refreshPendingToggleIds();
+        this.showMessage('Offline-Änderungen wurden synchronisiert.');
+        this.refreshSavedList();
+        return;
+      }
+
+      const change = pending[index];
+      this.savedListService.toggleSavedListItem(
+        change.listId,
+        change.itemId,
+        change.isChecked
+      ).subscribe({
+        next: updated => {
+          const item = this.savedList?.items?.find(entry => entry.id === change.itemId);
+          if (item) Object.assign(item, updated);
+          this.savedListService.removePendingToggle(change.listId, change.itemId);
+          this.pendingToggleItemIds.delete(change.itemId);
+          syncNext(index + 1);
+        },
+        error: error => {
+          if (error?.status === 403 || error?.status === 404) {
+            this.savedListService.removePendingToggle(change.listId, change.itemId);
+            this.pendingToggleItemIds.delete(change.itemId);
+            syncNext(index + 1);
+            return;
+          }
+          this.isSyncingOfflineChanges = false;
+          this.isOffline = true;
+          this.showMessage('Die Offline-Änderungen werden bei der nächsten Verbindung erneut übertragen.');
+        }
+      });
+    };
+
+    syncNext(0);
   }
 
   async shareList(): Promise<void> {

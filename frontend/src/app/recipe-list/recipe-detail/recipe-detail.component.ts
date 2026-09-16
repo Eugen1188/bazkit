@@ -20,6 +20,7 @@ import {
 import {
   parsePreparationSteps
 } from '../preparation-steps';
+import { UiStateComponent } from '../../components/ui-state/ui-state.component';
 
 
 @Component({
@@ -28,7 +29,8 @@ import {
   standalone: true,
 
   imports: [
-    CommonModule
+    CommonModule,
+    UiStateComponent
   ],
 
   templateUrl:

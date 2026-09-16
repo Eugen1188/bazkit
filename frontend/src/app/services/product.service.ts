@@ -10,6 +10,7 @@ import {
   timer,
   timeout
 } from 'rxjs';
+import { apiEndpoint } from '../config/api.config';
 
 export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
 export type IngredientSearchContext = 'recipe_create' | 'recipe_edit' | 'shopping_list' | 'saved_list';
@@ -69,18 +70,10 @@ export interface PriceSnapshot {
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private readonly apiUrl = this.getApiUrl();
+  private readonly apiUrl = apiEndpoint('products/');
   private readonly searchCache = new Map<string, ProductSuggestion[]>();
 
   constructor(private readonly http: HttpClient) {}
-
-  private getApiUrl(): string {
-    const hostname = window.location.hostname;
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      return 'http://localhost:8000/products/';
-    }
-    return 'http://178.104.47.231:8000/products/';
-  }
 
   searchProducts(
     query: string,

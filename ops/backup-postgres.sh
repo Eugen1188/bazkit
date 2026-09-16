@@ -30,6 +30,8 @@ create_backup() {
   pg_restore --list "$temporary_path" >/dev/null
   mv "$temporary_path" "$target_path"
 
+  /opt/backup-venv/bin/python /usr/local/bin/upload-backup.py "$target_path"
+
   find "$backup_directory" \
     -type f \
     -name 'bazkit-*.dump' \

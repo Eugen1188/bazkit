@@ -25,7 +25,9 @@ services:
       - "8000:8000"
 
   backup:
-    image: postgres:16-alpine
+    build:
+      context: .
+      dockerfile: ops/backup.Dockerfile
     container_name: bazkit-backup
     restart: unless-stopped
     depends_on:
@@ -39,6 +41,13 @@ services:
       BACKUP_DIRECTORY: /backups
       BACKUP_INTERVAL_SECONDS: ${BACKUP_INTERVAL_SECONDS:-86400}
       BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-14}
+      OFFSITE_BACKUP_ENABLED: ${OFFSITE_BACKUP_ENABLED:-false}
+      OFFSITE_BACKUP_REQUIRED: ${OFFSITE_BACKUP_REQUIRED:-false}
+      R2_ACCESS_KEY_ID: ${R2_ACCESS_KEY_ID:-}
+      R2_SECRET_ACCESS_KEY: ${R2_SECRET_ACCESS_KEY:-}
+      R2_BACKUP_BUCKET_NAME: ${R2_BACKUP_BUCKET_NAME:-}
+      R2_ENDPOINT_URL: ${R2_ENDPOINT_URL:-}
+      R2_BACKUP_PREFIX: ${R2_BACKUP_PREFIX:-database-backups}
     volumes:
       - ./backups:/backups
       - ./ops/backup-postgres.sh:/usr/local/bin/backup-postgres:ro

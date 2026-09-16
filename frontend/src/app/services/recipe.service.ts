@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of, shareReplay, tap } from 'rxjs';
 import { PriceSnapshot, ProductSuggestion } from './product.service';
 import { AIRecipeUsage } from './ai-usage.service';
+import { apiEndpoint } from '../config/api.config';
 
 export interface RecipeIngredient extends PriceSnapshot {
   id?: number;
@@ -124,21 +125,13 @@ export interface RecipePayload {
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
-  private readonly apiUrl = this.getApiUrl();
+  private readonly apiUrl = apiEndpoint('recipes/');
   private readonly summaryCacheLifetimeMs = 60_000;
   private summaryCacheSession = '';
   private summaryCacheExpiresAt = 0;
   private summaryRequest: Observable<RecipeSummary[]> | null = null;
 
   constructor(private readonly http: HttpClient) {}
-
-  private getApiUrl(): string {
-    const hostname = window.location.hostname;
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      return 'http://localhost:8000/recipes/';
-    }
-    return 'http://178.104.47.231:8000/recipes/';
-  }
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.apiUrl);

@@ -1,12 +1,14 @@
 <div class="saved-list-detail-page">
-  <div class="loading-state" role="status" aria-live="polite" *ngIf="isLoading">
-    Liste wird geladen…
-  </div>
+  <app-ui-state *ngIf="isLoading" kind="loading" message="Liste wird geladen…"></app-ui-state>
 
-  <div class="error-state" role="alert" *ngIf="!isLoading && errorMessage">
-    <span>{{ errorMessage }}</span>
-    <button type="button" (click)="loadSavedList()">Erneut versuchen</button>
-  </div>
+  <app-ui-state
+    *ngIf="!isLoading && errorMessage"
+    kind="error"
+    title="Liste konnte nicht geladen werden"
+    [message]="errorMessage"
+    actionLabel="Erneut versuchen"
+    (action)="loadSavedList()"
+  ></app-ui-state>
 
   <div class="share-toast" *ngIf="shareMessage" role="status" aria-live="polite">
     {{ shareMessage }}
@@ -30,8 +32,13 @@
             </svg>
             {{ savedList.member_count }} {{ savedList.member_count === 1 ? 'Person' : 'Personen' }}
           </button>
-          <span class="sync-indicator" [class.active]="isRefreshing" [class.offline]="isOffline">
-            <i></i>{{ isOffline ? 'Offline – letzter Stand' : (isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell') }}
+          <span class="sync-indicator" [class.active]="isRefreshing || isSyncingOfflineChanges" [class.offline]="isOffline" [class.pending]="pendingToggleItemIds.size > 0">
+            <i></i>
+            {{
+              isOffline
+                ? (pendingToggleItemIds.size ? 'Offline – Änderungen vorgemerkt' : 'Offline – letzter Stand')
+                : (isSyncingOfflineChanges ? 'Offline-Änderungen werden übertragen' : (isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell'))
+            }}
           </span>
         </div>
       </div>
@@ -118,7 +125,7 @@
         *ngFor="let item of savedList.items">
         <button class="product-check" type="button" role="checkbox"
           [attr.aria-checked]="item.is_checked" [attr.aria-label]="getItemName(item) + (item.is_checked ? ' als offen markieren' : ' abhaken')"
-          [disabled]="isOffline || !savedList.can_edit || (item.id && updatingItemIds.has(item.id))"
+          [disabled]="!savedList.can_edit || (item.id && updatingItemIds.has(item.id))"
           (click)="toggleItem(item)">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.3 4.2L19 7"></path></svg>
         </button>
@@ -133,6 +140,9 @@
             </span>
             <span class="activity-chip" *ngIf="!item.is_checked && item.created_by_name">
               Hinzugefügt von {{ item.created_by_name }}
+            </span>
+            <span class="activity-chip pending" *ngIf="item.id && pendingToggleItemIds.has(item.id)">
+              Wird synchronisiert
             </span>
           </div>
         </div>

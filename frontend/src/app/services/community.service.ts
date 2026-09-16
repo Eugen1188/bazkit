@@ -13,13 +13,14 @@ import {
   CreateCommunityPostPayload,
   UpdateCommunityPostPayload
 } from '../models/community.model';
+import { apiEndpoint } from '../config/api.config';
 
 
 @Injectable({ providedIn: 'root' })
 export class CommunityService {
   private static readonly cacheLifetimeMs = 60_000;
 
-  private readonly apiUrl = this.getApiUrl();
+  private readonly apiUrl = apiEndpoint('community/');
   private cacheSession = '';
   private readonly postCache = new Map<
     string,
@@ -29,15 +30,6 @@ export class CommunityService {
 
 
   constructor(private readonly http: HttpClient) {}
-
-
-  private getApiUrl(): string {
-    const hostname = window.location.hostname;
-    const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
-    return isLocal
-      ? 'http://localhost:8000/community/'
-      : 'http://178.104.47.231:8000/community/';
-  }
 
 
   private ensureSession(): void {

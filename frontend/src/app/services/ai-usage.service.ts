@@ -8,6 +8,7 @@ import {
   shareReplay,
   tap,
 } from 'rxjs';
+import { apiEndpoint } from '../config/api.config';
 
 
 export interface AIRecipeUsage {
@@ -25,7 +26,7 @@ export interface AIRecipeUsage {
 
 @Injectable({ providedIn: 'root' })
 export class AIUsageService {
-  private readonly apiUrl = `${this.getApiBaseUrl()}/recipes/ai-usage/`;
+  private readonly apiUrl = apiEndpoint('recipes/ai-usage/');
   private readonly usageSubject = new BehaviorSubject<AIRecipeUsage | null>(null);
   private activeRequest: Observable<AIRecipeUsage> | null = null;
 
@@ -58,10 +59,4 @@ export class AIUsageService {
     this.usageSubject.next(usage);
   }
 
-  private getApiBaseUrl(): string {
-    return window.location.hostname === 'localhost'
-      || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000'
-      : 'http://178.104.47.231:8000';
-  }
 }

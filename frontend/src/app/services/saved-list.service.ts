@@ -9,6 +9,7 @@ import {
   timeout
 } from 'rxjs';
 import { PriceSnapshot } from './product.service';
+import { API_ROOT, apiEndpoint } from '../config/api.config';
 
 
 export interface SavedListItem extends PriceSnapshot {
@@ -97,10 +98,18 @@ export interface CreateSavedListPayload {
 }
 
 
+export interface PendingSavedListToggle {
+  listId: number;
+  itemId: number;
+  isChecked: boolean;
+  queuedAt: string;
+}
+
+
 @Injectable({ providedIn: 'root' })
 export class SavedListService {
-  private readonly apiRoot = this.getApiRoot();
-  private readonly apiUrl = `${this.apiRoot}/lists/saved-lists/`;
+  private readonly apiRoot = API_ROOT;
+  private readonly apiUrl = apiEndpoint('lists/saved-lists/');
   private readonly cacheLifetimeMs = 60_000;
   private cacheSession = '';
   private cacheExpiresAt = 0;
@@ -110,7 +119,9 @@ export class SavedListService {
   private inFlightRequest: Observable<SavedList[]> | null = null;
 
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {
+    window.addEventListener('bazkit:logout', () => this.clearOfflineData());
+  }
 
 
   private invalidateListCache(): void {
@@ -126,6 +137,37 @@ export class SavedListService {
     this.cacheSession = session;
     this.invalidateListCache();
     this.cachedDetails.clear();
+  }
+
+  private sessionSubject(token = this.cacheSession): string {
+    if (!token) return 'anonymous';
+    try {
+      const payload = token.split('.')[1]
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+      const paddedPayload = payload.padEnd(Math.ceil(payload.length / 4) * 4, '=');
+      const decoded = JSON.parse(atob(paddedPayload)) as { user_id?: number | string; sub?: string };
+      return String(decoded.user_id ?? decoded.sub ?? 'session');
+    } catch {
+      return 'session';
+    }
+  }
+
+  private detailCacheKey(id: number): string {
+    return `bazkit:saved-list:${this.sessionSubject()}:${id}`;
+  }
+
+  private toggleQueueKey(): string {
+    return `bazkit:saved-list-toggles:${this.sessionSubject()}`;
+  }
+
+  private cacheSavedList(list: SavedList): void {
+    this.cachedDetails.set(list.id, list);
+    try {
+      localStorage.setItem(this.detailCacheKey(list.id), JSON.stringify(list));
+    } catch {
+      // The in-memory copy remains available if browser storage is unavailable.
+    }
   }
 
 
@@ -185,13 +227,110 @@ export class SavedListService {
     this.ensureSession();
     return this.http.get<SavedList>(`${this.apiUrl}${id}/`).pipe(
       timeout({ first: 15_000 }),
-      tap(list => this.cachedDetails.set(id, list))
+      tap(list => this.cacheSavedList(list))
     );
   }
 
   getCachedSavedList(id: number): SavedList | null {
     this.ensureSession();
-    return this.cachedDetails.get(id) ?? null;
+    const memoryCopy = this.cachedDetails.get(id);
+    if (memoryCopy) return memoryCopy;
+    try {
+      const stored = localStorage.getItem(this.detailCacheKey(id));
+      if (!stored) return null;
+      const list = JSON.parse(stored) as SavedList;
+      if (list.id !== id || !Array.isArray(list.items)) return null;
+      this.cachedDetails.set(id, list);
+      return list;
+    } catch {
+      return null;
+    }
+  }
+
+  getPendingToggles(listId: number): PendingSavedListToggle[] {
+    this.ensureSession();
+    try {
+      const stored = localStorage.getItem(this.toggleQueueKey());
+      const queue = stored ? JSON.parse(stored) as PendingSavedListToggle[] : [];
+      return Array.isArray(queue)
+        ? queue.filter(item => item.listId === listId)
+        : [];
+    } catch {
+      return [];
+    }
+  }
+
+  queueSavedListToggle(listId: number, itemId: number, isChecked: boolean): void {
+    this.ensureSession();
+    const queue = this.readToggleQueue().filter(
+      item => item.listId !== listId || item.itemId !== itemId
+    );
+    queue.push({ listId, itemId, isChecked, queuedAt: new Date().toISOString() });
+    this.writeToggleQueue(queue);
+
+    const cached = this.getCachedSavedList(listId);
+    const item = cached?.items?.find(entry => entry.id === itemId);
+    if (cached && item) {
+      item.is_checked = isChecked;
+      this.cacheSavedList(cached);
+    }
+  }
+
+  removePendingToggle(listId: number, itemId: number): void {
+    const queue = this.readToggleQueue().filter(
+      item => item.listId !== listId || item.itemId !== itemId
+    );
+    this.writeToggleQueue(queue);
+  }
+
+  applyPendingToggles(list: SavedList): SavedList {
+    for (const pending of this.getPendingToggles(list.id)) {
+      const item = list.items?.find(entry => entry.id === pending.itemId);
+      if (item) item.is_checked = pending.isChecked;
+    }
+    this.cacheSavedList(list);
+    return list;
+  }
+
+  private readToggleQueue(): PendingSavedListToggle[] {
+    try {
+      const stored = localStorage.getItem(this.toggleQueueKey());
+      const queue = stored ? JSON.parse(stored) as PendingSavedListToggle[] : [];
+      return Array.isArray(queue) ? queue : [];
+    } catch {
+      return [];
+    }
+  }
+
+  private writeToggleQueue(queue: PendingSavedListToggle[]): void {
+    try {
+      if (queue.length) {
+        localStorage.setItem(this.toggleQueueKey(), JSON.stringify(queue));
+      } else {
+        localStorage.removeItem(this.toggleQueueKey());
+      }
+    } catch {
+      // A failed write is handled by the component's normal request fallback.
+    }
+  }
+
+  private clearOfflineData(): void {
+    const subject = this.sessionSubject();
+    try {
+      for (let index = localStorage.length - 1; index >= 0; index -= 1) {
+        const key = localStorage.key(index);
+        if (
+          key?.startsWith(`bazkit:saved-list:${subject}:`)
+          || key === `bazkit:saved-list-toggles:${subject}`
+        ) {
+          localStorage.removeItem(key);
+        }
+      }
+    } catch {
+      // In-memory data is still cleared when browser storage is unavailable.
+    }
+    this.cachedDetails.clear();
+    this.cacheSession = '';
   }
 
 
@@ -340,10 +479,4 @@ export class SavedListService {
   }
 
 
-  private getApiRoot(): string {
-    return window.location.hostname === 'localhost'
-      || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000'
-      : 'http://178.104.47.231:8000';
-  }
 }

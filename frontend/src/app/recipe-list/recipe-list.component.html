@@ -56,59 +56,26 @@
 
   <!-- LOADING -->
 
-  <div
-    class="loading-state"
+  <app-ui-state
     *ngIf="isLoading"
-    role="status"
-    aria-live="polite"
-  >
-
-    <div class="loader"></div>
-
-    <span>
-      Rezepte werden geladen...
-    </span>
-
-  </div>
+    kind="loading"
+    message="Rezepte werden geladen…"
+  ></app-ui-state>
 
 
   <!-- ERROR -->
 
-  <div
-    class="error-card"
+  <app-ui-state
     *ngIf="
       !isLoading &&
       errorMessage
     "
-    role="alert"
-  >
-
-    <div class="error-icon">
-      !
-    </div>
-
-    <div>
-
-      <strong>
-        Rezepte konnten nicht geladen werden
-      </strong>
-
-      <p>
-        Beim Laden deiner Rezepte ist
-        ein Fehler aufgetreten.
-      </p>
-
-    </div>
-
-
-    <button
-      type="button"
-      (click)="loadRecipes()"
-    >
-      Erneut versuchen
-    </button>
-
-  </div>
+    kind="error"
+    title="Rezepte konnten nicht geladen werden"
+    [message]="errorMessage"
+    actionLabel="Erneut versuchen"
+    (action)="loadRecipes()"
+  ></app-ui-state>
 
 
   <!-- EMPTY STATE -->
