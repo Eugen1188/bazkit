@@ -32,12 +32,16 @@
             </svg>
             {{ savedList.member_count }} {{ savedList.member_count === 1 ? 'Person' : 'Personen' }}
           </button>
-          <span class="sync-indicator" [class.active]="isRefreshing || isSyncingOfflineChanges" [class.offline]="isOffline" [class.pending]="pendingToggleItemIds.size > 0">
+          <span class="sync-indicator" [class.active]="isRefreshing || isSyncingOfflineChanges" [class.offline]="isOffline" [class.pending]="pendingToggleItemIds.size > 0 || hasPendingListUpdate">
             <i></i>
             {{
               isOffline
-                ? (pendingToggleItemIds.size ? 'Offline – Änderungen vorgemerkt' : 'Offline – letzter Stand')
-                : (isSyncingOfflineChanges ? 'Offline-Änderungen werden übertragen' : (isRefreshing ? 'Wird aktualisiert' : 'Automatisch aktuell'))
+                ? ((pendingToggleItemIds.size || hasPendingListUpdate) ? 'Offline – Änderungen vorgemerkt' : 'Offline – letzter Stand')
+                : (isSyncingOfflineChanges
+                    ? 'Offline-Änderungen werden übertragen'
+                    : (isRefreshing
+                        ? 'Wird aktualisiert'
+                        : (isRealtimeConnected ? 'Live verbunden' : 'Live-Verbindung wird hergestellt')))
             }}
           </span>
         </div>

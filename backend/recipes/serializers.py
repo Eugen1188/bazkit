@@ -129,7 +129,9 @@ class IngredientsSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
     name = serializers.CharField(required=False, allow_blank=True)
     product = serializers.PrimaryKeyRelatedField(
-        queryset=Product.objects.all(), allow_null=True, required=False
+        queryset=Product.objects.filter(catalog_status="approved"),
+        allow_null=True,
+        required=False,
     )
     product_detail = ProductSerializer(source="product", read_only=True)
 

@@ -10,6 +10,7 @@ from .views import (
     SavedListMemberAPIView,
     SavedListLeaveAPIView,
     SavedListInvitationAPIView,
+    SavedListRealtimeTicketAPIView,
     ShoppingListAPIView,
     ShoppingListItemCreateAPIView,
     ShoppingListItemDetailAPIView,
@@ -40,6 +41,12 @@ urlpatterns = [
         "saved-lists/<int:list_id>/items/<int:item_id>/",
         SavedListItemDetailAPIView.as_view(),
         name="saved-list-item-detail"
+    ),
+
+    path(
+        "saved-lists/<int:list_id>/realtime-ticket/",
+        SavedListRealtimeTicketAPIView.as_view(),
+        name="saved-list-realtime-ticket",
     ),
 
     path(

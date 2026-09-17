@@ -5,6 +5,12 @@ from .shopping_taxonomy import SHOPPING_CATEGORY_CHOICES
 
 class Product(models.Model):
 
+    CATALOG_STATUS_CHOICES = [
+        ("pending", "Prüfung ausstehend"),
+        ("approved", "Freigegeben"),
+        ("rejected", "Abgelehnt"),
+    ]
+
     SOURCE_CHOICES = [
         (
             "bls",
@@ -34,6 +40,15 @@ class Product(models.Model):
         default=True,
         db_index=True,
     )
+
+    catalog_status = models.CharField(
+        max_length=20,
+        choices=CATALOG_STATUS_CHOICES,
+        default="approved",
+        db_index=True,
+    )
+
+    catalog_review_note = models.CharField(max_length=250, blank=True)
 
     recipe_exclusion_reason = models.CharField(
         max_length=150,

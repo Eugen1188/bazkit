@@ -1849,6 +1849,17 @@ RESPONSIVE
   color: var(--color-primary);
 }
 
+.block-action {
+  border: 1px solid rgba(166, 77, 77, 0.3);
+  background: transparent;
+  color: #a64d4d;
+}
+
+.block-action:hover:not(:disabled) {
+  border-color: rgba(166, 77, 77, 0.45);
+  background: rgba(166, 77, 77, 0.1);
+}
+
 .community-nutrition-grid {
   margin: 16px 0 22px;
   display: grid;

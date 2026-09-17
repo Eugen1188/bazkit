@@ -20,6 +20,7 @@ import {
   ShoppingListService
 } from '../../services/shopping-list.service';
 import { UserSettingsService } from '../../services/user-settings.service';
+import { UiQuantityInputComponent } from '../ui-quantity-input/ui-quantity-input.component';
 
 
 @Component({
@@ -30,7 +31,8 @@ import { UserSettingsService } from '../../services/user-settings.service';
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiQuantityInputComponent
   ],
 
   templateUrl:
@@ -132,23 +134,6 @@ implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     document.body.style.overflow =
       this.previousBodyOverflow;
-  }
-
-
-  selectQuantityValue(event: Event): void {
-    (event.currentTarget as HTMLInputElement).select();
-  }
-
-
-  adjustProductQuantity(change: 1 | -1, event?: Event): void {
-    event?.preventDefault();
-
-    const currentValue = Number(this.quantity);
-    const nextValue =
-      (Number.isFinite(currentValue) ? currentValue : 0) + change;
-
-    this.quantity =
-      Math.max(0.01, Math.round(nextValue * 100) / 100);
   }
 
 

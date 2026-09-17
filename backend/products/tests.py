@@ -75,6 +75,28 @@ class RecipeCatalogTests(TestCase):
                     f"{alias} ist mehreren Zutaten zugeordnet.",
                 )
 
+    def test_pending_and_rejected_catalog_products_are_not_searchable(self):
+        for status in ("pending", "rejected"):
+            Product.objects.create(
+                name=f"Prüfzutat {status}",
+                canonical_name=f"Prüfzutat {status}",
+                source="usda",
+                external_id=f"review-{status}",
+                catalog_status=status,
+                is_recipe_ingredient=True,
+                **COMPLETE_NUTRITION,
+            )
+
+        request = APIRequestFactory().get(
+            "/products/search/",
+            {"q": "Prüfzutat", "recipe_only": "1"},
+        )
+        force_authenticate(request, user=self.user)
+        response = ProductSearchAPIView.as_view()(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, [])
+
     def test_chocolate_percentages_resolve_to_verified_usda_ranges(self):
         expected = {
             "Zartbitterschokolade 50 %": "Zartbitterschokolade 45–59 %",

@@ -206,6 +206,31 @@ class SavedListInvitation(models.Model):
         return f"{recipient}: {self.saved_list}"
 
 
+class SavedListNotificationDelivery(models.Model):
+    saved_list = models.ForeignKey(
+        SavedList,
+        on_delete=models.CASCADE,
+        related_name="notification_deliveries",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="saved_list_notification_deliveries",
+    )
+    last_sent_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=("saved_list", "user"),
+                name="unique_saved_list_notification_delivery",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.user} – {self.saved_list}"
+
+
 class ShoppingList(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,

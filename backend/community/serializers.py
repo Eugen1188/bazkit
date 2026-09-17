@@ -1,5 +1,8 @@
+from datetime import timedelta
+
 from django.db import transaction
 from django.db.models import Avg
+from django.utils import timezone
 
 from rest_framework import serializers
 
@@ -774,6 +777,21 @@ class CommunityCreatePostSerializer(
                             "Bitte beschreibe dein Thema."
                     }
                 )
+
+            duplicate_exists = CommunityPost.objects.filter(
+                author=request.user,
+                post_type=CommunityPost.POST_TYPE_THREAD,
+                title__iexact=title,
+                content__iexact=content,
+                created_at__gte=timezone.now() - timedelta(minutes=10),
+            ).exists()
+            if duplicate_exists:
+                raise serializers.ValidationError({
+                    "content": "Dieser Beitrag wurde gerade bereits veröffentlicht."
+                })
+
+            attrs["title"] = title
+            attrs["content"] = content
 
         return attrs
 

@@ -4,6 +4,7 @@ import { Observable, of, shareReplay, tap } from 'rxjs';
 
 import {
   CommunityComment,
+  CommunityBlockedUser,
   CommunityCopyResponse,
   CommunityLikeResponse,
   CommunityPost,
@@ -197,6 +198,26 @@ export class CommunityService {
     return this.http.post<CommunityCopyResponse>(
       `${this.apiUrl}posts/${postId}/copy/`,
       {}
+    );
+  }
+
+
+  getBlockedUsers(): Observable<CommunityBlockedUser[]> {
+    return this.http.get<CommunityBlockedUser[]>(`${this.apiUrl}blocks/`);
+  }
+
+
+  blockUser(userId: number): Observable<{ detail: string }> {
+    return this.http.post<{ detail: string }>(
+      `${this.apiUrl}users/${userId}/block/`,
+      {}
+    ).pipe(tap(() => this.invalidatePostCache()));
+  }
+
+
+  unblockUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}users/${userId}/block/`).pipe(
+      tap(() => this.invalidatePostCache())
     );
   }
 }

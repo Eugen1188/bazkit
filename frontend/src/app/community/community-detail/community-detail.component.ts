@@ -25,6 +25,11 @@ import {
   CommunityService
 } from '../../services/community.service';
 import { UiStateComponent } from '../../components/ui-state/ui-state.component';
+import {
+  UiButtonDirective,
+  UiCardDirective,
+  UiDialogDirective,
+} from '../../components/ui-primitives/ui-primitives.directive';
 
 
 @Component({
@@ -37,7 +42,10 @@ import { UiStateComponent } from '../../components/ui-state/ui-state.component';
   imports: [
     CommonModule,
     FormsModule,
-    UiStateComponent
+    UiStateComponent,
+    UiButtonDirective,
+    UiCardDirective,
+    UiDialogDirective
   ],
 
   templateUrl:
@@ -108,6 +116,7 @@ implements OnInit {
   isDeletingPost = false;
   isReportDialogOpen = false;
   isReporting = false;
+  isBlocking = false;
   reportReason = 'spam';
   reportDetails = '';
   editTitle = '';
@@ -674,6 +683,26 @@ implements OnInit {
         console.error('Beitrag konnte nicht gemeldet werden:', error);
         this.isReporting = false;
         this.errorMessage = 'Die Meldung konnte nicht gesendet werden.';
+      }
+    });
+  }
+
+  blockAuthor(): void {
+    if (!this.post || this.post.is_author || this.isBlocking) return;
+    const author = this.post.author;
+    if (!confirm(
+      `${author.name} blockieren? Beiträge, Kommentare und Bewertungen dieser Person werden dir danach nicht mehr angezeigt.`
+    )) return;
+
+    this.isBlocking = true;
+    this.communityService.blockUser(author.id).subscribe({
+      next: () => void this.router.navigate(['/main/community'], {
+        state: { message: `${author.name} wurde blockiert.` }
+      }),
+      error: error => {
+        console.error('Nutzer konnte nicht blockiert werden:', error);
+        this.isBlocking = false;
+        this.errorMessage = 'Der Nutzer konnte nicht blockiert werden.';
       }
     });
   }

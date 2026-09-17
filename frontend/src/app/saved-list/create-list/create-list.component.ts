@@ -10,6 +10,7 @@ import {
 
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 import { UserSettingsService } from '../../services/user-settings.service';
+import { UiQuantityInputComponent } from '../../components/ui-quantity-input/ui-quantity-input.component';
 
 
 interface Product {
@@ -30,7 +31,8 @@ interface Product {
   imports: [
     CommonModule,
     FormsModule,
-    UiIconComponent
+    UiIconComponent,
+    UiQuantityInputComponent
   ],
 
   templateUrl:
@@ -101,23 +103,6 @@ export class CreateListComponent {
 
     this.productUnit =
       this.userSettings.current.shopping_default_unit;
-  }
-
-
-  selectQuantityValue(event: Event): void {
-    (event.currentTarget as HTMLInputElement).select();
-  }
-
-
-  adjustProductQuantity(change: 1 | -1, event?: Event): void {
-    event?.preventDefault();
-
-    const currentValue = Number(this.productQuantity);
-    const nextValue =
-      (Number.isFinite(currentValue) ? currentValue : 0) + change;
-
-    this.productQuantity =
-      Math.max(0.01, Math.round(nextValue * 100) / 100);
   }
 
 

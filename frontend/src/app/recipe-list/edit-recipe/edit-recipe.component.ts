@@ -43,6 +43,7 @@ import {
   parsePreparationSteps,
   serializePreparationSteps
 } from '../preparation-steps';
+import { UiQuantityInputComponent } from '../../components/ui-quantity-input/ui-quantity-input.component';
 
 
 interface PreparationStep {
@@ -64,7 +65,8 @@ interface IngredientSearch {
 
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UiQuantityInputComponent
   ],
 
   templateUrl:

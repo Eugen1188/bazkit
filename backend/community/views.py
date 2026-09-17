@@ -1,4 +1,8 @@
+from datetime import timedelta
+
 from django.db import transaction
+from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 from django.db.models import Avg, Count, Exists, IntegerField, OuterRef, Prefetch, Q, Subquery, Value
 from django.db.models.functions import Coalesce
@@ -25,10 +29,18 @@ from recipes.models import (
 
 from .models import (
     CommunityComment,
+    CommunityBlock,
     CommunityLike,
     CommunityPost,
     CommunityRating,
     CommunityReport,
+)
+from .throttles import (
+    CommunityBlockThrottle,
+    CommunityCommentWriteThrottle,
+    CommunityInteractionThrottle,
+    CommunityPostWriteThrottle,
+    CommunityReportThrottle,
 )
 
 from .serializers import (
@@ -42,12 +54,36 @@ from .serializers import (
     CommunityUpdatePostSerializer,
 )
 from .snapshots import clone_recipe, clone_saved_list, delete_post_snapshot
+from users.storage import get_avatar_url
+
+
+User = get_user_model()
+
+
+class WriteThrottleMixin:
+    write_throttle_class = None
+
+    def get_throttles(self):
+        if self.request.method in {"POST", "PUT", "PATCH", "DELETE"} and self.write_throttle_class:
+            return [self.write_throttle_class()]
+        return []
+
+
+def blocked_user_ids(user):
+    outgoing = CommunityBlock.objects.filter(blocker=user).values_list("blocked_id", flat=True)
+    incoming = CommunityBlock.objects.filter(blocked=user).values_list("blocker_id", flat=True)
+    return set(outgoing).union(incoming)
 
 
 def community_post_queryset(request, *, include_content=False):
-    def related_count(model):
+    excluded_authors = blocked_user_ids(request.user)
+
+    def related_count(model, user_field):
+        counts = model.objects.filter(post_id=OuterRef("pk"))
+        if excluded_authors:
+            counts = counts.exclude(**{f"{user_field}__in": excluded_authors})
         counts = (
-            model.objects.filter(post_id=OuterRef("pk"))
+            counts
             .order_by()
             .values("post_id")
             .annotate(value=Count("id"))
@@ -59,6 +95,8 @@ def community_post_queryset(request, *, include_content=False):
         )
 
     ratings = CommunityRating.objects.filter(post_id=OuterRef("pk"))
+    if excluded_authors:
+        ratings = ratings.exclude(user_id__in=excluded_authors)
     rating_average = (
         ratings.values("post_id")
         .annotate(value=Avg("value"))
@@ -69,9 +107,9 @@ def community_post_queryset(request, *, include_content=False):
         CommunityPost.objects
         .select_related("author", "recipe", "saved_list")
         .annotate(
-            annotated_comment_count=related_count(CommunityComment),
-            annotated_like_count=related_count(CommunityLike),
-            annotated_rating_count=related_count(CommunityRating),
+            annotated_comment_count=related_count(CommunityComment, "author_id"),
+            annotated_like_count=related_count(CommunityLike, "user_id"),
+            annotated_rating_count=related_count(CommunityRating, "user_id"),
             annotated_rating_average=Subquery(rating_average),
             annotated_liked_by_me=Exists(
                 CommunityLike.objects.filter(
@@ -85,14 +123,20 @@ def community_post_queryset(request, *, include_content=False):
         )
     )
 
+    if excluded_authors:
+        queryset = queryset.exclude(author_id__in=excluded_authors)
+
     if include_content:
         return queryset.prefetch_related(
             "recipe__ingredients",
             "saved_list__items",
-            "comments__author",
             Prefetch(
                 "ratings",
-                queryset=CommunityRating.objects.select_related("user").order_by("-updated_at"),
+                queryset=(
+                    CommunityRating.objects.select_related("user")
+                    .exclude(user_id__in=excluded_authors)
+                    .order_by("-updated_at")
+                ),
                 to_attr="prefetched_ratings",
             ),
         )
@@ -100,9 +144,20 @@ def community_post_queryset(request, *, include_content=False):
     return queryset.prefetch_related("saved_list__items")
 
 
+def visible_post(request, post_id, *, include_content=False):
+    return (
+        community_post_queryset(request, include_content=include_content)
+        .filter(id=post_id)
+        .first()
+    )
+
+
 class CommunityPostListCreateAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityPostWriteThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -225,8 +280,11 @@ class CommunityPostListCreateAPIView(
 
 
 class CommunityPostDetailAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityPostWriteThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -333,11 +391,12 @@ class CommunityPostDetailAPIView(
         )
 
 
-class CommunityReportAPIView(APIView):
+class CommunityReportAPIView(WriteThrottleMixin, APIView):
     permission_classes = [IsAuthenticated]
+    write_throttle_class = CommunityReportThrottle
 
     def post(self, request, post_id):
-        post = CommunityPost.objects.filter(id=post_id).first()
+        post = visible_post(request, post_id)
         if not post:
             return Response(
                 {"detail": "Beitrag nicht gefunden."},
@@ -383,8 +442,11 @@ class CommunityReportAPIView(APIView):
 
 
 class CommunityCommentsAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityCommentWriteThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -396,13 +458,7 @@ class CommunityCommentsAPIView(
         post_id
     ):
 
-        post = (
-            CommunityPost.objects
-            .filter(
-                id=post_id
-            )
-            .first()
-        )
+        post = visible_post(request, post_id)
 
         if not post:
 
@@ -415,12 +471,13 @@ class CommunityCommentsAPIView(
                     status.HTTP_404_NOT_FOUND
             )
 
+        excluded_authors = blocked_user_ids(request.user)
         comments = (
             post.comments
             .select_related(
                 "author"
             )
-            .all()
+            .exclude(author_id__in=excluded_authors)
         )
 
         return Response(
@@ -436,13 +493,7 @@ class CommunityCommentsAPIView(
         post_id
     ):
 
-        post = (
-            CommunityPost.objects
-            .filter(
-                id=post_id
-            )
-            .first()
-        )
+        post = visible_post(request, post_id)
 
         if not post:
 
@@ -465,9 +516,23 @@ class CommunityCommentsAPIView(
             raise_exception=True
         )
 
+        normalized_content = serializer.validated_data["content"].strip()
+        recently_posted = CommunityComment.objects.filter(
+            post=post,
+            author=request.user,
+            content__iexact=normalized_content,
+            created_at__gte=timezone.now() - timedelta(minutes=2),
+        ).exists()
+        if recently_posted:
+            return Response(
+                {"content": ["Dieser Kommentar wurde gerade bereits gesendet."]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         comment = serializer.save(
             post=post,
-            author=request.user
+            author=request.user,
+            content=normalized_content,
         )
 
         return Response(
@@ -480,8 +545,11 @@ class CommunityCommentsAPIView(
 
 
 class CommunityCommentDetailAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityCommentWriteThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -523,8 +591,11 @@ class CommunityCommentDetailAPIView(
 
 
 class CommunityLikeAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityInteractionThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -536,13 +607,7 @@ class CommunityLikeAPIView(
         post_id
     ):
 
-        post = (
-            CommunityPost.objects
-            .filter(
-                id=post_id
-            )
-            .first()
-        )
+        post = visible_post(request, post_id)
 
         if not post:
 
@@ -601,8 +666,11 @@ class CommunityLikeAPIView(
 
 
 class CommunityRatingAPIView(
+    WriteThrottleMixin,
     APIView
 ):
+
+    write_throttle_class = CommunityInteractionThrottle
 
     permission_classes = [
         IsAuthenticated
@@ -614,13 +682,7 @@ class CommunityRatingAPIView(
         post_id
     ):
 
-        post = (
-            CommunityPost.objects
-            .filter(
-                id=post_id
-            )
-            .first()
-        )
+        post = visible_post(request, post_id)
 
         if not post:
 
@@ -670,14 +732,8 @@ class CommunityRatingAPIView(
             )
         )
 
-        serializer = (
-            CommunityPostSerializer(
-                post,
-                context={
-                    "request": request
-                }
-            )
-        )
+        post = visible_post(request, post_id)
+        serializer = CommunityPostSerializer(post, context={"request": request})
 
         return Response(
             {
@@ -770,21 +826,7 @@ class CommunityCopyPostAPIView(
         post_id
     ):
 
-        post = (
-            CommunityPost.objects
-            .select_related(
-                "recipe",
-                "saved_list"
-            )
-            .prefetch_related(
-                "recipe__ingredients",
-                "saved_list__items"
-            )
-            .filter(
-                id=post_id
-            )
-            .first()
-        )
+        post = visible_post(request, post_id, include_content=True)
 
         if not post:
 
@@ -858,3 +900,57 @@ class CommunityCopyPostAPIView(
             status=
                 status.HTTP_400_BAD_REQUEST
         )
+
+
+class CommunityBlockedUsersAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        blocks = (
+            CommunityBlock.objects.filter(blocker=request.user)
+            .select_related("blocked")
+            .order_by("blocked__first_name", "blocked__username")
+        )
+        return Response([
+            {
+                "id": block.blocked_id,
+                "name": block.blocked.first_name or block.blocked.username,
+                "avatar_url": get_avatar_url(block.blocked.avatar_key),
+                "blocked_at": block.created_at,
+            }
+            for block in blocks
+        ])
+
+
+class CommunityBlockAPIView(WriteThrottleMixin, APIView):
+    permission_classes = [IsAuthenticated]
+    write_throttle_class = CommunityBlockThrottle
+
+    def post(self, request, user_id):
+        if user_id == request.user.id:
+            return Response(
+                {"detail": "Du kannst dich nicht selbst blockieren."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        blocked_user = User.objects.filter(id=user_id, is_active=True).first()
+        if not blocked_user:
+            return Response(
+                {"detail": "Nutzer nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        CommunityBlock.objects.get_or_create(
+            blocker=request.user,
+            blocked=blocked_user,
+        )
+        return Response({
+            "detail": f"{blocked_user.first_name or blocked_user.username} wurde blockiert."
+        })
+
+    def delete(self, request, user_id):
+        CommunityBlock.objects.filter(
+            blocker=request.user,
+            blocked_id=user_id,
+        ).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

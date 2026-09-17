@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
+from django.core import signing
 from django.core.validators import validate_email
 from django.db import transaction
 from django.db.models import Count, Q
@@ -47,6 +48,9 @@ from .serializers import (
 )
 from .serializers import access_role, display_name
 from users.storage import get_avatar_url
+from .consumers import REALTIME_TICKET_SALT
+from .realtime import broadcast_saved_list_change
+from .notifications import schedule_saved_list_notification
 
 
 logger = logging.getLogger(__name__)
@@ -80,8 +84,28 @@ def can_edit_saved_list(saved_list, user):
     return access_role(saved_list, user) in {"owner", "editor"}
 
 
-def touch_saved_list(saved_list_id):
+def touch_saved_list(saved_list_id, actor=None, action="updated", notify=False):
     SavedList.objects.filter(pk=saved_list_id).update(updated_at=timezone.now())
+    broadcast_saved_list_change(saved_list_id, action=action, actor=actor)
+    if notify:
+        schedule_saved_list_notification(saved_list_id, actor, action)
+
+
+class SavedListRealtimeTicketAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, list_id):
+        if not accessible_saved_lists(request.user).filter(id=list_id).exists():
+            return Response(
+                {"detail": "Liste nicht gefunden."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        ticket = signing.dumps(
+            {"user_id": request.user.id},
+            salt=REALTIME_TICKET_SALT,
+            compress=True,
+        )
+        return Response({"ticket": ticket, "expires_in": 60})
 
 
 def saved_list_queryset(user):
@@ -250,6 +274,8 @@ class SavedListDetailAPIView(
             serializer.save()
         )
 
+        touch_saved_list(pk, request.user, "list.updated", notify=True)
+
         updated_list = saved_list_queryset(request.user).get(pk=updated_list.pk)
 
         return Response(
@@ -286,6 +312,7 @@ class SavedListDetailAPIView(
                 status=status.HTTP_403_FORBIDDEN,
             )
 
+        broadcast_saved_list_change(pk, action="list.deleted", actor=request.user)
         saved_list.delete()
 
         return Response(
@@ -359,7 +386,7 @@ class SavedListItemDetailAPIView(
 
         serializer.save()
 
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "item.updated", notify=True)
 
         return Response(
             serializer.data,
@@ -396,7 +423,7 @@ class SavedListItemDetailAPIView(
 
         item.delete()
 
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "item.deleted", notify=True)
 
         return Response(
             status=status.HTTP_204_NO_CONTENT
@@ -441,7 +468,7 @@ class SavedListItemToggleAPIView(APIView):
         item.checked_by = request.user if requested_state else None
         item.checked_at = timezone.now() if requested_state else None
         item.save(update_fields=["is_checked", "checked_by", "checked_at", "updated_at"])
-        touch_saved_list(saved_list.id)
+        touch_saved_list(saved_list.id, request.user, "item.checked", notify=True)
         return Response(SavedListItemSerializer(item).data)
 
 
@@ -616,7 +643,7 @@ class SavedListCollaborationAPIView(APIView):
             context={"frontend_url": settings.FRONTEND_URL},
         ).data
         payload["email_sent"] = email_sent
-        touch_saved_list(saved_list.id)
+        touch_saved_list(saved_list.id, request.user, "invitation.created")
         return Response(payload, status=status.HTTP_201_CREATED)
 
 
@@ -652,7 +679,7 @@ class SavedListInvitationManageAPIView(APIView):
             return Response({"detail": "Einladung nicht gefunden."}, status=404)
         invitation.revoked_at = timezone.now()
         invitation.save(update_fields=["revoked_at"])
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "invitation.revoked")
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -675,7 +702,7 @@ class SavedListMemberAPIView(APIView):
             return Response({"role": ["Ungültige Berechtigung."]}, status=400)
         membership.role = role
         membership.save(update_fields=["role"])
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "member.updated")
         return Response(collaboration_member(
             membership.user,
             membership.role,
@@ -688,7 +715,7 @@ class SavedListMemberAPIView(APIView):
         if not membership:
             return Response({"detail": "Mitglied nicht gefunden."}, status=404)
         membership.delete()
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "member.removed")
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -706,7 +733,7 @@ class SavedListLeaveAPIView(APIView):
                 status=status.HTTP_404_NOT_FOUND,
             )
         membership.delete()
-        touch_saved_list(list_id)
+        touch_saved_list(list_id, request.user, "member.left")
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -799,7 +826,7 @@ class SavedListInvitationAPIView(APIView):
             membership.save(update_fields=["role"])
         invitation.accepted_at = timezone.now()
         invitation.save(update_fields=["accepted_at"])
-        touch_saved_list(invitation.saved_list_id)
+        touch_saved_list(invitation.saved_list_id, request.user, "member.joined")
         return Response({
             "message": "Du arbeitest jetzt an dieser Liste mit.",
             "list_id": invitation.saved_list_id,

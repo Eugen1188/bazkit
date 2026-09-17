@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription, timer } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import {
   SavedList,
@@ -15,6 +15,7 @@ import {
 } from '../../services/saved-list.service';
 import { ListShareService } from '../../services/list-share.service';
 import { UiStateComponent } from '../../components/ui-state/ui-state.component';
+import { SavedListRealtimeService } from '../../services/saved-list-realtime.service';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   isRefreshing = false;
   isOffline = !navigator.onLine;
   isSyncingOfflineChanges = false;
+  isRealtimeConnected = false;
   isMenuOpen = false;
   isCollaborationOpen = false;
   isCollaborationLoading = false;
@@ -44,15 +46,17 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
   lastInviteUrl = '';
   updatingItemIds = new Set<number>();
   pendingToggleItemIds = new Set<number>();
+  hasPendingListUpdate = false;
 
   private listId = 0;
-  private pollingSubscription?: Subscription;
+  private realtimeSubscription?: Subscription;
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly savedListService: SavedListService,
-    private readonly listShareService: ListShareService
+    private readonly listShareService: ListShareService,
+    private readonly savedListRealtime: SavedListRealtimeService
   ) {}
 
   ngOnInit(): void {
@@ -64,29 +68,44 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     }
 
     this.loadSavedList();
-    this.pollingSubscription = timer(3000, 3000).subscribe(() => {
-      if (navigator.onLine && !document.hidden && !this.isRefreshing && !this.isInviting) {
+    this.realtimeSubscription = this.savedListRealtime.events(this.listId).subscribe(event => {
+      if (event.type === 'connected') {
+        this.isRealtimeConnected = true;
+        if (this.hasPendingListUpdate || this.pendingToggleItemIds.size) this.syncPendingChanges();
+        else this.refreshSavedList();
+        return;
+      }
+      if (event.type === 'disconnected') {
+        this.isRealtimeConnected = false;
+        return;
+      }
+      if (event.action === 'list.deleted') {
+        this.showMessage('Diese Liste wurde gelöscht.');
+        void this.router.navigate(['/main/saved-list']);
+        return;
+      }
+      if (!document.hidden && !this.isRefreshing && !this.isInviting) {
         this.refreshSavedList();
       }
     });
   }
 
   ngOnDestroy(): void {
-    this.pollingSubscription?.unsubscribe();
+    this.realtimeSubscription?.unsubscribe();
   }
 
   loadSavedList(): void {
     const cached = this.savedListService.getCachedSavedList(this.listId);
-    if (cached) this.savedList = this.savedListService.applyPendingToggles(cached);
+    if (cached) this.savedList = this.savedListService.applyPendingChanges(cached);
     this.refreshPendingToggleIds();
     this.isLoading = !cached;
     this.errorMessage = '';
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
-        this.savedList = this.savedListService.applyPendingToggles(list);
+        this.savedList = this.savedListService.applyPendingChanges(list);
         this.isOffline = false;
         this.isLoading = false;
-        if (this.pendingToggleItemIds.size) this.syncPendingToggles();
+        if (this.hasPendingListUpdate || this.pendingToggleItemIds.size) this.syncPendingChanges();
         if (this.route.snapshot.queryParamMap.get('collaborate') === '1') {
           this.openCollaboration();
         }
@@ -104,7 +123,7 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     this.isRefreshing = true;
     this.savedListService.getSavedList(this.listId).subscribe({
       next: list => {
-        this.savedList = this.savedListService.applyPendingToggles(list);
+        this.savedList = this.savedListService.applyPendingChanges(list);
         this.refreshPendingToggleIds();
         this.isOffline = false;
         this.isRefreshing = false;
@@ -194,8 +213,8 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     this.isOffline = false;
     if (!this.listId) return;
     this.refreshPendingToggleIds();
-    if (this.pendingToggleItemIds.size) {
-      this.syncPendingToggles();
+    if (this.hasPendingListUpdate || this.pendingToggleItemIds.size) {
+      this.syncPendingChanges();
     } else {
       this.refreshSavedList();
     }
@@ -210,6 +229,39 @@ export class SavedListDetailComponent implements OnInit, OnDestroy {
     this.pendingToggleItemIds = new Set(
       this.savedListService.getPendingToggles(this.listId).map(item => item.itemId)
     );
+    this.hasPendingListUpdate = Boolean(this.savedListService.getPendingUpdate(this.listId));
+  }
+
+  private syncPendingChanges(): void {
+    if (this.isSyncingOfflineChanges || !navigator.onLine || !this.savedList?.can_edit) return;
+    const pendingUpdate = this.savedListService.getPendingUpdate(this.listId);
+    if (!pendingUpdate) {
+      this.syncPendingToggles();
+      return;
+    }
+
+    this.isSyncingOfflineChanges = true;
+    this.savedListService.updateSavedList(this.listId, pendingUpdate.payload).subscribe({
+      next: list => {
+        this.savedListService.removePendingUpdate(this.listId);
+        this.hasPendingListUpdate = false;
+        this.savedList = this.savedListService.applyPendingToggles(list);
+        this.isSyncingOfflineChanges = false;
+        this.syncPendingToggles();
+      },
+      error: error => {
+        this.isSyncingOfflineChanges = false;
+        if (error?.status === 403 || error?.status === 404) {
+          this.savedListService.removePendingUpdate(this.listId);
+          this.hasPendingListUpdate = false;
+          this.showMessage('Die vorgemerkten Änderungen konnten nicht mehr übernommen werden.');
+          this.refreshSavedList();
+          return;
+        }
+        this.isOffline = true;
+        this.showMessage('Die Offline-Änderungen werden bei der nächsten Verbindung erneut übertragen.');
+      }
+    });
   }
 
   private syncPendingToggles(): void {

@@ -1,6 +1,8 @@
 from django.urls import path
 
 from .views import (
+    CommunityBlockedUsersAPIView,
+    CommunityBlockAPIView,
     CommunityCommentDetailAPIView,
     CommunityCommentsAPIView,
     CommunityCopyPostAPIView,
@@ -14,6 +16,18 @@ from .views import (
 
 
 urlpatterns = [
+
+    path(
+        "blocks/",
+        CommunityBlockedUsersAPIView.as_view(),
+        name="community-blocked-users"
+    ),
+
+    path(
+        "users/<int:user_id>/block/",
+        CommunityBlockAPIView.as_view(),
+        name="community-block-user"
+    ),
 
     path(
         "posts/",

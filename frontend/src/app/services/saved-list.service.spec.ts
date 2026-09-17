@@ -57,4 +57,18 @@ describe('SavedListService offline changes', () => {
 
     expect(service.getPendingToggles(7)).toEqual([]);
   });
+
+  it('stores a complete offline list update per list', () => {
+    service.queueSavedListUpdate(7, {
+      title: 'Offline geändert',
+      items: [{ name: 'Hafermilch', quantity: 2, unit: 'Packung', note: 'Bio' }]
+    });
+
+    const pending = service.getPendingUpdate(7);
+    expect(pending?.payload.title).toBe('Offline geändert');
+    expect(pending?.payload.items[0].note).toBe('Bio');
+
+    service.removePendingUpdate(7);
+    expect(service.getPendingUpdate(7)).toBeNull();
+  });
 });

@@ -98,6 +98,8 @@ implements OnInit, OnDestroy {
   errorMessage =
     '';
 
+  noticeMessage = '';
+
 
   isCreateModalOpen =
     false;
@@ -247,6 +249,10 @@ implements OnInit, OnDestroy {
   ngOnInit():
     void {
 
+    this.noticeMessage = String(history.state?.message || '');
+    if (this.noticeMessage) {
+      history.replaceState({ ...history.state, message: null }, '');
+    }
     this.loadPosts();
   }
 

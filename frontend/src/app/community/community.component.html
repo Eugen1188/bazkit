@@ -1,5 +1,9 @@
 <div class="community-container">
 
+  <div class="community-notice" *ngIf="noticeMessage" role="status" aria-live="polite">
+    {{ noticeMessage }}
+  </div>
+
   <!-- =====================================
        HEADER
   ====================================== -->

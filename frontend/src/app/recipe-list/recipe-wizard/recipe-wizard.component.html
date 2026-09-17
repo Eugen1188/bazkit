@@ -273,40 +273,11 @@
 
                   <div class="field amount-field">
                     <label [for]="'ingredientAmount' + i">Menge</label>
-                    <div class="quantity-control">
-                      <input
-                        [id]="'ingredientAmount' + i"
-                        type="number"
-                        min="0.01"
-                        step="any"
-                        inputmode="decimal"
-                        [(ngModel)]="ingredient.quantity"
-                        (click)="selectQuantityValue($event)"
-                        (keydown.arrowup)="adjustIngredientQuantity(i, 1, $event)"
-                        (keydown.arrowdown)="adjustIngredientQuantity(i, -1, $event)"
-                        (ngModelChange)="onIngredientAmountChange(i)"
-                      />
-                      <div class="quantity-stepper">
-                        <button
-                          type="button"
-                          tabindex="-1"
-                          aria-label="Menge um 1 erhöhen"
-                          (mousedown)="$event.preventDefault()"
-                          (click)="adjustIngredientQuantity(i, 1)"
-                        >
-                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 14 5-5 5 5"></path></svg>
-                        </button>
-                        <button
-                          type="button"
-                          tabindex="-1"
-                          aria-label="Menge um 1 verringern"
-                          (mousedown)="$event.preventDefault()"
-                          (click)="adjustIngredientQuantity(i, -1)"
-                        >
-                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg>
-                        </button>
-                      </div>
-                    </div>
+                    <app-ui-quantity-input
+                      [inputId]="'ingredientAmount' + i"
+                      [(ngModel)]="ingredient.quantity"
+                      (ngModelChange)="onIngredientAmountChange(i)"
+                    ></app-ui-quantity-input>
                   </div>
 
                   <div class="field unit-field">

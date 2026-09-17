@@ -30,6 +30,13 @@ import {
   AIRecipeUsage,
   AIUsageService,
 } from '../services/ai-usage.service';
+import { CommunityBlockedUser } from '../models/community.model';
+import { CommunityService } from '../services/community.service';
+import {
+  UiButtonDirective,
+  UiCardDirective,
+  UiDialogDirective,
+} from '../components/ui-primitives/ui-primitives.directive';
 
 
 interface PreferenceOption {
@@ -52,7 +59,15 @@ type SaveState = 'idle' | 'saving' | 'saved' | 'error';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, UiIconComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    UiIconComponent,
+    UiButtonDirective,
+    UiCardDirective,
+    UiDialogDirective,
+  ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
@@ -68,6 +83,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   saveState: SaveState = 'idle';
   activeDialog: SettingsDialog = null;
   aiUsage: AIRecipeUsage | null = null;
+  blockedUsers: CommunityBlockedUser[] = [];
+  readonly unblockingUserIds = new Set<number>();
 
   profileForm = {
     first_name: '',
@@ -120,6 +137,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private readonly authService: AuthService,
     private readonly userSettings: UserSettingsService,
     private readonly aiUsageService: AIUsageService,
+    private readonly communityService: CommunityService,
     private readonly router: Router,
   ) {
     this.subscriptions.add(
@@ -202,11 +220,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
         profile: this.authService.getMe(),
         settings: this.userSettings.load(),
         aiUsage: this.aiUsageService.load().pipe(catchError(() => of(null))),
+        blockedUsers: this.communityService.getBlockedUsers().pipe(
+          catchError(() => of([] as CommunityBlockedUser[]))
+        ),
       }).subscribe({
-        next: ({ profile, settings, aiUsage }) => {
+        next: ({ profile, settings, aiUsage, blockedUsers }) => {
           this.profile = profile;
           this.settings = this.cloneSettings(settings);
           this.aiUsage = aiUsage;
+          this.blockedUsers = blockedUsers;
           this.authService.storeCurrentUser(profile);
           this.isLoading = false;
         },
@@ -226,6 +248,27 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.saveState = 'idle';
     this.userSettings.preview(this.settings);
     this.saveSettings$.next();
+  }
+
+  unblockUser(user: CommunityBlockedUser): void {
+    if (this.unblockingUserIds.has(user.id)) return;
+    this.unblockingUserIds.add(user.id);
+    this.subscriptions.add(
+      this.communityService.unblockUser(user.id).pipe(
+        finalize(() => this.unblockingUserIds.delete(user.id))
+      ).subscribe({
+        next: () => {
+          this.blockedUsers = this.blockedUsers.filter(item => item.id !== user.id);
+          this.pageMessage = `${user.name} wurde wieder freigegeben.`;
+        },
+        error: error => {
+          this.pageMessage = this.apiError(
+            error,
+            'Die Blockierung konnte nicht aufgehoben werden.'
+          );
+        }
+      })
+    );
   }
 
   setAppearance(value: AppearanceMode): void {

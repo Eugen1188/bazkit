@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 from django.contrib.auth import get_user_model
+from django.core import mail
 from django.test import SimpleTestCase
 from django.test import TestCase
 from django.test import override_settings
@@ -8,6 +9,7 @@ from rest_framework.test import APIClient, APIRequestFactory, force_authenticate
 
 from products.models import Product
 from recipes.models import Ingredients, Recipe
+from users.models import UserSettings
 
 from .categories import shopping_category
 from .models import (
@@ -15,6 +17,7 @@ from .models import (
     SavedListInvitation,
     SavedListItem,
     SavedListMembership,
+    SavedListNotificationDelivery,
     ShoppingListItem,
 )
 from .views import AddRecipeToShoppingListAPIView
@@ -235,3 +238,69 @@ class SavedListCollaborationTests(TestCase):
         self.assertFalse(SavedListMembership.objects.filter(
             saved_list=self.saved_list, user=self.viewer,
         ).exists())
+
+    def test_member_can_request_short_lived_realtime_ticket(self):
+        SavedListMembership.objects.create(
+            saved_list=self.saved_list,
+            user=self.editor,
+            role="editor",
+        )
+        response = self.client_for(self.editor).post(
+            f"/lists/saved-lists/{self.saved_list.id}/realtime-ticket/",
+            {},
+            format="json",
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.data["ticket"])
+        self.assertEqual(response.data["expires_in"], 60)
+
+    def test_list_change_email_honors_preference_and_cooldown(self):
+        SavedListMembership.objects.create(
+            saved_list=self.saved_list,
+            user=self.editor,
+            role="editor",
+        )
+        UserSettings.objects.create(
+            user=self.owner,
+            notification_shared_lists=True,
+        )
+        editor_client = self.client_for(self.editor)
+
+        with self.captureOnCommitCallbacks(execute=True):
+            first = editor_client.patch(
+                f"/lists/saved-lists/{self.saved_list.id}/items/{self.item.id}/toggle/",
+                {"is_checked": True},
+                format="json",
+            )
+        self.assertEqual(first.status_code, 200)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn("Gemeinsamer Einkauf", mail.outbox[0].subject)
+        self.assertTrue(SavedListNotificationDelivery.objects.filter(
+            saved_list=self.saved_list,
+            user=self.owner,
+        ).exists())
+
+        with self.captureOnCommitCallbacks(execute=True):
+            second = editor_client.patch(
+                f"/lists/saved-lists/{self.saved_list.id}/items/{self.item.id}/toggle/",
+                {"is_checked": False},
+                format="json",
+            )
+        self.assertEqual(second.status_code, 200)
+        self.assertEqual(len(mail.outbox), 1)
+
+        UserSettings.objects.filter(user=self.owner).update(
+            notification_shared_lists=False
+        )
+        SavedListNotificationDelivery.objects.filter(
+            saved_list=self.saved_list,
+            user=self.owner,
+        ).delete()
+        with self.captureOnCommitCallbacks(execute=True):
+            third = editor_client.patch(
+                f"/lists/saved-lists/{self.saved_list.id}/items/{self.item.id}/toggle/",
+                {"is_checked": True},
+                format="json",
+            )
+        self.assertEqual(third.status_code, 200)
+        self.assertEqual(len(mail.outbox), 1)

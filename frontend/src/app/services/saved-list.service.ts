@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
+  catchError,
   finalize,
   Observable,
   of,
   shareReplay,
   tap,
+  throwError,
   timeout
 } from 'rxjs';
 import { PriceSnapshot } from './product.service';
@@ -105,6 +107,12 @@ export interface PendingSavedListToggle {
   queuedAt: string;
 }
 
+export interface PendingSavedListUpdate {
+  listId: number;
+  payload: CreateSavedListPayload;
+  queuedAt: string;
+}
+
 
 @Injectable({ providedIn: 'root' })
 export class SavedListService {
@@ -157,8 +165,16 @@ export class SavedListService {
     return `bazkit:saved-list:${this.sessionSubject()}:${id}`;
   }
 
+  private listOverviewCacheKey(): string {
+    return `bazkit:saved-lists:${this.sessionSubject()}`;
+  }
+
   private toggleQueueKey(): string {
     return `bazkit:saved-list-toggles:${this.sessionSubject()}`;
+  }
+
+  private updateQueueKey(): string {
+    return `bazkit:saved-list-updates:${this.sessionSubject()}`;
   }
 
   private cacheSavedList(list: SavedList): void {
@@ -198,6 +214,12 @@ export class SavedListService {
       return this.inFlightRequest;
     }
 
+    const offlineLists = this.readSavedListOverview();
+    if (!navigator.onLine && offlineLists) {
+      this.cachedLists = offlineLists;
+      return of(offlineLists);
+    }
+
     const revision = this.cacheRevision;
     const request = this.http.get<SavedList[]>(this.apiUrl).pipe(
       timeout({ first: 15_000 }),
@@ -208,7 +230,16 @@ export class SavedListService {
         ) {
           this.cachedLists = lists;
           this.cacheExpiresAt = Date.now() + this.cacheLifetimeMs;
+          this.writeSavedListOverview(lists);
         }
+      }),
+      catchError(error => {
+        const fallback = this.readSavedListOverview();
+        if (fallback && (error?.status === 0 || error?.name === 'TimeoutError')) {
+          this.cachedLists = fallback;
+          return of(fallback);
+        }
+        return throwError(() => error);
       }),
       finalize(() => {
         if (this.inFlightRequest === request) {
@@ -273,6 +304,7 @@ export class SavedListService {
     if (cached && item) {
       item.is_checked = isChecked;
       this.cacheSavedList(cached);
+      this.updateOfflineOverview(cached);
     }
   }
 
@@ -283,6 +315,39 @@ export class SavedListService {
     this.writeToggleQueue(queue);
   }
 
+  getPendingUpdate(listId: number): PendingSavedListUpdate | null {
+    this.ensureSession();
+    return this.readUpdateQueue().find(update => update.listId === listId) ?? null;
+  }
+
+  queueSavedListUpdate(listId: number, payload: CreateSavedListPayload): void {
+    this.ensureSession();
+    const queue = this.readUpdateQueue().filter(update => update.listId !== listId);
+    const storedPayload = JSON.parse(JSON.stringify(payload)) as CreateSavedListPayload;
+    queue.push({ listId, payload: storedPayload, queuedAt: new Date().toISOString() });
+    this.writeUpdateQueue(queue);
+
+    const cached = this.getCachedSavedList(listId);
+    if (!cached) return;
+    const existingById = new Map((cached.items ?? []).map(item => [item.id, item]));
+    cached.title = storedPayload.title;
+    cached.items = storedPayload.items.map(item => ({
+      ...existingById.get(item.id),
+      ...item,
+    }));
+    cached.item_count = cached.items.length;
+    cached.checked_count = cached.items.filter(item => item.is_checked).length;
+    cached.updated_at = new Date().toISOString();
+    this.cacheSavedList(cached);
+    this.updateOfflineOverview(cached);
+  }
+
+  removePendingUpdate(listId: number): void {
+    this.writeUpdateQueue(
+      this.readUpdateQueue().filter(update => update.listId !== listId)
+    );
+  }
+
   applyPendingToggles(list: SavedList): SavedList {
     for (const pending of this.getPendingToggles(list.id)) {
       const item = list.items?.find(entry => entry.id === pending.itemId);
@@ -290,6 +355,21 @@ export class SavedListService {
     }
     this.cacheSavedList(list);
     return list;
+  }
+
+  applyPendingChanges(list: SavedList): SavedList {
+    const pendingUpdate = this.getPendingUpdate(list.id);
+    if (pendingUpdate) {
+      const existingById = new Map((list.items ?? []).map(item => [item.id, item]));
+      list.title = pendingUpdate.payload.title;
+      list.items = pendingUpdate.payload.items.map(item => ({
+        ...existingById.get(item.id),
+        ...item,
+      }));
+      list.item_count = list.items.length;
+      list.checked_count = list.items.filter(item => item.is_checked).length;
+    }
+    return this.applyPendingToggles(list);
   }
 
   private readToggleQueue(): PendingSavedListToggle[] {
@@ -314,6 +394,25 @@ export class SavedListService {
     }
   }
 
+  private readUpdateQueue(): PendingSavedListUpdate[] {
+    try {
+      const stored = localStorage.getItem(this.updateQueueKey());
+      const queue = stored ? JSON.parse(stored) as PendingSavedListUpdate[] : [];
+      return Array.isArray(queue) ? queue : [];
+    } catch {
+      return [];
+    }
+  }
+
+  private writeUpdateQueue(queue: PendingSavedListUpdate[]): void {
+    try {
+      if (queue.length) localStorage.setItem(this.updateQueueKey(), JSON.stringify(queue));
+      else localStorage.removeItem(this.updateQueueKey());
+    } catch {
+      // The online save path remains available if browser storage is unavailable.
+    }
+  }
+
   private clearOfflineData(): void {
     const subject = this.sessionSubject();
     try {
@@ -321,7 +420,9 @@ export class SavedListService {
         const key = localStorage.key(index);
         if (
           key?.startsWith(`bazkit:saved-list:${subject}:`)
+          || key === `bazkit:saved-lists:${subject}`
           || key === `bazkit:saved-list-toggles:${subject}`
+          || key === `bazkit:saved-list-updates:${subject}`
         ) {
           localStorage.removeItem(key);
         }
@@ -333,13 +434,50 @@ export class SavedListService {
     this.cacheSession = '';
   }
 
+  private readSavedListOverview(): SavedList[] | null {
+    try {
+      const stored = localStorage.getItem(this.listOverviewCacheKey());
+      if (!stored) return null;
+      const lists = JSON.parse(stored) as SavedList[];
+      return Array.isArray(lists) ? lists : null;
+    } catch {
+      return null;
+    }
+  }
+
+  private writeSavedListOverview(lists: SavedList[]): void {
+    try {
+      localStorage.setItem(this.listOverviewCacheKey(), JSON.stringify(lists));
+    } catch {
+      // Die Detailansichten bleiben auch bei vollem Browserspeicher nutzbar.
+    }
+  }
+
+  private updateOfflineOverview(list: SavedList): void {
+    const overview = this.readSavedListOverview();
+    if (!overview) return;
+    const index = overview.findIndex(item => item.id === list.id);
+    if (index < 0) return;
+    overview[index] = {
+      ...overview[index],
+      title: list.title,
+      item_count: list.item_count,
+      checked_count: list.checked_count,
+      updated_at: list.updated_at,
+    };
+    this.writeSavedListOverview(overview);
+  }
+
 
   updateSavedList(
     id: number,
     payload: CreateSavedListPayload
   ): Observable<SavedList> {
     return this.http.put<SavedList>(`${this.apiUrl}${id}/`, payload).pipe(
-      tap(() => this.invalidateListCache())
+      tap(list => {
+        this.cacheSavedList(list);
+        this.invalidateListCache();
+      })
     );
   }
 

@@ -20,11 +20,24 @@ class ProductUnitConversionInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "name", "canonical_name", "source", "is_recipe_ingredient",
-        "has_complete_nutrition",
+        "has_complete_nutrition", "catalog_status",
     )
-    list_filter = ("source", "is_recipe_ingredient")
+    list_filter = ("catalog_status", "source", "is_recipe_ingredient")
     search_fields = ("name", "canonical_name", "aliases__alias")
     inlines = (ProductAliasInline, ProductUnitConversionInline)
+    actions = ("approve_products", "reject_products", "mark_products_pending")
+
+    @admin.action(description="Ausgewählte Zutaten freigeben")
+    def approve_products(self, request, queryset):
+        queryset.update(catalog_status="approved")
+
+    @admin.action(description="Ausgewählte Zutaten ablehnen")
+    def reject_products(self, request, queryset):
+        queryset.update(catalog_status="rejected")
+
+    @admin.action(description="Ausgewählte Zutaten erneut prüfen")
+    def mark_products_pending(self, request, queryset):
+        queryset.update(catalog_status="pending")
 
 
 @admin.register(ProductAlias)

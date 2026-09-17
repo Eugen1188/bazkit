@@ -10,6 +10,7 @@ from products.models import Product
 from recipes.models import Ingredients, Recipe
 
 from .models import (
+    CommunityBlock,
     CommunityComment,
     CommunityLike,
     CommunityPost,
@@ -289,3 +290,76 @@ class CommunitySnapshotTests(APITestCase):
         )
         self.assertEqual(response.status_code, 400)
         self.assertFalse(CommunityReport.objects.exists())
+
+    def test_blocked_users_are_hidden_in_both_directions_and_can_be_unblocked(self):
+        post = CommunityPost.objects.create(
+            author=self.other_user,
+            post_type="thread",
+            title="Unsichtbarer Beitrag",
+            content="Dieser Inhalt wird blockiert.",
+            thread_category="other",
+        )
+
+        blocked = self.client.post(
+            f"/community/users/{self.other_user.id}/block/",
+            {},
+            format="json",
+        )
+        self.assertEqual(blocked.status_code, 200)
+        self.assertTrue(CommunityBlock.objects.filter(
+            blocker=self.user,
+            blocked=self.other_user,
+        ).exists())
+        self.assertEqual(self.client.get("/community/posts/").data, [])
+        self.assertEqual(
+            self.client.get(f"/community/posts/{post.id}/").status_code,
+            404,
+        )
+
+        own_post = CommunityPost.objects.create(
+            author=self.user,
+            post_type="thread",
+            title="Beitrag des Blockierenden",
+            content="Auch dieser Beitrag wird in Gegenrichtung verborgen.",
+            thread_category="other",
+        )
+        self.client.force_authenticate(self.other_user)
+        other_posts = self.client.get("/community/posts/").data
+        self.assertNotIn(own_post.id, [item["id"] for item in other_posts])
+
+        self.client.force_authenticate(self.user)
+        listed = self.client.get("/community/blocks/")
+        self.assertEqual(listed.status_code, 200)
+        self.assertEqual(listed.data[0]["id"], self.other_user.id)
+        unblocked = self.client.delete(
+            f"/community/users/{self.other_user.id}/block/"
+        )
+        self.assertEqual(unblocked.status_code, 204)
+        self.assertEqual(len(self.client.get("/community/posts/").data), 2)
+
+    def test_duplicate_threads_and_comments_are_rejected(self):
+        payload = {
+            "post_type": "thread",
+            "title": "Doppelt",
+            "content": "Bitte nur einmal veröffentlichen.",
+            "thread_category": "other",
+        }
+        first = self.client.post("/community/posts/", payload, format="json")
+        second = self.client.post("/community/posts/", payload, format="json")
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(second.status_code, 400)
+
+        post_id = first.data["id"]
+        comment = {"content": "Gleicher Kommentar"}
+        self.assertEqual(
+            self.client.post(
+                f"/community/posts/{post_id}/comments/", comment, format="json"
+            ).status_code,
+            201,
+        )
+        self.assertEqual(
+            self.client.post(
+                f"/community/posts/{post_id}/comments/", comment, format="json"
+            ).status_code,
+            400,
+        )

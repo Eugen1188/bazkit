@@ -13,6 +13,11 @@ export interface CommunityAuthor {
 }
 
 
+export interface CommunityBlockedUser extends CommunityAuthor {
+  blocked_at: string;
+}
+
+
 export interface CommunityIngredient {
   id: number;
 

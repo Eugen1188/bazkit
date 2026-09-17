@@ -96,6 +96,8 @@ INSTALLED_APPS = [
 
     "rest_framework",
 
+    "channels",
+
 
     "users",
 
@@ -194,6 +196,17 @@ TEMPLATES = [
 WSGI_APPLICATION = (
     "config.wsgi.application"
 )
+
+ASGI_APPLICATION = "config.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.getenv("REDIS_URL", "redis://localhost:6379/0")],
+        },
+    },
+}
 
 
 # ==========================================

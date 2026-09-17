@@ -7,6 +7,7 @@ import { ProductService, ProductSuggestion } from '../../services/product.servic
 import { RecipeIngredient, RecipePayload, RecipeService } from '../../services/recipe.service';
 import { UserSettingsService } from '../../services/user-settings.service';
 import { serializePreparationSteps } from '../preparation-steps';
+import { UiQuantityInputComponent } from '../../components/ui-quantity-input/ui-quantity-input.component';
 
 interface PreparationStep { text: string; }
 interface IngredientSearch { index: number; query: string; }
@@ -14,7 +15,7 @@ interface IngredientSearch { index: number; query: string; }
 @Component({
   selector: 'app-create-recipe',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UiQuantityInputComponent],
   templateUrl: '../recipe-wizard/recipe-wizard.component.html',
   styleUrl: '../recipe-wizard/recipe-wizard.component.scss',
 })

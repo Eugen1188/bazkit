@@ -2,11 +2,19 @@ from django.contrib import admin
 
 from .models import (
     CommunityComment,
+    CommunityBlock,
     CommunityLike,
     CommunityPost,
     CommunityRating,
     CommunityReport,
 )
+
+
+@admin.register(CommunityBlock)
+class CommunityBlockAdmin(admin.ModelAdmin):
+    list_display = ("id", "blocker", "blocked", "created_at")
+    search_fields = ("blocker__email", "blocked__email")
+    list_select_related = ("blocker", "blocked")
 
 
 @admin.register(

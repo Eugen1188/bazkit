@@ -43,7 +43,7 @@
     "
   >
 
-    <article class="post-detail-card">
+    <article appUiCard class="post-detail-card">
 
       <!-- ===================================
            HERO
@@ -209,9 +209,21 @@
           </div>
 
           <div class="author-actions" *ngIf="!post.is_author">
-            <button type="button" class="report-action" (click)="openReportDialog()">
+            <button type="button" class="report-action" appUiButton="quiet" (click)="openReportDialog()">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 1h11l-2 4 2 4H5"></path></svg>
               Beitrag melden
+            </button>
+            <button
+              type="button"
+              class="block-action"
+              appUiButton="danger"
+              [disabled]="isBlocking"
+              (click)="blockAuthor()"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle><path d="M6 6l12 12"></path>
+              </svg>
+              {{ isBlocking ? 'Wird blockiert…' : 'Nutzer blockieren' }}
             </button>
           </div>
 
@@ -880,7 +892,7 @@
   </div>
 
   <div class="edit-dialog-backdrop" *ngIf="isReportDialogOpen" (click)="closeReportDialog()">
-    <section class="edit-dialog report-dialog" role="dialog" aria-modal="true" aria-labelledby="report-post-title" (click)="$event.stopPropagation()">
+    <section appUiDialog class="edit-dialog report-dialog" role="dialog" aria-modal="true" aria-labelledby="report-post-title" (click)="$event.stopPropagation()">
       <header>
         <div><span>Community-Sicherheit</span><h2 id="report-post-title">Beitrag melden</h2></div>
         <button type="button" aria-label="Dialog schließen" [disabled]="isReporting" (click)="closeReportDialog()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>

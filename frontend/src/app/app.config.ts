@@ -1,7 +1,9 @@
 import {
   ApplicationConfig,
+  isDevMode,
   provideZoneChangeDetection
 } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 import {
   provideRouter
@@ -36,6 +38,11 @@ export const appConfig: ApplicationConfig = {
         authInterceptor
       ])
     ),
+
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
 
   ]
 

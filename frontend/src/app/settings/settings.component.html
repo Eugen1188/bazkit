@@ -266,6 +266,78 @@
       </div>
     </section>
 
+    <section appUiCard class="settings-card community-safety-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3 5 6v5c0 4.8 2.8 8.1 7 10 4.2-1.9 7-5.2 7-10V6l-7-3Z"></path>
+            <path d="m9 12 2 2 4-5"></path>
+          </svg>
+        </span>
+        <div>
+          <h2>Community-Sicherheit</h2>
+          <p>Verwalte Personen, deren Inhalte du ausgeblendet hast.</p>
+        </div>
+      </div>
+
+      <p class="blocked-empty" *ngIf="blockedUsers.length === 0">
+        Du hast derzeit niemanden blockiert.
+      </p>
+
+      <div class="blocked-user-list" *ngIf="blockedUsers.length > 0">
+        <div class="blocked-user" *ngFor="let user of blockedUsers">
+          <span class="blocked-user-avatar" aria-hidden="true">
+            <img *ngIf="user.avatar_url" [src]="user.avatar_url" alt="" />
+            <span *ngIf="!user.avatar_url">{{ user.name.charAt(0).toUpperCase() }}</span>
+          </span>
+          <div>
+            <strong>{{ user.name }}</strong>
+            <small>Blockiert seit {{ user.blocked_at | date:'dd.MM.yyyy' }}</small>
+          </div>
+          <button
+            type="button"
+            class="outline-button"
+            appUiButton="secondary"
+            [disabled]="unblockingUserIds.has(user.id)"
+            (click)="unblockUser(user)"
+          >
+            {{ unblockingUserIds.has(user.id) ? 'Wird freigegeben…' : 'Freigeben' }}
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+            <path d="M10 21h4"></path>
+          </svg>
+        </span>
+        <div>
+          <h2>Benachrichtigungen</h2>
+          <p>Du entscheidest, ob gemeinsame Listen dir E-Mails senden dürfen.</p>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <strong>Änderungen an gemeinsamen Listen</strong>
+          <span>Informiert dich per E-Mail, wenn andere eine gemeinsame Liste ändern – höchstens einmal in 15 Minuten.</span>
+        </div>
+        <label class="switch">
+          <input
+            type="checkbox"
+            [(ngModel)]="settings.notification_shared_lists"
+            (ngModelChange)="settingsChanged()"
+            aria-label="E-Mail-Benachrichtigungen für gemeinsame Listen"
+          />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+    </section>
+
     <section class="settings-card">
       <div class="card-heading">
         <span class="heading-icon" aria-hidden="true">
@@ -400,6 +472,7 @@
 >
   <form
     class="settings-dialog"
+    appUiDialog
     *ngIf="activeDialog === 'profile'"
     (mousedown)="$event.stopPropagation()"
     (ngSubmit)="saveProfile()"

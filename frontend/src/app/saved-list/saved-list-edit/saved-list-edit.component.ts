@@ -20,6 +20,7 @@ import {
 } from '../../services/saved-list.service';
 import { UiIconComponent } from '../../components/ui-icon/ui-icon.component';
 import { UserSettingsService } from '../../services/user-settings.service';
+import { UiQuantityInputComponent } from '../../components/ui-quantity-input/ui-quantity-input.component';
 
 
 interface Product {
@@ -40,7 +41,8 @@ interface Product {
   imports: [
     CommonModule,
     FormsModule,
-    UiIconComponent
+    UiIconComponent,
+    UiQuantityInputComponent
   ],
 
   templateUrl:
@@ -169,8 +171,9 @@ implements OnInit {
     }
 
 
-    this.isLoading =
-      true;
+    const cached = this.savedListService.getCachedSavedList(this.listId);
+    if (cached?.can_edit) this.applyList(cached);
+    this.isLoading = !cached;
 
     this.errorMessage =
       '';
@@ -191,56 +194,7 @@ implements OnInit {
             return;
           }
 
-          this.listName =
-            list.title;
-
-
-          this.products =
-            (
-              list.items ??
-              []
-            )
-              .map(
-                item => ({
-                  id:
-                    item.id,
-
-                  product:
-                    item.product ?? null,
-
-                  name:
-                    item.name ||
-                    item.product_name ||
-                    '',
-
-                  quantity:
-                    Number(
-                      item.quantity
-                    ),
-
-                  unit:
-                    item.unit,
-
-                  note:
-                    item.note ?? '',
-
-                  estimated_price: item.estimated_price,
-                  price_source: item.price_source,
-                  price_currency: item.price_currency,
-                  price_date: item.price_date,
-                  price_store: item.price_store,
-                  price_sample_count: item.price_sample_count,
-                  price_min: item.price_min,
-                  price_max: item.price_max,
-                  package_price: item.package_price,
-                  package_quantity: item.package_quantity,
-                  package_unit: item.package_unit
-                })
-              );
-
-
-          this.isLoading =
-            false;
+          this.applyList(list);
         },
 
 
@@ -253,31 +207,13 @@ implements OnInit {
             error
           );
 
-          this.errorMessage =
-            'Die Liste konnte nicht geladen werden.';
+          if (!cached) this.errorMessage = 'Die Liste konnte nicht geladen werden.';
 
           this.isLoading =
             false;
         }
 
       });
-  }
-
-
-  selectQuantityValue(event: Event): void {
-    (event.currentTarget as HTMLInputElement).select();
-  }
-
-
-  adjustProductQuantity(change: 1 | -1, event?: Event): void {
-    event?.preventDefault();
-
-    const currentValue = Number(this.productQuantity);
-    const nextValue =
-      (Number.isFinite(currentValue) ? currentValue : 0) + change;
-
-    this.productQuantity =
-      Math.max(0.01, Math.round(nextValue * 100) / 100);
   }
 
 
@@ -393,6 +329,11 @@ implements OnInit {
     this.errorMessage =
       '';
 
+    if (!navigator.onLine) {
+      this.saveOffline(payload);
+      return;
+    }
+
 
     this.savedListService
       .updateSavedList(
@@ -425,6 +366,11 @@ implements OnInit {
 
           this.isSaving =
             false;
+
+          if (error?.status === 0 || error?.name === 'TimeoutError') {
+            this.saveOffline(payload);
+            return;
+          }
 
 
           if (
@@ -501,6 +447,26 @@ implements OnInit {
     this.productNote =
       '';
 
+  }
+
+  private applyList(list: import('../../services/saved-list.service').SavedList): void {
+    this.listName = list.title;
+    this.products = (list.items ?? []).map(item => ({
+      id: item.id,
+      product: item.product ?? null,
+      name: item.name || item.product_name || '',
+      quantity: Number(item.quantity),
+      unit: item.unit,
+      note: item.note ?? '',
+    }));
+    this.isLoading = false;
+  }
+
+  private saveOffline(payload: CreateSavedListPayload): void {
+    if (!this.listId) return;
+    this.savedListService.queueSavedListUpdate(this.listId, payload);
+    this.isSaving = false;
+    void this.router.navigate(['/main/saved-list', this.listId]);
   }
 
 }

@@ -196,7 +196,7 @@ class IngredientSearchFeedbackAPIView(APIView):
         selected_rank = None
         if event == "selected":
             selected_product = Product.objects.filter(
-                pk=request.data.get("product_id")
+                pk=request.data.get("product_id"), catalog_status="approved"
             ).first()
             if selected_product is None:
                 return Response(
@@ -408,6 +408,7 @@ class ProductSearchAPIView(APIView):
         preferred_keys = preferred_product_keys(query) if recipe_only else ()
         products = Product.objects.filter(
             source__in=("bls", "open_food_facts", "usda"),
+            catalog_status="approved",
         )
         if recipe_only:
             products = products.filter(
@@ -500,6 +501,7 @@ class ProductSearchAPIView(APIView):
             alias_candidates = ProductAlias.objects.select_related("product").filter(
                 normalized_alias__startswith=normalized_query[:2],
                 product__source__in=("bls", "open_food_facts", "usda"),
+                product__catalog_status="approved",
                 product__is_recipe_ingredient=True,
                 product__calories_per_100g__isnull=False,
                 product__protein_per_100g__isnull=False,
@@ -529,7 +531,9 @@ class ProductSearchAPIView(APIView):
             ]
             if fuzzy_ids:
                 products = list(
-                    Product.objects.filter(id__in=fuzzy_ids).prefetch_related("aliases")
+                    Product.objects.filter(
+                        id__in=fuzzy_ids, catalog_status="approved"
+                    ).prefetch_related("aliases")
                 )
 
         def relevance(product):
@@ -668,6 +672,7 @@ class ExternalProductSearchAPIView(APIView):
             if preferred_keys and Product.objects.filter(
                 preferred_filter,
                 is_recipe_ingredient=True,
+                catalog_status="approved",
                 calories_per_100g__isnull=False,
                 protein_per_100g__isnull=False,
                 carbohydrates_per_100g__isnull=False,
