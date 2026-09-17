@@ -44,7 +44,7 @@ UNIT_ALIASES = {
 
 def nutrition_ready_products():
     return Product.objects.filter(
-        source__in=("bls", "open_food_facts", "usda"),
+        source__in=("bls", "open_food_facts", "usda", "curated"),
         is_recipe_ingredient=True,
         calories_per_100g__isnull=False,
         protein_per_100g__isnull=False,
@@ -75,11 +75,11 @@ def build_ai_ingredient_catalog(data, limit=450):
         if allowed:
             products.append(product)
 
-    source_rank = {"bls": 0, "usda": 1, "open_food_facts": 2}
+    source_rank = {"bls": 0, "curated": 1, "usda": 2, "open_food_facts": 3}
     products.sort(key=lambda product: (
         0 if normalize_alias(product.canonical_name or product.name) in curated_names else 1,
         0 if product.is_common_pantry else 1,
-        source_rank.get(product.source, 3),
+        source_rank.get(product.source, 4),
         0 if not product.brand else 1,
         len(product.canonical_name or product.name),
         product.id,

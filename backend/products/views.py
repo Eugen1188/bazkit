@@ -407,7 +407,7 @@ class ProductSearchAPIView(APIView):
         ranking_query = canonical_search_query(query) if recipe_only else query
         preferred_keys = preferred_product_keys(query) if recipe_only else ()
         products = Product.objects.filter(
-            source__in=("bls", "open_food_facts", "usda"),
+            source__in=("bls", "open_food_facts", "usda", "curated"),
             catalog_status="approved",
         )
         if recipe_only:
@@ -443,6 +443,8 @@ class ProductSearchAPIView(APIView):
                     direct_filter |= Q(source="bls", external_id=code)
                 for external_id in definition.preferred_usda_ids:
                     direct_filter |= Q(source="usda", external_id=external_id)
+                for external_id in definition.preferred_curated_ids:
+                    direct_filter |= Q(source="curated", external_id=external_id)
             products = products.filter(direct_filter)
             product_limit = 100
         else:
@@ -500,7 +502,7 @@ class ProductSearchAPIView(APIView):
         if recipe_only and not products and len(normalized_query) >= 5:
             alias_candidates = ProductAlias.objects.select_related("product").filter(
                 normalized_alias__startswith=normalized_query[:2],
-                product__source__in=("bls", "open_food_facts", "usda"),
+                product__source__in=("bls", "open_food_facts", "usda", "curated"),
                 product__catalog_status="approved",
                 product__is_recipe_ingredient=True,
                 product__calories_per_100g__isnull=False,
@@ -549,8 +551,17 @@ class ProductSearchAPIView(APIView):
             )
             prefix = any(name.startswith(normalized_query) for name in names)
             contains = any(normalized_query in name for name in names)
-            source_rank = {"bls": 0, "usda": 1, "open_food_facts": 2}.get(product.source, 3)
-            generic_rank = 0 if not product.brand or product.source in {"bls", "usda"} else 1
+            source_rank = {
+                "bls": 0,
+                "curated": 1,
+                "usda": 2,
+                "open_food_facts": 3,
+            }.get(product.source, 4)
+            generic_rank = (
+                0
+                if not product.brand or product.source in {"bls", "usda", "curated"}
+                else 1
+            )
             product_key = (product.source, str(product.external_id or ""))
             preferred_rank = (
                 preferred_keys.index(product_key)

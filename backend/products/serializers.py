@@ -32,7 +32,7 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = fields
 
     def get_origin(self, obj):
-        if obj.source in {"bls", "open_food_facts", "usda"}:
+        if obj.source in {"bls", "open_food_facts", "usda", "curated"}:
             return obj.source
         return "local"
 

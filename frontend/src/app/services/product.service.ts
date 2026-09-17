@@ -12,7 +12,7 @@ import {
 } from 'rxjs';
 import { apiEndpoint } from '../config/api.config';
 
-export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda';
+export type ProductOrigin = 'local' | 'bls' | 'open_food_facts' | 'usda' | 'curated';
 export type IngredientSearchContext = 'recipe_create' | 'recipe_edit' | 'shopping_list' | 'saved_list';
 
 export interface ProductSuggestion {

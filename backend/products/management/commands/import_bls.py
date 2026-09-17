@@ -172,7 +172,9 @@ class Command(BaseCommand):
                 ],
             )
             ensure_curated_ingredients()
-            rebuild_product_aliases(Product.objects.filter(source__in=("bls", "usda")))
+            rebuild_product_aliases(Product.objects.filter(
+                source__in=("bls", "usda", "curated")
+            ))
             self.stdout.write(self.style.SUCCESS(f"{len(products)} BLS-Produkte importiert/aktualisiert."))
         finally:
             rows.close()

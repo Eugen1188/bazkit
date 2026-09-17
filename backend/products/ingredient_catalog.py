@@ -12,6 +12,7 @@ class IngredientDefinition:
     usda_query: str
     preferred_bls_codes: tuple[str, ...] = ()
     preferred_usda_ids: tuple[str, ...] = ()
+    preferred_curated_ids: tuple[str, ...] = ()
 
 
 # Die Liste bildet die Sprache ab, die Nutzer beim Kochen tatsächlich verwenden.
@@ -77,13 +78,13 @@ CORE_INGREDIENT_DEFINITIONS = (
     IngredientDefinition("Kabeljau", ("kabeljau", "dorsch", "kabeljaufilet", "dorschfilet"), "cod pacific raw", ("T204100",)),
     IngredientDefinition("Thunfisch", ("thunfisch", "thunfisch dose", "thunfisch aus der dose", "thunfisch im eigenen saft"), "tuna canned in water drained", ("T121902",)),
     IngredientDefinition("Tofu", ("tofu", "naturtofu", "tofu natur", "sojaquark", "sojakäse"), "tofu raw firm prepared with calcium", ("H861000",)),
-    IngredientDefinition("Reis", ("reis", "langkornreis", "basmatireis", "basmati", "jasminreis", "weißer reis"), "rice white long grain regular raw", ("C352000",)),
+    IngredientDefinition("Reis", ("reis", "langkornreis", "weißer reis"), "rice white long grain regular raw", ("C352000",)),
     IngredientDefinition("Nudeln", ("nudel", "nudeln", "pasta", "spaghetti", "penne", "fusilli", "makkaroni"), "pasta dry unenriched", ("E401000",)),
     IngredientDefinition("Haferflocken", ("haferflocke", "haferflocken", "oats", "porridgeflocken", "zarte haferflocken", "kernige haferflocken"), "oats regular and quick not fortified dry", ("C133000",)),
     IngredientDefinition("Weizenmehl Type 405", ("weizenmehl", "mehl", "weißmehl", "weissmehl", "mehl type 405", "mehl 405", "weizen mehl 405"), "wheat flour white all-purpose unenriched", ("C214100",)),
     IngredientDefinition("Dinkelmehl Type 630", ("dinkelmehl", "dinkel mehl", "dinkelmehl 630", "dinkel mehl 630"), "spelt flour", ("C234000",)),
     IngredientDefinition("Roggenmehl Type 1150", ("roggenmehl", "roggen mehl", "roggenmehl 1150", "roggen mehl 1150"), "rye flour", ("C223300",)),
-    IngredientDefinition("Zucker", ("zucker", "haushaltszucker", "kristallzucker", "raffinadezucker", "weißer zucker", "weisser zucker", "puderzucker", "brauner zucker", "rohrzucker"), "sugars granulated", ("S111000",)),
+    IngredientDefinition("Zucker", ("zucker", "haushaltszucker", "kristallzucker", "raffinadezucker", "weißer zucker", "weisser zucker", "rohrzucker"), "sugars granulated", ("S111000",)),
     IngredientDefinition("Salz", ("salz", "speisesalz", "kochsalz", "tafelsalz", "jodsalz"), "salt table", ("R111000",)),
     IngredientDefinition("Senf", ("senf", "tafelsenf", "mittelscharfer senf", "senf mittelscharf", "gelber senf", "yellow mustard"), "mustard prepared yellow", (), ("172234",)),
     IngredientDefinition("Olivenöl", ("olivenöl", "olivenoel", "natives olivenöl", "extra natives olivenöl"), "oil olive salad or cooking", ("Q120000",)),
@@ -167,6 +168,10 @@ PREFERRED_USDA_INDEX = {}
 for definition in INGREDIENT_DEFINITIONS:
     for external_id in definition.preferred_usda_ids:
         PREFERRED_USDA_INDEX.setdefault(external_id, definition)
+PREFERRED_CURATED_INDEX = {}
+for definition in INGREDIENT_DEFINITIONS:
+    for external_id in definition.preferred_curated_ids:
+        PREFERRED_CURATED_INDEX.setdefault(external_id, definition)
 
 
 def _fuzzy_definition(normalized):
@@ -254,6 +259,10 @@ def definition_for_product(source, external_id, canonical_name=""):
         matched = PREFERRED_USDA_INDEX.get(str(external_id or ""))
         if matched:
             return matched
+    if source == "curated":
+        matched = PREFERRED_CURATED_INDEX.get(str(external_id or ""))
+        if matched:
+            return matched
     return definition_for_canonical(canonical_name)
 
 
@@ -274,6 +283,7 @@ def preferred_product_keys(value):
     return (
         *(("bls", code) for code in definition.preferred_bls_codes),
         *(("usda", external_id) for external_id in definition.preferred_usda_ids),
+        *(("curated", external_id) for external_id in definition.preferred_curated_ids),
     )
 
 
@@ -283,9 +293,15 @@ def display_name_for_query(value):
         return str(value or "").strip()
     if definition.canonical_name in {
         "Chilischote",
+        "Dunkle Sojasauce",
+        "Helle Sojasauce",
         "Rotwein trocken",
+        "Sake",
+        "Salzreduzierte Sojasauce",
         "Weißwein trocken",
         "Sherry trocken",
+        "Shoyu",
+        "Tamari",
         "Portwein",
     }:
         return definition.canonical_name

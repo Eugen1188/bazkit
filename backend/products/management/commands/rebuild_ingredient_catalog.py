@@ -31,7 +31,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if not options["dry_run"]:
             ensure_curated_ingredients()
-        products = Product.objects.filter(source__in=("bls", "open_food_facts", "usda"))
+        products = Product.objects.filter(
+            source__in=("bls", "open_food_facts", "usda", "curated")
+        )
         pending = []
         missing_nutrition = 0
         eligible = 0
@@ -183,7 +185,7 @@ class Command(BaseCommand):
         conversion_rows = list(managed_conversions.values())
         with transaction.atomic():
             ProductUnitConversion.objects.filter(
-                product__source__in=("bls", "open_food_facts", "usda"),
+                product__source__in=("bls", "open_food_facts", "usda", "curated"),
                 source__in=(CURATED_CONVERSION_SOURCE, "Open Food Facts Packungsangabe"),
             ).delete()
             if conversion_rows:

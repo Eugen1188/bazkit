@@ -19,6 +19,7 @@ from .catalog import (
     suggested_unit_for_product,
     sync_curated_unit_conversion,
 )
+from .curated import ensure_curated_ingredients
 from .ingredient_catalog import (
     INGREDIENT_DEFINITIONS,
     canonical_query,
@@ -63,7 +64,9 @@ class RecipeCatalogTests(TestCase):
         alias_owners = {}
         for definition in INGREDIENT_DEFINITIONS:
             self.assertTrue(
-                definition.preferred_bls_codes or definition.preferred_usda_ids,
+                definition.preferred_bls_codes
+                or definition.preferred_usda_ids
+                or definition.preferred_curated_ids,
                 f"{definition.canonical_name} hat keine geprüfte Nährwertquelle.",
             )
             for alias in (definition.canonical_name, *definition.aliases):
@@ -767,7 +770,8 @@ class RecipeCatalogTests(TestCase):
         )
         replace_product_aliases(aubergine)
 
-        self.assertEqual(definition_for_query("au").canonical_name, "Aubergine")
+        self.assertIsNone(definition_for_query("au"))
+        self.assertEqual(definition_for_query("aub").canonical_name, "Aubergine")
         for query in ("au", "aub", "aube", "aubergine"):
             request = APIRequestFactory().get(
                 "/products/search/",
@@ -879,7 +883,7 @@ class RecipeCatalogTests(TestCase):
             self.assertEqual(definition.canonical_name, canonical_name)
             self.assertIn(bls_code, definition.preferred_bls_codes)
 
-    def test_common_soy_sauce_variants_use_the_verified_local_product(self):
+    def test_soy_sauce_variants_use_distinct_catalog_products(self):
         soy_sauce = Product.objects.create(
             name="Sojasoße",
             canonical_name="Sojasauce",
@@ -890,12 +894,21 @@ class RecipeCatalogTests(TestCase):
             **COMPLETE_NUTRITION,
         )
         replace_product_aliases(soy_sauce)
+        ensure_curated_ingredients()
 
-        for query, expected_name in (
-            ("Helle Sojasoße", "Helle Sojasoße"),
-            ("Sojasauce hell", "Sojasauce hell"),
-            ("Light soy sauce", "Light soy sauce"),
-            ("Tamari", "Tamari"),
+        for query, expected_name, expected_source, expected_external_id in (
+            ("Helle Sojasoße", "Helle Sojasauce", "curated", "soy-sauce-light"),
+            ("Sojasauce hell", "Helle Sojasauce", "curated", "soy-sauce-light"),
+            ("Dunkle Sojasauce", "Dunkle Sojasauce", "curated", "soy-sauce-dark"),
+            ("Dark soy sauce", "Dunkle Sojasauce", "curated", "soy-sauce-dark"),
+            ("Shoyu", "Shoyu", "usda", "174277"),
+            ("Tamari", "Tamari", "usda", "174278"),
+            (
+                "Sojasauce weniger Salz",
+                "Salzreduzierte Sojasauce",
+                "usda",
+                "172473",
+            ),
         ):
             request = APIRequestFactory().get(
                 "/products/search/",
@@ -906,9 +919,89 @@ class RecipeCatalogTests(TestCase):
 
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.data[0]["name"], expected_name)
-            self.assertEqual(response.data[0]["canonical_name"], "Sojasauce")
-            self.assertEqual(response.data[0]["external_id"], "R143000")
+            self.assertEqual(response.data[0]["canonical_name"], expected_name)
+            self.assertEqual(response.data[0]["source"], expected_source)
+            self.assertEqual(response.data[0]["external_id"], expected_external_id)
             self.assertTrue(response.data[0]["nutrition_complete"])
+
+    def test_common_asian_ingredients_have_verified_catalog_entries(self):
+        ensure_curated_ingredients()
+        expected = {
+            "Sake": ("Sake", "167723"),
+            "Sesamöl": ("Sesamöl", "171016"),
+            "Austernsoße": ("Austernsauce", "174529"),
+            "Hoisinsauce": ("Hoisinsauce", "172886"),
+            "Shiitakepilze": ("Shiitake", "169242"),
+            "Reisnudeln": ("Reisnudeln", "169742"),
+            "Glasnudeln": ("Glasnudeln", "174258"),
+            "Tamarinde": ("Tamarinde", "167763"),
+        }
+        for query, (canonical_name, usda_id) in expected.items():
+            definition = definition_for_query(query)
+            self.assertIsNotNone(definition)
+            self.assertEqual(definition.canonical_name, canonical_name)
+            self.assertIn(usda_id, definition.preferred_usda_ids)
+            product = Product.objects.get(source="usda", external_id=usda_id)
+            self.assertEqual(product.canonical_name, canonical_name)
+            self.assertTrue(product.has_complete_nutrition)
+
+    def test_other_collapsed_ingredient_types_use_distinct_catalog_entries(self):
+        for external_id, name in (
+            ("R121000", "Weinessig"),
+            ("B821000", "Paniermehl"),
+            ("C352000", "Reis"),
+        ):
+            Product.objects.create(
+                name=name,
+                canonical_name=name,
+                source="bls",
+                external_id=external_id,
+                default_unit="g",
+                is_recipe_ingredient=True,
+                **COMPLETE_NUTRITION,
+            )
+        ensure_curated_ingredients()
+
+        expected = {
+            "Geröstetes Sesamöl": ("curated", "sesame-oil-toasted"),
+            "Weißweinessig": ("curated", "white-wine-vinegar"),
+            "Rotweinessig": ("usda", "172240"),
+            "Panko": ("curated", "panko"),
+            "Basmatireis": ("curated", "rice-basmati"),
+            "Jasminreis": ("curated", "rice-jasmine"),
+            "Puderzucker": ("usda", "169656"),
+            "Brauner Zucker": ("usda", "168833"),
+        }
+        for query, (source, external_id) in expected.items():
+            definition = definition_for_query(query)
+            self.assertIsNotNone(definition)
+            self.assertEqual(definition.canonical_name, query)
+            product = Product.objects.get(
+                source=source,
+                external_id=external_id,
+            )
+            self.assertEqual(product.canonical_name, query)
+            self.assertTrue(product.has_complete_nutrition)
+
+    def test_flavor_variants_do_not_collapse_to_generic_ingredients(self):
+        expected = {
+            "Helle Sojasauce": "Helle Sojasauce",
+            "Dunkle Sojasauce": "Dunkle Sojasauce",
+            "Paprika edelsüß": "Paprikapulver edelsüß",
+            "Paprika rosenscharf": "Paprikapulver rosenscharf",
+            "Geröstetes Sesamöl": "Geröstetes Sesamöl",
+            "Panko": "Panko",
+            "Basmatireis": "Basmatireis",
+            "Jasminreis": "Jasminreis",
+            "Puderzucker": "Puderzucker",
+            "Brauner Zucker": "Brauner Zucker",
+            "Weißweinessig": "Weißweinessig",
+            "Rotweinessig": "Rotweinessig",
+        }
+        for query, canonical_name in expected.items():
+            definition = definition_for_query(query)
+            self.assertIsNotNone(definition)
+            self.assertEqual(definition.canonical_name, canonical_name)
 
     def test_safe_zero_defaults_complete_only_structural_zeroes(self):
         salmon = apply_safe_zero_defaults(

@@ -24,6 +24,10 @@ class Product(models.Model):
             "usda",
             "USDA FoodData Central"
         ),
+        (
+            "curated",
+            "Bazkit kuratierte Zutatenvariante"
+        ),
     ]
 
     name = models.CharField(
