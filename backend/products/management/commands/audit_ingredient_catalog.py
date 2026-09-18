@@ -78,6 +78,10 @@ class Command(BaseCommand):
             keys = {
                 *(("bls", code) for code in definition.preferred_bls_codes),
                 *(("usda", external_id) for external_id in definition.preferred_usda_ids),
+                *(
+                    ("curated", external_id)
+                    for external_id in definition.preferred_curated_ids
+                ),
             }
             if not keys:
                 definitions_without_source.append(definition.canonical_name)

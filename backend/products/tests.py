@@ -26,6 +26,7 @@ from .ingredient_catalog import (
     definition_for_query,
     display_name_for_query,
     normalize_alias,
+    preferred_product_keys,
     related_definitions_for_query,
     replace_product_aliases,
 )
@@ -591,6 +592,58 @@ class RecipeCatalogTests(TestCase):
             infer_product_taxonomy("Star Aniseeds Sternanis", "Sternanis"),
             ("pantry", True),
         )
+        self.assertEqual(
+            infer_product_taxonomy(
+                "Sake",
+                "Sake",
+                "Alkoholische Kochzutaten · USDA FoodData Central 167723",
+                "usda",
+                "167723",
+            ),
+            ("pantry", True),
+        )
+        self.assertEqual(
+            infer_product_taxonomy(
+                "Panko",
+                "Panko",
+                "Kuratierte Zutatenvariante",
+                "curated",
+                "panko",
+            ),
+            ("pantry", True),
+        )
+
+    def test_curated_definitions_expose_their_auditable_source_keys(self):
+        self.assertIn(
+            ("curated", "soy-sauce-light"),
+            preferred_product_keys("Helle Sojasauce"),
+        )
+        self.assertIn(
+            ("curated", "panko"),
+            preferred_product_keys("Panko"),
+        )
+
+    def test_strict_catalog_audit_accepts_all_declared_source_types(self):
+        for definition in INGREDIENT_DEFINITIONS:
+            source, external_id = preferred_product_keys(
+                definition.canonical_name
+            )[0]
+            Product.objects.update_or_create(
+                source=source,
+                external_id=external_id,
+                defaults={
+                    "name": definition.canonical_name,
+                    "canonical_name": definition.canonical_name,
+                    "is_recipe_ingredient": True,
+                    "shopping_category": "pantry",
+                    "default_unit": "g",
+                    **COMPLETE_NUTRITION,
+                },
+            )
+
+        output = StringIO()
+        call_command("audit_ingredient_catalog", strict=True, stdout=output)
+        self.assertIn("Strenge Katalogprüfung bestanden", output.getvalue())
 
     def test_walnut_typo_and_prefix_find_generic_walnut_not_composite_products(self):
         walnut = Product.objects.create(
