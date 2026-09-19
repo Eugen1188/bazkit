@@ -22,6 +22,7 @@ import {
   AuthService
 } from '../services/auth.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
+import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
 import {
   AIRecipeUsage,
   AIUsageService,
@@ -36,6 +37,7 @@ import {
   imports: [
     CommonModule,
     RouterModule,
+    BrandLogoComponent,
     UiIconComponent
   ],
 

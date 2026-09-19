@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
 
 
 type VerificationState = 'loading' | 'success' | 'error';
@@ -12,7 +13,7 @@ type VerificationState = 'loading' | 'success' | 'error';
 @Component({
   selector: 'app-verify-email',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, BrandLogoComponent],
   templateUrl: './verify-email.component.html',
   styleUrl: './verify-email.component.scss',
 })

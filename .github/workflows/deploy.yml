@@ -85,6 +85,7 @@ jobs:
             docker compose run --rm backend python manage.py migrate --noinput
             docker compose run --rm backend python manage.py rebuild_ingredient_catalog
             docker compose run --rm backend python manage.py audit_ingredient_catalog --strict
+            docker compose run --rm backend python manage.py seed_editorial_community
             docker compose up -d backend frontend backup
             backend_ready=0
             for attempt in $(seq 1 30); do

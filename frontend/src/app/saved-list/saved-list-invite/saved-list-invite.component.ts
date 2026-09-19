@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
+import { BrandLogoComponent } from '../../components/brand-logo/brand-logo.component';
 import {
   SavedListInvitePreview,
   SavedListService
@@ -12,7 +13,7 @@ import {
 @Component({
   selector: 'app-saved-list-invite',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, BrandLogoComponent],
   templateUrl: './saved-list-invite.component.html',
   styleUrl: './saved-list-invite.component.scss'
 })

@@ -6,6 +6,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { RegisterData } from '../models/user';
 import { AuthService } from '../services/auth.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
+import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
     CommonModule,
     FormsModule,
     UiIconComponent,
+    BrandLogoComponent,
     RouterLink
   ],
   templateUrl: './register.component.html',

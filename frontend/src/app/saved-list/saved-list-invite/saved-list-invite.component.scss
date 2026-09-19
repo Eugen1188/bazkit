@@ -13,8 +13,15 @@
   color: var(--color-text-primary);
 }
 
-.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--color-text-primary); font-size: 22px; font-weight: 800; text-decoration: none; }
-.brand span { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: var(--color-primary); color: #fff; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  --brand-logo-icon-size: 36px;
+  --brand-logo-word-size: 22px;
+  --brand-logo-gap: 9px;
+}
 
 .invite-card {
   width: min(520px, 100%);

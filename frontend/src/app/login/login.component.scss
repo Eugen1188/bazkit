@@ -67,35 +67,10 @@ LOGO
   gap: 13px;
 
   margin-bottom: 13px;
-}
 
-
-.logo-text {
-  margin: 0;
-
-  font-size: 68px;
-
-  line-height: 1;
-
-  letter-spacing: -2px;
-
-  font-weight: 700;
-
-  white-space: nowrap;
-}
-
-
-.logo-text .dark {
-  color:
-    var(--color-text-primary);
-}
-
-
-.logo-text .green {
-  color:
-    var(--color-primary);
-
-  font-weight: 500;
+  --brand-logo-icon-size: 64px;
+  --brand-logo-word-size: 68px;
+  --brand-logo-gap: 13px;
 }
 
 
@@ -108,95 +83,6 @@ LOGO
   font-size: 20px;
 
   letter-spacing: 0.3px;
-}
-
-
-/* =====================================
-BASKET LOGO
-===================================== */
-
-.basket-icon {
-  position: relative;
-
-  width: 64px;
-  height: 58px;
-
-  flex:
-    0
-    0
-    64px;
-}
-
-
-.handle {
-  position: absolute;
-
-  top: 0;
-  left: 17px;
-
-  width: 30px;
-  height: 23px;
-
-  box-sizing: border-box;
-
-  border:
-    4px
-    solid
-    var(--color-text-primary);
-
-  border-bottom: none;
-
-  border-radius:
-    18px
-    18px
-    0
-    0;
-}
-
-
-.basket-body {
-  position: absolute;
-
-  top: 18px;
-  left: 2px;
-
-  width: 60px;
-  height: 39px;
-
-  box-sizing: border-box;
-
-  border:
-    4px
-    solid
-    var(--color-primary);
-
-  border-radius:
-    9px
-    9px
-    15px
-    15px;
-
-  background:
-    transparent;
-}
-
-
-.basket-detail {
-  position: absolute;
-
-  top: 9px;
-  right: 14px;
-
-  width: 4px;
-  height: 17px;
-
-  border-radius: 4px;
-
-  background:
-    var(--color-primary);
-
-  transform:
-    rotate(6deg);
 }
 
 
@@ -561,60 +447,11 @@ MOBILE
 
 
   .logo-row {
-    gap: 10px;
-
     margin-bottom: 14px;
-  }
 
-
-  .basket-icon {
-    width: 54px;
-    height: 50px;
-
-    flex-basis: 54px;
-  }
-
-
-  .handle {
-    left: 14px;
-
-    width: 26px;
-    height: 19px;
-
-    border-width: 3px;
-  }
-
-
-  .basket-body {
-    top: 15px;
-    left: 2px;
-
-    width: 50px;
-    height: 34px;
-
-    border-width: 3px;
-
-    border-radius:
-      8px
-      8px
-      13px
-      13px;
-  }
-
-
-  .basket-detail {
-    top: 8px;
-    right: 11px;
-
-    width: 3px;
-    height: 15px;
-  }
-
-
-  .logo-text {
-    font-size: 52px;
-
-    letter-spacing: -1.5px;
+    --brand-logo-icon-size: 54px;
+    --brand-logo-word-size: 52px;
+    --brand-logo-gap: 10px;
   }
 
 
@@ -696,8 +533,9 @@ iPhone 12 / Safari etc.
   }
 
 
-  .logo-text {
-    font-size: 47px;
+  .logo-row {
+    --brand-logo-word-size: 47px;
+    --brand-logo-icon-size: 49px;
   }
 
 

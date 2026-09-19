@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserSettingsService } from '../services/user-settings.service';
+import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { UserSettingsService } from '../services/user-settings.service';
   imports: [
     CommonModule,
     FormsModule,
+    BrandLogoComponent,
     RouterLink
   ],
   templateUrl: './login.component.html',

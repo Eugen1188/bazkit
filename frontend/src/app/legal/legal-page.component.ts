@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
 
 
 type LegalPage = 'impressum' | 'datenschutz' | 'agb';
@@ -11,7 +12,7 @@ type LegalPage = 'impressum' | 'datenschutz' | 'agb';
 @Component({
   selector: 'app-legal-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, BrandLogoComponent],
   templateUrl: './legal-page.component.html',
   styleUrl: './legal-page.component.scss',
 })

@@ -62,49 +62,10 @@ LOGO
   margin-bottom: 42px;
 
   text-decoration: none;
-}
 
-
-.logo-icon {
-  width: 34px;
-  height: 34px;
-
-  flex-shrink: 0;
-
-  color:
-    var(--color-primary);
-}
-
-
-.logo-icon svg {
-  width: 100%;
-  height: 100%;
-
-  fill: none;
-
-  stroke:
-    currentColor;
-
-  stroke-width: 1.9;
-
-  stroke-linecap:
-    round;
-
-  stroke-linejoin:
-    round;
-}
-
-
-.logo-text {
-  font-size: 2rem;
-
-  font-weight: 800;
-
-  letter-spacing:
-    -0.05em;
-
-  color:
-    var(--color-text-primary);
+  --brand-logo-icon-size: 34px;
+  --brand-logo-word-size: 2rem;
+  --brand-logo-gap: 12px;
 }
 
 

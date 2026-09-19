@@ -23,17 +23,10 @@
   color: inherit;
   font-size: 21px;
   text-decoration: none;
-}
 
-.verification-logo span {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  display: grid;
-  place-items: center;
-  background: var(--color-primary);
-  color: #fff;
-  font-weight: 800;
+  --brand-logo-icon-size: 38px;
+  --brand-logo-word-size: 21px;
+  --brand-logo-gap: 9px;
 }
 
 .verification-card {
