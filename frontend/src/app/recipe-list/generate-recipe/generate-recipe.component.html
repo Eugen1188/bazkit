@@ -202,10 +202,12 @@
           </label>
 
           <input
+            appUiNumberInput
             id="servings"
             type="number"
             min="1"
             max="20"
+            step="1"
             [(ngModel)]="servings"
           />
 
@@ -221,10 +223,12 @@
           <div class="input-with-suffix">
 
             <input
+              appUiNumberInput
               id="maxTime"
               type="number"
               min="5"
               max="240"
+              step="1"
               [(ngModel)]="maxTime"
             />
 

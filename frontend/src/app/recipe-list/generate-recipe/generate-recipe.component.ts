@@ -31,6 +31,7 @@ import {
 import {
   serializePreparationSteps
 } from '../preparation-steps';
+import { UiNumberInputDirective } from '../../components/ui-primitives/ui-primitives.directive';
 
 
 @Component({
@@ -41,7 +42,8 @@ import {
   imports: [
     CommonModule,
     FormsModule,
-    UiIconComponent
+    UiIconComponent,
+    UiNumberInputDirective
   ],
 
   templateUrl:

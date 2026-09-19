@@ -192,6 +192,42 @@ class RecipeSerializerTests(TestCase):
         self.assertNotIn("ingredients", response.data[0])
         self.assertNotIn("instructions", response.data[0])
 
+    def test_owner_can_create_and_edit_recipe_through_api(self):
+        client = APIClient()
+        client.force_authenticate(self.user)
+        payload = {
+            "name": "Tomatensalat",
+            "description": "Schnell",
+            "servings": 2,
+            "preparation_time": 10,
+            "category": "lunch",
+            "instructions": "1. Schneiden\n2. Servieren",
+            "notes": "",
+            "ingredients": [{
+                "product": self.product.id,
+                "name": "Tomate",
+                "quantity": "200",
+                "unit": "g",
+                "note": "gewürfelt",
+            }],
+        }
+
+        created = client.post("/recipes/", payload, format="json")
+        self.assertEqual(created.status_code, 201, created.data)
+        recipe_id = created.data["id"]
+        self.assertEqual(created.data["ingredients"][0]["note"], "gewürfelt")
+
+        updated = client.patch(
+            f"/recipes/{recipe_id}/",
+            {"name": "Tomatensalat mit Kräutern", "description": "Bearbeitet"},
+            format="json",
+        )
+
+        self.assertEqual(updated.status_code, 200, updated.data)
+        self.assertEqual(updated.data["name"], "Tomatensalat mit Kräutern")
+        self.assertEqual(updated.data["description"], "Bearbeitet")
+        self.assertEqual(updated.data["ingredients"][0]["product"], self.product.id)
+
     @override_settings(OPENAI_API_KEY="test-key", OPENAI_RECIPE_MODEL="test-model")
     @patch("recipes.ai_service.OpenAI")
     def test_ai_recipe_uses_verified_product_and_returns_nutrition(self, openai_mock):

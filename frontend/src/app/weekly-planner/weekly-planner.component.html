@@ -887,6 +887,7 @@
     (click)="closeAiPlannerDialog()"
   >
     <section
+      appUiDialog
       class="planner-dialog ai-planner-dialog"
       role="dialog"
       aria-modal="true"
@@ -944,9 +945,11 @@
             <span>Kalorienziel pro Tag <small>optional</small></span>
             <div class="dialog-input-suffix">
               <input
+                appUiNumberInput
                 type="number"
                 min="500"
                 max="6000"
+                step="1"
                 placeholder="z. B. 2000"
                 [(ngModel)]="aiDailyCalorieTarget"
               />
@@ -958,9 +961,11 @@
             <span>Proteinziel pro Tag <small>optional</small></span>
             <div class="dialog-input-suffix">
               <input
+                appUiNumberInput
                 type="number"
                 min="10"
                 max="400"
+                step="1"
                 placeholder="z. B. 100"
                 [(ngModel)]="aiDailyProteinTarget"
               />
@@ -971,7 +976,7 @@
           <label>
             <span>Ein Rezept höchstens</span>
             <div class="dialog-input-suffix">
-              <input type="number" min="1" max="7" [(ngModel)]="aiMaxRecipeRepeats" />
+              <input appUiNumberInput type="number" min="1" max="7" step="1" [(ngModel)]="aiMaxRecipeRepeats" />
               <span>×</span>
             </div>
           </label>
@@ -979,7 +984,7 @@
           <label>
             <span>Portionen für den Einkauf</span>
             <div class="dialog-input-suffix">
-              <input type="number" min="1" max="30" [(ngModel)]="aiServings" />
+              <input appUiNumberInput type="number" min="1" max="30" step="1" [(ngModel)]="aiServings" />
               <span>Port.</span>
             </div>
           </label>
@@ -1026,6 +1031,7 @@
     (click)="closeMealDialog()"
   >
     <section
+      appUiDialog
       class="planner-dialog"
       role="dialog"
       aria-modal="true"
@@ -1098,9 +1104,11 @@
         <label>
           <span>Portionen für den Einkauf</span>
           <input
+            appUiNumberInput
             type="number"
             min="1"
             max="30"
+            step="1"
             [(ngModel)]="selectedServings"
           />
         </label>
@@ -1155,6 +1163,7 @@
     (click)="closePantryDialog()"
   >
     <section
+      appUiDialog
       class="planner-dialog pantry-dialog"
       role="dialog"
       aria-modal="true"

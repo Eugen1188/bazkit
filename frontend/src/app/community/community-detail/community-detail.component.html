@@ -879,7 +879,7 @@
   </ng-container>
 
   <div class="edit-dialog-backdrop" *ngIf="isEditing" (click)="cancelEdit()">
-    <section class="edit-dialog" role="dialog" aria-modal="true" aria-labelledby="edit-post-title" (click)="$event.stopPropagation()">
+    <section appUiDialog class="edit-dialog" role="dialog" aria-modal="true" aria-labelledby="edit-post-title" (click)="$event.stopPropagation()">
       <header>
         <div><span>Community-Beitrag</span><h2 id="edit-post-title">Diskussion bearbeiten</h2></div>
         <button type="button" aria-label="Dialog schließen" (click)="cancelEdit()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>

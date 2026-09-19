@@ -21,6 +21,7 @@ import {
 } from '../../services/shopping-list.service';
 import { UserSettingsService } from '../../services/user-settings.service';
 import { UiQuantityInputComponent } from '../ui-quantity-input/ui-quantity-input.component';
+import { UiDialogDirective } from '../ui-primitives/ui-primitives.directive';
 
 
 @Component({
@@ -32,7 +33,8 @@ import { UiQuantityInputComponent } from '../ui-quantity-input/ui-quantity-input
   imports: [
     CommonModule,
     FormsModule,
-    UiQuantityInputComponent
+    UiQuantityInputComponent,
+    UiDialogDirective
   ],
 
   templateUrl:

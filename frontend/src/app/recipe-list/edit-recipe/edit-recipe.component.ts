@@ -44,6 +44,7 @@ import {
   serializePreparationSteps
 } from '../preparation-steps';
 import { UiQuantityInputComponent } from '../../components/ui-quantity-input/ui-quantity-input.component';
+import { UiNumberInputDirective } from '../../components/ui-primitives/ui-primitives.directive';
 
 
 interface PreparationStep {
@@ -66,7 +67,8 @@ interface IngredientSearch {
   imports: [
     CommonModule,
     FormsModule,
-    UiQuantityInputComponent
+    UiQuantityInputComponent,
+    UiNumberInputDirective
   ],
 
   templateUrl:

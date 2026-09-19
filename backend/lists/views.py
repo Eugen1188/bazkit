@@ -636,7 +636,10 @@ class SavedListCollaborationAPIView(APIView):
                 )
                 email_sent = True
             except Exception:
-                logger.exception("Saved list invitation email could not be sent")
+                logger.exception(
+                    "Saved list invitation email could not be sent",
+                    extra={"monitoring_source": "email"},
+                )
 
         payload = SavedListInvitationSerializer(
             invitation,

@@ -10,6 +10,7 @@ import {
   CommonModule
 } from '@angular/common';
 import { UiIconComponent } from '../ui-icon/ui-icon.component';
+import { UiDialogDirective } from '../ui-primitives/ui-primitives.directive';
 
 import {
   Recipe,
@@ -31,7 +32,8 @@ import {
 
   imports: [
     CommonModule,
-    UiIconComponent
+    UiIconComponent,
+    UiDialogDirective
   ],
 
   templateUrl:

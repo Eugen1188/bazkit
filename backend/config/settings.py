@@ -110,6 +110,8 @@ INSTALLED_APPS = [
     "planner",
 
     "community",
+
+    "monitoring",
 ]
 
 
@@ -330,6 +332,10 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
 
     ),
+
+    "DEFAULT_THROTTLE_RATES": {
+        "browser_errors": "20/minute",
+    },
 }
 
 
@@ -426,6 +432,18 @@ EMAIL_VERIFICATION_RESEND_SECONDS = int(
 # LOGGING
 # ==========================================
 
+ERROR_MONITORING_ENABLED = os.getenv(
+    "ERROR_MONITORING_ENABLED",
+    "False" if DEBUG else "True",
+).lower() in {"1", "true", "yes", "on"}
+ERROR_ALERT_EMAIL = os.getenv(
+    "ERROR_ALERT_EMAIL",
+    "kontakt@ferchow-eugen.de",
+)
+ERROR_ALERT_COOLDOWN_MINUTES = int(
+    os.getenv("ERROR_ALERT_COOLDOWN_MINUTES", "30")
+)
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -440,14 +458,18 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "console",
         },
+        "operational_issues": {
+            "()": "monitoring.handlers.OperationalIssueHandler",
+            "level": "ERROR",
+        },
     },
     "root": {
-        "handlers": ["console"],
+        "handlers": ["console", "operational_issues"],
         "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
     },
     "loggers": {
         "django.request": {
-            "handlers": ["console"],
+            "handlers": ["console", "operational_issues"],
             "level": "ERROR",
             "propagate": False,
         },

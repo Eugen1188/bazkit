@@ -80,7 +80,10 @@ def notify_saved_list_members(list_id, actor_id, action):
                 fail_silently=False,
             )
         except Exception:
-            logger.exception("Saved-list change notification could not be sent")
+            logger.exception(
+                "Saved-list change notification could not be sent",
+                extra={"monitoring_source": "email"},
+            )
             continue
 
         delivery.last_sent_at = now

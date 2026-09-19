@@ -156,6 +156,14 @@ app-root {
   color: #a64d4d;
 }
 
+.ui-number-input {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] .ui-number-input {
+  color-scheme: dark;
+}
+
 button,
 input,
 select,

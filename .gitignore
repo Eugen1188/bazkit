@@ -9,6 +9,8 @@ __pycache__/
 
 # Node (falls frontend)
 node_modules/
+.npm-cache/
+.pip-cache/
 
 # OS
 .DS_Store

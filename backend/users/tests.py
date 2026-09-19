@@ -169,3 +169,17 @@ class UserSettingsApiTests(APITestCase):
         self.user.refresh_from_db()
         self.assertEqual(self.user.avatar_key, "")
         delete_mock.assert_called_once_with("avatars/1/profile.webp")
+
+    @patch("users.signals.delete_avatar")
+    def test_account_deletion_removes_user_settings_and_uploaded_avatar(self, delete_mock):
+        self.user.avatar_key = "avatars/1/profile.webp"
+        self.user.save(update_fields=["avatar_key"])
+        UserSettings.objects.create(user=self.user, appearance="dark")
+        user_id = self.user.id
+
+        response = self.client.delete("/users/me/")
+
+        self.assertEqual(response.status_code, 204)
+        self.assertFalse(User.objects.filter(id=user_id).exists())
+        self.assertFalse(UserSettings.objects.filter(user_id=user_id).exists())
+        delete_mock.assert_called_once_with("avatars/1/profile.webp")

@@ -7,6 +7,7 @@ import {
   Output
 } from '@angular/core';
 import { UiIconComponent } from '../ui-icon/ui-icon.component';
+import { UiDialogDirective } from '../ui-primitives/ui-primitives.directive';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { UiIconComponent } from '../ui-icon/ui-icon.component';
 
   standalone: true,
 
-  imports: [UiIconComponent],
+  imports: [UiIconComponent, UiDialogDirective],
 
   templateUrl:
     './add-to-shopping-list-modal.component.html',

@@ -226,6 +226,31 @@ class SavedListCollaborationTests(TestCase):
         self.assertTrue(self.item.is_checked)
         self.assertEqual(self.item.checked_by, self.editor)
 
+    def test_owner_and_editor_changes_are_visible_to_each_other(self):
+        SavedListMembership.objects.create(
+            saved_list=self.saved_list, user=self.editor, role="editor",
+        )
+        owner_client = self.client_for(self.owner)
+        editor_client = self.client_for(self.editor)
+
+        owner_update = owner_client.put(
+            f"/lists/saved-lists/{self.saved_list.id}/",
+            {"title": "Einkauf am Samstag"},
+            format="json",
+        )
+        editor_read = editor_client.get(f"/lists/saved-lists/{self.saved_list.id}/")
+        editor_update = editor_client.put(
+            f"/lists/saved-lists/{self.saved_list.id}/",
+            {"title": "Einkauf am Sonntag"},
+            format="json",
+        )
+        owner_read = owner_client.get(f"/lists/saved-lists/{self.saved_list.id}/")
+
+        self.assertEqual(owner_update.status_code, 200)
+        self.assertEqual(editor_read.data["title"], "Einkauf am Samstag")
+        self.assertEqual(editor_update.status_code, 200)
+        self.assertEqual(owner_read.data["title"], "Einkauf am Sonntag")
+
     def test_email_invitation_rejects_a_different_account(self):
         invitation = SavedListInvitation.objects.create(
             saved_list=self.saved_list, invited_by=self.owner,

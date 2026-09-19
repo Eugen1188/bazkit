@@ -41,6 +41,9 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm ci
+      - name: Check shared UI architecture
+        working-directory: frontend
+        run: npm run test:ui-architecture
       - name: Run frontend tests
         working-directory: frontend
         run: npm run test:ci
@@ -78,6 +81,7 @@ jobs:
             docker compose build backend frontend backup
             docker compose up -d db
             docker compose run --rm -e BACKUP_ONCE=true backup
+            docker compose run --rm --entrypoint /usr/local/bin/verify-backup-restore backup
             docker compose run --rm backend python manage.py migrate --noinput
             docker compose run --rm backend python manage.py rebuild_ingredient_catalog
             docker compose run --rm backend python manage.py audit_ingredient_catalog --strict

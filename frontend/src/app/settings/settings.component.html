@@ -532,6 +532,7 @@
 
   <form
     class="settings-dialog"
+    appUiDialog
     *ngIf="activeDialog === 'password'"
     (mousedown)="$event.stopPropagation()"
     (ngSubmit)="submitPasswordChange()"
@@ -558,6 +559,7 @@
 
   <form
     class="settings-dialog settings-dialog--danger"
+    appUiDialog
     *ngIf="activeDialog === 'delete'"
     (mousedown)="$event.stopPropagation()"
     (ngSubmit)="deleteAccount()"

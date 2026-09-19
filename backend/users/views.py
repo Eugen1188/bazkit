@@ -65,7 +65,10 @@ class RegisterUserView(APIView):
                 )
                 send_verification_email(user, email)
         except Exception:
-            logger.exception("Registration verification email could not be sent")
+            logger.exception(
+                "Registration verification email could not be sent",
+                extra={"monitoring_source": "email"},
+            )
             return Response(
                 {
                     "detail": (
@@ -168,7 +171,10 @@ class UserMeView(APIView):
                         email_change=True,
                     )
         except Exception:
-            logger.exception("Email change verification could not be sent")
+            logger.exception(
+                "Email change verification could not be sent",
+                extra={"monitoring_source": "email"},
+            )
             return Response(
                 {
                     "detail": (
@@ -345,7 +351,10 @@ class ResendVerificationEmailView(APIView):
                 ])
                 send_verification_email(user, email, email_change=email_change)
         except Exception:
-            logger.exception("Verification email could not be resent")
+            logger.exception(
+                "Verification email could not be resent",
+                extra={"monitoring_source": "email"},
+            )
             return Response(
                 {"detail": "Die E-Mail konnte momentan nicht versendet werden."},
                 status=status.HTTP_503_SERVICE_UNAVAILABLE,

@@ -69,6 +69,13 @@ urlpatterns = [
     ),
 
     path(
+        "monitoring/",
+        include(
+            "monitoring.urls"
+        )
+    ),
+
+    path(
         "api/token/",
         TokenObtainPairView.as_view(),
         name="token_obtain_pair"

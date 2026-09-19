@@ -97,7 +97,7 @@
             <div class="field">
               <label for="servings">Portionen</label>
               <div class="input-icon-wrap">
-                <input id="servings" type="number" min="1" max="100" [(ngModel)]="servings" />
+                <input appUiNumberInput id="servings" type="number" min="1" max="100" step="1" [(ngModel)]="servings" />
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 19v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M16 11a3 3 0 0 0 0-6M17 13a4 4 0 0 1 4 4v2"></path></svg>
               </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="field">
               <label for="preparationTime">Zubereitungszeit</label>
               <div class="input-suffix-wrap">
-                <input id="preparationTime" type="number" min="1" [(ngModel)]="preparationTime" placeholder="30" />
+                <input appUiNumberInput id="preparationTime" type="number" min="1" step="1" [(ngModel)]="preparationTime" placeholder="30" />
                 <span>Min.</span>
               </div>
             </div>

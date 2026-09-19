@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
 
 
 @Directive({
@@ -38,4 +38,21 @@ export class UiButtonDirective {
 
   @HostBinding('class.ui-button--quiet')
   get isQuiet(): boolean { return this.appUiButton === 'quiet'; }
+}
+
+
+@Directive({
+  selector: 'input[type="number"][appUiNumberInput]',
+  standalone: true,
+})
+export class UiNumberInputDirective {
+  @HostBinding('class.ui-number-input') readonly uiNumberInputClass = true;
+
+  constructor(private readonly element: ElementRef<HTMLInputElement>) {}
+
+  @HostListener('focus')
+  @HostListener('click')
+  selectValue(): void {
+    this.element.nativeElement.select();
+  }
 }

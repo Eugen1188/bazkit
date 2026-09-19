@@ -14,11 +14,17 @@ Create an additional backup manually before a risky operation:
 docker compose run --rm -e BACKUP_ONCE=true backup
 ```
 
-Validate a backup without changing the database:
+Validate that the latest backup can actually be restored into an isolated,
+temporary database:
 
 ```sh
-docker compose exec -T backup pg_restore --list /backups/<backup-file>.dump >/dev/null
+docker compose run --rm --entrypoint /usr/local/bin/verify-backup-restore backup
 ```
+
+This full restore check runs before every deployment and additionally every
+Sunday through the `Verify Bazkit backup restore` workflow. The temporary
+verification database is always removed afterwards. A failed restore stops the
+deployment before migrations can modify production data.
 
 Restoring a backup replaces database data and therefore remains an explicit
 operator task. Stop the backend first, keep a second copy of the selected dump,
@@ -37,3 +43,12 @@ The endpoint verifies both Django and its database connection. A failed check is
 visible as a failed workflow run and can use the repository's normal GitHub
 Actions notifications. Until a domain is available, the workflow uses the
 server address stored in the existing `SERVER_HOST` repository secret.
+
+## Application error monitoring
+
+Backend exceptions, failed application e-mails and browser errors are grouped
+in Django Admin under `Fehlerüberwachung`. Repeated occurrences increment a
+counter and reopen a resolved issue instead of creating duplicates. The first
+occurrence and later occurrences outside the configured cooldown send an alert
+to `ERROR_ALERT_EMAIL`. Set `ERROR_MONITORING_ENABLED=False` only for local
+development or an intentional maintenance window.

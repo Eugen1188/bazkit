@@ -16,12 +16,13 @@ import {
 import { ListShareService } from '../../services/list-share.service';
 import { UiStateComponent } from '../../components/ui-state/ui-state.component';
 import { SavedListRealtimeService } from '../../services/saved-list-realtime.service';
+import { UiDialogDirective } from '../../components/ui-primitives/ui-primitives.directive';
 
 
 @Component({
   selector: 'app-saved-list-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule, UiStateComponent],
+  imports: [CommonModule, FormsModule, UiStateComponent, UiDialogDirective],
   templateUrl: './saved-list-detail.component.html',
   styleUrl: './saved-list-detail.component.scss'
 })

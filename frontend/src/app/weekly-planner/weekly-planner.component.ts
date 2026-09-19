@@ -10,6 +10,10 @@ import {
   WeeklyPlanEntry,
   WeeklyPlannerService
 } from '../services/weekly-planner.service';
+import {
+  UiDialogDirective,
+  UiNumberInputDirective,
+} from '../components/ui-primitives/ui-primitives.directive';
 
 
 type MealType = PlannerMealType;
@@ -46,7 +50,7 @@ interface PlannerDay {
 @Component({
   selector: 'app-weekly-planner',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UiDialogDirective, UiNumberInputDirective],
   templateUrl: './weekly-planner.component.html',
   styleUrl: './weekly-planner.component.scss'
 })

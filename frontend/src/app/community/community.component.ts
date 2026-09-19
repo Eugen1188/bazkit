@@ -36,6 +36,7 @@ import {
 } from '../services/community.service';
 import { UiIconComponent } from '../components/ui-icon/ui-icon.component';
 import { UiStateComponent } from '../components/ui-state/ui-state.component';
+import { UiDialogDirective } from '../components/ui-primitives/ui-primitives.directive';
 
 
 @Component({
@@ -49,7 +50,8 @@ import { UiStateComponent } from '../components/ui-state/ui-state.component';
     CommonModule,
     FormsModule,
     UiIconComponent,
-    UiStateComponent
+    UiStateComponent,
+    UiDialogDirective
   ],
 
   templateUrl:
