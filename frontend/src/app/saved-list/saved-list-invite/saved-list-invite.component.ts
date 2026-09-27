@@ -60,7 +60,7 @@ export class SavedListInviteComponent implements OnInit {
 
   accept(): void {
     if (!this.isLoggedIn) {
-      void this.router.navigate(['/'], { queryParams: { returnUrl: this.returnUrl } });
+      void this.router.navigate(['/login'], { queryParams: { returnUrl: this.returnUrl } });
       return;
     }
     this.isAccepting = true;

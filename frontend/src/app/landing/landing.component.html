@@ -1,0 +1,438 @@
+<div class="landing-page" [class.has-dialog]="activeGate">
+  <header class="public-header">
+    <a class="public-brand" routerLink="/" aria-label="Bazkit Startseite">
+      <app-brand-logo></app-brand-logo>
+    </a>
+
+    <nav class="public-navigation" aria-label="Seitennavigation">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#gemeinsam">Gemeinsam planen</a>
+      <a href="#so-gehts">So funktioniert's</a>
+    </nav>
+
+    <div class="header-actions">
+      <a
+        class="header-login"
+        [routerLink]="isLoggedIn ? '/main/home' : '/login'"
+      >
+        {{ isLoggedIn ? 'Bazkit öffnen' : 'Anmelden' }}
+      </a>
+      <a
+        class="header-register"
+        *ngIf="!isLoggedIn"
+        routerLink="/register"
+      >
+        Kostenlos starten
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="landing-hero" aria-labelledby="landing-title">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Planen, einkaufen und gemeinsam abhaken
+        </span>
+
+        <h1 id="landing-title">
+          Dein Einkauf.<br />
+          <span>Einfach gut geplant.</span>
+        </h1>
+
+        <p class="hero-description">
+          Rezepte sammeln, die Woche planen und daraus automatisch eine
+          Einkaufsliste erstellen – allein oder gemeinsam mit den Menschen,
+          mit denen du einkaufst.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="primary-action"
+            [routerLink]="isLoggedIn ? '/main/home' : '/register'"
+          >
+            {{ isLoggedIn ? 'Zu meinem Bazkit' : 'Kostenlos loslegen' }}
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </a>
+
+          <button class="secondary-action" type="button" (click)="scrollToFeatures()">
+            Erst einmal ansehen
+          </button>
+        </div>
+
+        <div class="hero-benefits" aria-label="Vorteile">
+          <span><b aria-hidden="true">✓</b> Ohne Verpflichtung</span>
+          <span><b aria-hidden="true">✓</b> Für Handy und Desktop</span>
+        </div>
+      </div>
+
+      <div class="product-preview" aria-label="Vorschau einer gemeinsamen Einkaufsliste">
+        <div class="preview-glow" aria-hidden="true"></div>
+
+        <div class="app-window">
+          <div class="window-bar">
+            <span class="window-mark"><i></i><i></i><i></i></span>
+            <span class="window-title">Wocheneinkauf</span>
+            <span class="window-people" aria-label="Zwei Personen arbeiten an der Liste">
+              <b>E</b><b>V</b>
+            </span>
+          </div>
+
+          <div class="window-content">
+            <aside class="preview-sidebar" aria-hidden="true">
+              <span class="preview-bag">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 9V7a5 5 0 0 1 10 0v2"></path>
+                  <path d="M5 9h14l-1 11H6L5 9Z"></path>
+                </svg>
+              </span>
+              <span class="preview-nav-icon active">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h11"></path></svg>
+              </span>
+              <span class="preview-nav-icon">
+                <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 4v16"></path></svg>
+              </span>
+              <span class="preview-nav-icon">
+                <svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 2v6M16 2v6M5 10h14"></path></svg>
+              </span>
+            </aside>
+
+            <div class="list-preview">
+              <div class="list-heading">
+                <div>
+                  <small>GEMEINSAME LISTE</small>
+                  <h2>Wocheneinkauf</h2>
+                </div>
+                <button
+                  type="button"
+                  class="preview-add"
+                  (click)="openFeature(
+                    'Einkaufsliste',
+                    'Erstelle deine eigene Liste und hake Produkte gemeinsam in Echtzeit ab.',
+                    '/main/shopping-list'
+                  )"
+                  aria-label="Einkaufsliste öffnen"
+                >
+                  + Produkt
+                </button>
+              </div>
+
+              <div class="progress-row">
+                <span><b>3</b> von 5 erledigt</span>
+                <span>60 %</span>
+              </div>
+              <div class="preview-progress"><i></i></div>
+
+              <div class="preview-products">
+                <button
+                  class="preview-product checked"
+                  type="button"
+                  (click)="openFeature(
+                    'Gemeinsam einkaufen',
+                    'In Bazkit sehen alle Beteiligten Änderungen sofort und wissen, was schon im Wagen liegt.',
+                    '/main/shopping-list'
+                  )"
+                >
+                  <span class="preview-check">✓</span>
+                  <span class="product-letter">M</span>
+                  <span class="product-copy"><b>Milch</b><small>1 Liter · fettarm</small></span>
+                  <span class="product-owner">Eugen</span>
+                </button>
+
+                <button
+                  class="preview-product checked"
+                  type="button"
+                  (click)="openFeature(
+                    'Gemeinsam einkaufen',
+                    'In Bazkit sehen alle Beteiligten Änderungen sofort und wissen, was schon im Wagen liegt.',
+                    '/main/shopping-list'
+                  )"
+                >
+                  <span class="preview-check">✓</span>
+                  <span class="product-letter tomato">T</span>
+                  <span class="product-copy"><b>Tomaten</b><small>500 g · reif</small></span>
+                  <span class="product-owner">Viktoria</span>
+                </button>
+
+                <button
+                  class="preview-product"
+                  type="button"
+                  (click)="openFeature(
+                    'Gemeinsam einkaufen',
+                    'In Bazkit sehen alle Beteiligten Änderungen sofort und wissen, was schon im Wagen liegt.',
+                    '/main/shopping-list'
+                  )"
+                >
+                  <span class="preview-check"></span>
+                  <span class="product-letter bread">B</span>
+                  <span class="product-copy"><b>Brot</b><small>1 Stück · Vollkorn</small></span>
+                  <span class="product-owner waiting">offen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="collaboration-pill"
+          type="button"
+          (click)="openFeature(
+            'Gemeinsame Listen',
+            'Lade andere ein und erledigt euren Einkauf zusammen, ohne doppelte Produkte.',
+            '/main/saved-list'
+          )"
+        >
+          <span class="live-dot" aria-hidden="true"></span>
+          Gerade gemeinsam bearbeitet
+        </button>
+      </div>
+    </section>
+
+    <section class="promise-strip" aria-label="Bazkit auf einen Blick">
+      <div><strong>Ein Ort</strong><span>für Rezepte, Planung und Einkauf</span></div>
+      <i aria-hidden="true"></i>
+      <div><strong>Gemeinsam</strong><span>Listen teilen und live abhaken</span></div>
+      <i aria-hidden="true"></i>
+      <div><strong>Weniger Aufwand</strong><span>Zutaten direkt übernehmen</span></div>
+    </section>
+
+    <section class="features-section" id="funktionen" aria-labelledby="features-title">
+      <div class="section-intro">
+        <span class="section-kicker">ALLES AN EINEM ORT</span>
+        <h2 id="features-title">Vom Rezept bis zum Supermarkt</h2>
+        <p>
+          Bazkit verbindet die Dinge, die sonst auf Notizzetteln, in Chats und
+          in verschiedenen Apps verteilt sind.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <button
+          class="feature-card feature-shopping"
+          type="button"
+          (click)="openFeature(
+            'Deine Einkaufsliste',
+            'Füge Produkte mit Mengen und Notizen hinzu und hake sie unterwegs ab.',
+            '/main/shopping-list'
+          )"
+        >
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H7"></path>
+              <circle cx="10" cy="20" r="1.2"></circle><circle cx="18" cy="20" r="1.2"></circle>
+            </svg>
+          </span>
+          <span class="feature-label">EINKAUFEN</span>
+          <strong>Einkaufsliste</strong>
+          <span class="feature-description">Übersichtlich, schnell und auch gemeinsam nutzbar.</span>
+          <span class="feature-link">Vorschau öffnen <b>→</b></span>
+        </button>
+
+        <button
+          class="feature-card feature-recipes"
+          type="button"
+          (click)="openFeature(
+            'Deine Rezepte',
+            'Sammle Lieblingsrezepte und übernimm ihre Zutaten mit wenigen Klicks.',
+            '/main/recipe-list'
+          )"
+        >
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3h11a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1Z"></path>
+              <path d="M8 3v18M11 8h5M11 12h5"></path>
+            </svg>
+          </span>
+          <span class="feature-label">SAMMELN</span>
+          <strong>Rezepte</strong>
+          <span class="feature-description">Eigene Gerichte, Nährwerte und Zutaten an einem Ort.</span>
+          <span class="feature-link">Vorschau öffnen <b>→</b></span>
+        </button>
+
+        <button
+          class="feature-card feature-planner"
+          type="button"
+          (click)="openFeature(
+            'Dein Wochenplan',
+            'Plane Mahlzeiten für die Woche und übertrage alle Zutaten gesammelt.',
+            '/main/weekly-planner'
+          )"
+        >
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M3 10h18M8 14h3M14 14h3M8 18h3"></path>
+            </svg>
+          </span>
+          <span class="feature-label">PLANEN</span>
+          <strong>Wochenplaner</strong>
+          <span class="feature-description">Jeden Tag wissen, was auf den Tisch kommt.</span>
+          <span class="feature-link">Vorschau öffnen <b>→</b></span>
+        </button>
+
+        <button
+          class="feature-card feature-community"
+          type="button"
+          (click)="openFeature(
+            'Die Bazkit Community',
+            'Entdecke Rezepte, Listen und Ideen von anderen Kochbegeisterten.',
+            '/main/community'
+          )"
+        >
+          <span class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.5"></circle>
+              <path d="M3 20c0-4 2.7-6 6-6s6 2 6 6M14 15c3.6-.8 7 1 7 5"></path>
+            </svg>
+          </span>
+          <span class="feature-label">ENTDECKEN</span>
+          <strong>Community</strong>
+          <span class="feature-description">Inspiration finden, bewerten und Erfahrungen teilen.</span>
+          <span class="feature-link">Vorschau öffnen <b>→</b></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="together-section" id="gemeinsam" aria-labelledby="together-title">
+      <div class="together-visual">
+        <div class="phone-preview">
+          <div class="phone-speaker"></div>
+          <div class="phone-header">
+            <span>‹</span><strong>WG-Einkauf</strong><span>•••</span>
+          </div>
+          <div class="phone-status">
+            <span class="avatar-stack"><b>L</b><b>M</b><b>J</b></span>
+            <small>3 Personen bearbeiten diese Liste</small>
+          </div>
+          <div class="phone-list">
+            <span><i class="phone-check done">✓</i><b>Haferflocken</b><small>1 Packung</small></span>
+            <span><i class="phone-check done">✓</i><b>Äpfel</b><small>6 Stück</small></span>
+            <span><i class="phone-check"></i><b>Joghurt</b><small>2 Becher</small></span>
+            <span><i class="phone-check"></i><b>Kaffee</b><small>1 Packung</small></span>
+          </div>
+          <button
+            type="button"
+            (click)="openFeature(
+              'Gemeinsame Listen',
+              'Lade Familie, Freunde oder deine WG ein und erledigt Listen zusammen.',
+              '/main/saved-list'
+            )"
+          >
+            + Produkt hinzufügen
+          </button>
+        </div>
+        <span class="sync-note note-one"><b>✓</b> Von Lisa abgehakt</span>
+        <span class="sync-note note-two"><b>+</b> Max hat Kaffee hinzugefügt</span>
+      </div>
+
+      <div class="together-copy">
+        <span class="section-kicker">GEMEINSAM STATT DOPPELT</span>
+        <h2 id="together-title">Eine Liste.<br />Alle auf demselben Stand.</h2>
+        <p>
+          Lade Familie, Partner oder deine WG ein. Änderungen erscheinen bei
+          allen Beteiligten, damit niemand denselben Einkauf zweimal erledigt.
+        </p>
+        <ul>
+          <li><span>✓</span><div><b>Zusammen bearbeiten</b><small>Produkte hinzufügen, ändern und abhaken.</small></div></li>
+          <li><span>✓</span><div><b>Nachvollziehbar bleiben</b><small>Sieh, wer zuletzt etwas erledigt hat.</small></div></li>
+          <li><span>✓</span><div><b>Für unterwegs gemacht</b><small>Auf dem Handy schnell und übersichtlich.</small></div></li>
+        </ul>
+        <button
+          class="text-action"
+          type="button"
+          (click)="openFeature(
+            'Gemeinsame Listen',
+            'Lade andere zu deiner Liste ein und plant den Einkauf zusammen.',
+            '/main/saved-list'
+          )"
+        >
+          Gemeinsame Listen ausprobieren <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="steps-section" id="so-gehts" aria-labelledby="steps-title">
+      <div class="section-intro compact">
+        <span class="section-kicker">EINFACH ANFANGEN</span>
+        <h2 id="steps-title">In drei Schritten zum entspannten Einkauf</h2>
+      </div>
+
+      <div class="step-grid">
+        <article>
+          <span>01</span>
+          <h3>Lieblingsrezepte sammeln</h3>
+          <p>Lege eigene Rezepte an oder entdecke neue Ideen in der Community.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Deine Woche planen</h3>
+          <p>Verteile Gerichte auf die Tage und passe Portionen nach Bedarf an.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Liste mitnehmen</h3>
+          <p>Übernimm Zutaten gesammelt und hake sie beim Einkauf direkt ab.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div>
+        <span class="section-kicker">BEREIT FÜR WENIGER ZETTELWIRTSCHAFT?</span>
+        <h2>Mach deinen nächsten Einkauf einfacher.</h2>
+        <p>Erstelle dein Konto und plane alles an einem Ort.</p>
+      </div>
+      <a [routerLink]="isLoggedIn ? '/main/home' : '/register'">
+        {{ isLoggedIn ? 'Bazkit öffnen' : 'Jetzt kostenlos starten' }}
+        <span>→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="public-footer">
+    <a class="footer-brand" routerLink="/" aria-label="Bazkit Startseite">
+      <app-brand-logo></app-brand-logo>
+    </a>
+    <p>Planen. Einkaufen. Gemeinsam erledigen.</p>
+    <nav aria-label="Rechtliche Hinweise">
+      <a routerLink="/impressum">Impressum</a>
+      <a routerLink="/datenschutz">Datenschutz</a>
+      <a routerLink="/agb">Nutzungsbedingungen</a>
+    </nav>
+    <small>© {{ currentYear }} bazkit</small>
+  </footer>
+
+  <div
+    class="gate-backdrop"
+    *ngIf="activeGate as gate"
+    (click)="closeGate()"
+  >
+    <section
+      class="gate-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gate-title"
+      (click)="$event.stopPropagation()"
+    >
+      <button class="gate-close" type="button" (click)="closeGate()" aria-label="Fenster schließen">×</button>
+      <span class="gate-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="5" y="10" width="14" height="10" rx="3"></rect>
+          <path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2"></path>
+        </svg>
+      </span>
+      <span class="gate-kicker">DEIN PERSÖNLICHER BEREICH</span>
+      <h2 id="gate-title">{{ gate.title }} öffnen</h2>
+      <p>{{ gate.description }}</p>
+      <a class="gate-primary" routerLink="/login" [queryParams]="{ returnUrl: gate.returnUrl }">
+        Anmelden und öffnen
+      </a>
+      <a class="gate-secondary" routerLink="/register" [queryParams]="{ returnUrl: gate.returnUrl }">
+        Kostenlos registrieren
+      </a>
+      <button class="gate-later" type="button" (click)="closeGate()">Erst weiter ansehen</button>
+    </section>
+  </div>
+</div>

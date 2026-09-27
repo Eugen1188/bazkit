@@ -7,6 +7,10 @@ import {
 } from './login/login.component';
 
 import {
+  LandingComponent
+} from './landing/landing.component';
+
+import {
   RegisterComponent
 } from './register/register.component';
 
@@ -95,6 +99,11 @@ export const routes:
 
     {
       path: '',
+      component: LandingComponent
+    },
+
+    {
+      path: 'login',
       component: LoginComponent
     },
 

@@ -1,5 +1,5 @@
 <main class="verification-page">
-  <a class="verification-logo" routerLink="/" aria-label="Zur bazkit Anmeldung">
+  <a class="verification-logo" routerLink="/" aria-label="Zur bazkit Startseite">
     <app-brand-logo></app-brand-logo>
   </a>
 
@@ -16,7 +16,7 @@
     </h1>
     <p class="verification-message">{{ message }}</p>
 
-    <a class="primary-action" routerLink="/" *ngIf="state === 'success'">Jetzt anmelden</a>
+    <a class="primary-action" routerLink="/login" *ngIf="state === 'success'">Jetzt anmelden</a>
 
     <form class="resend-form" *ngIf="state === 'error'" (ngSubmit)="resend()">
       <label for="resendEmail">Neuen Link anfordern</label>
@@ -35,6 +35,6 @@
       <p class="resend-message" *ngIf="resendMessage">{{ resendMessage }}</p>
     </form>
 
-    <a class="secondary-link" routerLink="/">Zurück zur Anmeldung</a>
+    <a class="secondary-link" routerLink="/login">Zurück zur Anmeldung</a>
   </section>
 </main>

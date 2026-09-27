@@ -147,7 +147,7 @@ export class RegisterComponent {
           this.isLoading = false;
 
           this.router.navigate(
-            ['/'],
+            ['/login'],
             {
               queryParams: {
                 returnUrl: this.returnUrl
@@ -240,7 +240,7 @@ export class RegisterComponent {
   ): void {
     event.preventDefault();
 
-    this.router.navigate(['/'], { queryParams: { returnUrl: this.returnUrl } });
+    this.router.navigate(['/login'], { queryParams: { returnUrl: this.returnUrl } });
   }
 
   private safeReturnUrl(value: string | null): string {

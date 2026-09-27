@@ -77,7 +77,13 @@ export const authInterceptor: HttpInterceptorFn = (
 
           authService.logout();
 
-          router.navigate(['/']);
+          router.navigate(['/login'], {
+            queryParams: {
+              returnUrl: router.url.startsWith('/main')
+                ? router.url
+                : '/main/home'
+            }
+          });
 
           return throwError(
             () => error
@@ -123,7 +129,13 @@ export const authInterceptor: HttpInterceptorFn = (
 
                 authService.logout();
 
-                router.navigate(['/']);
+                router.navigate(['/login'], {
+                  queryParams: {
+                    returnUrl: router.url.startsWith('/main')
+                      ? router.url
+                      : '/main/home'
+                  }
+                });
 
                 return throwError(
                   () => refreshError
