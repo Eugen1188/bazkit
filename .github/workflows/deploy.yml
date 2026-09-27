@@ -99,4 +99,4 @@ jobs:
             done
             test "$backend_ready" = "1"
             docker compose exec -T backend python manage.py check
-            docker compose exec -T backend python -c "from django.conf import settings; assert settings.OPENAI_API_KEY, 'OPENAI_API_KEY fehlt im Backend'"
+            docker compose exec -T backend python manage.py shell -c "from django.conf import settings; assert settings.OPENAI_API_KEY, 'OPENAI_API_KEY fehlt im Backend'"
