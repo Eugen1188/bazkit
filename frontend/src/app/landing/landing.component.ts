@@ -3,6 +3,7 @@ import { Component, HostListener, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 import { BrandLogoComponent } from '../components/brand-logo/brand-logo.component';
+import { UiDialogDirective } from '../components/ui-primitives/ui-primitives.directive';
 import { AuthService } from '../services/auth.service';
 
 interface LandingGate {
@@ -14,7 +15,12 @@ interface LandingGate {
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, RouterLink, BrandLogoComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    BrandLogoComponent,
+    UiDialogDirective,
+  ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
 })
