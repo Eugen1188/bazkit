@@ -12,7 +12,7 @@ jobs:
   health-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check backend and database health
+      - name: Check application and database health
         env:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
         run: |
@@ -25,4 +25,4 @@ jobs:
             --retry-all-errors \
             --connect-timeout 5 \
             --max-time 15 \
-            "http://${SERVER_HOST}:8000/health/"
+            "http://${SERVER_HOST}:8080/health/"

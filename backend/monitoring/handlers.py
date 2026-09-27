@@ -1,10 +1,32 @@
 import logging
 import traceback
 
+from django.core.exceptions import DisallowedHost
+
 
 class OperationalIssueHandler(logging.Handler):
+    @staticmethod
+    def _is_rejected_host_probe(record):
+        if record.name == "django.security.DisallowedHost":
+            return True
+
+        if not record.exc_info:
+            return False
+
+        exception_type = record.exc_info[0]
+        try:
+            return issubclass(exception_type, DisallowedHost)
+        except TypeError:
+            return False
+
     def emit(self, record):
-        if record.name.startswith("monitoring"):
+        # Django correctly rejects requests with forged Host headers. Public
+        # servers receive these automated probes constantly, so they are not
+        # operational incidents and must not trigger alert e-mails.
+        if (
+            record.name.startswith("monitoring")
+            or self._is_rejected_host_probe(record)
+        ):
             return
         try:
             from .services import report_issue

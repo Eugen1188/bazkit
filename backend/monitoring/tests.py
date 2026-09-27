@@ -1,6 +1,7 @@
 import logging
 
 from django.core import mail
+from django.core.exceptions import DisallowedHost
 from django.test import override_settings
 from rest_framework.test import APITestCase
 
@@ -54,3 +55,23 @@ class MonitoringTests(APITestCase):
         issue = OperationalIssue.objects.get()
         self.assertEqual(issue.source, "email")
         self.assertEqual(issue.message, "E-Mail konnte nicht gesendet werden")
+
+    def test_disallowed_host_probe_does_not_create_issue_or_email(self):
+        handler = logging.getHandlerByName("operational_issues")
+        exception = DisallowedHost(
+            "Invalid HTTP_HOST header: 'api.ipify.org'."
+        )
+        record = logging.LogRecord(
+            "django.security.DisallowedHost",
+            logging.ERROR,
+            __file__,
+            1,
+            str(exception),
+            (),
+            (DisallowedHost, exception, None),
+        )
+
+        handler.emit(record)
+
+        self.assertFalse(OperationalIssue.objects.exists())
+        self.assertEqual(len(mail.outbox), 0)

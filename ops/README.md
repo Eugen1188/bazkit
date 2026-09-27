@@ -38,7 +38,10 @@ deployment before migrations.
 
 ## Availability monitoring
 
-The `Monitor Bazkit` GitHub Actions workflow checks `/health/` every 15 minutes.
+The `Monitor Bazkit` GitHub Actions workflow checks `/health/` through the
+public frontend every 15 minutes. Nginx forwards that single endpoint to the
+backend, so the database is still checked without exposing Django's port 8000
+to the internet.
 The endpoint verifies both Django and its database connection. A failed check is
 visible as a failed workflow run and can use the repository's normal GitHub
 Actions notifications. Until a domain is available, the workflow uses the
