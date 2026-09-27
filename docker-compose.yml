@@ -28,6 +28,7 @@ services:
     environment:
       DJANGO_DEBUG: "False"
       REDIS_URL: redis://redis:6379/0
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
     depends_on:
       - db
       - redis

@@ -1,5 +1,17 @@
 # Bazkit operations
 
+## Deployment secrets
+
+Production deployments expect `OPENAI_API_KEY` as a GitHub Actions repository
+secret. The deployment forwards it directly to Docker Compose and verifies that
+the running backend received it. The key is never written to the repository or
+printed by the deployment script.
+
+Create a dedicated project API key for Bazkit and store it in GitHub under
+`Settings` → `Secrets and variables` → `Actions` with the exact name
+`OPENAI_API_KEY`. Rotating the repository secret and running a new deployment
+replaces the key in the backend container.
+
 ## Database backups
 
 The `backup` Compose service creates a verified PostgreSQL custom-format dump
