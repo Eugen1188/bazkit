@@ -218,9 +218,10 @@ class GenerateRecipeAPIView(
             return Response(
                 {
                     "detail": str(error),
-                    "code": "recipe_generation_failed",
+                    "code": error.code,
+                    "ai_usage": get_ai_recipe_usage(request.user),
                 },
-                status=status.HTTP_502_BAD_GATEWAY
+                status=error.status_code,
             )
 
         except Exception:

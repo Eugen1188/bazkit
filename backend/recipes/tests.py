@@ -11,6 +11,7 @@ from django.test import TestCase, override_settings
 from PIL import Image
 from django.utils import timezone
 from rest_framework.test import APIClient, APITestCase
+from openai import APITimeoutError
 
 from products.models import IngredientPriceReference, Product, ProductUnitConversion
 from products.catalog import sync_curated_unit_conversion
@@ -260,6 +261,41 @@ class RecipeSerializerTests(TestCase):
         self.assertEqual(result["ingredients"][0]["product"], self.product.id)
         self.assertEqual(result["ingredients"][0]["name"], "Tomate")
         self.assertEqual(result["nutrition"]["calories"], 20.0)
+        openai_mock.assert_called_once_with(
+            api_key="test-key",
+            timeout=90.0,
+            max_retries=0,
+        )
+        request = openai_mock.return_value.responses.create.call_args.kwargs
+        self.assertEqual(request["reasoning"], {"effort": "minimal"})
+        self.assertEqual(request["max_output_tokens"], 3000)
+        self.assertFalse(request["store"])
+
+    @override_settings(
+        OPENAI_API_KEY="test-key",
+        OPENAI_RECIPE_MODEL="test-model",
+        OPENAI_RECIPE_TIMEOUT_SECONDS=90.0,
+        OPENAI_RECIPE_MAX_RETRIES=0,
+        OPENAI_RECIPE_MAX_OUTPUT_TOKENS=3000,
+    )
+    @patch("recipes.ai_service.OpenAI")
+    def test_ai_recipe_timeout_has_specific_error(self, openai_mock):
+        openai_mock.return_value.responses.create.side_effect = APITimeoutError(
+            request=SimpleNamespace()
+        )
+
+        with self.assertRaises(RecipeGenerationError) as raised:
+            generate_recipe_with_ai({
+                "idea": "Tomatensalat",
+                "available_ingredients": "Tomate",
+                "servings": 2,
+                "max_time": 15,
+                "category": "lunch",
+            })
+
+        self.assertEqual(raised.exception.code, "recipe_generation_timeout")
+        self.assertEqual(raised.exception.status_code, 504)
+        self.assertIn("zu lange gedauert", str(raised.exception))
 
     def test_image_crop_is_saved_and_defaults_to_center(self):
         serializer = RecipeSerializer(data={
@@ -581,8 +617,24 @@ class AIRecipeUsageApiTests(APITestCase):
         response = self.client.post("/recipes/generate/", self.payload, format="json")
 
         self.assertEqual(response.status_code, 502)
+        self.assertEqual(response.data["code"], "recipe_generation_failed")
+        self.assertEqual(response.data["ai_usage"]["remaining"], 50)
         usage = AIRecipeUsage.objects.get(user=self.user)
         self.assertEqual(usage.generations_used, 0)
+
+    @patch("recipes.views.generate_recipe_with_ai")
+    def test_generation_timeout_returns_specific_response(self, generator):
+        generator.side_effect = RecipeGenerationError(
+            "Die Rezeptgenerierung hat zu lange gedauert.",
+            code="recipe_generation_timeout",
+            status_code=504,
+        )
+
+        response = self.client.post("/recipes/generate/", self.payload, format="json")
+
+        self.assertEqual(response.status_code, 504)
+        self.assertEqual(response.data["code"], "recipe_generation_timeout")
+        self.assertEqual(response.data["ai_usage"]["remaining"], 50)
 
     def test_generation_is_blocked_after_limit(self):
         AIRecipeUsage.objects.create(

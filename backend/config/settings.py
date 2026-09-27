@@ -371,6 +371,22 @@ OPENAI_RECIPE_MODEL = os.getenv(
     "gpt-5-mini"
 )
 
+OPENAI_RECIPE_TIMEOUT_SECONDS = float(
+    os.getenv("OPENAI_RECIPE_TIMEOUT_SECONDS", "90")
+)
+
+OPENAI_RECIPE_MAX_RETRIES = int(
+    os.getenv("OPENAI_RECIPE_MAX_RETRIES", "0")
+)
+
+OPENAI_RECIPE_CATALOG_LIMIT = int(
+    os.getenv("OPENAI_RECIPE_CATALOG_LIMIT", "300")
+)
+
+OPENAI_RECIPE_MAX_OUTPUT_TOKENS = int(
+    os.getenv("OPENAI_RECIPE_MAX_OUTPUT_TOKENS", "3000")
+)
+
 
 # Während der Startphase erhalten alle Konten das Premium-Kontingent. Sobald
 # das Bezahlmodell verfügbar ist, genügt PREMIUM_ENFORCEMENT_ENABLED=True; dann

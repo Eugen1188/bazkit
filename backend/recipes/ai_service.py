@@ -1,9 +1,16 @@
 import json
+import logging
 import re
 from decimal import Decimal, InvalidOperation
 
 from django.conf import settings
-from openai import OpenAI
+from openai import (
+    APIConnectionError,
+    APITimeoutError,
+    AuthenticationError,
+    OpenAI,
+    RateLimitError,
+)
 
 from products.catalog import ingredient_quantity_grams, recipe_ingredient_status
 from products.ingredient_catalog import INGREDIENT_DEFINITIONS, normalize_alias
@@ -11,8 +18,20 @@ from products.models import Product
 from products.serializers import ProductSerializer
 
 
+logger = logging.getLogger(__name__)
+
+
 class RecipeGenerationError(Exception):
-    pass
+    def __init__(
+        self,
+        message,
+        *,
+        code="recipe_generation_failed",
+        status_code=502,
+    ):
+        super().__init__(message)
+        self.code = code
+        self.status_code = status_code
 
 
 NUTRITION_FIELDS = (
@@ -58,8 +77,10 @@ def product_available_units(product):
     return list(ProductSerializer(product).data.get("available_units") or ["g"])
 
 
-def build_ai_ingredient_catalog(data, limit=450):
+def build_ai_ingredient_catalog(data, limit=None):
     """Return a compact, nutrition-ready product catalog for the model."""
+    if limit is None:
+        limit = settings.OPENAI_RECIPE_CATALOG_LIMIT
     curated_names = {
         normalize_alias(definition.canonical_name)
         for definition in INGREDIENT_DEFINITIONS
@@ -204,7 +225,9 @@ def generate_recipe_with_ai(data):
         )
 
     client = OpenAI(
-        api_key=settings.OPENAI_API_KEY
+        api_key=settings.OPENAI_API_KEY,
+        timeout=settings.OPENAI_RECIPE_TIMEOUT_SECONDS,
+        max_retries=settings.OPENAI_RECIPE_MAX_RETRIES,
     )
 
     catalog_rows = build_ai_ingredient_catalog(data)
@@ -218,6 +241,9 @@ def generate_recipe_with_ai(data):
     try:
         response = client.responses.create(
             model=settings.OPENAI_RECIPE_MODEL,
+            reasoning={"effort": "minimal"},
+            max_output_tokens=settings.OPENAI_RECIPE_MAX_OUTPUT_TOKENS,
+            store=False,
             input=[
                 {
                     "role": "system",
@@ -323,7 +349,36 @@ def generate_recipe_with_ai(data):
 
     except RecipeGenerationError:
         raise
+    except APITimeoutError as error:
+        logger.warning("OpenAI recipe generation timed out", exc_info=True)
+        raise RecipeGenerationError(
+            "Die Rezeptgenerierung hat zu lange gedauert. Bitte versuche es erneut.",
+            code="recipe_generation_timeout",
+            status_code=504,
+        ) from error
+    except RateLimitError as error:
+        logger.warning("OpenAI recipe generation was rate limited", exc_info=True)
+        raise RecipeGenerationError(
+            "Der KI-Dienst ist gerade ausgelastet. Bitte versuche es in einer Minute erneut.",
+            code="recipe_generation_rate_limited",
+            status_code=503,
+        ) from error
+    except AuthenticationError as error:
+        logger.error("OpenAI recipe generation authentication failed", exc_info=True)
+        raise RecipeGenerationError(
+            "Der KI-Dienst ist noch nicht vollständig eingerichtet.",
+            code="recipe_generation_not_configured",
+            status_code=503,
+        ) from error
+    except APIConnectionError as error:
+        logger.warning("OpenAI recipe generation connection failed", exc_info=True)
+        raise RecipeGenerationError(
+            "Der KI-Dienst ist momentan nicht erreichbar. Bitte versuche es gleich erneut.",
+            code="recipe_generation_unavailable",
+            status_code=503,
+        ) from error
     except Exception as error:
+        logger.exception("OpenAI recipe generation failed unexpectedly")
         raise RecipeGenerationError(
             "Der KI-Dienst ist momentan nicht erreichbar. Bitte versuche es gleich erneut."
         ) from error

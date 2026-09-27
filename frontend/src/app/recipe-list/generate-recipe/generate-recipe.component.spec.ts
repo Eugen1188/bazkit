@@ -28,4 +28,15 @@ describe('GenerateRecipeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shows a useful message when the proxy times out', () => {
+    const message = (component as any).apiError(
+      { status: 504, error: '<html>Gateway Timeout</html>' },
+      'Fallback',
+    );
+
+    expect(message).toBe(
+      'Die Rezeptgenerierung hat zu lange gedauert. Bitte versuche es erneut.',
+    );
+  });
 });

@@ -436,7 +436,10 @@ export class GenerateRecipeComponent implements OnInit {
 
 
   private apiError(error: unknown, fallback: string): string {
-    const response = error as { error?: { detail?: string } };
+    const response = error as { status?: number; error?: { detail?: string } };
+    if (response?.status === 504 && !response?.error?.detail) {
+      return 'Die Rezeptgenerierung hat zu lange gedauert. Bitte versuche es erneut.';
+    }
     return response?.error?.detail || fallback;
   }
 
