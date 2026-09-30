@@ -1,6 +1,8 @@
 import {
-  CommonModule
+  CommonModule,
+  registerLocaleData,
 } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 
 import {
   Component,
@@ -32,6 +34,9 @@ import {
   serializePreparationSteps
 } from '../preparation-steps';
 import { UiNumberInputDirective } from '../../components/ui-primitives/ui-primitives.directive';
+
+
+registerLocaleData(localeDe);
 
 
 @Component({

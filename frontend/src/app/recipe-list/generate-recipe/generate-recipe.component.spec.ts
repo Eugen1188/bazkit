@@ -39,4 +39,53 @@ describe('GenerateRecipeComponent', () => {
       'Die Rezeptgenerierung hat zu lange gedauert. Bitte versuche es erneut.',
     );
   });
+
+  it('renders a generated recipe including nutrition, ingredients and steps', () => {
+    component.generatedRecipe = {
+      name: 'Paprika-Gulasch',
+      description: 'Herzhaft und aromatisch.',
+      servings: 6,
+      preparation_time: 150,
+      category: 'lunch',
+      ingredients: [
+        {
+          product: 1,
+          product_detail: null,
+          name: 'Rindergulasch',
+          quantity: 900,
+          unit: 'g',
+        },
+        {
+          product: 2,
+          product_detail: null,
+          name: 'Paprika',
+          quantity: 3,
+          unit: 'Stück',
+        },
+      ],
+      steps: [
+        'Das Fleisch kräftig anbraten.',
+        'Paprika hinzugeben und schmoren.',
+      ],
+      notes: 'Am besten heiß servieren.',
+      nutrition: {
+        calories: 487.35,
+        protein: 42.16,
+        carbohydrates: 18.4,
+        fat: 24.81,
+        fiber: 4.25,
+      },
+      nutrition_complete: true,
+      nutrition_source: 'Geprüfter Produktkatalog',
+    };
+
+    expect(() => fixture.detectChanges()).not.toThrow();
+
+    const text = fixture.nativeElement.textContent;
+    expect(text).toContain('Paprika-Gulasch');
+    expect(text).toContain('487');
+    expect(text).toContain('42,2');
+    expect(text).toContain('Rindergulasch');
+    expect(text).toContain('Paprika hinzugeben und schmoren.');
+  });
 });
