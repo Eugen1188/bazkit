@@ -16,7 +16,7 @@ curl --fail --silent --show-error --retry 3 --retry-all-errors \
   --connect-timeout 5 --max-time 20 \
   --header "X-Forwarded-Proto: $forwarded_proto" \
   "$health_url" >"$temporary_directory/health.json"
-grep -q '"status": "healthy"' "$temporary_directory/health.json"
+grep -q '"status": "ok"' "$temporary_directory/health.json"
 
 curl --fail --silent --show-error --retry 3 --retry-all-errors \
   --connect-timeout 5 --max-time 20 \
