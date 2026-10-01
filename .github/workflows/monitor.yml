@@ -15,8 +15,12 @@ jobs:
       - name: Check application and database health
         env:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          PUBLIC_URL: ${{ vars.BAZKIT_PUBLIC_URL }}
         run: |
           test -n "$SERVER_HOST"
+          if [ -z "$PUBLIC_URL" ]; then
+            PUBLIC_URL="http://${SERVER_HOST}:8080"
+          fi
           curl \
             --fail \
             --silent \
@@ -25,4 +29,4 @@ jobs:
             --retry-all-errors \
             --connect-timeout 5 \
             --max-time 15 \
-            "http://${SERVER_HOST}:8080/health/"
+            "${PUBLIC_URL%/}/health/"

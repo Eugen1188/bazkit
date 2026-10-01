@@ -28,6 +28,20 @@ export interface ChangePasswordPayload {
   new_password2: string;
 }
 
+export interface PasswordResetConfirmPayload {
+  uid: string;
+  token: string;
+  new_password: string;
+  new_password2: string;
+}
+
+export interface ContactPayload {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 interface TokenRefreshResponse {
   access: string;
   refresh?: string;
@@ -91,6 +105,27 @@ export class AuthService {
     return this.http.post<{ message: string }>(
       `${this.apiUrl}/users/resend-verification/`,
       { email: email.trim().toLowerCase() }
+    );
+  }
+
+  requestPasswordReset(email: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
+      `${this.apiUrl}/users/password-reset/`,
+      { email: email.trim().toLowerCase() }
+    );
+  }
+
+  confirmPasswordReset(data: PasswordResetConfirmPayload): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
+      `${this.apiUrl}/users/password-reset/confirm/`,
+      data
+    );
+  }
+
+  sendContactMessage(data: ContactPayload): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
+      `${this.apiUrl}/users/contact/`,
+      data
     );
   }
 

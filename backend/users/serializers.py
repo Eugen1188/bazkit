@@ -181,6 +181,54 @@ class UserLoginSerializer(serializers.Serializer):
         return attrs
 
 
+class PasswordResetRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        return value.strip().lower()
+
+
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    uid = serializers.CharField(max_length=128)
+    token = serializers.CharField(max_length=256)
+    new_password = serializers.CharField(write_only=True)
+    new_password2 = serializers.CharField(write_only=True)
+
+    def validate_new_password(self, value):
+        return validate_password_strength(value)
+
+    def validate(self, attrs):
+        if attrs["new_password"] != attrs["new_password2"]:
+            raise serializers.ValidationError({
+                "new_password2": "Die neuen Passwörter stimmen nicht überein."
+            })
+        return attrs
+
+
+class ContactSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=150)
+    email = serializers.EmailField()
+    subject = serializers.CharField(max_length=160)
+    message = serializers.CharField(max_length=4000)
+
+    def validate_name(self, value):
+        return value.strip()
+
+    def validate_email(self, value):
+        return value.strip().lower()
+
+    def validate_subject(self, value):
+        return " ".join(value.split())
+
+    def validate_message(self, value):
+        value = value.strip()
+        if len(value) < 10:
+            raise serializers.ValidationError(
+                "Bitte beschreibe dein Anliegen mit mindestens 10 Zeichen."
+            )
+        return value
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     avatar_url = serializers.SerializerMethodField()
     email_verified = serializers.SerializerMethodField()

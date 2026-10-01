@@ -30,6 +30,18 @@ load_dotenv(
 )
 
 
+def env_bool(name, default=False):
+    fallback = "True" if default else "False"
+    return os.getenv(name, fallback).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def env_list(name, default):
+    raw_value = os.getenv(name, "")
+    if not raw_value.strip():
+        return list(default)
+    return [value.strip() for value in raw_value.split(",") if value.strip()]
+
+
 # ==========================================
 # PATHS
 # ==========================================
@@ -51,26 +63,34 @@ SECRET_KEY = os.getenv(
     "dev-only-secret-key"
 )
 
-DEBUG = (
-    os.getenv(
-        "DJANGO_DEBUG",
-        "False"
-    )
-    ==
-    "True"
+DEBUG = env_bool("DJANGO_DEBUG", False)
+
+
+ALLOWED_HOSTS = env_list(
+    "DJANGO_ALLOWED_HOSTS",
+    ["localhost", "127.0.0.1", "178.104.47.231"],
 )
 
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "178.104.47.231",
-]
+CSRF_TRUSTED_ORIGINS = env_list(
+    "DJANGO_CSRF_TRUSTED_ORIGINS",
+    ["http://178.104.47.231", "http://178.104.47.231:8080"],
+)
 
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://178.104.47.231",
-]
+HTTPS_ENABLED = env_bool("BAZKIT_HTTPS_ENABLED", False)
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = HTTPS_ENABLED
+SESSION_COOKIE_SECURE = HTTPS_ENABLED
+CSRF_COOKIE_SECURE = HTTPS_ENABLED
+SECURE_HSTS_SECONDS = int(os.getenv("DJANGO_HSTS_SECONDS", "31536000")) if HTTPS_ENABLED else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = HTTPS_ENABLED and env_bool(
+    "DJANGO_HSTS_INCLUDE_SUBDOMAINS",
+    False,
+)
+SECURE_HSTS_PRELOAD = HTTPS_ENABLED and env_bool("DJANGO_HSTS_PRELOAD", False)
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+X_FRAME_OPTIONS = "DENY"
 
 
 # ==========================================
@@ -150,12 +170,10 @@ MIDDLEWARE = [
 # CORS
 # ==========================================
 
-CORS_ALLOWED_ORIGINS = [
-
-    "http://178.104.47.231",
-
-    "http://178.104.47.231:8080",
-]
+CORS_ALLOWED_ORIGINS = env_list(
+    "DJANGO_CORS_ALLOWED_ORIGINS",
+    ["http://178.104.47.231", "http://178.104.47.231:8080"],
+)
 
 
 # ==========================================
@@ -336,7 +354,14 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "browser_errors": "20/minute",
     },
+
+    "NUM_PROXIES": 1,
 }
+
+AUTH_THROTTLES_ENABLED = os.getenv(
+    "AUTH_THROTTLES_ENABLED",
+    "True",
+).lower() in {"1", "true", "yes", "on"}
 
 
 # ==========================================
@@ -353,6 +378,8 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": (
         "Bearer",
     ),
+
+    "CHECK_REVOKE_TOKEN": True,
 }
 
 
@@ -401,7 +428,7 @@ AI_RECIPE_FREE_MONTHLY_LIMIT = int(
 AI_RECIPE_PREMIUM_MONTHLY_LIMIT = int(
     os.getenv("AI_RECIPE_PREMIUM_MONTHLY_LIMIT", "50")
 )
-LEGAL_TERMS_VERSION = os.getenv("LEGAL_TERMS_VERSION", "2026-09-05")
+LEGAL_TERMS_VERSION = os.getenv("LEGAL_TERMS_VERSION", "2026-10-01")
 
 
 # ==========================================
@@ -442,6 +469,8 @@ EMAIL_VERIFICATION_TIMEOUT_HOURS = int(
 EMAIL_VERIFICATION_RESEND_SECONDS = int(
     os.getenv("EMAIL_VERIFICATION_RESEND_SECONDS", "60")
 )
+PASSWORD_RESET_TIMEOUT = int(os.getenv("PASSWORD_RESET_TIMEOUT", "7200"))
+CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "kontakt@ferchow-eugen.de")
 
 
 # ==========================================

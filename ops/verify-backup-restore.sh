@@ -2,17 +2,38 @@
 set -eu
 
 backup_directory="${BACKUP_DIRECTORY:-/backups}"
+temporary_download=""
+restore_database=""
+
+cleanup() {
+  if [ -n "$restore_database" ]; then
+    dropdb --if-exists "$restore_database" >/dev/null 2>&1 || true
+  fi
+  if [ -n "$temporary_download" ]; then
+    rm -f "$temporary_download"
+  fi
+}
+trap cleanup EXIT INT TERM
 
 until pg_isready --quiet; do
   echo "Database is not ready for restore verification yet"
   sleep 2
 done
 
-backup_path="$(find "$backup_directory" -maxdepth 1 -type f -name 'bazkit-*.dump' -print | sort | tail -n 1)"
-if [ -z "$backup_path" ]; then
-  echo "No database backup found in ${backup_directory}" >&2
-  exit 1
-fi
+case "${OFFSITE_BACKUP_ENABLED:-false}" in
+  1|true|TRUE|True|yes|YES|Yes|on|ON|On)
+    temporary_download="$(mktemp /tmp/bazkit-offsite-restore-XXXXXX.dump)"
+    /opt/backup-venv/bin/python /usr/local/bin/download-latest-backup.py "$temporary_download"
+    backup_path="$temporary_download"
+    ;;
+  *)
+    backup_path="$(find "$backup_directory" -maxdepth 1 -type f -name 'bazkit-*.dump' -print | sort | tail -n 1)"
+    if [ -z "$backup_path" ]; then
+      echo "No database backup found in ${backup_directory}" >&2
+      exit 1
+    fi
+    ;;
+esac
 
 pg_restore --list "$backup_path" >/dev/null
 
@@ -23,11 +44,6 @@ case "$restore_database" in
     exit 1
     ;;
 esac
-
-cleanup() {
-  dropdb --if-exists "$restore_database" >/dev/null 2>&1 || true
-}
-trap cleanup EXIT INT TERM
 
 echo "Restoring ${backup_path} into isolated verification database"
 createdb "$restore_database"

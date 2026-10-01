@@ -13,20 +13,10 @@
       <a routerLink="/agb" routerLinkActive="active">Nutzungsbedingungen</a>
     </nav>
 
-    <aside class="legal-warning" role="note">
-      <strong>Vor der öffentlichen Veröffentlichung noch prüfen</strong>
-      <p>
-        Offen sind nur noch der Registerstatus, ein zweiter direkter Kontaktweg,
-        die Server-Logfrist, die Voraussetzungen für einen Datenschutzbeauftragten
-        und die Erklärung zur Verbraucherstreitbeilegung. Lass die endgültigen
-        Texte vor dem Start rechtlich prüfen.
-      </p>
-    </aside>
-
     <article class="legal-card" *ngIf="page === 'impressum'">
       <span class="eyebrow">Rechtliche Informationen</span>
       <h1>Impressum</h1>
-      <p class="updated">Stand: 5. September 2026</p>
+      <p class="updated">Stand: 1. Oktober 2026</p>
 
       <section>
         <h2>Angaben gemäß § 5 DDG</h2>
@@ -41,18 +31,36 @@
           E-Mail:
           <a href="mailto:kontakt@ferchow-eugen.de">kontakt&#64;ferchow-eugen.de</a>
         </p>
-        <p class="placeholder">
-          [Zweiten schnellen und direkten Kontaktweg festlegen: Telefonnummer
-          veröffentlichen oder ein funktionierendes Kontaktformular bereitstellen.]
-        </p>
+        <p>Alternativ kannst du das folgende Kontaktformular verwenden.</p>
+        <form class="contact-form" (ngSubmit)="sendContactMessage()" #contactForm="ngForm">
+          <div class="contact-grid">
+            <label>
+              Name
+              <input name="contactName" [(ngModel)]="contact.name" maxlength="150" autocomplete="name" required />
+            </label>
+            <label>
+              E-Mail-Adresse
+              <input name="contactEmail" [(ngModel)]="contact.email" type="email" maxlength="254" autocomplete="email" required />
+            </label>
+          </div>
+          <label>
+            Betreff
+            <input name="contactSubject" [(ngModel)]="contact.subject" maxlength="160" required />
+          </label>
+          <label>
+            Nachricht
+            <textarea name="contactMessage" [(ngModel)]="contact.message" minlength="10" maxlength="4000" rows="6" required></textarea>
+          </label>
+          <button type="submit" [disabled]="contactSending || contactForm.invalid">
+            {{ contactSending ? 'Wird versendet…' : 'Nachricht senden' }}
+          </button>
+          <p class="form-success" role="status" *ngIf="contactSuccess">{{ contactSuccess }}</p>
+          <p class="form-error" role="alert" *ngIf="contactError">{{ contactError }}</p>
+        </form>
       </section>
       <section>
-        <h2>Vertretung und Register</h2>
+        <h2>Vertretung</h2>
         <p>Inhaber: Eugen Ferchow</p>
-        <p>
-          Register und Registernummer:
-          <span class="placeholder">[Registerstatus bestätigen]</span>
-        </p>
       </section>
       <section>
         <h2>Verantwortlich für redaktionelle Inhalte</h2>
@@ -76,9 +84,9 @@
       </section>
       <section>
         <h2>Verbraucherstreitbeilegung</h2>
-        <p class="placeholder">
-          [Erklärung ergänzen, ob Bereitschaft oder Verpflichtung zur Teilnahme
-          an einem Streitbeilegungsverfahren besteht.]
+        <p>
+          Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren
+          vor einer Verbraucherschlichtungsstelle teilzunehmen.
         </p>
       </section>
     </article>
@@ -86,7 +94,7 @@
     <article class="legal-card" *ngIf="page === 'datenschutz'">
       <span class="eyebrow">Schutz deiner Daten</span>
       <h1>Datenschutzerklärung</h1>
-      <p class="updated">Stand: 5. September 2026</p>
+      <p class="updated">Stand: 1. Oktober 2026</p>
 
       <section>
         <h2>1. Verantwortlicher</h2>
@@ -97,10 +105,6 @@
           Deutschland<br />
           E-Mail:
           <a href="mailto:kontakt@ferchow-eugen.de">kontakt&#64;ferchow-eugen.de</a>
-        </p>
-        <p>
-          Datenschutzbeauftragter:
-          <span class="placeholder">[Prüfung ausstehend, ob eine Benennung erforderlich ist]</span>
         </p>
       </section>
       <section>
@@ -117,12 +121,15 @@
           nach Angaben des Betreibers in Deutschland.
         </p>
         <p>
-          Speicherdauer der Serverprotokolle:
-          <span class="placeholder">[Serverkonfiguration prüfen und konkrete Frist ergänzen]</span>
+          Serverprotokolle werden durch eine größenbegrenzte Rotation fortlaufend
+          überschrieben und nur so lange vorgehalten, wie dies für Betrieb,
+          Fehleranalyse und Missbrauchsabwehr erforderlich ist. Bei einem konkreten
+          Sicherheitsvorfall können betroffene Protokolle bis zum Abschluss der
+          Aufklärung und gesetzlicher Aufbewahrungspflichten gesichert werden.
         </p>
       </section>
       <section>
-        <h2>3. Nutzerkonto</h2>
+        <h2>3. Nutzerkonto und Kontaktaufnahme</h2>
         <p>
           Für Registrierung und Anmeldung verarbeitet bazkit Vor- und Nachname,
           E-Mail-Adresse, den Bestätigungsstatus, ein optionales Profilbild, ein
@@ -131,6 +138,19 @@
           an die angegebene E-Mail-Adresse versendet. Die
           Verarbeitung ist zur Bereitstellung des Kontos erforderlich
           (Art. 6 Abs. 1 lit. b DSGVO).
+        </p>
+        <p>
+          Wenn du das Kontaktformular oder E-Mail nutzt, verarbeiten wir deinen
+          Namen, deine E-Mail-Adresse, Betreff, Nachricht und die zur Bearbeitung
+          erforderliche Korrespondenz. Dies erfolgt zur Bearbeitung deiner Anfrage
+          und je nach Inhalt auf Grundlage von Art. 6 Abs. 1 lit. b oder lit. f
+          DSGVO. Die Angaben werden gelöscht, sobald die Anfrage abschließend
+          bearbeitet wurde und keine gesetzlichen Aufbewahrungspflichten oder
+          berechtigten Nachweisinteressen entgegenstehen.
+        </p>
+        <p>
+          Der E-Mail-Versand und -Empfang erfolgt über IONOS SE,
+          Elgendorfer Straße 57, 56410 Montabaur, Deutschland.
         </p>
       </section>
       <section>
@@ -238,7 +258,7 @@
     <article class="legal-card" *ngIf="page === 'agb'">
       <span class="eyebrow">Regeln für die Nutzung</span>
       <h1>Nutzungsbedingungen</h1>
-      <p class="updated">Version 2026-09-05 · Stand: 5. September 2026</p>
+      <p class="updated">Version 2026-10-01 · Stand: 1. Oktober 2026</p>
 
       <section>
         <h2>1. Anbieter und Geltungsbereich</h2>

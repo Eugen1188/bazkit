@@ -1,3 +1,9 @@
+x-logging: &default-logging
+  driver: local
+  options:
+    max-size: "10m"
+    max-file: "5"
+
 services:
   redis:
     image: redis:7-alpine
@@ -6,6 +12,7 @@ services:
     command: redis-server --appendonly yes
     volumes:
       - redis_data:/data
+    logging: *default-logging
 
   db:
     image: postgres:16-alpine
@@ -17,6 +24,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    logging: *default-logging
 
   backend:
     build:
@@ -34,6 +42,7 @@ services:
       - redis
     ports:
       - "127.0.0.1:8000:8000"
+    logging: *default-logging
 
   backup:
     build:
@@ -65,6 +74,7 @@ services:
     command:
       - /bin/sh
       - /usr/local/bin/backup-postgres
+    logging: *default-logging
 
   frontend:
     build:
@@ -75,7 +85,29 @@ services:
       - backend
     ports:
       - "8080:80"
+    logging: *default-logging
+
+  gateway:
+    image: caddy:2-alpine
+    container_name: bazkit-gateway
+    restart: unless-stopped
+    profiles: ["https"]
+    environment:
+      BAZKIT_DOMAIN: ${BAZKIT_DOMAIN:-localhost}
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    logging: *default-logging
 
 volumes:
   postgres_data:
   redis_data:
+  caddy_data:
+  caddy_config:

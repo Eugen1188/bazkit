@@ -1,4 +1,5 @@
 from uuid import uuid4
+from pathlib import Path
 
 from botocore.exceptions import BotoCoreError, ClientError
 from django.conf import settings
@@ -19,6 +20,12 @@ def upload_avatar(uploaded_file, user_id):
     try:
         body = prepare_recipe_image(uploaded_file)
         image_key = f"avatars/{user_id}/{uuid4().hex}.webp"
+        local_directory = getattr(settings, "E2E_IMAGE_STORAGE_DIRECTORY", None)
+        if local_directory:
+            target = Path(local_directory) / image_key
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(body)
+            return image_key
         r2_client().put_object(
             Bucket=settings.R2_BUCKET_NAME,
             Key=image_key,
@@ -53,7 +60,14 @@ def get_avatar_url(image_key):
 
 
 def delete_avatar(image_key):
-    if not image_key or not r2_is_configured():
+    if not image_key:
+        return
+    local_directory = getattr(settings, "E2E_IMAGE_STORAGE_DIRECTORY", None)
+    if local_directory:
+        target = Path(local_directory) / image_key
+        target.unlink(missing_ok=True)
+        return
+    if not r2_is_configured():
         return
     try:
         r2_client().delete_object(Bucket=settings.R2_BUCKET_NAME, Key=image_key)

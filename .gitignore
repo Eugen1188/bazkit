@@ -18,3 +18,10 @@ Thumbs.db
 
 # Local production backups
 /backups/
+
+# Browser tests
+/frontend/playwright-report/
+/frontend/test-results/
+/frontend/.playwright-browsers/
+/backend/e2e.sqlite3
+/backend/.e2e-images/

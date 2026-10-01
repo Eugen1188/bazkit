@@ -51,10 +51,50 @@ jobs:
         working-directory: frontend
         run: npm run build
 
+  release-e2e-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - name: Install backend dependencies
+        working-directory: backend
+        run: pip install -r requirements.txt
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Install Chromium for release tests
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Run release-critical browser tests
+        working-directory: frontend
+        run: npm run test:e2e
+      - name: Upload browser-test report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: frontend/playwright-report/
+          retention-days: 14
+
   deploy:
     needs:
       - backend-tests
       - frontend-tests
+      - release-e2e-tests
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -80,6 +120,17 @@ jobs:
             unset bazkit_auth_header BAZKIT_GITHUB_TOKEN
             git merge --ff-only FETCH_HEAD
             test "$(git rev-parse HEAD)" = "$BAZKIT_DEPLOY_SHA"
+            deploy_services="backend frontend backup"
+            smoke_forwarded_proto="http"
+            bazkit_domain="$(sed -n 's/^BAZKIT_DOMAIN=//p' .env | tail -n 1 | tr -d '\r' | xargs)"
+            if [ -n "$bazkit_domain" ]; then
+              case "$bazkit_domain" in
+                *[!A-Za-z0-9.-]*) echo "BAZKIT_DOMAIN enthält ungültige Zeichen" >&2; exit 1 ;;
+              esac
+              export COMPOSE_PROFILES=https
+              deploy_services="$deploy_services gateway"
+              smoke_forwarded_proto="https"
+            fi
             docker compose build backend frontend backup
             docker compose up -d db
             docker compose run --rm -e BACKUP_ONCE=true backup
@@ -88,15 +139,30 @@ jobs:
             docker compose run --rm backend python manage.py rebuild_ingredient_catalog
             docker compose run --rm backend python manage.py audit_ingredient_catalog --strict
             docker compose run --rm backend python manage.py seed_editorial_community
-            docker compose up -d backend frontend backup
+            docker compose run --rm backend python manage.py release_readiness
+            docker compose up -d $deploy_services
             backend_ready=0
             for attempt in $(seq 1 30); do
-              if curl --fail --silent --show-error --output /dev/null --connect-timeout 2 http://127.0.0.1:8000/health/; then
+              if curl --fail --silent --show-error --output /dev/null --connect-timeout 2 --header "X-Forwarded-Proto: $smoke_forwarded_proto" http://127.0.0.1:8000/health/; then
                 backend_ready=1
                 break
               fi
               sleep 2
             done
             test "$backend_ready" = "1"
+            sh ops/smoke-test.sh http://127.0.0.1:8080 http://127.0.0.1:8000/health/ "$smoke_forwarded_proto"
+            if [ -n "$bazkit_domain" ]; then
+              public_ready=0
+              for attempt in $(seq 1 24); do
+                if curl --fail --silent --show-error --output /dev/null --connect-timeout 5 --max-time 20 "https://${bazkit_domain}/health/"; then
+                  public_ready=1
+                  break
+                fi
+                sleep 5
+              done
+              test "$public_ready" = "1"
+              sh ops/smoke-test.sh "https://${bazkit_domain}" "https://${bazkit_domain}/health/" https
+            fi
             docker compose exec -T backend python manage.py check
+            docker compose exec -T backend python manage.py check --deploy
             docker compose exec -T backend python manage.py shell -c "from django.conf import settings; assert settings.OPENAI_API_KEY, 'OPENAI_API_KEY fehlt im Backend'"
