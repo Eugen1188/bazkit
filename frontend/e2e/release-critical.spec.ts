@@ -7,7 +7,9 @@ import { expect, Page, test } from '@playwright/test';
 
 const backendDirectory = resolve(process.cwd(), '..', 'backend');
 const localPython = resolve(backendDirectory, '.venv', 'Scripts', 'python.exe');
-const python = process.env['E2E_PYTHON'] || (existsSync(localPython) ? localPython : 'python');
+const python = process.env['E2E_PYTHON'] || (
+  process.platform === 'win32' && existsSync(localPython) ? localPython : 'python'
+);
 const apiBase = 'http://127.0.0.1:18000';
 const defaultPassword = 'E2ePasswort123';
 

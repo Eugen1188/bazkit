@@ -5,7 +5,9 @@ import { resolve } from 'node:path';
 
 const bundledPython = resolve(process.cwd(), '..', 'backend', '.venv', 'Scripts', 'python.exe');
 const e2ePython = process.env['E2E_PYTHON']
-  || (existsSync(bundledPython) ? `"${bundledPython}"` : 'python');
+  || (process.platform === 'win32' && existsSync(bundledPython)
+    ? `"${bundledPython}"`
+    : 'python');
 
 
 export default defineConfig({
